@@ -1,3 +1,7 @@
+# forced output into English
+$env:DOTNET_CLI_UI_LANGUAGE = "en-US"
+$env:VSLANG = "1033"
+
 $scriptPath = ((Get-Item -Path ".\").FullName)
 $FuseCP_Path = "C:\FuseCP"
 Write-Host "Current script directory is `'$scriptPath`'" -ForegroundColor Yellow
