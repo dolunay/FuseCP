@@ -5,15 +5,14 @@ Version 1.5.2
 - [Installer] Add partial offline installer option, using network only for version retrieval
 - [Installer] Fix issue where installer updater throws a fatal error due to SQL update.
 - [Installer] Disable overwriting of the FuseCP.Installer.exe.config file during re-installation/repairing
-- [HyperV2012R2+] Rewritten PowerShell function Convert-VHD to a native WMI variant.
-- [HyperV2012R2+] Add methods for handling WMI jobs
-- Fix VirtualHardDiskFormat as mentioned in the MS documentation
-- [EnterpriseServer] Add a WMI JobCompleted support
-- [HyperV2012R2+] Rewritten PowerShell function New-VHD to a native WMI variant.
-- Fix VirtualizationServer2012Proxy url
 - Create mailbox - user selector - use only AccountId argument
 - [SmarterMail100] Added Access Controls to limit logins in Smartermail100. - Work sponsored by Enterprise Guardian Inc.
 - [SmarterMail100] Fixes for access controls and using the current set values for the api call.
+
+- [HyperV2012R2+] Full module rewrite to support WMIv2 (CIM), delivering a massive performance boost ranging from 8x to 50x and more, with the most significant gains observed on heavily loaded nodes (PR #225).
+- [HyperV2012R2+] Optimized PowerShell execution logic for specific management tasks, significantly reducing session overhead and improving reliability (PR #225).
+- [HyperV2012R2+] Rewritten core management methods (GetVMs, Convert-VHD, New-VHD, etc.) to use native WMI classes, ensuring stable Job ID tracking and eliminating common "Job ID not found" errors (PR #225/#221).
+- [HyperV2012R2+] Added support for RAM Reservation on remote Hyper-V nodes (PR #236)
 
 
 Version 1.5.1

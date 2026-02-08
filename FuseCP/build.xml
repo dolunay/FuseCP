@@ -181,22 +181,26 @@
 	</Target>
 
 	<Target Name="CompileSources" DependsOnTargets="GenerateBuildVersionFiles">
+	
+		<PropertyGroup>
+			<CommonBuildProperties>Configuration=$(BuildConfiguration);Platform=$(Platform);UseSharedCompilation=false</CommonBuildProperties>
+		</PropertyGroup>
 		<!-- FuseCP -->
-		<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.Server.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.WebPortalAndEnterpriseServer.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\FuseCP.WebDavPortal.sln&quot; &quot;/p:Configuration=$(BuildConfiguration);Platform=$(Platform)&quot; $(MsBuildSwitches)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.Server.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.WebPortalAndEnterpriseServer.sln" Properties="$(CommonBuildProperties)" />
+		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\FuseCP.WebDavPortal.sln&quot; &quot;/p:$(CommonBuildProperties)&quot; $(MsBuildSwitches)" />
 
 		<!--<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.WebDavPortal.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />-->
 
 		<!-- Tools -->
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.CsvBulk.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(RootFolder)\FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
-  		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.CsvBulk.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(RootFolder)\FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" Properties="$(CommonBuildProperties)" />
+  		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" />
  	</Target>
 
 	<Target Name="PrepareBuilds" DependsOnTargets="CompileSources">

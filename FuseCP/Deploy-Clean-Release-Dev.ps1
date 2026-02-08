@@ -1,3 +1,7 @@
+# forced output into English
+$env:DOTNET_CLI_UI_LANGUAGE = "en-US"
+$env:VSLANG = "1033"
+
 $scriptPath = ((Get-Item -Path ".\").FullName)
 $FuseCP_Path = "C:\FuseCP"
 Write-Host "Current script directory is `'$scriptPath`'" -ForegroundColor Yellow
@@ -53,7 +57,9 @@ Start-Sleep -Seconds 5
 #########################################################################################################################################################
 # Start the build process
 Write-Host "`n Starting Build Process`n`n" -ForegroundColor Green
-Invoke-Expression -Command: "& $(((Get-Content "$scriptPath\deploy-release.bat").Replace('%windir%', $env:windir).Replace('%ProgramFiles(x86)%', ${env:ProgramFiles(x86)}))[4])"
+#Invoke-Expression -Command: "& $(((Get-Content "$scriptPath\deploy-release.bat").Replace('%windir%', $env:windir).Replace('%ProgramFiles(x86)%', ${env:ProgramFiles(x86)}))[4])"
+$batFilePath = "$scriptPath\deploy-release.bat"
+Invoke-Expression -Command: "& $batFilePath"
 
 # Check the "msbuild.log" file for any errors and display then on the screen
 if ([bool]((Get-Content "$scriptPath\msbuild.log") -match ' error ')) {
@@ -91,8 +97,14 @@ if ([bool]((Get-Content "$scriptPath\msbuild.log") -match ' error ')) {
 
 # Kill off the processes that don't automatically close from the build process
 Write-Host "`n Closing the Build Processes that are left behind" -ForegroundColor Cyan
-do {(Get-Process | Where-Object {(($_.ProcessName -eq "MSBuild") -or ($_.ProcessName -eq "MSBuildTaskHost"))} | Stop-Process)}
-until (!([bool](Get-Process "MSBuild, MSBuildTaskHost" -ErrorAction SilentlyContinue)))
+$BuildProcesses = @("MSBuild", "MSBuildTaskHost", "dotnet", "VBCSCompiler")
+foreach ($procName in $BuildProcesses) {
+    $foundProcs = Get-Process -Name $procName -ErrorAction SilentlyContinue
+    if ($foundProcs) {
+        Write-Host " Closing: $procName" -ForegroundColor Gray
+        $foundProcs | Stop-Process -Force -ErrorAction SilentlyContinue
+    }
+}
 
 # Prompt the user to press any key to exit once the script has processed
 if ($psISE) { # Check if running Powershell ISE

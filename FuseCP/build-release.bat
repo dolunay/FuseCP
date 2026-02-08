@@ -1,4 +1,8 @@
 @echo off
+:: forced output into English
+set DOTNET_CLI_UI_LANGUAGE=en-US
+set VSLANG=1033
+
 RMDIR /S /Q "Bin"
 IF not defined NoRebuild (
 	FOR /F "tokens=*" %%G IN ('DIR /B /AD /S bin') DO RMDIR /S /Q "%%G"
@@ -113,4 +117,12 @@ echo "VisualStudio not found. VisualStudio must be installed to build FuseCP."
 Set FCPMSBuild="msbuild"
 
 :Build
-dotnet msbuild build.xml /target:Build/p:BuildConfiguration=%Configuration% /p:Version="%FuseCPVersion%" /p:FileVersion="%FuseCPFileVersion%" /p:VersionLabel="%FuseCPFileVersion%" %MsBuildSwitches% /fileLogger /flp:verbosity=normal /p:VisualStudioVersion=%FCPVSVer%
+dotnet msbuild build.xml /target:Build ^
+	/p:BuildConfiguration=%Configuration% ^
+	/p:Version="%FuseCPVersion%" ^
+	/p:FileVersion="%FuseCPFileVersion%" ^
+	/p:VersionLabel="%FuseCPFileVersion%" ^
+	%MsBuildSwitches% ^
+	/fileLogger ^
+	/flp:verbosity=normal ^
+	/p:VisualStudioVersion=%FCPVSVer%
