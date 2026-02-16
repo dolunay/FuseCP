@@ -505,10 +505,10 @@
     <value>{user} - {space} - HyperV</value>
   </data>
   <data name="PageName.SpaceProxmox" xml:space="preserve">
-    <value>Virtual Servers Proxmox</value>
+    <value>Proxmox</value>
   </data>
   <data name="PageTitle.SpaceProxmox" xml:space="preserve">
-    <value>{user} - {space} - Virtual Servers Proxmox</value>
+    <value>{user} - {space} - Proxmox</value>
   </data>
   <data name="PageName.SpaceWebIPAddresses" xml:space="preserve">
     <value>IP Addresses</value>
