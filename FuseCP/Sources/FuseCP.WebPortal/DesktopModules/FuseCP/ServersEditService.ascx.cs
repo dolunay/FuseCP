@@ -135,17 +135,29 @@ namespace FuseCP.Portal
 
 			litGroup.Text = PanelFormatter.GetLocalizedResourceGroupName(resourceGroup.GroupName);
 
-			if (ResourceGroups.VPS2012 == resourceGroup.GroupName || ResourceGroups.Os == resourceGroup.GroupName)
+            if (ResourceGroups.Mail == resourceGroup.GroupName && provider.ProviderName.StartsWith("SmarterMail", StringComparison.OrdinalIgnoreCase))
+            {
+				textProvider.Visible = false;
+                var providers = await ES.Services.Servers.GetProvidersByGroupIdAsync(provider.GroupId);
+                var filteredProviders = providers
+                    .Where(p => p.ProviderName != null && p.ProviderName.StartsWith("SmarterMail", StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+                ddlProviders.DataSource = filteredProviders;
+                ddlProviders.DataBind();
+
+                ddlProviders.SelectedValue = provider.ProviderId.ToString();
+            }
+            else if (ResourceGroups.Ftp == resourceGroup.GroupName || ResourceGroups.Mail == resourceGroup.GroupName || ResourceGroups.Dns == resourceGroup.GroupName)
+			{
+                selectProvider.Visible = false;
+                litProvider.Text = provider.DisplayName;
+            }
+			else
 			{
 				textProvider.Visible = false;
 				ddlProviders.DataSource = await ES.Services.Servers.GetProvidersByGroupIdAsync(provider.GroupId);
 				ddlProviders.DataBind();
 				ddlProviders.SelectedValue = provider.ProviderId.ToString();
-			}
-			else
-			{
-				selectProvider.Visible = false;
-				litProvider.Text = provider.DisplayName;
 			}
 
 			var service = await Service();
