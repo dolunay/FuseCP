@@ -35,7 +35,7 @@
         <Reference Include="System.DirectoryServices" />
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-        <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.0" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
         <PackageReference Include="System.DirectoryServices" Version="10.0.0" />
     </ItemGroup>
 

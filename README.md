@@ -8,3 +8,24 @@ FuseCP is a complete management portal for Cloud Computing Companies and IT Prov
 To download the latest Binaries or find more information visit our website at: 
 
 [fusecp.com](https://fusecp.com)
+
+## Build Guidance
+
+For reliable local validation, prefer orchestrated repository build entrypoints
+in `FuseCP/` (`build-debug.bat`, `build-release.bat`, `build.xml`) because
+independent solution builds under `FuseCP/Sources` can be order-dependent.
+
+For faster repeatable local checks, use:
+
+* `pwsh -File FuseCP/Tools/run-local-validation.ps1`
+* `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -JsonOutputPath artifacts/validation/summary.json`
+* `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -SkipIfNoChanges`
+* `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -ScopeMapPath FuseCP/Tools/validation-scope-map.example.json`
+
+## Governance
+
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [AI Directives](.github/AI_DIRECTIVES.md)
+* [Contributing Guide](CONTRIBUTING.md)
+* [Testing Environment](TESTING_ENVIRONMENT.md)
+* [Process Streamlining Outline](PROCESS_STREAMLINING.md)
