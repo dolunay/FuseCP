@@ -149,3 +149,4 @@ If your change requires legacy `.vdproj` MSI output, verify that specifically:
 * Include change summary, risk notes, and validation steps.
 * Note whether behavior/configuration changed and update docs if needed.
 * Keep backward compatibility unless breaking change is explicitly approved.
+* For dependency/CVE updates, include explicit compatibility evidence for affected TFMs and solution scopes, and update related scripts/docs when requirements or commands change.
