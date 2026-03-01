@@ -52,6 +52,25 @@ address, posting via an official social media account, or acting as an appointed
 representative at an online or offline event. Representation of a project may be
 further defined and clarified by project maintainers.
 
+## AI-Assisted Participation
+
+The project supports responsible use of AI tools (including coding assistants,
+LLM-based review tools, and automated generation) for research, drafting,
+testing, and implementation.
+
+When using AI tools in this project, participants are expected to:
+
+* Keep human accountability for all submitted content
+* Review, test, and validate AI-generated output before publishing
+* Avoid sharing sensitive, private, customer, or credential data with external
+ AI systems
+* Avoid submitting generated content that is abusive, discriminatory, or
+ harassing
+* Respect licensing and attribution obligations for all contributed content
+
+Maintainers may request clarification, revision, or removal of AI-assisted
+contributions that do not meet these standards.
+
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
