@@ -9,6 +9,7 @@ param(
     [switch]$SkipIfNoChanges,
     [string]$BaseRef = "HEAD",
     [switch]$DisableNuGetAudit,
+    [switch]$NoRestore,
     [string]$JsonOutputPath,
     [string]$ScopeMapPath
 )
@@ -261,6 +262,9 @@ Write-Host "Configuration: $Configuration" -ForegroundColor Gray
 if ($DisableNuGetAudit) {
     Write-Host "NuGet audit warnings: disabled for this run (-DisableNuGetAudit)" -ForegroundColor Gray
 }
+if ($NoRestore) {
+    Write-Host "Restore mode: disabled for scoped dotnet commands (-NoRestore)" -ForegroundColor Gray
+}
 
 $runOrchestrated = -not $skipBuild -and ($UseOrchestratedBuild -or ($Scope -contains "Shared"))
 
@@ -276,6 +280,10 @@ try {
         Write-Host "Skipping build execution." -ForegroundColor Gray
     }
     elseif ($runOrchestrated) {
+        if ($NoRestore) {
+            Write-Host "-NoRestore is ignored for orchestrated build.xml mode." -ForegroundColor DarkYellow
+        }
+
         Push-Location $fuseCpDir
         try {
             $msbuildArgs = @("msbuild", "build.xml", "/target:Build", "/p:BuildConfiguration=$Configuration", "/v:m", "/m:1")
@@ -296,6 +304,9 @@ try {
         try {
             if ($Scope -contains "Portal") {
                 $portalArgs = @("build", "FuseCP.WebPortalAndEnterpriseServer.sln", "--configuration", $Configuration)
+                if ($NoRestore) {
+                    $portalArgs += "--no-restore"
+                }
                 if ($DisableNuGetAudit) {
                     $portalArgs += "-p:NuGetAudit=false"
                 }
@@ -307,6 +318,9 @@ try {
 
             if ($Scope -contains "Enterprise") {
                 $enterpriseArgs = @("build", "FuseCP.EnterpriseServer.sln", "--configuration", $Configuration)
+                if ($NoRestore) {
+                    $enterpriseArgs += "--no-restore"
+                }
                 if ($DisableNuGetAudit) {
                     $enterpriseArgs += "-p:NuGetAudit=false"
                 }
@@ -318,6 +332,9 @@ try {
 
             if ($Scope -contains "Server") {
                 $serverArgs = @("build", "FuseCP.Server.sln", "--configuration", $Configuration)
+                if ($NoRestore) {
+                    $serverArgs += "--no-restore"
+                }
                 if ($DisableNuGetAudit) {
                     $serverArgs += "-p:NuGetAudit=false"
                 }
@@ -336,6 +353,9 @@ try {
         Push-Location $sourcesDir
         try {
             $testBuildArgs = @("build", "FuseCP.Tests.sln", "--configuration", $Configuration)
+            if ($NoRestore) {
+                $testBuildArgs += "--no-restore"
+            }
             if ($DisableNuGetAudit) {
                 $testBuildArgs += "-p:NuGetAudit=false"
             }
@@ -345,6 +365,9 @@ try {
             }
 
             $testRunArgs = @("test", "FuseCP.Tests.sln", "--configuration", $Configuration, "--no-build", "-v", "n")
+            if ($NoRestore) {
+                $testRunArgs += "--no-restore"
+            }
             if ($DisableNuGetAudit) {
                 $testRunArgs += "-p:NuGetAudit=false"
             }
@@ -397,6 +420,7 @@ finally {
             useOrchestratedBuild = [bool]$UseOrchestratedBuild
             resolvedOrchestratedBuild = [bool]$runOrchestrated
             disableNuGetAudit = [bool]$DisableNuGetAudit
+            noRestore = [bool]$NoRestore
             requestedScope = @($requestedScope)
             resolvedScope = @($Scope)
             changedFiles = @($changedFiles)

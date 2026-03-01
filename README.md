@@ -21,11 +21,13 @@ For faster repeatable local checks, use:
 * `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -JsonOutputPath artifacts/validation/summary.json`
 * `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -SkipIfNoChanges`
 * `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -ScopeMapPath FuseCP/Tools/validation-scope-map.example.json`
+* `pwsh -File FuseCP/Tools/run-local-validation.ps1 -Scope Enterprise -NoRestore` *(for repeat local runs after an initial restore)*
 
 ## Governance
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [AI Directives](.github/AI_DIRECTIVES.md)
+* [AI FuseCP Playbook](.github/AI_FUSECP_PLAYBOOK.md)
 * [Contributing Guide](CONTRIBUTING.md)
 * [Testing Environment](TESTING_ENVIRONMENT.md)
 * [Process Streamlining Outline](PROCESS_STREAMLINING.md)

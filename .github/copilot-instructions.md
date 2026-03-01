@@ -15,6 +15,7 @@ These instructions guide AI coding assistants working in this repository.
 * Solutions and projects are split across multiple subfolders under `FuseCP/Sources`.
 * Build and deployment scripts exist in `FuseCP/` and `tools/`.
 * Many solutions have ordering/dependency relationships; prefer orchestrated build entrypoints over ad-hoc independent `.sln` builds for end-to-end validation.
+* For quick repository orientation and safe-first workflows, use `.github/AI_FUSECP_PLAYBOOK.md`.
 
 ## Implementation Expectations
 
