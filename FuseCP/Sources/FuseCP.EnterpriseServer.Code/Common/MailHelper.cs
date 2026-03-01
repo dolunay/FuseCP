@@ -60,7 +60,7 @@ namespace FuseCP.EnterpriseServer
 
                     if (enableLegacySSL)
                     {
-                        client.SslProtocols = SslProtocols.Tls11 | SslProtocols.Tls | SslProtocols.Tls12 | SslProtocols.Tls13;
+                        client.SslProtocols = SslProtocols.None;
                     }
                     else
                     {
