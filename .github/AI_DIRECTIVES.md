@@ -41,6 +41,7 @@ AI-generated changes must meet the same quality standard as human-authored code:
 * Use `-DisableNuGetAudit` only for local iteration noise reduction; do not treat it as a security fix
 * Use `-SkipIfNoChanges` with `-ChangedOnly` when you want no-op runs to complete without full builds
 * Use `-ScopeMapPath` to extend path-to-scope routing without editing the script
+* Before adding/removing/changing any `ProjectReference`, check all relevant solution files under `FuseCP/Sources/*.sln` (at minimum Portal/Enterprise/Server paths) and validate the affected solution builds to avoid cross-solution breakage
 * Follow existing project patterns and style
 * Include documentation updates when behavior changes
 * Avoid introducing unused dependencies or broad refactors unrelated to the task
