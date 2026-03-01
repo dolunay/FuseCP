@@ -98,6 +98,7 @@
     </ItemGroup>
     <ItemGroup Condition="$(TargetFramework) == 'net10.0'">
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.2" />
+        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.30" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Drawing" Version="1.4.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Configuration" Version="1.4.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Build" Version="1.4.2" ExcludeAssets="runtime" />
