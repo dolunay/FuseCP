@@ -20,6 +20,9 @@ This playbook gives AI coding agents a safe, fast starting workflow for FuseCP.
   - Portal: `-Scope Portal`
   - Enterprise: `-Scope Enterprise`
   - Server: `-Scope Server`
+- Scope note:
+  - `Portal` already builds `FuseCP.WebPortalAndEnterpriseServer.sln`.
+  - If both `Portal` and `Enterprise` are selected, validation now skips the redundant Enterprise-only build automatically.
 - Use orchestrated build when touching shared/build/deployment flows:
   - `pwsh -File FuseCP/Tools/run-local-validation.ps1 -Scope Shared`
 - For repeated local loops after restore:

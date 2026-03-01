@@ -302,7 +302,19 @@ try {
     else {
         Push-Location $sourcesDir
         try {
-            if ($Scope -contains "Portal") {
+            $scopeSet = New-Object System.Collections.Generic.HashSet[string] ([System.StringComparer]::OrdinalIgnoreCase)
+            foreach ($scopeName in $Scope) {
+                if (-not [string]::IsNullOrWhiteSpace($scopeName)) {
+                    [void]$scopeSet.Add($scopeName)
+                }
+            }
+
+            if ($scopeSet.Contains("Portal") -and $scopeSet.Contains("Enterprise")) {
+                Write-Host "Portal scope already includes Enterprise build; skipping redundant Enterprise-only solution build." -ForegroundColor DarkYellow
+                [void]$scopeSet.Remove("Enterprise")
+            }
+
+            if ($scopeSet.Contains("Portal")) {
                 $portalArgs = @("build", "FuseCP.WebPortalAndEnterpriseServer.sln", "--configuration", $Configuration)
                 if ($NoRestore) {
                     $portalArgs += "--no-restore"
@@ -316,7 +328,7 @@ try {
                 }
             }
 
-            if ($Scope -contains "Enterprise") {
+            if ($scopeSet.Contains("Enterprise")) {
                 $enterpriseArgs = @("build", "FuseCP.EnterpriseServer.sln", "--configuration", $Configuration)
                 if ($NoRestore) {
                     $enterpriseArgs += "--no-restore"
@@ -330,7 +342,7 @@ try {
                 }
             }
 
-            if ($Scope -contains "Server") {
+            if ($scopeSet.Contains("Server")) {
                 $serverArgs = @("build", "FuseCP.Server.sln", "--configuration", $Configuration)
                 if ($NoRestore) {
                     $serverArgs += "--no-restore"

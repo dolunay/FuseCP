@@ -23,6 +23,10 @@ For faster repeatable local checks, use:
 * `pwsh -File FuseCP/Tools/run-local-validation.ps1 -ChangedOnly -ScopeMapPath FuseCP/Tools/validation-scope-map.example.json`
 * `pwsh -File FuseCP/Tools/run-local-validation.ps1 -Scope Enterprise -NoRestore` *(for repeat local runs after an initial restore)*
 
+Notes:
+
+* In scoped mode, `Portal` already builds `FuseCP.WebPortalAndEnterpriseServer.sln`; selecting both `Portal` and `Enterprise` no longer runs a redundant extra Enterprise-only solution build.
+
 ## Governance
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
