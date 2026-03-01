@@ -53,6 +53,12 @@ Choose `-Scope Shared` when uncertain.
 - Validate warning deltas with targeted build commands before broadening.
 - Do not hide warnings globally; prefer explicit fixes.
 
+For dependency/CVE updates:
+
+- Validate compatibility across all affected TFMs (`net48`, `net10.0`, `netstandard2.0` as applicable).
+- Validate all affected solution scopes (`Portal`, `Enterprise`, `Server`) before merge.
+- Update related scripts/docs if package requirements or recommended commands change.
+
 ## 6) PR Hygiene Checklist
 
 - Include:

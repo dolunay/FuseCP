@@ -43,6 +43,8 @@ AI-generated changes must meet the same quality standard as human-authored code:
 * Use `-ScopeMapPath` to extend path-to-scope routing without editing the script
 * Before adding/removing/changing any `ProjectReference`, check all relevant solution files under `FuseCP/Sources/*.sln` (at minimum Portal/Enterprise/Server paths) and validate the affected solution builds to avoid cross-solution breakage
 * Treat FuseCP as a migrated codebase: if implementation intent is unclear, consult project origins in branch `origin/SolidCPv1` (typically under `SolidCP/Sources/...`) to recover legacy behavior and architecture context before changing contracts or build wiring
+* For package/dependency/CVE updates, require compatibility validation across affected target frameworks (`net48`, `net10.0`, `netstandard2.0` where applicable) and affected solution scopes (Portal/Enterprise/Server)
+* For package/dependency/CVE updates, update related validation scripts/docs/PR notes whenever requirements, tooling assumptions, or recommended commands change
 * Follow existing project patterns and style
 * Include documentation updates when behavior changes
 * Avoid introducing unused dependencies or broad refactors unrelated to the task
