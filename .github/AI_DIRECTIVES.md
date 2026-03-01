@@ -42,6 +42,7 @@ AI-generated changes must meet the same quality standard as human-authored code:
 * Use `-SkipIfNoChanges` with `-ChangedOnly` when you want no-op runs to complete without full builds
 * Use `-ScopeMapPath` to extend path-to-scope routing without editing the script
 * Before adding/removing/changing any `ProjectReference`, check all relevant solution files under `FuseCP/Sources/*.sln` (at minimum Portal/Enterprise/Server paths) and validate the affected solution builds to avoid cross-solution breakage
+* Treat FuseCP as a migrated codebase: if implementation intent is unclear, consult project origins in branch `origin/SolidCPv1` (typically under `SolidCP/Sources/...`) to recover legacy behavior and architecture context before changing contracts or build wiring
 * Follow existing project patterns and style
 * Include documentation updates when behavior changes
 * Avoid introducing unused dependencies or broad refactors unrelated to the task
