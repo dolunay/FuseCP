@@ -79,11 +79,11 @@ namespace FuseCP.EnterpriseServer.Data
 		EntityTypeBuilder<TEntity>? Builder = null;
 		public void Configure(EntityTypeBuilder<TEntity> builder) { Builder = builder; Configure(); }
 		public EntityTypeBuilder<TEntity> Core => Builder!;
-		public ModelBuilder ModelBuilder { get; set; }
+		public ModelBuilder ModelBuilder { get; set; } = null!;
 #elif NetFX
-		public DbModelBuilder ModelBuilder { get; set; }
+		public DbModelBuilder ModelBuilder { get; set; } = null!;
 #else
-		public DummyModel ModelBuilder { get; set; }	
+		public DummyModel ModelBuilder { get; set; } = null!;	
 #endif
 		public abstract void Configure();
 
