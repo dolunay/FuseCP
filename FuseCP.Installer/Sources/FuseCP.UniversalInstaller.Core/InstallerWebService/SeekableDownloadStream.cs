@@ -296,7 +296,7 @@ public class SeekableDownloadStream : System.IO.Stream
 		return base.WriteAsync(buffer, offset, count, cancellationToken);
 	}
 
-	public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback? callback, object? state)
+	public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
 	{
 		var task = ReadAsync(buffer, offset, count);
 		if (callback != null) task.ContinueWith(read => callback(read));
