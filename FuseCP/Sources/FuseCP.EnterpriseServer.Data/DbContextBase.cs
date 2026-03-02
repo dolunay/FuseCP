@@ -52,8 +52,8 @@ namespace FuseCP.EnterpriseServer.Context
 
 	public partial class DbContextBase : DbContext, Data.IGenericDbContext
 	{
-		public const bool UsePomelo = Data.DbContext.UsePomelo;
-		public const bool NoMySql = !Data.DbContext.UseMySql;
+		public static readonly bool UsePomelo = Data.DbContext.UsePomelo;
+		public static readonly bool NoMySql = !Data.DbContext.UseMySql;
 
 #if NetCore
         public DbContextBase(Data.DbContext context) : this(new Data.DbOptions<DbContextBase>(context)) { }
