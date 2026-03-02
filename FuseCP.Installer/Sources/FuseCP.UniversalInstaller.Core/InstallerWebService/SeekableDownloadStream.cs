@@ -36,14 +36,12 @@ public class SeekableDownloadStream : System.IO.Stream
 
 	(long Position, int Size, Task<Task> Data)[] Chunks;
 	FileStream Buffer;
-	int min = 0, current = 0;
 	Task<long> Size = null;
 	string TmpFile;
 	AsyncLock ChunkLock = new AsyncLock();
 	AsyncLock IOLock = new AsyncLock();
 	DateTime Start;
 	TimeSpan DownloadTime = new TimeSpan(0);
-	long Bufposition = 0;
 	public Task DownloadComplete;
 	public bool IsTemp;
 	public Action<long, long> Progress;

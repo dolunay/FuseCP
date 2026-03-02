@@ -699,17 +699,10 @@ Add-AppxPackage ""{tmpFile}""");
 		Info("Create user...");
 		const string UserAccountExists = "Account already exists";
 		const string UserAccountDescription = "{0} account for anonymous access to Internet Information Services";
-		const string LogStartMessage = "Creating Windows user account...";
 		const string LogInfoMessage = "Creating Windows user account \"{0}\"";
 		const string LogEndMessage = "Created windows user account";
 		const string InstallLogMessageLocal = "Created a new Windows user account \"{0}\"";
 		const string InstallLogMessageDomain = "Created a new Windows user account \"{0}\" in \"{1}\" domain";
-		const string LogStartRollbackMessage = "Removing Windows user account...";
-		const string LogInfoRollbackMessage = "Deleting user account \"{0}\"";
-		const string LogEndRollbackMessage = "User account has been removed";
-		const string LogInfoRollbackMessageDomain = "Could not find user account '{0}' in domain '{1}', thus consider it removed";
-		const string LogInfoRollbackMessageLocal = "Could not find user account '{0}', thus consider it removed";
-		const string LogErrorRollbackMessage = "Could not remove Windows user account";
 
 		string domain, userName;
 		UserAndDomain(setting.Username, out domain, out userName);
@@ -811,7 +804,7 @@ Add-AppxPackage ""{tmpFile}""");
 		Log.WriteEnd("Website deleted");
 		DeleteApplicationPool(setting);
 	}
-	public virtual void ConfigureSchedulerService()
+	public override void ConfigureSchedulerService()
 	{
 		var binFolder = (Settings.EnterpriseServer.RunOnNetCore ||
 			Settings.WebPortal.RunOnNetCore && Settings.WebPortal.EmbedEnterpriseServer) ?
