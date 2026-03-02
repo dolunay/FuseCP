@@ -22,7 +22,6 @@ using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
@@ -40,8 +39,6 @@ namespace FuseCP.UniversalInstaller.WinForms
 {
 	public partial class ProgressPage : BannerWizardPage
 	{
-		private Thread thread;
-
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public ComponentSettings Settings { get; set; }
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
