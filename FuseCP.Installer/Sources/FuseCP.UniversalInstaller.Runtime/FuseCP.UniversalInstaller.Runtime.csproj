@@ -17,6 +17,7 @@
     </PropertyGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.4" />
         <Reference Include="System.ServiceModel" />
         <Reference Include="System.Management" />
         <Reference Include="System.Net.Http" />
