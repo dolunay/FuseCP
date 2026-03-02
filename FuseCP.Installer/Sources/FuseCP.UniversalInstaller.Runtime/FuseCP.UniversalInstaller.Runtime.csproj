@@ -25,7 +25,6 @@
         <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
         <PackageReference Include="System.ServiceModel.Http" Version="10.0.652802" />
         <PackageReference Include="System.Management" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
-        <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System.Management">
