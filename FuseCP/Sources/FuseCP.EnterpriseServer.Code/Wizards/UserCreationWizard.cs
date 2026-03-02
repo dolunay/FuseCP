@@ -130,7 +130,7 @@ namespace FuseCP.EnterpriseServer
                         createdUserId, planId, plan.PlanName, "", (int)PackageStatus.Active, DateTime.Now, false);
                     createdPackageId = packageResult.Result;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // error while adding package
 

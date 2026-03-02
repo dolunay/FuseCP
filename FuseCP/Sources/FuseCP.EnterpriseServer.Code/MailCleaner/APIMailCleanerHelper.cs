@@ -115,9 +115,9 @@ namespace FuseCP.EnterpriseServer
                 else
                     l_URL = GetServiceURL(f_iPlanID);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw (ex);
+                throw;
                 //throw( new Exception("MAILCLEANER_API_404"));
             }
 
