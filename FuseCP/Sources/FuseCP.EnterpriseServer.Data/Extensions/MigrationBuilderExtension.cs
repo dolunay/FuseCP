@@ -32,7 +32,7 @@ namespace FuseCP.EnterpriseServer.Data;
 
 public static class MigrationBuilderExtension
 {
-	const bool UseSafeSql = true;
+	static readonly bool UseSafeSql = true;
 
 	struct Segment
 	{
