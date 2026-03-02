@@ -37,7 +37,7 @@ public class DbSet<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IEnumer
 
     public IGenericDbContext BaseContext { get; set; }
 
-    IQueryable<TEntity> set = null;
+    IQueryable<TEntity>? set = null;
 #if !NETSTANDARD
     IQueryable<TEntity> Set => set ?? (set = BaseContext.Set<TEntity>());
 #else
@@ -52,10 +52,10 @@ public class DbSet<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IEnumer
 #endif
 
     #region Helper methods
-    MethodInfo GetMethod(object obj, string method, Type[] types) => obj.GetType().GetMethod(method, types);
-    T Invoke<T>(object obj, MethodInfo method, params object[] args) => (T)method.Invoke(obj, args);
-    T Invoke<T>(object obj, string method, Type[] types, params object[] args) => (T)Invoke<T>(obj, GetMethod(obj, method, types), args);
-    T Invoke<T, U>(object obj, string method, Type[] types, params object[] args) => (T)Invoke<T>(obj, GetMethod(obj, method, types).MakeGenericMethod(typeof(U)), args);
+    MethodInfo GetMethod(object obj, string method, Type[] types) => obj.GetType().GetMethod(method, types)!;
+    T Invoke<T>(object obj, MethodInfo method, params object?[]? args) => (T)method.Invoke(obj, args)!;
+    T Invoke<T>(object obj, string method, Type[] types, params object?[]? args) => Invoke<T>(obj, GetMethod(obj, method, types), args);
+    T Invoke<T, U>(object obj, string method, Type[] types, params object?[]? args) => Invoke<T>(obj, GetMethod(obj, method, types).MakeGenericMethod(typeof(U)), args);
     #endregion
 
     public DbSet(IGenericDbContext context) {
@@ -73,7 +73,7 @@ public class DbSet<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IEnumer
         foreach (var entity in entities) Attach(entity);
     }
     public void AttachRange(params TEntity[] entities) => AttachRange((IEnumerable<TEntity>)entities);
-    public TEntity? Find(params object?[]? keyValues) => Invoke<TEntity>(Set, nameof(Find), new Type[] { typeof(object[]) }, keyValues);
+    public TEntity? Find(params object?[]? keyValues) => Invoke<TEntity?>(Set, nameof(Find), new Type[] { typeof(object[]) }, keyValues);
     public async ValueTask<TEntity?> FindAsync(object?[]? keyValues, CancellationToken cancellationToken)
     {
         var task = Invoke<object>(Set, nameof(FindAsync), new Type[] { typeof(object[]), typeof(CancellationToken) }, keyValues, cancellationToken);
@@ -82,7 +82,7 @@ public class DbSet<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IEnumer
         else throw new InvalidOperationException("Invalid return type of FindAsync method");
     }
     public ValueTask<TEntity?> FindAsync(params object?[]? keyValues) => FindAsync(keyValues, CancellationToken.None);
-    public ICollection<TEntity> Local => (ICollection<TEntity>)Set.GetType().GetProperty(nameof(Local))?.GetValue(Set);
+    public ICollection<TEntity> Local => (ICollection<TEntity>)(Set.GetType().GetProperty(nameof(Local))?.GetValue(Set) ?? throw new InvalidOperationException("Local collection is not available"));
     public void Remove(TEntity entity) => Invoke<object>(Set, nameof(Remove), TypesOfTEntity, entity);
     public void RemoveRange(IEnumerable<TEntity> entities) => Invoke<object>(Set, nameof(Remove), new Type[] { typeof(IEnumerable<TEntity>) }, entities);
     public void RemoveRange(params TEntity[] entities) => RemoveRange((IEnumerable<TEntity>)entities);
