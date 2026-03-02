@@ -278,7 +278,7 @@ Add-AppxPackage ""{tmpFile}""");
 
 				InstallLog("Installed .NET Framework 4.8.");
 			}
-			catch (Exception ex) { }
+			catch (Exception) { }
 		}
 	}
 

@@ -265,7 +265,7 @@ public class SetupLoader
 					}, token);
 					downloadSetupTask.Start();
 				}
-				catch (Exception ex) { }
+				catch (Exception) { }
 
 				return;
 			}

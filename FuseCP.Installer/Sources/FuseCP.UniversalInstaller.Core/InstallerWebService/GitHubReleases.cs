@@ -70,7 +70,7 @@ namespace FuseCP.UniversalInstaller
 					}
 				}
 			}
-			catch (Exception ex) { }
+			catch (Exception) { }
 			return Enumerable.Empty<ComponentWithRelease>();
 		}
 
@@ -130,7 +130,7 @@ namespace FuseCP.UniversalInstaller
 						.Select(c => c.Component)
 						.ToList();
 				}
-			} catch (Exception ex) { }
+			} catch (Exception) { }
 			return null;
 		}
 
