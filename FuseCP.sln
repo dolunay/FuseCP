@@ -243,13 +243,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.WebPortal", "FuseCP\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Whois", "FuseCP\Sources\FuseCP.Whois\FuseCP.Whois.csproj", "{66CED106-7A14-4647-81C4-12CF6FBF3056}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.HyperV.Utils", "FuseCP.HyperV.Utils", "{E6BE9C5B-0C18-4018-B32E-FEAA0A3F8061}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.HyperV.Utils (Folder)", "FuseCP.HyperV.Utils (Folder)", "{E6BE9C5B-0C18-4018-B32E-FEAA0A3F8061}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{99E2C07D-3993-43CC-AC06-5AB99AC8A605}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.HyperV.Utils", "FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils\FuseCP.HyperV.Utils.csproj", "{CE67CC33-5136-49A4-9DDB-6AD59D6F4BF4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Installer", "FuseCP.Installer", "{A9F38792-2C5B-436E-BCDF-AAE98EF57811}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Installer (Folder)", "FuseCP.Installer (Folder)", "{A9F38792-2C5B-436E-BCDF-AAE98EF57811}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{7AA225C0-A95A-40EF-BC07-C302194754C9}"
 EndProject
@@ -273,7 +273,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Updater", "FuseCP.In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.WIXInstaller", "FuseCP.Installer\Sources\FuseCP.WIXInstaller\FuseCP.WIXInstaller.csproj", "{AAECABA8-71F7-48DC-B614-57FDC35997C4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.VmConfig", "FuseCP.VmConfig", "{D395AE39-37D2-4E00-9720-443E9926F366}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.VmConfig (Folder)", "FuseCP.VmConfig (Folder)", "{D395AE39-37D2-4E00-9720-443E9926F366}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{7A178F2E-8EC9-425C-8CF2-BC08DC123DA0}"
 EndProject
@@ -281,7 +281,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.VmConfig", "FuseCP.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.VmConfig.Common", "FuseCP.VmConfig\Sources\FuseCP.VmConfig.Common\FuseCP.VmConfig.Common.csproj", "{DFCCCCCC-CFEA-465C-9801-05CAD46C24C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.WebSite", "FuseCP.WebSite", "{CE468CEA-86F5-4718-B55A-DCBD4AB8E3FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.WebSite (Folder)", "FuseCP.WebSite (Folder)", "{CE468CEA-86F5-4718-B55A-DCBD4AB8E3FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{2E6671AC-BC49-4C55-95EE-7A8DCA0D8E58}"
 EndProject
@@ -375,13 +375,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesktopModules", "DesktopMo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Portal.Modules", "FuseCP\Sources\FuseCP.WebPortal\DesktopModules\FuseCP\FuseCP.Portal.Modules.csproj", "{F174AFF9-C9ED-4E87-A3A4-BB8382092DC3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.VmConfig", "FuseCP.VmConfig", "{3B880A7C-4FC0-41F2-8F4D-E9E33119ABE4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.VmConfig (Folder 2)", "FuseCP.VmConfig (Folder 2)", "{3B880A7C-4FC0-41F2-8F4D-E9E33119ABE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{0AD0D555-26B0-4286-8B9A-FB89B1ED642A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCoreVersion", "NetCoreVersion", "{5610179D-A61D-4996-B1DB-45FDC999F9A8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.LinuxVmConfig", "FuseCP.LinuxVmConfig", "{CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.LinuxVmConfig.Group", "FuseCP.LinuxVmConfig.Group", "{CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.LinuxVmConfig", "FuseCP\Sources\Tools\FuseCP.VmConfig\Linux\NetCoreVersion\FuseCP.LinuxVmConfig\FuseCP.LinuxVmConfig\FuseCP.LinuxVmConfig.csproj", "{42683E6C-7DC0-406E-AEAC-479E53E138E1}"
 EndProject
@@ -391,15 +391,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FuseCP.LinuxVmConfig.Cpp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.Setup.Legacy", "FuseCP.Installer\Sources\FuseCP.Setup.Legacy\FuseCP.Setup.Legacy.csproj", "{E3E18C51-BFB1-4A46-9E11-9B239F51F7CF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.EnterpriseServer", "FuseCP.EnterpriseServer", "{2FFA6C55-3811-F1BF-D0AB-B8459C915EED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.EnterpriseServer (2)", "FuseCP.EnterpriseServer (2)", "{2FFA6C55-3811-F1BF-D0AB-B8459C915EED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebServices", "WebServices", "{826E274E-CC9A-71EC-BC54-5CBDD5857E76}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Build", "FuseCP.Build", "{4128AC4D-D84D-F4B7-D7C0-28DECAA1B72E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Build (Folder)", "FuseCP.Build (Folder)", "{4128AC4D-D84D-F4B7-D7C0-28DECAA1B72E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.Providers.OS.Windows2025", "FuseCP\Sources\FuseCP.Providers.OS.Windows2025\FuseCP.Providers.OS.Windows2025.csproj", "{EBD23B30-A5C7-4BA7-BF88-14B9CD999DE4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Providers.Web.IIS70", "FuseCP.Providers.Web.IIS70", "{8D48215C-FD14-A61B-6143-CAB6784DCCCB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Providers.Web.IIS70 (Folder)", "FuseCP.Providers.Web.IIS70 (Folder)", "{8D48215C-FD14-A61B-6143-CAB6784DCCCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.UniversalInstaller.Bootstrapper", "FuseCP.Installer\Sources\FuseCP.UniversalInstaller.Bootstrapper\FuseCP.UniversalInstaller.Bootstrapper.csproj", "{0C0952E1-6182-45DF-87C9-AF96A65721B1}"
 EndProject
@@ -417,11 +417,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.UniversalInstaller.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.Providers.EnterpriseStorage.Windows2016", "FuseCP\Sources\FuseCP.Providers.EnterpriseStorage.Windows2016\FuseCP.Providers.EnterpriseStorage.Windows2016.csproj", "{086FC68C-D566-4A1B-92E5-734BD2E02BE0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Providers.FTP.VsFtp", "FuseCP.Providers.FTP.VsFtp", "{7B80B760-2D39-4B22-04B1-006CD5A2CC34}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.Providers.FTP.VsFtp (Folder)", "FuseCP.Providers.FTP.VsFtp (Folder)", "{7B80B760-2D39-4B22-04B1-006CD5A2CC34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptSharp", "FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.csproj", "{5E33051D-1471-4E5A-B94E-BD0E8FFFF99E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CryptSharp", "CryptSharp", "{4DE09240-9DE3-523B-5C09-56E262855EC5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CryptSharp (Folder)", "CryptSharp (Folder)", "{4DE09240-9DE3-523B-5C09-56E262855EC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptSharp.SCryptSubset", "FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.SCryptSubset.csproj", "{92F8CC6D-0AB1-43F5-A360-46A026202187}"
 EndProject
@@ -475,7 +475,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.Providers.Web.IIs80"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.Tests", "FuseCP\Sources\FuseCP.Tests\FuseCP.Tests.csproj", "{D8C6BC34-BE6F-48E4-A51D-F10600A643FF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.WebDavPortal", "FuseCP.WebDavPortal", "{5913E4E8-D8A9-FA1B-5533-53F4970F4377}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FuseCP.WebDavPortal (Folder)", "FuseCP.WebDavPortal (Folder)", "{5913E4E8-D8A9-FA1B-5533-53F4970F4377}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseCP.WebDavPortal.SDK", "FuseCP\Sources\FuseCP.WebDavPortal\FuseCP.WebDavPortal.SDK.csproj", "{FF89A4CC-E074-43AF-8B69-0FB5E41E0BEA}"
 EndProject
@@ -3035,7 +3035,7 @@ Global
 		{CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4} = {5610179D-A61D-4996-B1DB-45FDC999F9A8}
 		{42683E6C-7DC0-406E-AEAC-479E53E138E1} = {CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4}
 		{D9BE9661-E522-45C3-9CCB-61D7E9B3D394} = {CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4}
-		{B1DAFF15-6C6D-4831-A294-930DDBDED5DB} = {CE3F1D50-E2DF-4627-8FF8-730A2DBB55E4}
+		{B1DAFF15-6C6D-4831-A294-930DDBDED5DB} = {0AD0D555-26B0-4286-8B9A-FB89B1ED642A}
 		{E3E18C51-BFB1-4A46-9E11-9B239F51F7CF} = {7AA225C0-A95A-40EF-BC07-C302194754C9}
 		{2FFA6C55-3811-F1BF-D0AB-B8459C915EED} = {F4F82578-99B9-47C3-8265-A59FB58206F0}
 		{826E274E-CC9A-71EC-BC54-5CBDD5857E76} = {2FFA6C55-3811-F1BF-D0AB-B8459C915EED}
