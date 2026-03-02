@@ -23,7 +23,6 @@
 
     <ItemGroup>
         <Compile Include="..\..\..\FuseCP\Sources\VersionInfo.cs" Link="VersionInfo.cs" />
-        <Compile Include="..\FuseCP.UniversalInstaller\AssemblyLoader.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -72,12 +71,6 @@
         </ProjectReference>
         <ProjectReference Include="..\..\..\FuseCP\Sources\FuseCP.EnterpriseServer.Data\FuseCP.EnterpriseServer.Data.csproj">
             <SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
-        </ProjectReference>
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
-            <SetTargetFramework>TargetFramework=net10.0</SetTargetFramework>
-        </ProjectReference>
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
-            <SetTargetFramework>TargetFramework=net48</SetTargetFramework>
         </ProjectReference>
     </ItemGroup>
 

@@ -46,7 +46,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\FuseCP\Sources\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
         <ProjectReference Include="..\FuseCP.UniversalInstaller.Core\FuseCP.UniversalInstaller.Core.csproj" />
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj" />
         <!--<ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
             <SetTargetFramework>TargetFramework=net10.0</SetTargetFramework>
         </ProjectReference>-->
