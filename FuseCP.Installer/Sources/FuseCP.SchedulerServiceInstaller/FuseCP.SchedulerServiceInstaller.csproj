@@ -14,7 +14,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Optimize>true</Optimize>
   </PropertyGroup>
-  <Import Project="$(WixCATargetsPath)" />
+	<Import Project="$(WixCATargetsPath)" Condition="'$(MSBuildRuntimeType)' != 'Core' and '$(WixCATargetsPath)' != '' and Exists('$(WixCATargetsPath)')" />
   <ItemGroup>
     <Compile Remove="Backup\**" />
     <EmbeddedResource Remove="Backup\**" />

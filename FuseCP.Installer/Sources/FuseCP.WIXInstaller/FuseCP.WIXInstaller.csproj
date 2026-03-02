@@ -29,7 +29,7 @@
         <CustomActionContents>$(IntermediateOutputPath)$(AssemblyName).pdb;@(AddPdb)</CustomActionContents>
         <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
-    <Import Project="$(WixCATargetsPath)" />
+    <Import Project="$(WixCATargetsPath)" Condition="'$(MSBuildRuntimeType)' != 'Core' and '$(WixCATargetsPath)' != '' and Exists('$(WixCATargetsPath)')" />
     <ItemGroup>
         <Content Include="CustomAction.config" />
     </ItemGroup>
