@@ -37,7 +37,7 @@ namespace FuseCP.UniversalInstaller.WinForms
 			InitializeComponent();
 		}
 		
-		public const bool SqlServerOnly = !Data.DbContext.SupportsEF;
+		public bool SqlServerOnly => !Data.DbContext.SupportsEF;
         public bool MariaDbSupport => Data.DbContext.UsePomelo && Installer.Current.Settings.EnterpriseServer.RunOnNetCore;
         public bool MySqlSupport => (Data.DbContext.UsePomelo || Data.DbContext.UseMySql) &&
 			OSInfo.IsCore; // NetFX does not support MySQL Connector in different AppDomain
