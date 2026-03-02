@@ -44,6 +44,9 @@ namespace FuseCP.EnterpriseServer
         public override void DoWork()
         {
             BackgroundTask topTask = TaskManager.TopTask;
+            _ = TaskId;
+            _ = MailBodyTemplateParameter;
+            _ = MailBodyDomainRecordTemplateParameter;
             var domainUsers = new Dictionary<int, UserInfo>();
             var checkedDomains = new List<DomainInfo>();
             var expiredDomains = new List<DomainInfo>();
@@ -57,7 +60,7 @@ namespace FuseCP.EnterpriseServer
             bool includeNonExistenDomains = Convert.ToBoolean(topTask.GetParamValue(IncludeNonExistenDomains));
 
             // check input parameters
-            if (String.IsNullOrEmpty((string)topTask.GetParamValue("MAIL_TO")))
+            if (String.IsNullOrEmpty((string)topTask.GetParamValue(MailToParameter)))
             {
                 TaskManager.WriteWarning("The e-mail message has not been sent because 'Mail To' is empty.");
                 return;
@@ -191,7 +194,7 @@ namespace FuseCP.EnterpriseServer
                 priority = (MailPriority)Enum.Parse(typeof(MailPriority), settings["Priority"], true);
 
             // input parameters
-            string mailTo = (string)topTask.GetParamValue("MAIL_TO");
+            string mailTo = (string)topTask.GetParamValue(MailToParameter);
 
             Hashtable items = new Hashtable();
 
