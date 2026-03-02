@@ -441,7 +441,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     An object that can be used to configure the complex property.
 #if NetCore
-		public virtual ComplexPropertyBuilder<TProperty> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression) => Builder!.ComplexProperty(propertyExpression);
+		public virtual ComplexPropertyBuilder<TProperty> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty?>> propertyExpression) => Builder!.ComplexProperty(propertyExpression);
 #endif
 
 		//
@@ -461,7 +461,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     An object that can be used to configure the complex property.
 #if NetCore
-		public virtual ComplexPropertyBuilder<TProperty> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression, string complexTypeName) => Builder!.ComplexProperty(propertyExpression, complexTypeName);
+		public virtual ComplexPropertyBuilder<TProperty> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty?>> propertyExpression, string complexTypeName) => Builder!.ComplexProperty(propertyExpression, complexTypeName);
 #endif
 
 		//
@@ -480,7 +480,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     The same builder instance so that multiple configuration calls can be chained.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression, Action<ComplexPropertyBuilder<TProperty>> buildAction) => Builder!.ComplexProperty(propertyExpression, buildAction);
+		public virtual EntityTypeBuilder<TEntity> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty?>> propertyExpression, Action<ComplexPropertyBuilder<TProperty>> buildAction) => Builder!.ComplexProperty(propertyExpression, buildAction);
 #endif
 
 		//
@@ -502,7 +502,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     The same builder instance so that multiple configuration calls can be chained.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression, string complexTypeName, Action<ComplexPropertyBuilder<TProperty>> buildAction) => Builder!.ComplexProperty(propertyExpression, complexTypeName, buildAction);
+		public virtual EntityTypeBuilder<TEntity> ComplexProperty<TProperty>(Expression<Func<TEntity, TProperty?>> propertyExpression, string complexTypeName, Action<ComplexPropertyBuilder<TProperty>> buildAction) => Builder!.ComplexProperty(propertyExpression, complexTypeName, buildAction);
 #endif
 
 		//
@@ -1337,7 +1337,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     After calling this method, you should chain a call to Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder.WithOwner(System.String)
 		//     to fully configure the relationship.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> OwnsMany([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] Type ownedType, string navigationName, Action<OwnedNavigationBuilder> buildAction) => Builder.OwnsMany(ownedType, navigationName, buildAction);
+		public virtual EntityTypeBuilder<TEntity> OwnsMany([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] Type ownedType, string navigationName, Action<OwnedNavigationBuilder> buildAction) => Builder!.OwnsMany(ownedType, navigationName, buildAction);
 #endif
 
 		//
@@ -1375,7 +1375,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     After calling this method, you should chain a call to Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder.WithOwner(System.String)
 		//     to fully configure the relationship.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> OwnsMany(string ownedTypeName, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] Type ownedType, string navigationName, Action<OwnedNavigationBuilder> buildAction) => Builder.OwnsMany(ownedType, navigationName, buildAction);
+		public virtual EntityTypeBuilder<TEntity> OwnsMany(string ownedTypeName, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] Type ownedType, string navigationName, Action<OwnedNavigationBuilder> buildAction) => Builder!.OwnsMany(ownedType, navigationName, buildAction);
 #endif
 
 		//
@@ -1414,7 +1414,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     After calling this method, you should chain a call to Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder`2.WithOwner(System.String)
 		//     to fully configure the relationship.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string ownedTypeName, string navigationName, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder.OwnsMany(ownedTypeName, navigationName, buildAction);
+		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string ownedTypeName, string navigationName, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder!.OwnsMany(ownedTypeName, navigationName, buildAction);
 #endif
 
 		//
@@ -1450,7 +1450,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     After calling this method, you should chain a call to Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder`2.WithOwner(System.String)
 		//     to fully configure the relationship.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>> navigationExpression, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder.OwnsMany(navigationExpression, buildAction);
+		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>> navigationExpression, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder!.OwnsMany(navigationExpression, buildAction);
 #endif
 
 		//
@@ -1489,7 +1489,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     After calling this method, you should chain a call to Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder`2.WithOwner(System.String)
 		//     to fully configure the relationship.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string ownedTypeName, Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>> navigationExpression, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder.OwnsMany(ownedTypeName, navigationExpression, buildAction);
+		public virtual EntityTypeBuilder<TEntity> OwnsMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string ownedTypeName, Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>> navigationExpression, Action<OwnedNavigationBuilder<TEntity, TRelatedEntity>> buildAction) where TRelatedEntity : class => Builder!.OwnsMany(ownedTypeName, navigationExpression, buildAction);
 #endif
 
 		//
@@ -1521,7 +1521,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     to fully configure the relationship. Calling just this method without the chained
 		//     call will not produce a valid relationship.
 #if NetCore
-		public virtual ReferenceNavigationBuilder<TEntity, TRelatedEntity> HasOne<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string? navigationName) where TRelatedEntity : class => Builder.HasOne<TRelatedEntity>(navigationName);
+		public virtual ReferenceNavigationBuilder<TEntity, TRelatedEntity> HasOne<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string? navigationName) where TRelatedEntity : class => Builder!.HasOne<TRelatedEntity>(navigationName);
 #endif
 
 		//
@@ -1554,7 +1554,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     to fully configure the relationship. Calling just this method without the chained
 		//     call will not produce a valid relationship.
 #if NetCore
-		public virtual ReferenceNavigationBuilder<TEntity, TRelatedEntity> HasOne<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, TRelatedEntity?>>? navigationExpression = null) where TRelatedEntity : class => Builder.HasOne(navigationExpression);
+		public virtual ReferenceNavigationBuilder<TEntity, TRelatedEntity> HasOne<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, TRelatedEntity?>>? navigationExpression = null) where TRelatedEntity : class => Builder!.HasOne(navigationExpression);
 #endif
 
 		//
@@ -1585,7 +1585,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     to fully configure the relationship. Calling just this method without the chained
 		//     call will not produce a valid relationship.
 #if NetCore
-		public virtual CollectionNavigationBuilder<TEntity, TRelatedEntity> HasMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string? navigationName) where TRelatedEntity : class => Builder.HasMany<TRelatedEntity>(navigationName);
+		public virtual CollectionNavigationBuilder<TEntity, TRelatedEntity> HasMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(string? navigationName) where TRelatedEntity : class => Builder!.HasMany<TRelatedEntity>(navigationName);
 #endif
 
 		//
@@ -1617,7 +1617,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     to fully configure the relationship. Calling just this method without the chained
 		//     call will not produce a valid relationship.
 #if NetCore
-		public virtual CollectionNavigationBuilder<TEntity, TRelatedEntity> HasMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>>? navigationExpression = null) where TRelatedEntity : class => Builder.HasMany(navigationExpression);
+		public virtual CollectionNavigationBuilder<TEntity, TRelatedEntity> HasMany<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TRelatedEntity>(Expression<Func<TEntity, IEnumerable<TRelatedEntity>?>>? navigationExpression = null) where TRelatedEntity : class => Builder!.HasMany(navigationExpression);
 #endif
 
 		//
@@ -1633,7 +1633,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     The same builder instance so that multiple configuration calls can be chained.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> HasChangeTrackingStrategy(ChangeTrackingStrategy changeTrackingStrategy) => Builder.HasChangeTrackingStrategy(changeTrackingStrategy);
+		public virtual EntityTypeBuilder<TEntity> HasChangeTrackingStrategy(ChangeTrackingStrategy changeTrackingStrategy) => Builder!.HasChangeTrackingStrategy(changeTrackingStrategy);
 #endif
 
 		//
@@ -1660,7 +1660,7 @@ namespace FuseCP.EnterpriseServer.Data
 		//     Calling this method overrides for all properties of this entity type any access
 		//     mode that was set on the model.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> UsePropertyAccessMode(PropertyAccessMode propertyAccessMode) => Builder.UsePropertyAccessMode(propertyAccessMode);
+		public virtual EntityTypeBuilder<TEntity> UsePropertyAccessMode(PropertyAccessMode propertyAccessMode) => Builder!.UsePropertyAccessMode(propertyAccessMode);
 
 #endif
 
@@ -1668,7 +1668,7 @@ namespace FuseCP.EnterpriseServer.Data
 		class EntityData : IEnumerable<TEntity>
 		{
 			Func<IEnumerable<TEntity>> dataProvider;
-			IEnumerable<TEntity> data = null;
+			IEnumerable<TEntity>? data = null;
 			EntityTypeConfiguration<TEntity> configuration;
 			public EntityData(Func<IEnumerable<TEntity>> dataProvider, EntityTypeConfiguration<TEntity> configuration)
 			{
@@ -1707,18 +1707,18 @@ namespace FuseCP.EnterpriseServer.Data
 			{
 				Init();
 
-				foreach (var d in data) yield return d;
+				foreach (var d in data!) yield return d;
 			}
 			IEnumerator IEnumerable.GetEnumerator()
 			{
 				Init();
 
-				foreach (var d in data) yield return d;
+				foreach (var d in data!) yield return d;
 			}
 		}
 
 		static TEntity[] emptyData = new TEntity[0];
-		public virtual DataBuilder<TEntity> HasData(Func<IEnumerable<TEntity>> dataProvider) => InitSeedData ? Builder.HasData(new EntityData(dataProvider, this)) : Builder.HasData(emptyData);
+		public virtual DataBuilder<TEntity> HasData(Func<IEnumerable<TEntity>> dataProvider) => InitSeedData ? Builder!.HasData(new EntityData(dataProvider, this)) : Builder!.HasData(emptyData);
 #endif
 #if NetFX
 		public virtual object HasData(Func<IEnumerable<TEntity>> dataProvider) => new object();
@@ -1811,7 +1811,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     A builder that allows the discriminator property to be configured.
 #if NetCore
-		public virtual DiscriminatorBuilder<TDiscriminator> HasDiscriminator<TDiscriminator>(Expression<Func<TEntity, TDiscriminator>> propertyExpression) => Builder.HasDiscriminator(propertyExpression);
+		public virtual DiscriminatorBuilder<TDiscriminator> HasDiscriminator<TDiscriminator>(Expression<Func<TEntity, TDiscriminator>> propertyExpression) => Builder!.HasDiscriminator(propertyExpression);
 #endif
 
 		//
@@ -1821,7 +1821,7 @@ namespace FuseCP.EnterpriseServer.Data
 		// Returns:
 		//     The same builder instance so that multiple configuration calls can be chained.
 #if NetCore
-		public virtual EntityTypeBuilder<TEntity> HasNoDiscriminator() => Builder.HasNoDiscriminator();
+		public virtual EntityTypeBuilder<TEntity> HasNoDiscriminator() => Builder!.HasNoDiscriminator();
 #endif
 	}
 }
