@@ -258,9 +258,9 @@ namespace FuseCP.EnterpriseServer
 
                 return tasks.SelectMany(x=>x.Result).ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -664,9 +664,9 @@ namespace FuseCP.EnterpriseServer
 
                 return es.GetFolders(org.OrganizationId, webDavSettings);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -715,9 +715,9 @@ namespace FuseCP.EnterpriseServer
 
                 return rootFolders.ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -811,9 +811,9 @@ namespace FuseCP.EnterpriseServer
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -880,9 +880,9 @@ namespace FuseCP.EnterpriseServer
 
                 return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -1644,9 +1644,9 @@ namespace FuseCP.EnterpriseServer
 
                 return es.GetFolderWebDavRules(org.OrganizationId, folder, webDavSetting);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }
@@ -2041,9 +2041,9 @@ namespace FuseCP.EnterpriseServer
 
                 return users.ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -2060,9 +2060,9 @@ namespace FuseCP.EnterpriseServer
                     Database.AddEnterpriseFolderOwaUser(itemId, folderId, user.AccountId);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -2081,9 +2081,9 @@ namespace FuseCP.EnterpriseServer
 
                 return -1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -2106,9 +2106,9 @@ namespace FuseCP.EnterpriseServer
 
                 return result.Distinct().ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -2394,7 +2394,7 @@ namespace FuseCP.EnterpriseServer
                 result.PageItems = mappedDrives.Skip(startRow).Take(maximumRows).ToArray();
 
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception) { throw; }
 
             return result;
         }
@@ -2439,7 +2439,7 @@ namespace FuseCP.EnterpriseServer
 
                 driveLetters = orgProxy.GetDriveMaps(org.OrganizationId).Select(x => x.DriveLetter).ToList();
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception) { throw; }
 
             return driveLetters.ToArray();
 
@@ -2474,7 +2474,7 @@ namespace FuseCP.EnterpriseServer
                     folders = folders.Where(x => GetFolderMappedDrive(drives, x) == null).ToList();
                 }
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception) { throw; }
 
             return folders.ToArray();
         }

@@ -137,7 +137,7 @@ namespace FuseCP.EnterpriseServer
                     // remove user account
                     UserController.DeleteUser(createdUserId);
 
-                    throw ex;
+                    throw;
                 }
 
                 if (createdPackageId < 0)
