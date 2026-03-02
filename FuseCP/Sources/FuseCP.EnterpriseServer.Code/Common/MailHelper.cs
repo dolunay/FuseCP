@@ -123,15 +123,15 @@ namespace FuseCP.EnterpriseServer
 
                     return 0;
                 }
-                catch (SmtpCommandException ex)
+                catch (SmtpCommandException)
                 {
                     return BusinessErrorCodes.SMTP_GENERAL_FAILURE;
                 }
-                catch (MailKit.Security.AuthenticationException ex)
+                catch (MailKit.Security.AuthenticationException)
                 {
                     return BusinessErrorCodes.SMTP_CLIENT_NOT_PERMITTED;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return BusinessErrorCodes.SMTP_UNKNOWN_ERROR;
                 }
@@ -215,7 +215,7 @@ namespace FuseCP.EnterpriseServer
             {
                 return SendMessageAsync(from, to, bcc, subject, body, mailkitPriority, isHtml, mailkitAttachments).GetAwaiter().GetResult();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BusinessErrorCodes.SMTP_UNKNOWN_ERROR;
             }

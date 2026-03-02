@@ -1297,7 +1297,7 @@ namespace FuseCP.EnterpriseServer
                     result.PageItems = folders.ToArray();
                 }
             }
-            catch(Exception e) 
+            catch(Exception) 
             { /*skip exception*/}
 
             return result;
