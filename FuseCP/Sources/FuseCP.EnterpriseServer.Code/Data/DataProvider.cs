@@ -92,7 +92,7 @@ namespace FuseCP.EnterpriseServer
 											.Select(p => p.PropertyValue)
 											.FirstOrDefaultAsync()
 											.ConfigureAwait(false))?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false; 
-									} catch (Exception ex)
+									} catch (Exception)
 									{
 									}
 								}

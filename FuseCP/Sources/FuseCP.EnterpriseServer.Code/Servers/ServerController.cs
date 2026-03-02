@@ -3601,7 +3601,7 @@ namespace FuseCP.EnterpriseServer
 
 				Database.UpdateWhoisDomainInfo(domain.DomainId, domain.CreationDate, domain.ExpirationDate, DateTime.Now, domain.RegistrarName);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				//wrong domain 
 			}

@@ -317,7 +317,7 @@ namespace FuseCP.EnterpriseServer
                     server.Address = "";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 server.Address = "RDSGW Unavailable";
                 return server;
