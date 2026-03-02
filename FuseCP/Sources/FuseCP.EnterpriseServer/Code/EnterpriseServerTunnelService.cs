@@ -83,11 +83,14 @@ namespace FuseCP.EnterpriseServer
             var serverSettings = new RemoteServerSettings();
             serverSettings.ADEnabled = server.ADEnabled;
             // TODO support AutheticationTypes on Linux
-            serverSettings.ADAuthenticationType = AuthenticationTypes.Secure;
+            if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+            {
+                serverSettings.ADAuthenticationType = AuthenticationTypes.Secure;
 
-            AuthenticationTypes adAuthenticationType;
-            if (Enum.TryParse<AuthenticationTypes>(server.ADAuthenticationType, true, out adAuthenticationType))
-                serverSettings.ADAuthenticationType = adAuthenticationType;
+                AuthenticationTypes adAuthenticationType;
+                if (Enum.TryParse<AuthenticationTypes>(server.ADAuthenticationType, true, out adAuthenticationType))
+                    serverSettings.ADAuthenticationType = adAuthenticationType;
+            }
 
             serverSettings.ADRootDomain = server.ADRootDomain;
             serverSettings.ADUsername = server.ADUsername;

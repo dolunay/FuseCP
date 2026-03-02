@@ -31,6 +31,8 @@ namespace FuseCP.EnterpriseServer
 
 		private static string GetKeyFromRegistry(string Key)
 		{
+			if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows)) return string.Empty;
+
 			string value = string.Empty;
 
 			if (!string.IsNullOrEmpty(Key))

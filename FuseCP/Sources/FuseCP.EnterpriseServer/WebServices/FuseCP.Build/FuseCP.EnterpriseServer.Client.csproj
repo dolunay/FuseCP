@@ -25,9 +25,9 @@
         <Compile Include="$(MSBuildThisFileDirectory)..\..\..\VersionInfo.cs" Link="VersionInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
-        <ProjectReference Include="..\..\..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
-        <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer\FuseCP.EnterpriseServer.csproj"
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.EnterpriseServer\FuseCP.EnterpriseServer.csproj"
             ReferenceOutputAssembly="false" PrivateAssets="All" Condition="'$(AnyServices)' == ''" />
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'net48'">

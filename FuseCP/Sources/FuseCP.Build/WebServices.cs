@@ -257,7 +257,7 @@ namespace FuseCP.Build
 						WebMethods = methods,
 						Model = ws.Model
 					}
-					.Render())
+					.RenderAsync().GetAwaiter().GetResult())
 					.NormalizeWhitespace();
 
 				//wcf service class
@@ -268,7 +268,7 @@ namespace FuseCP.Build
 						Class = ws.Class,
 						WebMethods = methods
 					}
-					.Render())
+					.RenderAsync().GetAwaiter().GetResult())
 					.NormalizeWhitespace();
 				
 				serverNS = serverNS
@@ -285,7 +285,7 @@ namespace FuseCP.Build
 						Class = ws.Class,
 						WebMethods = globalizedMethods
 					}
-					.Render())
+					.RenderAsync().GetAwaiter().GetResult())
 					.NormalizeWhitespace();
 
 
@@ -311,7 +311,7 @@ namespace FuseCP.Build
 						Class = ws.Class,
 						WebMethods = globalizedMethods
 					}
-					.Render())
+					.RenderAsync().GetAwaiter().GetResult())
 					.NormalizeWhitespace();
 
 				var clientAssemblyClass = ParseMemberDeclaration(
@@ -321,7 +321,7 @@ namespace FuseCP.Build
 						Class = ws.Class,
 						WebMethods = globalizedMethods
 					}
-					.Render())
+					.RenderAsync().GetAwaiter().GetResult())
 					.NormalizeWhitespace();
 
 				clientNS = clientNS
@@ -353,7 +353,7 @@ namespace FuseCP.Build
 			{
 				Types = wcfTtypes
 			}
-			.Render())
+			.RenderAsync().GetAwaiter().GetResult())
 			.NormalizeWhitespace()
 			.ToString();
 
@@ -371,7 +371,7 @@ namespace FuseCP.Build
 			static bool IsSyntaxTargetForGeneration(SyntaxNode node)
 				=> node is ClassDeclarationSyntax m && m.AttributeLists.Count > 0;
 
-			static ClassDeclarationSyntax? GetSemanticTargetForGeneration(GeneratorSyntaxContext context)
+			static ClassDeclarationSyntax GetSemanticTargetForGeneration(GeneratorSyntaxContext context)
 			{
 				// we know the node is a MethodDeclarationSyntax thanks to IsSyntaxTargetForGeneration
 				var classDeclarationSyntax = (ClassDeclarationSyntax)context.Node;

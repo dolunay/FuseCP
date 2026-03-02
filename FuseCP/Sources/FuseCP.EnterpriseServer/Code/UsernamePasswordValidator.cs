@@ -42,7 +42,7 @@ namespace FuseCP.EnterpriseServer
 			return false;
 		}
 
-		public new void AddOrUpdate(string key, UserInfo user, string password)
+		public void AddOrUpdate(string key, UserInfo user, string password)
 		{
 			var entry = new UserCacheEntry
 			{

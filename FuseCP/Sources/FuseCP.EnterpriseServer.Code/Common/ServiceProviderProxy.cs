@@ -71,11 +71,14 @@ namespace FuseCP.EnterpriseServer
 
 			// set AD integration settings
 			cnfg.ServerSettings.ADEnabled = server.ADEnabled;
-			cnfg.ServerSettings.ADAuthenticationType = AuthenticationTypes.Secure;
+			if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+			{
+				cnfg.ServerSettings.ADAuthenticationType = AuthenticationTypes.Secure;
 
-			AuthenticationTypes adAuthenticationType;
-			if (Enum.TryParse<AuthenticationTypes>(server.ADAuthenticationType, true, out adAuthenticationType))
-				cnfg.ServerSettings.ADAuthenticationType = adAuthenticationType;
+				AuthenticationTypes adAuthenticationType;
+				if (Enum.TryParse<AuthenticationTypes>(server.ADAuthenticationType, true, out adAuthenticationType))
+					cnfg.ServerSettings.ADAuthenticationType = adAuthenticationType;
+			}
 
 			cnfg.ServerSettings.ADRootDomain = server.ADRootDomain;
 			cnfg.ServerSettings.ADUsername = server.ADUsername;
