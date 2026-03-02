@@ -291,7 +291,7 @@ public static partial class EstrellasDeEsperanzaEntityFrameworkExtensions
 	}
 
 #if NETCOREAPP
-	public static int ExecuteInsert<EntityType>(this IQueryable<EntityType> query, DbContext? context = null) where EntityType : class
+	public static int ExecuteInsert<EntityType>(this IQueryable<EntityType> query, DbContext context = null) where EntityType : class
 	{
 
 		var queryContext = new QueryContext<EntityType>(query, context);
