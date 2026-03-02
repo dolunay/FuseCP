@@ -38,7 +38,9 @@ namespace FuseCP.Web.Services
 	public static class StartupNetFX
 	{
 
+		#if NETFRAMEWORK
 		static int initialized = 0;
+		#endif
 		public static void Start()
 		{
 #if NETFRAMEWORK
