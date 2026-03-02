@@ -392,12 +392,12 @@ namespace FuseCP.Providers.OS
 			return ExecuteShellCommand(runSpace, cmd, useDomainController, out errors);
 		}
 
-		internal new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, out object[] errors)
+		internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, out object[] errors)
 		{
 			return ExecuteShellCommand(runSpace, cmd, true, out errors);
 		}
 
-		internal new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController, out object[] errors)
+		internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController, out object[] errors)
 		{
 			Log.WriteStart("ExecuteShellCommand");
 
