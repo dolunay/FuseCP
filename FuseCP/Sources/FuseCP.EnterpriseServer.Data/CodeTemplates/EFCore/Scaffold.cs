@@ -249,7 +249,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 			return txt;
 		}
 
-		const bool Prefetch = true;
+		static readonly bool Prefetch = true;
 
 		static Dictionary<string, string> entityTypes = new Dictionary<string, string>();
 
@@ -319,10 +319,6 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 				return entityData;
 			}
 			return entityData;
-
-			Console.WriteLine($"Type not found {typeName}.");
-
-			return "";
 		}
 	}
 }
