@@ -1284,7 +1284,7 @@ namespace FuseCP.UniversalInstaller.Runtime
 			
 				return res;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				throw;
 			}

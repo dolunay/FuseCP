@@ -33,7 +33,7 @@ namespace FuseCP.UniversalInstaller
 			Url = url;
 		}
 
-		public new string Url { get; private set; }
+		public string Url { get; private set; }
 		private Stream XStream(XElement xml)
 		{
 			var stream = new MemoryStream();

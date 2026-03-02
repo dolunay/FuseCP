@@ -123,7 +123,7 @@ public class LoadContextImplementation : MarshalByRefObject, ILoadContext
 			Installer.Current.SaveSettings();
 			return ret;
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
 			if (domain != null) AppDomain.Unload(domain);
 
