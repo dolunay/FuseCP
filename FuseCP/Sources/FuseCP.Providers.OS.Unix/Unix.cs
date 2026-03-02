@@ -725,7 +725,7 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 			var process = Process.GetProcessById(pid);
 			if (process != null) process.Kill();
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
 		}
 	}
@@ -850,7 +850,7 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 			string result = FileUtils.ExecuteSystemCommand(user, password, path, args);
 			return result;
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
 			throw;
 		}
