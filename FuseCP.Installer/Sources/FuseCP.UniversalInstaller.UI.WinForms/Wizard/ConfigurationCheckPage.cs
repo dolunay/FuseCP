@@ -660,7 +660,7 @@ namespace FuseCP.UniversalInstaller.WinForms
 		{
 			var settings = Installer.Current.Settings.EnterpriseServer;
 
-			string domain, username;
+			string ip, port, domain, username;
 			details = "";
 			try
 			{
