@@ -132,7 +132,7 @@ namespace FuseCP.EnterpriseServer
 
 		private DataProvider clone = null;
 		public new DataProvider Clone => clone ??= Context;
-		public DataProvider Context => new DataProvider(ConnectionString);
+		public new DataProvider Context => new DataProvider(ConnectionString);
 		public override void Dispose()
 		{
 			clone?.Dispose();
