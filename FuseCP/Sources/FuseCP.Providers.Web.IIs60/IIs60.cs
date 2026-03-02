@@ -835,14 +835,13 @@ namespace FuseCP.Providers.Web
 
 			if (IsColdFusion10Installed() || IsColdFusion11Installed() || IsColdFusion2016Installed())
 			{
-				if (AppVirtualDirectoryExists(site.SiteId, "CFIDE") && AppVirtualDirectoryExists(site.SiteId, "jakarta")) ;
+				if (AppVirtualDirectoryExists(site.SiteId, "CFIDE") && AppVirtualDirectoryExists(site.SiteId, "jakarta"))
+					cfDirsinstalled = true;
 			}
 			else
 			{
-				if (AppVirtualDirectoryExists(site.SiteId, "CFIDE") && AppVirtualDirectoryExists(site.SiteId, "JRunScripts")) ;
-			}
-			{
-				cfDirsinstalled = true;
+				if (AppVirtualDirectoryExists(site.SiteId, "CFIDE") && AppVirtualDirectoryExists(site.SiteId, "JRunScripts"))
+					cfDirsinstalled = true;
 			}
 
 			if (cfDirsinstalled)
@@ -1732,8 +1731,6 @@ namespace FuseCP.Providers.Web
 				return (string)keyColdFusion.GetValue(COLDFUSION_ROOT_PATH);
 			}
 
-			return String.Empty;
-
 			if (IsColdFusion10Installed())
 			{
 				RegistryKey keyColdFusion = Registry.LocalMachine.OpenSubKey(COLDFUSION_10_REGLOC);
@@ -1746,8 +1743,6 @@ namespace FuseCP.Providers.Web
 				return (string)keyColdFusion.GetValue(COLDFUSION_ROOT_PATH);
 			}
 
-			return String.Empty;
-
 			if (IsColdFusion11Installed())
 			{
 				RegistryKey keyColdFusion = Registry.LocalMachine.OpenSubKey(COLDFUSION_11_REGLOC);
@@ -1759,8 +1754,6 @@ namespace FuseCP.Providers.Web
 				}
 				return (string)keyColdFusion.GetValue(COLDFUSION_ROOT_PATH);
 			}
-
-			return String.Empty;
 
 			if (IsColdFusion2016Installed())
 			{
