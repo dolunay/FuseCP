@@ -86,7 +86,7 @@ namespace FuseCP.Providers.OS
         public virtual string CryptoKey => "";
         IEnumerable<string> TypeNames(IEnumerable<Type> types) => types?.Select(type => type?.FullName);
 
-        void WriteStrings(BinaryWriter writer, IEnumerable<string?> strings)
+        void WriteStrings(BinaryWriter writer, IEnumerable<string> strings)
         {
             if (strings != null)
             {

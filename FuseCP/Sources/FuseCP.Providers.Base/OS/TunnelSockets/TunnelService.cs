@@ -74,11 +74,11 @@ namespace FuseCP.Providers.OS
 
         public virtual byte[] DecryptData(ArraySegment<byte> secret) => new Cryptor(CryptoKey).Decrypt(secret);
 
-        Type[] TypesFromNames(IEnumerable<string?> types) => types
+        Type[] TypesFromNames(IEnumerable<string> types) => types
             .Select(type => type != null ? Type.GetType(type) : null)
             .ToArray();
 
-        IEnumerable<string?> ReadStrings(BinaryReader reader)
+        IEnumerable<string> ReadStrings(BinaryReader reader)
         {
             var line = reader.ReadString();
             while (!string.IsNullOrEmpty(line)) {

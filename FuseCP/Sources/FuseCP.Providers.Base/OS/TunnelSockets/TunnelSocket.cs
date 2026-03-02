@@ -597,7 +597,7 @@ namespace FuseCP.Providers.OS
                 {
                     await UpgradeTunnelSocket.ConnectAsync();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }
@@ -802,7 +802,7 @@ namespace FuseCP.Providers.OS
                 BaseSocket.Listen(MaxPendingConncections);
                 return port;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }

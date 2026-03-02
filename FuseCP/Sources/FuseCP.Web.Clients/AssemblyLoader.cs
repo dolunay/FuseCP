@@ -208,7 +208,7 @@ namespace FuseCP.Web.Clients
                         }
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
 
                 try
                 {
@@ -220,7 +220,7 @@ namespace FuseCP.Web.Clients
                         init.Invoke(null, new object[0]);
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
 
 #if NETFRAMEWORK
 				exposeWebServices = exposeWebServices ?? ConfigurationManager.AppSettings["ExposeWebServices"];
