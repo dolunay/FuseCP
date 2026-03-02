@@ -1,8 +1,12 @@
 param(
     [switch]$Install,
+    [switch]$SkipPwsh,
     [switch]$SkipDotNet,
     [switch]$SkipBuildTools,
     [switch]$SkipSqlOdbc,
+    [switch]$InstallWsl,
+    [string]$WslDistroId = "Canonical.Ubuntu.2204",
+    [switch]$InstallWixToolset,
     [switch]$InstallSqlExpress,
     [switch]$InstallIIS,
     [string]$SqlExpressOverride = "/ENU /Q /IACCEPTSQLSERVERLICENSETERMS",
@@ -27,6 +31,27 @@ function Test-IsAdministrator {
 function Test-CommandExists {
     param([string]$CommandName)
     return $null -ne (Get-Command $CommandName -ErrorAction SilentlyContinue)
+}
+
+function Test-WixCaTargetsAvailable {
+    $candidatePaths = @(
+        "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\Professional\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\BuildTools\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets"
+    )
+
+    foreach ($path in $candidatePaths) {
+        if (Test-Path $path) {
+            return $true
+        }
+    }
+
+    return $false
 }
 
 function Invoke-WingetInstall {
@@ -167,6 +192,13 @@ if ($Install) {
         throw "winget is required for automated install mode. Install App Installer or run manual installs."
     }
 
+    if (-not $SkipPwsh) {
+        Invoke-WingetInstall -Id "Microsoft.PowerShell" -Name "PowerShell 7 (pwsh)" -Override "" -Locale ""
+    }
+    else {
+        Write-Host "Skipping PowerShell 7 (pwsh) installation." -ForegroundColor DarkYellow
+    }
+
     if (-not $SkipDotNet) {
         Invoke-WingetInstall -Id "Microsoft.DotNet.SDK.10" -Name ".NET SDK 10" -Override "" -Locale ""
     }
@@ -187,6 +219,21 @@ if ($Install) {
     }
     else {
         Write-Host "Skipping SQL ODBC driver installation." -ForegroundColor DarkYellow
+    }
+
+    if ($InstallWsl) {
+        Invoke-WingetInstall -Id "Microsoft.WSL" -Name "Windows Subsystem for Linux" -Override "" -Locale ""
+        Invoke-WingetInstall -Id $WslDistroId -Name "WSL distro ($WslDistroId)" -Override "" -Locale ""
+    }
+    else {
+        Write-Host "Skipping WSL installation. Use -InstallWsl to include Linux packaging prerequisites." -ForegroundColor DarkYellow
+    }
+
+    if ($InstallWixToolset) {
+        Invoke-WingetInstall -Id "WiXToolset.WiXToolset" -Name "WiX Toolset v3" -Override "" -Locale ""
+    }
+    else {
+        Write-Host "Skipping WiX Toolset installation. Use -InstallWixToolset for installer tooling." -ForegroundColor DarkYellow
     }
 
     if ($InstallSqlExpress) {
@@ -214,6 +261,11 @@ if ($Install) {
     }
 
     Write-Host "Install step completed. Restart terminal/session if tools are not immediately visible in PATH." -ForegroundColor Green
+
+    if (-not (Test-WixCaTargetsAvailable)) {
+        Write-Host "WiX v3 MSBuild targets (Wix.CA.targets) were not detected in Visual Studio MSBuild paths." -ForegroundColor Yellow
+        Write-Host "If legacy installer projects fail, install WiX Visual Studio build integration and re-run checks." -ForegroundColor Yellow
+    }
 }
 else {
     Write-Step "Install mode disabled (check-only run)"
@@ -221,10 +273,24 @@ else {
 
 Write-Step "Running prerequisite checks"
 
+$checkShell = if (Test-CommandExists -CommandName "pwsh") {
+    "pwsh"
+}
+elseif (Test-CommandExists -CommandName "powershell") {
+    "powershell"
+}
+else {
+    $null
+}
+
+if ($null -eq $checkShell) {
+    throw "Neither 'pwsh' nor 'powershell' was found in PATH. Install PowerShell before running prerequisite checks."
+}
+
 $failures = @()
 foreach ($profile in $selectedProfiles) {
     Write-Host "Running profile: $profile" -ForegroundColor Yellow
-    & pwsh -File $checkScript -Profile $profile
+    & $checkShell -File $checkScript -Profile $profile
     if ($LASTEXITCODE -ne 0) {
         $failures += $profile
     }

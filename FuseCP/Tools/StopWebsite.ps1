@@ -1,0 +1,64 @@
+param(
+    [switch]$StopSqlExpress,
+    [switch]$ShutdownWsl
+)
+
+$ErrorActionPreference = "Stop"
+
+try {
+    Import-Module WebAdministration -ErrorAction Stop
+
+    $siteNames = @(
+        "FuseCP Portal",
+        "FuseCP Enterprise Server",
+        "FuseCP Server"
+    )
+
+    foreach ($siteName in $siteNames) {
+        $sitePath = "IIS:\Sites\$siteName"
+        if (Test-Path $sitePath) {
+            $siteState = (Get-Website -Name $siteName).State
+            if ($siteState -ne "Stopped") {
+                Stop-Website -Name $siteName
+                Write-Host "Stopped IIS website: $siteName" -ForegroundColor Yellow
+            }
+            else {
+                Write-Host "IIS website already stopped: $siteName" -ForegroundColor DarkYellow
+            }
+        }
+        else {
+            Write-Host "IIS website not found: $siteName" -ForegroundColor DarkYellow
+        }
+    }
+}
+catch {
+    Write-Host "Unable to manage IIS websites. Run as Administrator and ensure IIS + WebAdministration are installed." -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red
+}
+
+if ($StopSqlExpress) {
+    $sqlService = Get-Service -Name "MSSQL`$SQLEXPRESS" -ErrorAction SilentlyContinue
+    if ($null -eq $sqlService) {
+        Write-Host "SQLExpress service not found (MSSQL`$SQLEXPRESS)." -ForegroundColor DarkYellow
+    }
+    elseif ($sqlService.Status -eq "Running") {
+        Stop-Service -Name "MSSQL`$SQLEXPRESS" -Force
+        Write-Host "Stopped SQLExpress service: MSSQL`$SQLEXPRESS" -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "SQLExpress service already stopped." -ForegroundColor DarkYellow
+    }
+}
+
+if ($ShutdownWsl) {
+    $wsl = Get-Command wsl -ErrorAction SilentlyContinue
+    if ($null -eq $wsl) {
+        Write-Host "WSL command not found." -ForegroundColor DarkYellow
+    }
+    else {
+        & wsl --shutdown
+        Write-Host "WSL has been shut down." -ForegroundColor Yellow
+    }
+}
+
+Write-Host "Done." -ForegroundColor Green

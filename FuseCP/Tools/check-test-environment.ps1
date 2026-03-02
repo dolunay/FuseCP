@@ -49,6 +49,29 @@ function Find-FirstExistingPath {
     return $null
 }
 
+function Test-WixCaTargetsAvailable {
+    $candidatePaths = @(
+        "C:\Program Files (x86)\WiX Toolset v3.14\SDK\wix.ca.targets",
+        "C:\Program Files (x86)\WiX Toolset v3.11\SDK\wix.ca.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\Professional\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\18\BuildTools\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets",
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\WiX\v3.x\Wix.CA.targets"
+    )
+
+    foreach ($path in $candidatePaths) {
+        if (Test-Path $path) {
+            return $path
+        }
+    }
+
+    return $null
+}
+
 function Test-IsAdministrator {
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
     $principal = New-Object Security.Principal.WindowsPrincipal($identity)
@@ -69,6 +92,21 @@ $needIntegration = $Profile -in @("Integration", "Full")
 $needPackage = $Profile -in @("Package", "Full")
 
 # Unit profile checks
+$pwshCommand = Get-Command pwsh -ErrorAction SilentlyContinue
+$pwshKnownPath = Find-FirstExistingPath -CandidatePaths @(
+    "C:\Program Files\PowerShell\7\pwsh.exe"
+)
+$hasPwsh = ($null -ne $pwshCommand) -or ($null -ne $pwshKnownPath)
+
+$pwshDetails = "Install PowerShell 7 (pwsh)"
+if ($null -ne $pwshCommand) {
+    $pwshDetails = "pwsh is available at $($pwshCommand.Source)"
+}
+elseif ($null -ne $pwshKnownPath) {
+    $pwshDetails = "pwsh found at $pwshKnownPath (restart terminal to refresh PATH)"
+}
+$results += Add-Result -Name "PowerShell 7 (pwsh)" -Passed $hasPwsh -Details $pwshDetails
+
 $dotnetCommand = Get-Command dotnet -ErrorAction SilentlyContinue
 $dotnetKnownPath = Find-FirstExistingPath -CandidatePaths @(
     "C:\Program Files\dotnet\dotnet.exe"
@@ -120,21 +158,35 @@ if ($needIntegration) {
     $results += Add-Result -Name "IIS service (W3SVC)" -Passed $hasW3Svc -Details $w3svcDetails
 
     if (Test-Path $sqlCmdExe) {
-        $sqlOutput = & $sqlCmdExe -S "(local)\SQLExpress" -E -Q "SELECT @@VERSION" 2>&1 | Out-String
-        if ($LASTEXITCODE -eq 0) {
-            $results += Add-Result -Name "SQLExpress connectivity" -Passed $true -Details "Connected to (local)\\SQLExpress"
+        try {
+            $sqlOutput = & $sqlCmdExe -S "(local)\SQLExpress" -E -Q "SELECT @@VERSION" 2>&1 | Out-String
+            if ($LASTEXITCODE -eq 0) {
+                $results += Add-Result -Name "SQLExpress connectivity" -Passed $true -Details "Connected to (local)\\SQLExpress"
+            }
+            else {
+                $trimmedOutput = $sqlOutput.Trim()
+                if ([string]::IsNullOrWhiteSpace($trimmedOutput)) {
+                    $trimmedOutput = "Cannot connect to (local)\\SQLExpress using integrated auth"
+                }
+
+                if ($trimmedOutput.Length -gt 180) {
+                    $trimmedOutput = $trimmedOutput.Substring(0, 180) + "..."
+                }
+
+                $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details $trimmedOutput
+            }
         }
-        else {
-            $trimmedOutput = $sqlOutput.Trim()
-            if ([string]::IsNullOrWhiteSpace($trimmedOutput)) {
-                $trimmedOutput = "Cannot connect to (local)\\SQLExpress using integrated auth"
+        catch {
+            $details = $_.Exception.Message
+            if ([string]::IsNullOrWhiteSpace($details)) {
+                $details = "Cannot connect to (local)\\SQLExpress using integrated auth"
             }
 
-            if ($trimmedOutput.Length -gt 180) {
-                $trimmedOutput = $trimmedOutput.Substring(0, 180) + "..."
+            if ($details.Length -gt 180) {
+                $details = $details.Substring(0, 180) + "..."
             }
 
-            $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details $trimmedOutput
+            $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details $details
         }
     }
     else {
@@ -165,17 +217,35 @@ if ($needPackage) {
 
     $hasWsl = Test-CommandExists -CommandName "wsl"
     if ($hasWsl) {
-        $wslList = (& wsl --list --quiet 2>$null | Out-String).Trim()
-        $hasDistro = -not [string]::IsNullOrWhiteSpace($wslList)
-        $wslDetails = "WSL installed but no distro configured"
-        if ($hasDistro) { $wslDetails = "WSL distro(s) detected" }
-        $results += Add-Result -Name "WSL availability" -Passed $hasDistro -Details $wslDetails
+        try {
+            $wslList = (& cmd /c "wsl --list --quiet 2>nul" | Out-String).Trim()
+            $hasDistro = -not [string]::IsNullOrWhiteSpace($wslList)
+            $wslDetails = "WSL installed but no distro configured"
+            if ($hasDistro) { $wslDetails = "WSL distro(s) detected" }
+            $results += Add-Result -Name "WSL availability" -Passed $hasDistro -Details $wslDetails -Level "warning"
+        }
+        catch {
+            $results += Add-Result -Name "WSL availability" -Passed $false -Details "WSL is present but failed to query distro list" -Level "warning"
+        }
     }
     else {
-        $results += Add-Result -Name "WSL availability" -Passed $false -Details "Install WSL2 if building Linux packages"
+        $results += Add-Result -Name "WSL availability" -Passed $false -Details "Install WSL2 if building Linux packages" -Level "warning"
     }
 
+    $wixCaTargetsPath = Test-WixCaTargetsAvailable
+    $hasWixCaTargets = $null -ne $wixCaTargetsPath
+    $wixCaDetails = "Install WiX v3 MSBuild integration (Wix.CA.targets) for legacy installer projects"
+    if ($hasWixCaTargets) {
+        $wixCaDetails = "Found at $wixCaTargetsPath"
+    }
+
+    $wixCaLevel = if ($RequireLegacyMsi) { "error" } else { "warning" }
+    $results += Add-Result -Name "WiX MSBuild targets (Wix.CA.targets)" -Passed $hasWixCaTargets -Details $wixCaDetails -Level $wixCaLevel
+
     $devEnvPath = Find-FirstExistingPath -CandidatePaths @(
+        "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\devenv.com",
+        "C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\IDE\devenv.com",
+        "C:\Program Files\Microsoft Visual Studio\18\Enterprise\Common7\IDE\devenv.com",
         "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com",
         "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.com",
         "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.com",

@@ -1,0 +1,775 @@
+{
+  "summary": {
+    "generatedAt": "2026-03-02T20:44:41.8093764+01:00",
+    "scopeSolutions": [
+      "FuseCP.EnterpriseServer.sln",
+      "FuseCP.Server.sln",
+      "FuseCP.WebPortal.sln"
+    ],
+    "scopeUnionCount": 107,
+    "includedInFuseCpCount": 107,
+    "missingInFuseCpCount": 0
+  },
+  "projects": [
+    {
+      "project": "FuseCP/Lib/novnc-fusecp/FuseCP.Providers.Virtualization.NoVNC.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/CPCC/CPCC.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Build/FuseCP.Build.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer.Base/FuseCP.EnterpriseServer.Base.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer.Code/FuseCP.EnterpriseServer.Code.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer.Data/FuseCP.EnterpriseServer.Data.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer.Tests/FuseCP.EnterpriseServer.Tests.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer/FuseCP.EnterpriseServer.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.EnterpriseServer/WebServices/FuseCP.Build/FuseCP.EnterpriseServer.Client.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Base/FuseCP.Providers.Base.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.EnterpriseServer.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Database.MariaDB/FuseCP.Providers.Database.MariaDB.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Database.MySQL/FuseCP.Providers.Database.MySQL.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Database.SqlServer/FuseCP.Providers.Database.SqlServer.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.Bind/FuseCP.Providers.DNS.Bind.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.MsDNS/FuseCP.Providers.DNS.MsDNS.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.MsDNS2012/FuseCP.Providers.DNS.MsDNS2012.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.MsDNS2016/FuseCP.Providers.DNS.MsDNS2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.Nettica/FuseCP.Providers.DNS.Nettica.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.PowerDNS/FuseCP.Providers.DNS.PowerDNS.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.SimpleDNS/FuseCP.Providers.DNS.SimpleDNS.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.SimpleDNS50/FuseCP.Providers.DNS.SimpleDNS50.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.SimpleDNS60/FuseCP.Providers.DNS.SimpleDNS60.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.SimpleDNS80/FuseCP.Providers.DNS.SimpleDNS80.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.DNS.SimpleDNS90/FuseCP.Providers.DNS.SimpleDNS90.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.EnterpriseStorage.Windows2016/FuseCP.Providers.EnterpriseStorage.Windows2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Filters.MailCleaner/FuseCP.Providers.Filters.MailCleaner.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Filters.SpamExperts/FuseCP.Providers.Filters.SpamExperts.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.CerberusFTP6/FuseCP.Providers.FTP.CerberusFTP6.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.FileZilla/FuseCP.Providers.FTP.FileZilla.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.Gene6/FuseCP.Providers.FTP.Gene6.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.IIs100/FuseCP.Providers.FTP.IIs100.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.ServU/FuseCP.Providers.FTP.ServU.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.FTP.VsFtp/FuseCP.Providers.FTP.VsFtp.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Crm2011/FuseCP.Providers.HostedSolution.Crm2011.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Crm2013/FuseCP.Providers.HostedSolution.Crm2013.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Crm2015/FuseCP.Providers.HostedSolution.Crm2015.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Crm2016/FuseCP.Providers.HostedSolution.Crm2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Exchange2013/FuseCP.Providers.HostedSolution.Exchange2013.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Exchange2016/FuseCP.Providers.HostedSolution.Exchange2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Exchange2019/FuseCP.Providers.HostedSolution.Exchange2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Lync2013/FuseCP.Providers.HostedSolution.Lync2013.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.Lync2013HP/FuseCP.Providers.HostedSolution.Lync2013HP.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SfB2015/FuseCP.Providers.HostedSolution.SfB2015.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SfB2019/FuseCP.Providers.HostedSolution.SfB2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SharePoint2013/FuseCP.Providers.HostedSolution.SharePoint2013.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SharePoint2013Ent/FuseCP.Providers.HostedSolution.SharePoint2013Ent.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SharePoint2016/FuseCP.Providers.HostedSolution.SharePoint2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SharePoint2016Ent/FuseCP.Providers.HostedSolution.SharePoint2016Ent.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution.SharePoint2019/FuseCP.Providers.HostedSolution.SharePoint2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.HostedSolution/FuseCP.Providers.HostedSolution.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.AbilityMailServer/FuseCP.Providers.Mail.AbilityMailServer.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.ArgoMail/FuseCP.Providers.Mail.ArgoMail.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.hMail5/FuseCP.Providers.Mail.hMailServer5.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.hMailServer/FuseCP.Providers.Mail.hMailServer.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.hMailServer43/FuseCP.Providers.Mail.hMailServer43.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.IceWarp/FuseCP.Providers.Mail.IceWarp.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.MailEnable/FuseCP.Providers.Mail.MailEnable.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.MDaemon/FuseCP.Providers.Mail.MDaemon.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.Merak/FuseCP.Providers.Mail.Merak.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.Merak10/FuseCP.Providers.Mail.Merak10.vbproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail10/FuseCP.Providers.Mail.SmarterMail10.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail100/FuseCP.Providers.Mail.SmarterMail100.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail2/FuseCP.Providers.Mail.SmarterMail2.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail3/FuseCP.Providers.Mail.SmarterMail3.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail5/FuseCP.Providers.Mail.SmarterMail5.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail6/FuseCP.Providers.Mail.SmarterMail6.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail7/FuseCP.Providers.Mail.SmarterMail7.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Mail.SmarterMail9/FuseCP.Providers.Mail.SmarterMail9.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.OS.Unix/FuseCP.Providers.OS.Unix.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.OS.Windows2016/FuseCP.Providers.OS.Windows2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.OS.Windows2019/FuseCP.Providers.OS.Windows2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.OS.Windows2022/FuseCP.Providers.OS.Windows2022.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.OS.Windows2025/FuseCP.Providers.OS.Windows2025.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Statistics.AWStats/FuseCP.Providers.Statistics.AWStats.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Statistics.SmarterStats/FuseCP.Providers.Statistics.SmarterStats.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.StorageSpaces.Windows2016/FuseCP.Providers.StorageSpaces.Windows2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.TerminalServices.Windows2012/FuseCP.Providers.RemoteDesktopServices.Windows2012.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.TerminalServices.Windows2016/FuseCP.Providers.RemoteDesktopServices.Windows2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.TerminalServices.Windows2019/FuseCP.Providers.RemoteDesktopServices.Windows2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.TerminalServices.Windows2022/FuseCP.Providers.RemoteDesktopServices.Windows2022.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.TerminalServices.Windows2025/FuseCP.Providers.RemoteDesktopServices.Windows2025.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-2012R2/FuseCP.Providers.Virtualization.HyperV2012R2.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-2016/FuseCP.Providers.Virtualization.HyperV2016.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-2019/FuseCP.Providers.Virtualization.HyperV2019.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-2022/FuseCP.Providers.Virtualization.HyperV2022.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-2025/FuseCP.Providers.Virtualization.HyperV2025.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV-vmm/FuseCP.Providers.Virtualization.HyperVvmm.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.HyperV/FuseCP.Providers.Virtualization.HyperV.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Virtualization.Proxmox/FuseCP.Providers.Virtualization.Proxmox.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.Apache/FuseCP.Providers.Web.Apache.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.IIs100/FuseCP.Providers.Web.IIs100.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.IIs60/FuseCP.Providers.Web.IIs60.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.IIS70/FuseCP.Providers.Web.IIs70.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.IIs80/FuseCP.Providers.Web.IIs80.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.LetsEncrypt/FuseCP.Providers.Web.LetsEncrypt.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Providers.Web.WebDav/FuseCP.Providers.Web.WebDav.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.SchedulerService/FuseCP.SchedulerService.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Server.Utils/FuseCP.Server.Utils.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Server/FuseCP.Server.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Server/WebServices/FuseCP.Build/FuseCP.Server.Client.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Templates/FuseCP.Templates.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.EnterpriseServer.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Web.Clients/FuseCP.Web.Clients.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.EnterpriseServer.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.Web.Services/FuseCP.Web.Services.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.Server.sln",
+        "FuseCP.EnterpriseServer.sln",
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.WebDav.Core/FuseCP.WebDav.Core.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.WebDavPortal/FuseCP.WebDavPortal.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.WebPortal/DesktopModules/FuseCP/FuseCP.Portal.Modules.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    },
+    {
+      "project": "FuseCP/Sources/FuseCP.WebPortal/FuseCP.WebPortal.csproj",
+      "inFuseCpSln": true,
+      "inScopes": [
+        "FuseCP.WebPortal.sln"
+      ]
+    }
+  ]
+}

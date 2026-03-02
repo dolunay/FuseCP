@@ -23,6 +23,37 @@ URL: http://localhost:9003
 Password: Password12
 "
 
+try {
+	Import-Module WebAdministration -ErrorAction Stop
+
+	$siteNames = @(
+		"FuseCP Portal",
+		"FuseCP Enterprise Server",
+		"FuseCP Server"
+	)
+
+	foreach ($siteName in $siteNames) {
+		$sitePath = "IIS:\Sites\$siteName"
+		if (Test-Path $sitePath) {
+			$siteState = (Get-Website -Name $siteName).State
+			if ($siteState -ne "Started") {
+				Start-Website -Name $siteName
+				Write-Host "Started IIS website: $siteName" -ForegroundColor Yellow
+			}
+			else {
+				Write-Host "IIS website already started: $siteName" -ForegroundColor DarkYellow
+			}
+		}
+		else {
+			Write-Host "IIS website not found: $siteName" -ForegroundColor DarkYellow
+		}
+	}
+}
+catch {
+	Write-Host "Unable to manage IIS websites. Run as Administrator and ensure IIS + WebAdministration are installed." -ForegroundColor Red
+	Write-Host $_.Exception.Message -ForegroundColor Red
+}
+
 start http://localhost:9001
 
 Read-Host "Press a key"

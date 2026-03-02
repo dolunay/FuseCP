@@ -113,6 +113,11 @@ jobs:
       with:
         dotnet-version: '10.0.x'
 
+    - name: Verify solution sync (FuseCP.sln vs scope solutions)
+      shell: pwsh
+      run: |
+        pwsh -NoProfile -File .\FuseCP\Tools\check-sln-scope-sync.ps1
+
     - name: Sanitize Artifact Name
       id: sanitize_name_step
       shell: bash 

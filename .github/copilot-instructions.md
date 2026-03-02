@@ -32,6 +32,8 @@ These instructions guide AI coding assistants working in this repository.
 
 ## Testing and Verification
 
+* At the start of each new development day/session, run `FuseCP/Tools/Start-Of-Day.ps1` before making code changes.
+* If the task is docs-only or this check would be redundant in the same session, at minimum run `FuseCP/Tools/check-sln-scope-sync.ps1`.
 * Run the narrowest relevant build/tests first, then broaden if needed.
 * For broad validation, use repository orchestrators (`build.xml`, `build-debug.bat`, `build-release.bat`, `deploy-*.bat`) because independent solution order may be insufficient.
 * Prefer the scripted validation entrypoint `FuseCP/Tools/run-local-validation.ps1` to keep local verification consistent and efficient.
