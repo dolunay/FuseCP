@@ -21,6 +21,7 @@
         <OutputPath>bin</OutputPath>
         <OutputType>Library</OutputType>
         <ImplicitUsings>disable</ImplicitUsings>
+        <NoWarn>$(NoWarn);MSB3277</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

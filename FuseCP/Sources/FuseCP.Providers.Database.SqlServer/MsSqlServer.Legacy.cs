@@ -27,6 +27,7 @@ using Microsoft.Win32;
 
 namespace FuseCP.Providers.Database
 {
+#pragma warning disable CS0618
 	public class MsSqlServer : HostingServiceProviderBase, IDatabaseServer
 	{
 		#region Properties
@@ -1388,4 +1389,5 @@ namespace FuseCP.Providers.Database
 		}
 		#endregion
 	}
+#pragma warning restore CS0618
 }
