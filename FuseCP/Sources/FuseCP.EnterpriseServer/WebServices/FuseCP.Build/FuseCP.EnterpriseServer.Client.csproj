@@ -8,7 +8,7 @@
         <OutputPath>..\..\..\..\Bin</OutputPath>
         <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>FuseCP.snk</AssemblyOriginatorKeyFile>
+        <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)FuseCP.snk</AssemblyOriginatorKeyFile>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     </PropertyGroup>
     <ItemGroup>
@@ -22,7 +22,7 @@
         <AnyServices>@(Services)</AnyServices>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="..\..\..\VersionInfo.cs" Link="VersionInfo.cs" />
+        <Compile Include="$(MSBuildThisFileDirectory)..\..\..\VersionInfo.cs" Link="VersionInfo.cs" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
@@ -40,7 +40,7 @@
     </ItemGroup>
 
     <Target Name="RerunAnalyzer" Condition="'$(AnyServices)' == ''" BeforeTargets="ResolveProjectReferences">
-        <Touch Files="..\..\Properties\AssemblyInfo.cs" />
+        <Touch Files="$(MSBuildThisFileDirectory)..\..\Properties\AssemblyInfo.cs" />
         <Message Text="RerunAnalyzer" Importance="high" />
     </Target>
     
