@@ -35,6 +35,9 @@ namespace FuseCP.EnterpriseServer.Data
         {
             string value = string.Empty;
 
+			if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+				return value;
+
             if (!string.IsNullOrEmpty(Key))
             {
                 RegistryKey root = Registry.LocalMachine;
@@ -65,7 +68,7 @@ namespace FuseCP.EnterpriseServer.Data
 					}
 					else
 					{
-						connectionKey = Web.Services.Configuration.AltConnectionString;
+						connectionKey = ConfigurationManager.AppSettings["FuseCP.AltConnectionString"];
 					}
 
 					string value = string.Empty;
@@ -87,7 +90,7 @@ namespace FuseCP.EnterpriseServer.Data
 						}
 						else
 						{
-							connectionString = Web.Services.Configuration.ConnectionString;
+							connectionString = ConfigurationManager.ConnectionStrings["EnterpriseServer"]?.ConnectionString;
 
 						}
 					}
