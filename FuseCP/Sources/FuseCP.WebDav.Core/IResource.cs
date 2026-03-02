@@ -123,7 +123,7 @@ namespace FuseCP.WebDav.Core
                     var webClient = new WebClient();
                     return webClient.DownloadData(_href);
                 }
-                catch (WebException exception)
+                catch (WebException)
                 {
                     throw;
                 }
@@ -220,7 +220,7 @@ namespace FuseCP.WebDav.Core
                             tcpClient.ReceiveTimeout = 0;
                         }
                     }
-                    catch (SocketException e)
+                    catch (SocketException)
                     {
                         tcpClient.SendTimeout = 0;
                         tcpClient.ReceiveTimeout = 0;
@@ -233,7 +233,7 @@ namespace FuseCP.WebDav.Core
                             networkStream.WriteTimeout = TimeOut;
                             networkStream.ReadTimeout = TimeOut;
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                         }
                     }
@@ -553,7 +553,7 @@ namespace FuseCP.WebDav.Core
                                 break;
                         }
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                     }
                 }

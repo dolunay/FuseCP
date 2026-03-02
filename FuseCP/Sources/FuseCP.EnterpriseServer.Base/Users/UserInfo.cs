@@ -379,7 +379,6 @@ namespace FuseCP.EnterpriseServer
     public class UserInfoInternal : UserInfo
     {
         private string password;
-        private string oneTimePassword;
         private OneTimePasswordStates oneTimePasswordState;
 
         public string Password
