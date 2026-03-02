@@ -233,7 +233,7 @@ namespace FuseCP.EnterpriseServer.Data
 #endif
                     }
 #else
-                    if (IsCore) {
+                    if (OSInfo.IsCore) {
 					    switch (DbType)
                         {
 						    default:
