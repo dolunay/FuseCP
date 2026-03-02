@@ -300,7 +300,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 			{
 				Console.WriteLine("Fetch Entity Data from Database...");
 
-				var dll = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+				var dll = Assembly.GetExecutingAssembly().Location;
 
 				string cmd;
 				if (Prefetch) cmd = $"dotnet \"{dll}\" \"{options.ConnectionString}\" {indent}";
