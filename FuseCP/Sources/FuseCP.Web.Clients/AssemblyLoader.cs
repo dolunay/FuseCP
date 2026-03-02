@@ -84,7 +84,7 @@ namespace FuseCP.Web.Clients
             // Convert plain text into a byte array.
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-            HashAlgorithm hash = new SHA1Managed();
+            HashAlgorithm hash = SHA1.Create();
 
             // Compute hash value of our plain text with appended salt.
             byte[] hashBytes = hash.ComputeHash(plainTextBytes);
@@ -285,7 +285,8 @@ namespace FuseCP.Web.Clients
         {
             if (a.IsDynamic) return;
 
-            var file = new Uri(a.CodeBase).LocalPath;
+            var file = a.Location;
+            if (string.IsNullOrEmpty(file)) return;
             string originalFile = null;
             if (!OriginalFiles.TryGetValue(file, out originalFile)) originalFile = file;
 
@@ -308,7 +309,7 @@ namespace FuseCP.Web.Clients
             {
                 if (exepath != null) return exepath;
 
-                var path = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
   
                 var dir = Path.GetFileName(path);
                 while (Regex.IsMatch(dir, @"^((net[0-9][.0-9]*)|Debug|Release|bin|bin_dotnet)$"))

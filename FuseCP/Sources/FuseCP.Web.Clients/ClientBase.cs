@@ -376,7 +376,11 @@ namespace FuseCP.Web.Clients
 
 		Binding GetNamedPipeBinding(bool secure)
 		{
+#if NETFRAMEWORK
             if (!OSInfo.IsWindows) throw new PlatformNotSupportedException("net.pipe binding only supported on Windows.");
+#else
+            if (!OperatingSystem.IsWindows()) throw new PlatformNotSupportedException("net.pipe binding only supported on Windows.");
+#endif
             NetNamedPipeBinding pipe;
 			if (secure) pipe = new NetNamedPipeBinding(NetNamedPipeSecurityMode.Transport);
 			else pipe = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);

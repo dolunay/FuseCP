@@ -38,8 +38,10 @@ namespace FuseCP.Web.Clients
 
 		public static void Init()
 		{
+		#if NETFRAMEWORK
 			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
 			ServicePointManager.ServerCertificateValidationCallback += ValidateRemoteCertificate;
+		#endif
 		} 
 	}
 }
