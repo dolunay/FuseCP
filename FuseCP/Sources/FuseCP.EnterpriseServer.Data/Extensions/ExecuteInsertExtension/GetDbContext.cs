@@ -143,6 +143,7 @@ public static partial class EstrellasDeEsperanzaEntityFrameworkExtensions
 	internal static DbContext GetDbContext<T>(this IQueryable<T> source)
 	{
 #if NETCOREAPP
+#pragma warning disable EF1001
             var compilerField = typeof(EntityQueryProvider).GetField("_queryCompiler", BindingFlags.NonPublic | BindingFlags.Instance);
             var compiler = (QueryCompiler)compilerField.GetValue(source.Provider);
 
@@ -168,6 +169,7 @@ public static partial class EstrellasDeEsperanzaEntityFrameworkExtensions
             }
 
             return stateManager.Context;
+#pragma warning restore EF1001
 #else
 		return source.GetObjectQuery().Context.GetDbContext();
 #endif
