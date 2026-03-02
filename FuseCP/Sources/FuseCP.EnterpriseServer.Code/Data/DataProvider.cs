@@ -9747,6 +9747,7 @@ namespace FuseCP.EnterpriseServer
 			if (quota?.QuotaTypeId != 2) return 0;
 
 			int result = 0;
+			bool isCore = IsCore;
 
 			switch (quotaId)
 			{
@@ -9797,7 +9798,7 @@ namespace FuseCP.EnterpriseServer
 							p.Property.PropertyValue
 						})
 						.Where(p => p.PropertyName == "RamSize" && p.ParentPackageId == packageId);
-					if (IsCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
+					if (isCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
 					else result = ps
 							.Select(p => p.PropertyValue)
 							.Cast<int?>()
@@ -9820,7 +9821,7 @@ namespace FuseCP.EnterpriseServer
 							p.Property.PropertyValue
 						})
 						.Where(p => p.PropertyName == "CpuCores" && p.ParentPackageId == packageId);
-					if (IsCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
+					if (isCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
 					else result = ps
 							.Select(p => p.PropertyValue)
 							.Cast<int?>()
@@ -9880,7 +9881,7 @@ namespace FuseCP.EnterpriseServer
 							p.Property.PropertyValue
 						})
 						.Where(p => p.PropertyName == "RamSize" && p.ParentPackageId == packageId);
-					if (IsCore) fixedMem = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
+					if (isCore) fixedMem = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
 					else fixedMem = ps
 							.Select(p => p.PropertyValue)
 							.Cast<int?>()
@@ -9901,7 +9902,7 @@ namespace FuseCP.EnterpriseServer
 							p.Property.PropertyValue
 						})
 						.Where(p => p.PropertyName == "DynamicMemory.Maximum" && p.ParentPackageId == packageId);
-					if (IsCore) dynamicMem = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
+					if (isCore) dynamicMem = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
 					else dynamicMem = ps
 							.Select(p => p.PropertyValue)
 							.Cast<int?>()
@@ -9960,7 +9961,7 @@ namespace FuseCP.EnterpriseServer
 							p.Property.PropertyValue
 						})
 						.Where(p => p.PropertyName == "Memory" && p.ParentPackageId == packageId);
-					if (IsCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
+					if (isCore) result = ps.Sum(p => (int?)Convert.ToInt32(p.PropertyValue)) ?? 0;
 					else result = ps
 							.Select(p => p.PropertyValue)
 							.Cast<int?>()
