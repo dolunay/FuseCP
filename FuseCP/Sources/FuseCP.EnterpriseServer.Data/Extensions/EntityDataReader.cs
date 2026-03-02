@@ -142,7 +142,7 @@ namespace FuseCP.EnterpriseServer.Data
 					}
 				}
 				return val;
-			} catch (Exception ex)
+			} catch (Exception)
 			{
 				throw;
 			}

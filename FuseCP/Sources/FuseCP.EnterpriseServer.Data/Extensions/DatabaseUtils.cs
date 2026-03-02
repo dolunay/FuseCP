@@ -1509,7 +1509,7 @@ SELECT DatabaseVersion FROM Version");
 					})
 					.Max() ?? default;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return default;
 			}

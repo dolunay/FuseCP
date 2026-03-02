@@ -233,7 +233,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 					writer.Append(" }");
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 			}
 			return writer;
