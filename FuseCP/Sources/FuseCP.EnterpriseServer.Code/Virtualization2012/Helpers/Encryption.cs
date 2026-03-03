@@ -30,13 +30,10 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
         {
             var sToEncrypt = prm_text_to_encrypt;
 
-            var rj = new RijndaelManaged()
-            {
-                Padding = PaddingMode.PKCS7,
-                Mode = CipherMode.CBC,
-                KeySize = 256,
-                BlockSize = 256,
-            };
+            using var rj = Aes.Create();
+            rj.Padding = PaddingMode.PKCS7;
+            rj.Mode = CipherMode.CBC;
+            rj.KeySize = 256;
 
             var key = Convert.FromBase64String(prm_key);
             var IV = Convert.FromBase64String(prm_iv);
@@ -64,13 +61,10 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
 
             var sEncryptedString = prm_text_to_decrypt;
 
-            var rj = new RijndaelManaged()
-            {
-                Padding = PaddingMode.PKCS7,
-                Mode = CipherMode.CBC,
-                KeySize = 256,
-                BlockSize = 256,
-            };
+            using var rj = Aes.Create();
+            rj.Padding = PaddingMode.PKCS7;
+            rj.Mode = CipherMode.CBC;
+            rj.KeySize = 256;
 
             var key = Convert.FromBase64String(prm_key);
             var IV = Convert.FromBase64String(prm_iv);
@@ -98,13 +92,10 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
 
         public static void GenerateIV(out string IV)
         {
-            var rj = new RijndaelManaged()
-            {
-                Padding = PaddingMode.PKCS7,
-                Mode = CipherMode.CBC,
-                KeySize = 256,
-                BlockSize = 256,
-            };
+            using var rj = Aes.Create();
+            rj.Padding = PaddingMode.PKCS7;
+            rj.Mode = CipherMode.CBC;
+            rj.KeySize = 256;
             //rj.GenerateKey();
             rj.GenerateIV();
 
