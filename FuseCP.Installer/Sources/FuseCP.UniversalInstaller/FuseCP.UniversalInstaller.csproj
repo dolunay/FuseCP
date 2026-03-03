@@ -69,6 +69,7 @@
 
     <PropertyGroup Condition="$(TargetFramework) == 'net10.0'">
         <NoWarn>$(NoWarn);MSB3277;NU1702</NoWarn>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net10.0'">
