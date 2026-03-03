@@ -28,9 +28,7 @@
 		<Reference Include="Microsoft.VisualBasic" />
 		<Reference Include="System" />
 		<Reference Include="System.Collections" />
-		<Reference Include="System.Collections.Generic" />
 		<Reference Include="System.Data" />
-		<Reference Include="System.Diagnostics" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.vb" Link="VersionInfo.vb" />
