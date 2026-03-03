@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<RootNamespace>FuseCP.Providers.Mail</RootNamespace>
 		<TargetFramework>net48</TargetFramework>
-		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+		<CodeAnalysisRuleSet>..\AllRules.ruleset</CodeAnalysisRuleSet>
 		<OutputPath>..\FuseCP.Server\bin\Providers\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
