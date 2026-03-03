@@ -4839,7 +4839,7 @@ namespace FuseCP.Providers.HostedSolution
 
 				object rights = GetPSObjectProperty(obj, "AccessRights");
 				int count = (int)GetObjectPropertyValue(rights, "Count");
-				for (int i = 0; i < count; i++)
+				if (count > 0)
 				{
 					account = GetExchangeAccount(runSpace, userId);
 					if (account == null)
@@ -4848,10 +4848,9 @@ namespace FuseCP.Providers.HostedSolution
 						account.AccountName = userId;
 						account.DisplayName = userId;
 					}
-					string permission = ObjToString(GetObjectIndexerValue(rights, i));
+					string permission = ObjToString(GetObjectIndexerValue(rights, 0));
 					account.PublicFolderPermission = permission;
 					list.Add(account);
-					break;
 				}
 			}
 			ExchangeLog.LogEnd("GetPublicFolderAccounts");
