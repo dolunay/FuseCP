@@ -23,7 +23,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using FuseCP.Providers.DomainLookup;
 using FuseCP.EnterpriseServer.Data;
-using Whois.NET;
 
 namespace FuseCP.EnterpriseServer
 {
