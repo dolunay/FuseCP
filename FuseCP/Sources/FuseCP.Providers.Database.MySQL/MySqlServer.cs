@@ -36,7 +36,7 @@ namespace FuseCP.Providers.Database
 	public class MySqlServer : HostingServiceProviderBase, IDatabaseServer
 	{
 		#region Properties
-		public const bool UseMySqlConnector = false;
+		public static readonly bool UseMySqlConnector = false;
 		protected string BackupTempFolder
 		{
 			get { return Path.GetTempPath(); }
