@@ -52,8 +52,6 @@ namespace FuseCP.Portal.UserControls
             set { ViewState["IsDmz"] = value; }
         }
 
-        private PackageVLANsPaged packageVLANs;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             bool isUserSelected = PanelSecurity.SelectedUser.Role == FuseCP.EnterpriseServer.UserRole.User;

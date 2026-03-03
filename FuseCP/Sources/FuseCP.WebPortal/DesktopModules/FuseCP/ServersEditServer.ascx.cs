@@ -27,13 +27,10 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using System.Threading;
 using System.Threading.Tasks;
 
-using FuseCP.EnterpriseServer;
 using FuseCP.Providers.OS;
-using System.Linq;
 
 namespace FuseCP.Portal
 {
@@ -54,7 +51,7 @@ namespace FuseCP.Portal
 				}
 				return await serverInfo;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				throw;
 
@@ -146,7 +143,7 @@ namespace FuseCP.Portal
 				pnPlatformPanel.Visible = pnTerminalPanel.Visible = pnWindowsServices.Visible = serverInfo.OSPlatform == OSPlatform.Windows;
 				pnUnixServices.Visible = serverInfo.OSPlatform != OSPlatform.Windows;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				throw;
 			}
@@ -207,7 +204,7 @@ namespace FuseCP.Portal
 				ramGauge.Total = (int)memory.TotalVisibleSizeKB / 1024;
 				ramGauge.Progress = (int)((memory.TotalVisibleSizeKB / 1024) - (memory.FreePhysicalKB / 1024));
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				freeMemory.Text = "N/A";
 				totalMemory.Text = "N/A";

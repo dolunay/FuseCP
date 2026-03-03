@@ -22,12 +22,18 @@ using System.ServiceProcess;
 using System.Management;
 using System.Timers;
 using System.Text;
+#if NET8_0_OR_GREATER
+using System.Runtime.Versioning;
+#endif
 
 using Microsoft.Win32;
 
 
 namespace FuseCP.VmConfig
 {
+#if NET8_0_OR_GREATER
+	[SupportedOSPlatform("windows")]
+#endif
 	public partial class VmConfigService : ServiceBase
 	{
 		internal const string RegistryInputKey = "SOFTWARE\\Microsoft\\Virtual Machine\\External";
