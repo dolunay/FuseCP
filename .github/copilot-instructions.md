@@ -50,3 +50,4 @@ These instructions guide AI coding assistants working in this repository.
 * Keep PR scope cohesive.
 * Include a concise summary, risk notes, and verification steps.
 * If AI materially assisted implementation, disclose usage in the PR body.
+* For GitHub Actions artifact uploads, sanitize any dynamic artifact names (for example from commit/PR text) so invalid filesystem characters are removed/replaced before `actions/upload-artifact` runs (`"`, `:`, `<`, `>`, `|`, `*`, `?`, `\\`, `/`, CR, LF).

@@ -54,6 +54,7 @@ AI-generated changes must meet the same quality standard as human-authored code:
 * When prerequisite checks fail, report each missing dependency explicitly (for example: SQLExpress instance, WSL distro, WiX MSBuild targets) and provide the concrete install/enable command used for local remediation
 * For local integration tooling that starts background services (IIS websites, SQLExpress, WSL), prefer documented start/stop scripts so contributors can reduce idle system usage
 * For first-time environment setup guidance, prefer the bootstrap installer workflow (`FuseCP/Tools/bootstrap-test-environment.ps1`) with explicit flags needed for the contributor scenario (integration, packaging, legacy installer)
+* For GitHub Actions artifact publishing, never use raw commit/PR text directly as `actions/upload-artifact` name; sanitize dynamic names to remove/replace invalid characters (`"`, `:`, `<`, `>`, `|`, `*`, `?`, `\r`, `\n`, `\\`, `/`) before upload
 
 ## 5. Legal and Licensing
 
