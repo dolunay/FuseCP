@@ -37,6 +37,7 @@
         <AssemblyName>FuseCP.EnterpriseServer.Data.NetCore</AssemblyName>
         <OutputType>Exe</OutputType>
         <StartupObject>FuseCP.EnterpriseServer.Data.Program</StartupObject>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <AssemblyName>FuseCP.EnterpriseServer.Data.NetStandard</AssemblyName>
@@ -120,7 +121,6 @@
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
         <PackageReference Include="MySql.Data" Version="9.4.0" />
         <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-        <ProjectReference Include="..\FuseCP.Web.Services\FuseCP.Web.Services.csproj" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
