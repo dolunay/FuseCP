@@ -142,6 +142,7 @@
 		<Exec Command="dotnet restore $(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" />
+		<Exec Command="&quot;$(TrunkFolder)\Sources\.nuget\NuGet.exe&quot; restore &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; -PackagesDirectory &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages&quot;" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" />
