@@ -22,6 +22,7 @@
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
         <OutputPath>..\FuseCP.EnterpriseServer\bin_dotnet</OutputPath>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -96,9 +97,9 @@
     </ItemGroup>
 
     <!-- hack for SkiaSharp, so the native dlls go in the right place -->
-    <Import Project="$(PkgSkiaSharp_NativeAssets_Linux)\buildTransitive\net462\SkiaSharp.NativeAssets.Linux.targets" Condition="'$(TargetFramework)' != ''" />
-    <Import Project="$(PkgSkiaSharp_NativeAssets_macOS)\buildTransitive\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="'$(TargetFramework)' != ''" />
-    <Import Project="$(PkgSkiaSharp_NativeAssets_Win32)\buildTransitive\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="'$(TargetFramework)' != ''" />
+    <Import Project="$(PkgSkiaSharp_NativeAssets_Linux)\buildTransitive\net462\SkiaSharp.NativeAssets.Linux.targets" Condition="'$(TargetFramework)' != '' and '$(PkgSkiaSharp_NativeAssets_Linux)' != '' and Exists('$(PkgSkiaSharp_NativeAssets_Linux)\buildTransitive\net462\SkiaSharp.NativeAssets.Linux.targets')" />
+    <Import Project="$(PkgSkiaSharp_NativeAssets_macOS)\buildTransitive\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="'$(TargetFramework)' != '' and '$(PkgSkiaSharp_NativeAssets_macOS)' != '' and Exists('$(PkgSkiaSharp_NativeAssets_macOS)\buildTransitive\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+    <Import Project="$(PkgSkiaSharp_NativeAssets_Win32)\buildTransitive\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="'$(TargetFramework)' != '' and '$(PkgSkiaSharp_NativeAssets_Win32)' != '' and Exists('$(PkgSkiaSharp_NativeAssets_Win32)\buildTransitive\net462\SkiaSharp.NativeAssets.Win32.targets')" />
 
     <ItemGroup>
         <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
