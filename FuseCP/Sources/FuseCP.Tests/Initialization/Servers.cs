@@ -125,7 +125,7 @@ public class Servers
 					init.Invoke(null, new object[0]);
 				}
 			}
-			catch (Exception ex) { }
+			catch (Exception) { }
 
 		try
 		{
@@ -137,7 +137,7 @@ public class Servers
 				init.Invoke(null, new object[0]);
 			}
 		}
-		catch (Exception ex) { }
+		catch (Exception) { }
 	}
 	public static WSLShell.WSLDistro WslDistro(Os os)
 	{
@@ -271,7 +271,6 @@ public class Servers
 			const int ComponentN = 5;
 			const int FrameworkN = 2;
 			const int OsN = 5;
-			const int SchemeN = 2;
 
 			int index, port;
 			if (type.Framework == Framework.NetFramework && type.Os != Os.Windows) throw new NotSupportedException(".NET Framework only supported on Windows.");

@@ -39,7 +39,7 @@ namespace FuseCP.Portal
     public partial class SettingsLyncUserPlansPolicy : FuseCPControlBase, IUserSettingsEditorControl
     {
 
-        internal static List<LyncUserPlan> list; // compiler indicates is never used, but it is
+        internal static List<LyncUserPlan> list;
 
         protected void ddArchivingPolicyUpdate()
         {
@@ -116,9 +116,10 @@ namespace FuseCP.Portal
 
             if ((orgs != null) & (orgs.GetLength(0) > 0))
             {
-                LyncUserPlan[] list = ES.Services.Lync.GetLyncUserPlans(orgs[0].Id);
+                LyncUserPlan[] plans = ES.Services.Lync.GetLyncUserPlans(orgs[0].Id);
+                list = plans != null ? new List<LyncUserPlan>(plans) : null;
 
-                gvPlans.DataSource = list;
+                gvPlans.DataSource = plans;
                 gvPlans.DataBind();
             }
 

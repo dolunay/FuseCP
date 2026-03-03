@@ -116,9 +116,10 @@ namespace FuseCP.Portal
 
             if ((orgs != null) & (orgs.GetLength(0) > 0))
             {
-                SfBUserPlan[] list = ES.Services.SfB.GetSfBUserPlans(orgs[0].Id);
+                SfBUserPlan[] plans = ES.Services.SfB.GetSfBUserPlans(orgs[0].Id);
+                list = plans != null ? new List<SfBUserPlan>(plans) : null;
 
-                gvPlans.DataSource = list;
+                gvPlans.DataSource = plans;
                 gvPlans.DataBind();
             }
 
