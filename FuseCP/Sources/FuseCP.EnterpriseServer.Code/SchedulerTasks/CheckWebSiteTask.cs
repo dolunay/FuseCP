@@ -19,6 +19,9 @@ using System.Net;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+#if NET5_0_OR_GREATER
+using System.Net.Http;
+#endif
 
 namespace FuseCP.EnterpriseServer
 {
@@ -156,11 +159,29 @@ namespace FuseCP.EnterpriseServer
         private WebSiteResponse GetWebDocument(string url, string username, string password)
         {
             WebSiteResponse result = new WebSiteResponse();
+#if !NET5_0_OR_GREATER
             HttpWebResponse resp = null;
             StringBuilder sb = new StringBuilder();
             Stream respStream = null;
+#endif
             try
             {
+#if NET5_0_OR_GREATER
+                using (var handler = new HttpClientHandler())
+                {
+                    if (!String.IsNullOrEmpty(username))
+                    {
+                        handler.Credentials = new NetworkCredential(username, password);
+                    }
+
+                    using (var client = new HttpClient(handler))
+                    {
+                        var response = client.GetAsync(url).GetAwaiter().GetResult();
+                        result.Status = (int)response.StatusCode;
+                        result.Text = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                    }
+                }
+#else
                 // Enable TLS1.2 support if its https
                 if (url.StartsWith("https://"))
                 {
@@ -195,6 +216,7 @@ namespace FuseCP.EnterpriseServer
 
                 result.Status = (int)resp.StatusCode;
                 result.Text = sb.ToString();
+#endif
             }
             catch (ThreadAbortException)
             {
@@ -213,6 +235,7 @@ namespace FuseCP.EnterpriseServer
             }
             finally
             {
+#if !NET5_0_OR_GREATER
                 if (respStream != null)
                 {
                     respStream.Close();
@@ -222,6 +245,7 @@ namespace FuseCP.EnterpriseServer
                 {
                     resp.Close();
                 }
+#endif
 
             }
 

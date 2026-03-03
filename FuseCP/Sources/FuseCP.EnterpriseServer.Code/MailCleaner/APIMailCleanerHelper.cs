@@ -17,6 +17,9 @@ using System;
 using System.Collections.Specialized;
 using System.IO;
 using System.Net;
+#if NET5_0_OR_GREATER
+using System.Net.Http;
+#endif
 using System.Xml;
 using FuseCP.Providers.Filters;
 
@@ -124,47 +127,49 @@ namespace FuseCP.EnterpriseServer
             if (String.IsNullOrEmpty(l_URL))
                 return;
 
-            // Set to use TLS1.2
+            string lstXMLResult;
+#if NET5_0_OR_GREATER
+            var ignoreSsl = Utils.ParseBool(settings[MailCleanerContants.IgnoreCheckSSL], true);
+            using (var handler = new HttpClientHandler())
+            {
+                handler.UseDefaultCredentials = true;
+                if (ignoreSsl)
+                {
+                    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+                }
+
+                using (var client = new HttpClient(handler))
+                {
+                    lstXMLResult = client.GetStringAsync(l_URL + f_stParam).GetAwaiter().GetResult();
+                }
+            }
+#else
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            //"https://10.2.150.107/api/"
-            // Create a request for the URL. 
             HttpWebRequest request = HttpWebRequest.CreateHttp(l_URL + f_stParam);
-            // If required by the server, set the credentials.
             request.Credentials = CredentialCache.DefaultCredentials;
-            if (Utils.ParseBool(settings[MailCleanerContants.IgnoreCheckSSL], true)) {
+            if (Utils.ParseBool(settings[MailCleanerContants.IgnoreCheckSSL], true))
+            {
                 request.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
             }
-            // Get the response.
-            WebResponse response = request.GetResponse();
-            // Display the status.
-            //Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            // Get the stream containing content returned by the server.
-            Stream dataStream = response.GetResponseStream();
-            // Open the stream using a StreamReader for easy access.
-            StreamReader reader = new StreamReader(dataStream);
-
-            // Display the content.
-            //Console.WriteLine(responseFromServer);
-            if (response != null)
+            using (WebResponse response = request.GetResponse())
+            using (Stream dataStream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(dataStream))
             {
-                XmlDocument xmlResult = new XmlDocument();
-                // Read the content.
-                String lstXMLResult = reader.ReadToEnd();
-                xmlResult.LoadXml(lstXMLResult);
-                String lstMessage = String.Empty;
-                foreach (XmlNode lxmNode in xmlResult.ChildNodes)
-                {
-                    if (lxmNode.Name == "response")
-                    {
-                        if (lxmNode.FirstChild.Name == "message")
-                            lstMessage = lxmNode.FirstChild.InnerText;
-                    }
-                }
-                // MessageBox.Show(lstMessage);
+                lstXMLResult = reader.ReadToEnd();
             }
-            // Clean up the streams and the response.
-            reader.Close();
-            response.Close();
+#endif
+
+            XmlDocument xmlResult = new XmlDocument();
+            xmlResult.LoadXml(lstXMLResult);
+            String lstMessage = String.Empty;
+            foreach (XmlNode lxmNode in xmlResult.ChildNodes)
+            {
+                if (lxmNode.Name == "response")
+                {
+                    if (lxmNode.FirstChild.Name == "message")
+                        lstMessage = lxmNode.FirstChild.InnerText;
+                }
+            }
 
 
         }

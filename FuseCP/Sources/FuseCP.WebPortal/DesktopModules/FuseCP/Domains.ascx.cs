@@ -24,6 +24,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Linq;
+#if NET5_0_OR_GREATER
+using System.Net.Http;
+#endif
 
 using FuseCP.EnterpriseServer;
 using System.Collections.Generic;
@@ -266,6 +269,17 @@ namespace FuseCP.Portal
             string result = string.Empty;
             try
             {
+                #if NET5_0_OR_GREATER
+                using (var handler = new HttpClientHandler())
+                {
+                    handler.Credentials = new System.Net.NetworkCredential(SEUser, SEPassword);
+                    using (var client = new HttpClient(handler))
+                    {
+                        string uri = SEUrl + "api/authticket/create/username/" + domain;
+                        result = client.GetStringAsync(uri).GetAwaiter().GetResult();
+                    }
+                }
+                #else
                 System.Net.WebClient Client = new System.Net.WebClient();
                 Client.Credentials = new System.Net.NetworkCredential(SEUser, SEPassword);
                 string uri = SEUrl + "api/authticket/create/username/" + domain;
@@ -274,6 +288,7 @@ namespace FuseCP.Portal
                     System.IO.StreamReader sr = new System.IO.StreamReader(strm);
                     result = sr.ReadToEnd();
                 }
+                #endif
             }
             catch
             {

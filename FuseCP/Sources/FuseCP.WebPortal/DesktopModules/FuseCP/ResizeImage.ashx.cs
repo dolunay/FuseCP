@@ -20,9 +20,11 @@ using System.Web;
 using System.Web.Services;
 using System.Text;
 using System.Diagnostics;
+using System.IO;
 using System.Drawing.Imaging;
 #if NET5_0_OR_GREATER
 using System.Runtime.Versioning;
+using System.Net.Http;
 #endif
 
 namespace FuseCP.Portal
@@ -69,10 +71,21 @@ namespace FuseCP.Portal
 
 				try
 				{
+#if NET5_0_OR_GREATER
+                    using (var client = new HttpClient())
+                    {
+                        var imageBytes = client.GetByteArrayAsync(imageUrl).GetAwaiter().GetResult();
+                        using (var imageStream = new MemoryStream(imageBytes))
+                        {
+                            img = new Bitmap(imageStream);
+                        }
+                    }
+#else
 					WebRequest request = WebRequest.Create(imageUrl);
 					WebResponse response = request.GetResponse();
 					// Load image stream from the response
-					img = new Bitmap(response.GetResponseStream());
+                    img = new Bitmap(response.GetResponseStream());
+#endif
 				}
 				catch (Exception ex)
 				{

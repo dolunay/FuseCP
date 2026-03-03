@@ -315,8 +315,10 @@ namespace FuseCP.Portal
             StringBuilder sb = new StringBuilder();
 
             byte[] randomBytes = new byte[4];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(randomBytes);
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomBytes);
+            }
 
             // Convert 4 bytes into a 32-bit integer value.
             int seed = (randomBytes[0] & 0x7f) << 24 |
