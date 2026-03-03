@@ -50,7 +50,7 @@ namespace FuseCP.Tests
 				var reader = new StreamReader(fs);
 				var text = reader.ReadToEnd();
 				TestContext.WriteLine(text);
-				Assert.IsFalse(text.Contains("settingsHash"));
+				Assert.DoesNotContain(text, "settingsHash");
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace FuseCP.Tests
 			var setting = new SystemSettings();
 			setting.SettingsArray = new string[][] { new string[] { "test", "a" }, new string[] { "test2", "m"} };
 			TestSerializeType<SystemSettings>(new SystemSettings());
-			Assert.IsTrue(true);
+			Assert.IsNotNull(setting);
 		}
 
         [TestMethod]

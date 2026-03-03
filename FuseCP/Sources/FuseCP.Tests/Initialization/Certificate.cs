@@ -101,7 +101,9 @@ namespace FuseCP.Tests
 		public static void TrustAll()
 		{
 			// Always trust certificates
+			#if !NET5_0_OR_GREATER
 			ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+			#endif
 			Web.Clients.ClientBase.TrustAllCertificates = true;
 			InstallLocalhostIntoMy();
 		}
