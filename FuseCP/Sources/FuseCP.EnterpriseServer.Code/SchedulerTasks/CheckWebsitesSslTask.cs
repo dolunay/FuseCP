@@ -226,7 +226,7 @@ namespace FuseCP.EnterpriseServer
                 {
                     ServerCertificateCustomValidationCallback = (sender, cert, chain, error) =>
                     {
-                        certificate = new X509Certificate2(cert.GetRawCertData());
+                        certificate = cert;
                         return true;
                     }
                 };
