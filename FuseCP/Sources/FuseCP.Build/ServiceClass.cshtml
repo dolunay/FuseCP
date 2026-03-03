@@ -40,11 +40,20 @@ public class @(Class.Identifier): @(OldNamespace).@Class.Identifier, I@(Class.Id
 			var hasOpenApiReturnTypeAttribute = method.AttributeLists.Any(al => al.Attributes.Any(at => at.Name.ToString().EndsWith("OpenApiResponse")));
 
 
-			@if (WebServices.EmitOpenApiTypes)
+			@if (WebServices.EmitOpenApiTypes && !hasSwaggerReturnTypeAttribute)
 			{
 				<text>
-					#if NETFRAMEWORK@(hasSwaggerReturnTypeAttribute ? "" : $"\n[SwaggerWcfReturnType(typeof({method.ReturnType}))]")
-					#else@(hasOpenApiReturnTypeAttribute ? "" : $"\n[OpenApiResponse(Type=typeof({method.ReturnType}), StatusCode = System.Net.HttpStatusCode.OK)]")
+					#if NETFRAMEWORK
+					[SwaggerWcfReturnType(typeof(@(method.ReturnType)))]
+					#endif
+				</text>
+			}
+
+			@if (WebServices.EmitOpenApiTypes && !hasOpenApiReturnTypeAttribute)
+			{
+				<text>
+					#if !NETFRAMEWORK
+					[OpenApiResponse(Type=typeof(@(method.ReturnType)), StatusCode = System.Net.HttpStatusCode.OK)]
 					#endif
 				</text>
 			}
