@@ -110,20 +110,6 @@ namespace FuseCP.Portal.RDS.UserControls
 		{
             //TODO supply correct value for parameter rdsControllerServiceID.
             throw new NotImplementedException("This feture has to be corrected.");
-			RdsServer[] servers = ES.Services.RDS.GetOrganizationFreeRdsServersPaged(PanelRequest.ItemID, "FqdName", txtSearchValue.Text, null, 0, 1000, "").Servers;
-
-            servers = servers.Where(x => !GetServers().Select(p => p.Id).Contains(x.Id)).ToArray();
-            Array.Sort(servers, CompareAccount);
-            if (Direction == SortDirection.Ascending)
-            {
-                Array.Reverse(servers);
-                Direction = SortDirection.Descending;
-            }
-            else
-                Direction = SortDirection.Ascending;
-
-            gvPopupServers.DataSource = servers;
-            gvPopupServers.DataBind();
 		}
 
         protected void BindServers(RdsServer[] newServers, bool preserveExisting)
@@ -219,27 +205,6 @@ namespace FuseCP.Portal.RDS.UserControls
         {
             //TODO supply correct value for parameter rdsControllerServiceID.
             throw new NotImplementedException("This feture has to be corrected.");
-			RdsServer[] servers = ES.Services.RDS.GetOrganizationRdsServersPaged(PanelRequest.ItemID, PanelRequest.CollectionID, "FqdName", txtSearchValue.Text, null, 0, 1000, "").Servers;
-
-            foreach(var rdsServer in servers)
-            {
-                rdsServer.Status = ES.Services.RDS.GetRdsServerStatus(PanelRequest.ItemID, rdsServer.FqdName);
-            }
-
-            Array.Sort(servers, CompareAccount);
-
-            if (Direction == SortDirection.Ascending)
-            {
-                Array.Reverse(servers);
-                Direction = SortDirection.Descending;
-            }
-            else
-            {
-                Direction = SortDirection.Ascending;
-            }
-
-            gvServers.DataSource = servers;
-            gvServers.DataBind();
         }
 
 		protected void cmdSearch_Click(object sender, EventArgs e)

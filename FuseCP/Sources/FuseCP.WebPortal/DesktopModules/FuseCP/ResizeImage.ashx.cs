@@ -21,12 +21,18 @@ using System.Web.Services;
 using System.Text;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+#if NET5_0_OR_GREATER
+using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.Portal
 {
     /// <summary>
     /// Summary description for $codebehindclassname$
     /// </summary>
+#if NET5_0_OR_GREATER
+    [SupportedOSPlatform("windows")]
+#endif
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class ResizeImage : IHttpHandler

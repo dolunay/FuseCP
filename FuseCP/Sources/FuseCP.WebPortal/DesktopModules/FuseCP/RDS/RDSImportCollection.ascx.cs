@@ -40,8 +40,6 @@ namespace FuseCP.Portal.RDS
             {
                 //TODO correct value for parameter rdsControllerServiceID
                 throw new NotImplementedException("This feature has to be corrected in the code.");
-                ES.Services.RDS.ImportCollection(PanelRequest.ItemID, txtCollectionName.Text, "");
-                Response.Redirect(EditUrl("ItemID", PanelRequest.ItemID.ToString(), "rds_collections", "SpaceID=" + PanelSecurity.PackageId));
             }
             catch (Exception ex)
             {

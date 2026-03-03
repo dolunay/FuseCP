@@ -57,9 +57,6 @@ namespace FuseCP.Portal
         {
             //TODO supply correct value for parameter rdsControllerServiceID.
             throw new NotImplementedException("This feture has to be corrected.");
-            rdsServers = ES.Services.RDS.GetOrganizationRdsServersPaged(itemId, null, "S.Name", filterValue, sortColumn, startRowIndex, maximumRows, "");
-
-            return rdsServers.Servers;
         }
 
         public RdsServer[] GetFreeRDSServers(int packageId, string ServiceId)

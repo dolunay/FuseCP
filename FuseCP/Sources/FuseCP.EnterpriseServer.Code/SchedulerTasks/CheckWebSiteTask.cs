@@ -165,7 +165,7 @@ namespace FuseCP.EnterpriseServer
                 if (url.StartsWith("https://"))
                 {
                     TaskManager.Write("Identified as SSL Website");
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls12;
                 }
 
                 WebRequest req = WebRequest.Create(url);

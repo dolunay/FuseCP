@@ -35,7 +35,7 @@ namespace FuseCP.Tests;
 public class EnterpriseServer : IDisposable
 {
 	// Create a temporal clone of the EnterpriseServer website
-	const bool CreateClone = false;
+	static readonly bool CreateClone = false;
 	const string DatabaseName = "FuseCPTest";
 	const DbType dbType = DbType.SqlServer;
 	public const string SysadminPassword = "123456";
