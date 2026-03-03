@@ -68,7 +68,7 @@ public class EnterpriseServer : IDisposable
 	{
 		get
 		{
-			var exepath = IO.Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+			var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 			return esserver;
 		}
@@ -102,7 +102,7 @@ public class EnterpriseServer : IDisposable
 	{
 		DeleteDirectory(IO.Path.GetDirectoryName(path));
 
-		var exepath = IO.Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+		var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 
 		Console.WriteLine($"Cloning {IO.Path.GetFileName(EnterpriseServerPath)} ...");

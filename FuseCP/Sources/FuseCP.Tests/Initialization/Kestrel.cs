@@ -46,7 +46,7 @@ namespace FuseCP.Tests
 			this.WslDistro = wslDistro;
 			instances.Add(this);
 			var apppath = Paths.Path(component);
-			var testdllpath = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+			var testdllpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			var testprojpath = Path.GetFullPath(Path.Combine(testdllpath, "..", "..", ".."));
 			var workingDir = Path.Combine(apppath, "bin_dotnet");
 			var log = Path.GetFullPath(Path.Combine(Paths.Test, "TestResults", $"Kestrel.log"));

@@ -38,7 +38,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
             string[] key;
             string guacaserverurl = null;
 
-            guacadata cookiedata = new guacadata();
+            GuacaData cookiedata = new GuacaData();
 
             StringDictionary settings = ServerController.GetServiceSettings(vm.ServiceId);
 

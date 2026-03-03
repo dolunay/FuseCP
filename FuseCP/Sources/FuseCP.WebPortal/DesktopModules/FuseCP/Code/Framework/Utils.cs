@@ -200,7 +200,23 @@ namespace FuseCP.Portal
         {
             long length = stream.Length;
             byte[] content = new byte[length];
-            stream.Read(content, 0, (int) length);
+            int offset = 0;
+            while (offset < length)
+            {
+                int read = stream.Read(content, offset, (int)(length - offset));
+                if (read == 0)
+                    break;
+
+                offset += read;
+            }
+
+            if (offset != length)
+            {
+                byte[] exact = new byte[offset];
+                Buffer.BlockCopy(content, 0, exact, 0, offset);
+                content = exact;
+            }
+
             stream.Close();
             return content;
         }
