@@ -21,6 +21,7 @@
         <PackageId>FuseCP.EnterpriseServer.Data</PackageId>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <DebugType>embedded</DebugType>
+        <UseRidGraph>true</UseRidGraph>
         <!-- Use EntityFramework 6.4 or 6.5 -->
     </PropertyGroup>
 
@@ -37,7 +38,6 @@
         <AssemblyName>FuseCP.EnterpriseServer.Data.NetCore</AssemblyName>
         <OutputType>Exe</OutputType>
         <StartupObject>FuseCP.EnterpriseServer.Data.Program</StartupObject>
-        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <AssemblyName>FuseCP.EnterpriseServer.Data.NetStandard</AssemblyName>

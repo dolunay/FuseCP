@@ -12,6 +12,7 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
         <RestoreSources>$(RestoreSources);../../../../Lib/WebFormsForCore/nupkg;https://api.nuget.org/v3/index.json</RestoreSources>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugType>portable</DebugType>
@@ -43,8 +44,13 @@
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Mobile" Version="1.4.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Extensions" Version="1.4.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.AjaxControlToolkit" Version="1.4.2" />
-        <PackageReference Include="System.Web.Services.Description" Version="10.0.652802" Aliases="SD" />
+        <PackageReference Include="System.Web.Services.Description" Version="10.0.652802" Aliases="SD" ExcludeAssets="runtime" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' != 'net48'">
+        <AspNetControls Remove="MailAccess.ascx" />
+        <AspNetControls Remove="RDS\RdsLocalAdmins.ascx" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">

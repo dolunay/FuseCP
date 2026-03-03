@@ -7,6 +7,7 @@
         <LangVersion>13</LangVersion>
         <PackageId>FuseCP.UniversalInstaller.Runtime</PackageId>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <PropertyGroup Condition="$(TargetFramework) == 'net48'">
@@ -15,7 +16,6 @@
     <PropertyGroup Condition="$(TargetFramework) == 'net10.0'">
         <AssemblyName>FuseCP.UniversalInstaller.Runtime.NetCore</AssemblyName>
         <NoWarn>$(NoWarn);NU1702</NoWarn>
-        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">
