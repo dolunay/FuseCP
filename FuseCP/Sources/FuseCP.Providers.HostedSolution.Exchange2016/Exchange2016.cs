@@ -3670,12 +3670,9 @@ namespace FuseCP.Providers.HostedSolution
                     }
                     break;
                 }
-                return ret;
             }
-            else
-                return ret;
-
             ExchangeLog.LogEnd("GetOrganizationAccount");
+            return ret;
         }
 
 

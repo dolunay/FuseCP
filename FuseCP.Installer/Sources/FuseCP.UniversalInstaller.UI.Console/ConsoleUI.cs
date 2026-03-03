@@ -1150,8 +1150,6 @@ Configure Certificate Manually:
 				warning = "Certificate not found!";
 				return false;
 			}
-			warning = "Certificate not found!";
-			return false;
 		}
 		public override UI.SetupWizard Finish()
 		{
