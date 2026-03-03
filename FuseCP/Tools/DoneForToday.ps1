@@ -80,3 +80,4 @@ $wslStatus
 
 Set-Content -Path $notesPath -Value $content -Encoding UTF8
 Write-Host "Session note written: $notesPath" -ForegroundColor Green
+Write-Host "Done-for-today completed at $timestamp (note: $notesPath)." -ForegroundColor Green
