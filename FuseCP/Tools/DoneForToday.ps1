@@ -4,7 +4,42 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+function Test-IsAdministrator {
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($identity)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Ensure-ElevatedSession {
+    if (Test-IsAdministrator) {
+        return
+    }
+
+    if ($env:FUSECP_DONE_FOR_TODAY_ELEVATED -eq "1") {
+        return
+    }
+
+    $args = @(
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", $PSCommandPath
+    )
+
+    if ($SkipShutdown) { $args += "-SkipShutdown" }
+
+    Write-Host "Current shell is not elevated. Requesting Administrator permissions for done-for-today tasks..." -ForegroundColor Yellow
+
+    try {
+        $childProcess = Start-Process -FilePath "pwsh" -ArgumentList $args -Verb RunAs -Wait -PassThru -WorkingDirectory (Get-Location) -Environment @{ FUSECP_DONE_FOR_TODAY_ELEVATED = "1" }
+        exit $childProcess.ExitCode
+    }
+    catch {
+        throw "Unable to start elevated shell. Please approve UAC prompt or run an Administrator shell."
+    }
+}
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..")
+Ensure-ElevatedSession
 $notesDir = Join-Path $repoRoot "artifacts\session-notes"
 New-Item -ItemType Directory -Force -Path $notesDir | Out-Null
 

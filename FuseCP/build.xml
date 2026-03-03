@@ -204,7 +204,7 @@
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" Properties="$(CommonBuildProperties)" />
-  		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" />
  	</Target>
 
 	<Target Name="PrepareBuilds" DependsOnTargets="CompileSources">

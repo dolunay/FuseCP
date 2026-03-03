@@ -144,7 +144,7 @@ namespace FuseCP.Portal
             {
                 serverVersion = ES.Services.Servers.GetServerVersion(ItemId);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 serverVersion = "Server unavailable";
             }
@@ -241,7 +241,7 @@ namespace FuseCP.Portal
                 }
 
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 result = "<span class=\"fa fa-exclamation-triangle fa-lg text-danger\"></span>";
             }
@@ -263,7 +263,7 @@ namespace FuseCP.Portal
                     result = "<span class=\"fa fa-stop-circle-o fa-lg text-danger\"></span>";
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 result = "<span class=\"fa fa-exclamation-triangle fa-lg text-danger\"></span>";
             }
@@ -285,7 +285,7 @@ namespace FuseCP.Portal
                 }
                 return result;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 result = "";
             }
@@ -345,7 +345,7 @@ namespace FuseCP.Portal
                 }
                 return result;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 result = "";
             }
@@ -368,7 +368,7 @@ namespace FuseCP.Portal
 
                 return result;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 result = "";
             }

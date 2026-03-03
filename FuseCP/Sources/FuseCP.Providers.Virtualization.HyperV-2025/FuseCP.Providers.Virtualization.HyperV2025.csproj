@@ -61,7 +61,7 @@
             <FilesToDelete Include="$(OutputPath)FuseCP.Providers.HostedSolution.pdb" />
             <FilesToDelete Include="$(OutputPath)Microsoft.Win32.*" />
         </ItemGroup>
-        <Delete Files="@(FilesToDelete)" />
+			<Delete Files="@(FilesToDelete)" ContinueOnError="WarnAndContinue" />
     </Target>
 
 </Project>

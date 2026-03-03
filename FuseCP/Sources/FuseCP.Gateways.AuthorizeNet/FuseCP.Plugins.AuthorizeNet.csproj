@@ -63,6 +63,9 @@
     <Compile Include="..\VersionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="..\LegacyCompat\LegacyEcommerceCompat.cs">
+      <Link>LegacyEcommerceCompat.cs</Link>
+    </Compile>
     <Compile Include="AIMResponse.cs" />
     <Compile Include="AuthorizeNetKeys.cs" />
     <Compile Include="AuthorizeNetProvider.cs" />

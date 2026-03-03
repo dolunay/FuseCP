@@ -77,8 +77,8 @@ namespace FuseCP.Providers.Web.Iis.WebObjects
 					{
 						string cmd = FileUtils.EvaluateSystemVariables(@"%windir%\system32\inetsrv\appcmd.exe");
 						//
-						FileUtils.ExecuteSystemCommand(cmd,
-							String.Format("unlock config -section:{0}", sectionName));
+                        FileUtils.ExecuteSystemCommand(null, null, cmd,
+                            String.Format("unlock config -section:{0}", sectionName));
 					}
 					catch (Exception ex)
 					{

@@ -1,3 +1,37 @@
+function Test-IsAdministrator {
+	$identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+	$principal = New-Object Security.Principal.WindowsPrincipal($identity)
+	return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Ensure-ElevatedSession {
+	if (Test-IsAdministrator) {
+		return
+	}
+
+	if ($env:FUSECP_START_WEBSITE_ELEVATED -eq "1") {
+		return
+	}
+
+	$args = @(
+		"-NoProfile",
+		"-ExecutionPolicy", "Bypass",
+		"-File", $PSCommandPath
+	)
+
+	Write-Host "Current shell is not elevated. Requesting Administrator permissions to manage IIS websites..." -ForegroundColor Yellow
+
+	try {
+		$childProcess = Start-Process -FilePath "pwsh" -ArgumentList $args -Verb RunAs -Wait -PassThru -WorkingDirectory (Get-Location) -Environment @{ FUSECP_START_WEBSITE_ELEVATED = "1" }
+		exit $childProcess.ExitCode
+	}
+	catch {
+		throw "Unable to start elevated shell. Please approve UAC prompt or run an Administrator shell."
+	}
+}
+
+Ensure-ElevatedSession
+
 Write-Host -ForegroundColor Green "
 Ensure that you have created the EnterpriseServer Database
 by executing test-createDB.bat and compiled FuseCP by
@@ -54,7 +88,7 @@ catch {
 	Write-Host $_.Exception.Message -ForegroundColor Red
 }
 
-start http://localhost:9001
+Start-Process "http://localhost:9001"
 
 Read-Host "Press a key"
 

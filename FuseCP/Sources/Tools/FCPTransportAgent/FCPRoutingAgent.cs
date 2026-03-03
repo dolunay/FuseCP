@@ -251,7 +251,7 @@ namespace FCPTransportAgent
                 writer.WriteLine("[" + DateTime.Now.ToString() + "]" + Line);
                 writer.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

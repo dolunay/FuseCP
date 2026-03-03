@@ -110,7 +110,7 @@ namespace FuseCP.Portal
 					}
 				}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ShowWarningMessage("INIT_SERVICE_ITEM_FORM");
                 DisableFormControls(this, btnCancel);

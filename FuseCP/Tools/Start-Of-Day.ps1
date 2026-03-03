@@ -6,6 +6,57 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+function Test-IsAdministrator {
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($identity)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Ensure-ElevatedSession {
+    if (Test-IsAdministrator) {
+        return
+    }
+
+    if ($env:FUSECP_START_OF_DAY_ELEVATED -eq "1") {
+        return
+    }
+
+    $args = @(
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", $PSCommandPath
+    )
+
+    if ($SkipEnvironmentCheck) { $args += "-SkipEnvironmentCheck" }
+    if ($SkipSolutionSyncCheck) { $args += "-SkipSolutionSyncCheck" }
+    if ($StartWebsites) { $args += "-StartWebsites" }
+
+    Write-Host "Current shell is not elevated. Requesting Administrator permissions for start-of-day tasks..." -ForegroundColor Yellow
+
+    try {
+        $childProcess = Start-Process -FilePath "pwsh" -ArgumentList $args -Verb RunAs -Wait -PassThru -WorkingDirectory (Get-Location) -Environment @{ FUSECP_START_OF_DAY_ELEVATED = "1" }
+        exit $childProcess.ExitCode
+    }
+    catch {
+        throw "Unable to start elevated shell. Please approve UAC prompt or run an Administrator shell."
+    }
+}
+
+function Ensure-SqlExpressRunning {
+    $sqlService = Get-Service -Name "MSSQL`$SQLEXPRESS" -ErrorAction SilentlyContinue
+    if ($null -eq $sqlService) {
+        Write-Host "SQLExpress service not found (MSSQL`$SQLEXPRESS)." -ForegroundColor DarkYellow
+        return
+    }
+
+    if ($sqlService.Status -eq "Running") {
+        return
+    }
+
+    Write-Host "Starting SQLExpress service (MSSQL`$SQLEXPRESS)..." -ForegroundColor Cyan
+    Start-Service -Name "MSSQL`$SQLEXPRESS"
+}
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..")
 $checkEnvironmentScript = Join-Path $PSScriptRoot "check-test-environment.ps1"
 $checkSolutionSyncScript = Join-Path $PSScriptRoot "check-sln-scope-sync.ps1"
@@ -24,6 +75,12 @@ if ($StartWebsites -and -not (Test-Path $startWebsiteScript)) {
 }
 
 Set-Location $repoRoot
+
+Ensure-ElevatedSession
+
+if (-not $SkipEnvironmentCheck) {
+    Ensure-SqlExpressRunning
+}
 
 if (-not $SkipEnvironmentCheck) {
     Write-Host "Running environment check (Profile: Full)..." -ForegroundColor Cyan
