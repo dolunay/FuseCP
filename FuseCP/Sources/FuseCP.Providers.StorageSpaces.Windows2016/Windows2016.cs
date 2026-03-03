@@ -321,7 +321,7 @@ namespace FuseCP.Providers.StorageSpaces
         #region PowerShell integration
         private static InitialSessionState session = null;
 
-        protected virtual Runspace OpenRunspace()
+        protected override Runspace OpenRunspace()
         {
             Log.WriteStart("OpenRunspace");
 
@@ -385,13 +385,13 @@ namespace FuseCP.Providers.StorageSpaces
             return ExecuteShellCommand(runSpace, invokeCommand, false, out errors);
         }
 
-        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController)
+        protected new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController)
         {
             object[] errors;
             return ExecuteShellCommand(runSpace, cmd, useDomainController, out errors);
         }
 
-        internal new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, out object[] errors)
+        internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, out object[] errors)
         {
             return ExecuteShellCommand(runSpace, cmd, true, out errors);
         }
@@ -545,7 +545,7 @@ namespace FuseCP.Providers.StorageSpaces
             return messages.ToArray();
         }
 
-        public virtual void DeleteServiceItems(ServiceProviderItem[] items)
+        public override void DeleteServiceItems(ServiceProviderItem[] items)
         {
             foreach (ServiceProviderItem item in items)
             {
