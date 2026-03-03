@@ -5,35 +5,51 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-try {
-    Import-Module WebAdministration -ErrorAction Stop
-
-    $siteNames = @(
-        "FuseCP Portal",
-        "FuseCP Enterprise Server",
-        "FuseCP Server"
-    )
-
-    foreach ($siteName in $siteNames) {
-        $sitePath = "IIS:\Sites\$siteName"
-        if (Test-Path $sitePath) {
-            $siteState = (Get-Website -Name $siteName).State
-            if ($siteState -ne "Stopped") {
-                Stop-Website -Name $siteName
-                Write-Host "Stopped IIS website: $siteName" -ForegroundColor Yellow
-            }
-            else {
-                Write-Host "IIS website already stopped: $siteName" -ForegroundColor DarkYellow
-            }
-        }
-        else {
-            Write-Host "IIS website not found: $siteName" -ForegroundColor DarkYellow
-        }
+function Test-IsAdministrator {
+    try {
+        $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+        $principal = New-Object Security.Principal.WindowsPrincipal($identity)
+        return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    }
+    catch {
+        return $false
     }
 }
-catch {
-    Write-Host "Unable to manage IIS websites. Run as Administrator and ensure IIS + WebAdministration are installed." -ForegroundColor Red
-    Write-Host $_.Exception.Message -ForegroundColor Red
+
+if (-not (Test-IsAdministrator)) {
+    Write-Host "Skipping IIS website stop (not running as Administrator)." -ForegroundColor DarkYellow
+}
+else {
+    try {
+        Import-Module WebAdministration -ErrorAction Stop
+
+        $siteNames = @(
+            "FuseCP Portal",
+            "FuseCP Enterprise Server",
+            "FuseCP Server"
+        )
+
+        foreach ($siteName in $siteNames) {
+            $sitePath = "IIS:\Sites\$siteName"
+            if (Test-Path $sitePath) {
+                $siteState = (Get-Website -Name $siteName).State
+                if ($siteState -ne "Stopped") {
+                    Stop-Website -Name $siteName
+                    Write-Host "Stopped IIS website: $siteName" -ForegroundColor Yellow
+                }
+                else {
+                    Write-Host "IIS website already stopped: $siteName" -ForegroundColor DarkYellow
+                }
+            }
+            else {
+                Write-Host "IIS website not found: $siteName" -ForegroundColor DarkYellow
+            }
+        }
+    }
+    catch {
+        Write-Host "Skipping IIS website stop (WebAdministration unavailable)." -ForegroundColor DarkYellow
+        Write-Host $_.Exception.Message -ForegroundColor DarkYellow
+    }
 }
 
 if ($StopSqlExpress) {

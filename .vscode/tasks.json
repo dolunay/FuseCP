@@ -19,6 +19,11 @@
         "-File",
         "${workspaceFolder}/FuseCP/Tools/Done-For-Today.ps1"
       ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated",
+        "reveal": "always"
+      },
       "problemMatcher": []
     },
     {
