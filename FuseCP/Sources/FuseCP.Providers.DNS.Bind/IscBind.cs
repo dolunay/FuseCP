@@ -115,7 +115,7 @@ namespace FuseCP.Providers.DNS
                 {
                     Directory.CreateDirectory(ZonesFolderPath);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return new string[] { String.Format("Failed to create BIND zones folder: {0}", ZonesFolderPath) };
                 }

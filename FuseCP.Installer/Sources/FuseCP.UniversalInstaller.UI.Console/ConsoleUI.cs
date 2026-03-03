@@ -362,8 +362,6 @@ Install Component to:
 						string userName = settings.ComponentName.Replace(" ", string.Empty);
 						userName = userName.Replace("FuseCP", "FCP");
 
-						var domain = "mydomain.com";
-
 						if (OSInfo.IsWindows && Environment.UserDomainName != Environment.MachineName)
 						{
 
@@ -2132,7 +2130,6 @@ FuseCP cannot be installed on this System.
 	string CancelFile => Path.Combine(Settings.Installer.TempPath, CancelFileName);
 
 	public CancellationTokenSource CancelWaitCursor = new CancellationTokenSource();
-	private bool CursorVisibleAfterWaitCursor;
 	public override void ShowWaitCursor()
 	{
 		if (Settings.Installer.TempPath == null) Settings.Installer.TempPath = FileUtils.GetTempDirectory();
@@ -2150,7 +2147,6 @@ FuseCP cannot be installed on this System.
 		};
 		CancelWaitCursor = new CancellationTokenSource();
 		if (Directory.Exists(dir) && File.Exists(CancelFile)) File.Delete(CancelFile);
-		CursorVisibleAfterWaitCursor = false; // Console.CursorVisible;
 		Console.CursorVisible = false;
 		Task.Run(async () =>
 		{
