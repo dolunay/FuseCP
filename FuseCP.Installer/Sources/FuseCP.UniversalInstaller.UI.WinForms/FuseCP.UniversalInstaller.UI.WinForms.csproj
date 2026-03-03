@@ -17,9 +17,11 @@
 
     <PropertyGroup Condition="$(TargetFramework) == 'net48'">
         <AssemblyName>FuseCP.UniversalInstaller.UI.WinForms.NetFX</AssemblyName>
+        <NoWarn>$(NoWarn);MSB3277</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="$(TargetFramework) == 'net10.0-windows'">
         <AssemblyName>FuseCP.UniversalInstaller.UI.WinForms.NetCore</AssemblyName>
+        <NoWarn>$(NoWarn);MSB3277;NU1702</NoWarn>
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0-windows'">

@@ -21,12 +21,16 @@ using System.DirectoryServices.ActiveDirectory;
 using System.Collections.Generic;
 using System.Management;
 using System.Globalization;
+using System.Runtime.Versioning;
 
 namespace FuseCP.UniversalInstaller.Runtime;
 
 /// <summary>
 /// Security utils class.
 /// </summary>
+#if !NETFRAMEWORK
+[SupportedOSPlatform("windows")]
+#endif
 public class SecurityUtils: UniversalInstaller.SecurityUtils
 {
 	private static WmiHelper wmi = new WmiHelper("root\\cimv2");

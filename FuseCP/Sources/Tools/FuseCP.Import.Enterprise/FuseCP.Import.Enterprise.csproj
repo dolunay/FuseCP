@@ -8,7 +8,7 @@
         <ApplicationIcon>application.ico</ApplicationIcon>
         <StartupObject>FuseCP.Import.Enterprise.Program</StartupObject>
         <PublishUrl>publish\</PublishUrl>
-        <NoWarn>NU1605</NoWarn>
+        <NoWarn>$(NoWarn);NU1605;MSB3277</NoWarn>
         <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>

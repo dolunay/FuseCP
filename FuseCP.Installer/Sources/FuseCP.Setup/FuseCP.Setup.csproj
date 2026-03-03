@@ -21,6 +21,10 @@
         <Optimize>false</Optimize>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);MSB3277;NU1701</NoWarn>
+    </PropertyGroup>
+
     <ItemGroup>
         <Compile Include="..\..\..\FuseCP\Sources\VersionInfo.cs" Link="VersionInfo.cs" />
     </ItemGroup>
