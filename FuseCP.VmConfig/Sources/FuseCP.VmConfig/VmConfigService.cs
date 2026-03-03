@@ -87,7 +87,11 @@ namespace FuseCP.VmConfig
 		{
 			if (this.mainThread.IsAlive)
 			{
+#if NETFRAMEWORK
 				this.mainThread.Abort();
+#else
+				this.mainThread.Interrupt();
+#endif
 			}
 			this.mainThread.Join();
 			ServiceLog.WriteApplicationStop();
