@@ -22,6 +22,9 @@
 		<GZipCmd Condition=" '$(OS)' == 'Unix' ">gzip</GZipCmd>
         <NuGetCmd Condition=" '$(OS)' == 'Windows_NT' ">dotnet</NuGetCmd>
         <NuGetCmd Condition=" '$(OS)' == 'Unix' ">dotnet</NuGetCmd>
+        <WpkgProject Condition="Exists('$(RootFolder)\tools\wpkg\wpkg.csproj')">$(RootFolder)\tools\wpkg\wpkg.csproj</WpkgProject>
+        <WpkgProject Condition="'$(WpkgProject)' == '' and Exists('$(RootFolder)\tools\wpkg\wpkg.sln')">$(RootFolder)\tools\wpkg\wpkg.sln</WpkgProject>
+        <WpkgProject Condition="'$(WpkgProject)' == '' and Exists('$(RootFolder)\tools\wpkg\wpkg.slnx')">$(RootFolder)\tools\wpkg\wpkg.slnx</WpkgProject>
         <WpkgCmd>"$(RootFolder)\tools\wpkg\bin\$(Configuration)\wpkg.exe"</WpkgCmd>
     </PropertyGroup>
 
@@ -31,8 +34,9 @@
 
 
     <Target Name="BuildWpkg">
-	    <Exec Command="$(NuGetCmd) restore $(RootFolder)\tools\wpkg\wpkg.sln" />
-        <MSBuild Projects="$(RootFolder)\tools\wpkg\wpkg.sln" Properties="Configuration=$(Configuration)" />
+	    <Error Condition="'$(WpkgProject)' == ''" Text="Unable to locate wpkg project under $(RootFolder)\tools\wpkg (expected wpkg.csproj, wpkg.sln, or wpkg.slnx)." />
+	    <Exec Command="$(NuGetCmd) restore &quot;$(WpkgProject)&quot;" />
+        <MSBuild Projects="$(WpkgProject)" Properties="Configuration=$(Configuration)" />
     </Target>
     
     <Target Name="BuildUniversalInstaller" Condition=" '$(OS)' == 'Unix' ">
