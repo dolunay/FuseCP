@@ -3,6 +3,15 @@
 set DOTNET_CLI_UI_LANGUAGE=en-US
 set VSLANG=1033
 
+IF not defined SkipIISReset (
+	where iisreset >nul 2>&1
+	IF NOT ERRORLEVEL 1 (
+		echo Running IIS reset to clear potential file locks...
+		iisreset /restart >nul 2>&1
+		IF ERRORLEVEL 1 echo IIS reset skipped or failed; likely requires elevated shell.
+	)
+)
+
 RMDIR /S /Q "Bin"
 IF not defined NoRebuild (
 	FOR /F "tokens=*" %%G IN ('DIR /B /AD /S bin') DO RMDIR /S /Q "%%G"
@@ -10,7 +19,7 @@ IF not defined NoRebuild (
 	FOR /F "tokens=*" %%G IN ('DIR /B /AD /S bin_dotnet') DO RMDIR /S /Q "%%G"
 )
 
-IF not defined MsBuildSwitches ( Set MsBuildSwitches=/v:n /m)
+IF not defined MsBuildSwitches ( Set MsBuildSwitches=/v:n /nr:false)
 IF not defined FuseCPVersion ( Set FuseCPVersion=2.0.0)
 IF not defined FuseCPFileVersion ( Set FuseCPFileVersion=2.0.0)
 IF not defined Configuration ( Set Configuration=Release)
