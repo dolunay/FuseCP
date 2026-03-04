@@ -62,6 +62,11 @@ Contributions must comply with repository licensing and third-party license
 requirements. Do not submit generated code or content if you cannot verify legal
 use or attribution obligations.
 
+Copyright header policy:
+
+* For source/project files that use copyright headers/metadata, enforce exact text format: `Copyright (C) 2026 FuseCP`
+* Keep the year current when annual updates occur, including generator inputs and generated outputs (notably `FuseCP/build.xml`, `FuseCP/Sources/VersionInfo.cs`, `FuseCP/Sources/VersionInfo.vb`, and installer `VersionInfo.cs` files)
+
 ## 6. Disallowed Uses
 
 AI tools must not be used to:

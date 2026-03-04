@@ -9,7 +9,7 @@
 		<WixCATargetsPath Condition=" '$(WixCATargetsPath)' == '' and Exists('$(WixToolsetV311Targets)') ">$(WixToolsetV311Targets)</WixCATargetsPath>
     <AssemblyTitle>FuseCP.SchedulerServiceInstaller</AssemblyTitle>
     <Product>FuseCP.SchedulerServiceInstaller</Product>
-    <Copyright>Copyright �  2013</Copyright>
+		<Copyright>Copyright (C) 2026 FuseCP</Copyright>
     <OutputPath>..\Setup.SchedulerService\bin\$(Configuration)</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Optimize>true</Optimize>

@@ -23,6 +23,7 @@ These instructions guide AI coding assistants working in this repository.
 * Validate null handling, error paths, and permission checks.
 * Keep backward compatibility in shared contracts unless explicitly approved.
 * Update docs when behavior, configuration, or deployment steps change.
+* For files that carry copyright headers/metadata, use exact text `Copyright (C) 2026 FuseCP` and keep generator-driven files in sync (for example `FuseCP/build.xml` and generated `VersionInfo.*` files).
 
 ## Security and Data Handling
 

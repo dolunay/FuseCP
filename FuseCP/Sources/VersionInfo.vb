@@ -11,7 +11,7 @@ Option Strict Off
 Option Explicit On
 
 <Assembly: System.Reflection.AssemblyCompany("FuseCP"),  _
- Assembly: System.Reflection.AssemblyCopyright("Copyright � 2024 FuseCP."),  _
+ Assembly: System.Reflection.AssemblyCopyright("Copyright (C) 2026 FuseCP"),  _
  Assembly: System.Reflection.AssemblyFileVersion("2.0.0"),  _
  Assembly: System.Reflection.AssemblyInformationalVersion("2.0.0"),  _
  Assembly: System.Reflection.AssemblyVersion("2.0.0")> 
