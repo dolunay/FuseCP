@@ -285,7 +285,12 @@ namespace FuseCP.Web.Clients
         {
             if (a.IsDynamic) return;
 
-            var file = new Uri(a.CodeBase).LocalPath;
+            string file;
+#if NETFRAMEWORK
+            file = new Uri(a.CodeBase).LocalPath;
+#else
+            file = a.Location;
+#endif
             string originalFile = null;
             if (!OriginalFiles.TryGetValue(file, out originalFile)) originalFile = file;
 
@@ -308,7 +313,11 @@ namespace FuseCP.Web.Clients
             {
                 if (exepath != null) return exepath;
 
+#if NETFRAMEWORK
                 var path = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+#else
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+#endif
   
                 var dir = Path.GetFileName(path);
                 while (Regex.IsMatch(dir, @"^((net[0-9][.0-9]*)|Debug|Release|bin|bin_dotnet)$"))
