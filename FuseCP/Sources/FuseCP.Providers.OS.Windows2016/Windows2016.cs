@@ -1145,7 +1145,7 @@ namespace FuseCP.Providers.OS
                     .OrderBy(p => p.Name)
                     .ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1162,7 +1162,7 @@ namespace FuseCP.Providers.OS
                         process.Kill();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1204,7 +1204,7 @@ namespace FuseCP.Providers.OS
 
                 return winServices.ToArray();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1238,7 +1238,7 @@ namespace FuseCP.Providers.OS
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1337,7 +1337,7 @@ namespace FuseCP.Providers.OS
                 string result = FileUtils.ExecuteSystemCommand(user, password, path, args);
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1408,7 +1408,7 @@ namespace FuseCP.Providers.OS
                     objOs.InvokeMethod("Reboot", null);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

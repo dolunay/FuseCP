@@ -31,8 +31,6 @@ namespace FuseCP.Portal.ProviderControls
 {
     public partial class IIS60_Settings : FuseCPControlBase, IHostingServiceProviderSettings
     {
-		private string FilteredAppIds;
-
         protected void Page_Load(object sender, EventArgs e)
         {
         }

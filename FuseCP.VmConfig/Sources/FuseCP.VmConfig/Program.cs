@@ -15,6 +15,9 @@
 
 using System;
 using System.ServiceProcess;
+#if NET8_0_OR_GREATER
+using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.VmConfig
 {
@@ -23,6 +26,9 @@ namespace FuseCP.VmConfig
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
+#if NET8_0_OR_GREATER
+		[SupportedOSPlatform("windows")]
+#endif
 		static void Main()
 		{
 			ServiceBase[] ServicesToRun;

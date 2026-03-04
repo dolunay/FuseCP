@@ -62,14 +62,14 @@ class Program
 
 	[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
 	private static extern bool CreateProcessW(
-		string lpApplicationName,
+		string? lpApplicationName,
 		string lpCommandLine,
 		IntPtr lpProcessAttributes,
 		IntPtr lpThreadAttributes,
 		bool bInheritHandles,
 		uint dwCreationFlags,
 		IntPtr lpEnvironment,
-		string lpCurrentDirectory,
+		string? lpCurrentDirectory,
 		[In] ref STARTUPINFO lpStartupInfo,
 		out PROCESS_INFORMATION lpProcessInformation);
 

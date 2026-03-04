@@ -46,7 +46,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\FuseCP\Sources\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
         <ProjectReference Include="..\FuseCP.UniversalInstaller.Core\FuseCP.UniversalInstaller.Core.csproj" />
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj" />
         <!--<ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
             <SetTargetFramework>TargetFramework=net10.0</SetTargetFramework>
         </ProjectReference>-->
@@ -58,6 +57,7 @@
         <ProjectReference Include="..\FuseCP.UniversalInstaller.UI.WinForms\FuseCP.UniversalInstaller.UI.WinForms.csproj">
             <SetTargetFramework>TargetFramework=net48</SetTargetFramework>
         </ProjectReference>
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.4" />
         <PackageReference Include="System.Security.Permissions" Version="10.0.0" />
     </ItemGroup>
     <ItemGroup Condition="$(TargetFramework) == 'net10.0'">
@@ -67,13 +67,16 @@
         <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
     </ItemGroup>
 
+    <PropertyGroup Condition="$(TargetFramework) == 'net10.0'">
+        <NoWarn>$(NoWarn);MSB3277;NU1702</NoWarn>
+        <UseRidGraph>true</UseRidGraph>
+    </PropertyGroup>
+
     <ItemGroup Condition="$(TargetFramework) == 'net10.0'">
         <PackageReference Include="System.Runtime.Serialization.Formatters" Version="10.0.0" />
         <PackageReference Include="System.Management" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
         <PackageReference Include="Mono.Posix" Version="7.1.0-final.1.21458.1" GeneratePathProperty="true" />
         <PackageReference Include="Mono.Unix" Version="7.1.0-final.1.21458.1" GeneratePathProperty="true" />
-        <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
-        <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
         <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
     </ItemGroup>
 

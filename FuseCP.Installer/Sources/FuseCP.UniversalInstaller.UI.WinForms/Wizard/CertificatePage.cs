@@ -169,7 +169,11 @@ namespace FuseCP.UniversalInstaller.WinForms
 			}
 			try
 			{
+				#if NETCOREAPP
+				var cert2 = X509CertificateLoader.LoadPkcs12FromFile(file, txtCertFilePassword.Text);
+				#else
 				var cert2 = new X509Certificate2(file, txtCertFilePassword.Text);
+				#endif
 			} catch
 			{
 				ShowWarning("The entered password is invalid.");

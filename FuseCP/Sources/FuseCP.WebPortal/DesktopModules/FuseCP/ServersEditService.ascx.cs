@@ -420,7 +420,7 @@ namespace FuseCP.Portal
 				return;
 			}
 		}
-		protected void cmdAddCluster_Click(object sender, EventArgs e)
+		protected async void cmdAddCluster_Click(object sender, EventArgs e)
 		{
 			ClusterInfo cluster = new ClusterInfo();
 			cluster.ClusterName = txtClusterName.Text.Trim();
@@ -441,10 +441,10 @@ namespace FuseCP.Portal
 			}
 
 			// rebind
-			BindClusters();
+			await BindClusters();
 			txtClusterName.Text = "";
 		}
-		protected void cmdDeleteCluster_Click(object sender, EventArgs e)
+		protected async void cmdDeleteCluster_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -462,7 +462,7 @@ namespace FuseCP.Portal
 			}
 
 			// rebind
-			BindClusters();
+			await BindClusters();
 		}
 		#endregion
 

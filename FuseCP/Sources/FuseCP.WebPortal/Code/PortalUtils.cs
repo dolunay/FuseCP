@@ -216,7 +216,7 @@ public class PortalUtils
 
 			if (enableLegacySSL)
 			{
-				client.SslProtocols = SslProtocols.Tls11 | SslProtocols.Tls | SslProtocols.Tls12 | SslProtocols.Tls13;
+				client.SslProtocols = SslProtocols.None;
 			}
 			else
 			{
@@ -402,7 +402,7 @@ public class PortalUtils
 		// Convert plain text into a byte array.
 		byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-		HashAlgorithm hash = new SHA1Managed(); ;
+		HashAlgorithm hash = System.Security.Cryptography.SHA1.Create();
 
 		// Compute hash value of our plain text with appended salt.
 		byte[] hashBytes = hash.ComputeHash(plainTextBytes);
@@ -435,9 +435,9 @@ public class PortalUtils
 		{
 			return usersService.UpdateUserMfa(username, activate);
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -516,9 +516,9 @@ public class PortalUtils
 			return authResult;
 
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -633,9 +633,9 @@ public class PortalUtils
 			}
 			return result;
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -654,9 +654,9 @@ public class PortalUtils
 			// update user in FuseCP
 			return usersService.UpdateUserTask(taskId, user);
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -671,9 +671,9 @@ public class PortalUtils
 			// TODO correct value for prameter notes (instead of null).
 			return usersService.AddUser(user, sendLetter, password, null);
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -687,9 +687,9 @@ public class PortalUtils
 			// add user to FuseCP server
 			return usersService.DeleteUser(userId);
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 
@@ -703,9 +703,9 @@ public class PortalUtils
 			// add user to FuseCP server
 			return usersService.ChangeUserStatus(userId, status);
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
-			throw ex;
+			throw;
 		}
 	}
 

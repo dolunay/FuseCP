@@ -130,14 +130,14 @@ namespace FuseCP.EnterpriseServer
                         createdUserId, planId, plan.PlanName, "", (int)PackageStatus.Active, DateTime.Now, false);
                     createdPackageId = packageResult.Result;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // error while adding package
 
                     // remove user account
                     UserController.DeleteUser(createdUserId);
 
-                    throw ex;
+                    throw;
                 }
 
                 if (createdPackageId < 0)

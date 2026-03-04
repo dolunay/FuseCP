@@ -3589,7 +3589,7 @@ namespace FuseCP.EnterpriseServer
 			try
 			{
 				var idn = new IdnMapping();
-				var whoisResult = WhoisClient.Query(idn.GetAscii(domain.DomainName).ToLowerInvariant());
+				var whoisResult = WhoisClient.Query(idn.GetAscii(domain.DomainName).ToLowerInvariant(), new WhoisQueryOptions());
 
 				string creationDateString = ParseWhoisDomainInfo(whoisResult.Raw, _createdDatePatterns);
 				string expirationDateString = ParseWhoisDomainInfo(whoisResult.Raw, _expiredDatePatterns);
@@ -3601,7 +3601,7 @@ namespace FuseCP.EnterpriseServer
 
 				Database.UpdateWhoisDomainInfo(domain.DomainId, domain.CreationDate, domain.ExpirationDate, DateTime.Now, domain.RegistrarName);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				//wrong domain 
 			}

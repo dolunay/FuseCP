@@ -9,6 +9,7 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <GenerateDependencyFile>false</GenerateDependencyFile>
         <RestoreSources>$(RestoreSources);../../Lib;https://api.nuget.org/v3/index.json</RestoreSources>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,9 +22,12 @@
         <Optimize>false</Optimize>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);MSB3277;NU1701;NU1702</NoWarn>
+    </PropertyGroup>
+
     <ItemGroup>
         <Compile Include="..\..\..\FuseCP\Sources\VersionInfo.cs" Link="VersionInfo.cs" />
-        <Compile Include="..\FuseCP.UniversalInstaller\AssemblyLoader.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -72,12 +76,6 @@
         </ProjectReference>
         <ProjectReference Include="..\..\..\FuseCP\Sources\FuseCP.EnterpriseServer.Data\FuseCP.EnterpriseServer.Data.csproj">
             <SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
-        </ProjectReference>
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
-            <SetTargetFramework>TargetFramework=net10.0</SetTargetFramework>
-        </ProjectReference>
-        <ProjectReference Include="..\FuseCP.UniversalInstaller.Runtime\FuseCP.UniversalInstaller.Runtime.csproj">
-            <SetTargetFramework>TargetFramework=net48</SetTargetFramework>
         </ProjectReference>
     </ItemGroup>
 

@@ -2932,9 +2932,10 @@ namespace FuseCP.Providers.Web
 
         #endregion
 
-        #region Helicon Zoo
+		#if FUSECP_ENABLE_HELICONZOO
+		#region Helicon Zoo
 
-        public override WebAppVirtualDirectory[] GetZooApplications(string siteId)
+		public WebAppVirtualDirectory[] GetZooApplications(string siteId)
         {
             using (ServerManager srvman = webObjectsSvc.GetServerManager())
             {
@@ -2942,7 +2943,7 @@ namespace FuseCP.Providers.Web
             }
         }
 
-        public override StringResultObject SetZooEnvironmentVariable(string siteId, string appName, string envName, string envValue)
+		public StringResultObject SetZooEnvironmentVariable(string siteId, string appName, string envName, string envValue)
         {
             StringResultObject result = new StringResultObject();
 
@@ -2964,7 +2965,7 @@ namespace FuseCP.Providers.Web
         }
 
 
-        public override StringResultObject SetZooConsoleEnabled(string siteId, string appName)
+		public StringResultObject SetZooConsoleEnabled(string siteId, string appName)
         {
             StringResultObject result = new StringResultObject();
 
@@ -2985,7 +2986,7 @@ namespace FuseCP.Providers.Web
             return result;
         }
 
-        public override StringResultObject SetZooConsoleDisabled(string siteId, string appName)
+		public StringResultObject SetZooConsoleDisabled(string siteId, string appName)
         {
             StringResultObject result = new StringResultObject();
 
@@ -3009,7 +3010,8 @@ namespace FuseCP.Providers.Web
 
         
 
-        #endregion
+		#endregion
+		#endif
 
         #region Secured Helicon Ape Users
 
@@ -3466,7 +3468,7 @@ namespace FuseCP.Providers.Web
                     cmdArgs = String.Format("-o install -p /LM/W3SVC/{0} -u {1}", m_webSiteId, username);
                     Log.WriteInfo("Command path: " + cmdPath);
                     Log.WriteInfo("Command path: " + cmdArgs);
-                    Log.WriteInfo("FPSE2002 Install Log: " + FileUtils.ExecuteSystemCommand(cmdPath, cmdArgs));
+					Log.WriteInfo("FPSE2002 Install Log: " + FileUtils.ExecuteSystemCommand(null, null, cmdPath, cmdArgs));
 
                     #endregion
                 }
@@ -3512,7 +3514,7 @@ namespace FuseCP.Providers.Web
                     cmdArgs = String.Format("-o fulluninstall -p /LM/W3SVC/{0}", m_webSiteId);
 
                     // launch system process
-                    Log.WriteInfo("FPSE2002 Uninstall Log: " + FileUtils.ExecuteSystemCommand(cmdPath, cmdArgs));
+					Log.WriteInfo("FPSE2002 Uninstall Log: " + FileUtils.ExecuteSystemCommand(null, null, cmdPath, cmdArgs));
 
                     #endregion
 
@@ -4731,7 +4733,7 @@ namespace FuseCP.Providers.Web
 		#endregion
 
 		#region SSL
-		public override SSLCertificate generateCSR(SSLCertificate certificate)
+		public SSLCertificate generateCSR(SSLCertificate certificate)
 		{
 			var sslObjectService = new SSLModuleService();
 			//
@@ -4741,33 +4743,33 @@ namespace FuseCP.Providers.Web
 
 		}
 
-		public override SSLCertificate installCertificate(SSLCertificate certificate, WebSite website)
+		public SSLCertificate installCertificate(SSLCertificate certificate, WebSite website)
 		{
 			var sslObjectService = new SSLModuleService();
 			//
 			return sslObjectService.InstallCertificate(certificate, website);
 		}
 
-        public override string LEinstallCertificate(WebSite website, string email)
+		public string LEinstallCertificate(WebSite website, string email)
         {
             throw new NotSupportedException();
         }
 
-        public override List<SSLCertificate> getServerCertificates()
+		public List<SSLCertificate> getServerCertificates()
 		{
 			var sslObjectService = new SSLModuleService();
 			//
 			return sslObjectService.GetServerCertificates();
 		}
 
-        public override SSLCertificate installPFX(byte[] certificate, string password, WebSite website)
+		public SSLCertificate installPFX(byte[] certificate, string password, WebSite website)
         {
             var sslObjectService = new SSLModuleService();
             //
             return sslObjectService.InstallPfx(certificate, password, website);
         }
 
-        public override byte[] exportCertificate(string serialNumber, string password)
+		public byte[] exportCertificate(string serialNumber, string password)
 		{
 			var sslObjectService = new SSLModuleService();
 			//

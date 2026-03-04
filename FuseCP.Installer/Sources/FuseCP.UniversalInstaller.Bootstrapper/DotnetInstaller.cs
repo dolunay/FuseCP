@@ -134,7 +134,6 @@ public class DotnetInstaller
 		}
 		else
 		{
-			string url;
 			var arch = RuntimeInformation.ProcessArchitecture;
 			if (arch != Architecture.X64 && arch != Architecture.X86 && arch != Architecture.Arm64)
 			{

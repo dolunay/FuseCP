@@ -56,7 +56,7 @@ namespace FuseCP.Providers.Virtualization
 				return (x + y) * 255 / MaxColor;
 			}
 
-			public string? ReadString()
+			public string ReadString()
 			{
 				if (EOF) return null;
 

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start of day",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-File",
+        "${workspaceFolder}/FuseCP/Tools/Start-Of-Day.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Done for today",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-File",
+        "${workspaceFolder}/FuseCP/Tools/Done-For-Today.ps1"
+      ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated",
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Closing VS",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-File",
+        "${workspaceFolder}/FuseCP/Tools/Closing-VS.ps1"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

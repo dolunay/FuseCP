@@ -35,7 +35,7 @@ namespace FuseCP.Tests;
 public class EnterpriseServer : IDisposable
 {
 	// Create a temporal clone of the EnterpriseServer website
-	const bool CreateClone = false;
+	static readonly bool CreateClone = false;
 	const string DatabaseName = "FuseCPTest";
 	const DbType dbType = DbType.SqlServer;
 	public const string SysadminPassword = "123456";
@@ -68,7 +68,7 @@ public class EnterpriseServer : IDisposable
 	{
 		get
 		{
-			var exepath = IO.Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+			var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 			return esserver;
 		}
@@ -102,7 +102,7 @@ public class EnterpriseServer : IDisposable
 	{
 		DeleteDirectory(IO.Path.GetDirectoryName(path));
 
-		var exepath = IO.Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+		var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 
 		Console.WriteLine($"Cloning {IO.Path.GetFileName(EnterpriseServerPath)} ...");

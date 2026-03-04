@@ -317,7 +317,9 @@ namespace FuseCP.Updater
 			{
 				if (this.thread.IsAlive)
 				{
+					#if NETFRAMEWORK
 					this.thread.Abort();
+					#endif
 				}
 				this.thread.Join();
 			}

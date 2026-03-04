@@ -165,6 +165,8 @@ namespace FuseCP.WebPortal
 
         protected InvalidSessionException(SerializationInfo info,
             StreamingContext context)
+#pragma warning disable SYSLIB0051
             : base(info, context) { }
+#pragma warning restore SYSLIB0051
     }
 }

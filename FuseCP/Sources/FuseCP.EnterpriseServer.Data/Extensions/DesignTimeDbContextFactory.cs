@@ -43,7 +43,6 @@ namespace FuseCP.EnterpriseServer.Data.Extensions
 			Console.WriteLine($"DbType: {dbType}");
 			Console.WriteLine($"Using connection string: {connectionString}");
 
-			Microsoft.EntityFrameworkCore.DbContext db;
 			switch (dbType)
 			{
 				default:

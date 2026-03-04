@@ -27,12 +27,10 @@ using System.Net.Sockets;
 using FuseCP.Providers.FTP.IIs100;
 using FuseCP.Providers.FTP.IIs100.Authorization;
 using FuseCP.Providers.FTP.IIs100.Config;
-using FuseCP.Providers.OS;
 using FuseCP.Providers.Utils;
 using FuseCP.Providers.Utils.LogParser;
 using FuseCP.Server.Utils;
 using Microsoft.Web.Management.Server;
-using Microsoft.Win32;
 using IisFtpSite = FuseCP.Providers.FTP.IIs100.Config.FtpSite;
 using IisSite = Microsoft.Web.Administration.Site;
 

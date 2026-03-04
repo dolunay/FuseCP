@@ -90,19 +90,14 @@ namespace FuseCP.Web.Services
 		static string CertificatePassword = null;
 		static string Password;
 		static string KeyFile = null;
-		static string ProbingPaths = "";
 		static string AllowedHosts = "0.0.0.0";
 		static bool IsLocalService = false;
 		static TraceLevel TraceLevel = TraceLevel.Off;
 		static X509Certificate2 Certificate = null;
-		static string DataProviderType = null;
 		static string WebApplicationsPath = null;
 		static int? ServerRequestTimeout = null;
 		static string ConnectionString = null;
-		static string ProviderName = null;
 		static string AltConnectionString = null;
-		static string AltProviderName = null;
-		static bool AlwaysUseEntityFramework = false;
 		static string CryptoKey = null;
 		static string AltCryptoKey = null;
 		static bool? EncryptionEnabled = null;
@@ -136,10 +131,7 @@ namespace FuseCP.Web.Services
 						var keyFile = new FileInfo(KeyFile).FullName;
 						if (File.Exists(keyFile)) CertificatePassword = File.ReadAllText(keyFile);
 					}
-					var certs = new X509Certificate2Collection();
-
-					certs.Import(file, CertificatePassword, X509KeyStorageFlags.DefaultKeySet);
-					Certificate = certs.FirstOrDefault();
+					Certificate = X509CertificateLoader.LoadPkcs12FromFile(file, CertificatePassword, X509KeyStorageFlags.DefaultKeySet);
 					if (Certificate != null) Log($"Use certificate {Certificate.SubjectName} from {file}.");
 					else Error($"The certificate {file} was not found.");
 					return Certificate;

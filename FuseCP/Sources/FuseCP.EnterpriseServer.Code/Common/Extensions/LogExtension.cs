@@ -293,7 +293,7 @@ namespace FuseCP.EnterpriseServer.Extensions
             {
                 oldValue = property.GetValue(obj, null);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 TaskManager.Write("Cant get {0} property", property.Name);
                 return obj;

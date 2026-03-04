@@ -34,7 +34,6 @@ namespace FuseCP.UniversalInstaller.Controls
     internal partial class Loader : Form
     {
         private Core.SetupLoader appLoader;
-        bool NoUnzip = false;
 
         public Loader()
         {
@@ -107,7 +106,6 @@ namespace FuseCP.UniversalInstaller.Controls
             appLoader.ProgressChanged += new EventHandler<Core.LoaderEventArgs<Int32>>(appLoader_ProgressChanged);
             appLoader.StatusChanged += new EventHandler<Core.LoaderEventArgs<String>>(appLoader_StatusChanged);
             appLoader.OperationCompleted += new EventHandler<EventArgs>(appLoader_OperationCompleted);
-            appLoader.NoUnzipStatus += (sender, args) => NoUnzip = true;
 
             Task.Run(appLoader.LoadAppDistributive);
         }

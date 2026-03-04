@@ -194,7 +194,7 @@ namespace FuseCP.UniversalInstaller {
 
 				Application.Run(mainForm);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				isAvailable = false;
 
@@ -203,7 +203,7 @@ namespace FuseCP.UniversalInstaller {
 					UI.Current = UI.AvaloniaUI;
 					UI.Current.RunMainUI();
 				}
-				catch (Exception ex2)
+				catch (Exception)
 				{
 					UI.Current = UI.ConsoleUI;
 					UI.Current.RunMainUI();
@@ -255,14 +255,14 @@ namespace FuseCP.UniversalInstaller {
 				MainForm = form;
 				form.ShowDialog();
 				return form.Password;
-			} catch (Exception ex)
+			} catch (Exception)
 			{
 				isAvailable = false;
 				try
 				{
 					UI.Current = UI.AvaloniaUI;
 					return UI.Current.GetRootPassword();
-				} catch (Exception ex2)
+				} catch (Exception)
 				{
 					UI.Current = UI.ConsoleUI;
 					return UI.Current.GetRootPassword();

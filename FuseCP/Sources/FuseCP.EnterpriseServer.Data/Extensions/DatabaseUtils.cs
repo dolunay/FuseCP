@@ -620,7 +620,7 @@ namespace FuseCP.EnterpriseServer.Data
 				case Data.DbType.SqliteFX:
 					var csb = new ConnectionStringBuilder(connectionString);
 					var dbFile = (string)(csb["data source"] ?? "");
-					var assemblyPath = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+					var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 					if (!Path.IsPathRooted(dbFile))
 					{
 						if (!string.IsNullOrEmpty(installationFolder)) dbFile = Path.Combine(installationFolder, dbFile);
@@ -648,7 +648,7 @@ namespace FuseCP.EnterpriseServer.Data
 				case Data.DbType.SqliteFX:
 					var csb = new ConnectionStringBuilder(ConnStr);
 					var dbFile = (string)(csb["data source"] ?? "");
-					var assemblyPath = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+					var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 					if (!Path.IsPathRooted(dbFile)) dbFile = Path.GetFullPath(Path.Combine(assemblyPath, "..", dbFile));
 					csb["data source"] = dbFile;
 					ConnStr = csb.ToString();
@@ -689,7 +689,7 @@ namespace FuseCP.EnterpriseServer.Data
 				case Data.DbType.SqliteFX:
 					var csb = new ConnectionStringBuilder(ConnStr);
 					var dbFile = (string)(csb["data source"] ?? "");
-					var assemblyPath = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+					var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 					if (!Path.IsPathRooted(dbFile))
 					{
 						if (!string.IsNullOrEmpty(installationFolder)) dbFile = Path.Combine(installationFolder, dbFile);
@@ -1509,7 +1509,7 @@ SELECT DatabaseVersion FROM Version");
 					})
 					.Max() ?? default;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return default;
 			}

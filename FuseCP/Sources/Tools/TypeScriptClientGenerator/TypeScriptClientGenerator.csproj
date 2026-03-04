@@ -8,13 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ApiClient.ts.cshtml" />
+    <None Include="ApiClient.ts.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NSwag.CodeGeneration.TypeScript" Version="14.6.3" />
     <PackageReference Include="NSwag.Core" Version="14.6.3" />
-    <PackageReference Include="RazorBlade" Version="0.11.0" />
   </ItemGroup>
 
 </Project>

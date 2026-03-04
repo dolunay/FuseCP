@@ -6988,7 +6988,7 @@ namespace FuseCP.EnterpriseServer
 
                 if (bitmap.Width > width || bitmap.Height > height)
                 {
-                    using (var scaledBitmap = bitmap.Resize(new SKImageInfo(width, height), SKFilterQuality.High))
+                    using (var scaledBitmap = bitmap.Resize(new SKImageInfo(width, height), new SKSamplingOptions(SKFilterMode.Linear, SKMipmapMode.Linear)))
                     using (var scaledImage = SKImage.FromBitmap(scaledBitmap))
                     using (var encodedImage = scaledImage.Encode(SKEncodedImageFormat.Jpeg, 50))
                     {

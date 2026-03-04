@@ -37,7 +37,7 @@ namespace FuseCP.Providers.StorageSpaces
     public class Windows2016 : FuseCP.Providers.OS.Windows2016, IStorageSpace
     {
         #region Properties
-        internal string PrimaryDomainController
+        new internal string PrimaryDomainController
         {
             get { return ProviderSettings["PrimaryDomainController"]; }
         }
@@ -212,7 +212,7 @@ namespace FuseCP.Providers.StorageSpaces
             return quotas;
         }
 
-        public UInt64 CalculateQuota(string quota)
+        public new UInt64 CalculateQuota(string quota)
         {
             UInt64 OneKb = 1024;
             UInt64 OneMb = OneKb * 1024;
@@ -237,7 +237,7 @@ namespace FuseCP.Providers.StorageSpaces
             return result;
         }
 
-        public int ConvertMegaBytesToGB(int megabytes)
+        public new int ConvertMegaBytesToGB(int megabytes)
         {
             int OneGb = 1024;
 
@@ -247,7 +247,7 @@ namespace FuseCP.Providers.StorageSpaces
             return (int)(megabytes / OneGb);
         }
 
-        public int ConvertBytesToMB(long bytes)
+        public new int ConvertBytesToMB(long bytes)
         {
             int OneKb = 1024;
             int OneMb = OneKb * 1024;
@@ -258,7 +258,7 @@ namespace FuseCP.Providers.StorageSpaces
             return (int)(bytes / OneMb);
         }
 
-        public void RemoveOldQuotaOnFolder(Runspace runSpace, string path)
+        public new void RemoveOldQuotaOnFolder(Runspace runSpace, string path)
         {
             try
             {
@@ -273,7 +273,7 @@ namespace FuseCP.Providers.StorageSpaces
             catch { /* do nothing */ }
         }
 
-        public void ChangeQuotaOnFolder(Runspace runSpace, string command, string path, QuotaType quotaType, UInt64 quota)
+        public new void ChangeQuotaOnFolder(Runspace runSpace, string command, string path, QuotaType quotaType, UInt64 quota)
         {
             Command cmd = new Command(command);
             cmd.Parameters.Add("Path", path);
@@ -321,7 +321,7 @@ namespace FuseCP.Providers.StorageSpaces
         #region PowerShell integration
         private static InitialSessionState session = null;
 
-        protected virtual Runspace OpenRunspace()
+        protected override Runspace OpenRunspace()
         {
             Log.WriteStart("OpenRunspace");
 
@@ -339,7 +339,7 @@ namespace FuseCP.Providers.StorageSpaces
             return runSpace;
         }
 
-        protected void CloseRunspace(Runspace runspace)
+        protected new void CloseRunspace(Runspace runspace)
         {
             try
             {
@@ -354,17 +354,17 @@ namespace FuseCP.Providers.StorageSpaces
             }
         }
 
-        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd)
+        protected new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd)
         {
             return ExecuteShellCommand(runSpace, cmd, true);
         }
 
-        protected Collection<PSObject> ExecuteLocalScript(Runspace runSpace, List<string> scripts, out object[] errors, params string[] moduleImports)
+        protected new Collection<PSObject> ExecuteLocalScript(Runspace runSpace, List<string> scripts, out object[] errors, params string[] moduleImports)
         {
             return ExecuteRemoteScript(runSpace, null, scripts, out errors, moduleImports);
         }
 
-        protected Collection<PSObject> ExecuteRemoteScript(Runspace runSpace, string hostName, List<string> scripts, out object[] errors, params string[] moduleImports)
+        protected new Collection<PSObject> ExecuteRemoteScript(Runspace runSpace, string hostName, List<string> scripts, out object[] errors, params string[] moduleImports)
         {
             Command invokeCommand = new Command("Invoke-Command");
 
@@ -385,7 +385,7 @@ namespace FuseCP.Providers.StorageSpaces
             return ExecuteShellCommand(runSpace, invokeCommand, false, out errors);
         }
 
-        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController)
+        protected new Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController)
         {
             object[] errors;
             return ExecuteShellCommand(runSpace, cmd, useDomainController, out errors);
@@ -448,7 +448,7 @@ namespace FuseCP.Providers.StorageSpaces
             return results;
         }
 
-        protected object GetPSObjectProperty(PSObject obj, string name)
+        protected new object GetPSObjectProperty(PSObject obj, string name)
         {
             return obj.Members[name].Value;
         }
@@ -545,7 +545,7 @@ namespace FuseCP.Providers.StorageSpaces
             return messages.ToArray();
         }
 
-        public virtual void DeleteServiceItems(ServiceProviderItem[] items)
+        public override void DeleteServiceItems(ServiceProviderItem[] items)
         {
             foreach (ServiceProviderItem item in items)
             {

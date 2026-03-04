@@ -118,8 +118,10 @@ namespace FuseCP.EnterpriseServer
         public static string GetRandomHexString(int length)
         {
             byte[] buf = new byte[length];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(buf);
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(buf);
+            }
 
             StringBuilder sb = new StringBuilder();
             for(int i = 0; i < length; i++)
@@ -134,8 +136,10 @@ namespace FuseCP.EnterpriseServer
             StringBuilder sb = new StringBuilder();
 
             byte[] randomBytes = new byte[4];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(randomBytes);
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomBytes);
+            }
 
             // Convert 4 bytes into a 32-bit integer value.
             int seed = (randomBytes[0] & 0x7f) << 24 |

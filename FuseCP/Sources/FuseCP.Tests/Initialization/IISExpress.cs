@@ -29,7 +29,7 @@ namespace FuseCP.Tests
 {
     public class IISExpress: IDisposable
     {
-        Process? process = null;
+		Process process = null;
 
 		public (Scheme Protocol, string Url)[] Urls;
 		public string HttpUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.Http).Url;
@@ -88,7 +88,7 @@ namespace FuseCP.Tests
 					var response = Servers.HttpClient.GetAsync(HttpsUrl).Result;
                     done = true;
                 }
-                catch (Exception ex) { }
+				catch (Exception) { }
 
                 if (!done) Thread.Sleep(2000);
                 if (process.HasExited) done = true; // throw new Exception("Server has terminated.");

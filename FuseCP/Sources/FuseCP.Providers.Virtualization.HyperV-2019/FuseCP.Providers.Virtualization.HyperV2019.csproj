@@ -40,7 +40,7 @@
 		<ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
 		<ProjectReference Include="..\FuseCP.Providers.HostedSolution\FuseCP.Providers.HostedSolution.csproj" />
 		<ProjectReference Include="..\FuseCP.Server.Utils\FuseCP.Server.Utils.csproj" />
-        <ProjectReference Include="..\FuseCP.Providers.Virtualization.HyperV2016\FuseCP.Providers.Virtualization.HyperV2016.csproj"
+		<ProjectReference Include="..\FuseCP.Providers.Virtualization.HyperV-2016\FuseCP.Providers.Virtualization.HyperV2016.csproj"
 			ReferenceOutputAssembly="false" />
     </ItemGroup>
 
@@ -60,7 +60,7 @@
             <FilesToDelete Include="$(OutputPath)FuseCP.Providers.HostedSolution.pdb" />
             <FilesToDelete Include="$(OutputPath)Microsoft.Win32.*" />
         </ItemGroup>
-        <Delete Files="@(FilesToDelete)" />
+		<Delete Files="@(FilesToDelete)" ContinueOnError="WarnAndContinue" />
     </Target>
 
 </Project>

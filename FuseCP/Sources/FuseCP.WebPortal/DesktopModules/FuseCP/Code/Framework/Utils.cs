@@ -200,7 +200,23 @@ namespace FuseCP.Portal
         {
             long length = stream.Length;
             byte[] content = new byte[length];
-            stream.Read(content, 0, (int) length);
+            int offset = 0;
+            while (offset < length)
+            {
+                int read = stream.Read(content, offset, (int)(length - offset));
+                if (read == 0)
+                    break;
+
+                offset += read;
+            }
+
+            if (offset != length)
+            {
+                byte[] exact = new byte[offset];
+                Buffer.BlockCopy(content, 0, exact, 0, offset);
+                content = exact;
+            }
+
             stream.Close();
             return content;
         }
@@ -315,8 +331,10 @@ namespace FuseCP.Portal
             StringBuilder sb = new StringBuilder();
 
             byte[] randomBytes = new byte[4];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(randomBytes);
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomBytes);
+            }
 
             // Convert 4 bytes into a 32-bit integer value.
             int seed = (randomBytes[0] & 0x7f) << 24 |

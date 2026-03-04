@@ -33,7 +33,7 @@ namespace FuseCP.Tests
 			{
 				if (project == null)
 				{
-					var path = IO.Path.GetDirectoryName(new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+					var path = IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 					var dir = IO.Path.GetFileName(path);
 					while (Regex.IsMatch(dir, @"^((net[0-9][.0-9]*)|Debug|Release|bin|bin_dotnet)$"))
 					{

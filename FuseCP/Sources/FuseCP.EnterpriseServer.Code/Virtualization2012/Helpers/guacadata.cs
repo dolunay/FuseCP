@@ -20,7 +20,7 @@ using System.Text;
 
 namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers.guacamole
 {
-    public class guacadata
+    public class GuacaData
     {
         public string protocol { get; set; }
         public string hostname { get; set; }

@@ -505,7 +505,7 @@ namespace FuseCP.EnterpriseServer
                     result = AddPackage(
                         userId, planId, packageName, "", statusId, DateTime.Now, false);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // error while adding package
                     throw;

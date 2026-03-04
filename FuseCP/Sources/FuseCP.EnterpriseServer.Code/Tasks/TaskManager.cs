@@ -678,7 +678,11 @@ namespace FuseCP.EnterpriseServer
                         if (_taskThreadsDictionary[task.Id].IsAlive)
                         {
                             if (!task.Completed)
+#if NETFRAMEWORK
                                 _taskThreadsDictionary[task.Id].Abort();
+#else
+                                _taskThreadsDictionary[task.Id].Interrupt();
+#endif
                             _taskThreadsDictionary[task.Id] = null;
                         }
                     Thread deleted;

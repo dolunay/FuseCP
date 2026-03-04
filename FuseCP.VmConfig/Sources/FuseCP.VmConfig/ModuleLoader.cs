@@ -78,7 +78,9 @@ namespace FuseCP.VmConfig
 
 		internal static ExecutionResult Run(string typeName, ref ExecutionContext context)
 		{
+		#if NETFRAMEWORK
 			AppDomain domain = null;
+		#endif
 			ModuleLoader loader = null;
 			try
 			{

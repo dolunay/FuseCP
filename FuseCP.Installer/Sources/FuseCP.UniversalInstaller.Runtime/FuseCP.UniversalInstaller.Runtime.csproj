@@ -7,6 +7,7 @@
         <LangVersion>13</LangVersion>
         <PackageId>FuseCP.UniversalInstaller.Runtime</PackageId>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
     <PropertyGroup Condition="$(TargetFramework) == 'net48'">
@@ -14,18 +15,19 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(TargetFramework) == 'net10.0'">
         <AssemblyName>FuseCP.UniversalInstaller.Runtime.NetCore</AssemblyName>
+        <NoWarn>$(NoWarn);NU1702</NoWarn>
     </PropertyGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.4" />
         <Reference Include="System.ServiceModel" />
         <Reference Include="System.Management" />
         <Reference Include="System.Net.Http" />
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-        <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.0" />
-        <PackageReference Include="System.ServiceModel.Http" Version="10.0.0" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
+        <PackageReference Include="System.ServiceModel.Http" Version="10.0.652802" />
         <PackageReference Include="System.Management" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
-        <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System.Management">

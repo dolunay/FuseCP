@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <FuseCPRetargetLegacyFrameworks Condition="'$(FuseCPRetargetLegacyFrameworks)' == ''">true</FuseCPRetargetLegacyFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(FuseCPRetargetLegacyFrameworks)' == 'true' and ( '$(TargetFrameworkVersion)' == 'v2.0' or '$(TargetFrameworkVersion)' == 'v3.5' or '$(TargetFrameworkVersion)' == 'v4.0' or '$(TargetFrameworkVersion)' == 'v4.5' or '$(TargetFrameworkVersion)' == 'v4.5.2' )">
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+
+</Project>

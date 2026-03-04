@@ -37,9 +37,6 @@
 		<Reference Include="System.Web" />
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include="..\FuseCP.Server\Code\WPIHelper.cs" Link="WPIHelper.cs" />
-	</ItemGroup>
-	<ItemGroup>
 		<ProjectReference Include="..\FuseCP.Server.WPIServiceContract\FuseCP.Server.WPIServiceContract.csproj" />
 	</ItemGroup>
 </Project>

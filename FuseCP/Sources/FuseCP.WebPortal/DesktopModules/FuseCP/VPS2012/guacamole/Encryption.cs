@@ -29,13 +29,10 @@ namespace FuseCP.Portal.VPS2012.guacamole
 
         public static string GenerateEncryptionKey()
         {
-            var rj = new RijndaelManaged()
-            {
-                Padding = PaddingMode.PKCS7,
-                Mode = CipherMode.CBC,
-                KeySize = 256,
-                BlockSize = 256,
-            };
+            using var rj = Aes.Create();
+            rj.Padding = PaddingMode.PKCS7;
+            rj.Mode = CipherMode.CBC;
+            rj.KeySize = 256;
             rj.GenerateKey();
             rj.GenerateIV();
 

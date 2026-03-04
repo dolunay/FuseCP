@@ -127,6 +127,7 @@ namespace FuseCP.EnterpriseServer
         [WebMethod]
         public List<string> AutoUpdateServer(List<List<int>> servers, string downloadLink, string fileName) {
             List<string> res = new List<string>();
+#pragma warning disable SYSLIB0014
             using(System.Net.WebClient wc = new System.Net.WebClient()) { 
                 byte[] zipFile = wc.DownloadData(downloadLink + fileName);
 
@@ -145,6 +146,7 @@ namespace FuseCP.EnterpriseServer
                     }
                 }
             }
+#pragma warning restore SYSLIB0014
             return res;
         }
         #endregion

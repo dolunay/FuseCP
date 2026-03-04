@@ -98,6 +98,10 @@
 		<!-- Build Linux install deb & rpm packages (This requires a WSL distro with rpmbuild installed) -->
 		<BuildLinuxInstallPackages Condition="'$(BuildLinuxInstallPackages)' == ''">true</BuildLinuxInstallPackages>
 
+		<!-- Build legacy MSI package (.vdproj) with devenv.com (requires full Visual Studio + Installer Projects extension) -->
+		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == '' and Exists('$(DevEnv)')">true</BuildInstallerMsi>
+		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == '' and !Exists('$(DevEnv)')">false</BuildInstallerMsi>
+
 		<!-- Build legacy database sql script from install_db.sql & update_db.sql -->
 		<BuildLegacyDatabaseScript Condition="'$(BuildLegacyDatabaseScript)' == ''">false</BuildLegacyDatabaseScript>
 
@@ -138,18 +142,20 @@
 		<Exec Command="dotnet restore $(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" />
+		<Exec Command="&quot;$(TrunkFolder)\Sources\.nuget\NuGet.exe&quot; restore &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; -PackagesDirectory &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages&quot;" />
+		<Exec Command="if exist &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; copy /Y &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2\Microsoft.Build.Utilities.v4.0.dll&quot;" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" />
 	</Target>
 
 	<Target Name="GenerateBuildVersionFilesInstaller" DependsOnTargets="RestorePackages">
-		<AssemblyInfo CodeLanguage="CS" OutputFile="$(RootFolder)\FuseCP.Installer\Sources\VersionInfo.cs" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright © 2024 FuseCP." AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
+		<AssemblyInfo CodeLanguage="CS" OutputFile="$(RootFolder)\FuseCP.Installer\Sources\VersionInfo.cs" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright (C) 2026 FuseCP" AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
 	</Target>
 
 	<Target Name="GenerateBuildVersionFiles" DependsOnTargets="GenerateBuildVersionFilesInstaller">
-		<AssemblyInfo CodeLanguage="CS" OutputFile="$(TrunkFolder)\Sources\VersionInfo.cs" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright © 2024 FuseCP." AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
-		<AssemblyInfo CodeLanguage="VB" OutputFile="$(TrunkFolder)\Sources\VersionInfo.vb" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright © 2024 FuseCP." AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
+		<AssemblyInfo CodeLanguage="CS" OutputFile="$(TrunkFolder)\Sources\VersionInfo.cs" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright (C) 2026 FuseCP" AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
+		<AssemblyInfo CodeLanguage="VB" OutputFile="$(TrunkFolder)\Sources\VersionInfo.vb" AssemblyCompany="FuseCP" AssemblyCopyright="Copyright (C) 2026 FuseCP" AssemblyVersion="$(VersionLabel)" AssemblyFileVersion="$(FileVersion)" AssemblyInformationalVersion="$(Version)" />
 	</Target>
 
 	<Target Name="BackupModelSnapshots" DependsOnTargets="GenerateBuildVersionFiles">
@@ -198,9 +204,9 @@
 		<MSBuild Projects="$(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="$(CommonBuildProperties)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" Properties="$(CommonBuildProperties)" />
+		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; &quot;/p:$(CommonBuildProperties)&quot; $(MsBuildSwitches)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" Properties="$(CommonBuildProperties)" />
-  		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" />
+		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" />
  	</Target>
 
 	<Target Name="PrepareBuilds" DependsOnTargets="CompileSources">
@@ -526,11 +532,13 @@
 		<Copy SourceFiles="@(SetupDll)" DestinationFolder="$(SetupBuildFolder)" />
 
         <!-- build MSI package -->
-        <Exec Command="&quot;$(DevEnv)&quot; &quot;$(InstallerProjectRoot)FuseCP.UniversalInstaller.Msi.sln&quot; /build &quot;$(BuildConfiguration)|$(Platform)&quot;" />
-        <ItemGroup>
-            <InstallerMsi Include="$(InstallerProjectRoot)\FuseCP.UniversalInstaller.Msi\$(BuildConfiguration)\*.msi" />
-        </ItemGroup>
-        <Copy SourceFiles="@(InstallerMsi)" DestinationFolder="$(BuildFolder)" />
+		<Error Condition="'$(BuildInstallerMsi)' == 'true' and !Exists('$(DevEnv)')" Text="BuildInstallerMsi=true but devenv.com was not found at '$(DevEnv)'. Install full Visual Studio with the Installer Projects extension, or set /p:BuildInstallerMsi=false." />
+		<Warning Condition="'$(BuildInstallerMsi)' != 'true'" Text="Skipping MSI package build (.vdproj). Full Visual Studio + Installer Projects extension is required. Set /p:BuildInstallerMsi=true to force MSI packaging." />
+		<Exec Condition="'$(BuildInstallerMsi)' == 'true'" Command="&quot;$(DevEnv)&quot; &quot;$(InstallerProjectRoot)FuseCP.UniversalInstaller.Msi.sln&quot; /build &quot;$(BuildConfiguration)|$(Platform)&quot;" />
+		<ItemGroup Condition="'$(BuildInstallerMsi)' == 'true'">
+			<InstallerMsi Include="$(InstallerProjectRoot)\FuseCP.UniversalInstaller.Msi\$(BuildConfiguration)\*.msi" />
+		</ItemGroup>
+		<Copy Condition="'$(BuildInstallerMsi)' == 'true'" SourceFiles="@(InstallerMsi)" DestinationFolder="$(BuildFolder)" />
 
 	</Target>
 	

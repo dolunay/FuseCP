@@ -120,7 +120,7 @@ namespace FuseCP.Providers.Virtualization
                         var term = ssh.RunCommand("hostname");
                         node = term.Result;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
 
                     }
@@ -466,7 +466,7 @@ namespace FuseCP.Providers.Virtualization
             {
                 image = (SKImage)Api.GetScreenshot(vmId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 var svgName = assembly.GetManifestResourceNames()
@@ -553,7 +553,7 @@ namespace FuseCP.Providers.Virtualization
                 SshClient ssh = new SshClient(Conninfo);
                 return ssh;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

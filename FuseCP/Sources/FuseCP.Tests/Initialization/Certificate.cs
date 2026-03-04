@@ -50,7 +50,12 @@ namespace FuseCP.Tests
 		{
 			X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
 			store.Open(OpenFlags.ReadWrite);
-			X509Certificate2 cert = new X509Certificate2(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+			X509Certificate2 cert;
+#if NETFRAMEWORK
+			cert = new X509Certificate2(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+#else
+			cert = X509CertificateLoader.LoadPkcs12FromFile(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+#endif
 			if (!store.Certificates.OfType<X509Certificate2>()
 				.Any(c => c.Thumbprint == cert.Thumbprint))
 			{
@@ -87,7 +92,12 @@ namespace FuseCP.Tests
 		{
 			X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
 			store.Open(OpenFlags.ReadWrite);
-			X509Certificate2 cert = new X509Certificate2(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+			X509Certificate2 cert;
+#if NETFRAMEWORK
+			cert = new X509Certificate2(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+#else
+			cert = X509CertificateLoader.LoadPkcs12FromFile(certfile, password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+#endif
 			var storecert = store.Certificates.OfType<X509Certificate2>()
 				.FirstOrDefault(c => c.Thumbprint == cert.Thumbprint);
 			if (storecert != null) store.Remove(storecert);
@@ -101,7 +111,9 @@ namespace FuseCP.Tests
 		public static void TrustAll()
 		{
 			// Always trust certificates
+			#if !NET5_0_OR_GREATER
 			ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+			#endif
 			Web.Clients.ClientBase.TrustAllCertificates = true;
 			InstallLocalhostIntoMy();
 		}

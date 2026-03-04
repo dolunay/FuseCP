@@ -63,7 +63,7 @@ public class Unzip
 							if (reader.Entry.IsDirectory) Directory.CreateDirectory(Path.Combine(destFolder, reader.Entry.Key.Replace('/', Path.DirectorySeparatorChar)));
 							else reader.WriteEntryToDirectory(destFolder, new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
 						}
-						catch (Exception ex)
+						catch (Exception)
 						{
 							throw;
 						}

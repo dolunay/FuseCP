@@ -14,12 +14,16 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Management;
+using System.Runtime.Versioning;
 
 namespace FuseCP.UniversalInstaller.Runtime
 {
 	/// <summary>
 	/// Wmi helper class.
 	/// </summary>
+	#if !NETFRAMEWORK
+	[SupportedOSPlatform("windows")]
+	#endif
 	internal sealed class WmiHelper
 	{
 		// namespace

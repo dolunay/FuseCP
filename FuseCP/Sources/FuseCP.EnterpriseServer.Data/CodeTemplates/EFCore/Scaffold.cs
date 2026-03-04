@@ -233,7 +233,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 					writer.Append(" }");
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 			}
 			return writer;
@@ -249,7 +249,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 			return txt;
 		}
 
-		const bool Prefetch = true;
+		static readonly bool Prefetch = true;
 
 		static Dictionary<string, string> entityTypes = new Dictionary<string, string>();
 
@@ -300,7 +300,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 			{
 				Console.WriteLine("Fetch Entity Data from Database...");
 
-				var dll = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+				var dll = Assembly.GetExecutingAssembly().Location;
 
 				string cmd;
 				if (Prefetch) cmd = $"dotnet \"{dll}\" \"{options.ConnectionString}\" {indent}";
@@ -319,10 +319,6 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 				return entityData;
 			}
 			return entityData;
-
-			Console.WriteLine($"Type not found {typeName}.");
-
-			return "";
 		}
 	}
 }

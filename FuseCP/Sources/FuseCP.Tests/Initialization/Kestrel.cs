@@ -30,8 +30,7 @@ namespace FuseCP.Tests
 {
     public class Kestrel: IDisposable
     {
-        Process? process = null;
-		string pidfile = null;
+		Process process = null;
 
 		public (Scheme Protocol, string Url)[] Urls;
 		public string HttpUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.Http).Url;
@@ -47,7 +46,7 @@ namespace FuseCP.Tests
 			this.WslDistro = wslDistro;
 			instances.Add(this);
 			var apppath = Paths.Path(component);
-			var testdllpath = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+			var testdllpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			var testprojpath = Path.GetFullPath(Path.Combine(testdllpath, "..", "..", ".."));
 			var workingDir = Path.Combine(apppath, "bin_dotnet");
 			var log = Path.GetFullPath(Path.Combine(Paths.Test, "TestResults", $"Kestrel.log"));
@@ -120,7 +119,7 @@ namespace FuseCP.Tests
 					var response = Servers.HttpClient.GetAsync(HttpsUrl).Result;
                     done = true;
                 }
-                catch (Exception ex) { }
+				catch (Exception) { }
 
                 if (!done) Thread.Sleep(2000);
 				if (process.HasExited) done = true; //throw new Exception("Server has terminated.");

@@ -64,7 +64,7 @@ namespace FuseCP.LocalizationToolkit
 				}
 				catch (ArgumentException) { }
 			}
-			CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.FrameworkCultures);
+			CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures | CultureTypes.NeutralCultures);
 			foreach (CultureInfo ci in cultures)
 			{
 				if (!existingLocales.ContainsKey(ci.Name) && !ci.IsNeutralCulture)

@@ -33,10 +33,10 @@ public class Program
 	{
 #if NETCOREAPP
 		// Import Mono.Posix.NETStandard
-		var dummy = Mono.Unix.Native.FilePermissions.ACCESSPERMS;
+		_ = Mono.Unix.Native.FilePermissions.ACCESSPERMS;
 #endif
 		// Import FuseCP.Providers.Base
-		FuseCP.Providers.Common.BoolResult dummy2 = null;
+		_ = typeof(FuseCP.Providers.Common.BoolResult);
 	}
 
 	const string CancelFileName = "WaitCursor.cancel";

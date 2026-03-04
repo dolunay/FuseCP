@@ -182,10 +182,10 @@ namespace FuseCP.EnterpriseServer.Data
                         case DbType.Oracle:
 #if Oracle
                             dbConnection = OracleConnection;
+                            break;
 #else
                             throw new NotSupportedException("Oracle is not supported.");
 #endif
-                            break;
 						default: throw new NotSupportedException($"DbType {DbType} is not supported.");
 					}
 				}
@@ -233,7 +233,7 @@ namespace FuseCP.EnterpriseServer.Data
 #endif
                     }
 #else
-                    if (IsCore) {
+                    if (OSInfo.IsCore) {
 					    switch (DbType)
                         {
 						    default:

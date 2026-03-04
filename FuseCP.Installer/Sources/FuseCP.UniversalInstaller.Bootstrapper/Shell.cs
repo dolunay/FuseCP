@@ -29,6 +29,8 @@ using System.Text.RegularExpressions;
 using static System.Net.Mime.MediaTypeNames;
 using System.Collections.Generic;
 
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8618, CS8625
+
 namespace AnyCPUAppHost;
 
 
@@ -547,6 +549,8 @@ public abstract class Shell : INotifyCompletion
 	public static bool IsWindows => OSInfo.IsWindows;
 #endif
 }
+
+#pragma warning restore CS8600, CS8601, CS8602, CS8603, CS8618, CS8625
 
 public class StandardShell : Shell
 {

@@ -34,7 +34,7 @@ namespace FuseCP.EnterpriseServer.Data
 	public class DbConfiguration : System.Data.Entity.DbConfiguration
 	{
 		// We do not support PostgreSql in EF6, because it's buggy
-		const bool EF6SupportPostgreSql = false;
+		static readonly bool EF6SupportPostgreSql = false;
 #if MultipleEF6Providers
 		public const bool OnlySupportOneEF6DbType = false;
 #else

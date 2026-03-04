@@ -84,7 +84,7 @@ namespace FuseCP.Web.Clients
             // Convert plain text into a byte array.
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-            HashAlgorithm hash = new SHA1Managed();
+            HashAlgorithm hash = SHA1.Create();
 
             // Compute hash value of our plain text with appended salt.
             byte[] hashBytes = hash.ComputeHash(plainTextBytes);
@@ -208,7 +208,7 @@ namespace FuseCP.Web.Clients
                         }
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
 
                 try
                 {
@@ -220,7 +220,7 @@ namespace FuseCP.Web.Clients
                         init.Invoke(null, new object[0]);
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
 
 #if NETFRAMEWORK
 				exposeWebServices = exposeWebServices ?? ConfigurationManager.AppSettings["ExposeWebServices"];

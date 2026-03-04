@@ -27,6 +27,7 @@ using FuseCP.Providers.OS;
 using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.Versioning;
 using FuseCP.UniversalInstaller.Web;
 
 namespace FuseCP.UniversalInstaller.Runtime
@@ -34,6 +35,9 @@ namespace FuseCP.UniversalInstaller.Runtime
 	/// <summary>
 	/// Web utils class.
 	/// </summary>
+	#if !NETFRAMEWORK
+	[SupportedOSPlatform("windows")]
+	#endif
 	public class WebUtils: UniversalInstaller.WebUtils
 	{
 		private static WmiHelper wmi = new WmiHelper("root\\MicrosoftIISv2");
@@ -1284,7 +1288,7 @@ namespace FuseCP.UniversalInstaller.Runtime
 			
 				return res;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				throw;
 			}

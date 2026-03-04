@@ -9,13 +9,13 @@
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
         <SignAssembly>true</SignAssembly>
-		<AssemblyOriginatorKeyFile>FuseCP.snk</AssemblyOriginatorKeyFile>
+		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)FuseCP.snk</AssemblyOriginatorKeyFile>
 		<IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Remove="Microsoft.NET.Sdk.Razor.SourceGenerators\**" />
-        <Compile Include="..\..\..\VersionInfo.cs" Link="VersionInfo.cs" />
+		<Compile Include="$(MSBuildThisFileDirectory)..\..\..\VersionInfo.cs" Link="VersionInfo.cs" />
         <EmbeddedResource Remove="Microsoft.NET.Sdk.Razor.SourceGenerators\**" />
 		<None Remove="Microsoft.NET.Sdk.Razor.SourceGenerators\**" />
         <Services Include="FuseCP.Build.WebServices\**\*.g.cs" />
@@ -25,8 +25,8 @@
         <AnyServices>@(Services)</AnyServices>
     </PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
-        <ProjectReference Include="..\..\..\FuseCP.Server\FuseCP.Server.csproj" Condition="'$(AnyServices)' == ''"
+		<ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.Server\FuseCP.Server.csproj" Condition="'$(AnyServices)' == ''"
 			ReferenceOutputAssembly="false" PrivateAssets="All" />
     </ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
@@ -35,13 +35,13 @@
 		<Reference Include="System.DirectoryServices" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-		<PackageReference Include="System.ServiceModel.Primitives" Version="10.0.0" />
+		<PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
 		<PackageReference Include="System.DirectoryServices" Version="10.0.0" />
 		<PackageReference Include="CoreWCF.Primitives" Version="1.8.0"/>
 	</ItemGroup>
 
     <Target Name="RerunAnalyzer" Condition="'$(AnyServices)' == ''" BeforeTargets="ResolveProjectReferences">
-        <Touch Files="..\..\Properties\AssemblyInfo.cs" />
+		<Touch Files="$(MSBuildThisFileDirectory)..\..\Properties\AssemblyInfo.cs" />
     </Target>
     
     <Target Name="ReevaluateCompile" Condition="'$(AnyServices)' == ''" AfterTargets="ResolveProjectReferences">

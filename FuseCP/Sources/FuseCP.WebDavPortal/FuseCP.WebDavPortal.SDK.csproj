@@ -24,7 +24,6 @@
         <PackageReference Include="AutoMapper" Version="3.3.1" />
         <PackageReference Include="bootstrap" Version="3.4.1" />
         <PackageReference Include="jQuery" Version="3.7.1" />
-        <PackageReference Include="jQuery.Cookie" Version="1.4.1" />
         <PackageReference Include="jquery.datatables" Version="1.10.15" />
         <PackageReference Include="jQuery.FileUpload" Version="10.4.0" />
         <PackageReference Include="jQuery.UI.Combined" Version="1.13.3" />
@@ -37,11 +36,11 @@
         <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
         <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.9" />
         <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.9" />
-        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.4" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.10" />
         <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="4.0.0" />
         <PackageReference Include="Microsoft.Web.Infrastructure" Version="2.0.0" />
         <PackageReference Include="Modernizr" Version="2.8.3" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageReference Include="Ninject" Version="3.3.6" />
         <PackageReference Include="Ninject.Web.Common" Version="3.3.2" />
         <PackageReference Include="Respond" Version="1.4.2" />
@@ -50,13 +49,13 @@
         <PackageReference Include="System.Memory" Version="4.6.3" />
         <PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />
         <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
-        <PackageReference Include="System.Text.Encodings.Web" Version="9.0.4" />
-        <PackageReference Include="System.Text.Json" Version="9.0.4" />
+        <PackageReference Include="System.Text.Encodings.Web" Version="9.0.10" />
+        <PackageReference Include="System.Text.Json" Version="9.0.10" />
         <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
         <PackageReference Include="System.ValueTuple" Version="4.6.1" />
         <PackageReference Include="WebDAV.dll" Version="1.0.0.0" />
         <PackageReference Include="WebGrease" Version="1.6.0" />
-        <PackageReference Include="System.Collections.Immutable" Version="9.0.4" />
+        <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="Microsoft.CobaltCore">

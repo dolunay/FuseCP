@@ -21,6 +21,7 @@ using System.Globalization;
 
 namespace FuseCP.EnterpriseServer
 {
+#pragma warning disable CA1416
     public class EventLogTraceListener : TraceListener
     {
         private EventLog eventLog;
@@ -195,4 +196,5 @@ namespace FuseCP.EnterpriseServer
             }
         }
     }
+#pragma warning restore CA1416
 }

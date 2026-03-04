@@ -71,6 +71,9 @@
     <Compile Include="..\VersionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="..\LegacyCompat\LegacyEcommerceCompat.cs">
+      <Link>LegacyEcommerceCompat.cs</Link>
+    </Compile>
     <Compile Include="DirectiRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

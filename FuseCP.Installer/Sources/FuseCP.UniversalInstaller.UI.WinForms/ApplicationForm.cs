@@ -507,6 +507,9 @@ namespace FuseCP.UniversalInstaller
 				Task.Run(Installer.Current.RunUnattended);
 			}
 		}
+		#if !NETFRAMEWORK
+		[Obsolete]
+		#endif
 		public override object InitializeLifetimeService()
 		{
 #if NETFRAMEWORK

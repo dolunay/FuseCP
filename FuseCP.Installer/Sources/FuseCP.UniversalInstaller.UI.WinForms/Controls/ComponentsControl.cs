@@ -273,7 +273,7 @@ namespace FuseCP.UniversalInstaller.Controls
         /// </summary>
         private void Install()
         {
-            LoadComponents();
+            LoadComponents().GetAwaiter().GetResult();
             foreach (DataGridViewRow gridRow in grdComponents.Rows)
             {
                 var component = gridRow.DataBoundItem as ComponentInfo;

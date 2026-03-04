@@ -2,7 +2,11 @@
     <PropertyGroup>
         <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
         <TargetFramework>net48</TargetFramework>
-        <WixCATargetsPath Condition=" '$(WixCATargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.CA.targets</WixCATargetsPath>
+        <WixToolsetV314Targets>$([System.Environment]::GetEnvironmentVariable('ProgramFiles(x86)'))\WiX Toolset v3.14\SDK\wix.ca.targets</WixToolsetV314Targets>
+        <WixToolsetV311Targets>$([System.Environment]::GetEnvironmentVariable('ProgramFiles(x86)'))\WiX Toolset v3.11\SDK\wix.ca.targets</WixToolsetV311Targets>
+        <WixCATargetsPath Condition=" '$(WixCATargetsPath)' == '' and Exists('$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.CA.targets') ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.CA.targets</WixCATargetsPath>
+        <WixCATargetsPath Condition=" '$(WixCATargetsPath)' == '' and Exists('$(WixToolsetV314Targets)') ">$(WixToolsetV314Targets)</WixCATargetsPath>
+        <WixCATargetsPath Condition=" '$(WixCATargetsPath)' == '' and Exists('$(WixToolsetV311Targets)') ">$(WixToolsetV311Targets)</WixCATargetsPath>
         <Nullable>disable</Nullable>
         <LangVersion>12</LangVersion>
         <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -25,7 +29,7 @@
         <CustomActionContents>$(IntermediateOutputPath)$(AssemblyName).pdb;@(AddPdb)</CustomActionContents>
         <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
-    <Import Project="$(WixCATargetsPath)" />
+    <Import Project="$(WixCATargetsPath)" Condition="'$(MSBuildRuntimeType)' != 'Core' and '$(WixCATargetsPath)' != '' and Exists('$(WixCATargetsPath)')" />
     <ItemGroup>
         <Content Include="CustomAction.config" />
     </ItemGroup>

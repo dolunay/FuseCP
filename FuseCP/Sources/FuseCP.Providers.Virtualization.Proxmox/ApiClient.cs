@@ -465,9 +465,7 @@ namespace FuseCP.Providers.Virtualization
 						return apivm;
 					}
 				}
-#pragma warning disable 0168
-				catch (Exception ex)
-#pragma warning restore 0168
+				catch (Exception)
 				{
 					apivm.Node = vmId.Split(':')[0];
 				}
@@ -475,9 +473,7 @@ namespace FuseCP.Providers.Virtualization
 			return apivm;
 		}
 
-		bool isDisposed = false;
 		public void Dispose() {
-			isDisposed = true;
 		}
     }
 }

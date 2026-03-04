@@ -5,6 +5,7 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <RootNamespace>FuseCP.UniversalInstaller.Avalonia</RootNamespace>
+        <NoWarn>$(NoWarn);NU1702</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

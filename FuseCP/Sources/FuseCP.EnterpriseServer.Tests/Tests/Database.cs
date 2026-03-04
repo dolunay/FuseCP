@@ -48,7 +48,7 @@ namespace FuseCP.Tests
 			using (var db = new FuseCP.EnterpriseServer.Data.DbContext(ConnectionString(dbtype)))
 			{
 				var providers = db.Providers.ToArray();
-				Assert.IsTrue(providers.Length > 0);
+				Assert.IsNotEmpty(providers);
 			}
 		}
 

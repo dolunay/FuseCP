@@ -32,8 +32,6 @@ namespace FuseCP.Portal.ProviderControls
 {
 	public partial class IIS70_Settings : FuseCPControlBase, IHostingServiceProviderSettings
 	{
-		private string FilteredAppIds;
-
 		public const string WDeployEnabled = "WDeployEnabled";
 		public const string WDeployRepair = "WDeployRepair";
 

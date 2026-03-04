@@ -14,11 +14,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Net;
+using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
-//using System.Collections.Generic;
-//using System.Linq;
-using System.Web;
+#if NET48
 using Microsoft.Security.Application;
+#endif
 
 //usage
 //<%@ Import Namespace="FuseCP.Portal" %>
@@ -36,17 +37,21 @@ namespace FuseCP.Portal
 
         public static string Encode(string input)
         {
+#if NET48
             return Encoder.HtmlEncode(input);
+#else
+            return input == null ? null : HtmlEncoder.Default.Encode(input);
+#endif
         }
 
         public static string EncodeOld(string input)
         {
-            return Encoder.HtmlEncode(HttpUtility.HtmlDecode(input)); // HtmlDecode is used for compatability reasons with FCP pre-1.2.2 versions
+            return Encode(DecodeOld(input)); // HtmlDecode is used for compatability reasons with FCP pre-1.2.2 versions
         }
 
         public static string DecodeOld(string input)
         {
-            return HttpUtility.HtmlDecode(input); // HtmlDecode is used for compatability reasons with FCP pre-1.2.2 versions
+            return WebUtility.HtmlDecode(input); // HtmlDecode is used for compatability reasons with FCP pre-1.2.2 versions
         }
         
     }

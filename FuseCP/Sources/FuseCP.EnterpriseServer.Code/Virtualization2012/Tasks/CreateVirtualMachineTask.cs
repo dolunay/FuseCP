@@ -433,11 +433,11 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Tasks
                                 mountedInfo = vs.MountVirtualHardDisk(vm.VirtualHardDrivePath[0]);
                                 attemps = 0;
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 attemps--;
                                 if (attemps == 0)
-                                    throw ex;
+                                    throw;
 
                                 Thread.Sleep(5000); //wait and try again.                                
                             }

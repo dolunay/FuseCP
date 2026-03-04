@@ -51,6 +51,9 @@ namespace FuseCP.EnterpriseServer
         public override void DoWork()
         {
             BackgroundTask topTask = TaskManager.TopTask;
+            _ = TaskId;
+            _ = MailBodyTemplateParameter;
+            _ = MailBodyDomainRecordTemplateParameter;
 
             List<DomainDnsChanges> domainsChanges = new List<DomainDnsChanges>();
             var domainUsers = new Dictionary<int, UserInfo>();
@@ -70,7 +73,7 @@ namespace FuseCP.EnterpriseServer
                 return;
             }
 
-            if (String.IsNullOrEmpty((string)topTask.GetParamValue("MAIL_TO")))
+            if (String.IsNullOrEmpty((string)topTask.GetParamValue(MailToParameter)))
             {
                 TaskManager.WriteWarning("The e-mail message has not been sent because 'Mail To' is empty.");
                 return;

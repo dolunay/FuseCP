@@ -2088,12 +2088,12 @@
   <Resource>
     <File>App_GlobalResources\FuseCP_Pages.ascx.resx</File>
     <Key>PageName.SpaceProxmox</Key>
-    <DefaultValue>Virtual Servers Proxmox</DefaultValue>
+    <DefaultValue>Proxmox</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\FuseCP_Pages.ascx.resx</File>
     <Key>PageTitle.SpaceProxmox</Key>
-    <DefaultValue>{user} - {space} - Virtual Servers Proxmox</DefaultValue>
+    <DefaultValue>{user} - {space} - Proxmox</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\FuseCP_Pages.ascx.resx</File>
@@ -11829,7 +11829,7 @@
   <Resource>
     <File>App_GlobalResources\FuseCP_SharedResources.ascx.resx</File>
     <Key>ResourceGroup.Proxmox</Key>
-    <DefaultValue>Virtual Proxmox Servers</DefaultValue>
+    <DefaultValue>Proxmox</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\FuseCP_SharedResources.ascx.resx</File>
@@ -11839,7 +11839,7 @@
   <Resource>
     <File>App_GlobalResources\FuseCP_SharedResources.ascx.resx</File>
     <Key>AuditLogSource.Proxmox</Key>
-    <DefaultValue>Virtual Proxmox Servers</DefaultValue>
+    <DefaultValue>Proxmox</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\FuseCP_SharedResources.ascx.resx</File>

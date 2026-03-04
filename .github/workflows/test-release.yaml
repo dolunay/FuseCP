@@ -102,6 +102,11 @@ jobs:
       continue-on-error: true
       run: dotnet dev-certs https
 
+    - name: Verify solution sync (FuseCP.sln vs scope solutions)
+      shell: pwsh
+      run: |
+        pwsh -NoProfile -File .\FuseCP\Tools\check-sln-scope-sync.ps1
+
     - name: Build Server & EnterpriseServer
       working-directory: FuseCP\Sources
       run: |

@@ -1,0 +1,15 @@
+{
+  "Portal": [
+    "fusecp/website/",
+    "fusecp/sources/custom.portal/"
+  ],
+  "Enterprise": [
+    "fusecp/sources/custom.enterprise/"
+  ],
+  "Server": [
+    "fusecp/sources/custom.server/"
+  ],
+  "Shared": [
+    "fusecp/resources/"
+  ]
+}
