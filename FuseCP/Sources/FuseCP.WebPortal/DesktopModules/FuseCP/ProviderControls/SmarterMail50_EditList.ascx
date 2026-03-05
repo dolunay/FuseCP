@@ -2,12 +2,12 @@
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <%@ Register TagPrefix="fcp" Namespace="FuseCP.WebPortal.Code.Controls" Assembly="FuseCP.WebPortal" %>
 
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
 		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
-		<td class="normal" width="100%">
+		<td class="normal">
             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="3" Width="300px"></asp:TextBox>
 		</td>
 	</tr>

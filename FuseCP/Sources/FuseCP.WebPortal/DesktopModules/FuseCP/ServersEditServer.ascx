@@ -67,7 +67,7 @@
                 <asp:Panel ID="ADPanel" runat="server" Height="0" Style="overflow: hidden;">
                     <table class="table table-borderless align-middle mb-0">
                         <tr>
-                            <td class="SubHead align-top" width="150px">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblSecurityMode" runat="server" meta:resourcekey="lblSecurityMode"></asp:Label>
                             </td>
                             <td class="Normal align-top">

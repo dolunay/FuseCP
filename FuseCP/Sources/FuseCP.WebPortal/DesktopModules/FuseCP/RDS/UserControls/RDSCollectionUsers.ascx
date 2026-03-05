@@ -132,7 +132,7 @@
                 <div class="widget-content Popup">
                     <asp:UpdatePanel ID="deleteWarningUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
-                            <div class="Popup-Scroll" style="height: auto;">
+                            <div class="Popup-Scroll" style="height: auto">
                                 <asp:Panel runat="server" ID="panelDeleteWarning">
                                     <asp:Localize runat="server" ID="locDeleteWarning" Text="Unable to remove the following user(s) since they are local admins or<br/>they were granted access to remote applications" />
                                     <br />

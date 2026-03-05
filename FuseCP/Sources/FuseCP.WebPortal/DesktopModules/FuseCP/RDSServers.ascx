@@ -51,7 +51,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control" />
                         <div class="d-flex">
-                            <asp:LinkButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false" style="vertical-align: middle;" CssClass="btn btn-primary" OnClick="btnSearchClick">
+                            <asp:LinkButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false" style="vertical-align: middle" CssClass="btn btn-primary" OnClick="btnSearchClick">
                                 <i class="bi bi-search" aria-hidden="true"></i>
                             </asp:LinkButton>
                         </div>
@@ -150,7 +150,7 @@
                     <div class="widget-content Popup">
                     <asp:UpdatePanel ID="serverInfoUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
-                            <div class="Popup-Scroll" style="height:auto;">
+                            <div class="Popup-Scroll" style="height:auto">
                                 <fcp:CollapsiblePanel id="secServerInfo" runat="server" TargetControlID="panelHardwareInfo" meta:resourcekey="secRdsApplicationEdit" Text=""/>                            
                                 <asp:Panel runat="server" ID="panelHardwareInfo">
                                     <table>
@@ -229,7 +229,7 @@
             </div>
         </asp:Panel>
 
-        <asp:Button ID="btnViewInfoFake" runat="server" style="display:none;" />
+        <asp:Button ID="btnViewInfoFake" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="ViewInfoModal" runat="server" TargetControlID="btnViewInfoFake" PopupControlID="ServerInfoPanel" 
             BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelServerInfo"/>
     </ContentTemplate>    
