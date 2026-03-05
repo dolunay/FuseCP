@@ -4,10 +4,10 @@
 
 <fcp:CollapsiblePanel id="secNameServers" runat="server"
     TargetControlID="NameServersPanel" meta:resourcekey="secNameServers" Text="Name Servers"/>
-<asp:Panel ID="NameServersPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="NameServersPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblNameServers" runat="server" meta:resourcekey="lblNameServers" Text="Name Servers:"></asp:Label>
             </td>
             <td class="Normal">
