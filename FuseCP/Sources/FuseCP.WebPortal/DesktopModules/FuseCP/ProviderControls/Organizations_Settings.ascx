@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Organizations_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Organizations_Settings" %>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead text-nowrap" width="200">
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblRootOU" meta:resourcekey="lblRootOU" />
         </td>
         <td class="Normal">

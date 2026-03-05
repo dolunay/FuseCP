@@ -25,7 +25,7 @@
                         </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_addresses" />
                     </div>
                     <div class="card tab-content">
@@ -36,8 +36,8 @@
 					        <h3><i class="bi bi-envelope"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
                         <br /><br />
-					   <div class="row" style="padding:20px;max-width:1200px">
-                           <div class="col-sm-2" style="line-height: 2.5;">
+					   <div class="row" style="padding:20px; max-width:1200px">
+                           <div class="col-sm-2" style="line-height: 2.5">
                                <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                            </div>
                            <div class="input-group col-sm-10">
@@ -52,7 +52,7 @@
 					<fcp:CollapsiblePanel id="secExistingAddresses" runat="server"
                         TargetControlID="ExistingAddresses" meta:resourcekey="secExistingAddresses" Text="Existing E-mail Addresses">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ExistingAddresses" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="ExistingAddresses" runat="server" Height="0" style="overflow:hidden">
                         <br />
 				        <asp:GridView ID="gvEmails" runat="server" AutoGenerateColumns="False"
 					        Width="100%" EmptyDataText="gvEmails" CssSelectorClass="NormalGridView" DataKeyNames="EmailAddress">
@@ -93,7 +93,7 @@
 				        <asp:LinkButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </asp:LinkButton>
 					</asp:Panel>					
 					<br />
-					<table style="width:100%;margin-top:10px;">
+					<table style="margin-top:10px">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" Visible="false" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true"

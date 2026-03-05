@@ -38,7 +38,7 @@
 	<fcp:CollapsiblePanel id="secServiceLevel" runat="server"
         TargetControlID="ServiceLevel" meta:resourcekey="secServiceLevel" Text="Service Level">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="ServiceLevel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="ServiceLevel" runat="server" Height="0" style="overflow:hidden">
 		<table>
             <tr>
                 <td class="FormLabel200 text-end">

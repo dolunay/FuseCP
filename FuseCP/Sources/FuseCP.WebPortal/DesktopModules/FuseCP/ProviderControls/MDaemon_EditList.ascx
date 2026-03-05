@@ -2,10 +2,10 @@
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Subscribers reply to:"></asp:Label>
 		</td>
-		<td class="normal" width="100%">
+		<td class="normal">
 			<asp:DropDownList id="ddlReplyTo" runat="server" resourcekey="ddlReplyTo" CssClass="form-control" Width="150px">
 				<asp:ListItem Value="RepliesToList">List</asp:ListItem>
 				<asp:ListItem Value="RepliesToSender">Sender</asp:ListItem>

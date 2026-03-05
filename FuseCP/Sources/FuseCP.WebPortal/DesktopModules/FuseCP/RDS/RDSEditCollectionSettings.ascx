@@ -32,7 +32,7 @@
                         <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="3" style="width:auto"><asp:Localize ID="locSessionLimitHeader" runat="server" meta:resourcekey="locSessionLimitHeader" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="3" ><asp:Localize ID="locSessionLimitHeader" runat="server" meta:resourcekey="locSessionLimitHeader" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
                                     <td class="Label"  colspan="2"><asp:Localize ID="locDisconnectedSessionLimit" runat="server" meta:resourcekey="locDisconnectedSessionLimit" Text=""></asp:Localize></td>
@@ -56,7 +56,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locCollectionBroken" runat="server" meta:resourcekey="locCollectionBroken" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" ><asp:Localize ID="locCollectionBroken" runat="server" meta:resourcekey="locCollectionBroken" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">
@@ -78,7 +78,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locTempFolder" runat="server" meta:resourcekey="locTempFolder" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" ><asp:Localize ID="locTempFolder" runat="server" meta:resourcekey="locTempFolder" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td>
@@ -102,7 +102,7 @@
                         <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locEnableRedirection" runat="server" meta:resourcekey="locEnableRedirection" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" ><asp:Localize ID="locEnableRedirection" runat="server" meta:resourcekey="locEnableRedirection" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -138,7 +138,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locPrinters" runat="server" meta:resourcekey="locPrinters" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" ><asp:Localize ID="locPrinters" runat="server" meta:resourcekey="locPrinters" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">
@@ -161,7 +161,7 @@
                             <br />
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locMonitors" runat="server" meta:resourcekey="locMonitors" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" ><asp:Localize ID="locMonitors" runat="server" meta:resourcekey="locMonitors" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
                                     <td class="Label" ><asp:Localize ID="locMonitorsNumber" runat="server" meta:resourcekey="locMonitorsNumber" Text=""></asp:Localize></td>
