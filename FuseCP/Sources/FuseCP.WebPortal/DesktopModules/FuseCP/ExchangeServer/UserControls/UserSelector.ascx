@@ -55,17 +55,17 @@
                                 </div>
                             </div>
                             <div class="Popup-Scroll">
-			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" Width="100%" CssSelectorClass="NormalGridView" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
+			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" CssSelectorClass="NormalGridView" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
 				                    <Columns>
 					                    <asp:TemplateField meta:resourcekey="gvAccountsDisplayName" SortExpression="DisplayName">
-						                    <ItemStyle Width="50%"></ItemStyle>
+						                    <ItemStyle></ItemStyle>
 						                    <ItemTemplate>
 							                    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage() %>' ImageAlign="AbsMiddle" />
 							                    <asp:LinkButton ID="cmdSelectAccount" CommandName="SelectAccount" CommandArgument='<%# Eval("AccountId")%>' runat="server" Text='<%# Eval("DisplayName") %>'></asp:LinkButton>
 						                    </ItemTemplate>
 					                    </asp:TemplateField>
 					                    <asp:TemplateField meta:resourcekey="gvAccountsEmail" >
-						                    <ItemStyle Width="50%"></ItemStyle>
+						                    <ItemStyle></ItemStyle>
 						                    <ItemTemplate>
 							                    <asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 						                    </ItemTemplate>

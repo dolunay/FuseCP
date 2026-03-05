@@ -46,7 +46,7 @@
 				    
 				            </td>
 				            <td class="align-top" id="SnapshotDetailsPanel" runat="server">
-				                <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" />
+				                <asp:Image ID="imgThumbnail" runat="server" Height="120" />
 				                <p>
 				                    <asp:Localize ID="locCreated" runat="server" meta:resourcekey="locCreated"
 				                        Text="Created:"></asp:Localize>
@@ -79,7 +79,7 @@
 		    </div>
 	    </div>
 
-<asp:Panel ID="RenamePanel" runat="server" style="display:none" Width="380">
+<asp:Panel ID="RenamePanel" runat="server" style="display:none">
 	 <div class="widget">
              <div class="widget-header clearfix">
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locRenameSnapshot" runat="server" Text="Rename snapshot" meta:resourcekey="locRenameSnapshot"></asp:Localize></h3>
@@ -88,7 +88,7 @@
 			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td>
-			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="SnapshotNameValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtSnapshotName" meta:resourcekey="SnapshotNameValidator" SetFocusOnError="true"

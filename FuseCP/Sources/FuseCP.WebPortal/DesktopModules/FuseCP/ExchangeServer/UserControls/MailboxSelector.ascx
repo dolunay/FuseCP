@@ -62,11 +62,11 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView" AllowSorting="true"
+					 CssSelectorClass="NormalGridView" AllowSorting="true"
 						DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand"  OnSorting="OnSorting">
 						<Columns>
 							<asp:TemplateField meta:resourcekey="gvAccountsDisplayName" SortExpression="DisplayName">
-								<ItemStyle Width="50%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 									<asp:LinkButton ID="cmdSelectAccount" CommandName="SelectAccount"
@@ -75,7 +75,7 @@
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvAccountsEmail">
-								<ItemStyle Width="50%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 								</ItemTemplate>

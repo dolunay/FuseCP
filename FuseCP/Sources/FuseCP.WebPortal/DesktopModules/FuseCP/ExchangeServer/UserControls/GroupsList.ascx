@@ -24,7 +24,7 @@
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvGroupsDisplayName" HeaderText="gvGroupsDisplayName">
 				<HeaderStyle Wrap="false" />
-				<ItemStyle Width="100%" Wrap="false"></ItemStyle>
+				<ItemStyle Wrap="false"></ItemStyle>
 				<ItemTemplate>
 					<asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 					<asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
@@ -61,7 +61,7 @@
             </div>
             <div class="Popup-Scroll">
 				<asp:GridView ID="gvPopupGroups" runat="server" meta:resourcekey="gvPopupGroups" AutoGenerateColumns="False"
-					Width="100%" CssSelectorClass="NormalGridView"
+				 CssSelectorClass="NormalGridView"
 					DataKeyNames="AccountName">
 					<Columns>
 						<asp:TemplateField>
@@ -75,7 +75,7 @@
 							<ItemStyle Width="10px" />
 						</asp:TemplateField>
 						<asp:TemplateField meta:resourcekey="gvGroupsDisplayName">
-							<ItemStyle Width="100%"></ItemStyle>
+							<ItemStyle></ItemStyle>
 							<ItemTemplate>
 								<asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 								<asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>

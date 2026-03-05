@@ -60,7 +60,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                             
                                             <ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
                                                 PopupControlID="RdpPanel" Position="Bottom" />
-                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />
+                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -102,7 +102,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                                     </Triggers>
                                     <ContentTemplate>                
-				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge; border-; border-color: #ffffff" />
+				                        <asp:Image ID="imgThumbnail" runat="server" Height="120" style="border-style:ridge; border-; border-color: #ffffff" />
 				                    </ContentTemplate>
 				                 </asp:UpdatePanel>
 

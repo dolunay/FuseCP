@@ -55,7 +55,7 @@
 		    <asp:Label ID="lblLogAutoDeletion" runat="server" meta:resourcekey="lblLogAutoDeletion" Text="Web Site Logs Auto-Deletion:"></asp:Label>
 		</td>
 		<td class="Normal">
-		    <asp:TextBox Runat="server" ID="txtLogDeleteDays" CssClass="form-control" Width="40"></asp:TextBox>
+		    <asp:TextBox Runat="server" ID="txtLogDeleteDays" CssClass="form-control"></asp:TextBox>
 		    <asp:Label ID="lblDontDelete" runat="server" meta:resourcekey="lblDontDelete" Text="(0 - never delete)"></asp:Label>
 		</td>
 	</tr>
@@ -72,7 +72,7 @@
 		    <asp:Label ID="lblSmarterLogAutoDeletion" runat="server" meta:resourcekey="lblSmarterLogAutoDeletion" Text="Smarter Logs Auto-Deletion:"></asp:Label>
 		</td>
 		<td class="Normal">
-		    <asp:TextBox Runat="server" ID="txtSmarterLogDeleteMonths" CssClass="form-control" Width="40"></asp:TextBox>
+		    <asp:TextBox Runat="server" ID="txtSmarterLogDeleteMonths" CssClass="form-control"></asp:TextBox>
 		    <asp:Label ID="Label1" runat="server" meta:resourcekey="lblDontDelete" Text="(0 - never delete)"></asp:Label>
 		</td>
 	</tr>
@@ -96,6 +96,6 @@
 		<td class="SubHead">
 		    <asp:Label ID="lblStatsUrl" runat="server" meta:resourcekey="lblStatsUrl" Text="Statistics Help URL:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control" Width="100%"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control"></asp:TextBox></td>
 	</tr>
 </table>

@@ -43,7 +43,7 @@
                                 <td ><asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
                                         meta:resourcekey="lblRam" Text="RAM:" CssClass="Medium" /></td>
                                 <td>
-                                    <asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox" Width="70"></asp:TextBox>
+                                    <asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -56,7 +56,7 @@
                                 <td ><asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
                                         meta:resourcekey="lblHdd" Text="HDD:" CssClass="Medium" /></td>
                                 <td>
-                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox" Width="70"></asp:TextBox>
+                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -77,7 +77,7 @@
                                 <td class="FormLabel150"><asp:Localize ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
                                 <td>
-                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50"></asp:TextBox>
+                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control"></asp:TextBox>
                                     
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"

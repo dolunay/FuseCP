@@ -43,10 +43,10 @@
         </asp:Panel>
     </div>
 </div>
-<asp:GridView ID="gvRDSAssignedServers" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%" EmptyDataText="gvRDSAssignedServers" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSAssignedServers_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsRDSAssignedServersPaged" PageSize="20">
+<asp:GridView ID="gvRDSAssignedServers" runat="server" AutoGenerateColumns="False" EnableViewState="true" EmptyDataText="gvRDSAssignedServers" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSAssignedServers_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsRDSAssignedServersPaged" PageSize="20">
     <Columns>
         <asp:TemplateField HeaderText="gvRDSServerName" SortExpression="Name">
-            <ItemStyle Width="80%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Label id="litRDSServerName" runat="server">
                     <%# Eval("Name") %>
@@ -54,7 +54,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
-            <ItemStyle Width="10%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:LinkButton ID="EnableLinkButton" CssClass="btn btn-success" runat="server" Visible='<%# Eval("RdsCollectionId") != null && !Convert.ToBoolean(Eval("ConnectionEnabled")) %>' CommandName="EnableItem" CommandArgument='<%# Eval("Id") %>' meta:resourcekey="cmdEnable"></asp:LinkButton>
                 <asp:LinkButton ID="DisableLinkButton" CssClass="btn btn-danger" runat="server" Visible='<%# Eval("RdsCollectionId") != null && Convert.ToBoolean(Eval("ConnectionEnabled")) %>' CommandName="DisableItem" CommandArgument='<%# Eval("Id") %>' meta:resourcekey="cmdDisable"></asp:LinkButton>                                    

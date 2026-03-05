@@ -50,18 +50,18 @@
         </asp:Panel>
     </div>
 </div>
-<asp:GridView ID="gvRDSCollections" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%"
+<asp:GridView ID="gvRDSCollections" runat="server" AutoGenerateColumns="False" EnableViewState="true"
     EmptyDataText="gvRDSCollections" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSCollections_RowCommand" AllowPaging="True"
     AllowSorting="True" DataSourceID="odsRDSCollectionsPaged" PageSize="20">
     <Columns>
         <asp:TemplateField HeaderText="gvCollectionName" SortExpression="DisplayName">
-            <ItemStyle Width="50%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:LinkButton ID="lnkCollectionName" meta:resourcekey="lnkCollectionName" runat="server" CommandName="EditCollection" CommandArgument='<%# Eval("Id") %>' OnClientClick="ShowProgressDialog('Loading ...');return true;"><%# Eval("DisplayName").ToString() %></asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvServer">
-            <ItemStyle Width="50%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal ID="litServer" runat="server" Text='<%#GetServerName(Eval("Id").ToString())%>'></asp:Literal>
             </ItemTemplate>
