@@ -123,7 +123,9 @@ Keep using:
 7. Inline script consolidation phase:
 - Added shared helper `DesktopModules/FuseCP/Scripts/email-selection.js` for Exchange email-address selection logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/websites-helicon-ape-folder.js` for Helicon APE page client init logic.
-- Reduced inline-script candidate count from `100` to `98` in guard output.
+- Added shared helper `DesktopModules/FuseCP/Scripts/exchange-create-mailbox.js` for Exchange create-mailbox page client logic.
+- Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
+- Reduced inline-script candidate count from `100` to `93` in guard output.
 
 ## Next Modernization Queue
 

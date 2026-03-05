@@ -11,23 +11,7 @@
 <%@ Register Src="../UserControls/SendToControl.ascx" TagName="SendToControl" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<div runat="server" id="divWrapper">
-    <script type="text/javascript">
-        function buildDisplayName() {
-            document.getElementById("<%= txtDisplayName.ClientID %>").value = '';
-
-            if (document.getElementById("<%= txtFirstName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtFirstName.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtInitials.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtInitials.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtLastName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtLastName.ClientID %>").value;
-    }
-    </script>
-</div>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/exchange-create-mailbox.js"></script>
 <div class="card-header">
     <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="ExchangeMailboxAdd48" runat="server" />
@@ -71,20 +55,20 @@
                                     </asp:Label>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="First Name" MaxLength="64"></asp:TextBox>
+                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="First Name" MaxLength="64"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valFirstName" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtFirstName" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                             <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Initials"></asp:TextBox>
+                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="Initials"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valInitials" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtInitials" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Last Name" MaxLength="64"></asp:TextBox>
+                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="Last Name" MaxLength="64"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valLastName" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtLastName" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                             <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
@@ -228,20 +212,3 @@
     </asp:LinkButton>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateMailbox" />
 </div>
-<script type="text/javascript">
-    function ShowProgress() {
-        setTimeout(function () {
-            var modal = $('<div />');
-            modal.addClass("modal");
-            $('body').append(modal);
-            var loading = $(".loading");
-            loading.show();
-            var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
-            var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
-            loading.css({ top: top, left: left });
-        }, 200);
-    }
-    $('form').live("submit", function () {
-        ShowProgress();
-    });
-</script>
