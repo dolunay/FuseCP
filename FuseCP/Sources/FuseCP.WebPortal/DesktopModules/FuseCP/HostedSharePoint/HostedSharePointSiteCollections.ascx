@@ -9,16 +9,9 @@
 	
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
 	TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-
-function confirmation() 
-{
-	if (!confirm("Are you sure you want to delete Site Collection?")) return false; else ShowProgressDialog('Deleting SharePoint site collection...');	
-}
-</script>
 	
 <div id="ExchangeContainer">
 	<div class="Module">
@@ -68,7 +61,7 @@ function confirmation()
 							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName" />
 							<asp:TemplateField>
 								<ItemTemplate>
-									<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="confirmation()"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
+									<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete Site Collection?', 'Deleting SharePoint site collection...');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 								</ItemTemplate>
 							</asp:TemplateField>
 						</Columns>

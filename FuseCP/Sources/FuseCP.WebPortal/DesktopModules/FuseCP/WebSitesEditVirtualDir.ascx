@@ -4,6 +4,7 @@
 <%@ Register Src="VirtualDirectoryHomeFolderControl.ascx" TagName="VirtualDirectoryHomeFolderControl" TagPrefix="uc1" %>
 <%@ Register Src="WebSitesCustomHeadersControl.ascx" TagName="WebSitesCustomHeadersControl" TagPrefix="uc6" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
@@ -41,12 +42,6 @@
                                 </SelectedItemTemplate>
                             </asp:DataList>
                         </ul>
-                        <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('.nav-tabs li').unwrap();
-                                $('.nav-tabs li').unwrap();
-                            });
-                        </script>
                     </div>
                     <div class="widget-content tab-content">
                         <div class="card-body form-horizontal">
