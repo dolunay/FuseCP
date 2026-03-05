@@ -7,7 +7,7 @@
             <asp:Label ID="lblDayBeforeNotify" runat="server" meta:resourcekey="lblDayBeforeNotify" Text="Notify before (days):"></asp:Label>
         </td>
         <td class="Normal">
-            <asp:TextBox ID="txtDaysBeforeNotify" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
+            <asp:TextBox ID="txtDaysBeforeNotify" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </td>
     </tr>
 </table>

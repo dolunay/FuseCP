@@ -34,7 +34,7 @@
 	<tr id="rowFile" runat="server">
 		<td class="SubHead" height="30"><asp:Label ID="lblFile" runat="server" meta:resourcekey="lblFile"></asp:Label></td>
 		<td class="Normal" height="30">
-            <uc2:FileLookup ID="fileLookup" runat="server" Width="300" IncludeFiles="true" />
+            <uc2:FileLookup ID="fileLookup" runat="server" IncludeFiles="true" />
 		</td>
 	</tr>
 	<tr id="rowDatabaseUser" runat="server">

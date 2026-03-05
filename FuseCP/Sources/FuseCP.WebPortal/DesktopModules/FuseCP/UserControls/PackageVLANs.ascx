@@ -35,7 +35,7 @@
 </div>
 
 <asp:GridView ID="gvVLANs" runat="server" AutoGenerateColumns="False"
-    Width="100%" EmptyDataText="gvVLANs" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvVLANs" CssSelectorClass="NormalGridView"
     AllowPaging="True" AllowSorting="True" DataSourceID="odsVLANsPaged" PageSize="20"
     onrowdatabound="gvVLANs_RowDataBound" DataKeyNames="PackageVlanID" >
     <Columns>

@@ -4,7 +4,7 @@
 		<tr>
 			<td style="white-space: nowrap; padding-right:5px"><asp:Label ID="lblTitle" runat="server"></asp:Label></td>
 			<td class="ShevronLine"></td>
-			<td style="padding-left:5px"><asp:Image ID="ToggleImage" runat="server" Width="7" Height="4" ImageUrl="~/Images/shevron_collapse.gif" /></td>
+			<td style="padding-left:5px"><asp:Image ID="ToggleImage" runat="server" Height="4" ImageUrl="~/Images/shevron_collapse.gif" /></td>
 		</tr>
     </table>
 </asp:Panel>

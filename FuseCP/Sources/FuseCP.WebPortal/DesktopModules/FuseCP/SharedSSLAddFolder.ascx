@@ -48,7 +48,7 @@
 			    <asp:Label ID="lblFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:"></asp:Label>
 	        </td>
 		    <td class="Normal align-top">
-                <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" Width="300" />
+                <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" />
     			
 		    </td>
 	    </tr>

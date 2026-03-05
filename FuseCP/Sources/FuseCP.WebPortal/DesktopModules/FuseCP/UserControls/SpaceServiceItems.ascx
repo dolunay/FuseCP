@@ -56,7 +56,7 @@
 			</ItemTemplate>
 		</asp:TemplateField>
         <asp:TemplateField SortExpression="ItemName" HeaderText="gvItemsName">
-            <ItemStyle Width="100%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id="lnkEdit1" runat="server" CssClass="Medium"
 	                NavigateUrl='<%# GetItemEditUrl(Eval("PackageID"), Eval("ItemID")) %>'>

@@ -72,7 +72,7 @@
 												<table class="table table-borderless mb-0">
 													<tr>
 														<td>
-															<uc1:FileLookup ID="fileLookup" runat="server" Width="300" IncludeFiles="true" />
+															<uc1:FileLookup ID="fileLookup" runat="server" IncludeFiles="true" />
 														</td>
 													</tr>
 													<tr>
