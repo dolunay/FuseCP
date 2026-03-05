@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
 
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr runat="server" id="passwordRow" class="hide">
         <td>
         </td>
@@ -12,7 +12,7 @@
         </td>
     </tr> 
     <tr>
-        <td class="SubHead" style="width:150px;">
+        <td class="SubHead" >
             <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:"></asp:Label>
         </td>
         <td class="normal">
@@ -50,9 +50,9 @@
     meta:resourcekey="secAutoresponder" Text="Autoresponder">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="AutoresponderPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" style="width:150px;">
+            <td class="SubHead" >
                 <asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled"
                     Text="Enable autoresponder:"></asp:Label></td>
             <td class="normal">
@@ -81,9 +81,9 @@
     meta:resourcekey="secForwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="ForwardingPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" style="width:150px;">
+            <td class="SubHead" >
                 <asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
             <td class="normal">
                 <asp:TextBox ID="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
@@ -99,3 +99,4 @@
         </tr>
     </table>
 </asp:Panel>
+

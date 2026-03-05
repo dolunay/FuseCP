@@ -62,7 +62,7 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvDeletedUsersLogin" DataField="User.UserPrincipalName" SortExpression="UserPrincipalName" ItemStyle-Width="25%" />
+                            <asp:BoundField HeaderText="gvDeletedUsersLogin" DataField="User.UserPrincipalName" SortExpression="UserPrincipalName" />
                             <asp:TemplateField HeaderText="gvServiceLevel">
                                 <ItemStyle Width="25%"></ItemStyle>
                                 <ItemTemplate>
@@ -71,8 +71,8 @@
                                     </asp:Label>
 							    </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvDeletedUsersEmail" DataField="User.PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="25%" />                            
-                            <asp:BoundField HeaderText="gvSubscriberNumber" DataField="User.SubscriberNumber" ItemStyle-Width="20%" />						    
+                            <asp:BoundField HeaderText="gvDeletedUsersEmail" DataField="User.PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />                            
+                            <asp:BoundField HeaderText="gvSubscriberNumber" DataField="User.SubscriberNumber" />						    
 						    <asp:TemplateField ItemStyle-Wrap="False">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="Image2" runat="server" Width="16px" Height="16px" ToolTip="Mail" ImageUrl='<%# GetMailImage((int)Eval("OriginAT")) %>' CommandName="OpenMailProperties" CommandArgument='<%# Eval("AccountId") %>' Enabled=<%# EnableMailImageButton((int)Eval("OriginAT")) %>/>
@@ -115,3 +115,4 @@
 				        <fcp:QuotaViewer ID="deletedUsersQuota" runat="server" QuotaTypeId="2" />
                     </div>
 				</div>
+

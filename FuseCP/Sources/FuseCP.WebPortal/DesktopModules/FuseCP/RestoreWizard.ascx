@@ -10,7 +10,7 @@
     <br />
     <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" style="width:200px">
+            <td class="SubHead" >
                 <asp:Label ID="lblBackupLocation" runat="server" meta:resourcekey="lblBackupLocation" Text="Backup Location:"></asp:Label>
             </td>
             <td>
@@ -25,7 +25,7 @@
     <asp:Panel ID="SpaceFolderPanel" runat="server">
         <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" style="width:200px">
+                <td class="SubHead" >
                     <asp:Label ID="lblSpace" runat="server" meta:resourcekey="lblSpace" Text="Space:"></asp:Label>
                 </td>
                 <td>
@@ -48,7 +48,7 @@
     <asp:Panel ID="ServerFolderPanel" runat="server">
         <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" style="width:200px">
+                <td class="SubHead" >
                     <asp:Label ID="lblServerPath" runat="server" meta:resourcekey="lblServerPath" Text="Path:"></asp:Label>
                 </td>
                 <td>
@@ -64,3 +64,4 @@
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnRestore" CssClass="btn btn-success" runat="server" OnClick="btnRestore_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </asp:LinkButton>
 </div>
+

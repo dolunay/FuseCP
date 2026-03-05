@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EnterpriseStorage_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.EnterpriseStorage_Settings" %>
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead text-nowrap" style="width: 200px;">
+        <td class="SubHead text-nowrap" >
             <asp:Label ID="lblSpacesFolder" runat="server" meta:resourcekey="lblSpacesFolder" Text="User Packages Path:"></asp:Label>
         </td>
         <td>
@@ -13,7 +13,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead text-nowrap" style="width: 200px;">
+        <td class="SubHead text-nowrap" >
             <asp:Label ID="lblDomain" runat="server" meta:resourcekey="lblDomain" Text="User domain:"></asp:Label>
         </td>
         <td>
@@ -25,7 +25,7 @@
         </td>
     </tr>
     <tr>
-		<td class="SubHead" style="width:200px;">
+		<td class="SubHead" >
 		    <asp:Label ID="lblUseStorageSpaces" runat="server" meta:resourcekey="lblUseStorageSpaces" Text="Use storage sapces:"></asp:Label>
 		</td>
 		<td>
@@ -33,3 +33,4 @@
 		</td>
 	</tr>
 </table>
+

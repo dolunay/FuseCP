@@ -125,9 +125,9 @@
             </asp:Label>
         </ItemTemplate>
     </asp:TemplateField>
-    <asp:BoundField HeaderText="gvMailboxesEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="25%" />
-    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" ItemStyle-Width="10%" />
-    <asp:BoundField HeaderText="gvMailboxesMailboxPlan" DataField="MailboxPlan" SortExpression="MailboxPlan" ItemStyle-Width="50%" />
+    <asp:BoundField HeaderText="gvMailboxesEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />
+    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" />
+    <asp:BoundField HeaderText="gvMailboxesMailboxPlan" DataField="MailboxPlan" SortExpression="MailboxPlan" />
     <asp:TemplateField>
         <ItemTemplate>
             <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="if(!confirm('Are you sure you want to delete the Exchange mailbox?.\n\nThis will only delete the mailbox, the Active Directory account will remain (under Organization --> Users) .\n\nDo you want to delete mailbox?')) return false; ShowProgressDialog('Deleting Exchange Mailbox...');">
@@ -167,3 +167,4 @@
         </div>
     </ItemTemplate>
 </asp:Repeater>
+

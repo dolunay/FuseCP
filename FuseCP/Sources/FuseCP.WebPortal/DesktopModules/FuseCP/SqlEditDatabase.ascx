@@ -17,19 +17,19 @@ function confirmation()
 </script>
 
 <div class="card-body form-horizontal">
-	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 		<tr>
-			<td class="SubHead" style="width: 150px;"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName" Text="Database name:"></asp:Label></td>
+			<td class="SubHead" ><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName" Text="Database name:"></asp:Label></td>
 			<td class="NormalBold">
                 <uc2:UsernameControl ID="usernameControl" runat="server" />
 			</td>
 		</tr>
         <tr>
-            <td class="SubHead" style="width: 150px;"><asp:Label ID="lblDBInternalServer" runat="server" meta:resourcekey="lblDBInternalServer" Text="Internal Server:"></asp:Label></td>
+            <td class="SubHead" ><asp:Label ID="lblDBInternalServer" runat="server" meta:resourcekey="lblDBInternalServer" Text="Internal Server:"></asp:Label></td>
 			<td class="Normal"><asp:Literal ID="litDBInternalServer" runat="server"></asp:Literal></td>
         </tr>
         <tr>
-            <td class="SubHead" style="width: 150px;"><asp:Label ID="lblDBExternalServer" runat="server" meta:resourcekey="lblDBExternalServer" Text="External Server:"></asp:Label></td>		
+            <td class="SubHead" ><asp:Label ID="lblDBExternalServer" runat="server" meta:resourcekey="lblDBExternalServer" Text="External Server:"></asp:Label></td>		
 			<td class="Normal"><asp:Literal ID="litDBExternalServer" runat="server"></asp:Literal></td>
         </tr>
 	</table>
@@ -38,8 +38,8 @@ function confirmation()
     <fcp:CollapsiblePanel id="secUsers" runat="server"
         TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Database Users">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-	    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden">
+	    <table class="table table-borderless align-middle mb-0 w-100">
 		    <tr>
 			    <td colspan="2">
 				    <asp:CheckBoxList ID="dlUsers" runat="server" CssClass="NormalBold" DataTextField="Name" DataValueField="Name"
@@ -57,3 +57,4 @@ function confirmation()
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
 	<asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving Database...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>
 </div>
+
