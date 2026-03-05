@@ -86,7 +86,7 @@
 					<asp:Label ID="lblQuotaName" runat="server"></asp:Label>
 				</td>
 				<td width="100%" class="Normal">
-					<asp:TextBox ID="txtQuotaValue" runat="server" CssClass="form-control" Width="100px">0</asp:TextBox>
+					<asp:TextBox ID="txtQuotaValue" runat="server" CssClass="form-control" Width="100px" Text="0"></asp:TextBox>
 				</td>
 			</tr>
 		</table>

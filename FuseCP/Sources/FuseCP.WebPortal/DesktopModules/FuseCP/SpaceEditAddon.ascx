@@ -14,7 +14,7 @@
 	<tr>
 		<td class="SubHead"><asp:Label ID="lblQuantity" runat="server" meta:resourcekey="lblQuantity" Text="Quantity:"></asp:Label></td>
 		<td class="Normal">
-			<asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="50px">1</asp:TextBox>
+			<asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="50px" Text="1"></asp:TextBox>
             <asp:RequiredFieldValidator ID="valQuantity" runat="server" ControlToValidate="txtQuantity"
                 CssClass="NormalBold" Display="Dynamic" ErrorMessage="*" ValidationGroup="EditAddon"></asp:RequiredFieldValidator></td>
 	</tr>

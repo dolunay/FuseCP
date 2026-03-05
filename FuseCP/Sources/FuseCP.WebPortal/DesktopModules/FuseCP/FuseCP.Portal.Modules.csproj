@@ -51,6 +51,11 @@
     <ItemGroup Condition="'$(TargetFramework)' != 'net48'">
         <AspNetControls Remove="MailAccess.ascx" />
         <AspNetControls Remove="RDS\RdsLocalAdmins.ascx" />
+        <AspNetControls Remove="OverusageReport.ascx" />
+        <AspNetControls Remove="VPS\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPS2012\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPSForPC\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPSForPC\VpsMonitoring.ascx" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">
@@ -302,6 +307,13 @@
         </Compile>
         <Compile Include="ProviderControls\SmarterMail100x_EditAccount.ascx.designer.cs">
             <DependentUpon>SmarterMail100x_EditAccount.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="ProviderControls\SmarterMail100x_EditAccess.ascx.cs">
+            <DependentUpon>SmarterMail100x_EditAccess.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="ProviderControls\SmarterMail100x_EditAccess.ascx.designer.cs">
+            <DependentUpon>SmarterMail100x_EditAccess.ascx</DependentUpon>
         </Compile>
         <Compile Include="ProviderControls\SmarterMail100x_EditDomain.ascx.cs">
             <DependentUpon>SmarterMail100x_EditDomain.ascx</DependentUpon>
@@ -3833,6 +3845,13 @@
         </Compile>
         <Compile Include="MailAccountsEditAccount.ascx.designer.cs">
             <DependentUpon>MailAccountsEditAccount.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="MailAccessEditAccess.ascx.cs">
+            <DependentUpon>MailAccessEditAccess.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="MailAccessEditAccess.ascx.designer.cs">
+            <DependentUpon>MailAccessEditAccess.ascx</DependentUpon>
         </Compile>
         <Compile Include="MailDomains.ascx.cs">
             <DependentUpon>MailDomains.ascx</DependentUpon>

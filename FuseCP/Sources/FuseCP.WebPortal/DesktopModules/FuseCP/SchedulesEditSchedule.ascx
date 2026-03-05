@@ -98,7 +98,7 @@
                             <asp:Label ID="lblRunOn" runat="server" meta:resourcekey="lblRunOn" Text="Run On:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtStartDate" runat="server" Width="100px">10/10/2006</asp:TextBox>
+                            <asp:TextBox ID="txtStartDate" runat="server" Width="100px" Text="10/10/2006"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtStartDate"
                                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
                     </tr>
@@ -109,7 +109,7 @@
                             <asp:Label ID="lblWeekDay" runat="server" meta:resourcekey="lblWeekDay" Text="Day of the Week:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtWeekDay" runat="server" Width="40px">1</asp:TextBox>
+                            <asp:TextBox ID="txtWeekDay" runat="server" Width="40px" Text="1"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlTaskType"
                                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
                     </tr>
@@ -120,7 +120,7 @@
                             <asp:Label ID="lblMonthDay" runat="server" meta:resourcekey="lblMonthDay" Text="Day of the Month:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtMonthDay" runat="server" Width="40px">1</asp:TextBox>
+                            <asp:TextBox ID="txtMonthDay" runat="server" Width="40px" Text="1"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMonthDay"
                                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
                     </tr>

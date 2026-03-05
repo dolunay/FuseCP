@@ -3,7 +3,7 @@
     <div class="mb-3">
         <asp:Label ID="lblServerName" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerName" style="font-weight:bold"></asp:Label>
         <div class="col-sm-10">
-            <asp:TextBox ID="txtName" runat="server" CssClass="form-control">New Server</asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Text="New Server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="valRequireServerName" runat="server" ControlToValidate="txtName" ErrorMessage="*"></asp:RequiredFieldValidator>
         </div>
         <asp:Label ID="lblServerComments" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerComments" style="font-weight:bold"></asp:Label>

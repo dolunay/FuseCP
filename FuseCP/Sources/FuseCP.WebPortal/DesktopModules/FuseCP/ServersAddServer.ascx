@@ -9,12 +9,12 @@
         <div class="mb-3">
             <asp:Label ID="lblServerName" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerName" style="font-weight:bold"></asp:Label>
             <div class="col-sm-10">
-                <asp:TextBox ID="txtName" runat="server" CssClass="form-control">New Server</asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Text="New Server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valServerName" runat="server" ErrorMessage="*" ControlToValidate="txtName"></asp:RequiredFieldValidator>
             </div>
             <asp:Label ID="lblServerUrl" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerUrl" style="font-weight:bold"></asp:Label>
             <div class="col-sm-10">
-                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control">http://127.0.0.1:9003</asp:TextBox>
+                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Text="http://127.0.0.1:9003"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valServerUrl" runat="server" ErrorMessage="*" ControlToValidate="txtUrl"></asp:RequiredFieldValidator>
             </div>
             <asp:Label ID="lblServerPassword" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerPassword" style="font-weight:bold"></asp:Label>

@@ -15,7 +15,7 @@
 <%@ Register Src="UserControls/PopupHeader.ascx" TagName="PopupHeader" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" Namespace="FuseCP.Portal" %>
 <%@ Register Src="WebsitesSSL.ascx" TagName="WebsitesSSL" TagPrefix="uc2" %>
-<%@ Register Src="UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
+<%@ Register Src="UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="uc8" %>
 
 <style type="text/css">
     .style1 {
@@ -694,7 +694,7 @@
 
         </div>
         <div class="col-md-6 text-end">
-            <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox"
+            <uc8:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox"
                 OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
         </div>
     </div>

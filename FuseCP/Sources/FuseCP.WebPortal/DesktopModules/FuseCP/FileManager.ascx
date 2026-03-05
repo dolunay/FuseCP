@@ -499,7 +499,7 @@
 </asp:Panel>
 
 <asp:Panel ID="PermissionsUnixFilePanel" runat="server" CssClass="PopupContainer" style="display:none">
-	<wsp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" />
+	<fcp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" />
 	<div class="Content">
 		<div class="Body">
 			<br />
