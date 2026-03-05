@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterStats_EditSite.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterStats_EditSite" %>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead text-nowrap" width="200" height="25px">
+        <td class="SubHead text-nowrap" height="25px">
             <asp:Label ID="lblSiteID" runat="server" meta:resourcekey="lblSiteID" Text="Site ID:"></asp:Label>
         </td>
-        <td class="NormalBold" width="100%">
+        <td class="NormalBold">
             <asp:TextBox id="txtSiteId" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
         </td>
     </tr>

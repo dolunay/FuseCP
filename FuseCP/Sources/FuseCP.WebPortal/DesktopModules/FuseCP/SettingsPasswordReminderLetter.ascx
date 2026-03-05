@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SettingsPasswordReminderLetter.ascx.cs" Inherits="FuseCP.Portal.SettingsPasswordReminderLetter" %>
 <table>
     <tr>
-        <td class="SubHead text-nowrap" width="150"><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
-        <td class="Normal" width="100%">
+        <td class="SubHead text-nowrap"><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
+        <td class="Normal">
             <asp:TextBox ID="txtFrom" runat="server" Width="500px" CssClass="form-control"></asp:TextBox></td>
     </tr>
     <tr>
