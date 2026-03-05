@@ -168,7 +168,7 @@
 </asp:ObjectDataSource>
 
 
-<asp:Panel ID="pnlTaskDetails" runat="server" CssClass="PopupContainer" style="display:none;">
+<asp:Panel ID="pnlTaskDetails" runat="server" CssClass="PopupContainer" style="display:none">
     <div class="widget">
         <div class="widget-header clearfix">
             <h3><i class="bi bi-book"></i> <asp:Localize ID="TaskDetailsHeader" runat="server" Text="Task Details" meta:resourcekey="TaskDetailsHeader"></asp:Localize></h3>
@@ -257,7 +257,7 @@
             </tr>
             <tr>
                 <td colspan="3" class="Normal">
-                    <asp:Panel ID="pnlExecutionLog" runat="server" style="border: solid 1px #e0e0e0; width:430px; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px;">
+                    <asp:Panel ID="pnlExecutionLog" runat="server" style="border: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px">
                         <asp:Literal ID="litLog" runat="server"></asp:Literal>
                     </asp:Panel>
                 </td>
@@ -275,7 +275,7 @@
     TargetControlID="btnShowTaskDetails"
     PopupControlID="pnlTaskDetails"
     OkControlID="btnCloseTaskDetails" />
-<asp:Button ID="btnShowTaskDetails" runat="server" Text="11" style="display:none;" />
+<asp:Button ID="btnShowTaskDetails" runat="server" Text="11" style="display:none" />
 
 
 </ContentTemplate>

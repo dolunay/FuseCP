@@ -28,7 +28,7 @@
 		                    Text="Add Private IP Addresses" />
 		            </p>
                     
-                    <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" >
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"
@@ -37,7 +37,7 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -58,7 +58,7 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesListRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
                                     CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
                                 <br />

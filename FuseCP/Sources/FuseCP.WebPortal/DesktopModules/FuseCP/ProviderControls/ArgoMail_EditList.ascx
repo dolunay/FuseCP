@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 		    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Subscribers reply to:"></asp:Label>
 		</td>
 		<td class="normal">

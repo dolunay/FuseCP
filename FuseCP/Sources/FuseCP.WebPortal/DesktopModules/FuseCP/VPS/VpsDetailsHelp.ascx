@@ -23,10 +23,10 @@
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send instructions by E-Mail">
                     </fcp:CollapsiblePanel>
-	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
+	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden">
                         <table class="table table-borderless align-middle mb-0" id="tblEmail" runat="server">
                             <tr>
-                                <td class="SubHead text-nowrap" width="30">
+                                <td class="SubHead text-nowrap">
                                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                                 </td>
                                 <td class="Normal">

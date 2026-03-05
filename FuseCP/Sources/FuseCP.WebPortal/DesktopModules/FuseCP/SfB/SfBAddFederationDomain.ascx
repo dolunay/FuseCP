@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-                    <table id="AddFederationDomain"   runat="server" width="100%"> 					    
+                    <table id="AddFederationDomain"   runat="server"> 					    
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locDomainName" runat="server" meta:resourcekey="locDomainName" Text="Domain Name: *"></asp:Localize>

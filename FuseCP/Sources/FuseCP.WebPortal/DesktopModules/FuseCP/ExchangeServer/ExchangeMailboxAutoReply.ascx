@@ -43,14 +43,14 @@
     </h3>
 </div>
 <div class="card-body form-horizontal">
-    <div class="nav nav-tabs" style="padding-bottom: 7px !important;">
+    <div class="nav nav-tabs" style="padding-bottom: 7px !important">
         <fcp:MailboxTabs ID="MailboxTabs" runat="server" SelectedTab="mailbox_autoreply" />
     </div>
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
         <div class="mb-3">
             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                <table style="width: 950px;">
+                <table >
                     <tr>
                         <td>
                             <asp:RadioButtonList ID="rblSetAutoreply" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblSetAutoreply_SelectedIndexChanged">
@@ -60,41 +60,41 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px;">
+                        <td style="padding-left: 15px">
                             <asp:CheckBox ID="chkAutoReplyTime" runat="server" meta:resourcekey="chkAutoReplyTime" Text="Send replies only during this time period:" AutoPostBack="true" OnCheckedChanged="chkAutoReplyTime_CheckedChanged" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 5px; padding-top: 5px;">
+                        <td style="padding-left: 30px; padding-bottom: 5px; padding-top: 5px">
                             <asp:Label ID="locStartTime" runat="server" meta:resourcekey="locStartTime" Text="Start time:" Width="100"></asp:Label>
                             <asp:TextBox ID="txtStartDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtStartTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 10px; padding-top: 5px;">
+                        <td style="padding-left: 30px; padding-bottom: 10px; padding-top: 5px">
                             <asp:Label ID="locEndTime" runat="server" meta:resourcekey="locEndTime" Text="End time:" Width="100"></asp:Label>
                             <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtEndTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px;">
+                        <td style="padding-left: 15px">
                             <asp:Localize ID="locIntReply" runat="server" meta:resourcekey="locIntReply" Text="Send a reply once to each sender inside my organization with the following message:"></asp:Localize>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px;">
+                        <td style="padding-left: 15px">
                             <asp:TextBox ID="txtIntReply" runat="server" CssClass="tinymce" Rows="15" cols="20" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px; padding-top: 20px;">
+                        <td style="padding-left: 15px; padding-top: 20px">
                             <asp:CheckBox ID="chkOutsideOrganization" runat="server" meta:resourcekey="chkOutsideOrganization" Text="Send replies outside my organization" AutoPostBack="true" OnCheckedChanged="chkOutsideOrganization_CheckedChanged" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 10px;">
+                        <td style="padding-left: 30px; padding-bottom: 10px">
                             <asp:RadioButtonList ID="rblExternalAudience" runat="server" AutoPostBack="False">
                                 <asp:ListItem Text="Only to senders in my Contact list" meta:resourcekey="rblExtContact"></asp:ListItem>
                                 <asp:ListItem Text="Send to all external senders" meta:resourcekey="rblExtAll" Selected="True"></asp:ListItem>
@@ -102,12 +102,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px;">
+                        <td style="padding-left: 30px">
                             <asp:Localize ID="locExtReply" runat="server" meta:resourcekey="locExtReply" Text="Send a reply once to each sender outside my organization with the following message:"></asp:Localize>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px;">
+                        <td style="padding-left: 30px">
                             <asp:TextBox ID="txtExtReply" runat="server" CssClass="tinymce" Rows="15" cols="20" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
