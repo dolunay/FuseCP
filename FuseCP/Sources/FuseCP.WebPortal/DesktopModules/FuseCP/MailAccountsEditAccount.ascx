@@ -5,12 +5,7 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
     TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-<script type="text/javascript">
-
-    function confirmation() {
-        if (!confirm("Are you sure you want to delete this Mail Account?")) return false; else ShowProgressDialog('Deleting Mail Account...');
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 <div class="card-body form-horizontal">
     <dnc:MailEditAddress ID="mailEditAddress" runat="server"></dnc:MailEditAddress>
     <uc1:PasswordControl ID="passwordControl" runat="server" ValidationGroup="ValidatePassword" />
@@ -31,7 +26,7 @@
     <asp:PlaceHolder ID="providerControl" runat="server"></asp:PlaceHolder>
 </div>
 <div class="card-footer text-end">
-    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"><i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this Mail Account?', 'Deleting Mail Account...');"><i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
     </asp:LinkButton>
     &nbsp;
 
