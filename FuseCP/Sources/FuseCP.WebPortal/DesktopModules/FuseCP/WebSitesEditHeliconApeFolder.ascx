@@ -6,14 +6,7 @@
 <script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="/JavaScript/codemirror/codemirror.js"></script>
 <script type="text/javascript" src="/JavaScript/codemirror/htaccess.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.LinkDebuggingPage').click(function () {
-            //$find('').hide();
-            return true;
-        });
-    });
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-helicon-ape-folder.js"></script>
 <style type="text/css">
 .CodeMirror {
     border: 1px solid #444;
@@ -83,12 +76,3 @@
     BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelDebuggingPageLinkPanel" />
 
 
-<script>
-    $(document).ready(function() {
-        CodeMirror.fromTextArea(($('.CodeEditor')[0]),
-            {
-                lineNumbers: true,
-                autofocus: true
-            });
-    });
-</script>
