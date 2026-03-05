@@ -28,11 +28,11 @@
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:BoundField DataField="FullName" SortExpression="FullName" HeaderText="usersListName">
-            <ItemStyle Wrap="False" Width="50%" />
+            <ItemStyle Wrap="False" />
         </asp:BoundField>
 		<asp:BoundField DataField="Email" SortExpression="Email" HeaderText="usersListEmail">
 		    <HeaderStyle Wrap="False" />
-		     <ItemStyle Wrap="False" Width="50%" />
+		     <ItemStyle Wrap="False" />
 		</asp:BoundField>
 	</Columns>
 </asp:GridView>

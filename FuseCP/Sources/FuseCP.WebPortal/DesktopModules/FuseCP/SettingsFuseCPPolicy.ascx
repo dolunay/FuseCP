@@ -13,7 +13,7 @@
                 <asp:Label ID="lblLogoImage" runat="server" meta:resourcekey="lblLogoImage" Text="Logo Image:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtLogoImageURL" runat="server" Width="100%" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtLogoImageURL" runat="server" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -21,7 +21,7 @@
                 <asp:Label ID="lblDemoMessage" runat="server" meta:resourcekey="lblDemoMessage" Text="Demo Message:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtDemoMessage" runat="server" Rows="5" TextMode="MultiLine" Width="100%" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtDemoMessage" runat="server" Rows="5" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>

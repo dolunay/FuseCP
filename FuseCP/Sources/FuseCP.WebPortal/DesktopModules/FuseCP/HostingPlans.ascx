@@ -11,7 +11,7 @@
 	CssSelectorClass="NormalGridView">
 	<Columns>
 		<asp:TemplateField SortExpression="PlanName" HeaderText="gvPlansName">
-			<ItemStyle Width="100%"></ItemStyle>
+			<ItemStyle></ItemStyle>
 			<ItemTemplate>
 				<b><asp:hyperlink id="lnkEdit" runat="server" NavigateUrl='<%# EditUrl("PlanID", Eval("PlanID").ToString(), "edit_plan", "UserID=" + Eval("UserID").ToString()) %>'>
 					<%# PortalAntiXSS.EncodeOld((string)Eval("PlanName")) %>
@@ -26,7 +26,7 @@
 		</asp:TemplateField>
         <asp:TemplateField SortExpression="ServerName" HeaderText="gvPlansServer"
                 HeaderStyle-Wrap="false">
-            <ItemStyle Width="30%" Wrap="false"></ItemStyle>
+            <ItemStyle Wrap="false"></ItemStyle>
             <ItemTemplate>
 		         <uc3:ServerDetails ID="serverDetails" runat="server"
 		            ServerID='<%# Eval("ServerID") %>'

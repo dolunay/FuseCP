@@ -5,7 +5,7 @@
 				<asp:Label ID="lblSpaceFolder" runat="server" meta:resourcekey="lblSpaceFolder">Space Folder:</asp:Label>
 			</td>
 			<td class="Normal">
-   				<asp:TextBox ID="txtSpaceFolder" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
+   				<asp:TextBox ID="txtSpaceFolder" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
    				<asp:Label ID="lblSpaceFolderHint" runat="server" meta:resourcekey="lblSpaceFolderHint" Text="([date], [time] variables are supported)"></asp:Label>
         </tr>
         <tr>
@@ -13,7 +13,7 @@
 				<asp:Label ID="lblZipFile" runat="server" meta:resourcekey="lblZipFile">Zip File: </asp:Label>
 			</td>
 			<td class="Normal">
-   				<asp:TextBox ID="txtZipFile" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
+   				<asp:TextBox ID="txtZipFile" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
    				<asp:Label ID="lblZipFileHint" runat="server" meta:resourcekey="lblZipFileHint" Text="([date], [time] variables are supported)"></asp:Label>
         </tr>     
    </table>
