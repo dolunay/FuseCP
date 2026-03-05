@@ -120,6 +120,11 @@ Keep using:
 - Script reports in one run:
 `legacy button/icon patterns`, `actionable old HTML attrs`, `width backlog excluding popup strings`, and `inline script candidate hotspots`.
 
+7. Inline script consolidation phase:
+- Added shared helper `DesktopModules/FuseCP/Scripts/email-selection.js` for Exchange email-address selection logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/websites-helicon-ape-folder.js` for Helicon APE page client init logic.
+- Reduced inline-script candidate count from `100` to `98` in guard output.
+
 ## Next Modernization Queue
 
 1. JS include normalization batch:
@@ -128,6 +133,7 @@ Keep using:
 2. Inline script consolidation batch:
 - Extract repeated inline helper blocks from these areas into shared files under `DesktopModules/FuseCP/Scripts/`:
 `RDS/*.ascx`, `ExchangeServer/*EmailAddresses.ascx`, `WebSitesEditHeliconApeFolder.ascx`.
+- Partially completed for `ExchangeServer/*EmailAddresses.ascx` and `WebSitesEditHeliconApeFolder.ascx`; continue with remaining high-frequency hotspots from guard report.
 
 3. Accessibility batch:
 - Add/verify label association and alt/title quality for controls in high-traffic pages:
