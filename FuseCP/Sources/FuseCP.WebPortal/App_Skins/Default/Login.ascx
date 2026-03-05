@@ -1,6 +1,7 @@
 <%@ Control AutoEventWireup="true" %>
 <%@ Register TagPrefix="fcp" TagName="SiteFooter" Src="~/DesktopModules/FuseCP/SkinControls/SiteFooter.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="Logo" Src="~/DesktopModules/FuseCP/SkinControls/Logo.ascx" %>
+<%@ Register TagPrefix="fcp" TagName="ThemeScripts" Src="~/DesktopModules/FuseCP/SkinControls/ThemeScripts.ascx" %>
 <style>
     body {
         background-color: #EFEFEF;
@@ -27,6 +28,5 @@
 </div>
 
 <!-- Javascript -->
-<script src="/JavaScript/jquery-2.1.0.min.js"></script>
-<script src="/JavaScript/bootstrap/bootstrap.js"></script>
-<script src="/Javascript/fcp-form-layouts.js"></script>
+<fcp:ThemeScripts ID="themeScripts" runat="server" />
+<script src="<%= ResolveUrl(\"~/App_Themes/\" + Page.Theme + \"/js/fcp-form-layouts.js\") %>"></script>

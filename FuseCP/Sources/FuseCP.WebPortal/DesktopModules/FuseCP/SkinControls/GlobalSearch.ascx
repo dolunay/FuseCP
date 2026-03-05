@@ -6,7 +6,7 @@
 
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/global-search.js"></script>
 
-<asp:Panel runat="server" ID="updatePanelUsers" UpdateMode="Conditional" ChildrenAsTriggers="true" CssClass="SearchQuery navbar-form navbar-right fcp-global-search" DefaultButton="ImageButton1">
+<asp:Panel runat="server" ID="updatePanelUsers" UpdateMode="Conditional" ChildrenAsTriggers="true" CssClass="SearchQuery navbar-form ms-auto fcp-global-search" DefaultButton="ImageButton1">
 
 
                     <div class="input-group">

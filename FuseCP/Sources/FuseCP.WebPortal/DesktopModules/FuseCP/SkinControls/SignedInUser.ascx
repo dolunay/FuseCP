@@ -7,7 +7,7 @@
 
 <asp:Panel ID="LoggedPanel" runat="server">
 
-    <ul class="nav navbar-nav navbar-right d-none d-sm-block">
+    <ul class="nav navbar-nav ms-auto d-none d-sm-block">
     <li>
     <asp:HyperLink ID="lnkEditUserDetails" runat="server">
         <i class="bi bi-person"></i>&nbsp;
@@ -25,7 +25,7 @@
 
 
 <asp:Panel ID="LoggedPanelSm" runat="server" CssClass="d-block d-sm-none-block">
-    <ul class="nav navbar-sm navbar-right">
+    <ul class="nav navbar-sm ms-auto">
     <li>
      <a href="#" class="show-search">
         <i class="bi bi-search fs-2">&nbsp;</i>

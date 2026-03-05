@@ -5,6 +5,7 @@
 <%@ Register TagPrefix="fcp" TagName="SignedInUser" Src="~/DesktopModules/FuseCP/SkinControls/SignedInUser.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="GlobalSearch" Src="~/DesktopModules/FuseCP/SkinControls/GlobalSearch.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="UserSpaceBreadcrumb" Src="~/DesktopModules/FuseCP/SkinControls/UserSpaceBreadcrumb.ascx" %>
+<%@ Register TagPrefix="fcp" TagName="ThemeScripts" Src="~/DesktopModules/FuseCP/SkinControls/ThemeScripts.ascx" %>
 
 <asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true" EnableScriptLocalization="true">
 	<Services>
@@ -59,11 +60,4 @@
 	</div>
 </div>
 <!-- Javascript -->
-<script src="/JavaScript/jquery-2.1.0.min.js"></script>
-<script src="/JavaScript/bootstrap/bootstrap.js"></script>
-<script src="/JavaScript/fcp-common.js"></script>
-<script src="/JavaScript/fcp-charts.js"></script>
-<script src="/JavaScript/fcp-elements.js"></script>
-<script src="/JavaScript/plugins/plugins.js"></script>
-<script src="/JavaScript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
-<script src="/JavaScript/jquery.matchHeight.js"></script>
+<fcp:ThemeScripts ID="themeScripts" runat="server" />

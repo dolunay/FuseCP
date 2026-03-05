@@ -54,7 +54,7 @@
 			this.$container = $( element ).parent( '.checkbox' ); // the container div
 
 			// determine if a toggle container is specified
-			var containerSelector = this.$chk.attr( 'data-toggle' );
+			var containerSelector = this.$chk.attr( 'data-bs-toggle' );
 			this.$toggleContainer = $( containerSelector );
 
 			// handle internal events
@@ -254,7 +254,7 @@
 			this.$dropMenu = this.$element.find( '.dropdown-menu' );
 			this.$input = this.$element.find( 'input' );
 			this.$button = this.$element.find( '.btn' );
-			this.$inputGroupBtn = this.$element.find( '.input-group-btn' );
+			this.$inputGroupBtn = this.$element.find( '.btn-group' );
 
 			this.$element.on( 'click.fu.combobox', 'a', $.proxy( this.itemclicked, this ) );
 			this.$element.on( 'change.fu.combobox', 'input', $.proxy( this.inputchanged, this ) );
@@ -661,7 +661,7 @@
 			this.$header = this.$calendar.find( '.datepicker-calendar-header' );
 			this.$headerTitle = this.$header.find( '.title' );
 			this.$input = this.$element.find( 'input' );
-			this.$inputGroupBtn = this.$element.find( '.input-group-btn' );
+			this.$inputGroupBtn = this.$element.find( '.btn-group' );
 			this.$wheels = this.$element.find( '.datepicker-wheels' );
 			this.$wheelsMonth = this.$element.find( '.datepicker-wheels-month' );
 			this.$wheelsYear = this.$element.find( '.datepicker-wheels-year' );
@@ -1422,7 +1422,7 @@
 
 		// -- BEGIN MODULE CODE HERE --
 
-		$( document.body ).on( 'click.fu.dropdown-autoflip', '[data-toggle=dropdown][data-flip]', function( event ) {
+		$( document.body ).on( 'click.fu.dropdown-autoflip', '[data-bs-toggle=dropdown][data-flip]', function( event ) {
 			if ( $( this ).data().flip === "auto" ) {
 				// have the drop down decide where to place itself
 				_autoFlip( $( this ).next( '.dropdown-menu' ) );
@@ -1492,7 +1492,7 @@
 		}
 
 		function _getContainer( element ) {
-			var targetSelector = element.attr( 'data-target' );
+			var targetSelector = element.attr( 'data-bs-target' );
 			var isWindow = true;
 			var containerElement;
 
@@ -2072,7 +2072,7 @@
 			this.groupName = this.$radio.attr( 'name' ); // don't cache group itself since items can be added programmatically
 
 			// determine if a toggle container is specified
-			var containerSelector = this.$radio.attr( 'data-toggle' );
+			var containerSelector = this.$radio.attr( 'data-bs-toggle' );
 			this.$toggleContainer = $( containerSelector );
 
 			// handle internal events
@@ -2104,7 +2104,7 @@
 				$radios.each( function( index, item ) {
 					var $radio = $( item );
 					var $lbl = $radio.parent();
-					var containerSelector = $radio.attr( 'data-toggle' );
+					var containerSelector = $radio.attr( 'data-bs-toggle' );
 					var $containerToggle = $( containerSelector );
 
 
@@ -2116,7 +2116,7 @@
 			setCheckedState: function( element, checked ) {
 				var $radio = element;
 				var $lbl = $radio.parent();
-				var containerSelector = $radio.attr( 'data-toggle' );
+				var containerSelector = $radio.attr( 'data-bs-toggle' );
 				var $containerToggle = $( containerSelector );
 
 				if ( checked ) {
@@ -2275,7 +2275,7 @@
 
 			this.$button = this.$element.find( 'button' );
 			this.$input = this.$element.find( 'input' );
-			this.$icon = this.$element.find( '.glyphicon, .fuelux-icon' );
+			this.$icon = this.$element.find( '\.bi, .fuelux-icon' );
 
 			this.$button.on( 'click.fu.search', $.proxy( this.buttonclicked, this ) );
 			this.$input.on( 'keyup.fu.search', $.proxy( this.keypress, this ) );
@@ -2305,8 +2305,8 @@
 			},
 
 			search: function( searchText ) {
-				if ( this.$icon.hasClass( 'glyphicon' ) ) {
-					this.$icon.removeClass( 'glyphicon-search' ).addClass( 'glyphicon-remove' );
+				if ( this.$icon.hasClass( 'bi' ) ) {
+					this.$icon.removeClass( 'bi-search' ).addClass( 'bi-remove' );
 				}
 				if ( this.$icon.hasClass( 'fuelux-icon' ) ) {
 					this.$icon.removeClass( 'fuelux-icon-search' ).addClass( 'fuelux-icon-remove' );
@@ -2318,8 +2318,8 @@
 			},
 
 			clear: function() {
-				if ( this.$icon.hasClass( 'glyphicon' ) ) {
-					this.$icon.removeClass( 'glyphicon-remove' ).addClass( 'glyphicon-search' );
+				if ( this.$icon.hasClass( 'bi' ) ) {
+					this.$icon.removeClass( 'bi-remove' ).addClass( 'bi-search' );
 				}
 				if ( this.$icon.hasClass( 'fuelux-icon' ) ) {
 					this.$icon.removeClass( 'fuelux-icon-remove' ).addClass( 'fuelux-icon-search' );
@@ -2602,7 +2602,7 @@
 				this.$element.find( 'a' ).each( function() {
 					sizer.find( '.selected-label' ).text( $( this ).text() );
 					newWidth = sizer.find( '.selectlist' ).outerWidth();
-					newWidth = newWidth + sizer.find( '.sr-only' ).outerWidth();
+					newWidth = newWidth + sizer.find( '.visually-hidden' ).outerWidth();
 					if ( newWidth > width ) {
 						width = newWidth;
 					}
@@ -3212,7 +3212,7 @@
 				nodes = nodes || this.$element;
 				var $selectedElements = $( nodes ).find( '.tree-selected' );
 				$selectedElements.each( function( index, element ) {
-					styleNodeDeselected( $( element ), $( element ).find( '.glyphicon' ) );
+					styleNodeDeselected( $( element ), $( element ).find( '\.bi' ) );
 				} );
 				return $selectedElements;
 			},
@@ -3402,8 +3402,8 @@
 				$branch.attr( 'aria-expanded', 'true' );
 				$treeFolderContentFirstChild.removeClass( 'hide hidden' ); // jQuery deprecated hide in 3.0. Use hidden instead. Leaving hide here to support previous markup
 				$branch.find( '> .tree-branch-header .icon-folder' ).eq( 0 )
-					.removeClass( 'glyphicon-folder-close' )
-					.addClass( 'glyphicon-folder-open' );
+					.removeClass( 'bi-folder-close' )
+					.addClass( 'bi-folder-open' );
 
 				//add the children to the folder
 				if ( !$treeFolderContent.children().length ) {
@@ -3424,8 +3424,8 @@
 				$branch.attr( 'aria-expanded', 'false' );
 				$treeFolderContentFirstChild.addClass( 'hidden' );
 				$branch.find( '> .tree-branch-header .icon-folder' ).eq( 0 )
-					.removeClass( 'glyphicon-folder-open' )
-					.addClass( 'glyphicon-folder-close' );
+					.removeClass( 'bi-folder-open' )
+					.addClass( 'bi-folder-close' );
 
 				// remove chidren if no cache
 				if ( !this.options.cacheItems ) {
@@ -3438,9 +3438,9 @@
 			toggleFolder: function toggleFolder( el ) {
 				var $el = $( el );
 
-				if ( $el.find( '.glyphicon-folder-close' ).length ) {
+				if ( $el.find( '.bi-folder-close' ).length ) {
 					this.discloseFolder( el );
-				} else if ( $el.find( '.glyphicon-folder-open' ).length ) {
+				} else if ( $el.find( '.bi-folder-open' ).length ) {
 					this.closeFolder( el );
 				}
 			},
@@ -3636,14 +3636,14 @@
 		function styleNodeSelected( $element, $icon ) {
 			$element.addClass( 'tree-selected' );
 			if ( $element.data( 'type' ) === 'item' && $icon.hasClass( 'fueluxicon-bullet' ) ) {
-				$icon.removeClass( 'fueluxicon-bullet' ).addClass( 'glyphicon-ok' ); // make checkmark
+				$icon.removeClass( 'fueluxicon-bullet' ).addClass( 'bi-ok' ); // make checkmark
 			}
 		}
 
 		function styleNodeDeselected( $element, $icon ) {
 			$element.removeClass( 'tree-selected' );
-			if ( $element.data( 'type' ) === 'item' && $icon.hasClass( 'glyphicon-ok' ) ) {
-				$icon.removeClass( 'glyphicon-ok' ).addClass( 'fueluxicon-bullet' ); // make bullet
+			if ( $element.data( 'type' ) === 'item' && $icon.hasClass( 'bi-ok' ) ) {
+				$icon.removeClass( 'bi-ok' ).addClass( 'fueluxicon-bullet' ); // make bullet
 			}
 		}
 
@@ -4308,7 +4308,7 @@
 					if ( typeof this.options.hybrid === 'object' ) {
 						moreBtn.append( this.options.hybrid.label );
 					} else {
-						moreBtn.append( '<span class="glyphicon glyphicon-repeat"></span>' );
+						moreBtn.append( '<span class="bi bi-repeat"></span>' );
 					}
 
 					moreBtn.on( 'click.fu.infinitescroll', function() {
@@ -4398,10 +4398,10 @@
 			this.$addItem = this.$element.find( '.pillbox-add-item' );
 			this.$addItemWrap = this.$addItem.parent();
 			this.$suggest = this.$element.find( '.suggest' );
-			this.$pillHTML = '<li class="btn btn-default pill">' +
+			this.$pillHTML = '<li class="btn btn-secondary pill">' +
 				'	<span></span>' +
-				'	<span class="glyphicon glyphicon-close">' +
-				'		<span class="sr-only">Remove</span>' +
+				'	<span class="bi bi-close">' +
+				'		<span class="visually-hidden">Remove</span>' +
 				'	</span>' +
 				'</li>';
 
@@ -4466,7 +4466,7 @@
 				if ( !$target.hasClass( 'pill' ) ) {
 					$item = $target.parent();
 					if ( this.$element.attr( 'data-readonly' ) === undefined ) {
-						if ( $target.hasClass( 'glyphicon-close' ) ) {
+						if ( $target.hasClass( 'bi-close' ) ) {
 							if ( this.options.onRemove ) {
 								this.options.onRemove( this.getItemData( $item, {
 									el: $item
@@ -6102,7 +6102,7 @@
 								self.$element.find( '.actions-column-wrapper tr:nth-child(' + ( index + 1 ) + ')' ).addClass( 'selected' );
 							}
 
-							$itm.find( 'td:first' ).prepend( '<div class="repeater-list-check"><span class="glyphicon glyphicon-ok"></span></div>' );
+							$itm.find( 'td:first' ).prepend( '<div class="repeater-list-check"><span class="bi bi-ok"></span></div>' );
 						}
 
 					} else {
@@ -6264,10 +6264,10 @@
 				}
 
 				var selectlist = '<div class="btn-group">' +
-					'<button type="button" class="btn btn-xs btn-default dropdown-toggle repeater-actions-button" data-toggle="dropdown" data-flip="auto" aria-expanded="false">' +
+					'<button type="button" class="btn btn-xs btn-secondary dropdown-toggle repeater-actions-button" data-bs-toggle="dropdown" data-flip="auto" aria-expanded="false">' +
 					'<span class="caret"></span>' +
 					'</button>' +
-					'<ul class="dropdown-menu dropdown-menu-right" role="menu">' +
+									'<ul class="dropdown-menu dropdown-menu-end" role="menu">' +
 					actionsHtml +
 					'</ul></div>';
 
@@ -6650,7 +6650,7 @@
 
 			if ( this.viewOptions.list_selectable === 'multi' && columns[ columnIndex ].property === '@_CHECKBOX_@' ) {
 				var checkBoxMarkup = '<label data-row="' + rowIndex + '" class="checkbox-custom checkbox-inline body-checkbox repeater-select-checkbox">' +
-					'<input class="sr-only" type="checkbox"></label>';
+					'<input class="visually-hidden" type="checkbox"></label>';
 
 				$col.html( checkBoxMarkup );
 			}
@@ -6666,15 +6666,15 @@
 		}
 
 		function renderHeader( $tr, columns, index ) {
-			var chevDown = 'glyphicon-chevron-down';
-			var chevron = '.glyphicon.rlc:first';
-			var chevUp = 'glyphicon-chevron-up';
-			var $div = $( '<div class="repeater-list-heading"><span class="glyphicon rlc"></span></div>' );
+			var chevDown = 'bi-chevron-down';
+			var chevron = '\.bi.rlc:first';
+			var chevUp = 'bi-chevron-up';
+			var $div = $( '<div class="repeater-list-heading"><span class="bi rlc"></span></div>' );
 			var checkAllID = ( this.$element.attr( 'id' ) + '_' || '' ) + 'checkall';
 
 			var checkBoxMarkup = '<div class="repeater-list-heading header-checkbox">' +
 				'<label id="' + checkAllID + '" class="checkbox-custom checkbox-inline">' +
-				'<input class="sr-only" type="checkbox" value="">' +
+				'<input class="visually-hidden" type="checkbox" value="">' +
 				'<span class="checkbox-label">&nbsp;</span>' +
 				'</label>' +
 				'</div>';
@@ -6805,7 +6805,7 @@
 										$( this ).removeClass( 'selected' );
 										self.$element.trigger( 'deselected.fu.repeaterList', $( this ) );
 									} );
-									$item.find( 'td:first' ).prepend( '<div class="repeater-list-check"><span class="glyphicon glyphicon-ok"></span></div>' );
+									$item.find( 'td:first' ).prepend( '<div class="repeater-list-check"><span class="bi bi-ok"></span></div>' );
 									$item.addClass( 'selected' );
 									$frozenRow.addClass( 'selected' );
 								} else {
