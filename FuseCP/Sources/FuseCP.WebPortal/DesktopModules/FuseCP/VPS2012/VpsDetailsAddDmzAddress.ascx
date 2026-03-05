@@ -23,7 +23,7 @@
 		                    Text="Add DMZ IP Addresses" />
 		            </p>
                     
-                    <table class="table table-borderless align-middle mb-0" id="tableDmzNetwork" runat="server" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="tableDmzNetwork" runat="server" >
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioDmzRandom" runat="server" AutoPostBack="true"
@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                         <tr id="DmzAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:Localize ID="locDmzAddresses" runat="server"
                                         meta:resourcekey="locDmzAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -53,7 +53,7 @@
                             </td>
                         </tr>
                         <tr id="DmzAddressesListRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:TextBox ID="txtDmzAddressesList" runat="server" TextMode="MultiLine"
                                     CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
                                 <br />
@@ -69,7 +69,7 @@
                             </td>
                         </tr>
                         <tr id="trCustomGateway" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:RequiredFieldValidator ID="GatewayValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtGateway" meta:resourcekey="GatewayValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>

@@ -5,7 +5,7 @@
 <%@ Register Src="../UserControls/ScheduleInterval.ascx" TagName="ScheduleInterval" TagPrefix="uc4" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 		<tr>
-			<td class="SubHead text-nowrap align-top" style="width: 200px;">
+			<td class="SubHead text-nowrap align-top" >
 			    <asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 			</td>
 			<td class="align-top">

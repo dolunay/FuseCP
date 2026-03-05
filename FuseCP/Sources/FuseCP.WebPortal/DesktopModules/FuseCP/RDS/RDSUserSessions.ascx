@@ -40,7 +40,7 @@
                     </div>
                     <fcp:CollapsiblePanel id="secRdsUserSessions" runat="server" TargetControlID="panelRdsUserSessions" meta:resourcekey="secRdsUserSessions" Text=""></fcp:CollapsiblePanel>
                     <asp:Panel runat="server" ID="panelRdsUserSessions">
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <asp:GridView ID="gvRDSUserSessions" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%" EmptyDataText="No Sessions available" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSCollections_RowCommand" AllowPaging="True" AllowSorting="True" meta:resourcekey="gvRDSUserSessions">
                                 <Columns>
                                     <asp:TemplateField meta:resourcekey="gvUserName" HeaderText="gvUserName">
@@ -164,9 +164,9 @@
                             </div>
                         </div>
                     </asp:Panel>
-                    <asp:Button ID="btnEnterMessageFake" runat="server" style="display:none;" />
+                    <asp:Button ID="btnEnterMessageFake" runat="server" style="display:none" />
                     <ajaxToolkit:ModalPopupExtender ID="EnterMessageModal" runat="server" TargetControlID="btnEnterMessageFake" PopupControlID="EnterMessagePanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelEnterMessage"/>
-                    <asp:Button ID="btnMessagesHistoryFake" runat="server" style="display:none;" />
+                    <asp:Button ID="btnMessagesHistoryFake" runat="server" style="display:none" />
                     <ajaxToolkit:ModalPopupExtender ID="MessagesHistoryModal" runat="server" TargetControlID="btnMessagesHistoryFake" PopupControlID="MessagesHistoryPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelMessagesHistory"/>
                 </ContentTemplate>
             </asp:UpdatePanel>

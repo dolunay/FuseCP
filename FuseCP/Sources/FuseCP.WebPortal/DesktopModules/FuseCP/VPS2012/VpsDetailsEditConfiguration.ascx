@@ -26,7 +26,7 @@
                     <fcp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
 
                             <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
@@ -57,7 +57,7 @@
                                 <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
                                 <asp:HiddenField id="hiddenTxtValHdd" runat="server" />
                             </div>
-                            <div style="margin-top:15px; margin-bottom:25px; margin-left:10px;">
+                            <div style="margin-top:15px; margin-bottom:25px; margin-left:10px">
                                 <asp:LinkButton id="btnAddHdd" CssClass="btn btn-success" runat="server" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </asp:LinkButton>
                             </div>
                             <asp:Repeater ID="repHdd" runat="server">
@@ -76,7 +76,7 @@
 											ControlToValidate="txtAdditionalHdd" Display="Dynamic" SetFocusOnError="true" ValidationGroup="Vps">
 										</asp:RegularExpressionValidator>
                                         <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
-                                        <asp:LinkButton id="btnRemoveHdd" style="margin-left: 30px;" meta:resourcekey="btnRemoveHdd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"
+                                        <asp:LinkButton id="btnRemoveHdd" style="margin-left: 30px" meta:resourcekey="btnRemoveHdd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"
                                             OnClientClick="if(!confirm('Virtual hard drive will be removed.\n\nDo you want to proceed?')) return false;"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locRemoveHdd"/> </asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
@@ -94,7 +94,7 @@
                     <fcp:CollapsiblePanel id="secHddQOS" runat="server" IsCollapsed="true"
                         TargetControlID="QOSManag" meta:resourcekey="secHddQOS" Text="Virtual Hard Disk Drive Quality of Service management">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <p>
 		                <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
                             Text="Specify Quality of Service management for this virtual hard disk. Minimum and maximum IOPS are measured in 8KB increments. Default value is 0." />
@@ -129,7 +129,7 @@
                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
 
                             <asp:Label ID="locSnapshots" runat="server"
@@ -146,7 +146,7 @@
                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
                             <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="true"
@@ -158,7 +158,7 @@
                     <fcp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
@@ -175,7 +175,7 @@
                     <fcp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
@@ -198,9 +198,9 @@
                     <fcp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
-                            <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px; padding-left: 15px;" visible="false">
+                            <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px; padding-left: 15px" visible="false">
                                 <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough external IP Addresses."
                                              meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                             </div>
