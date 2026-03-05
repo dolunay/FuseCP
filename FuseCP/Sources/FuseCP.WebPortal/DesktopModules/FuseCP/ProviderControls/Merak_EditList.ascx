@@ -4,7 +4,7 @@
 
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-		<td class="SubHead text-nowrap" width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
 		<td class="normal" width="100%">
@@ -12,7 +12,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Subscribers reply to:"></asp:Label>
 		</td>
 		<td class="normal" width="100%">
@@ -54,7 +54,7 @@
 		    <asp:Label ID="lblPostingPassword" runat="server" meta:resourcekey="lblPostingPassword" Text="Posting password:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtPassword" runat="server" CssClass="form-control" Width="150px" TextMode = "Password"></asp:TextBox>
+			<asp:TextBox id="txtPassword" runat="server" CssClass="form-control" Width="150px" TextMode = "Password" MaxLength="255"></asp:TextBox>
 		</td>
 	</tr>
 	<tr>
@@ -85,7 +85,7 @@
 		    <asp:Label ID="lblMaxMessageSize" runat="server" meta:resourcekey="lblMaxMessageSize" Text="Max Message Size, KB:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtMaxMessageSize" runat="server" CssClass="form-control" Width="50px" Text="0"></asp:TextBox>
+			<asp:TextBox id="txtMaxMessageSize" runat="server" CssClass="form-control" Width="50px" Text="0" MaxLength="255"></asp:TextBox>
 		    <asp:CheckBox ID="chkMaxMessageSizeEnabled" runat="server" meta:resourcekey="chkMaxMessageSizeEnabled" Text="Enabled" />
 		</td>
 	</tr>
@@ -94,7 +94,7 @@
 		    <asp:Label ID="lblMaxRecipients" runat="server" meta:resourcekey="lblMaxRecipients" Text="Max Recipients per Message:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtMaxRecipients" runat="server" CssClass="form-control" Width="50px" Text="10"></asp:TextBox>
+			<asp:TextBox id="txtMaxRecipients" runat="server" CssClass="form-control" Width="50px" Text="10" MaxLength="255"></asp:TextBox>
 		</td>
 	</tr>
 	<tr>

@@ -7,9 +7,9 @@
 <fcp:CollapsiblePanel id="secDatabase" runat="server"
     TargetControlID="DatabasePanel" meta:resourcekey="secDatabase" Text="Database Policy"/>
 <asp:Panel ID="DatabasePanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+    <table class="table table-sm">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName" Text="Database Name:"></asp:Label>
             </td>
             <td class="Normal">
@@ -23,9 +23,9 @@
 <fcp:CollapsiblePanel id="secUsername" runat="server"
     TargetControlID="UsernamePanel" meta:resourcekey="secUsername" Text="Username Policy"/>
 <asp:Panel ID="UsernamePanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+    <table class="table table-sm">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblUsername" runat="server" meta:resourcekey="lblUsername" Text="Database User:"></asp:Label>
             </td>
             <td class="Normal">

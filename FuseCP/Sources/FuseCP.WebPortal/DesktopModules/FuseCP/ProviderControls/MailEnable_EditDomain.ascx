@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MailEnable_EditDomain.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MailEnable_EditDomain" %>
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" style="width:200px;"><asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label></td>
+        <td class="SubHead"><asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label></td>
         <td class="Normal">
             <asp:DropDownList ID="ddlCatchAllAccount" runat="server" CssClass="form-control">
             </asp:DropDownList></td>
@@ -21,7 +21,7 @@
 </table>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width:200px;"><asp:Label ID="lblDomainSmartHostEnabled" runat="server" meta:resourcekey="lblDomainSmartHostEnabled" Text="Act as smart host:"></asp:Label></td>
+		<td class="SubHead"><asp:Label ID="lblDomainSmartHostEnabled" runat="server" meta:resourcekey="lblDomainSmartHostEnabled" Text="Act as smart host:"></asp:Label></td>
 		<td class="Normal">
 			<asp:CheckBox ID="chkDomainSmartHostEnabled" Runat="server" meta:resourcekey="chkDomainSmartHostEnabled" Text="Yes"></asp:CheckBox>
 		</td>
@@ -35,7 +35,7 @@
 	<tr>
         <td class="SubHead">Smart host mail to:</td>
         <td class="Normal align-top">
-            <asp:TextBox ID="txtDestination" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
+            <asp:TextBox ID="txtDestination" runat="server" CssClass="form-control" Width="200px" MaxLength="255"></asp:TextBox>
             (enter IP address or domain name of destination)</td>
     </tr>
 </table>
