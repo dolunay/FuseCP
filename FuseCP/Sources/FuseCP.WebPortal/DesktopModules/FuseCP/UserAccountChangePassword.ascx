@@ -3,7 +3,7 @@
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="fcp" %>
 <asp:Panel ID="PasswordPanel" runat="server" DefaultButton="cmdChangePassword">
     <div class="card-body form-horizontal">
-        <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+        <table class="table table-borderless align-middle mb-0 w-100">
             <tr>
                 <td class="col-sm-2 form-label">
                     <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>

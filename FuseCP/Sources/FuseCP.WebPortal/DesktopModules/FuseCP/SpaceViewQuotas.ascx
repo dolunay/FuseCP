@@ -11,7 +11,7 @@
     <fcp:CollapsiblePanel id="secAddons" runat="server"
         TargetControlID="AddonsPanel" meta:resourcekey="secAddons" Text="Space Add-Ons">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden">
         <asp:GridView ID="gvAddons" runat="server" AutoGenerateColumns="False"
                 CssSelectorClass="NormalGridView"
                 EmptyDataText="gvAddons">
@@ -41,7 +41,7 @@
     <fcp:CollapsiblePanel id="secQuotas" runat="server"
         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Space Quotas">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
         <fcp:SpaceQuotasControl id="packagesQuotas" runat="server">
         </fcp:SpaceQuotasControl>
     </asp:Panel>
