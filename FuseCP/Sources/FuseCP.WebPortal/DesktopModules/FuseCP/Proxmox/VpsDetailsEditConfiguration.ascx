@@ -26,7 +26,7 @@
                     <wsp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:10px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td ><asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
@@ -71,7 +71,7 @@
                     <wsp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="FormLabel150"><asp:Localize ID="locSnapshots" runat="server"
@@ -90,7 +90,7 @@
                     <wsp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
@@ -104,7 +104,7 @@
                     <wsp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td >
@@ -117,7 +117,7 @@
                     <wsp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td >
@@ -149,7 +149,7 @@
                     <wsp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>

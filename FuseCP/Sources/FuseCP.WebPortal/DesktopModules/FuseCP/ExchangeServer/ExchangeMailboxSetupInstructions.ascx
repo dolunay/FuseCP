@@ -16,7 +16,7 @@
                     </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_setup" />	
                     </div>
                     <div class="card tab-content">
@@ -25,10 +25,10 @@
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send via E-Mail">
                     </fcp:CollapsiblePanel>
-	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
+	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden">
                         <table id="tblEmail" runat="server" class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td class="SubHead text-nowrap" style="width: 30px;">
+                                <td class="SubHead text-nowrap" >
                                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                                 </td>
                                 <td class="Normal">

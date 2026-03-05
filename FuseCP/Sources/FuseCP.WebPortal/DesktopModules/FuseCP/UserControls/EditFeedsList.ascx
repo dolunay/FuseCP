@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditFeedsList.ascx.cs" Inherits="FuseCP.Portal.UserControls.EditFeedsList" %>
-<div style="width:100%;">
+<div >
 	<div class="FormButtonsBar">
 		<asp:Button id="btnAddFeed" runat="server" meta:resourcekey="btnAddFeed" Text="Add" CssClass="btn btn-primary" CausesValidation="false" OnClick="BtnAddClick"/>
 	</div>

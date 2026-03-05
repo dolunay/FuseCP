@@ -36,7 +36,7 @@
 									&nbsp;</td>
 							</tr>
 							<tr>
-								<td class="SubHead align-top text-nowrap" style="width: 200px;">
+								<td class="SubHead align-top text-nowrap" >
 									<asp:Label ID="lblRestoreFrom" runat="server" meta:resourcekey="lblRestoreFrom" Text="Restore From:"></asp:Label></td>
 								<td class="normal">
 									<table class="table table-borderless mb-0">

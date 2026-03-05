@@ -12,7 +12,7 @@
 			inst["admin.password"] = txtPassword.Text;
 		}
 </script>
-<table class="table table-borderless align-middle mb-0" style="width: 100%;">
+<table class="table table-borderless align-middle mb-0" >
 	<tr>
 		<td class=SubHead colspan=2>
 			Enter the username and password you would like to use for the administrator account
@@ -20,8 +20,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Username:</td>
-		<td class="Normal" style="width: 100%;">
+		<td class="SubHead text-nowrap" >Username:</td>
+		<td class="Normal" >
 			<asp:textbox id="txtUsername" runat="server" CssClass=form-control>admin</asp:textbox>
 		</td>
 	</tr>
