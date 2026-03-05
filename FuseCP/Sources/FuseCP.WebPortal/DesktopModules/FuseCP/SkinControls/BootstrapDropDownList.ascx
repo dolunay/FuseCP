@@ -2,9 +2,8 @@
 
 <div id="ddl" runat="server">
     <input type="hidden" id="hdSelectedIndex" runat="server" />
-    <button ID="btn" runat="server" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <button ID="btn" runat="server" type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span id="lit" runat="server">...</span>
-        <span class="caret"></span> 
     </button>
     <input type="hidden" id="hdSelectedValue" runat="server" />
 </div>

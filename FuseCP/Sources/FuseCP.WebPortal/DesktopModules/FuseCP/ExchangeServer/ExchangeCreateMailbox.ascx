@@ -45,12 +45,12 @@
                                 <h4>
                                     <asp:Literal ID="TopComments" runat="server" meta:resourcekey="TopComments" /></h4>
                                 <div class="radio">
-                                    <label class="btn btn-primary radio-inline" data-initialize="radio" id="radios-inline-0">
+                                    <label class="btn btn-primary form-check-inline" data-initialize="radio" id="radios-inline-0">
                                         <asp:RadioButton runat="server" class="sr-only form-control" name="radios-inline" type="button" ID="rbtnCreateNewMailbox" AutoPostBack="true" Checked="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnCreateNewMailbox_CheckedChanged" />
                                         <span class="radio-label">
                                             <asp:Localize runat="server" meta:resourcekey="rbtnCreateNewMailbox" Text="First Name: " /></span>
                                     </label>
-                                    <label class="btn btn-primary radio-inline" data-initialize="radio" id="radios-inline-1">
+                                    <label class="btn btn-primary form-check-inline" data-initialize="radio" id="radios-inline-1">
                                         <asp:RadioButton runat="server" class="sr-only form-control" name="radios-inline" type="button" ID="rbtnUserExistingUser" AutoPostBack="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnUserExistingUser_CheckedChanged" />
                                         <span class="radio-label">
                                             <asp:Localize runat="server" meta:resourcekey="rbtnUserExistingUser" Text="First Name: " /></span>

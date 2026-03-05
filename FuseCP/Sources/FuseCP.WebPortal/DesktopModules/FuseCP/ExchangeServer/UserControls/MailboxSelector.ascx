@@ -33,8 +33,8 @@
                 <div class="d-flex">
                     <div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <div class="dropdown-menu dropdown-menu-end" role="menu">
                                   <div class="mb-3">
                                     <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                                       <br />
