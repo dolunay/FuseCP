@@ -7,7 +7,7 @@
                 <asp:Label ID="lblBackupFile" runat="server" meta:resourcekey="lblBackupFile" Text="Backup File Name:"></asp:Label>
             </td>
             <td class="SubHead">
-                <asp:TextBox ID="txtBackupFileName" runat="server" CssClass="form-control"  Width="95%" MaxLength="1000"></asp:TextBox>
+                <asp:TextBox ID="txtBackupFileName" runat="server" CssClass="form-control"  MaxLength="1000"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireBackupFileName" runat="server" Display="Dynamic" ControlToValidate="txtBackupFileName"
                     ErrorMessage="*" ValidationGroup="Backup" meta:resourcekey="valRequireBackupFileName"></asp:RequiredFieldValidator>
             </td>
@@ -53,7 +53,7 @@
                     <asp:Label ID="lblServerPath" runat="server" meta:resourcekey="lblServerPath" Text="Path:"></asp:Label>
                 </td>
                 <td class="SubHead">
-                    <asp:TextBox ID="txtServerPath" runat="server" CssClass="form-control" Width="95%" MaxLength="1000"></asp:TextBox>
+                    <asp:TextBox ID="txtServerPath" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireServerPath" runat="server" Display="Dynamic" ControlToValidate="txtServerPath"
                         ErrorMessage="*" ValidationGroup="Backup" meta:resourcekey="valRequireServerPath"></asp:RequiredFieldValidator>
                 </td>

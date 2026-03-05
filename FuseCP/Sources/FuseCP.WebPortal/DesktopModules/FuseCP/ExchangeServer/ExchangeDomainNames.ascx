@@ -16,10 +16,10 @@
                     </div>
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvDomains" CssSelectorClass="NormalGridView" OnRowCommand="gvDomains_RowCommand">
+					    EmptyDataText="gvDomains" CssSelectorClass="NormalGridView" OnRowCommand="gvDomains_RowCommand">
 					    <Columns>
 						    <asp:TemplateField SortExpression="DomainName" HeaderText="gvDomainsName">
-							    <ItemStyle Width="50%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnkEditZone" runat="server" EnableViewState="false"
 									    NavigateUrl='<%# GetDomainRecordsEditUrl(Eval("DomainID").ToString()) %>' Enabled="true">

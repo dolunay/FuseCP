@@ -66,13 +66,13 @@
     <Columns>
         <asp:TemplateField SortExpression="Name" HeaderText="Level name">
             <HeaderStyle Wrap="false" />
-            <ItemStyle Wrap="False" Width="50%" />
+            <ItemStyle Wrap="False" />
             <ItemTemplate>
                 <asp:LinkButton OnClientClick="ShowProgressDialog('Loading ...');return true;" CommandName="EditSsLevel" CommandArgument='<%# Eval("Id")%>' ID="lbEditSsLevel" runat="server" Text='<%#Eval("Name") %>' />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:BoundField DataField="Description" HeaderText="Description">
-            <ItemStyle Width="35%" />
+            <ItemStyle />
         </asp:BoundField>
         <asp:TemplateField>
             <ItemTemplate>
