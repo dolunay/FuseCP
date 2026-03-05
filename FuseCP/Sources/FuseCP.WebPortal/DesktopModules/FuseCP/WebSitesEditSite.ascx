@@ -23,24 +23,7 @@
     }
 </style>
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-<script type="text/javascript">
-
-    function confirmationSITE() {
-        if (!confirm("Are you sure you want to delete Web site?")) return false; else ShowProgressDialog('Deleting Web site...');
-    }
-
-    function confirmationFPSE() {
-        if (!confirm("Are you sure you want to delete Frontpage account?")) return false; else ShowProgressDialog('Uninstalling Frontpage...');
-    }
-
-    function confirmationWMSVC() {
-        if (!confirm("Are you sure you want to disable Remote Management?")) return false; else ShowProgressDialog('Disabling Remote Management...');
-    }
-
-    function confirmationWebDeployPublishing() {
-        if (!confirm("Are you sure you want to disable Web Publishing?")) return false; else ShowProgressDialog('Disabling Web Publishing...');
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 <asp:Panel ID="WDeployBuildPublishingProfileWizardPanel" runat="server" CssClass="PopupContainer" DefaultButton="PubProfileWizardOkButton" Style="display: none;">
     <div class="widget">
         <div class="widget-header clearfix">
@@ -270,12 +253,6 @@
 
         </asp:DataList>
     </ul>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.nav-tabs li').unwrap();
-            $('.nav-tabs li').unwrap();
-        });
-    </script>
     <div class="card tab-content">
 
         <div class="card-body form-horizontal">

@@ -12,34 +12,7 @@
 <asp:Timer runat="server" Interval="30000" ID="operationTimer" />
 
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
-
-<script language="JavaScript" type="text/javascript">
-    function OpenRemoteDesktopWindow(resolution, width, height) {
-        $find("RdpPopup").hidePopup();
-        var urlElement = document.getElementById("litRdpPageUrl");
-        var rdpUrl = urlElement ? (urlElement.innerText || urlElement.textContent || "") : "";
-
-        if (window.FuseCPRdpPopup && typeof window.FuseCPRdpPopup.open === "function") {
-            window.FuseCPRdpPopup.open(rdpUrl + resolution, width, height, "RDP");
-            return;
-        }
-
-        // Fallback to legacy behavior if shared helper is unavailable.
-        var left = (screen.width - width) / 2;
-        var top = (screen.height - height) / 2;
-        window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
-    }
-</script>
-<script type="text/javascript"> 
-    function updateNameChanged(chk) {
-        var warning = document.getElementById('divReboot');
-        if (chk.checked) {
-            warning.classList.remove("hidden");
-        } else {
-            warning.classList.add("hidden");
-        }
-    }
-</script> 
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps2012-general.js"></script>
 <div class="card-body form-horizontal">
     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />

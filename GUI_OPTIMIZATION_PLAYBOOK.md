@@ -124,8 +124,12 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/email-selection.js` for Exchange email-address selection logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/websites-helicon-ape-folder.js` for Helicon APE page client init logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/exchange-create-mailbox.js` for Exchange create-mailbox page client logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/websites-edit-site.js` for Website edit page confirmations/tab normalization.
+- Added shared helper `DesktopModules/FuseCP/Scripts/vps2012-general.js` for VPS2012 general page RDP + warning logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/vps-monitoring.js` for VPS monitoring popup/date-picker logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/proxmox-vps-general.js` for Proxmox general page RDP + thumbnail refresh logic.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
-- Reduced inline-script candidate count from `100` to `93` in guard output.
+- Reduced inline-script candidate count from `100` to `86` in guard output.
 
 ## Next Modernization Queue
 

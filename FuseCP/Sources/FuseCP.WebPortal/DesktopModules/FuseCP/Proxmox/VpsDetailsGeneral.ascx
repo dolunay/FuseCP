@@ -12,6 +12,8 @@
 <asp:Timer runat="server" Interval="10000" ID="operationTimer" />
 
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/proxmox-vps-general.js"></script>
+<input type="hidden" id="proxmoxRdpPageUrl" value="<%= RdpPageUrl %>" />
 
 <div class="Content">
 	<div class="Center">
@@ -99,28 +101,9 @@
 								<p />
 
 								<p>
-									<script language="JavaScript" type="text/javascript">
-										function OpenRemoteDesktopWindow(width, height) {
-											var popup = $find("RdpPopup");
-											if (popup != null) popup.hidePopup();
-
-											var rdpUrl = '<%= RdpPageUrl %>';
-
-											if (window.FuseCPRdpPopup && typeof window.FuseCPRdpPopup.open === "function") {
-												window.FuseCPRdpPopup.open(rdpUrl, width, height, "RDP");
-												return;
-											}
-
-											// Fallback to legacy behavior if shared helper is unavailable.
-											var left = (screen.width - width) / 2;
-											var top = (screen.height - height) / 2;
-											window.open(rdpUrl, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
-										};
-									</script>
-
-									<asp:ImageButton ID="btnOpenVNC" runat="server" OnClientClick="OpenRemoteDesktopWindow(800,600);" SkinID="PveRdc32"
+									<asp:ImageButton ID="btnOpenVNC" runat="server" OnClientClick="return FuseCPProxmoxVpsGeneral.openRemoteDesktopWindow(800,600);" SkinID="PveRdc32"
 										meta:resourcekey="btnOpenVNC" />
-									<a href="javascript:OpenRemoteDesktopWindow(800,600);" runat="server" id="lnkOpenVNC">
+									<a href="javascript:FuseCPProxmoxVpsGeneral.openRemoteDesktopWindow(800,600);" runat="server" id="lnkOpenVNC">
 										<asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop" />
 									</a>
 
@@ -133,15 +116,8 @@
 
 						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
 
-						<script>
-							var img = document.getElementById('imgThumbnail');
-							var imgUrl = img.src;
-							img.onload = function () {
-								setTimeout(function () {
-									img.src = imgUrl + '&stamp=' + Math.random();
-								}, 1000)
-							}
-							img.src = imgUrl + '&stamp=' + Math.random();
+						<script type="text/javascript">
+							FuseCPProxmoxVpsGeneral.initThumbnailRefresh('imgThumbnail');
 						</script>
 
 					</td>
