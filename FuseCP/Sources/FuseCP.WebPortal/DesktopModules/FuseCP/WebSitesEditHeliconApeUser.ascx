@@ -35,12 +35,12 @@ function authTypeChanged(el) {
     }
 }
 </script>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
 		<td>
-            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+            <table class="table table-borderless align-middle mb-0 w-100">
 	            <tr>
-		            <td class="SubHead" style="width: 150px;">
+		            <td class="SubHead" >
 						<asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User Name:"></asp:Label>
 					</td>
 		            <td class="NormalBold">
@@ -48,7 +48,7 @@ function authTypeChanged(el) {
                     </td>
 	            </tr>
 	            <tr>
-		            <td class="SubHead" style="width: 150px; vertical-align: top;">
+		            <td class="SubHead" style="vertical-align: top">
 						<asp:Label ID="lblAuthType" runat="server" meta:resourcekey="lblAuthType" Text="Auth Type"></asp:Label>
 					</td>
 		            <td>
@@ -56,15 +56,15 @@ function authTypeChanged(el) {
                     </td>
 	            </tr>
 	            <tr class="EncType">
-		            <td class="SubHead" style="width: 150px; vertical-align: top;">
+		            <td class="SubHead" style="vertical-align: top">
 						<asp:Label ID="lblEncType" runat="server" meta:resourcekey="lblEncType" Text="Encryption Type"></asp:Label>
 					</td>
 		            <td>
                         <asp:RadioButtonList ID="rblEncType" runat="server"></asp:RadioButtonList>
                     </td>
 	            </tr>
-	            <tr class="DigestRealm" style="display: none;">
-		            <td class="SubHead" style="width: 150px; vertical-align: top;">
+	            <tr class="DigestRealm" style="display: none">
+		            <td class="SubHead" style="vertical-align: top">
 						<asp:Label ID="lblDigestRealm" runat="server" meta:resourcekey="lblDigestRealm" Text="Digest Realm"></asp:Label>
 					</td>
 		            <td>
@@ -83,8 +83,8 @@ function authTypeChanged(el) {
             <fcp:CollapsiblePanel id="secGroups" runat="server"
                 TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Member Of">
             </fcp:CollapsiblePanel>
-	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table class="table table-borderless align-middle mb-0 w-100" id="tblGroups" runat="server" width="100%">
+	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden">
+                <table class="table table-borderless align-middle mb-0 w-100" id="tblGroups" runat="server">
 	                <tr>
 		                <td colspan="2">
 			                <asp:checkboxlist id="dlGroups" RepeatColumns="2" CssClass="NormalBold" DataTextField="Name"
@@ -102,3 +102,4 @@ function authTypeChanged(el) {
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnSaveAndAddAnother" CssClass="btn btn-success" runat="server" OnClick="btnSaveAndAddAnother_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveAndAddAnother"/> </asp:LinkButton>
 </div>
+

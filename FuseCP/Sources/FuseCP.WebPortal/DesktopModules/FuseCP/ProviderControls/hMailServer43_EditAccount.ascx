@@ -5,10 +5,10 @@
     TargetControlID="PersonalInfoPanel" meta:resourcekey="secPersonalInfo" Text="Personal Information">
 </fcp:CollapsiblePanel>
 
-<asp:Panel ID="PersonalInfoPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="PersonalInfoPanel" runat="server" Height="0" style="overflow:hidden">
 	<table class="table table-borderless align-middle mb-0 w-100">
 	    <tr>
-	       <td class="SubHead text-nowrap" style="width: 200px;">
+	       <td class="SubHead text-nowrap" >
             <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:"></asp:Label>
         </td>
 	       <td class="normal">
@@ -30,10 +30,10 @@
     TargetControlID="AutoresponderPanel" meta:resourcekey="secAutoresponder" Text="Autoresponder">
 </fcp:CollapsiblePanel>
 
-<asp:Panel ID="AutoresponderPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AutoresponderPanel" runat="server" Height="0" style="overflow:hidden">
     <table class="table table-borderless align-middle mb-0 w-100">
 	    <tr>
-		    <td class="SubHead text-nowrap" style="width: 200px;"><asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Autoresponder Enabled:"></asp:Label></td>
+		    <td class="SubHead text-nowrap" ><asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Autoresponder Enabled:"></asp:Label></td>
 		    <td class="normal">
 			    <asp:CheckBox ID="chkResponderEnabled" Runat="server" meta:resourcekey="chkResponderEnabled" Text="Yes"></asp:CheckBox>
 		    </td>
@@ -56,10 +56,10 @@
 <fcp:CollapsiblePanel id="secForwarding" runat="server"
     TargetControlID="ForwardingPanel" meta:resourcekey="secForwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="ForwardingPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="ForwardingPanel" runat="server" Height="0" style="overflow:hidden">
     <table class="table table-borderless align-middle mb-0 w-100">
 	    <tr>
-		    <td class="SubHead text-nowrap" style="width: 200px;"><asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
+		    <td class="SubHead text-nowrap" ><asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
 		    <td class="normal align-top">
 			    <asp:TextBox id="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
 		    </td>
@@ -80,7 +80,7 @@
 <asp:Panel runat="server" ID="SignaturePanel">
 	<table class="table table-borderless align-middle mb-0 w-100">
       <tr>
-      	<td style="width:150px;">
+      	<td >
 		    <asp:Label ID="lblSignatureEnabled" runat="server" meta:resourcekey="lblSignatureEnabled" Text="Signature Enabled:"></asp:Label>
 		</td>
 		<td class="normal">
@@ -118,3 +118,4 @@
 	</tr>
    </table>
  </asp:Panel>
+

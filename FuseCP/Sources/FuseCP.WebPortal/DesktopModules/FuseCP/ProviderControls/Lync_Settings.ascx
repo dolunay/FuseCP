@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Lync_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Lync_Settings" %>
 <table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locServerName" meta:resourcekey="locServerName"/>
         </td>
         <td >
@@ -10,7 +10,7 @@
         </td>
     </tr>
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locSimpleUrlBase" meta:resourcekey="locSimpleUrlBase"/>
         </td>
         <td >
@@ -19,7 +19,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead text-nowrap align-top" width="200">
+        <td class="SubHead text-nowrap align-top">
             <asp:Localize ID="locLynServers" runat="server" meta:resourcekey="locLynServers"
                 Text="Lync Servers:"></asp:Localize>
         </td>
@@ -31,7 +31,7 @@
             <asp:GridView ID="gvLyncServers" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvLyncServers_RowCommand" meta:resourcekey="gvLyncServers">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="locServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="locServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServiceName" Text='<%#Eval("ServiceName") + "(" + Eval("ServerName") +")"%>' />
                         </ItemTemplate>
@@ -52,3 +52,4 @@
 
 
 </table>
+

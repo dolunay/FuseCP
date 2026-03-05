@@ -3,7 +3,7 @@
 
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 		    <asp:Label ID="lblRootWebApplication" runat="server" meta:resourcekey="lblRootWebApplication" Text="SharePoint Web Application Url:"></asp:Label>
 		</td>
 		<td>
@@ -11,7 +11,7 @@
         </td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 		    <asp:Label ID="lblRootWebApplicationIpAddress" runat="server" meta:resourcekey="lblRootWebApplicationIpAddress" Text="SharePoint Web Application IP:"></asp:Label>
 		</td>
 		<td>
@@ -24,7 +24,7 @@
 	    </td>
     </tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 		    <asp:Label ID="lblSharedSSLRoot" runat="server" meta:resourcekey="lblSharedSSLRoot" Text="Shared SSL Root:"></asp:Label>
 		</td>
 		<td>
@@ -42,12 +42,12 @@
 	<table class="table table-borderless align-middle mb-0 w-100">
 
 		<tr>
-		    <td class="Normal align-top" style="width: 181px;">
+		    <td class="Normal align-top" >
 		        <asp:Label ID="lblBackupTempFolder" runat="server" meta:resourcekey="lblBackupTempFolder" Text="SharePoint Backup Temporary Folder:"></asp:Label>
 		    </td>
 		    <td class="Normal align-top">
                 <asp:TextBox ID="txtBackupTempFolder" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
-                <p style="text-align: justify;"><i><asp:Localize ID="Localize1" runat="server" meta:resourcekey="lclTempBackupNote" /></i></p>
+                <p style="text-align: justify"><i><asp:Localize ID="Localize1" runat="server" meta:resourcekey="lclTempBackupNote" /></i></p>
 			</td>
 		</tr>
 				
@@ -55,3 +55,4 @@
 </fieldset>
 
 <br />
+

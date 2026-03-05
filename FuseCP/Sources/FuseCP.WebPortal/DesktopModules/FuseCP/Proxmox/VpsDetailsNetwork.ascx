@@ -31,7 +31,7 @@
 				    <wsp:CollapsiblePanel id="secExternalNetwork" runat="server"
                         TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden">
                     
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
@@ -51,7 +51,7 @@
                             </tr>
                         </table>
                     
-                        <div style="width:400px;">
+                        <div >
 				            <asp:GridView ID="gvExternalAddresses" runat="server" AutoGenerateColumns="False"
 					                EmptyDataText="gvExternalAddresses" CssSelectorClass="NormalGridView"
 					                DataKeyNames="AddressID">
@@ -68,7 +68,7 @@
 						            <asp:BoundField DataField="IPAddress" HeaderText="gvIpAddress" meta:resourcekey="gvIpAddress" />
 						            <asp:BoundField DataField="SubnetMask" HeaderText="gvSubnetMask" meta:resourcekey="gvSubnetMask" />
 						            <asp:BoundField DataField="DefaultGateway" HeaderText="gvDefaultGateway" meta:resourcekey="gvDefaultGateway" />
-						            <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary" ItemStyle-Width="50">
+						            <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
 							            <ItemTemplate>
 							                <div style="text-align:center">
 							                    &nbsp;
@@ -80,7 +80,7 @@
 				            </asp:GridView>
 				        </div>
 				        
-				        <div style="margin-top: 4px;">
+				        <div style="margin-top: 4px">
 				            <asp:Button ID="btnAddExternalAddress" runat="server" meta:resourcekey="btnAddExternalAddress"
                                 Text="Add" CssClass="btn btn-primary btn-sm" onclick="btnAddExternalAddress_Click" />
 				            <asp:Button id="btnSetPrimaryExternal" runat="server" Text="Set As Primary"
@@ -104,7 +104,7 @@
 				    <wsp:CollapsiblePanel id="secPrivateNetwork" runat="server"
                         TargetControlID="PrivateNetworkPanel" meta:resourcekey="secPrivateNetwork" Text="Private Network">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="PrivateNetworkPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PrivateNetworkPanel" runat="server" Height="0" style="overflow:hidden">
                     
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
@@ -126,7 +126,7 @@
                     
                         <asp:Panel ID="PrivateAddressesPanel" runat="server">
                         
-                            <div style="width:260px;">
+                            <div >
 				                <asp:GridView ID="gvPrivateAddresses" runat="server" AutoGenerateColumns="False"
 					                    EmptyDataText="gvPrivateAddresses" CssSelectorClass="NormalGridView"
 					                    DataKeyNames="AddressID">
@@ -145,7 +145,7 @@
 								                <%# Eval("IPAddress")%>
 							                </ItemTemplate>
 						                </asp:TemplateField>
-						                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary" ItemStyle-Width="50">
+						                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
 							                <ItemTemplate>
 							                    <div style="text-align:center">
 							                        &nbsp;
@@ -157,7 +157,7 @@
 				                </asp:GridView>
 				            </div>
     				        
-				            <div style="margin-top: 4px;">
+				            <div style="margin-top: 4px">
                                 <asp:Button ID="btnAddPrivateAddress" runat="server" meta:resourcekey="btnAddPrivateAddress"
                                     Text="Add" CssClass="btn btn-primary btn-sm" onclick="btnAddPrivateAddress_Click" />
 				                <asp:Button id="btnSetPrimaryPrivate" runat="server" Text="Set As Primary"
@@ -181,3 +181,4 @@
 		    </div>
 	    </div>
     	
+
