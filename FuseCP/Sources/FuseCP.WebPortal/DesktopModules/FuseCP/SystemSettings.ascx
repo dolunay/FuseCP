@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header card-header-link">
                     <span><i class="bi bi-envelope" aria-hidden="true">&nbsp;</i>&nbsp;</span>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#lclSmtpSettings" aria-expanded="false" class="collapsed">
+                    <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#lclSmtpSettings" aria-expanded="false" class="collapsed">
                         <asp:Localize runat="server" meta:resourcekey="HeaderSmtpSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                     </a>
                 </div>
@@ -106,7 +106,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-hdd-stack" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#lclBackupSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#lclBackupSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize runat="server" meta:resourcekey="HeaderBackupSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -135,7 +135,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-file-text" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#PanelFileManagereSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#PanelFileManagereSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize runat="server" meta:resourcekey="HeaderFileManagerSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -165,7 +165,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-server" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#RdsSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#RdsSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize runat="server" meta:resourcekey="HeaderRdsSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -194,7 +194,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-stack-exchange" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#OwaSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#OwaSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize runat="server" meta:resourcekey="HeaderOwaSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -235,7 +235,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-cloud" aria-hidden="true">&nbsp;</i>&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-764" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapse-764" aria-expanded="false" class="collapsed">
                     <asp:Localize runat="server" meta:resourcekey="HeaderCloudStorageSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -245,7 +245,7 @@
                         <div class="card">
                             <div class="card-header card-header-link">
                                 <span><i class="bi bi-chat-dots" aria-hidden="true">&nbsp;</i>&nbsp;</span>
-                                <a data-toggle="collapse" data-parent="#collapse-765" href="#TwilioSettings" aria-expanded="false" class="collapsed">
+                                <a data-bs-toggle="collapse" data-bs-parent="#collapse-765" href="#TwilioSettings" aria-expanded="false" class="collapsed">
                                     <asp:Localize runat="server" meta:resourcekey="HeaderTwilioSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                                 </a>
                             </div>
@@ -308,7 +308,7 @@
                         <div class="card">
                             <div class="card-header card-header-link">
                                 <span><i class="bi bi-cloud" aria-hidden="true">&nbsp;</i>&nbsp;</span>
-                                <a data-toggle="collapse" data-parent="#collapse-765" href="#WebdavPortalSettings" aria-expanded="false" class="collapsed">
+                                <a data-bs-toggle="collapse" data-bs-parent="#collapse-765" href="#WebdavPortalSettings" aria-expanded="false" class="collapsed">
                                     <asp:Localize runat="server" meta:resourcekey="HeaderCloudStorageSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                                 </a>
                             </div>
@@ -366,7 +366,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-lock" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#AccessIPsSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#AccessIPsSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize ID="HeaderIpRestrictionSettings" runat="server" meta:resourcekey="HeaderIpRestrictionSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -404,7 +404,7 @@
         <div class="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-lock" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#AuthenticationSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#AuthenticationSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize ID="HeaderAuthenticationSettings" runat="server" meta:resourcekey="HeaderAuthenticationSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
@@ -444,7 +444,7 @@
         <asp:Panel id="DebugSettingsPanel" class="card" runat="Server">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-wrench" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
-                <a data-toggle="collapse" data-parent="#accordion" href="#DebugSettings" aria-expanded="false" class="collapsed">
+                <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#DebugSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize ID="Localize1" runat="server" meta:resourcekey="HeaderDebugSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>

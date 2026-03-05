@@ -180,7 +180,7 @@
             <div class="accordion" id="accordion">
                 <div class="card">
                     <div class="card-header card-header-link">
-                        <a data-toggle="collapse"  data-parent="#accordion" href="#secServiceLevels2" aria-expanded="false" class="collapsed">
+                        <a data-bs-toggle="collapse"  data-bs-parent="#accordion" href="#secServiceLevels2" aria-expanded="false" class="collapsed">
                             <asp:Localize runat="server" meta:resourcekey="secServiceLevels" Text="Service Level Information" />
 							<span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header card-header-link">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#secCompanyInfo" aria-expanded="false" class="collapsed">
+                        <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#secCompanyInfo" aria-expanded="false" class="collapsed">
                             <asp:Localize runat="server" meta:resourcekey="secCompanyInfo" Text="Company Information" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
@@ -275,7 +275,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header card-header-link">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#secContactInfo2" aria-expanded="false" class="collapsed">
+                        <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#secContactInfo2" aria-expanded="false" class="collapsed">
                             <asp:Localize runat="server" meta:resourcekey="secContactInfo" Text="Contact Information" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
@@ -343,7 +343,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header card-header-link">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#secAddressInfo" aria-expanded="false" class="collapsed">
+                        <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#secAddressInfo" aria-expanded="false" class="collapsed">
                             <asp:Localize runat="server" meta:ResourceKey="secAddressInfo" Text="Address" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
@@ -402,7 +402,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header card-header-link">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#secAdvanced" aria-expanded="false" class="collapsed">
+                        <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#secAdvanced" aria-expanded="false" class="collapsed">
                             <asp:Localize runat="server" meta:ResourceKey="secAdvanced" Text="Advanced" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>

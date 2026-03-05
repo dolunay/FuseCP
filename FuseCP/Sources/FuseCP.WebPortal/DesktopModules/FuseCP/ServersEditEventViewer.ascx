@@ -49,7 +49,7 @@
                 </asp:BoundField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <a data-toggle="collapse" href="#infoRow-<%# Container.DataItemIndex %>" class="accordion-toggle collapsed"><i class="bi bi-plus-circle"></i></a>
+                        <a data-bs-toggle="collapse" href="#infoRow-<%# Container.DataItemIndex %>" class="accordion-toggle collapsed"><i class="bi bi-plus-circle"></i></a>
                         <tr>
                             <td colspan="8" class="hiddenRow">
                                 <div class="accordion-body collapse" id="infoRow-<%# Container.DataItemIndex %>">
