@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 

@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc3" %>
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="uc2" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
-<script src="/JavaScript/jquery.min.js?v=1.4.4" type="text/javascript">
+<script src="/JavaScript/jquery-1.4.4.min.js" type="text/javascript">
 
 </script>
 <div class="card-body form-horizontal">

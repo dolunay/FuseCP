@@ -6,7 +6,7 @@
 <%@ Register Src="UserControls/RDSSessionLimit.ascx" TagName="SessionLimit" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 

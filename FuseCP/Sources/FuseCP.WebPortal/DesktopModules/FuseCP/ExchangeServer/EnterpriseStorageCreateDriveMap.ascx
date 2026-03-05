@@ -2,7 +2,7 @@
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/EmailAddress.ascx" TagName="EmailAddress" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 <div class="card-header">

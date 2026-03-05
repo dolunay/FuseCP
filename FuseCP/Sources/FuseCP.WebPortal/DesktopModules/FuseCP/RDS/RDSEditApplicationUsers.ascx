@@ -5,7 +5,7 @@
 <%@ Register Src="UserControls/RDSCollectionTabs.ascx" TagName="CollectionTabs" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
@@ -25,10 +25,10 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationEdit">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap;">
+                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
                                         <asp:Localize ID="locLblApplicationName" runat="server" meta:resourcekey="locLblApplicationName" Text="Application Name"/>
                                     </td>
                                     <td>
@@ -47,7 +47,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td  style="width:40px;"/>
+                                    <td  />
                                     <td colspan="2">
                                         <asp:Localize ID="locAllowAny" runat="server" meta:resourcekey="locAllowAny" Text=""/>                                        
                                     </td>
@@ -58,7 +58,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap;">
+                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
                                         <asp:Localize ID="locCommandLine" runat="server" meta:resourcekey="locCommandLine" Text="Command-line parameters"/>
                                     </td>
                                     <td>
@@ -74,7 +74,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationUsers">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <fcp:CollectionUsers id="users" runat="server" />
                         </div>                            
                     </asp:Panel>
