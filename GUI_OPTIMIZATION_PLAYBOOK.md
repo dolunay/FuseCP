@@ -90,3 +90,43 @@ Keep using:
 2. 10-page batch size.
 3. Local checkpoint commits only (no push unless requested).
 4. Conservative GUI optimization focused on responsive/layout modernization.
+
+## Current Progress Snapshot (2026-03-05)
+
+1. Width modernization phase:
+- Completed through `WebPortal GUI optimization batch 55` plus residual cleanup commit.
+- Remaining width-pattern hits are popup `window.open(...width=...)` strings only and are now explicitly excluded by rule 11.
+
+2. Popup modernization phase:
+- Added shared helper `DesktopModules/FuseCP/Scripts/rdp-popup.js`.
+- Wired these pages to shared helper with local fallback behavior:
+`DesktopModules/FuseCP/VPS/VpsDetailsGeneral.ascx`, `DesktopModules/FuseCP/VPS2012/VpsDetailsGeneral.ascx`, `DesktopModules/FuseCP/VPSForPC/VpsDetailsGeneral.ascx`, `DesktopModules/FuseCP/Proxmox/VpsDetailsGeneral.ascx`.
+
+3. Guard status:
+- `Legacy button/control hits (filtered)`: `0`.
+- `Actionable old-HTML attr hits (case-sensitive, filtered)`: `0`.
+
+4. JS include normalization phase:
+- Completed first normalization checkpoint commit `d144c0e97`.
+- Normalized 18 markup files from `/JavaScript/jquery.min.js?v=1.4.4` to `/JavaScript/jquery-1.4.4.min.js`.
+- Post-checks passed: `net10` portal modules build, legacy guard, old-HTML guard, and no remaining querystring jQuery includes in module markup scope.
+
+## Next Modernization Queue
+
+1. JS include normalization batch:
+- Completed (checkpoint `d144c0e97`).
+
+2. Inline script consolidation batch:
+- Extract repeated inline helper blocks from these areas into shared files under `DesktopModules/FuseCP/Scripts/`:
+`RDS/*.ascx`, `ExchangeServer/*EmailAddresses.ascx`, `WebSitesEditHeliconApeFolder.ascx`.
+
+3. Accessibility batch:
+- Add/verify label association and alt/title quality for controls in high-traffic pages:
+`Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, `RDS/RDSUserSessions.ascx`.
+
+4. Popup behavior hardening batch:
+- Add consistent popup-blocked notification/fallback UX for RDP launchers while preserving existing open flow.
+
+5. Validation automation batch:
+- Add a repeatable scan script for:
+`legacy button/icon patterns`, `actionable old HTML attrs`, `width backlog excluding popup strings`, `inline script duplication candidates`.
