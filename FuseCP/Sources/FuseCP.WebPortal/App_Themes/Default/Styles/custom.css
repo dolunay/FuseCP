@@ -100,3 +100,45 @@ body .page-login {
 .top-bar .search-top .fcp-global-search .input-group .d-flex {
 	flex: 0 0 auto;
 }
+
+/* Ensure legacy GridView output renders as a real table in modernized pages. */
+.NormalGridView table,
+.NormalGridView .AspNet-GridView {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: #fff;
+}
+
+.NormalGridView th,
+.NormalGridView td,
+.NormalGridView .AspNet-GridView th,
+.NormalGridView .AspNet-GridView td {
+	display: table-cell;
+	padding: 10px 12px;
+	vertical-align: middle;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.NormalGridView th,
+.NormalGridView .AspNet-GridView th {
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #1f1f1f;
+	border-bottom: 1px solid #d8d8d8;
+	background: #f7f7f7;
+}
+
+.NormalGridView td,
+.NormalGridView .AspNet-GridView td {
+	border-bottom: 1px solid #e5e5e5;
+	color: #202020;
+	font-size: 14px;
+}
+
+.NormalGridView tr:last-child td,
+.NormalGridView .AspNet-GridView tr:last-child td {
+	border-bottom: 0;
+}
