@@ -1,5 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserActions.ascx.cs" Inherits="FuseCP.Portal.UserActions" %>
 <%@ Register Src="../ExchangeServer/UserControls/MailboxPlanSelector.ascx" TagName="MailboxPlanSelector" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/user-actions.js"></script>
 
 <style type="text/css">
     .accounts-without-phone-list li {
@@ -8,33 +9,6 @@
     }
 </style>
 
-<script type="text/javascript">
-    function CloseAndShowProgressDialog(text) {
-        $(".Popup").hide();
-        return ShowProgressDialog(text);
-    }
-
-    function ShowProgress(btn) {
-        var action = $(btn).prev().val();
-
-        if (action == 1) {
-            ShowProgressDialog('Disabling users...');
-        } else if (action == 2) {
-            ShowProgressDialog('Enabling users...');
-        } else if (action == 3) {
-            ShowProgressDialog('Prepare...');
-        } else if (action == 4) {
-            ShowProgressDialog('Setting VIP...');
-        } else if (action == 5) {
-            ShowProgressDialog('Unsetting VIP...');
-        } else if (action == 7) {
-            ShowProgressDialog('Sending password reset notification...');
-        } else if (action == 8) {
-            ShowProgressDialog('Sending password reset notification...');
-        }
-
-    }
-</script>
 <asp:UpdatePanel ID="tblActions" runat="server" CssClass="NormalBold" UpdateMode="Conditional" ChildrenAsTriggers="true" >
     <ContentTemplate>
         <div class="input-group">
@@ -51,7 +25,7 @@
             <asp:ListItem Value="8">SendByEmail</asp:ListItem>
         </asp:DropDownList>
             <div class="d-flex">
-        <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);"><asp:Localize runat="server" meta:resourcekey="btnApplyText"/> </asp:LinkButton>
+        <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowUserActionProgress(this);"><asp:Localize runat="server" meta:resourcekey="btnApplyText"/> </asp:LinkButton>
         </div></div>
 
         
@@ -71,7 +45,7 @@
                     </div>
 					<div class="popup-buttons text-end">
                     <asp:LinkButton id="btnServiceLevelCancel" CssClass="btn btn-warning" runat="server" OnClick="btnModalCancel_OnClick" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServiceLevelCancelText"/> </asp:LinkButton>&nbsp;
-                    <asp:LinkButton id="btnServiceLevelOk" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowProgressDialog('Setting Service Level...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServiceLevelOkText"/> </asp:LinkButton>
+                    <asp:LinkButton id="btnServiceLevelOk" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowUserActionProgress('Setting Service Level...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServiceLevelOkText"/> </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
@@ -89,7 +63,7 @@
                     </div>
 					<div class="popup-buttons text-end">
                     <asp:LinkButton id="btnMailboxPlanCancel" CssClass="btn btn-warning" runat="server" OnClick="btnModalCancel_OnClick" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMailboxPlanCancelText"/> </asp:LinkButton>&nbsp;
-                    <asp:LinkButton id="btnMailboxPlanOk" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowProgressDialog('Setting Mailbox Plan ...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMailboxPlanOkText"/> </asp:LinkButton>
+                    <asp:LinkButton id="btnMailboxPlanOk" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowUserActionProgress('Setting Mailbox Plan ...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMailboxPlanOkText"/> </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
@@ -113,7 +87,7 @@
                      </div>
 					<div class="popup-buttons text-end">
                     <asp:LinkButton id="btnPasswordResetNotificationSendCancel" CssClass="btn btn-warning" runat="server" OnClick="btnModalCancel_OnClick" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPasswordResetNotificationSendCancelText"/> </asp:LinkButton>&nbsp;
-                    <asp:LinkButton id="btnPasswordResetNotificationSend" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowProgressDialog('Sending password reset notification ...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPasswordResetNotificationText"/> </asp:LinkButton>
+                    <asp:LinkButton id="btnPasswordResetNotificationSend" CssClass="btn btn-success" runat="server" OnClick="btnModalOk_Click" OnClientClick="return CloseAndShowUserActionProgress('Sending password reset notification ...')"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPasswordResetNotificationText"/> </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>

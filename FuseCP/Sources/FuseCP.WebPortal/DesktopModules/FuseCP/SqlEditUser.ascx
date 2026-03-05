@@ -5,17 +5,10 @@
 
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
 	TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-
-function confirmation() 
-{
-	if (!confirm("Are you sure you want to delete this User?")) return false; else ShowProgressDialog('Deleting User...');
-}
-</script>
 
 <div class="card-body form-horizontal">
     <table class="table table-borderless align-middle mb-0 w-100">
@@ -50,7 +43,7 @@ function confirmation()
 </div>
 
 <div class="card-footer text-end">
-    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this User?', 'Deleting User...');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
 	<asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving User...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
 </div>

@@ -1,38 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SpaceImportResources.ascx.cs" Inherits="FuseCP.Portal.SpaceImportResources" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-    function TreeViewCheckBoxClicked(Check_Event) 
-    {
-        var objElement;
-        try {
-            objElement = window.event.srcElement;
-        }
-        catch (Error) 
-        {
-        }
-
-        if (objElement != null) 
-        {
-            if (objElement.tagName == "IMG" && objElement.href.indexOf('folder.png') == -1 && objElement.href.indexOf('empty.gif') == -1) {
-                ShowProgressDialog('');
-                ShowProgressDialogInternal();
-            }
-        }
-        else 
-        {
-            if (Check_Event != null) 
-            {
-                if (Check_Event.target.tagName == "IMG" && Check_Event.target.href.indexOf('folder.png') == -1 && objElement.href.indexOf('empty.gif') == -1)
-                {
-                    ShowProgressDialog('');
-                    ShowProgressDialogInternal();
-                }
-            }
-        }
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/space-import-resources.js"></script>
 
 <div class="card-body form-horizontal">
 	<asp:treeview runat="server" id="tree" populatenodesfromclient="true" NodeIndent="10"

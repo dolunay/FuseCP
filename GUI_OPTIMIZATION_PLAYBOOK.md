@@ -136,6 +136,8 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/enterprise-storage-drive-map.js` for enterprise storage drive-map form behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/organization-users.js` for organization users modal-close behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/overusage-report.js` for overusage report client bootstrap.
+- Added shared helper `DesktopModules/FuseCP/Scripts/user-actions.js` for user-action progress handlers.
+- Added shared helper `DesktopModules/FuseCP/Scripts/space-import-resources.js` for resource-import tree interaction behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -149,10 +151,13 @@ Keep using:
 - Replaced inline script in `ExchangeServer/OrganizationUsers.ascx` with shared `organization-users.js`.
 - Replaced inline script in `OverusageReport.ascx` with shared `overusage-report.js`.
 - Reused shared confirmation helper in `DnsZoneRecords.ascx`.
+- Replaced inline script in `UserControls/UserActions.ascx` with shared `user-actions.js`.
+- Replaced inline script in `SpaceImportResources.ascx` with shared `space-import-resources.js`.
+- Reused shared confirmation helper in `SqlEditUser.ascx`.
 - Reused shared nav-tab helper in `VPS/UserControls/Menu.ascx`, `VPS2012/UserControls/Menu.ascx`, and `VPSForPC/UserControls/Menu.ascx`.
 - Reused shared tab-click helper in `ExchangeServer/UserControls/EnterpriseStorageEditFolderTabs.ascx`, `ExchangeServer/UserControls/OrganizationSettingsTabs.ascx`, and `RDS/UserControls/RDSCollectionTabs.ascx`.
 - Reused shared mail confirmation helper in `MailAccountsEditAccount.ascx`, `MailDomainsEditDomain.ascx`, `MailForwardingsEditForwarding.ascx`, `MailGroupsEditGroup.ascx`, and `MailListsEditList.ascx`.
-- Reduced inline-script candidate count from `100` to `50` in guard output.
+- Reduced inline-script candidate count from `100` to `47` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
