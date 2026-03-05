@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MessageBox.ascx.cs" EnableViewState="false" Inherits="FuseCP.Portal.MessageBox" %>
 <%@ Register Src="CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
-<div style="height:3px;"></div>
+<div style="height:3px"></div>
 <div id="tblMessageBox" runat="server" class="MessageBox">
     <asp:Literal ID="litMessage" runat="server"></asp:Literal>
     <asp:Literal ID="litDescription" runat="server"></asp:Literal>
@@ -10,13 +10,13 @@
         <fcp:CollapsiblePanel id="secTechnicalDetails" runat="server" IsCollapsed="true"
             TargetControlID="TechnicalDetailsPanel" resourcekey="secTechnicalDetails" Text="Technical Details">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="TechnicalDetailsPanel" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="TechnicalDetailsPanel" runat="server" Height="0" style="overflow:hidden">
             <table id="tblTechnicalDetails" runat="server" class="TechnicalDetailsTable table table-borderless align-middle mb-0">
                 <tr>
                     <td>
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td class="NormalBold" width="150" style="white-space:nowrap;" >
+                                <td class="NormalBold" style="white-space:nowrap" >
                                     <asp:Label ID="lblPageUrl" runat="server" meta:resourcekey="lblPageUrl" Text="Page URL:"></asp:Label>
                                 </td>
                                 <td class="Normal">
@@ -64,10 +64,10 @@
         <fcp:CollapsiblePanel id="secSendReport" runat="server" IsCollapsed="true"
             TargetControlID="SendReportPanel" resourcekey="secSendReport" Text="Send Report to Host">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="SendReportPanel" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="SendReportPanel" runat="server" Height="0" style="overflow:hidden">
             <table class="table table-borderless align-middle mb-0">
                 <tr>
-                    <td class="NormalBold text-nowrap" width="150">
+                    <td class="NormalBold text-nowrap">
                         <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -102,9 +102,9 @@
                     <td class="NormalBold align-top">
                         <asp:Label ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Personal Comments:"></asp:Label>
                     </td>
-                    <td class="Normal align-top" style="width:85%;">
+                    <td class="Normal align-top" >
                         <asp:TextBox ID="txtSendComments" runat="server" CssClass="LogArea TechnicalDetailsTable" Rows="5" TextMode="MultiLine"
-                            style="width:85%;"></asp:TextBox></td>
+                            ></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -117,3 +117,4 @@
         </asp:Panel>
     </div>
 </div>
+

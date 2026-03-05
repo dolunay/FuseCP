@@ -17,9 +17,9 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-8">
-                <table width="100%">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
-                        <td class="Normal" width="100%">
+                        <td class="Normal">
                             <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="VirtualServerNameValidator" runat="server" ControlToValidate="txtName"
                                 ValidationGroup="Server" meta:resourcekey="ServerNameValidator">
@@ -37,9 +37,9 @@
                 <fcp:CollapsiblePanel ID="ConnectionHeader" runat="server" IsCollapsed="true"
                     TargetControlID="ConnectionPanel" ResourceKey="ConnectionHeader" Text="Connection Settings"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ConnectionPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
-                            <td class="SubHead" style="width: 150px">
+                            <td class="SubHead" >
                                 <asp:Label ID="lblServerUrl" runat="server" meta:resourcekey="lblServerUrl"></asp:Label>
                             </td>
                             <td class="Normal">
@@ -47,11 +47,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead align-top" style="width: 150px">
+                            <td class="SubHead align-top" >
                                 <asp:Label ID="lblNewPassword" runat="server" meta:resourcekey="lblNewPassword"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <uc1:ServerPasswordControl ID="serverPassword" runat="server" ValidationGroup="ServerPassword" width="100%"></uc1:ServerPasswordControl>
+                                <uc1:ServerPasswordControl ID="serverPassword" runat="server" ValidationGroup="ServerPassword"></uc1:ServerPasswordControl>
                             </td>
                         </tr>
                         <tr>
@@ -65,7 +65,7 @@
                 <fcp:CollapsiblePanel ID="ADHeader" runat="server" IsCollapsed="true"
                     TargetControlID="ADPanel" ResourceKey="ADHeader" Text="Active Directory Settings"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ADPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table>
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="SubHead align-top" width="150px">
                                 <asp:Label ID="lblSecurityMode" runat="server" meta:resourcekey="lblSecurityMode"></asp:Label>
@@ -155,7 +155,7 @@
                 <fcp:CollapsiblePanel ID="PreviewDomainHeader" runat="server" IsCollapsed="true"
                     TargetControlID="PreviewDomainPanel" ResourceKey="PreviewDomainHeader" Text="Preview Domain"></fcp:CollapsiblePanel>
                 <asp:Panel ID="PreviewDomainPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="Normal">
                                 <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -172,7 +172,7 @@
                 <fcp:CollapsiblePanel ID="IPAddressesHeader" runat="server" IsCollapsed="true"
                     TargetControlID="IPAddressesPanel" ResourceKey="IPAddressesHeader" Text="IP Addresses"></fcp:CollapsiblePanel>
                 <asp:Panel ID="IPAddressesPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc2:ServerIPAddressesControl ID="ServerIPAddressesControl1" runat="server"></uc2:ServerIPAddressesControl>
@@ -183,7 +183,7 @@
                 <fcp:CollapsiblePanel ID="VLANsHeader" runat="server" IsCollapsed="true"
                     TargetControlID="VLANsPanel" ResourceKey="VLANsHeader" Text="Private Network VLANs"></fcp:CollapsiblePanel>
                 <asp:Panel ID="VLANsPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc5:ServerVLANsControl ID="ServerVLANsControl1" runat="server"></uc5:ServerVLANsControl>
@@ -194,7 +194,7 @@
                 <fcp:CollapsiblePanel ID="ServicesHeader" runat="server"
                     TargetControlID="ServicesPanel" ResourceKey="ServicesHeader" Text="Services"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ServicesPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="Normal">
                                 <div>
@@ -213,7 +213,7 @@
                 <fcp:CollapsiblePanel ID="DnsRecordsHeader" runat="server" IsCollapsed="true"
                     TargetControlID="DnsRecordsPanel" ResourceKey="DnsRecordsHeader" Text="DNS Records Template"></fcp:CollapsiblePanel>
                 <asp:Panel ID="DnsRecordsPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc3:ServerDnsRecordsControl ID="ServerDnsRecordsControl1" runat="server"></uc3:ServerDnsRecordsControl>
@@ -350,3 +350,4 @@
     <asp:LinkButton ID="btnCancel" runat="server" CausesValidation="false" CssClass="btn btn-warning" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" /></asp:LinkButton>
     <asp:LinkButton ID="btnUpdate" runat="server" ValidationGroup="Server" CssClass="btn btn-success" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Server...');"><span class="bi bi-arrow-clockwise">&nbsp;</span>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText" /></asp:LinkButton>
 </div>
+

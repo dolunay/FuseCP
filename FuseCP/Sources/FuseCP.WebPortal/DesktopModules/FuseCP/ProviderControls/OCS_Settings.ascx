@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OCS_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.OCS_Settings" %>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locServerName" meta:resourcekey="locServerName"/>
         </td>
         <td >
@@ -20,7 +20,7 @@
                 EmptyDataText="gvRecords" CssSelectorClass="NormalGridView" 
                 onrowcommand="gvEdgeServices_RowCommand"  meta:resourcekey="gvEdgeServices">
                 <Columns>                                       
-                    <asp:BoundField DataField="ServiceName" meta:resourcekey="locServerNameColumn" HeaderText="gvRecordsData" ItemStyle-Width="100%" />
+                    <asp:BoundField DataField="ServiceName" meta:resourcekey="locServerNameColumn" HeaderText="gvRecordsData" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
@@ -33,3 +33,4 @@
         </td>
     </tr>
 </table>
+

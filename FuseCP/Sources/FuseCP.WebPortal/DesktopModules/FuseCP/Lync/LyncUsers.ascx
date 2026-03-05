@@ -66,8 +66,8 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvUsersEmail" meta:resourcekey="gvUsersEmail" DataField="SipAddress" SortExpression="SipAddress" ItemStyle-Width="25%" />
-                            <asp:BoundField HeaderText="gvLyncUserPlan" meta:resourcekey="gvLyncUserPlan" DataField="LyncUserPlanName" SortExpression="LyncUserPlanName" ItemStyle-Width="25%" />
+                            <asp:BoundField HeaderText="gvUsersEmail" meta:resourcekey="gvUsersEmail" DataField="SipAddress" SortExpression="SipAddress" />
+                            <asp:BoundField HeaderText="gvLyncUserPlan" meta:resourcekey="gvLyncUserPlan" DataField="LyncUserPlanName" SortExpression="LyncUserPlanName" />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
@@ -88,3 +88,4 @@
                     &nbsp;&nbsp;&nbsp;
                     <fcp:QuotaViewer ID="usersQuota" runat="server" QuotaTypeId="2" />
                 </div>
+

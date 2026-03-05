@@ -8,9 +8,9 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 <div class="card-body">
-	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
         <tr>
-            <td class="SubHead" style="width:150px;"><asp:Label ID="lblTaskName" runat="server" meta:resourcekey="lblTaskName" Text="Task Name:"></asp:Label></td>
+            <td class="SubHead" ><asp:Label ID="lblTaskName" runat="server" meta:resourcekey="lblTaskName" Text="Task Name:"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox ID="txtTaskName" runat="server" Width="380px" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="txtTaskName"></asp:RequiredFieldValidator></td>
@@ -164,15 +164,15 @@
     <fcp:CollapsiblePanel id="secHistory" runat="server"
         TargetControlID="HistoryPanel" meta:resourcekey="secHistory" Text="History Log">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="HistoryPanel" runat="server" Height="0" style="overflow:hidden;">
-	    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+    <asp:Panel ID="HistoryPanel" runat="server" Height="0" style="overflow:hidden">
+	    <table class="table table-borderless align-middle mb-0 w-100">
 		    <tr>
 			    <td>
-                    <table width="100%"
+                    <table
                         class="GridToolbox table table-borderless align-middle mb-0 w-100">
                         <tr>
                             <td class="GridToolboxCell">
-                                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+                                <table class="table table-borderless align-middle mb-0 w-100">
                                     <tr>
                                         <td><asp:Button ID="btnClearLog" runat="server" meta:resourcekey="btnClearLog" Text="Clear History" CssClass="btn btn-primary" OnClick="btnClearLog_Click" CausesValidation="False" /></td>
                                     </tr>
@@ -198,7 +198,7 @@
 		                            <%# GetLocalizedString("Result." + (string)Eval("StatusID")) %>
 	                            </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="gvSchedulesLog" ItemStyle-Width="100%">
+                            <asp:TemplateField HeaderText="gvSchedulesLog">
 	                            <ItemTemplate>
 		                            <asp:LinkButton ID="cmdLog" runat="server" meta:resourcekey="cmdLog" Text="View Log" CommandName="edit" CausesValidation="false"></asp:LinkButton>
 	                            </ItemTemplate>
@@ -239,3 +239,4 @@
     </asp:LinkButton>
 	
 </div>
+

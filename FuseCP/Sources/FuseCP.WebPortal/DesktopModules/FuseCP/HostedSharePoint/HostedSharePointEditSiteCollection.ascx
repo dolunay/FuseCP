@@ -27,7 +27,7 @@
                     </fcp:SimpleMessageBox>					
 					<table id="tblEditItem" runat="server" class="table table-borderless align-middle mb-0">
 						<tr id="rowUrl">
-							<td class="SubHead text-nowrap" style="width: 200px;">
+							<td class="SubHead text-nowrap" >
 								<asp:Label ID="lblSiteCollectionUrl" runat="server" meta:resourcekey="lblSiteCollectionUrl"
 									Text="Url:"></asp:Label>
 							</td>
@@ -101,7 +101,7 @@
 					</table>
 					<table id="tblViewItem" runat="server" class="table table-borderless align-middle mb-0">
 						<tr>
-							<td class="SubHead text-nowrap" style="width: 200px;">
+							<td class="SubHead text-nowrap" >
 								<asp:Label ID="lblSiteCollectionUrl2" runat="server" meta:resourcekey="lblSiteCollectionUrl"
 									Text="Url:"></asp:Label>
 							</td>
@@ -203,4 +203,5 @@
 		</div>
 	</div>
 </div>
+
 
