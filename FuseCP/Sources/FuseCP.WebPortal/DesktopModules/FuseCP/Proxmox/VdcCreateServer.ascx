@@ -61,7 +61,7 @@
 							meta:resourcekey="locNameStepTitle" Text="Name and Operating System" />
 						<br />
 
-						<table>
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td class="FormLabel150">
 									<asp:Localize ID="locHostname" runat="server"
@@ -199,7 +199,7 @@
 						<wsp:CollapsiblePanel ID="secSnapshots" runat="server"
 							TargetControlID="SnapshotsPanel" meta:ResourceKey="secSnapshots" Text="Snapshots"></wsp:CollapsiblePanel>
 						<asp:Panel ID="SnapshotsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-							<table>
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
 										<asp:Localize ID="locSnapshots" runat="server"
@@ -218,7 +218,7 @@
 						<wsp:CollapsiblePanel ID="secDvd" runat="server"
 							TargetControlID="DvdPanel" meta:ResourceKey="secDvd" Text="DVD"></wsp:CollapsiblePanel>
 						<asp:Panel ID="DvdPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-							<table>
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td>
 										<asp:CheckBox ID="chkDvdInstalled" runat="server"
@@ -231,9 +231,9 @@
 						<wsp:CollapsiblePanel ID="secBios" runat="server"
 							TargetControlID="BiosPanel" meta:ResourceKey="secBios" Text="BIOS"></wsp:CollapsiblePanel>
 						<asp:Panel ID="BiosPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-							<table>
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
-									<td style="width: 200px;">
+									<td >
 										<asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
 									</td>
 									<td>
@@ -246,9 +246,9 @@
 						<wsp:CollapsiblePanel ID="secActions" runat="server"
 							TargetControlID="ActionsPanel" meta:ResourceKey="secActions" Text="Allowed actions"></wsp:CollapsiblePanel>
 						<asp:Panel ID="ActionsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-							<table style="width: 400px;">
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
-									<td style="width: 200px;">
+									<td >
 										<asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
 									</td>
 									<td>
@@ -292,12 +292,12 @@
 							</asp:DropDownList>
 						</p>
 
-						<div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px;" visible="false">
+						<div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
 							<asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
 								meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
 						</div>
 
-						<table class="table table-borderless align-middle mb-0" id="tableExternalNetwork" runat="server" style="width: 100%;">
+						<table class="table table-borderless align-middle mb-0" id="tableExternalNetwork" runat="server" >
 							<tr>
 								<td>
 									<asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"
@@ -306,7 +306,7 @@
 								</td>
 							</tr>
 							<tr id="ExternalAddressesNumberRow" runat="server">
-								<td style="padding-left: 30px;">
+								<td style="padding-left: 30px">
 									<asp:Localize ID="locExternalAddresses" runat="server"
 										meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -327,7 +327,7 @@
 								</td>
 							</tr>
 							<tr id="ExternalAddressesListRow" runat="server">
-								<td style="padding-left: 30px;">
+								<td style="padding-left: 30px">
 									<asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
 										CssClass="_form-control" Width="300" SelectionMode="Multiple" Height="80"></asp:ListBox>
 									<br />
@@ -358,7 +358,7 @@
 						</p>
 
 
-						<table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" style="width: 100%;">
+						<table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" >
 							<tr>
 								<td>
 									<asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"
@@ -367,7 +367,7 @@
 								</td>
 							</tr>
 							<tr id="PrivateAddressesNumberRow" runat="server">
-								<td style="padding-left: 30px;">
+								<td style="padding-left: 30px">
 									<asp:Localize ID="locPrivateAddresses" runat="server"
 										meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -388,7 +388,7 @@
 								</td>
 							</tr>
 							<tr id="PrivateAddressesListRow" runat="server">
-								<td style="padding-left: 30px;">
+								<td style="padding-left: 30px">
 									<asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
 										CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
 									<br />
@@ -640,5 +640,6 @@
 		</div>
 	</div>
 </div>
+
 
 

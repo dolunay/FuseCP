@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
 
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr runat="server" id="passwordRow" class="hide">
         <td>
         </td>
@@ -18,10 +18,10 @@
         </td>
     </tr>   
     <tr>
-        <td class="SubHead text-nowrap" width="200">
+        <td class="SubHead text-nowrap">
             <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:"></asp:Label>
         </td>
-        <td class="normal" width="100%">
+        <td class="normal">
             <asp:TextBox ID="txtFirstName" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
         </td>
     </tr>
@@ -56,12 +56,12 @@
     meta:resourcekey="secAutoresponder" Text="Autoresponder">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="AutoresponderPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead text-nowrap" width="200">
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled"
                     Text="Enable autoresponder:"></asp:Label></td>
-            <td class="normal" width="100%">
+            <td class="normal">
                 <asp:CheckBox ID="chkResponderEnabled" runat="server" meta:resourcekey="chkResponderEnabled"
                     Text="Yes"></asp:CheckBox>
             </td>
@@ -87,11 +87,11 @@
     meta:resourcekey="secForwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="ForwardingPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead text-nowrap" width="200">
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
-            <td class="normal align-top" width="100%">
+            <td class="normal align-top">
                 <asp:TextBox ID="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
@@ -105,3 +105,4 @@
         </tr>
     </table>
 </asp:Panel>
+

@@ -5,10 +5,10 @@
 
 <fcp:CollapsiblePanel id="secGeneral" runat="server"
     TargetControlID="GeneralPanel" meta:resourcekey="secGeneral" Text="General Settings"/>
-<asp:Panel ID="GeneralPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+<asp:Panel ID="GeneralPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label>
             </td>
             <td class="Normal">
@@ -22,10 +22,10 @@
 
 <fcp:CollapsiblePanel id="secAccountPolicy" runat="server"
     TargetControlID="AccountPolicyPanel" meta:resourcekey="secAccountPolicy" Text="Mail Accounts Policy"/>
-<asp:Panel ID="AccountPolicyPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+<asp:Panel ID="AccountPolicyPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblAccount" runat="server" meta:resourcekey="lblAccount" Text="Account Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -45,8 +45,8 @@
 
 <fcp:CollapsiblePanel id="secAccessPolicy" runat="server"
     TargetControlID="AccessPolicyPanel" meta:resourcekey="secAccessPolicy" Text="Mail Access Policy"/>
-<asp:Panel ID="AccessPolicyPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+<asp:Panel ID="AccessPolicyPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <asp:Label ID="lblAccessPolicyNote" meta:resourcekey="lblAccessPolicyNote" Text="These settings only apply to the SmarterMail100 provider" runat="server" />
         </tr>
@@ -89,3 +89,4 @@
     </tr>
     </table>
 </asp:Panel>
+

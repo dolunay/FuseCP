@@ -34,12 +34,12 @@
     }
     
 </script>
-<table class="table table-borderless align-middle mb-0" style="width: 100%;">
+<table class="table table-borderless align-middle mb-0" >
 		<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 			Database objects qualifier:
 		</td>
-		<td style="width: 100%;">
+		<td >
 			<asp:TextBox id="txtQualifier" runat="server" CssClass="form-control" Text="" MaxLength="5"
 				Columns="5"></asp:TextBox>
 		</td>
@@ -61,8 +61,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Username:</td>
-		<td class="Normal" style="width: 100%;">
+		<td class="SubHead text-nowrap" >Username:</td>
+		<td class="Normal" >
 			<asp:textbox id="txtUsername" runat="server" CssClass=form-control>admin</asp:textbox>
 		</td>
 	</tr>
@@ -80,9 +80,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">E-Mail:</td>
-		<td class="Normal" style="width: 100%;">
+		<td class="SubHead text-nowrap" >E-Mail:</td>
+		<td class="Normal" >
 			<asp:textbox id="txtEmail" runat="server" CssClass=form-control>admin@site.com</asp:textbox>
 		</td>
 	</tr>
 </table>
+

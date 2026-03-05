@@ -26,7 +26,7 @@
                     <fcp:CollapsiblePanel id="secSoftware" runat="server"
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
@@ -51,7 +51,7 @@
                     <fcp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px;width:400px;">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
@@ -84,10 +84,10 @@
                     <fcp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table class="table table-borderless align-middle mb-0" style="width:400px;">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0" >
                             <tr>
-                                <td style="width:200px;">
+                                <td >
                                     <fcp:CheckBoxOption id="optionStartShutdown" runat="server"
                                         Text="Start, Turn off and Shutdown" meta:resourcekey="optionStartShutdown" Value="True" />
                                 </td>
@@ -121,7 +121,7 @@
                     <fcp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><fcp:CheckBoxOption id="optionExternalNetwork" runat="server"
@@ -136,7 +136,7 @@
                         </table>
                     </asp:Panel>
                     
-                    <p style="padding: 5px;">
+                    <p style="padding: 5px">
                         <asp:LinkButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false" Enabled="false"> <i class="bi bi-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </asp:LinkButton>
                     </p>
 
@@ -149,13 +149,13 @@
 		    </div>
 
 
-<asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none;">
+<asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none">
 	 <div class="widget">
              <div class="widget-header clearfix">
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table class="table table-borderless align-middle mb-0" style="margin-left:20px;">
+			<table class="table table-borderless align-middle mb-0" style="margin-left:20px">
 			    <tr>
 			        <td>
 			            <asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"
@@ -180,3 +180,4 @@
 <ajaxToolkit:ModalPopupExtender ID="ChangePasswordModal" runat="server" BehaviorID="PasswordModal"
 	TargetControlID="btnChangePasswordPopup" PopupControlID="ChangePasswordPanel"
 	BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelChangePassword" />
+
