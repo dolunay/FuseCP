@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HostedSoluitonReportSummaryLetter.ascx.cs" Inherits="FuseCP.Portal.HostedSoluitonReportSummaryLetter" %>
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead text-nowrap" style="width: 150px;"><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
+        <td class="SubHead text-nowrap" ><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtFrom" runat="server" Width="500px" CssClass="form-control"></asp:TextBox></td>
     </tr>

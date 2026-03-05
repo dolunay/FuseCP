@@ -17,7 +17,7 @@
 				<h2><asp:Localize runat="server" meta:resourcekey="headerInstalledCertificate"/></h2>
 				<table>
 					<tr>
-						<td class="SubHead" style="width: 200px;">
+						<td class="SubHead" >
 							<asp:Localize runat="server" meta:resourcekey="sslDomain" /></td>
 						<td class="Normal">
 							<asp:Literal ID="lblInstalledDomain" runat="server" /></td>
@@ -74,7 +74,7 @@
 			<asp:Button ID="btnDelete" runat="server" Text="Delete" meta:resourcekey="btnDelete"
 				CssClass="btn btn-danger" OnClick="btnDelete_Click" />&nbsp;&nbsp;
 			<asp:Panel ID="pnlPFXPassword" Style="display: none" runat="server">
-                <div class="widget" style="max-width:100%;">
+                <div class="widget" style="max-width:100%">
                 <div class="widget-header clearfix">
 								<h3><i class="bi bi-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
                 </div>
@@ -145,7 +145,7 @@
 			<asp:Panel ID="pnlCSR" runat="server" Visible="false">
 				<h2>
 					<asp:Localize runat="server" meta:resourcekey="GenerateCSR" /></h2>
-				<table style="width: 100%;">
+				<table >
 	                <tr>
 						<td class="SubHead">
 							<asp:Localize ID="SelectCertType" runat="server" meta:resourcekey="SelectCertType" /></td>
@@ -178,7 +178,7 @@
 							<asp:Localize ID="sslCountry" runat="server" meta:resourcekey="sslCountry" /></td>
 						<td class="Normal">
 							<asp:dropdownlist runat="server" id="lstCountries" cssclass="form-control" AutoPostBack="true" 
-								OnSelectedIndexChanged="lstCountries_SelectedIndexChanged" width="200px" /></td>
+								OnSelectedIndexChanged="lstCountries_SelectedIndexChanged" /></td>
 					</tr>
 					<tr>
 						<td class="SubHead">

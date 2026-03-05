@@ -7,7 +7,7 @@
 	Text="Enable Policy" CssClass="NormalBold" AutoPostBack="true" OnCheckedChanged="chkEnabled_CheckedChanged" />
 <table class="table table-borderless align-middle mb-0" id="PolicyTable" runat="server">
     <tr>
-        <td class="Normal align-top" style="width:150px;"><asp:Label ID="lblAllowedSymbols" runat="server"
+        <td class="Normal align-top" ><asp:Label ID="lblAllowedSymbols" runat="server"
             meta:resourcekey="lblAllowedSymbols" Text="Allowed symbols:"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtAllowedSymbols" runat="server" CssClass="form-control" Width="80px"></asp:TextBox>

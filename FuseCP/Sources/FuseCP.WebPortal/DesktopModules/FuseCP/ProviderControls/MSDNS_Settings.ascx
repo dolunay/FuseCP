@@ -5,10 +5,10 @@
 <%@ Register Src="../UserControls/EditDomainsList.ascx" TagName="EditDomainsList" TagPrefix="uc5" %>
 <table class="table table-borderless align-middle mb-0 w-100"> 
 		<tr>
-			<td class="SubHead text-nowrap align-top" width="200">
+			<td class="SubHead text-nowrap align-top">
 			    <asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 			</td>
-			<td class="align-top" width="100%">
+			<td class="align-top">
                 <uc1:IPAddressesList id="iPAddressesList" runat="server">
                 </uc1:IPAddressesList></td>
 		</tr>
