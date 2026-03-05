@@ -15,7 +15,7 @@
 		IsCollapsed="true"
 		>
 	</fcp:CollapsiblePanel>
-	<asp:Panel ID="bandwidthSearchCriteria" runat="server" Height="0" style="overflow:hidden;">
+	<asp:Panel ID="bandwidthSearchCriteria" runat="server" Height="0" style="overflow:hidden">
 		<div style="margin-left: 5pt">
 			<p>
 				<asp:Label
@@ -23,10 +23,10 @@
 					Text="Choose either a time frame or a month to see the bandwidth overusage for." meta:resourcekey="bandwidthCaption"
 					/>
 			</p>
-			<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+			<table class="table table-borderless align-middle mb-0 w-100">
 				<tr>
 					<!-- Time frame -->
-					<td class="Normal align-top" width="150px">
+					<td class="Normal align-top">
 						<table>
 							<tr>
 								<td class="Normal">
@@ -57,7 +57,7 @@
 					</td>
 					
 					<!-- Monthes -->
-					<td class="Normal align-top text-start" width="300px">
+					<td class="Normal align-top text-start">
 						<table>
 							<tr class="align-middle" height="18px">
 								<td class="Normal">
@@ -68,7 +68,7 @@
 													href="javascript:PreviousMonth()" style="text-decoration:none" 
 													>< previous month</a>
 											</td>
-											<td width="70px" class="Normal Centered">
+											<td class="Normal Centered">
 												<span id="currentMonth">current month</span>
 											</td>
 											<td class="Normal">
@@ -99,7 +99,7 @@
 		IsCollapsed="true"
 		>
 	</fcp:CollapsiblePanel>
-	<asp:Panel ID="exportPanel" runat="server" Height="0" style="overflow:hidden;">
+	<asp:Panel ID="exportPanel" runat="server" Height="0" style="overflow:hidden">
 		<div style="margin-left: 5pt">
 			<asp:HyperLink 
 				ID="exportToExcel" runat="server"

@@ -11,14 +11,14 @@
 				Runat="server" OnCheckedChanged="rbLocationRedirect_CheckedChanged"></asp:radiobutton></td>
 	</tr>
 	<tr>
-	    <td style="width: 30px;"></td>
+	    <td ></td>
 	    <td>
 	        <table id="tblFolder" runat="server">
 	            <tr>
 	                <td colspan="3">
 			            <table class="w-100">
 				            <tr>
-				            <td class="Normal text-nowrap align-top" style="padding-top:7px;">
+				            <td class="Normal text-nowrap align-top" style="padding-top:7px">
 					                <asp:Label ID="lblSitePath" runat="server" meta:resourcekey="lblSitePath" Text="Path:"></asp:Label>
 					            </td>
 				            <td class="align-top">
@@ -90,7 +90,7 @@
                         </table>
 
 	                </td>
-	                <td style="width: 30px;"></td>
+	                <td ></td>
 	                <td class="align-top">
 	                    <asp:PlaceHolder runat="server" id="pnlDefaultDocuments">
 	                    <table>

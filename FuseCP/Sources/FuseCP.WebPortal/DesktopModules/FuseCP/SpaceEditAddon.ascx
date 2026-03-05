@@ -3,10 +3,10 @@
 
 <div class="card-body form-horizontal">
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" width="200"><asp:Label ID="lblAddon" runat="server" meta:resourcekey="lblAddon" Text="Add-on:"></asp:Label></td>
-		<td class="Normal" width="100%">
+		<td class="SubHead text-nowrap"><asp:Label ID="lblAddon" runat="server" meta:resourcekey="lblAddon" Text="Add-on:"></asp:Label></td>
+		<td class="Normal">
 			<asp:DropDownList id="ddlPlan" runat="server" CssClass="form-control" DataTextField="PlanName" DataValueField="PlanID"></asp:DropDownList>
 			<asp:RequiredFieldValidator id="planValidator" CssClass="NormalBold" runat="server" ErrorMessage="*"
 				Display="Dynamic" ControlToValidate="ddlPlan" ValidationGroup="EditAddon"></asp:RequiredFieldValidator></td>

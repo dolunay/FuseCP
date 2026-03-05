@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IceWarp_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.IceWarp_Settings" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-<table width="100%">
+<table>
 	<tr>
-		<td class="SubHead" width="150">
+		<td class="SubHead">
 		    <asp:Label ID="lblPublicIP" runat="server" Text="Public IP Address:" meta:resourcekey="lblPublicIP"></asp:Label> 
 		</td>
 		<td>
@@ -96,7 +96,7 @@
 	        </asp:GridView>
             <br />
             <div class="input-group col-sm-6">
-             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
+             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle" runat="server"></asp:TextBox>
                 <span class="d-flex">
                 <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
                 <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />

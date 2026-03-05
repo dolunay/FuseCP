@@ -37,7 +37,7 @@
     <table class="table table-borderless align-middle mb-0">
         <tr>
             <td class="SubHead text-nowrap"><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
-            <td class="Normal" width="260px">
+            <td class="Normal">
                 <asp:DropDownList ID="ddlRecordType" runat="server" SelectedValue='<%# Bind("RecordType") %>' CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlRecordType_SelectedIndexChanged">
                     <asp:ListItem>A</asp:ListItem>
                     <asp:ListItem>AAAA</asp:ListItem>

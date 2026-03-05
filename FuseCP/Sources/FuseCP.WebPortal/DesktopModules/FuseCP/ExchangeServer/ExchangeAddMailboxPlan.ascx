@@ -24,7 +24,7 @@
 					<fcp:CollapsiblePanel id="secMailboxPlan" runat="server"
                         TargetControlID="MailboxPlan" meta:resourcekey="secMailboxPlan" Text="Mailboxplan">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="MailboxPlan" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="MailboxPlan" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td class="FormLabel200 text-end">
@@ -43,7 +43,7 @@
 					<fcp:CollapsiblePanel id="secMailboxFeatures" runat="server"
                         TargetControlID="MailboxFeatures" meta:resourcekey="secMailboxFeatures" Text="Mailbox Features">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="MailboxFeatures" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="MailboxFeatures" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -77,7 +77,7 @@
 					<fcp:CollapsiblePanel id="secMailboxGeneral" runat="server"
                         TargetControlID="MailboxGeneral" meta:resourcekey="secMailboxGeneral" Text="Mailbox General">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="MailboxGeneral" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="MailboxGeneral" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -95,19 +95,19 @@
 					<fcp:CollapsiblePanel id="secStorageQuotas" runat="server"
                         TargetControlID="StorageQuotas" meta:resourcekey="secStorageQuotas" Text="Storage Quotas">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="StorageQuotas" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="StorageQuotas" runat="server" Height="0" style="overflow:hidden">
 						<table>
                             <tr>
 								<td class="FormLabel200 text-end">
                                     <asp:Localize ID="locAutoReplyEnabled" runat="server" meta:resourcekey="locAutoReplyEnabled" Text="Automatic Replies via FuseCP"></asp:Localize>
 								</td>
-                                <td style="padding-left: 5px;">
+                                <td style="padding-left: 5px">
                                     <asp:CheckBox ID="chkAutoReplyEnabled" runat="server" Text="" />
                                 </td>
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locMailboxSize" runat="server" meta:resourcekey="locMailboxSize" Text="Mailbox size:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
                                         <uc1:QuotaEditor id="mailboxSize" runat="server"
                                             QuotaTypeID="2"
                                             QuotaValue="0"
@@ -117,7 +117,7 @@
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locMaxRecipients" runat="server" meta:resourcekey="locMaxRecipients" Text="Maximum Recipients:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
                                         <uc1:QuotaEditor id="maxRecipients" runat="server"
                                             QuotaTypeID="2"
                                             QuotaValue="0"
@@ -127,7 +127,7 @@
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locMaxSendMessageSizeKB" runat="server" meta:resourcekey="locMaxSendMessageSizeKB" Text="Maximum Send Message Size (Kb):"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
                                         <uc1:QuotaEditor id="maxSendMessageSizeKB" runat="server"
                                             QuotaTypeID="2"
                                             QuotaValue="0"
@@ -137,7 +137,7 @@
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locMaxReceiveMessageSizeKB" runat="server" meta:resourcekey="locMaxReceiveMessageSizeKB" Text="Maximum Receive Message Size (Kb):"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
                                         <uc1:QuotaEditor id="maxReceiveMessageSizeKB" runat="server"
                                             QuotaTypeID="2"
                                             QuotaValue="0"
@@ -146,26 +146,26 @@
 								</td>
 							</tr>
                             <tr>
-                                <td style="padding-bottom: 20px;"></td>
+                                <td style="padding-bottom: 20px"></td>
                             </tr>
 							<tr>
 								<td class="FormLabel200" colspan="2"><asp:Localize ID="locWhenSizeExceeds" runat="server" meta:resourcekey="locWhenSizeExceeds" Text="When the mailbox size exceeds the indicated amount:"></asp:Localize></td>
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locIssueWarning" runat="server" meta:resourcekey="locIssueWarning" Text="Issue warning at:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
 									<fcp:SizeBox id="sizeIssueWarning" runat="server" ValidationGroup="CreateMailboxPlan" DisplayUnitsKB="false" DisplayUnitsMB="false" DisplayUnitsPct="true" RequireValidatorEnabled="true"/>
 								</td>
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locProhibitSend" runat="server" meta:resourcekey="locProhibitSend" Text="Prohibit send at:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
 									<fcp:SizeBox id="sizeProhibitSend" runat="server" ValidationGroup="CreateMailboxPlan"  DisplayUnitsKB="false" DisplayUnitsMB="false" DisplayUnitsPct="true" RequireValidatorEnabled="true"/>
 								</td>
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locProhibitSendReceive" runat="server" meta:resourcekey="locProhibitSendReceive" Text="Prohibit send and receive at:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
 									<fcp:SizeBox id="sizeProhibitSendReceive" runat="server" ValidationGroup="CreateMailboxPlan" DisplayUnitsKB=false DisplayUnitsMB="false" DisplayUnitsPct="true" RequireValidatorEnabled="true"/>
 								</td>
 							</tr>
@@ -175,11 +175,11 @@
 					<fcp:CollapsiblePanel id="secDeleteRetention" runat="server"
                         TargetControlID="DeleteRetention" meta:resourcekey="secDeleteRetention" Text="Delete Item Retention">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="DeleteRetention" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="DeleteRetention" runat="server" Height="0" style="overflow:hidden">
 						<table>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locKeepDeletedItems" runat="server" meta:resourcekey="locKeepDeletedItems" Text="Keep deleted items for:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
 									<fcp:DaysBox id="daysKeepDeletedItems" runat="server" ValidationGroup="CreateMailboxPlan" />
 								</td>
 							</tr>
@@ -189,7 +189,7 @@
 					<fcp:CollapsiblePanel id="secLitigationHold" runat="server"
                         TargetControlID="LitigationHold" meta:resourcekey="secLitigationHold" Text="LitigationHold">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="LitigationHold" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="LitigationHold" runat="server" Height="0" style="overflow:hidden">
 						<table>
 						    <tr>
 							    <td>
@@ -198,7 +198,7 @@
 						    </tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locRecoverableItemsSpace" runat="server" meta:resourcekey="locRecoverableItemsSpace" Text="Recoverable Items Space (MB):"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
                                         <uc1:QuotaEditor id="recoverableItemsSpace" runat="server"
                                             QuotaTypeID="2"
                                             QuotaValue="6144"
@@ -210,18 +210,18 @@
 							</tr>
 							<tr>
 								<td class="FormLabel200 text-end"><asp:Localize ID="locRecoverableItemsWarning" runat="server" meta:resourcekey="locRecoverableItemsWarning" Text="Issue warning at:"></asp:Localize></td>
-								<td style="padding-left: 5px;">
+								<td style="padding-left: 5px">
 									<fcp:SizeBox id="recoverableItemsWarning" runat="server" ValidationGroup="CreateMailboxPlan" DisplayUnitsKB="false" DisplayUnitsMB="false" DisplayUnitsPct="true" RequireValidatorEnabled="true"/>
 								</td>
 							</tr>
                             <tr>
-                                <td class="SubHead" style="width:150px;"><asp:Label ID="lblLitigationHoldUrl" runat="server" meta:resourcekey="lblLitigationHoldUrl" Text="Url:"></asp:Label></td>
-                                <td class="Normal" style="padding-left: 5px;">
+                                <td class="SubHead" ><asp:Label ID="lblLitigationHoldUrl" runat="server" meta:resourcekey="lblLitigationHoldUrl" Text="Url:"></asp:Label></td>
+                                <td class="Normal" style="padding-left: 5px">
                                     <asp:TextBox ID="txtLitigationHoldUrl" runat="server" Width="200" CssClass="form-control" MaxLength="255"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td class="SubHead align-top"><asp:Label ID="lblLitigationHoldMsg" runat="server" meta:resourcekey="lblLitigationHoldMsg" Text="Page Content:"></asp:Label></td>
-                                <td class="Normal align-top" style="padding-left: 5px;">
+                                <td class="Normal align-top" style="padding-left: 5px">
                                     <asp:TextBox ID="txtLitigationHoldMsg" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False" MaxLength="511"></asp:TextBox></td>
                             </tr>
 
@@ -231,7 +231,7 @@
 		            <fcp:CollapsiblePanel id="secArchiving" runat="server"
                         TargetControlID="Archiving" meta:resourcekey="secArchiving" Text="Archiving">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="Archiving" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="Archiving" runat="server" Height="0" style="overflow:hidden">
 			            <table>
 				            <tr>
 					            <td class="FormLabel200">
@@ -241,7 +241,7 @@
 				            </tr>
 				            <tr>
 					            <td class="FormLabel200 text-end"><asp:Localize ID="locArchiveQuota" runat="server" meta:resourcekey="locArchiveQuota" Text="Archive quota:"></asp:Localize></td>
-					            <td style="padding-left: 5px;">
+					            <td style="padding-left: 5px">
                                     <div class="Right">
                                         <uc1:QuotaEditor id="archiveQuota" runat="server"
                                             QuotaTypeID="2"
@@ -253,7 +253,7 @@
 				            </tr>
 				            <tr>
 					            <td class="FormLabel200 text-end"><asp:Localize ID="locArchiveWarningQuota" runat="server" meta:resourcekey="locArchiveWarningQuota" Text="Archive warning quota:"></asp:Localize></td>
-					            <td style="padding-left: 5px;">
+					            <td style="padding-left: 5px">
 						            <fcp:SizeBox id="archiveWarningQuota" runat="server" DisplayUnitsKB="false" DisplayUnitsMB="false" DisplayUnitsPct="true" RequireValidatorEnabled="true"/>
 					            </td>
 				            </tr>
@@ -270,7 +270,7 @@
                     <fcp:CollapsiblePanel id="secRetentionPolicyTags" runat="server"
                         TargetControlID="RetentionPolicyTags" meta:resourcekey="secRetentionPolicyTags" Text="Retention policy tags">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="RetentionPolicyTags" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="RetentionPolicyTags" runat="server" Height="0" style="overflow:hidden">
                         <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                             <ContentTemplate>
                             <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
