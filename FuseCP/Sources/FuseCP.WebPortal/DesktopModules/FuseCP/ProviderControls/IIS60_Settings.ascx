@@ -53,7 +53,7 @@
     <table class="table table-borderless align-middle mb-0 w-100" >
 
 		<tr>
-		    <td width="192" class="Normal">
+		    <td class="Normal">
 		        <asp:Label ID="lblAspPath" runat="server" meta:resourcekey="lblAspPath" Text="ASP Library Path:"></asp:Label>
 		    </td>
 		    <td class="Normal align-top">

@@ -70,7 +70,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Username:</td>
+		<td class="SubHead text-nowrap" >Username:</td>
 		<td class="Normal">
 			<asp:textbox id="txtUsername" runat="server" CssClass=form-control>admin</asp:textbox>
 		</td>
@@ -89,7 +89,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">E-Mail:</td>
+		<td class="SubHead text-nowrap" >E-Mail:</td>
 		<td class="Normal">
 			<asp:textbox id="txtEmail" runat="server" CssClass=form-control>admin@site.com</asp:textbox>
 		</td>

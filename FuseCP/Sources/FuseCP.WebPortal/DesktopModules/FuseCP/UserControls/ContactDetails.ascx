@@ -21,7 +21,7 @@
     <div class="mb-3">
 			<asp:Label ID="lblCountry" runat="server" meta:resourcekey="lblCountry" Text="Country:" CssClass="col-sm-2"  AssociatedControlID="ddlCountry"></asp:Label>
 		<div class="col-sm-10">	
-			<asp:dropdownlist runat="server" id="ddlCountry" CssClass="form-control" autopostback="True" width="200px" onselectedindexchanged="ddlCountry_SelectedIndexChanged" />
+			<asp:dropdownlist runat="server" id="ddlCountry" CssClass="form-control" autopostback="True" onselectedindexchanged="ddlCountry_SelectedIndexChanged" />
         </div>
     </div>
     <div class="mb-3">

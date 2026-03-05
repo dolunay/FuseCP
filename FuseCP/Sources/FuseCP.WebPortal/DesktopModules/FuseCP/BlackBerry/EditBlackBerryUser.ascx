@@ -30,7 +30,7 @@
                     <asp:Panel runat="server" ID="pnlSetPassword">
                     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                         <tr>
                             <td><asp:RadioButton runat="server" ID="rbSpecifyPassword" OnCheckedChanged="rbSpecifyPassword_OnCheckedChanged" Checked="true" AutoPostBack="true" meta:resourcekey="rbSpecifyPassword" GroupName="Password"/></td>
                         </tr>

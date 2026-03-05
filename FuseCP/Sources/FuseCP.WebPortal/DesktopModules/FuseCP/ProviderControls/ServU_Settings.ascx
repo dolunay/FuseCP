@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServU_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.ServU_Settings" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblSite" runat="server" meta:resourcekey="lblSite" Text="FTP Accounts Site:"></asp:Label>
 		</td>
-		<td width="100%">
+		<td>
             <asp:DropDownList ID="ddlFtpSite" runat="server" CssClass="form-control"
                     DataValueField="SiteId" DataTextField="Name">
             </asp:DropDownList></td>

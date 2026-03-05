@@ -18,7 +18,7 @@ function confirmation()
     <div class="Huge">
         <asp:Literal ID="litDomainName" runat="server"></asp:Literal>
     </div>
-    <div class="card-body form-horizontal" style="width: 400px;">
+    <div class="card-body form-horizontal" >
         <div class="FormButtonsBar">
             <asp:Button ID="btnAddPointer" runat="server" meta:resourcekey="btnAddPointer" Text="Add Pointer" CssClass="btn btn-success" OnClick="btnAddPointer_Click" />
         </div>
