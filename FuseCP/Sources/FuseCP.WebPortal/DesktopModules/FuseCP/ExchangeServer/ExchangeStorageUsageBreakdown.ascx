@@ -15,9 +15,9 @@
 				    <fcp:CollapsiblePanel id="secMailboxesReport" runat="server"
                         TargetControlID="MailboxesReport" meta:resourcekey="secMailboxesReport" Text="Mailboxes">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="MailboxesReport" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="MailboxesReport" runat="server" Height="0" style="overflow:hidden">
 				        <asp:GridView ID="gvMailboxes" runat="server" AutoGenerateColumns="False"
-					        Width="100%" EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView">
+					        EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView">
 					        <Columns>
 						        <asp:BoundField HeaderText="gvMailboxesEmail" DataField="ItemName" />
 						        <asp:BoundField HeaderText="gvMailboxesItems" DataField="TotalItems" />

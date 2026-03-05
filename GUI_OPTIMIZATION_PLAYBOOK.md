@@ -25,6 +25,7 @@ Applies to:
 8. Icons must use Bootstrap Icons (`bi bi-*`) only; no Font Awesome reintroduction.
 9. Preserve functionality and event wiring; UI improvements must not alter business behavior.
 10. Optimize for ASP.NET Core/WebFormsForCore compatibility where possible (safe markup normalization, avoid legacy-only patterns).
+11. Do not "modernize" JavaScript popup dimension strings used by `window.open` (for example `status=0,width=...`); treat them as behavior-critical and exclude them from width-backlog cleanup scans.
 
 ## Point 2 (Expanded) Definition of Done Per Page
 

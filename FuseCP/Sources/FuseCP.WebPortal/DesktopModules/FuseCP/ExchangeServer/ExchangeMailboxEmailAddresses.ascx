@@ -36,7 +36,7 @@
 					        <h3><i class="bi bi-envelope"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
                         <br /><br />
-					   <div class="row" style="padding:20px; max-width:1200px">
+					   <div class="row" style="padding:20px">
                            <div class="col-sm-2" style="line-height: 2.5">
                                <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                            </div>

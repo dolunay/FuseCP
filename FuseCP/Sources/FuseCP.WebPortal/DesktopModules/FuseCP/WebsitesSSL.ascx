@@ -74,7 +74,7 @@
 			<asp:Button ID="btnDelete" runat="server" Text="Delete" meta:resourcekey="btnDelete"
 				CssClass="btn btn-danger" OnClick="btnDelete_Click" />&nbsp;&nbsp;
 			<asp:Panel ID="pnlPFXPassword" Style="display: none" runat="server">
-                <div class="widget" style="max-width:100%">
+                <div class="widget">
                 <div class="widget-header clearfix">
 								<h3><i class="bi bi-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
                 </div>

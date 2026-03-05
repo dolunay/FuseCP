@@ -248,7 +248,7 @@
 	    </div>
     	
 <asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none">
-	<div class="widget" style="max-width: 40%">
+    <div class="widget">
 		<div class="widget-header clearfix">
 					   <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 		</div>
