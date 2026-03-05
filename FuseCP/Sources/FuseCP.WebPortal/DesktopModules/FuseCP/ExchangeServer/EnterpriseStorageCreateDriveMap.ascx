@@ -3,6 +3,7 @@
 <%@ Register Src="UserControls/EmailAddress.ascx" TagName="EmailAddress" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/enterprise-storage-drive-map.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 <div class="card-header">
@@ -69,20 +70,3 @@
     </asp:LinkButton>
     <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateDriveMap" />
 </div>	
-<script type="text/javascript" >
-    $('document').ready(function () {
-        $('.LabelAs input').bind('click', function () { $('.LabelAs input').val(""); });
-
-        $('.LabelAs input').bind('focusout', function () {
-            if ($('.LabelAs input').val() == "") {
-                $('.LabelAs input').val($('.Folders select option:selected').text());
-            }
-        });
-
-        $('.Folders select').bind('change', function () {
-            $('.LabelAs input').val($('.Folders select option:selected').text());
-            $('.Url').text($('.Folders select option:selected').val());
-            $('.Folders input').val($('.Folders select option:selected').text());
-        });
-    });
-</script>

@@ -2,41 +2,7 @@
 <%@ Import Namespace="FuseCP.Portal" %>
 <%@ Register Src="UserControls/ServerDetails.ascx" TagName="ServerDetails" TagPrefix="uc3" %>
 <%@ Register Src="UserControls/Comments.ascx" TagName="Comments" TagPrefix="uc4" %>
-
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        $("#tbSearch").autocomplete({
-            zIndex: 100,
-            source: function (request, response) {
-                $.ajax({
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        term: request.term,
-                        fullType: 'Spaces',
-                        itemType: $("#ddlItemType").val()
-                    },
-                    url: "AjaxHandler.ashx",
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return {
-                                label: item.TextSearch,
-                                code: item
-                            };
-                        }));
-                    }
-                })
-            },
-            select: function (event, ui) {
-                var item = ui.item;
-                $("#ddlItemType").val(item.code.ColumnType);
-                $("#tbSearchFullType").val(item.code.FullType);
-                $("#tbSearchText").val(item.code.TextSearch);
-            }
-        });
-    });//]]>
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/search-spaces.js"></script>
 
 <div class="FormButtonsBar">
    <asp:Panel ID="tblSearch" runat="server" DefaultButton="cmdSearch" CssClass="NormalBold">

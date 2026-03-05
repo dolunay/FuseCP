@@ -4,41 +4,7 @@
 <%@ Register Src="UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="uc1" %>
 <%@ Register Src="UserControls/UserDetails.ascx" TagName="UserDetails" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
-
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        $("#tbSearch").autocomplete({
-            zIndex: 100,
-            source: function (request, response) {
-                $.ajax({
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        term: request.term,
-                        fullType: 'Users',
-                        columnType: "'" + $("#ddlFilterColumn").val() + "'"
-                    },
-                    url: "AjaxHandler.ashx",
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return {
-                                label: item.TextSearch,
-                                code: item
-                            };
-                        }));
-                    }
-                })
-            },
-            select: function (event, ui) {
-                var item = ui.item;
-                $("#ddlFilterColumn").val(item.code.ColumnType);
-                $("#tbSearchFullType").val(item.code.FullType);
-                $("#tbSearchText").val(item.code.TextSearch);
-            }
-        });
-    });//]]>
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/search-users.js"></script>
 
 <div class="FormButtonsBar">
     <asp:Panel ID="tblSearch" runat="server" CssClass="NormalBold" DefaultButton="cmdSearch">

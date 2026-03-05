@@ -3,15 +3,9 @@
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc4" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-
-    function confirmation() {
-        if (!confirm("Are you sure you want to delete this FTP Account?")) return false; else ShowProgressDialog('Deleting FTP Account...');
-    }
-</script>
 
 
 <div class="card-body form-horizontal">
@@ -35,7 +29,7 @@
     <asp:PlaceHolder ID="providerControl" runat="server"></asp:PlaceHolder>
 </div>
 <div class="card-footer text-end">
-    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();">
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this FTP Account?', 'Deleting FTP Account...');">
         <i class="bi bi-trash">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
     </asp:LinkButton>

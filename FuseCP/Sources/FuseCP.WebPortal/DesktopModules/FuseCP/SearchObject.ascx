@@ -1,63 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchObject.ascx.cs" Inherits="FuseCP.Portal.SearchObject" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-
-<script>
-    var estop = function (e) {
-        if (!e) e = window.event;
-        e.cancelBubble = true;
-        if (e.stopPropagation) e.stopPropagation();
-        return e;
-    }
-
-    var CPopupDialog = function (el, e) {
-        if (typeof el == 'string')
-            el = document.getElementById(el);
-        e = estop(e);
-
-        var oldclick = document.body.onclick;
-        el.onclick = estop;
-
-        function close() {
-            el.style.display = "none";
-            document.body.onclick = oldclick;
-        }
-
-        function show(x, y) {
-            el.style.left = x ? x : e.clientX + document.documentElement.scrollLeft + "px";
-            el.style.top = y ? y : e.clientY + document.documentElement.scrollTop + "px";
-            el.style.display = "block";
-            document.body.onclick = close;
-        }
-
-        show();
-    };
-
-    $(document).ready(function () {
-        var loadFilters = function()
-        {
-            var typesSelected = JSON.parse($("#tbFilters").val());
-            $("#mydialog input[rel]").each(function () {
-                var rel = $(this).attr('rel');
-                if (typesSelected.indexOf(rel) >= 0)
-                    $(this).val("1");
-            })
-        }
-
-        $("#btnSelectFilter").click(function(e)
-        {
-            var typesSelected = [];
-            $("#mydialog input[rel]").each(function () {
-                var val = $(this).attr("checked");
-                if (val) typesSelected.push($(this).attr('rel'));
-            });
-            $("#tbFilters").val(JSON.stringify(typesSelected));
-            document.forms[0].submit();
-        })
-
-        loadFilters();
-    });
-
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/search-object.js"></script>
 
 <asp:GridView id="gvObjects" runat="server" AutoGenerateColumns="False"
 	AllowPaging="True" AllowSorting="True"
