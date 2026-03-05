@@ -135,7 +135,7 @@
             <asp:GridView ID="gvGWServers" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvGWServers_RowCommand" meta:resourcekey="gvGWServers">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="ServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="ServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServerName" Text='<%#Eval("ServerName")%>' />
                         </ItemTemplate>

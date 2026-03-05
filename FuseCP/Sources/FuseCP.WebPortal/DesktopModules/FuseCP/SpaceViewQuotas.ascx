@@ -17,7 +17,7 @@
                 EmptyDataText="gvAddons">
             <Columns>
                 <asp:TemplateField SortExpression="PlanName" HeaderText="gvAddonsName">
-	                <ItemStyle Width="100%"></ItemStyle>
+	                <ItemStyle></ItemStyle>
 	                <ItemTemplate>
 		                <b><%# Eval("PlanName") %></b><br />
 		                <%# Eval("PlanDescription") %>

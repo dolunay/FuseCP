@@ -129,7 +129,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField SortExpression="TaskName" HeaderText="gvLogTask">
-            <ItemStyle Width="100%" />
+            <ItemStyle />
             <ItemTemplate>
                 <asp:LinkButton ID="cmdShowLog" runat="server"
 					CommandName="ViewDetails" CommandArgument='<%# Eval("RecordID") %>'>

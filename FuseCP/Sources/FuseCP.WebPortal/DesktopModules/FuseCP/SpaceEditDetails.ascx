@@ -73,7 +73,7 @@
         EmptyDataText="gvAddons">
         <Columns>
             <asp:TemplateField SortExpression="PlanName" HeaderText="gvAddonsName">
-                <ItemStyle Width="100%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
                     <b><asp:hyperlink id=lnkEdit runat="server" NavigateUrl='<%# EditUrl("PackageAddonID", Eval("PackageAddonID").ToString(), "edit_addon", "SpaceID=" + Eval("PackageID").ToString()) %>'>
                         <%# Eval("PlanName") %>

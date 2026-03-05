@@ -10,7 +10,7 @@
 			<asp:Label ID="lblAccountContains" runat="server" meta:resourcekey="lblAccountContains" Text="The account contains ..."></asp:Label>
 			<br/>
 			<br/>
-			<asp:GridView ID="gvPackages" Runat="server" Width="100%" AutoGenerateColumns="False"
+			<asp:GridView ID="gvPackages" Runat="server" AutoGenerateColumns="False"
 			    EmptyDataText="gvPackages"
 			    CssSelectorClass="NormalGridView">
 				<columns>

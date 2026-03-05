@@ -31,7 +31,7 @@
                 <asp:BoundField DataField="Pid" HeaderText="gvProcessesPID" />
                 <asp:BoundField DataField="Username" HeaderText="gvProcessesUserName" HeaderStyle-Wrap="false" />
                 <asp:BoundField DataField="Name" HeaderText="gvProcessesImageName" ItemStyle-Wrap="false" />
-                <asp:TemplateField HeaderText="gvProcessesArguments" HeaderStyle-Wrap="false" ItemStyle-Wrap="false" ItemStyle-Width="100%">
+                <asp:TemplateField HeaderText="gvProcessesArguments" HeaderStyle-Wrap="false" ItemStyle-Wrap="false">
                     <ItemTemplate>
                         <%# Regex.Replace((string)Eval("Arguments") ?? "", "(?<=^.{48}).+$", "...") %>
                     </ItemTemplate>

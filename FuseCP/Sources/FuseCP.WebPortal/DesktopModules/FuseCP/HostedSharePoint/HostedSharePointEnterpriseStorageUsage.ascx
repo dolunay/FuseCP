@@ -26,7 +26,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="siteCollectionsReport" runat="server" Height="0" style="overflow:hidden">
 				        <asp:GridView ID="gvStorageUsage" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvStorageUsage"
-					        Width="100%" EmptyDataText="gvSiteCollections" CssSelectorClass="NormalGridView">
+					        EmptyDataText="gvSiteCollections" CssSelectorClass="NormalGridView">
 					        <Columns>
 						        <asp:BoundField meta:resourcekey="gvSiteCollectionName" DataField="Url" />
 						        <asp:BoundField meta:resourcekey="gvSiteCollectionSize" DataField="DiskSpace" />						        

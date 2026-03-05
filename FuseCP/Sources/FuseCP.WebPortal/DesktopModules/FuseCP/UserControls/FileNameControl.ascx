@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FileNameControl.ascx.cs" Inherits="FuseCP.Portal.FileNameControl" %>
-<asp:TextBox ID="txtFileName" runat="server" Width="200"></asp:TextBox>
+<asp:TextBox ID="txtFileName" runat="server"></asp:TextBox>
 <asp:RequiredFieldValidator ID="valRequireNewName" runat="server" meta:resourcekey="valRequireNewName" ControlToValidate="txtFileName"
     CssClass="NormalBold" Display="Dynamic" ErrorMessage="*" ValidationGroup="NewFileName"></asp:RequiredFieldValidator>
 <asp:RegularExpressionValidator ID="valCorrectNewName" runat="server" meta:resourcekey="valCorrectNewName" ControlToValidate="txtFileName"
