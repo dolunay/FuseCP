@@ -3,9 +3,9 @@
 <%@ Register Src="../UserControls/QuotaEditor.ascx" TagName="QuotaEditor" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<table width="100%">
+<table>
     <tr>
-        <td width="200px"><asp:Label ID="lblAuthType" meta:resourcekey="lblAuthType" Text="Countries To Block:" runat="server" /></td>
+        <td><asp:Label ID="lblAuthType" meta:resourcekey="lblAuthType" Text="Countries To Block:" runat="server" /></td>
         <td>
             <asp:DropDownList ID="ddlAuthType" runat="server">
                 <asp:ListItem Value="1" meta:resourcekey="ddlAuthType1">Specified Countries</asp:ListItem>
@@ -14,7 +14,7 @@
         </td>
     </tr>
     <tr>
-        <td class="align-top" width="200px">
+        <td class="align-top">
             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="lblCountry" Text="Add Country:" />
         </td>
         <td class="Normal">
@@ -23,7 +23,7 @@
         </td>
     </tr>
     <tr>
-        <td class="align-top" width="200px">
+        <td class="align-top">
             <asp:Localize ID="Localize2" runat="server" meta:resourcekey="lblSelectedCountries" Text="Selected Countries:" />
         </td>
         <td class="Normal">

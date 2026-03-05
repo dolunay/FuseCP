@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SharePointWebPartPackages.ascx.cs" Inherits="FuseCP.Portal.SharePointWebPartPackages" %>
 <div class="card-body form-horizontal">
-    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+    <table class="table table-borderless align-middle mb-0 w-100">
 	    <tr>
 		    <td class="Huge" colspan="2"><asp:Literal id="litSiteName" runat="server"></asp:Literal></td>
 	    </tr>
@@ -20,7 +20,7 @@
 
 
 		    </td>
-		    <td class="align-top" width="100%">
+		    <td class="align-top">
                 <asp:LinkButton id="btnUninstall" CssClass="btn btn-danger" runat="server" OnClick="btnUninstall_Click" CausesValidation="false" OnClientClick="return confirm('Uninstall?');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUninstallText"/> </asp:LinkButton>
 		    </td>
 	    </tr>
