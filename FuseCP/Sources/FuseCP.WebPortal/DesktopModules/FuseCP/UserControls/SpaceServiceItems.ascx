@@ -5,17 +5,7 @@
 <%@ Register Src="WebsiteActions.ascx" TagName="WebsiteActions" TagPrefix="fcp" %>
 <%@ Register Src="MailAccountActions.ascx" TagName="MailAccountActions" TagPrefix="fcp" %>
 
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
  <div class="FormButtonsBar right">
      <div class="right">

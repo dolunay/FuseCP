@@ -1,18 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebsiteActions.ascx.cs" Inherits="FuseCP.Portal.WebsiteActions" %>
-
-<script type="text/javascript">
-    function ShowProgress(btn) {
-        var action = $(btn).prev().val();
-
-        if (action === 1) {
-            ShowProgressDialog("Stopping websites...");
-        } else if (action == 2) {
-            ShowProgressDialog("Starting websites...");
-        } else if (action == 3) {
-            ShowProgressDialog("Restarting App Pools...");
-        }
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/bulk-action-progress.js"></script>
 <asp:UpdatePanel ID="tblActions" runat="server" CssClass="NormalBold" UpdateMode="Conditional" ChildrenAsTriggers="true" >
     <ContentTemplate>
         <div class="input-group">
@@ -24,7 +11,7 @@
         </asp:DropDownList>
         <div class="d-flex">
         <asp:Button ID="btnApply" runat="server" meta:resourcekey="btnApply"
-        Text="Apply" CssClass="btn btn-primary" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);" />
+        Text="Apply" CssClass="btn btn-primary" OnClick="btnApply_Click" OnClientClick="return ShowWebsiteActionProgress(this);" />
         </div>
         </div>
     </ContentTemplate>

@@ -1,19 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DomainActions.ascx.cs" Inherits="FuseCP.Portal.DomainActions" %>
-<script type="text/javascript">
-    function ShowProgress(btn) {
-        var action = $(btn).prev().val();
-
-        if (action === 1) {
-            ShowProgressDialog("Enabling Dns...");
-        } else if (action == 2) {
-            ShowProgressDialog("Disabling Dns...");
-        } else if (action == 3) {
-            ShowProgressDialog("Creating Preview Domain...");
-        } else if (action == 4) {
-            ShowProgressDialog("Removing Preview Domain...");
-        }
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/bulk-action-progress.js"></script>
 <asp:UpdatePanel ID="tblActions" runat="server" CssClass="NormalBold" UpdateMode="Conditional" ChildrenAsTriggers="true" >
     <ContentTemplate>
         <div class="input-group">
@@ -25,7 +11,7 @@
             <asp:ListItem Value="4">DeletePreviewDomain</asp:ListItem>
         </asp:DropDownList>
          <div class="d-flex">
-             <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);"><asp:Label runat="server" meta:resourcekey="btnApplyText"/></asp:LinkButton>
+             <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowDomainActionProgress(this);"><asp:Label runat="server" meta:resourcekey="btnApplyText"/></asp:LinkButton>
          </div>
        </div>
     </ContentTemplate>
