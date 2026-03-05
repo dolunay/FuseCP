@@ -32,7 +32,7 @@
                     <asp:Localize ID="locExternalAddresses" runat="server"
                             meta:resourcekey="locExternalAddresses" Text="Number of Phone Numbers:"></asp:Localize>
 
-                    <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Width="50"></asp:TextBox>
+                    <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control"></asp:TextBox>
                     
                     <asp:RequiredFieldValidator ID="ExternalAddressesValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtExternalAddressesNumber" meta:resourcekey="ExternalAddressesValidator" SetFocusOnError="true"
@@ -52,7 +52,7 @@
             <tr id="AddressesListRow" runat="server">
                 <td style="padding-left: 30px">
                     <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
-                        CssClass="form-control" Width="220" style="height:100px" ></asp:ListBox>
+                        CssClass="form-control" style="height:100px" ></asp:ListBox>
                     <br />
                     <asp:Localize ID="locHoldCtrl" runat="server" 
                             meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple phone numbers" ></asp:Localize>

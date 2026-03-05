@@ -62,11 +62,11 @@
     <div class="row">
         <div class="col-6">
             <asp:Label ID="lblLanguage" runat="server" meta:resourcekey="lblLanguage" Text="Preferred Language:"></asp:Label>
-            <asp:DropDownList ID="ddlLanguage" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="ddlLanguage" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage_SelectedIndexChanged"></asp:DropDownList>
         </div>
         <div class="col-6">
             <asp:Label ID="lblTheme" runat="server" meta:resourcekey="lblTheme" Text="Theme:"></asp:Label>
-            <asp:DropDownList ID="ddlTheme" runat="server" Width="100%" DataValueField="LTRName" DataTextField="DisplayName" AutoPostBack="True" OnSelectedIndexChanged="ddlTheme_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="ddlTheme" runat="server" DataValueField="LTRName" DataTextField="DisplayName" AutoPostBack="True" OnSelectedIndexChanged="ddlTheme_SelectedIndexChanged"></asp:DropDownList>
         </div>
     </div>
 </div>

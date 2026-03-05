@@ -79,10 +79,10 @@
     <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
         <ContentTemplate>
             <asp:GridView id="gvSEDestinations" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-	        Width="100%" EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvSEDestinations_RowCommand" >
+	        EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvSEDestinations_RowCommand" >
 	        <Columns>
 		        <asp:TemplateField HeaderText="Destinations">
-			        <ItemStyle Width="100%"></ItemStyle>
+			        <ItemStyle></ItemStyle>
 			        <ItemTemplate>
 				        <asp:Label id="lblSEDestination" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Container.DataItem)%></asp:Label>
                     </ItemTemplate>

@@ -17,12 +17,12 @@
 				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <asp:GridView ID="gvLists" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvLists" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvLists" CssSelectorClass="NormalGridView"
 					    OnRowCommand="gvLists_RowCommand" AllowPaging="True" AllowSorting="True"
 					    PageSize="20">
 					    <Columns>
 						    <asp:TemplateField HeaderText="gvListsDisplayName" SortExpression="DisplayName">
-							    <ItemStyle Width="80%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnk1" runat="server"
 									    NavigateUrl='<%# GetListEditUrl(Eval("ExchangeDisclaimerId").ToString()) %>'>

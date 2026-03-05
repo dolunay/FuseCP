@@ -458,7 +458,7 @@
 		        <asp:Localize ID="locExternalNetworkName" runat="server" meta:resourcekey="locExternalNetworkName" Text="Connect to Network:"></asp:Localize>
 		    </td>
 		    <td>
-                <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control" Width="450"
+                <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control"
                     DataValueField="SwitchId" DataTextField="Name"></asp:DropDownList>
             </td>
 	    </tr>
@@ -501,7 +501,7 @@
 		    </td>
 		    <td>
                 <asp:DropDownList ID="ddlManagementNetworks" runat="server" 
-                    CssClass="form-control" Width="450"
+                    CssClass="form-control"
                     DataValueField="SwitchId" DataTextField="Name" AutoPostBack="true" 
                     onselectedindexchanged="ddlManagementNetworks_SelectedIndexChanged"></asp:DropDownList>
             </td>
