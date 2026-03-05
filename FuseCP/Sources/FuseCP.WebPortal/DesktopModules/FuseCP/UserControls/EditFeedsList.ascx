@@ -14,9 +14,9 @@
 					<asp:Label id="lblFeedName" Runat="server"></asp:Label>
 				</itemtemplate>
 			</asp:TemplateField>
-			<asp:TemplateField HeaderText="gvFeedsName" ItemStyle-Width="100%">
+			<asp:TemplateField HeaderText="gvFeedsName">
 				<itemtemplate>
-					<asp:TextBox id="txtFeedName" Runat="server" Width="95%" CssClass="form-control">
+					<asp:TextBox id="txtFeedName" Runat="server" CssClass="form-control">
 					</asp:TextBox>
 					<asp:RegularExpressionValidator id="valCorrectFeedName" runat="server" CssClass="NormalBold"
 						ValidationExpression="^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?$"

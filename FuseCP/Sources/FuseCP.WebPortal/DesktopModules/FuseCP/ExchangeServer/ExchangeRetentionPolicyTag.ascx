@@ -16,7 +16,7 @@
 </div>
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false" Width="100%" EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
+    <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false" EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
@@ -24,7 +24,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Tag">
-                <ItemStyle Width="70%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
                     <asp:LinkButton ID="linkcmdEdit" runat="server" CommandName="EditItem" AlternateText="Edit record" CommandArgument='<%# Eval("TagId") %>' Enabled='<%# ((int)Eval("ItemID") == PanelRequest.ItemID) %>' >
                         <asp:Label id="lnkDisplayPolicy" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("TagName"))%></asp:Label>

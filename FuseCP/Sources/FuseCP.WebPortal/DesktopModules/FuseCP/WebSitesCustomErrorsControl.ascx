@@ -45,9 +45,9 @@
 			    </asp:dropdownlist>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField HeaderText="gvErrorPagesErrorContent" ItemStyle-Width="100%">
+	    <asp:TemplateField HeaderText="gvErrorPagesErrorContent">
 		    <itemtemplate>
-			    <asp:TextBox id="txtErrorContent" Runat="server" Width="100%" CssClass="form-control" Text='<%# Eval("ErrorContent") %>'>
+			    <asp:TextBox id="txtErrorContent" Runat="server" CssClass="form-control" Text='<%# Eval("ErrorContent") %>'>
 			    </asp:TextBox>
 		    </itemtemplate>
 	    </asp:TemplateField>

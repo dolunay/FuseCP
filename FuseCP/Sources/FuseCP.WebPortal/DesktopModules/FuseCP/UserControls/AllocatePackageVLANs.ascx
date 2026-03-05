@@ -32,7 +32,7 @@
                     <asp:Localize ID="locVLANs" runat="server"
                             meta:resourcekey="locVLANs" Text="Number of VLANs:"></asp:Localize>
 
-                    <asp:TextBox ID="txtVLANsNumber" runat="server" CssClass="form-control" Width="50"></asp:TextBox>
+                    <asp:TextBox ID="txtVLANsNumber" runat="server" CssClass="form-control"></asp:TextBox>
                     
                     <asp:RequiredFieldValidator ID="VLANsValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtVLANsNumber" meta:resourcekey="VLANsValidator" SetFocusOnError="true"
@@ -52,7 +52,7 @@
             <tr id="VLANsListRow" runat="server">
                 <td style="padding-left: 30px">
                     <asp:ListBox ID="listVLANs" SelectionMode="Multiple" runat="server" Rows="8"
-                        CssClass="form-control" Width="220" style="height:100px" ></asp:ListBox>
+                        CssClass="form-control" style="height:100px" ></asp:ListBox>
                     <br />
                     <asp:Localize ID="locHoldCtrl" runat="server" 
                             meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses" ></asp:Localize>
