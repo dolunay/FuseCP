@@ -2,7 +2,7 @@
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width: 150px;">
+		<td class="SubHead" >
 		    <asp:Label ID="lblInternalAddress" runat="server" meta:resourcekey="lblInternalAddress" Text="Internal Address:"></asp:Label>
 		</td>
 		<td><asp:TextBox Width="200px" CssClass="form-control" Runat="server" ID="txtInternalAddress"></asp:TextBox></td>

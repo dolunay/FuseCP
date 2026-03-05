@@ -13,7 +13,7 @@
 
 <asp:Panel ID="HeliconApeFoldersPanel" runat="server" CssClass="HtaccessPanel">
 	
-    <table class="FormButtonsBar" width="100%">
+    <table class="FormButtonsBar">
 	    <tr>
 	        <td>
 	            <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="labelSelectHtacesEdit"></asp:Label>
@@ -42,7 +42,7 @@
 				<ItemTemplate>
 					<asp:HyperLink ID="lnkEditHeliconApeFolderAuth" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_htaccessfolderauth", Eval("Path").ToString()) %>'
 						title="Folder Security Properties (.htpasswd)">
-			            <image src="/App_Themes/Default/Images/shield.png" style="border: 0; vertical-align: top; margin-right: 3px;" />Security options
+			            <image src="/App_Themes/Default/Images/shield.png" style="border: 0; vertical-align: top; margin-right: 3px" />Security options
 					</asp:HyperLink>
 				</ItemTemplate>
 			</asp:TemplateField>
@@ -69,7 +69,7 @@
     
     <input class="btn btn-success" id="ShowSecurityPanelButton" value="Show Security Options (.htpasswd)" type="button" />
     <div id="SecurityPanel" class="Hidden">
-	<table class="FormButtonsBar" width="100%" style="margin-top: 2em;">
+	<table class="FormButtonsBar" style="margin-top: 2em">
 	    <tr>
 	        <td>
 	            <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="HeliconApeUsersHeader"></asp:Label>
@@ -107,7 +107,7 @@
     
 
     
-    <table class="FormButtonsBar" width="100%" style="margin-top: 3em;">
+    <table class="FormButtonsBar" style="margin-top: 3em">
 	    <tr>
 	        <td>
 	            <asp:Label ID="Label1" runat="server" CssClass="NormalBold" meta:resourcekey="HeliconApeGroupsHeader"></asp:Label>
@@ -158,7 +158,7 @@
 	</asp:Panel>
 	<asp:Button ID="btnToggleHeliconApe" runat="server" meta:resourcekey="btnToggleHeliconApe"
 		Text="Enable Helicon Ape" CssClass="btn btn-success" CausesValidation="false" OnClick="btnToggleHeliconApe_Click" />
-	<div style="float: right;">
+	<div style="float: right">
 		<asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl="http://www.helicontech.com/ape/doc/wsp.htm"
 			meta:resourcekey="ModuleHelpLink" />
 	</div>

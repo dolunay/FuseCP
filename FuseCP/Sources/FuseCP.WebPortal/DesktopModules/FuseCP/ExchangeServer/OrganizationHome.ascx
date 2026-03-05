@@ -35,10 +35,10 @@
                         </tr>
                     </table>
                     <br />
-                    <table width="100%">
+                    <table>
                         <asp:Panel runat="server" ID="organizationStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locHeadStatistics" runat="server" meta:resourcekey="locHeadStatistics"
                                     Text="Organization Statistics"></asp:Localize>
                             </td>
@@ -48,7 +48,7 @@
                             <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkDomains" runat="server" meta:resourcekey="lnkDomains"></asp:HyperLink>
                             </td>
-                            <td width="100%">
+                            <td>
                                 <fcp:QuotaViewer ID="domainStats" QuotaTypeId="2" runat="server" DisplayGauge="true" />
                             </td>
                         </tr>
@@ -81,7 +81,7 @@
 
                         <asp:Panel runat="server" ID="exchangeStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locExchangeStatistics" runat="server" meta:resourcekey="locExchangeStatistics" ></asp:Localize>
                             </td>
                         </tr>
@@ -172,7 +172,7 @@
 
                         <asp:Panel runat="server" ID="besStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locBESStatistics" runat="server" meta:resourcekey="locBESStatistics" ></asp:Localize>
                             </td>
                         </tr>
@@ -188,7 +188,7 @@
 
                         <asp:Panel runat="server" ID="sfbStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locSfBStatistics" runat="server" meta:resourcekey="locSfBStatistics" ></asp:Localize>
                             </td>
                         </tr>
@@ -204,7 +204,7 @@
 
                         <asp:Panel runat="server" ID="lyncStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locLyncStatistics" runat="server" meta:resourcekey="locLyncStatistics" ></asp:Localize>
                             </td>
                         </tr>
@@ -223,7 +223,7 @@
                         
                         <asp:Panel runat="server" ID="sharePointStatsPanel">
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locSharePoint" runat="server" meta:resourcekey="locSharePoint"
                                     Text="Organization Statistics"></asp:Localize>
                             </td>
@@ -240,7 +240,7 @@
 
                         <asp:Panel runat="server" ID="sharePointEnterpriseStatsPanel">
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locSharePointEnterprise" runat="server" meta:resourcekey="locSharePointEnterprise"
                                     Text="Organization Statistics"></asp:Localize>
                             </td>
@@ -259,7 +259,7 @@
 
                         <asp:Panel runat="server" ID="ocsStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locOCSStatistics" runat="server" meta:resourcekey="locOCSStatistics" ></asp:Localize>
                             </td>
                         </tr>
@@ -276,7 +276,7 @@
                         
                         <asp:Panel runat="server" ID="crmStatsPanel">
                         <tr >
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locCRM" runat="server" meta:resourcekey="locCRM"
                                     Text="Organization Statistics"></asp:Localize>
                             </td>
@@ -317,7 +317,7 @@
 
                         <asp:Panel runat="server" ID="crm2013StatsPanel">
                         <tr >
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locCRM2013" runat="server" meta:resourcekey="locCRM2013"
                                     Text="CRM 2013/2015"></asp:Localize>
                             </td>
@@ -359,7 +359,7 @@
 
                         <asp:Panel runat="server" ID="enterpriseStorageStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locEnterpriseStorage" runat="server" meta:resourcekey="locEnterpriseStorage" ></asp:Localize>
                             </td>
                         </tr>
@@ -383,7 +383,7 @@
 
                         <asp:Panel runat="server" ID="serviceLevelsStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locServiceLevels" runat="server" meta:resourcekey="locServiceLevels" ></asp:Localize>
                             </td>
                         </tr>
@@ -391,7 +391,7 @@
 
                         <asp:Panel runat="server" ID="remoteDesktopStatsPanel">
                         <tr>
-                            <td class="OrgStatsGroup" width="100%" colspan="2">
+                            <td class="OrgStatsGroup" colspan="2">
                                 <asp:Localize ID="locRemoteDesktop" runat="server" meta:resourcekey="locRemoteDesktop" ></asp:Localize>
                             </td>
                         </tr>

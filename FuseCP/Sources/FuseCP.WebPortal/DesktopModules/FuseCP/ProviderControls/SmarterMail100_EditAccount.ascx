@@ -64,11 +64,11 @@
     meta:resourcekey="secAutoresponder" Text="Autoresponder">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="AutoresponderPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table>
         <tr>
-            <td class="SubHead text-nowrap" width="200">
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Enable autoresponder:"></asp:Label></td>
-            <td class="normal" width="100%">
+            <td class="normal">
                 <asp:CheckBox ID="chkResponderEnabled" runat="server" meta:resourcekey="chkResponderEnabled" Text="Yes"></asp:CheckBox>
             </td>
         </tr>
@@ -93,11 +93,11 @@
     meta:resourcekey="secForwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="ForwardingPanel" runat="server" Height="0" Style="overflow: hidden;">
-    <table width="100%">
+    <table>
         <tr>
-            <td class="SubHead text-nowrap" width="200">
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
-            <td class="normal align-top" width="100%">
+            <td class="normal align-top">
                 <asp:TextBox ID="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>

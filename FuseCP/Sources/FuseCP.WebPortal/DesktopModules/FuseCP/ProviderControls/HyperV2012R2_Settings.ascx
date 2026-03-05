@@ -286,7 +286,7 @@
             </td>
 	    </tr>        
     </table>
-    <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px">
+    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
         <asp:LinkButton id="btnAddOsTemplate" CssClass="btn btn-success" runat="server" OnClick="btnAddOsTemplate_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddOsTemplateText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repOsTemplates" runat="server">
@@ -380,7 +380,7 @@
                         <fcp:CollapsiblePanel id="clpAdvancedTemplateSettings" runat="server" IsCollapsed="true"
 	                        TargetControlID="pAdvancedTemplateSettings" meta:resourcekey="clpAdvancedTemplateSettings" Text="Advanced template settings">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="pAdvancedTemplateSettings" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <asp:Panel ID="pAdvancedTemplateSettings" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
                                 <tr>
 	                                <td class="SubHead">
@@ -453,7 +453,7 @@
             </td>
         </tr>
     </table>
-    <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px">
+    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
         <asp:LinkButton id="btnAddDvd" CssClass="btn btn-success" runat="server" OnClick="btnAddDvd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDvdText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repDvdLibrary" runat="server">
@@ -508,7 +508,7 @@
     <legend>
         <asp:Localize ID="locPsScript" runat="server" meta:resourcekey="locPsScript" Text="Custom PowerShell Scripts"></asp:Localize>
     </legend>
-    <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px">
+    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
         <table class="table table-borderless align-middle mb-0">
             <tr>
                 <td >
@@ -522,7 +522,7 @@
             </tr>
         </table>
     </div>
-    <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px">
+    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
         <asp:LinkButton id="btnAddPsScript" CssClass="btn btn-success" runat="server" OnClick="btnAddPsScript_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPsScript"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repPsScript" runat="server">
