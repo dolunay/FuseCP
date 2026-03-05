@@ -144,6 +144,7 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/enterprise-storage-folders.js` for enterprise storage folders delayed data loading.
 - Added shared helper `DesktopModules/FuseCP/Scripts/helicon-ape-control.js` for Helicon Ape security panel reveal behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/global-search.js` for global search autocomplete wiring and submit flow.
+- Added shared helper `DesktopModules/FuseCP/Scripts/file-manager.js` for FileManager grid selection, modal keyboard handling, and unzip progress behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -170,7 +171,8 @@ Keep using:
 - Reused shared tab-click helper in `ExchangeServer/UserControls/EnterpriseStorageEditFolderTabs.ascx`, `ExchangeServer/UserControls/OrganizationSettingsTabs.ascx`, and `RDS/UserControls/RDSCollectionTabs.ascx`.
 - Reused shared mail confirmation helper in `MailAccountsEditAccount.ascx`, `MailDomainsEditDomain.ascx`, `MailForwardingsEditForwarding.ascx`, `MailGroupsEditGroup.ascx`, and `MailListsEditList.ascx`.
 - Replaced inline scripts with external helpers in `ExchangeServer/EnterpriseStorageFolders.ascx`, `WebSitesHeliconApeControl.ascx`, and `SkinControls/GlobalSearch.ascx`.
-- Reduced inline-script candidate count from `100` to `33` in guard output.
+- Replaced inline script in `FileManager.ascx` with shared `file-manager.js`.
+- Reduced inline-script candidate count from `100` to `32` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
