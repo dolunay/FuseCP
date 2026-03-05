@@ -54,3 +54,49 @@ body .page-login {
 	flex: 1 1 auto;
 	min-width: 0;
 }
+
+/* Keep desktop inline top-bar search hidden; use the icon-triggered search panel instead. */
+.top-bar > .d-none.d-sm-block .fcp-global-search {
+	display: none;
+}
+
+/* Remove the legacy top-bar desktop search container (left of user actions). */
+.top-bar > .d-none.d-sm-block {
+	display: none !important;
+}
+
+/* Render the icon-triggered search panel as a floating dropdown under the icon. */
+.top-bar {
+	position: relative;
+}
+
+.top-bar .search-top {
+	position: absolute;
+	z-index: 1200;
+	display: none;
+}
+
+.top-bar .search-top .fcp-global-search {
+	min-width: 320px;
+	max-width: calc(100vw - 16px);
+	background: #fff;
+	padding: 6px;
+	border: 1px solid #d8d8d8;
+	border-radius: 4px;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.top-bar .search-top .fcp-global-search .input-group {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+
+.top-bar .search-top .fcp-global-search .input-group .form-control {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.top-bar .search-top .fcp-global-search .input-group .d-flex {
+	flex: 0 0 auto;
+}

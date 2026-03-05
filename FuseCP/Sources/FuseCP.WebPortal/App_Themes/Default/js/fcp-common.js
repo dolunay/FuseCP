@@ -100,23 +100,73 @@ $(document).ready(function () {
         $('#SkinContent').css('padding-bottom', footer_height);
     });
 
-    $('.show-search').click(function () {
-        var iteration = $(this).data('iteration') || 1
-        switch (iteration) {
-            case 1:
-                $(".search-top").show();
-                $("#SkinOutline").addClass("search-expanded");
-                break;
+    // Keep top search hidden until the user explicitly opens it from the search icon.
+    var $searchTop = $(".search-top");
+    var $topBar = $(".top-bar");
+    $searchTop.hide();
+    $("#SkinOutline").removeClass("search-expanded");
 
-            case 2:
-                $(".search-top").hide();
-                $("#SkinOutline").removeClass("search-expanded");
-                break;
+    function positionSearchTop($trigger) {
+        if (!$searchTop.length || !$topBar.length) return;
+
+        var barOffset = $topBar.offset();
+        var triggerOffset = $trigger.offset();
+        var top = triggerOffset.top - barOffset.top + $trigger.outerHeight() + 6;
+
+        $searchTop.css({ display: "block", visibility: "hidden" });
+
+        var maxPanelWidth = Math.max(220, $topBar.innerWidth() - 16);
+        var panelWidth = $searchTop.outerWidth();
+        if (!panelWidth) {
+            panelWidth = 340;
         }
-        iteration++;
-        if (iteration > 2) iteration = 1
-        $(this).data('iteration', iteration)
-    })
+        panelWidth = Math.min(panelWidth, maxPanelWidth);
+        $searchTop.css("width", panelWidth + "px");
+
+        // Align the panel's right edge with the trigger's right edge.
+        var triggerRight = triggerOffset.left - barOffset.left + $trigger.outerWidth();
+        var left = triggerRight - panelWidth;
+        var minLeft = 8;
+        var maxLeft = $topBar.innerWidth() - panelWidth - 8;
+
+        if (maxLeft < minLeft) maxLeft = minLeft;
+        left = Math.max(minLeft, Math.min(left, maxLeft));
+
+        $searchTop.css({
+            left: left + "px",
+            top: top + "px",
+            visibility: "visible"
+        });
+    }
+
+    $('.show-search').click(function (e) {
+        e.preventDefault();
+
+        if ($searchTop.is(':visible')) {
+            $searchTop.hide();
+            return;
+        }
+
+        positionSearchTop($(this));
+        $searchTop.show();
+        $searchTop.data('trigger', this);
+        $searchTop.find('input[type="text"]').first().focus();
+    });
+
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.search-top, .show-search').length) {
+            $searchTop.hide();
+        }
+    });
+
+    $(window).on('resize', function () {
+        if ($searchTop.is(':visible')) {
+            var trigger = $searchTop.data('trigger');
+            if (trigger) {
+                positionSearchTop($(trigger));
+            }
+        }
+    });
 
     $('.main-menu .submenu-toggle').click(function (e) {
         e.preventDefault();
