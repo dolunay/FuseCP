@@ -88,7 +88,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnTakeSnapshot;
+        protected global::System.Web.UI.WebControls.LinkButton btnTakeSnapshot;
         
         /// <summary>
         /// SnapshotsTree control.
@@ -178,7 +178,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnApply;
+        protected global::System.Web.UI.WebControls.LinkButton btnApply;
         
         /// <summary>
         /// btnRename control.
@@ -187,7 +187,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnRename;
+        protected global::System.Web.UI.WebControls.LinkButton btnRename;
         
         /// <summary>
         /// btnDelete control.
@@ -196,7 +196,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// btnDeleteSubtree control.
@@ -205,7 +205,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDeleteSubtree;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteSubtree;
         
         /// <summary>
         /// RenamePanel control.
@@ -250,7 +250,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelRename;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelRename;
         
         /// <summary>
         /// btnRenameSnapshot control.
@@ -259,7 +259,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnRenameSnapshot;
+        protected global::System.Web.UI.WebControls.LinkButton btnRenameSnapshot;
         
         /// <summary>
         /// RenameSnapshotModal control.

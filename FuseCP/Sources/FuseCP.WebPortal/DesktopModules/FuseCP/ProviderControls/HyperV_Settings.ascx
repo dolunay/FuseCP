@@ -21,7 +21,7 @@
 		    <td class="SubHead" style="padding-left:30px;" colspan="2">
 		        <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server name:"></asp:Localize>
                 <asp:TextBox Width="200px" CssClass="form-control" Runat="server" ID="txtServerName"></asp:TextBox>
-                <CPCC:StyleButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </CPCC:StyleButton>
+                <asp:LinkButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </asp:LinkButton>
                 <asp:RequiredFieldValidator ID="ServerNameValidator" runat="server" ControlToValidate="txtServerName"
                     Text="*" meta:resourcekey="ServerNameValidator" Display="Dynamic" SetFocusOnError="true" />
             </td>

@@ -56,8 +56,8 @@
                                 <asp:TextBox ID="tbSearch" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:TextBox ID="tbSearchFullType" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
                                 <asp:TextBox ID="tbSearchText" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
-                                <div class="input-group-btn">
-                                 <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                <div class="d-flex">
+                                 <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div>
                             </div>
                                     </div>

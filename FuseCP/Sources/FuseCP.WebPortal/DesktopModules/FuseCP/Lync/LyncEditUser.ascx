@@ -8,8 +8,8 @@
 <%@ Register Src="UserControls/LyncUserSettings.ascx" TagName="LyncUserSettings" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-			<div class="panel-heading">
-                    <h3 class="panel-title">
+			<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="LyncLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                     -
@@ -18,7 +18,7 @@
                     <asp:Label ID="litServiceLevel" runat="server" style="float:right;padding-right:8px;" Visible="false"></asp:Label>
                 </h3>
                         </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -75,7 +75,7 @@
                         
 	
                 </div>
-					<div class="panel-footer text-right">
-					 <CPCC:StyleButton id="btnSaveExit" CssClass="btn btn-warning" runat="server" OnClick="btnSaveExit_Click" ValidationGroup="Validation1"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </CPCC:StyleButton>&nbsp;
-                     <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="Validation1"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>				 					                                                
+					<div class="card-footer text-end">
+					 <asp:LinkButton id="btnSaveExit" CssClass="btn btn-warning" runat="server" OnClick="btnSaveExit_Click" ValidationGroup="Validation1"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </asp:LinkButton>&nbsp;
+                     <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="Validation1"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>				 					                                                
 				    </div>		

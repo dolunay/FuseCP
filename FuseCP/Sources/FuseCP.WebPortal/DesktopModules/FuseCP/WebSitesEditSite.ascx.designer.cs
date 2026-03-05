@@ -169,7 +169,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton PubProfileWizardCancelButton;
+        protected global::System.Web.UI.WebControls.LinkButton PubProfileWizardCancelButton;
         
         /// <summary>
         /// PubProfileWizardOkButton control.
@@ -178,7 +178,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton PubProfileWizardOkButton;
+        protected global::System.Web.UI.WebControls.LinkButton PubProfileWizardOkButton;
         
         /// <summary>
         /// WDeployRebuildPublishingProfileWizardModal control.
@@ -241,7 +241,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSwitchToDedicatedIP;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSwitchToDedicatedIP;
         
         /// <summary>
         /// dedicatedIP control.
@@ -277,7 +277,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSwitchToSharedIP;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSwitchToSharedIP;
         
         /// <summary>
         /// switchToDedicatedIP control.
@@ -313,7 +313,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdApplyDedicatedIP;
+        protected global::System.Web.UI.WebControls.LinkButton cmdApplyDedicatedIP;
         
         /// <summary>
         /// cmdCancelDedicatedIP control.
@@ -322,7 +322,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdCancelDedicatedIP;
+        protected global::System.Web.UI.WebControls.LinkButton cmdCancelDedicatedIP;
         
         /// <summary>
         /// btnAddPointer control.
@@ -331,7 +331,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddPointer;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddPointer;
         
         /// <summary>
         /// gvPointers control.
@@ -367,7 +367,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdStart;
+        protected global::System.Web.UI.WebControls.LinkButton cmdStart;
         
         /// <summary>
         /// cmdPause control.
@@ -376,7 +376,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdPause;
+        protected global::System.Web.UI.WebControls.LinkButton cmdPause;
         
         /// <summary>
         /// cmdContinue control.
@@ -385,7 +385,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdContinue;
+        protected global::System.Web.UI.WebControls.LinkButton cmdContinue;
         
         /// <summary>
         /// cmdStop control.
@@ -394,7 +394,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdStop;
+        protected global::System.Web.UI.WebControls.LinkButton cmdStop;
         
         /// <summary>
         /// lblAppPoolStatus control.
@@ -430,7 +430,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdAppPoolStart;
+        protected global::System.Web.UI.WebControls.LinkButton cmdAppPoolStart;
         
         /// <summary>
         /// cmdAppPoolRecycle control.
@@ -439,7 +439,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdAppPoolRecycle;
+        protected global::System.Web.UI.WebControls.LinkButton cmdAppPoolRecycle;
         
         /// <summary>
         /// cmdAppPoolStop control.
@@ -448,7 +448,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdAppPoolStop;
+        protected global::System.Web.UI.WebControls.LinkButton cmdAppPoolStop;
         
         /// <summary>
         /// dlTabs control.
@@ -529,7 +529,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddVirtualDirectory;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddVirtualDirectory;
         
         /// <summary>
         /// gvVirtualDirectories control.
@@ -574,7 +574,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddAppVirtualDirectory;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddAppVirtualDirectory;
         
         /// <summary>
         /// gvAppVirtualDirectories control.
@@ -736,7 +736,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUninstallFrontPage;
+        protected global::System.Web.UI.WebControls.LinkButton btnUninstallFrontPage;
         
         /// <summary>
         /// btnChangeFrontPagePassword control.
@@ -745,7 +745,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnChangeFrontPagePassword;
+        protected global::System.Web.UI.WebControls.LinkButton btnChangeFrontPagePassword;
         
         /// <summary>
         /// btnInstallFrontPage control.
@@ -754,7 +754,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnInstallFrontPage;
+        protected global::System.Web.UI.WebControls.LinkButton btnInstallFrontPage;
         
         /// <summary>
         /// Localize14 control.
@@ -880,7 +880,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton WDeployDownloadPubProfileLink;
+        protected global::System.Web.UI.WebControls.LinkButton WDeployDownloadPubProfileLink;
         
         /// <summary>
         /// WDeployRebuildPubProfileLinkButton control.
@@ -889,7 +889,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton WDeployRebuildPubProfileLinkButton;
+        protected global::System.Web.UI.WebControls.LinkButton WDeployRebuildPubProfileLinkButton;
         
         /// <summary>
         /// PanelWDeployPublishingCredentials control.
@@ -979,7 +979,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton WDeployDisablePublishingButton;
+        protected global::System.Web.UI.WebControls.LinkButton WDeployDisablePublishingButton;
         
         /// <summary>
         /// WDeployChangePublishingPasswButton control.
@@ -988,7 +988,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton WDeployChangePublishingPasswButton;
+        protected global::System.Web.UI.WebControls.LinkButton WDeployChangePublishingPasswButton;
         
         /// <summary>
         /// WDeployEnabePublishingButton control.
@@ -997,7 +997,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton WDeployEnabePublishingButton;
+        protected global::System.Web.UI.WebControls.LinkButton WDeployEnabePublishingButton;
         
         /// <summary>
         /// PanelWDeployNotInstalled control.
@@ -1231,7 +1231,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnWmSvcSiteDisable;
+        protected global::System.Web.UI.WebControls.LinkButton btnWmSvcSiteDisable;
         
         /// <summary>
         /// btnWmSvcChangePassw control.
@@ -1240,7 +1240,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnWmSvcChangePassw;
+        protected global::System.Web.UI.WebControls.LinkButton btnWmSvcChangePassw;
         
         /// <summary>
         /// btnWmSvcSiteEnable control.
@@ -1249,7 +1249,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnWmSvcSiteEnable;
+        protected global::System.Web.UI.WebControls.LinkButton btnWmSvcSiteEnable;
         
         /// <summary>
         /// pnlNotInstalled control.
@@ -1285,7 +1285,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// chkDeleteWebsiteDirectory control.

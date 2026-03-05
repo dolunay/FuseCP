@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <div class="FormRow">
         <asp:Panel ID="tblSearch" runat="server" DefaultButton="cmdSearch" CssClass="NormalBold">
             <div class="form-inline">
@@ -15,8 +15,8 @@
                     </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtFilterValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
-                    <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                <div class="d-flex">
+                    <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                        </div></div></div>
         </asp:Panel>
     </div>

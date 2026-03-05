@@ -7,7 +7,7 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-<div class="panel-body">
+<div class="card-body">
 	<table cellspacing="0" cellpadding="4" width="100%">
         <tr>
             <td class="SubHead" style="width:150px;"><asp:Label ID="lblTaskName" runat="server" meta:resourcekey="lblTaskName" Text="Task Name:"></asp:Label></td>
@@ -223,20 +223,20 @@
 	</asp:Panel>
 	--%>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete task?');">
-        <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete task?');">
+        <i class="bi bi-trash">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click">
-        <i class="fa fa-refresh">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click">
+        <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnUpdateText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 	
 </div>

@@ -13,7 +13,7 @@
     	
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_tools" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -34,7 +34,7 @@
                                 TargetControlID="VirtualMachineSettingsPanel" meta:resourcekey="secVirtualMachineSetttings" Text="Virtual Machine Settings">
                             </fcp:CollapsiblePanel>
                         <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group" id="hostnameSetting" runat="server">
+                        <div class="mb-3" id="hostnameSetting" runat="server">
                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
                                 <div class="col-sm-10 form-inline">
                                 <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
@@ -60,7 +60,7 @@
                                 </div>
                         </div>
 				    
-                        <div class="form-group">
+                        <div class="mb-3">
                             <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2"  AssociatedControlID="listOperatingSystems"></asp:Label>
                                 <div class="col-sm-10 form-inline">
                                     <asp:DropDownList ID="listOperatingSystems" runat="server"
@@ -192,9 +192,9 @@
 				                        meta:resourcekey="chkConfirmReinstall" Text="Yes, I confirm re-installation of this VPS" />
                         </p>
                     </div>		            
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </asp:LinkButton>
                     </div>
 			    </div>
 		    </div>

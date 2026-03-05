@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="fcp" TagName="SpaceOrgsSelector" Src="SpaceOrganizationsSelector.ascx" %>
 <div id="Breadcrumb">
     <div class="Path">
-        <div class="col-xs-8">
+        <div class="col-8">
         <asp:Repeater ID="repUsersPath" runat="server" OnItemDataBound="repUsersPath_ItemDataBound"
             EnableViewState="false">
             <ItemTemplate>

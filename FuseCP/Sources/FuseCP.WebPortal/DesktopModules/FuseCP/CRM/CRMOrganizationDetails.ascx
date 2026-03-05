@@ -8,12 +8,12 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="CRMLogo" runat="server" />
 					<asp:Localize ID="locTitle" runat="server"  Text="CRM Organization"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 				    <div >
@@ -58,7 +58,7 @@
 			            
 				    </div>
 				</div>
-       <div class="panel-footer text-right">
+       <div class="card-footer text-end">
 					    <asp:Button runat="server" meta:resourcekey="btnCreate" ID="btnCreate" CssClass="Button2" OnClick="btnCreate_Click"  />		
 					    <asp:Button runat="server" meta:resourcekey="btnDelete" ID="btnDelete" CssClass="Button2" Visible="false" OnClick="btnDelete_Click" />			    					    
 				    </div>

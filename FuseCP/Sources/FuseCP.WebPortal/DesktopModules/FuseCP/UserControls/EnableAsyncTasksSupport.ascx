@@ -12,7 +12,7 @@
 <asp:Panel id="pnlModal" runat="server" CssClass="PopupContainer" style="display:none">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-cogs"></i> <asp:Label ID="lblTitle" runat="server" meta:resourcekey="lblTitle" Text="Running"></asp:Label></h3>
+            <h3><i class="bi bi-cogs"></i> <asp:Label ID="lblTitle" runat="server" meta:resourcekey="lblTitle" Text="Running"></asp:Label></h3>
         </div>
         <div class="widget-content Popup">
             <div class="ProgressPanelArea">

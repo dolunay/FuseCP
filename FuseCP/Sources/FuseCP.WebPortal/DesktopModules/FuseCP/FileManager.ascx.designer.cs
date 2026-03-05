@@ -61,7 +61,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdUpload;
+        protected global::System.Web.UI.WebControls.LinkButton cmdUpload;
         
         /// <summary>
         /// Img1 control.
@@ -88,7 +88,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdCreateFile;
+        protected global::System.Web.UI.WebControls.LinkButton cmdCreateFile;
         
         /// <summary>
         /// Img2 control.
@@ -115,7 +115,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdCreateFolder;
+        protected global::System.Web.UI.WebControls.LinkButton cmdCreateFolder;
         
         /// <summary>
         /// Img3 control.
@@ -151,7 +151,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdCreateAccessDB;
+        protected global::System.Web.UI.WebControls.LinkButton cmdCreateAccessDB;
         
         /// <summary>
         /// Image2 control.
@@ -187,7 +187,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdZipFiles;
+        protected global::System.Web.UI.WebControls.LinkButton cmdZipFiles;
         
         /// <summary>
         /// Image3 control.
@@ -214,7 +214,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdUnzipFiles;
+        protected global::System.Web.UI.WebControls.LinkButton cmdUnzipFiles;
         
         /// <summary>
         /// Image4 control.
@@ -250,7 +250,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdCopyFiles;
+        protected global::System.Web.UI.WebControls.LinkButton cmdCopyFiles;
         
         /// <summary>
         /// Image5 control.
@@ -277,7 +277,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdMoveFiles;
+        protected global::System.Web.UI.WebControls.LinkButton cmdMoveFiles;
         
         /// <summary>
         /// Image6 control.
@@ -304,7 +304,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdDeleteFiles;
+        protected global::System.Web.UI.WebControls.LinkButton cmdDeleteFiles;
         
         /// <summary>
         /// Image7 control.
@@ -385,7 +385,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelUpload;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelUpload;
         
         /// <summary>
         /// btnUpload control.
@@ -394,7 +394,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpload;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpload;
         
         /// <summary>
         /// UploadModal control.
@@ -439,7 +439,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelCopy;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelCopy;
         
         /// <summary>
         /// btnCopy control.
@@ -448,7 +448,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCopy;
+        protected global::System.Web.UI.WebControls.LinkButton btnCopy;
         
         /// <summary>
         /// CopyFilesModal control.
@@ -493,7 +493,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelMove;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelMove;
         
         /// <summary>
         /// btnMove control.
@@ -502,7 +502,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnMove;
+        protected global::System.Web.UI.WebControls.LinkButton btnMove;
         
         /// <summary>
         /// MoveFilesModal control.
@@ -565,7 +565,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelCreateFile;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelCreateFile;
         
         /// <summary>
         /// btnCreateFile control.
@@ -574,7 +574,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreateFile;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateFile;
         
         /// <summary>
         /// CreateFileModal control.
@@ -619,7 +619,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelCreateFolder;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelCreateFolder;
         
         /// <summary>
         /// btnCreateFolder control.
@@ -628,7 +628,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreateFolder;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateFolder;
         
         /// <summary>
         /// CreateFolderModal control.
@@ -673,7 +673,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelZip;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelZip;
         
         /// <summary>
         /// btnZip control.
@@ -682,7 +682,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnZip;
+        protected global::System.Web.UI.WebControls.LinkButton btnZip;
         
         /// <summary>
         /// ZipFilesModal control.
@@ -727,7 +727,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelCreateDatabase;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelCreateDatabase;
         
         /// <summary>
         /// btnCreateDatabase control.
@@ -736,7 +736,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreateDatabase;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateDatabase;
         
         /// <summary>
         /// CreateDatabaseModal control.
@@ -772,7 +772,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDeleteFiles;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteFiles;
         
         /// <summary>
         /// btnCancelDeleteFiles control.
@@ -781,7 +781,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelDeleteFiles;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDeleteFiles;
         
         /// <summary>
         /// DeleteFilesModal control.
@@ -934,7 +934,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelEditFile;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelEditFile;
         
         /// <summary>
         /// btnSaveEditFile control.
@@ -943,7 +943,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSaveEditFile;
+        protected global::System.Web.UI.WebControls.LinkButton btnSaveEditFile;
         
         /// <summary>
         /// btnEditFile control.
@@ -997,7 +997,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelRename;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelRename;
         
         /// <summary>
         /// btnRename control.
@@ -1006,7 +1006,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnRename;
+        protected global::System.Web.UI.WebControls.LinkButton btnRename;
         
         /// <summary>
         /// btnRenameFile control.
@@ -1098,7 +1098,7 @@ namespace FuseCP.Portal {
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::CPCC.StyleButton btnCancelPermissions;
+		protected global::System.Web.UI.WebControls.LinkButton btnCancelPermissions;
 		/// <summary>
 		/// btnCancelPermissions control.
 		/// </summary>
@@ -1106,7 +1106,7 @@ namespace FuseCP.Portal {
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::CPCC.StyleButton btnCancelPermissionsUnix;
+		protected global::System.Web.UI.WebControls.LinkButton btnCancelPermissionsUnix;
 
 		/// <summary>
 		/// btnSetPermissions control.
@@ -1115,7 +1115,7 @@ namespace FuseCP.Portal {
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::CPCC.StyleButton btnSetPermissions;
+		protected global::System.Web.UI.WebControls.LinkButton btnSetPermissions;
 		/// <summary>
 		/// btnSetPermissions control.
 		/// </summary>
@@ -1123,7 +1123,7 @@ namespace FuseCP.Portal {
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::CPCC.StyleButton btnSetPermissionsUnix;
+		protected global::System.Web.UI.WebControls.LinkButton btnSetPermissionsUnix;
 
 		/// <summary>
 		/// btnSetPermissionsFile control.

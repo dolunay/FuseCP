@@ -178,7 +178,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnDelete control.
@@ -187,6 +187,6 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
     }
 }

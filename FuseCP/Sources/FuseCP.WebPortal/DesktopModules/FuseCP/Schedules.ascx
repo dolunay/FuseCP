@@ -7,12 +7,12 @@
 
 <asp:Timer runat="server" Interval="5000" ID="tasksTimer" OnTick="tasksTimer_Tick" />
 <div class="FormButtonsBar right">
-     <CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
-         <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
-     </CPCC:StyleButton>
+     <asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
+         <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
+     </asp:LinkButton>
       
 </div>
-<div class="panel-body">
+<div class="card-body">
     <div class="row">
     <div class="col-md-8">
          &nbsp;<asp:CheckBox ID="chkRecursive" runat="server" AutoPostBack="True" CssClass="Normal"

@@ -1,26 +1,26 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Servers.ascx.cs" Inherits="FuseCP.Portal.Servers" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 <div class="buttons-in-panel-header">
-    <CPCC:StyleButton ID="btnAddItem"  runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnAddItem"  runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
+    </asp:LinkButton>
 </div>
 <section>
-    <div class="panel-body">
+    <div class="card-body">
     <asp:Repeater ID="dlServers" Runat="server">
         <ItemTemplate>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class=" panel panel-info server-panel matchHeight">
-                    <div class="panel-heading" style="min-height:43px;padding: 10px 0px;">
+                <div class=" card border-info server-panel matchHeight">
+                    <div class="card-header" style="min-height:43px;padding: 10px 0px;">
                         <div class="col-sm-8">
-                            <h3 class="panel-title" style="line-height:inherit;white-space:nowrap;overflow:hidden;" title="<%# PortalAntiXSS.EncodeOld((string)Eval("ServerName")) %>">
-                                <i class="fa fa-server" aria-hidden="true">&nbsp;</i>&nbsp;
+                            <h3 class="card-title" style="line-height:inherit;white-space:nowrap;overflow:hidden;" title="<%# PortalAntiXSS.EncodeOld((string)Eval("ServerName")) %>">
+                                <i class="bi bi-server" aria-hidden="true">&nbsp;</i>&nbsp;
                                 <%# PortalAntiXSS.EncodeOld((string)Eval("ServerName")) %>
                             </h3>
                         </div>
-                        <div class="col-sm-4 text-right">
-                            <asp:hyperlink id=lnkEdit runat="server" CssClass="btn btn-default btn-sm" style="margin-top:-4px; margin-left: -18px;" NavigateUrl='<%# EditUrl("ServerID", Eval("ServerID").ToString(), "edit_server") %>'>
-                                <i class="fa fa-cogs" aria-hidden="true">&nbsp;</i>&nbsp;Settings
+                        <div class="col-sm-4 text-end">
+                            <asp:hyperlink id=lnkEdit runat="server" CssClass="btn btn-secondary btn-sm" style="margin-top:-4px; margin-left: -18px;" NavigateUrl='<%# EditUrl("ServerID", Eval("ServerID").ToString(), "edit_server") %>'>
+                                <i class="bi bi-cogs" aria-hidden="true">&nbsp;</i>&nbsp;Settings
                             </asp:hyperlink>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
         </td>
     </tr>
 </table>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="StyleButton1"  runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
-    </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton ID="StyleButton1"  runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
+    </asp:LinkButton>
 </div>

@@ -61,7 +61,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddDomain;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddDomain;
         
         /// <summary>
         /// messageBox control.
@@ -106,6 +106,6 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetDefaultDomain;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetDefaultDomain;
     }
 }

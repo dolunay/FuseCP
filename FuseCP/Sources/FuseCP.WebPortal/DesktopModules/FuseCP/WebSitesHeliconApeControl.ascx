@@ -48,9 +48,9 @@
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-					<CPCC:StyleButton id="cmdDeleteHeliconApeFolder" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete .htaccess?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+					<asp:LinkButton id="cmdDeleteHeliconApeFolder" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete .htaccess?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -94,9 +94,9 @@
 			</asp:TemplateField>
 			<asp:TemplateField ItemStyle-Width="30px">
 				<ItemTemplate>
-					<CPCC:StyleButton id="cmdDeleteUser" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete user?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+					<asp:LinkButton id="cmdDeleteUser" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete user?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -133,9 +133,9 @@
 			</asp:TemplateField>
 			<asp:TemplateField ItemStyle-Width="30px">
 				<ItemTemplate>
-					<CPCC:StyleButton id="cmdDeleteGroup" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete group?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+					<asp:LinkButton id="cmdDeleteGroup" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete group?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>

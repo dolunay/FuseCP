@@ -4,7 +4,7 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <table cellSpacing="0" cellPadding="4">
 	<tr>
 		<td class="SubHead">
@@ -17,7 +17,7 @@
 	            ErrorMessage="Enter hostname" ValidationGroup="CreateSite" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="valRequireCorrectHostName" runat="server"
 	                ErrorMessage="Enter valid hostname" ControlToValidate="txtHostName" Display="Dynamic"
-	                meta:resourcekey="valRequireCorrectHostName" ValidationExpression="^([0-9a-zæöøåüA-ZÆÖØÅÜ])*[0-9a-zæöøåüA-ZÆÖØÅÜ]+$" SetFocusOnError="True"></asp:RegularExpressionValidator>
+	                meta:resourcekey="valRequireCorrectHostName" ValidationExpression="^([0-9a-zï¿½ï¿½ï¿½ï¿½ï¿½A-Zï¿½ï¿½ï¿½ï¿½ï¿½])*[0-9a-zï¿½ï¿½ï¿½ï¿½ï¿½A-Zï¿½ï¿½ï¿½ï¿½ï¿½]+$" SetFocusOnError="True"></asp:RegularExpressionValidator>
                 </div>
 		</td>
 	</tr>
@@ -70,7 +70,7 @@
 	</tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Creating web site...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Creating web site...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 </div>

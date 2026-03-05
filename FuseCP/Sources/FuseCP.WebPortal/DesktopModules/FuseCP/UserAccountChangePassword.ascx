@@ -2,10 +2,10 @@
     Inherits="FuseCP.Portal.UserAccountChangePassword" %>
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="fcp" %>
 <asp:Panel ID="PasswordPanel" runat="server" DefaultButton="cmdChangePassword">
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <table cellspacing="0" cellpadding="2" width="100%">
             <tr>
-                <td class="col-sm-2 control-label">
+                <td class="col-sm-2 form-label">
                     <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>
                 </td>
                 <td>
@@ -26,8 +26,8 @@
             </tr>
         </table>
     </div>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-        <CPCC:StyleButton id="cmdChangePassword" CssClass="btn btn-success" runat="server" OnClick="cmdChangePassword_Click" ValidationGroup="NewPassword"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdChangePassword"/> </CPCC:StyleButton>
+    <div class="card-footer text-end">
+        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+        <asp:LinkButton id="cmdChangePassword" CssClass="btn btn-success" runat="server" OnClick="cmdChangePassword_Click" ValidationGroup="NewPassword"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdChangePassword"/> </asp:LinkButton>
     </div>
 </asp:Panel>

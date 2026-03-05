@@ -161,7 +161,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton1;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton1;
         
         /// <summary>
         /// SettinglblBackupFolderPath control.
@@ -188,7 +188,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton2;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton2;
         
         /// <summary>
         /// SettinglblFileManagerEditableExtensions control.
@@ -224,7 +224,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton4;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton4;
         
         /// <summary>
         /// SettinglblRdsController control.
@@ -251,7 +251,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton5;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton5;
         
         /// <summary>
         /// SettinglblEnableOwa control.
@@ -296,7 +296,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton6;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton6;
         
         /// <summary>
         /// SettinglblTwilioAccountSid control.
@@ -368,7 +368,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnTwilioDisable;
+        protected global::System.Web.UI.WebControls.LinkButton btnTwilioDisable;
         
         /// <summary>
         /// StyleButton7 control.
@@ -377,7 +377,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton7;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton7;
         
         /// <summary>
         /// SettinglblEnablePasswordReset control.
@@ -449,7 +449,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton8;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton8;
         
         /// <summary>
         /// HeaderIpRestrictionSettings control.
@@ -485,7 +485,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton StyleButton9;
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton9;
         
         /// <summary>
         /// HeaderAuthenticationSettings control.
@@ -539,7 +539,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAuthenticationSettings;
+        protected global::System.Web.UI.WebControls.LinkButton btnAuthenticationSettings;
         
         /// <summary>
         /// DebugSettingsPanel control.
@@ -584,6 +584,6 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDebugSettings;
+        protected global::System.Web.UI.WebControls.LinkButton btnDebugSettings;
     }
 }

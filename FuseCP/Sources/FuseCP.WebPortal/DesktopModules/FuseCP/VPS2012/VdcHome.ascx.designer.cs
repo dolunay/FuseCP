@@ -35,7 +35,7 @@ namespace FuseCP.Portal.VPS2012 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreate;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreate;
         
         /// <summary>
         /// btnImport control.
@@ -44,7 +44,7 @@ namespace FuseCP.Portal.VPS2012 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnImport;
+        protected global::System.Web.UI.WebControls.LinkButton btnImport;
         
         /// <summary>
         /// messageBox control.
@@ -62,7 +62,7 @@ namespace FuseCP.Portal.VPS2012 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnReplicaStates;
+        protected global::System.Web.UI.WebControls.LinkButton btnReplicaStates;
         
         /// <summary>
         /// ddlPageSize control.

@@ -160,7 +160,7 @@ namespace FuseCP.Portal.BlackBerry {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetPassword;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetPassword;
         
         /// <summary>
         /// dvStats control.
@@ -178,7 +178,7 @@ namespace FuseCP.Portal.BlackBerry {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// btnDeleteData control.
@@ -187,7 +187,7 @@ namespace FuseCP.Portal.BlackBerry {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDeleteData;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteData;
         
         /// <summary>
         /// btnSaveExit control.
@@ -196,6 +196,6 @@ namespace FuseCP.Portal.BlackBerry {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSaveExit;
+        protected global::System.Web.UI.WebControls.LinkButton btnSaveExit;
     }
 }

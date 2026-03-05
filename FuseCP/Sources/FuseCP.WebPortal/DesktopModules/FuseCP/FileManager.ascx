@@ -87,48 +87,48 @@
 </script>
 
 <div class="FormButtonsBar">
-		<CPCC:StyleButton ID="cmdUpload" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		<asp:LinkButton ID="cmdUpload" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Img1" runat="server" SkinID="FM_Upload" /><asp:Localize ID="locUpload" runat="server" meta:resourcekey="locUpload" Text="Upload"/>
-		</CPCC:StyleButton>
-		<CPCC:StyleButton ID="cmdCreateFile" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		</asp:LinkButton>
+		<asp:LinkButton ID="cmdCreateFile" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Img2" runat="server" SkinID="FM_CreateFile" /><asp:Localize ID="locCreateFile" runat="server" meta:resourcekey="locCreateFile" Text="Create File"/>
-		</CPCC:StyleButton>
-		<CPCC:StyleButton ID="cmdCreateFolder" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		</asp:LinkButton>
+		<asp:LinkButton ID="cmdCreateFolder" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Img3" runat="server" SkinID="FM_CreateFolder" /><asp:Localize ID="locCreateFolder" runat="server" meta:resourcekey="locCreateFolder" Text="Create Folder"/>
-		</CPCC:StyleButton>
+		</asp:LinkButton>
 	
 	<asp:Image ID="Image8" runat="server" SkinID="FM_Separator" />
 	
-		<CPCC:StyleButton ID="cmdCreateAccessDB" runat="server" CssClass="btn btn-default" CausesValidation="false" Enabled="false" >
+		<asp:LinkButton ID="cmdCreateAccessDB" runat="server" CssClass="btn btn-secondary" CausesValidation="false" Enabled="false" >
 			<asp:Image ID="Image2" runat="server" SkinID="FM_CreateAccessDB" /><asp:Localize ID="locCreateAccessDB" runat="server" meta:resourcekey="locCreateAccessDB" Text="Create Access DB" />
-		</CPCC:StyleButton>
+		</asp:LinkButton>
 	
 	<asp:Image ID="Image9" runat="server" SkinID="FM_Separator" />
 	
-		<CPCC:StyleButton ID="cmdZipFiles" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		<asp:LinkButton ID="cmdZipFiles" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Image3" runat="server" SkinID="FM_Zip" /><asp:Localize ID="locZip" runat="server" meta:resourcekey="locZip" Text="Zip"/>
-		</CPCC:StyleButton>
-		<CPCC:StyleButton ID="cmdUnzipFiles" runat="server" CssClass="btn btn-default" CausesValidation="false" OnClick="cmdUnzipFiles_Click" OnClientClick="ShowUnzipFilesDialog();">
+		</asp:LinkButton>
+		<asp:LinkButton ID="cmdUnzipFiles" runat="server" CssClass="btn btn-secondary" CausesValidation="false" OnClick="cmdUnzipFiles_Click" OnClientClick="ShowUnzipFilesDialog();">
 			<asp:Image ID="Image4" runat="server" SkinID="FM_Unzip" /><asp:Localize ID="locUnzip" runat="server" meta:resourcekey="locUnzip" Text="Unzip"/>
-		</CPCC:StyleButton>
+		</asp:LinkButton>
 	
 	<asp:Image ID="Image10" runat="server" SkinID="FM_Separator" />
 	
-		<CPCC:StyleButton ID="cmdCopyFiles" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		<asp:LinkButton ID="cmdCopyFiles" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Image5" runat="server" SkinID="FM_Copy" /><asp:Localize ID="locCopy" runat="server" meta:resourcekey="locCopy" Text="Copy"/>
-		</CPCC:StyleButton>
-		<CPCC:StyleButton ID="cmdMoveFiles" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		</asp:LinkButton>
+		<asp:LinkButton ID="cmdMoveFiles" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Image6" runat="server" SkinID="FM_Move" /><asp:Localize ID="locMove" runat="server" meta:resourcekey="locMove" Text="Move"/>
-		</CPCC:StyleButton>
-		<CPCC:StyleButton ID="cmdDeleteFiles" runat="server" CssClass="btn btn-default" CausesValidation="false">
+		</asp:LinkButton>
+		<asp:LinkButton ID="cmdDeleteFiles" runat="server" CssClass="btn btn-secondary" CausesValidation="false">
 			<asp:Image ID="Image7" runat="server" SkinID="FM_Delete" /><asp:Localize ID="locDelete" runat="server" meta:resourcekey="locDelete" Text="Delete"/>
-		</CPCC:StyleButton>
+		</asp:LinkButton>
 </div>
 
 <asp:Panel ID="UploadFilePanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnUpload">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-upload"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblUploadFile" Text="Upload File" /></h3>
+            <h3><i class="bi bi-upload"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblUploadFile" Text="Upload File" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -139,9 +139,9 @@
 				<asp:FileUpload ID="fileUpload5" runat="server" Width="400px" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelUpload" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnUpload" CssClass="btn btn-success" runat="server" ValidationGroup="UploadFile" OnClick="btnUpload_Click"> <i class="fa fa-upload">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUploadText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelUpload" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnUpload" CssClass="btn btn-success" runat="server" ValidationGroup="UploadFile" OnClick="btnUpload_Click"> <i class="bi bi-upload">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUploadText"/> </asp:LinkButton>
 	</div>
   </div>
 </asp:Panel>
@@ -153,7 +153,7 @@
 <asp:Panel ID="CopyFilesPanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnCopy">
      <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-files-o"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCopySelectedFiles" Text="Copy Selected Files" /></h3>
+            <h3><i class="bi bi-files"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCopySelectedFiles" Text="Copy Selected Files" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -161,9 +161,9 @@
 				<uc1:FileLookup ID="copyDestination" runat="server" Width="400px" DropShadow="False" ValidationGroup="CopyFiles" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelCopy" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnCopy" CssClass="btn btn-success" runat="server" OnClick="btnCopy_Click" ValidationGroup="CopyFiles"> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCopyText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelCopy" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnCopy" CssClass="btn btn-success" runat="server" OnClick="btnCopy_Click" ValidationGroup="CopyFiles"> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCopyText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -175,7 +175,7 @@
 <asp:Panel ID="MoveFilesPanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnMove">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-clipboard"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblMoveSelectedFiles" Text="Move Selected Files" /></h3>
+            <h3><i class="bi bi-clipboard"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblMoveSelectedFiles" Text="Move Selected Files" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -183,9 +183,9 @@
 				<uc1:FileLookup ID="moveDestination" runat="server" Width="400px" DropShadow="False" ValidationGroup="MoveFiles" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-			<CPCC:StyleButton id="btnCancelMove" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnMove" CssClass="btn btn-success" runat="server" OnClick="btnMove_Click" ValidationGroup="MoveFiles"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMoveText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+			<asp:LinkButton id="btnCancelMove" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnMove" CssClass="btn btn-success" runat="server" OnClick="btnMove_Click" ValidationGroup="MoveFiles"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMoveText"/> </asp:LinkButton>
 		</div>
      </div>
 </asp:Panel>
@@ -198,7 +198,7 @@
 <asp:Panel ID="CreateFilePanel" runat="server" CssClass="PopupContainer mpeTarget" style="display:none" DefaultButton="btnCreateFile">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-file-code-o"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateFile" Text="Create Text File" /></h3>
+            <h3><i class="bi bi-file-earmark-code"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateFile" Text="Create Text File" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -210,9 +210,9 @@
 				<asp:TextBox ID="txtFileContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" Wrap="False"></asp:TextBox>
 			</div>
             </div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelCreateFile" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnCreateFile" CssClass="btn btn-success" runat="server" OnClick="btnCreateFile_Click" ValidationGroup="NewFileName"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelCreateFile" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnCreateFile" CssClass="btn btn-success" runat="server" OnClick="btnCreateFile_Click" ValidationGroup="NewFileName"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -225,7 +225,7 @@
 <asp:Panel ID="CreateFolderPanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnCreateFolder">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-folder"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateFolder" Text="Create Folder" /></h3>
+            <h3><i class="bi bi-folder"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateFolder" Text="Create Folder" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -233,9 +233,9 @@
 				<uc2:FileNameControl ID="txtFolderName" runat="server" ValidationGroup="NewFolderName" Width="400px" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelCreateFolder" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnCreateFolder" CssClass="btn btn-success" runat="server" OnClick="btnCreateFolder_Click" ValidationGroup="NewFolderName"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelCreateFolder" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnCreateFolder" CssClass="btn btn-success" runat="server" OnClick="btnCreateFolder_Click" ValidationGroup="NewFolderName"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -247,7 +247,7 @@
 <asp:Panel ID="ZipFilesPanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnZip">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-file-archive-o"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblZipFiles" Text="Zip Selected Files" /></h3>
+            <h3><i class="bi bi-file-earmark-zip"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblZipFiles" Text="Zip Selected Files" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -255,9 +255,9 @@
 				<uc2:FileNameControl ID="txtZipName" runat="server" ValidationGroup="ZipName" Width="400px" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelZip" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnZip" CssClass="btn btn-success" runat="server" OnClick="btnZip_Click" ValidationGroup="ZipName"> <i class="fa fa-file-archive-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnZipText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelZip" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnZip" CssClass="btn btn-success" runat="server" OnClick="btnZip_Click" ValidationGroup="ZipName"> <i class="bi bi-file-earmark-zip">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnZipText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -269,7 +269,7 @@
 <asp:Panel ID="CreateDatabasePanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnCreateDatabase">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-database"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateAccessDatabase" Text="Create Access Database" /></h3>
+            <h3><i class="bi bi-database"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblCreateAccessDatabase" Text="Create Access Database" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -277,9 +277,9 @@
 				<uc2:FileNameControl ID="txtDatabaseName" runat="server" ValidationGroup="DatabaseName" Width="400px" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelCreateDatabase" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnCreateDatabase" CssClass="btn btn-success" runat="server" OnClick="btnCreateDatabase_Click" ValidationGroup="DatabaseName"> <i class="fa fa-database">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelCreateDatabase" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnCreateDatabase" CssClass="btn btn-success" runat="server" OnClick="btnCreateDatabase_Click" ValidationGroup="DatabaseName"> <i class="bi bi-database">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -292,16 +292,16 @@
 <asp:Panel ID="DeleteFilesPanel" runat="server" CssClass="PopupContainer" style="display:none">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-trash"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblDeleteFiles" Text="Delete Selected Files" /></h3>
+            <h3><i class="bi bi-trash"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblDeleteFiles" Text="Delete Selected Files" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
 				<asp:Label ID="lblDeleteConfirmation" runat="server" meta:resourcekey="lblDeleteConfirmation" Text="Do you really want to delete selected files and folders?"></asp:Label>
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnDeleteFiles" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteFiles_Click" CausesValidation="false"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteFilesText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnCancelDeleteFiles" CssClass="btn btn-warning" runat="server"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelDeleteFilesText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnDeleteFiles" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteFiles_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteFilesText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnCancelDeleteFiles" CssClass="btn btn-warning" runat="server"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelDeleteFilesText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -411,7 +411,7 @@
 <asp:Panel ID="EditFilePanel" runat="server" CssClass="PopupContainer fileeditor" style="display:none" DefaultButton="btnSaveEditFile">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-pencil"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblEditFile" Text="Edit File" /></h3>
+            <h3><i class="bi bi-pencil"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblEditFile" Text="Edit File" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -423,9 +423,9 @@
 				<asp:TextBox ID="txtEditFileContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" Wrap="False"></asp:TextBox>
 			</div>
             </div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelEditFile" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelEditFile_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnSaveEditFile" CssClass="btn btn-success" runat="server" OnClick="btnSaveEditFile_Click" CausesValidation="false"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveEditFileText"/> </CPCC:StyleButton> 
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelEditFile" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelEditFile_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnSaveEditFile" CssClass="btn btn-success" runat="server" OnClick="btnSaveEditFile_Click" CausesValidation="false"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveEditFileText"/> </asp:LinkButton> 
 		</div>
 	</div>
 </asp:Panel>
@@ -438,7 +438,7 @@
 <asp:Panel ID="RenameFilePanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnRename">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-pencil"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblRenameFileFolder" Text="Rename File" /></h3>
+            <h3><i class="bi bi-pencil"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblRenameFileFolder" Text="Rename File" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -446,9 +446,9 @@
 				<uc2:FileNameControl ID="txtRenameFile" runat="server" ValidationGroup="RenameFile" Width="400px" />
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelRename" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelRename_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnRename" CssClass="btn btn-success" runat="server" OnClick="btnRename_Click" ValidationGroup="RenameFile"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRenameText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelRename" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelRename_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnRename" CssClass="btn btn-success" runat="server" OnClick="btnRename_Click" ValidationGroup="RenameFile"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRenameText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
@@ -461,7 +461,7 @@
 <asp:Panel ID="PermissionsWindowsFilePanel" runat="server" CssClass="PopupContainer" style="display:none">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-users"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" /></h3>
+            <h3><i class="bi bi-people"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" /></h3>
         </div>
         <div class="widget-content Popup">
             <div style="border-top: solid 1px #e0e0e0;width:380px; height: 175px; overflow: auto; white-space: nowrap;">
@@ -491,9 +491,9 @@
 				<asp:CheckBox ID="chkReplaceChildPermissions" Runat="server" Text="Replace permissions on all child objects" meta:resourcekey="chkReplaceChildPermissions"></asp:CheckBox>
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelPermissions" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelPermissions_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelPermissionsText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnSetPermissions" CssClass="btn btn-success" runat="server" OnClick="btnSetPermissions_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetPermissionsText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelPermissions" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancelPermissions_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelPermissionsText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnSetPermissions" CssClass="btn btn-success" runat="server" OnClick="btnSetPermissions_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetPermissionsText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

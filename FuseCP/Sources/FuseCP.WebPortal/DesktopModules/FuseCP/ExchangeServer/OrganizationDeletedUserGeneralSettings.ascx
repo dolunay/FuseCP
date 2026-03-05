@@ -19,8 +19,8 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Deleted User"></asp:Localize>
 					-
@@ -30,12 +30,12 @@
                     </h3>
                 </div>
 
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <uc1:UserTabs ID="UserTabsId" runat="server" SelectedTab="view_deleted_user" />
                     <uc1:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="view_deleted_user" />
                      </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 					<table>

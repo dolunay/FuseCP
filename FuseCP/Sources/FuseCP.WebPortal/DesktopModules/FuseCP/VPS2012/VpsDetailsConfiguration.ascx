@@ -15,7 +15,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_config" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -37,8 +37,8 @@
                                     meta:resourcekey="locAdministratorPassword" Text="Administrator password:"></asp:Localize></td>
                                 <td>
                                     ********
-                                    <CPCC:StyleButton ID="btnChangePasswordPopup" runat="server" CausesValidation="false"
-                                        CssClass="btn btn-warning" Text="Change" meta:resourcekey="btnChangePasswordPopup"></CPCC:StyleButton>
+                                    <asp:LinkButton ID="btnChangePasswordPopup" runat="server" CausesValidation="false"
+                                        CssClass="btn btn-warning" Text="Change" meta:resourcekey="btnChangePasswordPopup"></asp:LinkButton>
                                 </td>
                             </tr>
                         </table>
@@ -238,8 +238,8 @@
                         </table>
                     </asp:Panel>
                     
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false"> <i class="fa fa-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false"> <i class="bi bi-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </asp:LinkButton>
                     </div>
 
 
@@ -250,11 +250,11 @@
 <asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none;">
 	<div class="widget" style="max-width: 40%;">
 		<div class="widget-header clearfix">
-					   <h3><i class="fa fa-i-cursor"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
+					   <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 		</div>
 		<div class="widget-content Popup">
-			<div class="panel-body form-horizontal">
-				<div class="form-group">
+			<div class="card-body form-horizontal">
+				<div class="mb-3">
 					<div class="col-sm-20">
 						<asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"
 											meta:resourcekey="locNewPassword"></asp:Localize>
@@ -264,9 +264,9 @@
 					</div>
 				</div>
 			</div>  
-			<div class="popup-buttons text-right">
-				<CPCC:StyleButton id="btnCancelChangePassword" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelChangePasswordText"/> </CPCC:StyleButton>&nbsp;
-				<CPCC:StyleButton id="btnChangePassword" CssClass="btn btn-primary" runat="server" OnClick="btnChangePassword_Click" ValidationGroup="ChangePassword"> <i class="fa fa-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangePasswordText"/> </CPCC:StyleButton>
+			<div class="popup-buttons text-end">
+				<asp:LinkButton id="btnCancelChangePassword" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelChangePasswordText"/> </asp:LinkButton>&nbsp;
+				<asp:LinkButton id="btnChangePassword" CssClass="btn btn-primary" runat="server" OnClick="btnChangePassword_Click" ValidationGroup="ChangePassword"> <i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangePasswordText"/> </asp:LinkButton>
 			</div>				
 		</div>					
 	</div>

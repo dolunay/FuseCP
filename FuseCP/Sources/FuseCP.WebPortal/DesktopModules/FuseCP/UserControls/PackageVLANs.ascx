@@ -18,7 +18,7 @@
 
 <div class="FormButtonsBarClean">
     <div class="FormButtonsBarCleanLeft">
-        <CPCC:StyleButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
 		<div style="float: right;">

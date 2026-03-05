@@ -43,7 +43,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// btnAdd control.
@@ -52,7 +52,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnAdd;
         
         /// <summary>
         /// gvPermissions control.
@@ -160,7 +160,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelAdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelAdd;
         
         /// <summary>
         /// btnAddSelected control.
@@ -169,7 +169,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddSelected;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddSelected;
         
         /// <summary>
         /// btnAddAccountsFake control.

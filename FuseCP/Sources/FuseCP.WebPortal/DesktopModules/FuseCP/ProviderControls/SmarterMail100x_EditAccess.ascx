@@ -32,9 +32,9 @@
                     <asp:BoundField DataField="Name" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            &nbsp&nbsp<CPCC:StyleButton ID="btnRemove" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Code") %>' OnClick="btnRemove_Click" >
-                                &nbsp<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            &nbsp&nbsp<asp:LinkButton ID="btnRemove" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Code") %>' OnClick="btnRemove_Click" >
+                                &nbsp<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

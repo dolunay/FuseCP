@@ -21,13 +21,13 @@
 
  <div class="FormButtonsBar right">
      <div class="right">
-        <CPCC:StyleButton ID="btnAddDomain" runat="server" CssClass="btn btn-primary" OnClick="btnAddDomain_Click" >
-            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDomain"/>
-        </CPCC:StyleButton>
+        <asp:LinkButton ID="btnAddDomain" runat="server" CssClass="btn btn-primary" OnClick="btnAddDomain_Click" >
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDomain"/>
+        </asp:LinkButton>
          &nbsp;<asp:CheckBox ID="chkRecursive" runat="server" Text="Show Nested Spaces Items" meta:resourcekey="chkRecursive" AutoPostBack="true" Checked="True" CssClass="Normal" />
      </div>
       </div>
-     <div class="panel-body ">
+     <div class="card-body ">
          <div class="row">
          <div class="col-md-3">
              <fcp:DomainActions ID="websiteActions" runat="server" GridViewID="gvDomains" CheckboxesName="chkSelectedIds" />
@@ -35,7 +35,7 @@
               <div class="col-md-6">
  
               </div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-3 text-end">
                 <fcp:SearchBox ID="searchBox" runat="server" />
              </div>
          </div>
@@ -138,11 +138,11 @@
 
          <asp:TemplateField>
  			<ItemTemplate>
- 				<CPCC:StyleButton ID="cmdDetach" runat="server" 
+ 				<asp:LinkButton ID="cmdDetach" runat="server" 
  					CommandName="Detach" CommandArgument='<%# Eval("DomainID") %>'
-					CssClass="btn btn-default btn-sm" OnClientClick="return confirm('Remove this item?');">
-                    <i class="fa fa-chain-broken">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
-				</CPCC:StyleButton>
+					CssClass="btn btn-secondary btn-sm" OnClientClick="return confirm('Remove this item?');">
+                    <i class="bi bi-link-45deg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
+				</asp:LinkButton>
  			</ItemTemplate>
          </asp:TemplateField>
 

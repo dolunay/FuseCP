@@ -26,9 +26,9 @@
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<itemtemplate>
-					<CPCC:StyleButton id="cmdDeleteDomain" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+					<asp:LinkButton id="cmdDeleteDomain" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
 				</itemtemplate>
 				<ItemStyle HorizontalAlign="Center" />
 			</asp:TemplateField>

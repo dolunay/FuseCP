@@ -5,7 +5,7 @@
 <%@ Register TagPrefix="fcp" TagName="CalendarControl" Src="UserControls/CalendarControl.ascx" %>
 
 <!-- Our Toolbar -->
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
 	<!-- Bandwidth search criteria -->
 	<fcp:CollapsiblePanel 
@@ -118,7 +118,7 @@
 	</asp:Panel>
 </div>
 <div class="FormButtonsBar">
-	<CPCC:StyleButton id="refreshButton" CssClass="btn btn-success" runat="server" OnClick="OnRefreshButtonClick"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="refreshButtonText"/> </CPCC:StyleButton>
+	<asp:LinkButton id="refreshButton" CssClass="btn btn-success" runat="server" OnClick="OnRefreshButtonClick"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="refreshButtonText"/> </asp:LinkButton>
 </div>
 
 <script>

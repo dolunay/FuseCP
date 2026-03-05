@@ -20,15 +20,15 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
     my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left); 
 }
 </script>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="General" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -114,12 +114,12 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                         onitemcommand="repButtons_ItemCommand">
 				                        <ItemTemplate>
 				                            <li>
-				                                <CPCC:StyleButton ID="btnAction" runat="server" CausesValidation="false"
+				                                <asp:LinkButton ID="btnAction" runat="server" CausesValidation="false"
 				                                    Text='<%# Eval("Text") %>'
 				                                    CommandName='<%# Eval("Command") %>'
 				                                    style='<%# Eval("Style") %>'
 				                                    OnClientClick='<%# Eval("OnClientClick") %>'
-				                                    CssClass="ActionButton"></CPCC:StyleButton>
+				                                    CssClass="ActionButton"></asp:LinkButton>
 				                            </li>
 				                        </ItemTemplate>
 				                    </asp:Repeater>

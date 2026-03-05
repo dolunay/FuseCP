@@ -24,8 +24,8 @@
             <asp:ListItem Value="3">CreatePreviewDomain</asp:ListItem>
             <asp:ListItem Value="4">DeletePreviewDomain</asp:ListItem>
         </asp:DropDownList>
-         <div class="input-group-btn">
-             <CPCC:StyleButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);"><asp:Label runat="server" meta:resourcekey="btnApplyText"/></CPCC:StyleButton>
+         <div class="d-flex">
+             <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);"><asp:Label runat="server" meta:resourcekey="btnApplyText"/></asp:LinkButton>
          </div>
        </div>
     </ContentTemplate>

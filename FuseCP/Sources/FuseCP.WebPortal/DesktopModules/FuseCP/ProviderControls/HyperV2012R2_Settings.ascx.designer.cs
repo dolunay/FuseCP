@@ -99,7 +99,7 @@ namespace FuseCP.Portal.ProviderControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnConnect;
+        protected global::System.Web.UI.WebControls.LinkButton btnConnect;
 
         /// <summary>
         /// ServerNameValidator control.
@@ -603,7 +603,7 @@ namespace FuseCP.Portal.ProviderControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddOsTemplate;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddOsTemplate;
 
         /// <summary>
         /// repOsTemplates control.
@@ -657,7 +657,7 @@ namespace FuseCP.Portal.ProviderControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddDvd;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddDvd;
 
         /// <summary>
         /// repDvdLibrary control.
@@ -702,7 +702,7 @@ namespace FuseCP.Portal.ProviderControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddPsScript;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddPsScript;
 
         /// <summary>
         /// repPsScript control.
@@ -855,7 +855,7 @@ namespace FuseCP.Portal.ProviderControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetReplicaServer;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetReplicaServer;
 
         /// <summary>
         /// CertificateThumbnailValidator control.

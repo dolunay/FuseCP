@@ -5,15 +5,15 @@
 <%@ Register Src="UserControls/Menu.ascx" TagName="Menu" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/Breadcrumb.ascx" TagName="Breadcrumb" TagPrefix="fcp" %>
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="AuditLog48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Audit Log"></asp:Localize>
 			    </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                 <fcp:Menu id="menu" runat="server" SelectedItem="vdc_audit_log" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:AuditLogControl id="auditLog" runat="server" LogSource="VPS" />
 			    </div>
                 </div>

@@ -196,7 +196,7 @@ namespace FuseCP.Portal.UserControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnAdd-Steuerelement
@@ -205,6 +205,6 @@ namespace FuseCP.Portal.UserControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnAdd;
     }
 }

@@ -169,7 +169,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpdatePolicy;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpdatePolicy;
         
         /// <summary>
         /// btnAddPolicy control.
@@ -178,7 +178,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddPolicy;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddPolicy;
         
         /// <summary>
         /// txtStatus control.

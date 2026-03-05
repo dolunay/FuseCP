@@ -7,19 +7,19 @@
 <%@ Register Src="UserControls/SecurityGroupTabs.ascx" TagName="SecurityGroupTabs" TagPrefix="fcp"%>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-    <div class="panel-heading">
-        <h3 class="panel-title">
+    <div class="card-header">
+        <h3 class="card-title">
             <asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
             <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit User"></asp:Localize>
             -
             <asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
         </h3>
     </div>
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <div class="nav nav-tabs" style="padding-bottom:7px !important;">
             <fcp:SecurityGroupTabs id="tabs" runat="server" SelectedTab="secur_group_memberof" />
         </div>
-        <div class="panel panel-default tab-content">
+        <div class="card tab-content">
             <fcp:SimpleMessageBox id="messageBox" runat="server" />
             <fcp:CollapsiblePanel id="secGroups" runat="server" TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Groups"></fcp:CollapsiblePanel>
             <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden;">
@@ -31,11 +31,11 @@
             </asp:Panel>
         </div>
     </div>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditMailbox">
-            <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;
+    <div class="card-footer text-end">
+        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditMailbox">
+            <i class="bi bi-floppy">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnSaveText"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditMailbox" />
     </div>

@@ -19,16 +19,16 @@
 </script>
 <asp:UpdatePanel runat="server" ID="messageBoxPanel" UpdateMode="Conditional"><ContentTemplate><fcp:SimpleMessageBox id="messageBox" runat="server" /></ContentTemplate></asp:UpdatePanel>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddRDSServer"  runat="server" CssClass="btn btn-primary" OnClick="btnAddRDSServer_Click" >
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnAddRDSServer"  runat="server" CssClass="btn btn-primary" OnClick="btnAddRDSServer_Click" >
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddRDSServer" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body">
+<div class="card-body">
     <div class="row">
         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-            <div class="col-sm-12 text-right form-inline">
-                <div class="form-group">
+            <div class="col-sm-12 text-end form-inline">
+                <div class="mb-3">
                     <div class="input-group">
                         <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
                         <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">
@@ -39,7 +39,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="input-group">
                         <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
                             <asp:ListItem Value="S.Name" meta:resourcekey="liServerName">Server Name</asp:ListItem>
@@ -47,13 +47,13 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="input-group">
                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control" />
-                        <div class="input-group-btn">
-                            <CPCC:StyleButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false" style="vertical-align: middle;" CssClass="btn btn-primary" OnClick="btnSearchClick">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </CPCC:StyleButton>
+                        <div class="d-flex">
+                            <asp:LinkButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false" style="vertical-align: middle;" CssClass="btn btn-primary" OnClick="btnSearchClick">
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -107,36 +107,36 @@
                 <asp:TemplateField meta:resourcekey="gvViewInfo">
                     <ItemStyle Width="8%" HorizontalAlign="Right"/>
                     <ItemTemplate>
-                        <CPCC:StyleButton OnClientClick="ShowProgressDialog('Getting Server Info ...');return true;" style="display:none"
+                        <asp:LinkButton OnClientClick="ShowProgressDialog('Getting Server Info ...');return true;" style="display:none"
                             CommandName="ViewInfo" CommandArgument='<%# Eval("Id")%>' ID="lbViewInfo" runat="server" CssClass="btn btn-primary" Text="View Info"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvRestart">
                     <ItemStyle HorizontalAlign="Right"/>
                     <ItemTemplate>
-                        <CPCC:StyleButton ID="lbRestart" CommandName="Restart" CommandArgument='<%# Eval("Id")%>' runat="server" Text="Restart" CssClass="btn btn-warning" style="display:none"
+                        <asp:LinkButton ID="lbRestart" CommandName="Restart" CommandArgument='<%# Eval("Id")%>' runat="server" Text="Restart" CssClass="btn btn-warning" style="display:none"
                             OnClientClick="if(confirm('Are you sure you want to restart selected server?')) ShowProgressDialog('Loading...'); else return false;"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvShutdown">
                     <ItemStyle Width="9%" HorizontalAlign="Right"/>
                     <ItemTemplate>
-                        <CPCC:StyleButton ID="lbShutdown" CommandName="ShutDown" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id")%>' style="display:none"
+                        <asp:LinkButton ID="lbShutdown" CommandName="ShutDown" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id")%>' style="display:none"
                             runat="server" Text="Shut Down" OnClientClick="if(confirm('Are you sure you want to shut down selected server?')) ShowProgressDialog('Loading...'); else return false;"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField>
 			        <ItemTemplate>
-				        <CPCC:StyleButton ID="lnkInstallCertificate" runat="server" CssClass="btn btn-success" Text="Certificate" style="display:none"
+				        <asp:LinkButton ID="lnkInstallCertificate" runat="server" CssClass="btn btn-success" Text="Certificate" style="display:none"
 					        CommandName="InstallCertificate" CommandArgument='<%# Eval("Id") %>' ToolTip="Repair Certificate"
-                            OnClientClick="if(confirm('Are you sure you want to install certificate?')) ShowProgressDialog('Installing certificate...'); else return false;"></CPCC:StyleButton>                        
+                            OnClientClick="if(confirm('Are you sure you want to install certificate?')) ShowProgressDialog('Installing certificate...'); else return false;"></asp:LinkButton>                        
 			        </ItemTemplate>
 		        </asp:TemplateField>
                 <asp:TemplateField>
 			        <ItemTemplate>
 				        <asp:LinkButton ID="lnkRemove" runat="server" Text="Remove" Visible='<%# Eval("ItemId") == null %>'
 					        CommandName="DeleteItem" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' 
-                            meta:resourcekey="cmdDelete" OnClientClick="if(confirm('Are you sure you want to delete selected rds server??')) ShowProgressDialog('Removeing RDS Server...'); else return false;">&nbsp; <i class="fa fa-trash-o"></i> &nbsp;</asp:LinkButton>
+                            meta:resourcekey="cmdDelete" OnClientClick="if(confirm('Are you sure you want to delete selected rds server??')) ShowProgressDialog('Removeing RDS Server...'); else return false;">&nbsp; <i class="bi bi-trash"></i> &nbsp;</asp:LinkButton>
 			        </ItemTemplate>
 		        </asp:TemplateField>
 	        </Columns>
@@ -145,7 +145,7 @@
         <asp:Panel ID="ServerInfoPanel" runat="server" style="display:none">
             <div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-server"></i> <asp:Localize ID="Localize1" runat="server" meta:resourcekey="headerServerInfo"/></h3>
+                           <h3><i class="bi bi-server"></i> <asp:Localize ID="Localize1" runat="server" meta:resourcekey="headerServerInfo"/></h3>
                      </div>
                     <div class="widget-content Popup">
                     <asp:UpdatePanel ID="serverInfoUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -223,8 +223,8 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     </div>
-					<div class="popup-buttons text-right">            
-                    <CPCC:StyleButton id="btnCancelServerInfo" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServerInfoCancelText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">            
+                    <asp:LinkButton id="btnCancelServerInfo" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServerInfoCancelText"/> </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
@@ -234,6 +234,6 @@
             BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelServerInfo"/>
     </ContentTemplate>    
 </asp:UpdatePanel>
-<div class="panel-footer text-right">
-    	<CPCC:StyleButton ID="StyleButton1"  runat="server" CssClass="btn btn-primary" OnClick="btnAddRDSServer_Click" ><i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddRDSServer" /></CPCC:StyleButton>
+<div class="card-footer text-end">
+    	<asp:LinkButton ID="StyleButton1"  runat="server" CssClass="btn btn-primary" OnClick="btnAddRDSServer_Click" ><i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddRDSServer" /></asp:LinkButton>
 </div>

@@ -25,26 +25,26 @@
         }
     </script>
 </div>
-<div class="panel-heading">
-                    <h3 class="panel-title">
+<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationUserAdd48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create User"></asp:Localize>
                 </h3>
                         </div>
 <asp:UpdatePanel ID="CreateUserUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
         <fcp:SimpleMessageBox id="messageBox" runat="server" />
             <div id="NewUserDiv" runat="server">
              
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtFirstName">
+                                <div class="mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtFirstName">
                                         <asp:Localize ID="locName" runat="server" meta:resourcekey="locName" Text="Name:" />
                                     </asp:Label>
                                     <div class="col-sm-4">
                                         <div class="input-group">
                                             <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="First Name"></asp:TextBox>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -53,26 +53,26 @@
                                     <div class="col-sm-4">
                                         <div class="input-group">
                                             <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Last Name"></asp:TextBox>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+                                <div class="mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                                         <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
                                             <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                         <asp:RequiredFieldValidator ID="valRequireDisplayName" runat="server" meta:resourcekey="valRequireDisplayName" ControlToValidate="txtDisplayName"
                                             ErrorMessage="Enter Display Name" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                   
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
+                                <div class="mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
                                         <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
                                     </asp:Label>
                                     <div class="col-sm-10">
@@ -84,8 +84,8 @@
                                     </div>
                                 </div>
                 
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="email">
+                                <div class="mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
                                         <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *" />
                                     </asp:Label>
                                     <div class="col-sm-10">
@@ -103,8 +103,8 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                        <label for="chkSendInstructions" class="col-sm-2 control-label">
+                                <div class="mb-3">
+                                        <label for="chkSendInstructions" class="col-sm-2 form-label">
                                         <asp:CheckBox ID="chkSendInstructions" runat="server" meta:resourcekey="chkSendInstructions" Text="Send Setup Instructions" Checked="true" />
                                         </label>
                                     <div class="col-sm-10">
@@ -120,7 +120,7 @@
             </div>
 </ContentTemplate>
 </asp:UpdatePanel>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateMailbox" OnClientClick="ShowProgressDialog('Creating user...');"> <i class="fa fa-user">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateMailbox" OnClientClick="ShowProgressDialog('Creating user...');"> <i class="bi bi-person">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateMailbox" />
 </div>

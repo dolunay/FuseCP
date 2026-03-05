@@ -11,11 +11,11 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
-                <div class="panel-heading">
+                <div class="card-header">
                     <asp:Image ID="Image1" SkinID="SfBLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:PackagePhoneNumbers id="phoneNumbers" runat="server"
                             Pool="PhoneNumbers"
                             EditItemControl=""

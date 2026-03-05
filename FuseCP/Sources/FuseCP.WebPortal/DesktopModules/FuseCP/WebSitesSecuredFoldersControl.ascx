@@ -29,9 +29,9 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <itemtemplate>
-                    <CPCC:StyleButton id="cmdDeleteFolder" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+                    <asp:LinkButton id="cmdDeleteFolder" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
                 </itemtemplate>
             </asp:TemplateField>
         </Columns>
@@ -58,9 +58,9 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <itemtemplate>
-                    <CPCC:StyleButton id="cmdDeleteUser" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+                    <asp:LinkButton id="cmdDeleteUser" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
                 </itemtemplate>
             </asp:TemplateField>
         </Columns>
@@ -87,9 +87,9 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <itemtemplate>
-                    <CPCC:StyleButton id="cmdDeleteGroup" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
-                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+                    <asp:LinkButton id="cmdDeleteGroup" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete?');"> 
+                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
                 </itemtemplate>
             </asp:TemplateField>
         </Columns>

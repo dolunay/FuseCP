@@ -7,17 +7,17 @@
     TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/QuotaViewer.ascx" TagName="QuotaViewer" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-			<div class="panel-heading">
-                    <h3 class="panel-title">
+			<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="CRMLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" Text="CRM Users"></asp:Localize>
                 </h3>
                         </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarCleanLeft">
-                            <CPCC:StyleButton id="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click"> <i class="fa fa-user-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUser"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click"> <i class="bi bi-person-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUser"/> </asp:LinkButton>
                         </div>
                         <div class="FormButtonsBarCleanRight">
                             <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
@@ -37,8 +37,8 @@
                                   </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                            <div class="d-flex">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div></div></div>
                             </asp:Panel>
                         </div>

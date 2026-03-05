@@ -6,21 +6,21 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
 
-                <div class="panel-heading">
+                <div class="card-header">
                     <asp:Image ID="Image1" SkinID="SfBUser" runat="server" />
                     <asp:Localize ID="locTitle" meta:resourcekey="locTitle" runat="server" Text="SfB Users"></asp:Localize>
                 </div>
                 <div class="FormButtonsBar right">
-                            <CPCC:StyleButton id="btnCreateUser" CssClass="btn btn-success" runat="server" OnClick="btnCreateUser_Click"> <i class="fa fa-user-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUserText"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnCreateUser" CssClass="btn btn-success" runat="server" OnClick="btnCreateUser_Click"> <i class="bi bi-person-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUserText"/> </asp:LinkButton>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <div class="row">
                        
  
-                            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 col-md-offset-6 text-right form-inline">
-                                   <div class="form-group">
+                            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 col-md-offset-6 text-end form-inline">
+                                   <div class="mb-3">
                                 <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"    
                                 onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
                                     <asp:ListItem>10</asp:ListItem>   
@@ -29,25 +29,25 @@
                                     <asp:ListItem>100</asp:ListItem>   
                                 </asp:DropDownList> 
                                            </div> 
-                                          <div class="form-group">
+                                          <div class="mb-3">
                                 <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                                     <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
                                     <asp:ListItem Value="UserPrincipalName" meta:resourcekey="ddlSearchColumnUserPrincipalName">Email</asp:ListItem>
                                 </asp:DropDownList>
                                                   </div> 
-                                <div class="form-group">
+                                <div class="mb-3">
                                             <div class="input-group">
                                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
 
-                                                <div class="input-group-btn">
-                                                    <CPCC:StyleButton
+                                                <div class="d-flex">
+                                                    <asp:LinkButton
                                                         ID="cmdSearch"
                                                         runat="server"
                                                         CausesValidation="false"
                                                         CssClass="btn btn-primary"
                                                     >
-                                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                                    </CPCC:StyleButton>      
+                                                        <i class="bi bi-search" aria-hidden="true"></i>
+                                                    </asp:LinkButton>      
                                                 </div>     
                                            </div>
                                 </div>
@@ -82,7 +82,7 @@
                             <asp:BoundField HeaderText="gvSfBUserPlan" meta:resourcekey="gvSfBUserPlan" DataField="SfBUserPlanName" SortExpression="SfBUserPlanName" ItemStyle-Width="25%" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+                                    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -95,7 +95,7 @@
                             <asp:ControlParameter Name="filterValue" ControlID="txtSearchValue" PropertyName="Text" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
-                <div class="panel-footer">
+                <div class="card-footer">
                     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Users Created:"></asp:Localize>
                     &nbsp;&nbsp;&nbsp;
                     <fcp:QuotaViewer ID="usersQuota" runat="server" QuotaTypeId="2" />

@@ -5,7 +5,7 @@
 <%@ Import Namespace="FuseCP.Portal" %>
 <div class="FormButtonsBar right">
 	<div class="right">
-		<CPCC:StyleButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreate"/> </CPCC:StyleButton>
+		<asp:LinkButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreate"/> </asp:LinkButton>
 	</div>
 	<div class="Right">
 		<%-- <asp:Panel ID="tblSearch" runat="server" CssClass="NormalBold">
@@ -13,7 +13,7 @@
 		</asp:Panel> --%>
 	</div>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
 	<fcp:CollapsiblePanel id="allCustomers" runat="server"
 		TargetControlID="AllCustomersPanel" resourcekey="AllCustomersPanel" Text="All Customers">

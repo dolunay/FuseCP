@@ -22,7 +22,7 @@
             <asp:ListItem Value="2">Start</asp:ListItem>
             <asp:ListItem Value="3">RestartAppPool</asp:ListItem>
         </asp:DropDownList>
-        <div class="input-group-btn">
+        <div class="d-flex">
         <asp:Button ID="btnApply" runat="server" meta:resourcekey="btnApply"
         Text="Apply" CssClass="btn btn-primary" OnClick="btnApply_Click" OnClientClick="return ShowProgress(this);" />
         </div>

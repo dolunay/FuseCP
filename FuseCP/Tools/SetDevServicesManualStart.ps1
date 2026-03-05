@@ -5,8 +5,8 @@ param(
 $ErrorActionPreference = "Stop"
 
 $serviceNames = @(
-    "MSSQL$SQLEXPRESS",
-    "W3SVC"
+    'MSSQL$SQLEXPRESS',
+    'W3SVC'
 )
 
 foreach ($serviceName in $serviceNames) {

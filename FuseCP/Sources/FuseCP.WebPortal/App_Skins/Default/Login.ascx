@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="container-fluid primary-content" id="SkinContent">
-        <div class="row-fluid">
+        <div class="row">
             <div class="col-sm-4 centering">
                 <asp:PlaceHolder ID="ContentPane" runat="server"></asp:PlaceHolder>
                 <div class="login-footer">

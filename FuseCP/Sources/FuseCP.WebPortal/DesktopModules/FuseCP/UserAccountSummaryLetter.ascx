@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserAccountSummaryLetter.ascx.cs" Inherits="FuseCP.Portal.UserAccountSummaryLetter" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
     <fcp:CollapsiblePanel id="secEmail" runat="server"
         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send via E-Mail">
@@ -38,6 +38,6 @@
     </div>
 
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click" CausesValidation="False"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click" CausesValidation="False"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </asp:LinkButton>
 </div>

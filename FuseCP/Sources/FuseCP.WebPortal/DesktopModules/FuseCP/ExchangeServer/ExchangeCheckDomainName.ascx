@@ -6,8 +6,8 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeDomainName48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Domain Names"></asp:Localize>
 					-
@@ -17,7 +17,7 @@
 
 				<asp:Literal ID="TopComments" runat="server" meta:resourcekey="TopComments"></asp:Literal>
 
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <br />
 
@@ -54,7 +54,7 @@
 						    <asp:TemplateField HeaderText="gvObjectsDelete">
 							    <ItemStyle Width="10%"></ItemStyle>
 							    <ItemTemplate>							        
-                                    <CPCC:StyleButton id="lnkDelete" runat="server" Text="Delete" meta:resourcekey="lnkDelete" 
+                                    <asp:LinkButton id="lnkDelete" runat="server" Text="Delete" meta:resourcekey="lnkDelete" 
                                         OnClientClick="if(!confirm('Are you sure you want to delete ?')) return false; else ShowProgressDialog('Deleting ...');"
                                         CommandName="DeleteItem" CommandArgument='<%# Eval("OwnerID").ToString() + "," + Eval("ObjectType").ToString() + "," + Eval("DisplayName") %>'
                                         Visible='<%# AllowDelete(Eval("ObjectName").ToString(), (int)Eval("ObjectType")) %>' />
@@ -68,6 +68,6 @@
 
 				    <br />
               				</div>
-				    <div class="panel-footer">
-                        <CPCC:StyleButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </CPCC:StyleButton>
+				    <div class="card-footer">
+                        <asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </asp:LinkButton>
 				    </div>

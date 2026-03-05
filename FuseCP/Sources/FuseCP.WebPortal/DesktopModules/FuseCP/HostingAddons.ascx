@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HostingAddons.ascx.cs" Inherits="FuseCP.Portal.HostingAddons" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 <div class="FormButtonsBar right">
-	<CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
-	</CPCC:StyleButton>
+	<asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
+	</asp:LinkButton>
 </div>
 <asp:GridView id="gvAddons" runat="server" AutoGenerateColumns="False"
 	DataSourceID="odsAddons" AllowPaging="True" AllowSorting="True" EmptyDataText="gvAddons"

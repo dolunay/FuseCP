@@ -1,13 +1,13 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OrganizationHome.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.OrganizationHome" %>
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/QuotaViewer.ascx" TagName="QuotaViewer" TagPrefix="fcp" %>
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="Organization48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Welcome"></asp:Localize>
                         </h3>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <table>
                         <tr class="OrgStatsRow">
                             <td>

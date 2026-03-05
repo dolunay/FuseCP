@@ -214,7 +214,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton EditDnsRecords;
+        protected global::System.Web.UI.WebControls.LinkButton EditDnsRecords;
         
         /// <summary>
         /// ExportDnsRecords control.
@@ -223,7 +223,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton ExportDnsRecords;
+        protected global::System.Web.UI.WebControls.LinkButton ExportDnsRecords;
         
         /// <summary>
         /// ImportDnsRecords control.
@@ -232,7 +232,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton ImportDnsRecords;
+        protected global::System.Web.UI.WebControls.LinkButton ImportDnsRecords;
         
         /// <summary>
         /// DisableDns control.
@@ -241,7 +241,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton DisableDns;
+        protected global::System.Web.UI.WebControls.LinkButton DisableDns;
         
         /// <summary>
         /// locDnsEnabled control.
@@ -268,7 +268,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton EnableDns;
+        protected global::System.Web.UI.WebControls.LinkButton EnableDns;
         
         /// <summary>
         /// locDnsDisabled control.
@@ -313,7 +313,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton CreatePreviewDomain;
+        protected global::System.Web.UI.WebControls.LinkButton CreatePreviewDomain;
         
         /// <summary>
         /// locPreviewDomainDisabled control.
@@ -340,7 +340,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton DeletePreviewDomain;
+        protected global::System.Web.UI.WebControls.LinkButton DeletePreviewDomain;
         
         /// <summary>
         /// locPreviewDomainEnabled control.
@@ -466,7 +466,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// buttonPanel control.

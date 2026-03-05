@@ -10,7 +10,7 @@
 <asp:UpdatePanel runat="server" ID="updatePanelSpace" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
        
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
 
@@ -59,10 +59,10 @@
         <ItemTemplate>
         <tr>
 		    <td><%--<div class="FormButtonsBar">--%>
-                <CPCC:StyleButton id="btnRemoveAddAddon" CssClass="btn btn-danger" runat="server" CausesValidation="false" 
+                <asp:LinkButton id="btnRemoveAddAddon" CssClass="btn btn-danger" runat="server" CausesValidation="false" 
                     CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveAddAddon_OnCommand"> 
-                    <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveAddAddonText" Text="Remove Add-on:"/> 
-                </CPCC:StyleButton>
+                    <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveAddAddonText" Text="Remove Add-on:"/> 
+                </asp:LinkButton>
                 <%--</div>--%>
             </td>
 		    <td>
@@ -201,7 +201,7 @@
 </ContentTemplate>
 </asp:UpdatePanel>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateSpace" OnClientClick="ShowProgressDialog('Creating hosting space...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateSpace" OnClientClick="ShowProgressDialog('Creating hosting space...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 </div>

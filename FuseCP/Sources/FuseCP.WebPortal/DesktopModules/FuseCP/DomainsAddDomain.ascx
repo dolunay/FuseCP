@@ -10,7 +10,7 @@
 <div id="DomainPanel" runat="server" style="padding: 15px 0 15px 5px;">
         <fcp:DomainControl ID="DomainName" runat="server" RequiredEnabled="True" ValidationGroup="Domain"></fcp:DomainControl>
 </div>
-<div class="panel-body">
+<div class="card-body">
     <fcp:CollapsiblePanel id="OptionsPanelHeader" runat="server"
         TargetControlID="OptionsPanel" resourcekey="OptionsPanelHeader" Text="Provisioning options">
     </fcp:CollapsiblePanel>
@@ -70,11 +70,11 @@
 
 </div>
 
-<div class="panel-footer text-right">
-     <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-         <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/>
- 	</CPCC:StyleButton>
-     <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding Domain...');" ValidationGroup="Domain"> 
-         <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> 
-    </CPCC:StyleButton>
+<div class="card-footer text-end">
+     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+         <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/>
+ 	</asp:LinkButton>
+     <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding Domain...');" ValidationGroup="Domain"> 
+         <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> 
+    </asp:LinkButton>
 </div>

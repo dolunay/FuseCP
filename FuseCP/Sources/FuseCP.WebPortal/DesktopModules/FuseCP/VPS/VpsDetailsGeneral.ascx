@@ -20,14 +20,14 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
     my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left); 
 }
 </script>
-<div class="panel panel-default">
-			    <div class="panel-heading">
-                    <h3 class="panel-title">
+<div class="card">
+			    <div class="card-header">
+                    <h3 class="card-title">
                         <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				        <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="General" />
                     </h3>
                 </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
 				    <table id="DetailsTable" runat="server" style="width:100%;" cellspacing="10">
@@ -40,8 +40,8 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                             meta:resourcekey="locHostname" Text="Host name:"/></td>
                                         <td>
                                             <b><asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]"></asp:HyperLink><asp:Literal ID="litHostname" runat="server" Text="[hostname]"></asp:Literal></b>
-                                            <CPCC:StyleButton ID="btnChangeHostnamePopup" runat="server"
-                                                meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit"></CPCC:StyleButton>
+                                            <asp:LinkButton ID="btnChangeHostnamePopup" runat="server"
+                                                meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit"></asp:LinkButton>
                                                 
                                             <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none;">
                                                 <div style="padding-bottom:3px;">
@@ -195,7 +195,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 <asp:Panel ID="ChangeHostnamePanel" runat="server" style="display:none;">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
+                           <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
 			<table cellspacing="5">
@@ -248,9 +248,9 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 			    </tr>
 			</table>                               
 			</div>
-					<div class="popup-buttons text-right">
-		    <CPCC:StyleButton id="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" onclick="btnChangeHostname_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText"/> </CPCC:StyleButton> 
+					<div class="popup-buttons text-end">
+		    <asp:LinkButton id="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" onclick="btnChangeHostname_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText"/> </asp:LinkButton> 
 		</div>
 	</div>
 </asp:Panel>

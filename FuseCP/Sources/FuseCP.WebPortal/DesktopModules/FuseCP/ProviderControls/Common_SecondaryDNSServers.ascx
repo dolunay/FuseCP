@@ -12,6 +12,6 @@
         <td>
             <asp:DropDownList ID="ddlService" runat="server" CssClass="form-control" Width="100%">
             </asp:DropDownList></td>
-        <td><CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton></td>
+        <td><asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton></td>
     </tr>
 </table>

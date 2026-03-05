@@ -16,24 +16,24 @@
                 }
 </script>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Mailbox"></asp:Localize>
 					-
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_addresses" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 					<fieldset>
 					    <legend>
-					        <h3><i class="fa fa-envelope-o"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
+					        <h3><i class="bi bi-envelope"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
                         <br /><br />
 					   <div class="row" style="padding:20px;max-width:1200px">
@@ -42,7 +42,7 @@
                            </div>
                            <div class="input-group col-sm-10">
                                <fcp:EmailAddress id="email" runat="server" class="form-control" ValidationGroup="AddEmail"></fcp:EmailAddress>
-                               <span class="input-group-btn"><CPCC:StyleButton id="btnAddEmail" CssClass="btn btn-success" runat="server" OnClick="btnAddEmail_Click" ValidationGroup="AddEmail"> <i class="fa fa-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddEmail"/> </CPCC:StyleButton></span>
+                               <span class="d-flex"><asp:LinkButton id="btnAddEmail" CssClass="btn btn-success" runat="server" OnClick="btnAddEmail_Click" ValidationGroup="AddEmail"> <i class="bi bi-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddEmail"/> </asp:LinkButton></span>
                            </div>
 					   </div>
 					</fieldset>
@@ -89,8 +89,8 @@
 				        
 					    <br />
 					    <br />
-				        <CPCC:StyleButton id="btnSetAsPrimary" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetAsPrimary_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetAsPrimary"/> </CPCC:StyleButton>&nbsp;
-				        <CPCC:StyleButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </CPCC:StyleButton>
+				        <asp:LinkButton id="btnSetAsPrimary" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetAsPrimary_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetAsPrimary"/> </asp:LinkButton>&nbsp;
+				        <asp:LinkButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </asp:LinkButton>
 					</asp:Panel>					
 					<br />
 					<table style="width:100%;margin-top:10px;">

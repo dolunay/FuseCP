@@ -97,7 +97,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdPrevMonth;
+        protected global::System.Web.UI.WebControls.LinkButton cmdPrevMonth;
         
         /// <summary>
         /// litStartDate control.
@@ -133,7 +133,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdNextMonth;
+        protected global::System.Web.UI.WebControls.LinkButton cmdNextMonth;
         
         /// <summary>
         /// gvReport control.

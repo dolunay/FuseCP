@@ -6,14 +6,14 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-heading">
+<div class="card-header">
 					<asp:Image ID="imgEditRDSCollection" SkinID="EnterpriseRDSCollections48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Setup Instructions"></asp:Localize>                    
                 </div>
-				<div class="panel-body form-horizontal">     
+				<div class="card-body form-horizontal">     
                     <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="rds_collection_edit_users" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">  
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">  
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send via E-Mail">
@@ -38,9 +38,9 @@
                                     <asp:TextBox ID="txtCC" runat="server" CssClass="form-control" Width="300px"></asp:TextBox></td>
                             </tr>                            
                         </table>
-                        <div class="panel-footer text-right">
-                        <<CPCC:StyleButton id="btnExit" CssClass="btn btn-danger" runat="server" OnClick="btnExit_Click" OnClientClick="ShowProgressDialog('Loading ...');"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnExitText"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnSend" CssClass="btn btn-success" runat="server" OnClick="btnSend_Click" ValidationGroup="SendEmail"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSendtext"/> </CPCC:StyleButton>
+                        <div class="card-footer text-end">
+                        <asp:LinkButton id="btnExit" CssClass="btn btn-danger" runat="server" OnClick="btnExit_Click" OnClientClick="ShowProgressDialog('Loading ...');"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnExitText"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnSend" CssClass="btn btn-success" runat="server" OnClick="btnSend_Click" ValidationGroup="SendEmail"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSendtext"/> </asp:LinkButton>
 			        </div>
                     </asp:Panel>
 					

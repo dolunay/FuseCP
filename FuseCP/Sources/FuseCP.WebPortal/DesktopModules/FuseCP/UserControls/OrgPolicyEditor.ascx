@@ -24,7 +24,7 @@
 			                <asp:TemplateField>
                                 <ItemStyle Width="30px" Wrap="false"></ItemStyle>
 				                <ItemTemplate>
-					                <CPCC:StyleButton id="imgDelAdditionalGroup" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("GroupId") %>' OnClientClick="return confirm('Are you sure you want to delete selected group?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					                <asp:LinkButton id="imgDelAdditionalGroup" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("GroupId") %>' OnClientClick="return confirm('Are you sure you want to delete selected group?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				                </ItemTemplate>
 			                </asp:TemplateField>
 		                </Columns>
@@ -47,8 +47,8 @@
             <tr>
                 <td colspan="2" style="padding-top: 10px;">
                     <div class="FormButtonsBarClean">
-                        <CPCC:StyleButton id="btnUpdateAdditionalGroup" CssClass="btn btn-primary" runat="server" OnClick="btnUpdateAdditionalGroup_Click" ValidationGroup="SettingsAdditionalGroupEditor"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateAdditionalGroupText"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnAddAdditionalGroup" CssClass="btn btn-success" runat="server" OnClick="btnAddAdditionalGroup_Click" ValidationGroup="SettingsAdditionalGroupEditor"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddAdditionalGroupText"/> </CPCC:StyleButton> 
+                        <asp:LinkButton id="btnUpdateAdditionalGroup" CssClass="btn btn-primary" runat="server" OnClick="btnUpdateAdditionalGroup_Click" ValidationGroup="SettingsAdditionalGroupEditor"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateAdditionalGroupText"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnAddAdditionalGroup" CssClass="btn btn-success" runat="server" OnClick="btnAddAdditionalGroup_Click" ValidationGroup="SettingsAdditionalGroupEditor"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddAdditionalGroupText"/> </asp:LinkButton> 
                     </div>
                 </td>
             </tr>

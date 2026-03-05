@@ -34,7 +34,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_replication" />
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                     
@@ -194,7 +194,7 @@
 <asp:Panel ID="DetailsPanel" runat="server" style="display:none;">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-refresh"></i>  <asp:Localize ID="locDetails" runat="server" Text="Replication details" meta:resourcekey="locDetails"></asp:Localize></h3>
+                           <h3><i class="bi bi-arrow-clockwise"></i>  <asp:Localize ID="locDetails" runat="server" Text="Replication details" meta:resourcekey="locDetails"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
 			<table cellspacing="10">
@@ -330,8 +330,8 @@
             </asp:Panel>
 
 			</div>
-					<div class="popup-buttons text-right">
-			<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+			<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

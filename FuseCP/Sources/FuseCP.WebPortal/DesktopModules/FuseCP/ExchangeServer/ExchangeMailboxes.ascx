@@ -18,26 +18,26 @@
 </script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" Text="Mailboxes"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton id="btnCreateMailbox" CssClass="btn btn-primary" runat="server" OnClick="btnCreateMailbox_Click" ValidationGroup="CreateMailbox">
-        <i class="fa fa-envelope">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnCreateMailbox" CssClass="btn btn-primary" runat="server" OnClick="btnCreateMailbox_Click" ValidationGroup="CreateMailbox">
+        <i class="bi bi-envelope">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateMailbox"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
         <div class="col-md-4">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvMailboxes" CheckboxesName="chkSelectedUsersIds" ShowSetMailboxPlan="true" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-right form-inline">
-            <div class="form-group">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end form-inline">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -47,7 +47,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -58,27 +58,27 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
+                    <div class="d-flex">
                         <div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                  <div class="form-group">
+                                  <div class="mb-3">
                                     <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                                       <br />
-                                      <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-xs-12 col-sm-6" />&emsp;
-                                      <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-xs-12 col-sm-6" />&emsp;
-                                      <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-xs-12 col-sm-6" />
+                                      <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
+                                      <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
+                                      <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />
                                     </div>
                                   </div>
                             </div>
                         </div>
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>      
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>      
                     </div>     
                 </div>
             </div>
@@ -130,9 +130,9 @@
     <asp:BoundField HeaderText="gvMailboxesMailboxPlan" DataField="MailboxPlan" SortExpression="MailboxPlan" ItemStyle-Width="50%" />
     <asp:TemplateField>
         <ItemTemplate>
-            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="if(!confirm('Are you sure you want to delete the Exchange mailbox?.\n\nThis will only delete the mailbox, the Active Directory account will remain (under Organization --> Users) .\n\nDo you want to delete mailbox?')) return false; ShowProgressDialog('Deleting Exchange Mailbox...');">
-                &nbsp;<i class="fa fa-trash-o"></i>&nbsp;
-            </CPCC:StyleButton>
+            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="if(!confirm('Are you sure you want to delete the Exchange mailbox?.\n\nThis will only delete the mailbox, the Active Directory account will remain (under Organization --> Users) .\n\nDo you want to delete mailbox?')) return false; ShowProgressDialog('Deleting Exchange Mailbox...');">
+                &nbsp;<i class="bi bi-trash"></i>&nbsp;
+            </asp:LinkButton>
         </ItemTemplate>
     </asp:TemplateField>
     </Columns>
@@ -149,7 +149,7 @@
         <asp:Parameter Name="archiving" Type="Boolean" />
     </SelectParameters>
 </asp:ObjectDataSource>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Mailboxes Created:"></asp:Localize>
     &nbsp;&nbsp;&nbsp;
     <fcp:QuotaViewer ID="mailboxesQuota" runat="server" QuotaTypeId="2" />

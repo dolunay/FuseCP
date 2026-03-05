@@ -79,7 +79,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnCancel;
+       protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnWipeAllData control.
@@ -88,7 +88,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnWipeAllData;
+       protected global::System.Web.UI.WebControls.LinkButton btnWipeAllData;
         
         /// <summary>
         /// loc control.
@@ -385,6 +385,6 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnBack;
+       protected global::System.Web.UI.WebControls.LinkButton btnBack;
     }
 }

@@ -21,7 +21,7 @@
                     -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -73,8 +73,8 @@
                     
                     
                         
-					<div class="panel-footer text-right">
-					 <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>				 					                                                
+					<div class="card-footer text-end">
+					 <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>				 					                                                
 				    </div>			
                 </div>
             </div>

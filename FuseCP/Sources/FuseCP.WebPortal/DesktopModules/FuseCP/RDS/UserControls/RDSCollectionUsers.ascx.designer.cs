@@ -142,7 +142,7 @@ namespace FuseCP.Portal.RDS.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelAdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelAdd;
         
         /// <summary>
         /// btnAddSelected control.
@@ -151,7 +151,7 @@ namespace FuseCP.Portal.RDS.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddSelected;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddSelected;
         
         /// <summary>
         /// DeleteWarningPanel control.
@@ -214,7 +214,7 @@ namespace FuseCP.Portal.RDS.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelDeleteWarning;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDeleteWarning;
         
         /// <summary>
         /// btnDeleteWarningFake control.

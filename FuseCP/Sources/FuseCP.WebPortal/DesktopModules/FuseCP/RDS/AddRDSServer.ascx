@@ -5,11 +5,11 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-heading">
+<div class="card-header">
 					<asp:Image ID="imgAddRDSServer" SkinID="EnterpriseRDSServers48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Add Server To Organization"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
                   
 					<table>
@@ -21,7 +21,7 @@
 					    </tr>
 					</table> 
                       </div>
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" ValidationGroup="AddRDSServer" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding server...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" ValidationGroup="AddRDSServer" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding server...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 					    <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="AddRDSServer" />
 				    </div>

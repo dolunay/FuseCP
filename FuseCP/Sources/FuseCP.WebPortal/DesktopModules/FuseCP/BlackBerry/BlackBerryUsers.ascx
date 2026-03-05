@@ -18,12 +18,12 @@
                     <asp:Image ID="Image1" SkinID="BlackBerryUsersLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarClean">
                             <div class="FormButtonsBarCleanLeft">
-                                <CPCC:StyleButton id="btnCreateNewBlackBerryUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateNewBlackBerryUser_Click"> <i class="fa fa-user-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateNewBlackBerryUser"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnCreateNewBlackBerryUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateNewBlackBerryUser_Click"> <i class="bi bi-person-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateNewBlackBerryUser"/> </asp:LinkButton>
                             </div>
                             <div class="FormButtonsBarCleanRight">
                                 <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
@@ -43,8 +43,8 @@
                                     </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                            <div class="d-flex">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div></div></div>
                                 </asp:Panel>
                             </div>

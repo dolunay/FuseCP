@@ -8,23 +8,23 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-heading">
+<div class="card-header">
     <asp:Image ID="imgEditRDSCollection" SkinID="EnterpriseRDSCollections48" runat="server" />
     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit RDS Collection"></asp:Localize>
     -
     <asp:Literal ID="litCollectionName" runat="server" Text="" />
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="rds_collection_user_experience" />
-    <div class="panel panel-default tab-content">
-        <div class="panel-body form-horizontal">
+    <div class="card tab-content">
+        <div class="card-body form-horizontal">
             <fcp:SimpleMessageBox id="messageBox" runat="server" />
             <fcp:CollapsiblePanel id="secTimeout" runat="server" TargetControlID="timeoutPanel" meta:resourcekey="secTimeout" Text="Lock Screen Timeout"/>
             <asp:Panel ID="timeoutPanel" runat="server" Height="0" style="overflow:hidden;">
                 <div class="col">
                     <asp:DropDownList ID="ddTimeout" runat="server" CssClass="form-control"/>
                 </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbTimeoutUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -37,7 +37,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secRunCommand" runat="server" TargetControlID="runCommandPanel" meta:resourcekey="secRunCommand" Text="Remove Run Command"/>
             <asp:Panel ID="runCommandPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbRunCommandUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -50,7 +50,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secPowershellCommand" runat="server" TargetControlID="powershellCommandPanel" meta:resourcekey="secPowershellCommand" Text="Remove Powershell Command"/>
             <asp:Panel ID="powershellCommandPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbPowershellUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -74,7 +74,7 @@
                         <asp:ListItem Value="67108863" Text="Restrict all drives" />
                     </asp:DropDownList>
                 </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbHideCDriveUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -87,7 +87,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secShutdown" runat="server" TargetControlID="shutdownPanel" meta:resourcekey="secShutdown" Text="Remove Shutdown and Restart"/>
             <asp:Panel ID="shutdownPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbShutdownUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -100,7 +100,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secTaskManager" runat="server" TargetControlID="taskManagerPanel" meta:resourcekey="secTaskManager" Text="Disable Task Manager"/>
             <asp:Panel ID="taskManagerPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbTaskManagerUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -113,7 +113,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secChangeDesktop" runat="server" TargetControlID="desktopPanel" meta:resourcekey="secChangeDesktop" Text="Changing Desktop Disabled"/>
             <asp:Panel ID="desktopPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbDesktopUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -126,7 +126,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secScreenSaver" runat="server" TargetControlID="screenSaverPanel" meta:resourcekey="secScreenSaver" Text="Disable Screen Saver"/>
             <asp:Panel ID="screenSaverPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbScreenSaverUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -155,7 +155,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secViewSession" runat="server" TargetControlID="viewSessionPanel" meta:resourcekey="secViewSession" Text="View RDS Session without Users's Permission"/>
             <asp:Panel ID="viewSessionPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbViewSessionUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -168,7 +168,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secControlSession" runat="server" TargetControlID="controlSessionPanel" meta:resourcekey="secControlSession" Text="Control RDS Session without Users's Permission"/>
             <asp:Panel ID="controlSessionPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbControlSessionUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -181,7 +181,7 @@
             </asp:Panel>
             <fcp:CollapsiblePanel id="secDisableCmd" runat="server" TargetControlID="disableCmdPanel" meta:resourcekey="secDisableCmd" Text="Disable Command Prompt"/>
             <asp:Panel ID="disableCmdPanel" runat="server" Height="0" style="overflow:hidden;">
-                <div class="form-group">
+                <div class="mb-3">
                     <div class="col-sm-9">
                         <div class="input-group">
                             <asp:CheckBox runat="server" Text="Users" ID="cbDisableCmdUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -191,12 +191,12 @@
                         </div>
                     </div>
                 </div>
-                <span class="alert alert-info col-xs-12">
+                <span class="alert alert-info col-12">
                     <asp:Localize ID="locRemoteApps" runat="server" meta:resourcekey="locRemoteApps" Text="You may need to enable <strong>Command Prompt</strong> if RemoteApps in this collection won't load."></asp:Localize>
                 </span>
             </asp:Panel>
 		</div>
-        <div class="text-right">
+        <div class="text-end">
             <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="SaveRDSCollection" OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
         </div>
     </div>

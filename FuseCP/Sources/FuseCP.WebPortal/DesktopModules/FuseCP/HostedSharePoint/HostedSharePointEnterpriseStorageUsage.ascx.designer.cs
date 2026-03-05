@@ -124,6 +124,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnRecalculateDiscSpace;
+       protected global::System.Web.UI.WebControls.LinkButton btnRecalculateDiscSpace;
     }
 }
+

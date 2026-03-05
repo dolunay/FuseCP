@@ -121,8 +121,8 @@
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlHubTransport" runat="server" CssClass="form-control">
                 </asp:DropDownList>
-            <span class="input-group-btn">
-                <CPCC:StyleButton id="btnAdd" CssClass="btn btn-primary" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton><br />
+            <span class="d-flex">
+                <asp:LinkButton id="btnAdd" CssClass="btn btn-primary" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton><br />
             </span>
             </div>
              <asp:GridView ID="gvHubTransport" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
@@ -136,9 +136,9 @@
                                         
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -154,8 +154,8 @@
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlClientAccess" runat="server" CssClass="form-control">
                 </asp:DropDownList>
-                <span class="input-group-btn">
-                    <CPCC:StyleButton id="Button1" CssClass="btn btn-primary" runat="server" OnClick="btnAddClientAccess_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton><br />
+                <span class="d-flex">
+                    <asp:LinkButton id="Button1" CssClass="btn btn-primary" runat="server" OnClick="btnAddClientAccess_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton><br />
                 </span>
             </div>
             <asp:GridView ID="gvClients" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
@@ -169,9 +169,9 @@
                     
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -259,9 +259,9 @@
                 <asp:TemplateField>
                     <ItemStyle Width="65px" HorizontalAlign="Center" />
                     <ItemTemplate>
-                        <CPCC:StyleButton id="imgDelRouteFromSE" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# (string)Container.DataItem %>' OnClientClick="return confirm('Are you sure you want to delete selected route?')"> 
-                            &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                        </CPCC:StyleButton>
+                        <asp:LinkButton id="imgDelRouteFromSE" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# (string)Container.DataItem %>' OnClientClick="return confirm('Are you sure you want to delete selected route?')"> 
+                            &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                        </asp:LinkButton>
                     </ItemTemplate>
 		        </asp:TemplateField>
 	        </Columns>
@@ -269,10 +269,10 @@
             <br />
             <div class="input-group col-sm-6">
              <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
-                <span class="input-group-btn">
-                <CPCC:StyleButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
-                <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />
-                </CPCC:StyleButton>
+                <span class="d-flex">
+                <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
+                <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />
+                </asp:LinkButton>
                 </span>
             </div>
             <br />

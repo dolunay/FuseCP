@@ -11,7 +11,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_help" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     

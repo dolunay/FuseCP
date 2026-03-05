@@ -11,16 +11,16 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-                        <div class="panel-heading">
+                        <div class="card-header">
                             <asp:Image ID="imgEditRDSCollection" SkinID="EnterpriseRDSCollections48" runat="server" />
                             <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit RDS Collection"></asp:Localize>
                             -
                             <asp:Literal ID="litCollectionName" runat="server" Text="" />
                         </div>
-                        <div class="panel-body form-horizontal">
+                        <div class="card-body form-horizontal">
                             <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="rds_collection_edit_users" />   
-                        <div class="panel panel-default tab-content">
-                        <div class="panel-body form-horizontal">
+                        <div class="card tab-content">
+                        <div class="card-body form-horizontal">
                             <asp:UpdatePanel runat="server" ID="messageUpdatePanel">
                                 <ContentTemplate>
                                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
@@ -42,7 +42,7 @@
                             </div>
                         
                         </div>
-                                    <div class="text-right">
+                                    <div class="text-end">
                                 <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="SaveRDSCollection" 
                                     OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                             </div>

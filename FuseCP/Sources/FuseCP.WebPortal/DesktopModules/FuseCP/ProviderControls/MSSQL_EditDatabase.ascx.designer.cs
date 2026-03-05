@@ -169,7 +169,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnBackup;
+        protected global::System.Web.UI.WebControls.LinkButton btnBackup;
         
         /// <summary>
         /// btnRestore control.
@@ -178,7 +178,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnRestore;
+        protected global::System.Web.UI.WebControls.LinkButton btnRestore;
         
         /// <summary>
         /// secHousekeepingTools control.

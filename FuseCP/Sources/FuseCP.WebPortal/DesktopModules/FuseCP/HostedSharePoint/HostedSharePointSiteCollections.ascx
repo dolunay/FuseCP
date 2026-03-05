@@ -30,11 +30,11 @@ function confirmation()
 					<asp:Image ID="Image1" SkinID="SharePointSiteCollection48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="SharePoint Site Collections"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<div class="FormButtonsBarClean">
 						<div class="FormButtonsBarCleanLeft">
-							<CPCC:StyleButton id="btnCreateSiteCollection" CssClass="btn btn-primary" runat="server" OnClick="btnCreateSiteCollection_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateSiteCollectionText"/> </CPCC:StyleButton>
+							<asp:LinkButton id="btnCreateSiteCollection" CssClass="btn btn-primary" runat="server" OnClick="btnCreateSiteCollection_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateSiteCollectionText"/> </asp:LinkButton>
 						</div>
 						<div class="FormButtonsBarCleanRight">
 							<asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
@@ -47,8 +47,8 @@ function confirmation()
                                               </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
-                    <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                <div class="d-flex">
+                    <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                        </div></div></div>
 							</asp:Panel>
 						</div>
@@ -68,7 +68,7 @@ function confirmation()
 							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName"	ItemStyle-Width="50%" />
 							<asp:TemplateField>
 								<ItemTemplate>
-									<CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="confirmation()"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+									<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="confirmation()"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 								</ItemTemplate>
 							</asp:TemplateField>
 						</Columns>
@@ -93,3 +93,4 @@ function confirmation()
 		</div>
 	</div>
 </div>
+

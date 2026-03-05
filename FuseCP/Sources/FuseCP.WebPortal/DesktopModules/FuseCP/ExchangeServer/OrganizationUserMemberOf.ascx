@@ -20,8 +20,8 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit User"></asp:Localize>
 					-
@@ -29,12 +29,12 @@
                         </h3>
                 </div>
 
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <uc1:UserTabs ID="UserTabsId" runat="server" SelectedTab="user_memberof" />
                     <uc1:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="user_memberof" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 					<fcp:CollapsiblePanel id="secGroups" runat="server" TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Groups"></fcp:CollapsiblePanel>
@@ -56,7 +56,7 @@
 
 				</div>
                     </div>
-				    <div class="panel-footer text-right">
+				    <div class="card-footer text-end">
                         <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox" 
                             OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditMailbox" />

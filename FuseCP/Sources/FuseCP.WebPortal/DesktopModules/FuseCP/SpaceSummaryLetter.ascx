@@ -3,7 +3,7 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
     <fcp:CollapsiblePanel id="secEmail" runat="server"
         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send via E-Mail">
@@ -39,6 +39,6 @@
         <asp:Literal ID="litContent" runat="server"></asp:Literal>
     </div>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </asp:LinkButton>
 </div>

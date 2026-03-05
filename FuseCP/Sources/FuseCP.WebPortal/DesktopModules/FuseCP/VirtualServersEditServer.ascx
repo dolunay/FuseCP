@@ -2,9 +2,9 @@
 <%@ Register Src="GlobalDnsRecordsControl.ascx" TagName="GlobalDnsRecordsControl" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <asp:ValidationSummary ID="summary" runat="server" ShowMessageBox="true" ShowSummary="false" ValidationGroup="VirtualServer" />
-    <div class="form-group">
+    <div class="mb-3">
         <label class="col-sm-2">
             <asp:Label ID="lblServerName" runat="server" meta:resourcekey="lblServerName"></asp:Label></label>
         <div class="col-sm-10">
@@ -13,7 +13,7 @@
                 ValidationGroup="VirtualServer" meta:resourcekey="VirtualServerNameValidator"></asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class="form-group">
+    <div class="mb-3">
         <label class="col-sm-2">
             <asp:Label ID="lblServerComments" runat="server" meta:resourcekey="lblServerComments"></asp:Label></label>
         <div class="col-sm-10">
@@ -23,38 +23,38 @@
     <fcp:CollapsiblePanel ID="secServices" runat="server"
         TargetControlID="ServicesPanel" ResourceKey="secServices" Text="Services"></fcp:CollapsiblePanel>
     <asp:Panel ID="ServicesPanel" runat="server">
-        <div class="form-group" id="rowPrimaryGroup" runat="server">
+        <div class="mb-3" id="rowPrimaryGroup" runat="server">
             <label class="col-sm-2">
                 <asp:Label ID="lblPDR" runat="server" meta:resourcekey="lblPDR" Text="Primary distribution group:"></asp:Label></label>
             <div class="col-sm-10">
                 <asp:DropDownList ID="ddlPrimaryGroup" runat="server" CssClass="form-control" AutoPostBack="true"></asp:DropDownList>
             </div>
         </div>
-        <div class="text-right">
-            <CPCC:StyleButton ID="btnAddServices" runat="server" CssClass="btn btn-primary" OnClick="btnAddServices_Click">
-                <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddServices" />
-            </CPCC:StyleButton>
-            <CPCC:StyleButton ID="btnRemoveSelected" runat="server" CssClass="btn btn-danger"  OnClick="btnRemoveSelected_Click" >
-                <i class="fa fa-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveSelected" />
-            </CPCC:StyleButton>
+        <div class="text-end">
+            <asp:LinkButton ID="btnAddServices" runat="server" CssClass="btn btn-primary" OnClick="btnAddServices_Click">
+                <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddServices" />
+            </asp:LinkButton>
+            <asp:LinkButton ID="btnRemoveSelected" runat="server" CssClass="btn btn-danger"  OnClick="btnRemoveSelected_Click" >
+                <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveSelected" />
+            </asp:LinkButton>
             <br /><br/>
         </div>
         <asp:DataList ID="dlServiceGroups" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server" DataKeyField="GroupID" OnItemDataBound="dlServiceGroups_ItemDataBound">
             <ItemTemplate>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
+                <div class="card border-info">
+                    <div class="card-header">
                         <%# GetSharedLocalizedString("ResourceGroup." + (string)Eval("GroupName")) %>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
 <fieldset  id="tblGroupDistribution" runat="server">
-                        <div class="form-group" id="rowBound" runat="server">
+                        <div class="mb-3" id="rowBound" runat="server">
                             <label class="col-sm-2">Distribution</label>
                             <div class="col-sm-10">
                                 <asp:CheckBox ID="chkBind" runat="server" Text="Bind to primary" CssClass="form-control"
                                     AutoPostBack="true" Checked='<%# Eval("BindDistributionToPrimary") %>' />
                             </div>
                         </div>
-                        <div class="form-group" id="rowDistType" runat="server">
+                        <div class="mb-3" id="rowDistType" runat="server">
                             <label class="col-sm-2">Distribution Type</label>
                             <div class="col-sm-10">
                                 <asp:DropDownList ID="ddlDistType" runat="server" CssClass="form-control" SelectedValue='<%# Eval("DistributionType") %>'>
@@ -71,13 +71,13 @@
                                 <%--<ItemStyle CssClass="Brick" VerticalAlign="Top" HorizontalAlign="Left"></ItemStyle>--%>
                                 <ItemTemplate>
                                     <div class="col-md-6">
-                                        <div class="panel panel-success">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title" style="line-height:inherit;white-space:nowrap;overflow:hidden;" title="<%# Eval("ServerName") %>">
-                                                    <i class="fa fa-server">&nbsp;</i>&nbsp;<%# Eval("ServerName") %>
+                                        <div class="card border-success">
+                                            <div class="card-header">
+                                                <h3 class="card-title" style="line-height:inherit;white-space:nowrap;overflow:hidden;" title="<%# Eval("ServerName") %>">
+                                                    <i class="bi bi-server">&nbsp;</i>&nbsp;<%# Eval("ServerName") %>
                                                 </h3>
                                             </div>
-                                            <div class="panel-body">
+                                            <div class="card-body">
                                                 <div class="checkbox">
                                                     <label>
                                                         <asp:CheckBox ID="chkSelected" runat="server" />
@@ -121,14 +121,14 @@
     </asp:Panel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete server?');"><i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-    </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete server?');"><i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" CausesValidation="true" ValidationGroup="VirtualServer"><i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" CausesValidation="true" ValidationGroup="VirtualServer"><i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate" />
+    </asp:LinkButton>
     &nbsp;
 </div>

@@ -13,7 +13,7 @@
 		if (!confirm("Are you sure you want to delete this Service?")) return false; else ShowProgressDialog('Deleting Service...');
 	}
 </script>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<fcp:ServerHeaderControl ID="ServerHeaderControl" runat="server" />
 	<table cellspacing="0" cellpadding="2" width="100%">
 		<tr>
@@ -101,8 +101,8 @@
 					</asp:DropDownList>
 					<asp:RequiredFieldValidator ID="valCluster" runat="server" ControlToValidate="ddlClusters"
 						ErrorMessage="*" ValidationGroup="SelectCluster"></asp:RequiredFieldValidator>
-					<CPCC:StyleButton ID="cmdDeleteCluster" runat="server" ValidationGroup="SelectCluster"
-						OnClick="cmdDeleteCluster_Click">Delete Cluster</CPCC:StyleButton>
+					<asp:LinkButton ID="cmdDeleteCluster" runat="server" ValidationGroup="SelectCluster"
+						OnClick="cmdDeleteCluster_Click">Delete Cluster</asp:LinkButton>
 				</td>
 			</tr>
 			<tr>
@@ -113,14 +113,14 @@
 					<asp:TextBox ID="txtClusterName" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="valNewCluster" runat="server" ControlToValidate="txtClusterName"
 						ErrorMessage="*" ValidationGroup="NewCluster"></asp:RequiredFieldValidator>
-					<CPCC:StyleButton ID="cmdAddCluster" runat="server" ValidationGroup="NewCluster" OnClick="cmdAddCluster_Click">Add Cluster</CPCC:StyleButton>
+					<asp:LinkButton ID="cmdAddCluster" runat="server" ValidationGroup="NewCluster" OnClick="cmdAddCluster_Click">Add Cluster</asp:LinkButton>
 				</td>
 			</tr>
 		</table>
 	</asp:Panel>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Service...');"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Service...');"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </asp:LinkButton>
 </div>

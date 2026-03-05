@@ -6,18 +6,18 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div class="form-group">
-        <asp:Label runat="server" CssClass="control-label col-sm-4" AssociatedControlID="lblServerName">
+    <div class="mb-3">
+        <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="lblServerName">
             <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server Fully Qualified Domain Name:"></asp:Localize>
         </asp:Label>
         <div class="col-sm-8">
             <asp:TextBox ID="lblServerName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
-    <div class="form-group">
-        <asp:Label runat="server" CssClass="control-label col-sm-4" AssociatedControlID="txtServerComments">
+    <div class="mb-3">
+        <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="txtServerComments">
             <asp:Localize ID="locServerComments" runat="server" meta:resourcekey="locServerComments" Text="Server Comments:"></asp:Localize>
         </asp:Label>
         <div class="col-sm-8">
@@ -102,14 +102,14 @@
         </table>
     </asp:Panel>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-	<CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating server...');" useSubmitBehavior="false">
-        <i class="fa fa-refresh">&nbsp;
+	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating server...');">
+        <i class="bi bi-arrow-clockwise">&nbsp;
         </i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/>
-	</CPCC:StyleButton>
+	</asp:LinkButton>
 </div>

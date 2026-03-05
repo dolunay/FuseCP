@@ -14,7 +14,7 @@
         </td>
         <td>
             <asp:DropDownList runat="server" ID="ddlEdgeServers" />
-            <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
             <br />
             <asp:GridView ID="gvEdgeServices" runat="server" AutoGenerateColumns="False"  
                 EmptyDataText="gvRecords" CssSelectorClass="NormalGridView" 
@@ -23,9 +23,9 @@
                     <asp:BoundField DataField="ServiceName" meta:resourcekey="locServerNameColumn" HeaderText="gvRecordsData" ItemStyle-Width="100%" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

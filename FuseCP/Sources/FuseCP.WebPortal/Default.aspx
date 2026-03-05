@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Solid CP</title>
     <link runat="server" rel="stylesheet" href="~/Styles/Import.css" type="text/css" id="AdaptersInvariantImportCSS" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Fav and touch icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -37,5 +38,36 @@
     <form id="form1" runat="server"  autocomplete="off">
         <asp:PlaceHolder ID="skinPlaceHolder" runat="server"></asp:PlaceHolder>
     </form>
+    <script type="text/javascript">
+        (function () {
+            document.addEventListener('submit', function (event) {
+                var form = event.target;
+                if (!form || form.tagName !== 'FORM') {
+                    return;
+                }
+
+                if (form.getAttribute('data-submitting') === 'true') {
+                    event.preventDefault();
+                    return false;
+                }
+
+                form.setAttribute('data-submitting', 'true');
+
+                var submitControls = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+                for (var i = 0; i < submitControls.length; i++) {
+                    if (submitControls[i].getAttribute('data-allow-multi-submit') !== 'true') {
+                        submitControls[i].setAttribute('disabled', 'disabled');
+                    }
+                }
+
+                window.setTimeout(function () {
+                    form.removeAttribute('data-submitting');
+                    for (var j = 0; j < submitControls.length; j++) {
+                        submitControls[j].removeAttribute('disabled');
+                    }
+                }, 15000);
+            }, true);
+        })();
+    </script>
 </body>
 </html>

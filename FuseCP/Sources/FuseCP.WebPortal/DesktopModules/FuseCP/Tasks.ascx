@@ -33,8 +33,8 @@
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="gvTasksActions">
 			<ItemTemplate>
-			    <CPCC:StyleButton ID="cmdStop" runat="server" CommandName="stop"
-			        CausesValidation="false" Text="Stop" OnClientClick="return confirm('Do you really want to terminate this task?');"></CPCC:StyleButton>
+			    <asp:LinkButton ID="cmdStop" runat="server" CommandName="stop"
+			        CausesValidation="false" Text="Stop" OnClientClick="return confirm('Do you really want to terminate this task?');"></asp:LinkButton>
 			</ItemTemplate>
 		</asp:TemplateField>
     </Columns>

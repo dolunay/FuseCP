@@ -4,7 +4,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
 <asp:Panel ID="pnlImport" runat="server">
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <div class="Huge" style="padding: 10px;border: solid 1px #e5e5e5;background-color: #f5f5f5;">
             <asp:Literal ID="litDomainName" runat="server"></asp:Literal>
         </div>
@@ -16,10 +16,10 @@
                     <label for="file">Zone file to upload</label>
                     <input id="file" type="file" name="zoneFile" runat="server" required/>
                     <br/>
-                    <CPCC:StyleButton ID="UploadZoneFile" runat="server" CssClass="btn btn-primary"
+                    <asp:LinkButton ID="UploadZoneFile" runat="server" CssClass="btn btn-primary"
                                       Text="Upload zone file"
                                       OnClientClick="ShowProgressDialog('Uploading zone file');"
-                                      OnClick="UploadZoneFile_OnClick"></CPCC:StyleButton>
+                                      OnClick="UploadZoneFile_OnClick"></asp:LinkButton>
                     <br/>
                     <br/>
                 </form>

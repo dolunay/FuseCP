@@ -108,7 +108,7 @@ namespace FuseCP.Portal.VPS2012
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnChangePasswordPopup;
+        protected global::System.Web.UI.WebControls.LinkButton btnChangePasswordPopup;
 
         /// <summary>
         /// GenerationSetting control.
@@ -495,7 +495,7 @@ namespace FuseCP.Portal.VPS2012
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnEdit;
+        protected global::System.Web.UI.WebControls.LinkButton btnEdit;
 
         /// <summary>
         /// ChangePasswordPanel control.
@@ -540,7 +540,7 @@ namespace FuseCP.Portal.VPS2012
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelChangePassword;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelChangePassword;
 
         /// <summary>
         /// btnChangePassword control.
@@ -549,7 +549,7 @@ namespace FuseCP.Portal.VPS2012
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnChangePassword;
+        protected global::System.Web.UI.WebControls.LinkButton btnChangePassword;
 
         /// <summary>
         /// ChangePasswordModal control.

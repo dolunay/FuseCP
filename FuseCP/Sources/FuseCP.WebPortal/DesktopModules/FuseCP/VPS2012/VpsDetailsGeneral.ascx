@@ -30,7 +30,7 @@
         }
     }
 </script> 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
     <table id="DetailsTable" runat="server" style="width: 100%;" cellspacing="10">
@@ -45,9 +45,9 @@
                         <td>
                             <b>
                                 <asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]"></asp:HyperLink><asp:Literal ID="litHostname" runat="server" Text="[hostname]"></asp:Literal></b>
-                            <CPCC:StyleButton ID="btnChangeHostnamePopup" runat="server"
+                            <asp:LinkButton ID="btnChangeHostnamePopup" runat="server"
                                 meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit">
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
 
                             <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" Style="display: none;">
                                 <div style="padding-bottom: 3px;">
@@ -137,7 +137,7 @@
                         <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" Width="160" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="fa fa-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
+                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" Width="160" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="bi bi-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
             </td>
             <td rowspan="2" valign="top">
                 <ul class="ActionButtons">
@@ -216,7 +216,7 @@
 <asp:Panel ID="ChangeHostnamePanel" runat="server" Style="display: none;">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-i-cursor"></i>
+            <h3><i class="bi bi-i-cursor"></i>
                 <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
         </div>
         <div class="widget-content Popup">
@@ -273,12 +273,12 @@
         <div style="color:red; text-align:center;" id="divReboot" class="hidden">
             <asp:Localize ID="locReboot" runat="server" Text="Restart required" meta:resourcekey="locReboot"></asp:Localize>
         </div>
-        <div class="popup-buttons text-right">
-            <CPCC:StyleButton ID="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText" />
-            </CPCC:StyleButton>
+        <div class="popup-buttons text-end">
+            <asp:LinkButton ID="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText" />
+            </asp:LinkButton>
             &nbsp;
-            <CPCC:StyleButton ID="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click"><i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText" />
-            </CPCC:StyleButton>
+            <asp:LinkButton ID="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click"><i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText" />
+            </asp:LinkButton>
         </div>
     </div>
 </asp:Panel>

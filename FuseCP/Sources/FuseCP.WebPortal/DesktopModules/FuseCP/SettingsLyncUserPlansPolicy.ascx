@@ -26,12 +26,12 @@
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-					<CPCC:StyleButton id="imgDelPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("LyncUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					<asp:LinkButton id="imgDelPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("LyncUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-                        <CPCC:StyleButton id="btnStamp" CssClass="btn btn-warning" runat="server" CommandName="RestampItem" CommandArgument='<%# Eval("LyncUserPlanId") %>' OnClientClick="if (confirm('Restamp lync user with this plan.\n\nAre you sure you want to restamp the lync users ?')) ShowProgressDialog('Stamping lync users, this might take a while ...'); else return false;"> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStampText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnStamp" CssClass="btn btn-warning" runat="server" CommandName="RestampItem" CommandArgument='<%# Eval("LyncUserPlanId") %>' OnClientClick="if (confirm('Restamp lync user with this plan.\n\nAre you sure you want to restamp the lync users ?')) ShowProgressDialog('Stamping lync users, this might take a while ...'); else return false;"> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStampText"/> </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -167,7 +167,7 @@
                                 <td>
                                     <div class="input-group col-sm-6">
                                     <asp:TextBox ID="tbTelephoneProvider" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <span class="input-group-btn">
+                                    <span class="d-flex">
                                     <asp:Button runat="server" ID="btnAccept" Text="Accept" CssClass="btn btn-primary" OnClick="btnAccept_Click" OnClientClick="ShowProgressDialog('Loading...');" ValidationGroup="Accept"/>
                                     </span>
                                     </div>
@@ -259,8 +259,8 @@
         <tr>
             <td>
                 <div class="FormButtonsBarClean">
-                        <CPCC:StyleButton id="btnUpdatePlan" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePlan_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePlanText"/> </CPCC:StyleButton>&nbsp;
-                    <CPCC:StyleButton id="btnAddPlan" CssClass="btn btn-success" runat="server" OnClick="btnAddPlan_Click"> <i class="fa fa-file-text-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdatePlan" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePlan_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePlanText"/> </asp:LinkButton>&nbsp;
+                    <asp:LinkButton id="btnAddPlan" CssClass="btn btn-success" runat="server" OnClick="btnAddPlan_Click"> <i class="bi bi-file-earmark-text">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </asp:LinkButton>
                 </div>
             </td>
         </tr>

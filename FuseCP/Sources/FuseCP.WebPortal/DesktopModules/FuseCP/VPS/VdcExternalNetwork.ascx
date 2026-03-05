@@ -5,15 +5,15 @@
 <%@ Register Src="../UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/PackageIPAddresses.ascx" TagName="PackageIPAddresses" TagPrefix="fcp" %>
     	
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="Image1" SkinID="Network48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="External Network"></asp:Localize>
 			    </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
             <fcp:Menu id="menu" runat="server" SelectedItem="vdc_external_network" />
-            <div class="panel panel-default tab-content">
-            <div class="panel-body form-horizontal">  
+            <div class="card tab-content">
+            <div class="card-body form-horizontal">  
                     <fcp:PackageIPAddresses id="packageAddresses" runat="server"
                             Pool="VpsExternalNetwork"
                             EditItemControl="vps_general"

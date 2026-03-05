@@ -7,35 +7,35 @@
 <script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<div class="panel-heading">
+<div class="card-header">
     <asp:Image ID="imgEditRDSCollection" SkinID="EnterpriseRDSCollections48" runat="server" />
     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit RDS Collection"></asp:Localize>
     -
     <asp:Literal ID="litCollectionName" runat="server" Text="" />
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="rds_collection_user_sessions" />
-    <div class="panel panel-default tab-content">
-        <div class="panel-body form-horizontal">
+    <div class="card tab-content">
+        <div class="card-body form-horizontal">
             <fcp:SimpleMessageBox id="messageBox" runat="server" />  
             <asp:UpdatePanel ID="RDAppsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                 <ContentTemplate>
                     <div class="FormButtonsBarCleanRight">
                         <div class="FormButtonsBarClean">
-                            <CPCC:StyleButton id="btnRefresh" CssClass="btn btn-warning" runat="server" OnClick="btnRefresh_Click" OnClientClick="ShowProgressDialog('Loading'); return true;">
-                                <i class="fa fa-refresh">&nbsp;</i>&nbsp;
+                            <asp:LinkButton id="btnRefresh" CssClass="btn btn-warning" runat="server" OnClick="btnRefresh_Click" OnClientClick="ShowProgressDialog('Loading'); return true;">
+                                <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;
                                 <asp:Localize runat="server" meta:resourcekey="btnRefreshText"/>
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
                             &nbsp;
-                            <CPCC:StyleButton id="btnRecentMessages" CssClass="btn btn-primary" runat="server" OnClick="btnRecentMessages_Click" OnClientClick="ShowProgressDialog('Loading'); return true;">
-                                <i class="fa fa-comments-o">&nbsp;</i>&nbsp;
+                            <asp:LinkButton id="btnRecentMessages" CssClass="btn btn-primary" runat="server" OnClick="btnRecentMessages_Click" OnClientClick="ShowProgressDialog('Loading'); return true;">
+                                <i class="bi bi-chat-dots">&nbsp;</i>&nbsp;
                                 <asp:Localize runat="server" meta:resourcekey="btnRecentMessagesText"/>
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
                             &nbsp;
-                            <CPCC:StyleButton id="btnSendMessage" CssClass="btn btn-success" runat="server" OnClick="btnSendMessage_Click">
-                                <i class="fa fa-commenting-o">&nbsp;</i>&nbsp;
+                            <asp:LinkButton id="btnSendMessage" CssClass="btn btn-success" runat="server" OnClick="btnSendMessage_Click">
+                                <i class="bi bi-chat-left-text">&nbsp;</i>&nbsp;
                                 <asp:Localize runat="server" meta:resourcekey="cmdSendMessageText"/>
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
                         </div>
                     </div>
                     <fcp:CollapsiblePanel id="secRdsUserSessions" runat="server" TargetControlID="panelRdsUserSessions" meta:resourcekey="secRdsUserSessions" Text=""></fcp:CollapsiblePanel>
@@ -65,40 +65,40 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <CPCC:StyleButton ID="lnkViewSession" runat="server" CssClass="btn btn-primary" Text="View" CommandName="View" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdViewSession" OnClientClick="ShowProgressDialog('Loading'); return true;">
-                                            </CPCC:StyleButton>
+                                            <asp:LinkButton ID="lnkViewSession" runat="server" CssClass="btn btn-primary" Text="View" CommandName="View" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdViewSession" OnClientClick="ShowProgressDialog('Loading'); return true;">
+                                            </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <CPCC:StyleButton ID="lnkControlSession" runat="server" CssClass="btn btn-primary" Text="Control" CommandName="Control" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdControlSession" OnClientClick="ShowProgressDialog('Loading'); return true;">
-                                            </CPCC:StyleButton>
+                                            <asp:LinkButton ID="lnkControlSession" runat="server" CssClass="btn btn-primary" Text="Control" CommandName="Control" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdControlSession" OnClientClick="ShowProgressDialog('Loading'); return true;">
+                                            </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <CPCC:StyleButton ID="lnkLogOff" runat="server" CssClass="btn btn-danger" Text="Log Off" CommandName="LogOff" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdLogOff" OnClientClick="return confirm('Are you sure you want to log off selected user?')">
-                                            </CPCC:StyleButton>
+                                            <asp:LinkButton ID="lnkLogOff" runat="server" CssClass="btn btn-danger" Text="Log Off" CommandName="LogOff" CommandArgument='<%# Eval("UnifiedSessionId") + ";" + Eval("HostServer") %>' meta:resourcekey="cmdLogOff" OnClientClick="return confirm('Are you sure you want to log off selected user?')">
+                                            </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <CPCC:StyleButton ID="lnkSendMessage" runat="server" CssClass="btn btn-primary" Text="Send Message" CommandName="SendMessage" CommandArgument='<%# Eval("HostServer") + ":" + Eval("UserName") + ":" + Eval("UnifiedSessionId") %>' meta:resourcekey="cmdSendMessage">
-                                            </CPCC:StyleButton>
+                                            <asp:LinkButton ID="lnkSendMessage" runat="server" CssClass="btn btn-primary" Text="Send Message" CommandName="SendMessage" CommandArgument='<%# Eval("HostServer") + ":" + Eval("UserName") + ":" + Eval("UnifiedSessionId") %>' meta:resourcekey="cmdSendMessage">
+                                            </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>
                     </asp:Panel>
-                    <div class="text-right">
+                    <div class="text-end">
                         <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="SaveRDSCollection" OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                     </div>
                     <asp:Panel ID="MessagesHistoryPanel" runat="server" style="display:none">
                         <div class="widget">
                             <div class="widget-header clearfix">
                                 <h3>
-                                    <i class="fa-envelope-o"></i>
+                                    <i class="bi bi-envelope"></i>
                                     <asp:Localize ID="headerMessagesHistory" runat="server" meta:resourcekey="headerMessagesHistory">
                                     </asp:Localize>
                                 </h3>
@@ -132,11 +132,11 @@
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
-                            <div class="popup-buttons text-right">
-                                <CPCC:StyleButton id="btnCancelMessagesHistory" CssClass="btn btn-warning" runat="server" CausesValidation="False">
-                                    <i class="fa fa-times">&nbsp;</i>&nbsp;
+                            <div class="popup-buttons text-end">
+                                <asp:LinkButton id="btnCancelMessagesHistory" CssClass="btn btn-warning" runat="server" CausesValidation="False">
+                                    <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                                     <asp:Localize runat="server" meta:resourcekey="btnCancelText"/>
-                                </CPCC:StyleButton>
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>
@@ -144,23 +144,23 @@
                         <div class="widget">
                             <div class="widget-header clearfix">
                                 <h3>
-                                    <i class="fa fa-pencil"></i>
+                                    <i class="bi bi-pencil"></i>
                                     <asp:Localize ID="headerEnterMessage" runat="server" meta:resourcekey="headerEnterMessage"></asp:Localize>
                                 </h3>
                             </div>
                             <div class="widget-content Popup">
                                 <asp:TextBox id="txtMessage" TextMode="multiline" Columns="70" Rows="15" runat="server" CssClass="form-control" />
                             </div>
-                            <div class="popup-buttons text-right">
-                                <CPCC:StyleButton id="btnAddMessage" CssClass="btn btn-success" runat="server" OnClick="btnAddMessage_Click" CausesValidation="false">
-                                    <i class="fa fa-check">&nbsp;</i>&nbsp;
+                            <div class="popup-buttons text-end">
+                                <asp:LinkButton id="btnAddMessage" CssClass="btn btn-success" runat="server" OnClick="btnAddMessage_Click" CausesValidation="false">
+                                    <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
                                     <asp:Localize runat="server" meta:resourcekey="btnAddText"/>
-                                </CPCC:StyleButton>
+                                </asp:LinkButton>
                                 &nbsp;
-                                <CPCC:StyleButton id="btnCancelEnterMessage" CssClass="btn btn-warning" runat="server" CausesValidation="False">
-                                    <i class="fa fa-times">&nbsp;</i>&nbsp;
+                                <asp:LinkButton id="btnCancelEnterMessage" CssClass="btn btn-warning" runat="server" CausesValidation="False">
+                                    <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                                     <asp:Localize runat="server" meta:resourcekey="btnCancelText"/>
-                                </CPCC:StyleButton>
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>

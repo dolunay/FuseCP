@@ -21,56 +21,56 @@
     });
 </script>
 
-<div runat="server" id="passwordRow" class="form-group hide">
-    <asp:Label ID="Label1" runat="server" CssClass="control-label col-sm-2" >
+<div runat="server" id="passwordRow" class="mb-3 hide">
+    <asp:Label ID="Label1" runat="server" CssClass="form-label col-sm-2" >
         <asp:Localize ID="Localize1" runat="server" meta:resourcekey="cbChangePassword" Text="Change password"/>
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:CheckBox runat="server" meta:resourcekey="cbEnabled" ID="cbChangePassword" Text="Check to Enable Password Change" Checked ="true"/>
     </div>
 </div>
-<div class="form-group">
-    <asp:Label ID="Label2" runat="server" meta:resourcekey="cbEnableAccount" Text="Enable Account:" CssClass="control-label col-sm-2" >
+<div class="mb-3">
+    <asp:Label ID="Label2" runat="server" meta:resourcekey="cbEnableAccount" Text="Enable Account:" CssClass="form-label col-sm-2" >
         <asp:Localize ID="Localize2" runat="server" meta:resourcekey="cbEnableAccount" Text="Enable Account:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:CheckBox runat="server" meta:resourcekey="cbEnabled" ID="cbEnableAccount" Text="Check to Enable Account" Checked="True" />
     </div>
 </div>
-<div id="domainAdminRow" runat="server" class="form-group">
-    <asp:Label ID="Label3" runat="server" meta:resourcekey="cbDomainAdmin" Text="Domain Administrator:" CssClass="control-label col-sm-2" >
+<div id="domainAdminRow" runat="server" class="mb-3">
+    <asp:Label ID="Label3" runat="server" meta:resourcekey="cbDomainAdmin" Text="Domain Administrator:" CssClass="form-label col-sm-2" >
         <asp:Localize ID="Localize3" runat="server" meta:resourcekey="cbDomainAdmin" Text="Domain Administrator:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:CheckBox runat="server" meta:resourcekey="cbEnabled" ID="cbDomainAdmin" Text="Check to set account as Domain Administrator" />
     </div>
 </div>
-<div class="form-group">
-    <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" CssClass="control-label col-sm-2" >
+<div class="mb-3">
+    <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" CssClass="form-label col-sm-2" >
         <asp:Localize ID="locFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:TextBox ID="txtFirstName" runat="server" Width="400px" CssClass="form-control"></asp:TextBox>
     </div>
 </div>
-<div class="form-group">
-    <asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" CssClass="control-label col-sm-2">
+<div class="mb-3">
+    <asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" CssClass="form-label col-sm-2">
         <asp:Localize ID="LocLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:TextBox ID="txtLastName" runat="server" Width="400px" CssClass="form-control"></asp:TextBox>
     </div>
 </div>
-<div class="form-group">
-    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Reply to address:" CssClass="control-label col-sm-2">
+<div class="mb-3">
+    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Reply to address:" CssClass="form-label col-sm-2">
         <asp:Localize ID="LocReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Reply to address:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">
             <asp:TextBox ID="txtReplyTo" runat="server" Width="400px" CssClass="form-control"></asp:TextBox>
     </div>
 </div>
-<div class="form-group">
-    <asp:Label ID="lblSignature" runat="server" meta:resourcekey="lblSignature" Text="Signature:" CssClass="control-label col-sm-2" >
+<div class="mb-3">
+    <asp:Label ID="lblSignature" runat="server" meta:resourcekey="lblSignature" Text="Signature:" CssClass="form-label col-sm-2" >
         <asp:Localize ID="LocSignature" runat="server" meta:resourcekey="lblSignature" Text="Signature:" />
     </asp:Label>
     <div runat="server" class="col-sm-10">

@@ -17,17 +17,17 @@
 
 
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
+    </asp:LinkButton>
 </div>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <div class="row">
         <div class="col-md-4">
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-right form-inline">
-            <div class="form-group">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end form-inline">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control"
                         AutoPostBack="True" OnSelectedIndexChanged="ddlItemsPerPage_SelectedIndexChanged">
@@ -38,7 +38,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
                         <asp:ListItem Value="Vlan" meta:resourcekey="liVLAN">VLAN</asp:ListItem>
@@ -47,13 +47,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div class="panel-footer">
+<div class="card-footer">
     <div class="row">
         <div class="col-md-9">
             <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected"

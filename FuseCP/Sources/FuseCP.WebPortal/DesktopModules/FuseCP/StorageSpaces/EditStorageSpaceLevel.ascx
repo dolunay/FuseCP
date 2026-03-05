@@ -11,7 +11,7 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
 
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
             <fcp:CollapsiblePanel ID="colSsLevelGeneralSettings" runat="server"
@@ -64,7 +64,7 @@
             </asp:Panel>
 
         </div>
-            <div class="panel-footer text-right">
+            <div class="card-footer text-end">
                 <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SaveSsLevel"
                     OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
             </div>

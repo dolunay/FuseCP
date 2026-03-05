@@ -19,13 +19,13 @@
             <fcp:GlobalSearch ID="GlobalSearchTop" runat="server" />
         </div>
 		<div class="logo-area">
-			<a class="btn btn-link btn-off-canvas pull-left"><i class="icon ion-navicon"></i></a>
-			<div class="logo pull-left">
+			<a class="btn btn-link btn-off-canvas float-start"><i class="icon ion-navicon"></i></a>
+			<div class="logo float-start">
                 <fcp:Logo ID="logo" runat="server" />
 			</div>
 		</div>
         <fcp:SignedInUser ID="signedInUser" runat="server" />
-        <div class="hidden-xs">
+        <div class="d-none d-sm-block">
             <fcp:GlobalSearch ID="globalSearch" runat="server" />
         </div>
 	</nav>

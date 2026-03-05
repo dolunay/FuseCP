@@ -10,13 +10,13 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeMailboxPlans48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" Text="Add Mailboxplan"></asp:Localize>
 				</h3>
                         </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <asp:HiddenField runat="server" ID="hfArchivingPlan" />
@@ -284,7 +284,7 @@
 			                    </asp:TemplateField>
                                 <asp:TemplateField>
 				                    <ItemTemplate>
-					                    <CPCC:StyleButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					                    <asp:LinkButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				                    </ItemTemplate>
 			                    </asp:TemplateField>
 		                    </Columns>
@@ -300,7 +300,7 @@
 
 				
 				</div>
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="CreateMailboxPlan" OnClientClick="ShowProgressDialog('Creating ...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>&nbsp;
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="CreateMailboxPlan" OnClientClick="ShowProgressDialog('Creating ...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>&nbsp;
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateMailboxPlan" />
 				    </div>

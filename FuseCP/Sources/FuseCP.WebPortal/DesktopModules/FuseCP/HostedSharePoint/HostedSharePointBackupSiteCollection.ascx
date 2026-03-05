@@ -21,7 +21,7 @@
 					<asp:Image ID="Image1" SkinID="SharePointSiteCollection48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="SharePoint Site Collections"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<table cellspacing="0" cellpadding="5" width="100%">
 						<tr>
@@ -67,12 +67,13 @@
 							</td>
 						</tr>
 					</table>
-					<div class="panel-footer text-right">
-						<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnBackup" CssClass="btn btn-success" runat="server" OnClick="btnBackup_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackup"/> </CPCC:StyleButton>
+					<div class="card-footer text-end">
+						<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnBackup" CssClass="btn btn-success" runat="server" OnClick="btnBackup_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackup"/> </asp:LinkButton>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

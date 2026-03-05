@@ -5,8 +5,8 @@
     <ContentTemplate>
     
 	<div class="FormButtonsBarClean">
-		<CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-        <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+		<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+        <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 	</div>
 	<asp:GridView ID="gvGroups" runat="server" meta:resourcekey="gvAccounts" AutoGenerateColumns="False"
 		Width="600px" CssSelectorClass="NormalGridView"
@@ -37,7 +37,7 @@
 <asp:Panel ID="AddGroupsPanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-user"></i>  <asp:Localize ID="headerAddGroups" runat="server" meta:resourcekey="headerAddGroups"></asp:Localize></h3>
+                           <h3><i class="bi bi-person"></i>  <asp:Localize ID="headerAddGroups" runat="server" meta:resourcekey="headerAddGroups"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
     <asp:UpdatePanel ID="AddGroupsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -53,8 +53,8 @@
                                                 </div>
                         <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
-                    <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                <div class="d-flex">
+                    <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                        </div></div></div>
                     </asp:Panel>
                 </div>
@@ -87,8 +87,8 @@
 	    </ContentTemplate>
     </asp:UpdatePanel>
 			<br /><br />
-			<CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </CPCC:StyleButton>
+			<asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

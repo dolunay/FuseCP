@@ -22,7 +22,7 @@
     font-size: 14px;
 }
 </style>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <table cellspacing="0" cellpadding="5" width="100%">
 	<tr>
 		<td class="SubHead" style="white-space: nowrap;">
@@ -37,9 +37,9 @@
 			<asp:HiddenField ID="DebuggerUrlField" runat="server" />
 		</td>
         <td style="width: 40%">
-            <CPCC:StyleButton id="ButtonDebuggerStop" CssClass="btn btn-warning" runat="server" OnClick="DebugStopClick"> <i class="fa fa-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStopText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="ButtonDebuggerStart" CssClass="btn btn-success" runat="server" OnClick="DebugStartClick"> <i class="fa fa-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStartText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="BUttonShowDebuggingPageLinkModal" CssClass="btn btn-success Hidden" runat="server"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowDebuggingPageLinkModalText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="ButtonDebuggerStop" CssClass="btn btn-warning" runat="server" OnClick="DebugStopClick"> <i class="bi bi-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStopText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="ButtonDebuggerStart" CssClass="btn btn-success" runat="server" OnClick="DebugStartClick"> <i class="bi bi-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStartText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="BUttonShowDebuggingPageLinkModal" CssClass="btn btn-success Hidden" runat="server"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowDebuggingPageLinkModalText"/> </asp:LinkButton>
         </td>
 	</tr>
 </table>
@@ -53,16 +53,16 @@
 
 </div>
 
-<div class="panel-footer text-right">
-	<CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" > <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </CPCC:StyleButton>&nbsp;
-	<<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="BtnCancelClick"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" > <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="BtnCancelClick"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
 </div>
 
 <asp:Panel ID="DebuggingPageLinkPanel" runat="server" CssClass="PopupContainer" style="display:none" DefaultButton="btnCancelDebuggingPageLinkPanel">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-list"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblDebuggingPageLink" Text="Debugging Page Link" /></h3>
+            <h3><i class="bi bi-list"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblDebuggingPageLink" Text="Debugging Page Link" /></h3>
         </div>
         <div class="widget-content Popup">
 			<div class="FormRow">
@@ -72,8 +72,8 @@
 				<asp:HyperLink runat="server" ID="LinkDebuggingPage" Target="ape-debugging-page" CssClass="LinkDebuggingPage"></asp:HyperLink>
 			</div>
 			</div>
-					<div class="popup-buttons text-right">
-            <CPCC:StyleButton id="btnCancelDebuggingPageLinkPanel" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+            <asp:LinkButton id="btnCancelDebuggingPageLinkPanel" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

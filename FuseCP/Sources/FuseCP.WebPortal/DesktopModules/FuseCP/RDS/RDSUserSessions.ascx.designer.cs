@@ -97,7 +97,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnRefresh;
+       protected global::System.Web.UI.WebControls.LinkButton btnRefresh;
         
         /// <summary>
         /// btnRecentMessages control.
@@ -106,7 +106,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnRecentMessages;
+       protected global::System.Web.UI.WebControls.LinkButton btnRecentMessages;
         
         /// <summary>
         /// btnSendMessage control.
@@ -115,7 +115,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnSendMessage;
+       protected global::System.Web.UI.WebControls.LinkButton btnSendMessage;
         
         /// <summary>
         /// secRdsUserSessions control.
@@ -196,7 +196,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnCancelMessagesHistory;
+       protected global::System.Web.UI.WebControls.LinkButton btnCancelMessagesHistory;
         
         /// <summary>
         /// EnterMessagePanel control.
@@ -232,7 +232,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnAddMessage;
+       protected global::System.Web.UI.WebControls.LinkButton btnAddMessage;
         
         /// <summary>
         /// btnCancelEnterMessage control.
@@ -241,7 +241,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnCancelEnterMessage;
+       protected global::System.Web.UI.WebControls.LinkButton btnCancelEnterMessage;
         
         /// <summary>
         /// btnEnterMessageFake control.

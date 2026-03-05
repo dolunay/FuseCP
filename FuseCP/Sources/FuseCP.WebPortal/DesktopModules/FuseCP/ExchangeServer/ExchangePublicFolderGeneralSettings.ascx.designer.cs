@@ -115,7 +115,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnMailDisable;
+       protected global::System.Web.UI.WebControls.LinkButton btnMailDisable;
         
         /// <summary>
         /// btnMailEnable control.
@@ -124,7 +124,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnMailEnable;
+       protected global::System.Web.UI.WebControls.LinkButton btnMailEnable;
         
         /// <summary>
         /// locAllAccounts control.
@@ -160,7 +160,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnSave;
+       protected global::System.Web.UI.WebControls.LinkButton btnSave;
         
         /// <summary>
         /// ValidationSummary1 control.

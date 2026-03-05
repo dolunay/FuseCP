@@ -21,7 +21,7 @@
 					<asp:Image ID="Image1" SkinID="ExchangeStorageConfig48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" ></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 					<fcp:CollapsiblePanel id="secStorageLimits" runat="server"
@@ -47,9 +47,9 @@
 					    <br />
 					</asp:Panel>
                    									                    
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnSave" CssClass="btn btn-warning" runat="server" OnClick="btnSave_Click" ValidationGroup="EditStorageSettings"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
-						<CPCC:StyleButton id="btnSaveApply" CssClass="btn btn-success" runat="server" OnClick="btnSaveApply_Click" ValidationGroup="EditStorageSettings"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveApplyText"/> </CPCC:StyleButton>
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnSave" CssClass="btn btn-warning" runat="server" OnClick="btnSave_Click" ValidationGroup="EditStorageSettings"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
+						<asp:LinkButton id="btnSaveApply" CssClass="btn btn-success" runat="server" OnClick="btnSaveApply_Click" ValidationGroup="EditStorageSettings"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveApplyText"/> </asp:LinkButton>
 						
 				    </div>
 				    
@@ -58,3 +58,4 @@
 		</div>
 	</div>
 </div>
+

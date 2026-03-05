@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="FuseCP.Providers.Web.IIS70\IIs70.cs" />
+    <Compile Remove="FuseCP.Providers.Web.IIS70\obj\**\*.cs" />
     <Compile Remove="FuseCP.Providers.Web.IIS70\Authentication\AnonymAuthModuleService.cs" />
     <Compile Remove="FuseCP.Providers.Web.IIS70\Authentication\AuthenticationGlobals.cs" />
     <Compile Remove="FuseCP.Providers.Web.IIS70\Authentication\BasicAuthModuleService.cs" />

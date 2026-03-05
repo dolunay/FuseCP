@@ -103,8 +103,8 @@
                                     type="hidden"
                                 >
                                 </asp:TextBox>
-                                <div class="input-group-btn">
-                                <CPCC:StyleButton
+                                <div class="d-flex">
+                                <asp:LinkButton
                                     ID="cmdSearch"
                                     runat="server"
                                     SkinID="SearchButton"
@@ -112,8 +112,8 @@
                                     style="vertical-align: middle;"
                                     CssClass="btn btn-primary"
                                 >
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </CPCC:StyleButton>      
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                </asp:LinkButton>      
                                     </div>                
                             </div>
 

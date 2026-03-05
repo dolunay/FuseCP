@@ -1,28 +1,28 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PasswordControl.ascx.cs" Inherits="FuseCP.Portal.PasswordControl" %>
 <script src="<%= GetRandomPasswordUrl() %>" language="javascript" type="text/javascript"></script>
 
-<div class="form-group">
-    <label for="txtPassword" class="col-sm-2 control-label">
+<div class="mb-3">
+    <label for="txtPassword" class="col-sm-2 form-label">
         <asp:Localize ID="locPassword" runat="server" meta:resourcekey="locPassword" Text="Password:" />
     </label>
     <div class="col-sm-8">
         <div class="input-group">
             <!-- Used to stop browsers auto-completing the username box --><input style="display:none" type="text" name="fakeusernameremembered" />
             <!-- Used to stop browsers auto-completing the password box --><input style="display:none" type="password" name="fakepasswordremembered" />
-            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+            <span class="input-group-text"><i class="bi bi-lock fa-lg" aria-hidden="true"></i></span>
             <asp:TextBox ID="txtPassword" runat="server" CssClass="hideContentOnBlur form-control" type="password" TextMode="Password" MaxLength="50" meta:resourcekey="loctxtPassword" placeholder="Enter your password"></asp:TextBox>
         </div>
         <asp:RequiredFieldValidator ID="valRequirePassword" runat="server" meta:resourcekey="valRequirePassword" ErrorMessage="*" ControlToValidate="txtPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
 </div>
-<div class="form-group">
-    <label for="txtConfirmPassword" class="col-sm-2 control-label">
+<div class="mb-3">
+    <label for="txtConfirmPassword" class="col-sm-2 form-label">
         <asp:Localize ID="locConfirmPassword" runat="server" meta:resourcekey="locConfirmPassword" Text="Confirm Password:" />
     </label>
     <div class="col-sm-8">
         <div class="input-group">
-            <span class="input-group-addon">
-                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+            <span class="input-group-text">
+                <i class="bi bi-lock fa-lg" aria-hidden="true"></i>
             </span>
             <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="hideContentOnBlur form-control" type="password" TextMode="Password" MaxLength="50" meta:resourcekey="loctxtConfirmPassword" placeholder="Confirm your password"></asp:TextBox>
             <script type="text/javascript">$(".hideContentOnBlur").blur(function () { this.type = 'password'; }); $(".hideContentOnBlur").focus(function () { this.type = 'text'; });</script>
@@ -30,7 +30,7 @@
         <asp:RequiredFieldValidator ID="valRequireConfirmPassword" runat="server" meta:resourcekey="valRequireConfirmPassword" ErrorMessage="*" ControlToValidate="txtConfirmPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
 </div>
-<div class="form-group">
+<div class="mb-3">
     <div class="col-sm-10 col-sm-offset-2">
         <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
             PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"

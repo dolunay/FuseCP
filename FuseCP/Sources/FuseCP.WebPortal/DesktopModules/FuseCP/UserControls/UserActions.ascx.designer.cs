@@ -52,7 +52,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnApply;
+       protected global::System.Web.UI.WebControls.LinkButton btnApply;
         
         /// <summary>
         /// Modal control.
@@ -106,7 +106,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnServiceLevelCancel;
+       protected global::System.Web.UI.WebControls.LinkButton btnServiceLevelCancel;
         
         /// <summary>
         /// btnServiceLevelOk control.
@@ -115,7 +115,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnServiceLevelOk;
+       protected global::System.Web.UI.WebControls.LinkButton btnServiceLevelOk;
         
         /// <summary>
         /// MailboxPlanPanel control.
@@ -160,7 +160,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnMailboxPlanCancel;
+       protected global::System.Web.UI.WebControls.LinkButton btnMailboxPlanCancel;
         
         /// <summary>
         /// btnMailboxPlanOk control.
@@ -169,7 +169,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnMailboxPlanOk;
+       protected global::System.Web.UI.WebControls.LinkButton btnMailboxPlanOk;
         
         /// <summary>
         /// PasswordResetNotificationPanel control.
@@ -214,7 +214,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnPasswordResetNotificationSendCancel;
+       protected global::System.Web.UI.WebControls.LinkButton btnPasswordResetNotificationSendCancel;
         
         /// <summary>
         /// btnPasswordResetNotificationSend control.
@@ -223,7 +223,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnPasswordResetNotificationSend;
+       protected global::System.Web.UI.WebControls.LinkButton btnPasswordResetNotificationSend;
         
         /// <summary>
         /// FakeModalPopupTarget control.

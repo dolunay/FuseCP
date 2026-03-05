@@ -6,28 +6,28 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
 
-<div class="panel-heading">
+<div class="card-header">
     <asp:Image ID="imgRDSCollections" SkinID="EnterpriseRDSCollections48" runat="server" />
     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="RDS Collections"></asp:Localize>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddCollection" CssClass="btn btn-primary" runat="server" OnClick="btnAddCollection_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnAddCollection" CssClass="btn btn-primary" runat="server" OnClick="btnAddCollection_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddCollectionText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnImportCollection" CssClass="btn btn-warning" runat="server" OnClick="btnImportCollection_Click">
-        <i class="fa fa-download">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnImportCollection" CssClass="btn btn-warning" runat="server" OnClick="btnImportCollection_Click">
+        <i class="bi bi-download">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnImportCollectionText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
     <div class="row" style="margin-bottom:15px;">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-right form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-end form-inline">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -37,13 +37,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -70,13 +70,13 @@
             <ItemStyle Width="65px" HorizontalAlign="Center" />
             <ItemTemplate>
                 <asp:LinkButton ID="lnkRemove" runat="server" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="return confirm('Are you sure you want to remove selected rds collection?')">
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp;
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp;
                 </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Collections Created:"></asp:Localize>&nbsp;	
     <fcp:QuotaViewer ID="collectionsQuota" runat="server" QuotaTypeId="2" DisplayGauge="true" />
 </div>

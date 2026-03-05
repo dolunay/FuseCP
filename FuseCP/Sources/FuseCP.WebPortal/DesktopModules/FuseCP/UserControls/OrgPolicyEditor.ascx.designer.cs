@@ -106,7 +106,7 @@ namespace FuseCP.Portal.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnUpdateAdditionalGroup;
+       protected global::System.Web.UI.WebControls.LinkButton btnUpdateAdditionalGroup;
         
         /// <summary>
         /// btnAddAdditionalGroup control.
@@ -115,6 +115,6 @@ namespace FuseCP.Portal.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnAddAdditionalGroup;
+       protected global::System.Web.UI.WebControls.LinkButton btnAddAdditionalGroup;
     }
 }

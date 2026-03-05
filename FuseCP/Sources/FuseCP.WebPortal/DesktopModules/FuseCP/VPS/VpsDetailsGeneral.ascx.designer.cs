@@ -133,7 +133,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnChangeHostnamePopup;
+        protected global::System.Web.UI.WebControls.LinkButton btnChangeHostnamePopup;
         
         /// <summary>
         /// RdpPanel control.
@@ -583,7 +583,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelHostname;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelHostname;
         
         /// <summary>
         /// btnChangeHostname control.
@@ -592,7 +592,7 @@ namespace FuseCP.Portal.VPS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnChangeHostname;
+        protected global::System.Web.UI.WebControls.LinkButton btnChangeHostname;
         
         /// <summary>
         /// ChangeHostnameModal control.

@@ -43,7 +43,7 @@ namespace FuseCP.Portal.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnAllocateAddress;
+       protected global::System.Web.UI.WebControls.LinkButton btnAllocateAddress;
         
         /// <summary>
         /// searchBox control.

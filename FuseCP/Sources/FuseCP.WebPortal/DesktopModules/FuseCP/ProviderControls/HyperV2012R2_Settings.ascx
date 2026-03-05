@@ -25,7 +25,7 @@
                 <p style="margin: 10px;">
 	                <asp:Localize ID="locRemoteServerHelp" runat="server" meta:resourcekey="locRemoteServerHelp" Text="Help text goes here..."></asp:Localize>
 	            </p>
-                <CPCC:StyleButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </CPCC:StyleButton>
+                <asp:LinkButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </asp:LinkButton>
                 <asp:RequiredFieldValidator ID="ServerNameValidator" runat="server" ControlToValidate="txtServerName"
                     Text="*" meta:resourcekey="ServerNameValidator" Display="Dynamic" SetFocusOnError="true" />
             </td>
@@ -287,7 +287,7 @@
 	    </tr>        
     </table>
     <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px;">
-        <CPCC:StyleButton id="btnAddOsTemplate" CssClass="btn btn-success" runat="server" OnClick="btnAddOsTemplate_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddOsTemplateText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAddOsTemplate" CssClass="btn btn-success" runat="server" OnClick="btnAddOsTemplate_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddOsTemplateText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repOsTemplates" runat="server">
         <HeaderTemplate>
@@ -312,7 +312,7 @@
                         <asp:CheckBox ID="chkEnableSecureBoot" runat="server" Checked='<%# Eval("EnableSecureBoot") %>' meta:resourcekey="chkEnableSecureBoot" Text="Enable Secure Boot (Second Generation only)" AutoPostBack="True" onCheckedChanged="cbEnableSecureBoot_OnChecked"/><br />
                     </td>
                     <td rowspan="3">
-                        <CPCC:StyleButton id="btnRemoveOsTemplate" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveOsTemplate_OnCommand"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveOsTemplateText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnRemoveOsTemplate" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveOsTemplate_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveOsTemplateText"/> </asp:LinkButton>
                     </td>
                 </tr>
                 <tr><td class="SubHead">
@@ -454,7 +454,7 @@
         </tr>
     </table>
     <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px;">
-        <CPCC:StyleButton id="btnAddDvd" CssClass="btn btn-success" runat="server" OnClick="btnAddDvd_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDvdText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAddDvd" CssClass="btn btn-success" runat="server" OnClick="btnAddDvd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDvdText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repDvdLibrary" runat="server">
         <HeaderTemplate>
@@ -471,7 +471,7 @@
                             Text="*" meta:resourcekey="DvdNameValidator" Display="Dynamic" SetFocusOnError="true" />
                     </td>
                     <td rowspan="3">
-                        <CPCC:StyleButton id="btnRemoveDvd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveDvd_OnCommand"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveDvdText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnRemoveDvd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveDvd_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveDvdText"/> </asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -523,7 +523,7 @@
         </table>
     </div>
     <div style="margin-top: 15px;margin-bottom: 25px;margin-left: 10px;">
-        <CPCC:StyleButton id="btnAddPsScript" CssClass="btn btn-success" runat="server" OnClick="btnAddPsScript_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPsScript"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAddPsScript" CssClass="btn btn-success" runat="server" OnClick="btnAddPsScript_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPsScript"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repPsScript" runat="server">
         <HeaderTemplate>
@@ -548,7 +548,7 @@
                         </asp:DropDownList>
                     </td>
                     <td rowspan="3">
-                        <CPCC:StyleButton id="btnRemovePsScript" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemovePsScript_OnCommand"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemovePsScript"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnRemovePsScript" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemovePsScript_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemovePsScript"/> </asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -628,7 +628,7 @@
                             <td> 
                                 <asp:DropDownList ID="ddlCertThumbnail" runat="server" Width="500px"></asp:DropDownList>
                                 <asp:TextBox Width="400px" CssClass="form-control" runat="server" ID="txtCertThumbnail"></asp:TextBox>
-                                <CPCC:StyleButton id="btnSetReplicaServer" CssClass="btn btn-success" runat="server" OnClick="btnSetReplicaServer_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetReplicaServerText"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnSetReplicaServer" CssClass="btn btn-success" runat="server" OnClick="btnSetReplicaServer_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetReplicaServerText"/> </asp:LinkButton>
                                 <asp:RequiredFieldValidator ID="CertificateThumbnailValidator" runat="server" ControlToValidate="txtCertThumbnail"
                                     Text="*" meta:resourcekey="CertificateThumbnailValidator" Display="Dynamic" SetFocusOnError="true" />
                                 <asp:RequiredFieldValidator ID="CertificateDdlThumbnailValidator" runat="server" ControlToValidate="ddlCertThumbnail"

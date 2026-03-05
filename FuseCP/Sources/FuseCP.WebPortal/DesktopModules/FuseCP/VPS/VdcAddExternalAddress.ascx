@@ -5,15 +5,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Network48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Allocate IP Addresses"></asp:Localize>
 			    </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
             <fcp:Menu id="menu" runat="server" SelectedItem="vdc_external_network" />
-            <div class="panel panel-default tab-content">
-            <div class="panel-body form-horizontal">
+            <div class="card tab-content">
+            <div class="card-body form-horizontal">
                 <fcp:AllocatePackageIPAddresses id="allocateAddresses" runat="server"
                         Pool="VpsExternalNetwork"
                         ResourceGroup="VPS"

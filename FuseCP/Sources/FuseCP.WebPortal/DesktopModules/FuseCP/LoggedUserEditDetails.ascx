@@ -4,7 +4,7 @@
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/EmailControl.ascx" TagName="EmailControl" TagPrefix="uc2" %>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnUpdate">
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
         <asp:Panel ID="pnlAccount" runat="server" DefaultButton="cmdChangePassword">
 		<table cellSpacing="0" cellPadding="2" width="100%">
@@ -200,7 +200,7 @@
 		    </table>
 		</asp:Panel>	
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/>  </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/>  </asp:LinkButton>
 </div>
 </asp:Panel>

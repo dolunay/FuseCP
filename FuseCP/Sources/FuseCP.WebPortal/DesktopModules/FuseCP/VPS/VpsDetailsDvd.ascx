@@ -7,15 +7,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="DvdDrive48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="DVD" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_dvd" />
                         
@@ -33,8 +33,8 @@
 			                    <td>
 			                        <br />
 			                        <br />
-			                        <CPCC:StyleButton id="btnEjectDisk" CssClass="btn btn-warning" runat="server" OnClick="btnEjectDisk_Click" CausesValidation="false"> <i class="fa fa-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEjectDiskText"/> </CPCC:StyleButton>&nbsp;
-                                    <CPCC:StyleButton id="btnInsertDisk" CssClass="btn btn-success" runat="server" OnClick="btnInsertDisk_Click" CausesValidation="false"> <i class="fa fa-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnInsertDiskText"/> </CPCC:StyleButton>
+			                        <asp:LinkButton id="btnEjectDisk" CssClass="btn btn-warning" runat="server" OnClick="btnEjectDisk_Click" CausesValidation="false"> <i class="bi bi-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEjectDiskText"/> </asp:LinkButton>&nbsp;
+                                    <asp:LinkButton id="btnInsertDisk" CssClass="btn btn-success" runat="server" OnClick="btnInsertDisk_Click" CausesValidation="false"> <i class="bi bi-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnInsertDiskText"/> </asp:LinkButton>
 			                    </td>
 			                </tr>
 			            </table>

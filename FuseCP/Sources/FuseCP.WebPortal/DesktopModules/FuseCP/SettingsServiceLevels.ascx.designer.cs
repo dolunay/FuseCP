@@ -124,7 +124,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnAddServiceLevel;
+       protected global::System.Web.UI.WebControls.LinkButton btnAddServiceLevel;
         
         /// <summary>
         /// btnUpdateServiceLevel control.
@@ -133,7 +133,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnUpdateServiceLevel;
+       protected global::System.Web.UI.WebControls.LinkButton btnUpdateServiceLevel;
         
         /// <summary>
         /// txtStatus control.

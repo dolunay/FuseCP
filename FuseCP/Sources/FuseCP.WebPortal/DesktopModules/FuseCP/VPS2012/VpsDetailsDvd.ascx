@@ -10,7 +10,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_dvd" />
 	
                         <fcp:SimpleMessageBox id="messageBox" runat="server" />
@@ -29,8 +29,8 @@
 			                    <td>
 			                        <br />
 			                        <br />
-			                        <CPCC:StyleButton id="btnEjectDisk" CssClass="btn btn-warning" runat="server" OnClick="btnEjectDisk_Click" CausesValidation="false"> <i class="fa fa-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEjectDiskText"/> </CPCC:StyleButton>&nbsp;
-                                    <CPCC:StyleButton id="btnInsertDisk" CssClass="btn btn-success" runat="server" OnClick="btnInsertDisk_Click" CausesValidation="false"> <i class="fa fa-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnInsertDiskText"/> </CPCC:StyleButton> 
+			                        <asp:LinkButton id="btnEjectDisk" CssClass="btn btn-warning" runat="server" OnClick="btnEjectDisk_Click" CausesValidation="false"> <i class="bi bi-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEjectDiskText"/> </asp:LinkButton>&nbsp;
+                                    <asp:LinkButton id="btnInsertDisk" CssClass="btn btn-success" runat="server" OnClick="btnInsertDisk_Click" CausesValidation="false"> <i class="bi bi-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnInsertDiskText"/> </asp:LinkButton> 
 			                    </td>
 			                </tr>
 			            </table>

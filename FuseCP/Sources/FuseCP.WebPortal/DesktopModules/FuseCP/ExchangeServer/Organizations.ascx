@@ -4,26 +4,26 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="Organization48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Organizations"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateText"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div style="text-align:right;margin-bottom: 4px;">
         <asp:CheckBox ID="chkRecursive" runat="server" Text="Show Reseller Organizations" meta:resourcekey="chkRecursive" AutoPostBack="true" CssClass="Normal" />
     </div>
     <div class="row">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-right form-inline">
-            <div class="form-group">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-end form-inline">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control" style="vertical-align: middle;">
                         <asp:ListItem Value="ItemName" meta:resourcekey="ddlSearchColumnItemName">OrganizationName</asp:ListItem>
@@ -31,13 +31,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -83,15 +83,15 @@
         </asp:TemplateField>
         <asp:TemplateField ItemStyle-Width="20px">
             <ItemTemplate>
-                <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("ItemID") %>' OnClientClick="return confirm('Remove this item?');">
+                <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("ItemID") %>' OnClientClick="return confirm('Remove this item?');">
                     &nbsp;
-                    <i class="fa fa-trash-o"></i>&nbsp;
-                </CPCC:StyleButton>
+                    <i class="bi bi-trash"></i>&nbsp;
+                </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
-<div class="panel-body">
+<div class="card-body">
     <asp:ObjectDataSource ID="odsOrgsPaged" runat="server" EnablePaging="True" SelectCountMethod="GetOrganizationsPagedCount" SelectMethod="GetOrganizationsPaged" SortParameterName="sortColumn" TypeName="FuseCP.Portal.OrganizationsHelper" OnSelected="odsOrgsPaged_Selected">
         <SelectParameters>
             <asp:QueryStringParameter Name="packageId" QueryStringField="SpaceID" DefaultValue="-1" />
@@ -101,18 +101,18 @@
         </SelectParameters>
     </asp:ObjectDataSource>
 </div>
-<div class="panel-footer">
+<div class="card-footer">
     <div class="row">
         <div class="col-md-6">
             <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Organizations Created:"></asp:Localize>
             &nbsp;&nbsp;&nbsp;
             <fcp:Quota ID="orgsQuota" runat="server" QuotaName="HostedSolution.Organizations" />
         </div>
-        <div class="col-md-6 text-right">
-            <CPCC:StyleButton id="btnSetDefaultOrganization" CssClass="btn btn-success" runat="server" OnClick="btnSetDefaultOrganization_Click">
-                <i class="fa fa-check">&nbsp;</i>&nbsp;
+        <div class="col-md-6 text-end">
+            <asp:LinkButton id="btnSetDefaultOrganization" CssClass="btn btn-success" runat="server" OnClick="btnSetDefaultOrganization_Click">
+                <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
                 <asp:Localize runat="server" meta:resourcekey="btnSetDefaultOrganizationText"/>
-            </CPCC:StyleButton>
+            </asp:LinkButton>
             &nbsp;
         </div>
     </div>

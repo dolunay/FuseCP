@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TasksTaskDetails.ascx.cs" Inherits="FuseCP.Portal.TasksTaskDetails" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <asp:Timer runat="server" Interval="4000" ID="tasksTimer" />
 <asp:UpdatePanel runat="server" ID="tasksUpdatePanel" UpdateMode="Conditional">
   <Triggers>
@@ -53,7 +53,7 @@
     </tr>
     <tr>
         <td align="center">
-            <CPCC:StyleButton id="btnStop" CssClass="btn btn-danger" runat="server" OnClick="btnStop_Click" OnClientClick="return confirm('Do you really want to terminate this task?');"> <i class="fa fa-hand-paper-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStopText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnStop" CssClass="btn btn-danger" runat="server" OnClick="btnStop_Click" OnClientClick="return confirm('Do you really want to terminate this task?');"> <i class="bi bi-hand-index-thumb">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStopText"/> </asp:LinkButton>
         </td>
     </tr>
 </table>
@@ -80,6 +80,6 @@
 </asp:UpdatePanel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click" CausesValidation="false"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click" CausesValidation="false"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackText"/> </asp:LinkButton>
 </div>

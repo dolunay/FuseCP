@@ -88,7 +88,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnConnect;
+        protected global::System.Web.UI.WebControls.LinkButton btnConnect;
         
         /// <summary>
         /// ServerNameValidator-Steuerelement
@@ -448,7 +448,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddOsTemplate;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddOsTemplate;
         
         /// <summary>
         /// repOsTemplates-Steuerelement
@@ -502,7 +502,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddDvd;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddDvd;
         
         /// <summary>
         /// repDvdLibrary-Steuerelement
@@ -655,7 +655,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Automatisch generiertes Feld
         /// Zum �ndern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetReplicaServer;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetReplicaServer;
         
         /// <summary>
         /// CertificateThumbnailValidator-Steuerelement

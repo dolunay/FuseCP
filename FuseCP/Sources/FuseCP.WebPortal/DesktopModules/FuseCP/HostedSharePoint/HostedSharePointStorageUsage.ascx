@@ -18,7 +18,7 @@
 					<asp:Image ID="Image1" SkinID="ExchangeStorageConfig48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Storage Usage"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 					<fcp:CollapsiblePanel id="secSiteCollectionsReport" runat="server"
@@ -47,11 +47,12 @@
 				    </asp:Panel>                   										                    								    
 				
 				
-				<div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnRecalculateDiscSpace" CssClass="btn btn-success" runat="server" onclick="btnRecalculateDiscSpace_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateDiscSpaceText"/> </CPCC:StyleButton>						
+				<div class="card-footer text-end">
+					    <asp:LinkButton id="btnRecalculateDiscSpace" CssClass="btn btn-success" runat="server" onclick="btnRecalculateDiscSpace_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateDiscSpaceText"/> </asp:LinkButton>						
 				    </div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

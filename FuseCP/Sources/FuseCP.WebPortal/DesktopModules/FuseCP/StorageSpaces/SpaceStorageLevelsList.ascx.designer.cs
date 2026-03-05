@@ -61,7 +61,7 @@ namespace FuseCP.Portal.StorageSpaces {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddSsLevel;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddSsLevel;
         
         /// <summary>
         /// SearchPanel control.
@@ -106,7 +106,7 @@ namespace FuseCP.Portal.StorageSpaces {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSearch;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSearch;
         
         /// <summary>
         /// odsSsLevelsPaged control.

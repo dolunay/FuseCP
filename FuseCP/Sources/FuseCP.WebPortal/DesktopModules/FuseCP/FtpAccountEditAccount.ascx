@@ -14,17 +14,17 @@
 </script>
 
 
-<div class="panel-body form-horizontal">
-    <div class="form-group">
-        <asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:" CssClass="control-label col-sm-2" AssociatedControlID="usernameControl"></asp:Label>
+<div class="card-body form-horizontal">
+    <div class="mb-3">
+        <asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:" CssClass="form-label col-sm-2" AssociatedControlID="usernameControl"></asp:Label>
         <div class="col-sm-8">
             <uc4:UsernameControl ID="usernameControl" runat="server" />
         </div>
     </div>
     <uc3:PasswordControl ID="passwordControl" runat="server" />
     <br>
-    <div class="form-group inline-form">
-        <asp:Label ID="lblHomeFolder" runat="server" meta:resourcekey="lblHomeFolder" Text="Home folder:" CssClass="control-label col-sm-2">
+    <div class="mb-3 inline-form">
+        <asp:Label ID="lblHomeFolder" runat="server" meta:resourcekey="lblHomeFolder" Text="Home folder:" CssClass="form-label col-sm-2">
             <asp:Localize ID="locMailboxSizeLimit" runat="server" meta:resourcekey="lblMailboxSizeLimit" />
         </asp:Label>
         <div class="col-sm-8">
@@ -34,19 +34,19 @@
     <br />
     <asp:PlaceHolder ID="providerControl" runat="server"></asp:PlaceHolder>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();">
-        <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();">
+        <i class="bi bi-trash">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Updating FTP Account...');">
-        <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Updating FTP Account...');">
+        <i class="bi bi-floppy">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnSaveText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>

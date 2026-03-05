@@ -3,12 +3,12 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 
 <asp:Panel ID="HostingAddonsEditPanel" runat="server" DefaultButton="btnSave" >
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <asp:UpdatePanel runat="server" ID="updatePanelUsers">
             <ContentTemplate>
                 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-                <div class="form-group">
-                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtPlanName">
+                <div class="mb-3">
+                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPlanName">
                         <asp:Localize ID="lblAddOnName" runat="server" meta:resourcekey="lblAddOnName" Text="Add-On Name:"></asp:Localize>
                     </asp:Label>
                     <div class="col-sm-10">
@@ -17,7 +17,7 @@
                             <asp:RequiredFieldValidator ID="valPlanName" runat="server" ControlToValidate="txtPlanName" ErrorMessage="*"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtPlanDescription">
+                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPlanDescription">
                         <asp:Localize ID="lblAddOnDescription" runat="server" meta:resourcekey="lblAddOnDescription" Text="Add-On Description:"></asp:Localize>
                     </asp:Label>
                     <div class="col-sm-10">
@@ -33,20 +33,20 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click">
-            <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
+    <div class="card-footer text-end">
+        <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click">
+            <i class="bi bi-trash">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnDeleteText"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-            <i class="fa fa-times">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnCancelText"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click">
-            <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click">
+            <i class="bi bi-floppy">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnSaveText"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
     </div>
 </asp:Panel>

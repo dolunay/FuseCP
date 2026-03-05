@@ -10,7 +10,7 @@
     }
 </script>
 <asp:Panel ID="pnlRecords" runat="server">
-	<div class="panel-body form-horizontal">
+	<div class="card-body form-horizontal">
 		<div class="Huge" style="padding: 10px;border: solid 1px #e5e5e5;background-color: #f5f5f5;">
 			<asp:Literal ID="litDomainName" runat="server"></asp:Literal>
 		</div>
@@ -51,15 +51,15 @@
             <asp:TemplateField>
                 <ItemStyle Width="65px" HorizontalAlign="Center" />
                 <ItemTemplate>
-                    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirmation();"> 
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                    </CPCC:StyleButton>
+                    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirmation();"> 
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </CPCC:StyleButton>
+    <div class="card-footer text-end">
+        <asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </asp:LinkButton>
     </div>
 </asp:Panel>
 <asp:ObjectDataSource ID="odsDnsRecords" runat="server" SelectMethod="GetRawDnsZoneRecords" TypeName="FuseCP.Portal.ServersHelper" OnSelected="odsDnsRecords_Selected">
@@ -68,10 +68,10 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnSave">
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <div class="row">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="ddlRecordType">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="ddlRecordType">
                     <asp:Localize ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Localize>
                 </asp:Label>
                 <div class="form-inline">
@@ -91,8 +91,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtRecordName">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordName">
                     <asp:Label ID="lblRecordName" runat="server" meta:resourcekey="lblRecordName" Text="Record Name:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -101,8 +101,8 @@
             </div>
         </div>
         <div class="row" id="rowData" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtRecordData">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordData">
                     <asp:Label ID="lblRecordData" runat="server" meta:resourcekey="lblRecordData" Text="Record Data:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -113,8 +113,8 @@
             </div>
         </div>
         <div class="row" id="rowMXPriority" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtMXPriority">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtMXPriority">
                     <asp:Label ID="lblMXPriority" runat="server" meta:resourcekey="lblMXPriority" Text="MX Priority:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -125,8 +125,8 @@
             </div>
         </div>
         <div class="row" id="rowSRVPriority" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtSRVPriority">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtSRVPriority">
                     <asp:Label ID="lblSRVPriority" runat="server" meta:resourcekey="lblSRVPriority" Text="Priority:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -137,8 +137,8 @@
             </div>
         </div>
         <div class="row" id="rowSRVWeight" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtSRVWeight">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtSRVWeight">
                     <asp:Label ID="lblSRVWeight" runat="server" meta:resourcekey="lblSRVWeight" Text="Weight:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -149,8 +149,8 @@
             </div>
         </div>
         <div class="row" id="rowSRVPort" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="ddlRecordType">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="ddlRecordType">
                     <asp:Label ID="lblSRVPort" runat="server" meta:resourcekey="lblSRVPort" Text="Port Number:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -161,8 +161,8 @@
             </div>
         </div>
         <div class="row" id="rowRecordTTL" runat="server">
-            <div class="form-group col-sm-8">
-                <asp:Label runat="server" CssClass="control-label col-sm-3" AssociatedControlID="txtRecordTTL">
+            <div class="mb-3 col-sm-8">
+                <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordTTL">
                     <asp:Label ID="lblRecordTTL" runat="server" meta:resourcekey="lblRecordTTL" Text="Record TTL:"></asp:Label>
                 </asp:Label>
                 <div class="form-inline">
@@ -173,15 +173,15 @@
             </div>
         </div>
     </div>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-            <i class="fa fa-times">&nbsp;</i>&nbsp;
+    <div class="card-footer text-end">
+        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving DNS Zone Record ...');" ValidationGroup="DnsZoneRecord">
-            <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving DNS Zone Record ...');" ValidationGroup="DnsZoneRecord">
+            <i class="bi bi-floppy">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnSaveText"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
     </div>
 </asp:Panel>

@@ -5,8 +5,8 @@
     <div class="search input-group<% if(inputsize.length > 0) {%> input-group-<%= inputsize %><% } %>" data-initialize="search" role="search" id="<%= id %>">
       <% if(placement=="appended") { %><input id="<%= id %>Input" name="<%= id %>Input" class="form-control<% if(!horizontal && inputsize.length > 0) {%> input-<%= inputsize %><% } %>" placeholder="<%= placeholder %>" type="search"<% if(required) {%> required <% } %><% if(readonly) {%> readonly <% } %><% if(isDisabled) {%> disabled <% } %>/><% } %>
       <span class="input-group-btn">
-        <button class="btn btn-default<% if(inputsize.length > 0) {%> btn-<%= inputsize %><% } %>" type="button"<% if(readonly) {%> readonly <% } %><% if(isDisabled) {%> disabled <% } %>>
-          <span class="glyphicon glyphicon-search"></span>
+        <button class="btn btn-secondary<% if(inputsize.length > 0) {%> btn-<%= inputsize %><% } %>" type="button"<% if(readonly) {%> readonly <% } %><% if(isDisabled) {%> disabled <% } %>>
+          <span class="bi bi-search"></span>
           <span class="sr-only">Search</span>
         </button>
       </span>

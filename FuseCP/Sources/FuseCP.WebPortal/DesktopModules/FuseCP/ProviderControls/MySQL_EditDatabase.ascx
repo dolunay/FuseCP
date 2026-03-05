@@ -29,8 +29,8 @@
     <table cellpadding="10">
         <tr>
             <td>
-                <CPCC:StyleButton id="btnBackup" CssClass="btn btn-primary" runat="server" OnClick="btnBackup_Click" CausesValidation="false"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackupText"/> </CPCC:StyleButton>&nbsp;
-                <CPCC:StyleButton id="btnRestore" CssClass="btn btn-warning" runat="server" OnClick="btnRestore_Click" CausesValidation="false"> <i class="fa fa-repeat">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </CPCC:StyleButton>
+                <asp:LinkButton id="btnBackup" CssClass="btn btn-primary" runat="server" OnClick="btnBackup_Click" CausesValidation="false"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackupText"/> </asp:LinkButton>&nbsp;
+                <asp:LinkButton id="btnRestore" CssClass="btn btn-warning" runat="server" OnClick="btnRestore_Click" CausesValidation="false"> <i class="bi bi-repeat">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </asp:LinkButton>
             </td>
         </tr>
     </table>

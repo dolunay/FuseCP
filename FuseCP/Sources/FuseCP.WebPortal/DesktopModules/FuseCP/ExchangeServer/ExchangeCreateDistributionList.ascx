@@ -8,17 +8,17 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeListAdd48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create Distribution List"></asp:Localize>
 				</h3>
                         </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 					
-					<div class="form-group">
-                        <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+					<div class="mb-3">
+                        <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
                         </asp:Label>
                         <div class="col-sm-10">
@@ -29,8 +29,8 @@
 							            </div>
                         </div>
                         </div>
-                        <div class="form-group">
-                        <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="email">
+                        <div class="mb-3">
+                        <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
 							<asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                         </asp:Label>
                         <div class="col-sm-10">
@@ -39,8 +39,8 @@
                             </div>
                         </div>
                         </div>
-                    <div class="form-group">
-                        <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="control-label col-sm-2">
+                    <div class="mb-3">
+                        <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="form-label col-sm-2">
                         <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locManagedBy" ></asp:Localize>
                         </asp:label>
                         <div class="col-sm-6">
@@ -55,7 +55,7 @@
                         </div>
 				</div>
 
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateList"> <i class="fa fa-users">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateList"> <i class="bi bi-people">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateList" />
 				    </div>

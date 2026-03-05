@@ -11,14 +11,14 @@
 
 <asp:UpdatePanel runat="server" ID="updatePanelUsers">
     <ContentTemplate>
-        <div class="panel-body form-inline">
+        <div class="card-body form-inline">
             <div class="input-group">
                 <asp:DropDownList ID="ddlLogNames" runat="server" CssClass="form-control" onSelectedIndexChanged="LogNameSelected" AutoPostBack="true"></asp:DropDownList>
             </div>
-            <div class="input-group pull-right">
-                <CPCC:StyleButton id="btnClearLog" CssClass="btn btn-danger" runat="server" meta:resourcekey="btnClearLog" OnClick="btnClearLog_Click">
-                    <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
-                </CPCC:StyleButton>
+            <div class="input-group float-end">
+                <asp:LinkButton id="btnClearLog" CssClass="btn btn-danger" runat="server" meta:resourcekey="btnClearLog" OnClick="btnClearLog_Click">
+                    <i class="bi bi-trash">&nbsp;</i>&nbsp;
+                </asp:LinkButton>
             </div>
         </div>
    	    <fcp:SimpleMessageBox id="messageBox" runat="server" />
@@ -49,7 +49,7 @@
                 </asp:BoundField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <a data-toggle="collapse" href="#infoRow-<%# Container.DataItemIndex %>" class="accordion-toggle collapsed"><i class="fa fa-plus-circle"></i></a>
+                        <a data-toggle="collapse" href="#infoRow-<%# Container.DataItemIndex %>" class="accordion-toggle collapsed"><i class="bi bi-plus-circle"></i></a>
                         <tr>
                             <td colspan="8" class="hiddenRow">
                                 <div class="accordion-body collapse" id="infoRow-<%# Container.DataItemIndex %>">
@@ -68,11 +68,11 @@
         </asp:ObjectDataSource>
     </ContentTemplate>
 </asp:UpdatePanel>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
 
 <script type="text/javascript">

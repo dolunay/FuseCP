@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SpaceQuotas.ascx.cs" Inherits="FuseCP.Portal.SpaceQuotas" %>
 <%@ Register Src="UserControls/Quota.ascx" TagName="Quota" TagPrefix="fcp" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <table  id="tblQuotas" runat="server" cellpadding="3">
     <tr ID="pnlDiskspace" runat="server">
         <td class="SubHead" nowrap><asp:Label runat="server" meta:resourcekey="lblDiskspace" Text="Diskspace, MB:"/></td>
@@ -178,7 +178,7 @@
     </tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnViewQuotas" CssClass="btn btn-success" runat="server" OnClick="btnViewQuotas_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnViewQuotasText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnViewQuotas" CssClass="btn btn-success" runat="server" OnClick="btnViewQuotas_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnViewQuotasText"/> </asp:LinkButton>
 </div>
 

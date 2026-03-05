@@ -18,14 +18,14 @@
 
 
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
+    </asp:LinkButton>
 </div>
 
-<div class="panel-body row">
+<div class="card-body row">
 	<div class="col-md-6">
-        <div class="form-group">
+        <div class="mb-3">
 		<asp:Label ID="lblPool" runat="server" meta:resourcekey="lblPool" Text="Pool:" CssClass="col-sm-2"></asp:Label>
             <div class="col-sm-10">
 		<asp:DropDownList ID="ddlPools" runat="server" CssClass="form-control" AutoPostBack="true">
@@ -97,7 +97,7 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div class="panel-footer">
+<div class="card-footer">
     <div class="row">
     <div class="col-md-9">
         <asp:Button id="btnEditSelected" runat="server" Text="Edit Selected..."
@@ -108,7 +108,7 @@
             CausesValidation="false" onclick="btnDeleteSelected_Click"></asp:Button>
     </div>
     <div class="col-md-3">
-        <div class="form-group">
+        <div class="mb-3">
         <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4"></asp:Label>
             <div class="col-sm-8">
         <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control" 
@@ -122,3 +122,4 @@
   </div> </div>
     </div>
 </div>
+

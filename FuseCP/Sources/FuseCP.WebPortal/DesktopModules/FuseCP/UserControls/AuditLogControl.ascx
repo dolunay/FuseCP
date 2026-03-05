@@ -171,7 +171,7 @@
 <asp:Panel ID="pnlTaskDetails" runat="server" CssClass="PopupContainer" style="display:none;">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-book"></i> <asp:Localize ID="TaskDetailsHeader" runat="server" Text="Task Details" meta:resourcekey="TaskDetailsHeader"></asp:Localize></h3>
+            <h3><i class="bi bi-book"></i> <asp:Localize ID="TaskDetailsHeader" runat="server" Text="Task Details" meta:resourcekey="TaskDetailsHeader"></asp:Localize></h3>
         </div>
         <div class="widget-content Popup">
         <table class="table">
@@ -264,8 +264,8 @@
             </tr>
         </table>
             </div>
-					<div class="popup-buttons text-right">
-	        <CPCC:StyleButton id="btnCloseTaskDetails" CssClass="btn btn-primary" runat="server"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseTaskDetailsText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+	        <asp:LinkButton id="btnCloseTaskDetails" CssClass="btn btn-primary" runat="server"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseTaskDetailsText"/> </asp:LinkButton>
 	    </div>
 	    
     </div>

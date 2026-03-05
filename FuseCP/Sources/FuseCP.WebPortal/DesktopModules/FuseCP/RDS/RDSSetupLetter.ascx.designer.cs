@@ -151,7 +151,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnExit;
+        protected global::System.Web.UI.WebControls.LinkButton btnExit;
         
         /// <summary>
         /// btnSend control.
@@ -160,7 +160,7 @@ namespace FuseCP.Portal.RDS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSend;
+        protected global::System.Web.UI.WebControls.LinkButton btnSend;
         
         /// <summary>
         /// litContent control.

@@ -7,7 +7,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 
                     <fcp:AuditLogControl id="auditLog" runat="server" LogSource="VPS2012" />
 

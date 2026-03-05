@@ -45,7 +45,7 @@ namespace FuseCP.Portal.UserControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAllocateVLAN;
+        protected global::System.Web.UI.WebControls.LinkButton btnAllocateVLAN;
 
         /// <summary>
         /// ddlPageSize control.

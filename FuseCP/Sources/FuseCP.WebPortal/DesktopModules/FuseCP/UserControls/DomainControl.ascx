@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DomainControl.ascx.cs" Inherits="FuseCP.Portal.UserControls.DomainControl" %>
 
-<div class="form-group">
+<div class="mb-3">
      <asp:Label ID="lblAddress" runat="server" Text="Domain Name" CssClass="col-sm-2"  AssociatedControlID="txtDomainName"></asp:Label>
      <div class="col-sm-10 form-inline">
          <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control" OnTextChanged="txtDomainName_TextChanged"></asp:TextBox>

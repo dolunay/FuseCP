@@ -34,21 +34,21 @@
     });
 </script>
 
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image2" SkinID="ExchangeMailbox48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Auto Reply"></asp:Localize>
         -
 		<asp:Literal ID="litDisplayName" runat="server" Text="" />
     </h3>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <div class="nav nav-tabs" style="padding-bottom: 7px !important;">
         <fcp:MailboxTabs ID="MailboxTabs" runat="server" SelectedTab="mailbox_autoreply" />
     </div>
-    <div class="panel panel-default tab-content">
+    <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-        <div class="form-group">
+        <div class="mb-3">
             <div class="col-sm-10 form-inline">
                 <table style="width: 950px;">
                     <tr>
@@ -116,7 +116,7 @@
         </div>
     </div>
 </div>
-<div class="panel-footer text-right">
+<div class="card-footer text-end">
     <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="EditMailbox"
         OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditMailbox" />

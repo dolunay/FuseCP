@@ -133,7 +133,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddServices;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddServices;
         
         /// <summary>
         /// btnRemoveSelected control.
@@ -142,7 +142,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnRemoveSelected;
+        protected global::System.Web.UI.WebControls.LinkButton btnRemoveSelected;
         
         /// <summary>
         /// dlServiceGroups control.
@@ -223,7 +223,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
         
         /// <summary>
         /// btnCancel control.
@@ -232,7 +232,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnUpdate control.
@@ -241,6 +241,6 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpdate;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpdate;
     }
 }

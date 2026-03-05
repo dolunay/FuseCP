@@ -3,7 +3,7 @@
 <%@ Register Src="UserControls/Gauge.ascx" TagName="Gauge" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SpaceDetailsHeaderControl ID="spaceDetails" runat="server" />
     
     <fcp:CollapsiblePanel id="secSummary" runat="server"
@@ -52,6 +52,6 @@
         </div>
     </asp:Panel>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
 </div>

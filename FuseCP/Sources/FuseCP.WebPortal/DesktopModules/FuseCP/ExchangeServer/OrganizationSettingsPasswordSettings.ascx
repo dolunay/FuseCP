@@ -9,19 +9,19 @@
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationPasswordPolicy48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Settings"></asp:Localize>
 
                     <asp:Literal ID="litOrganizationName" runat="server" Text="Organization" />
                         </h3>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_password_settings" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                     <asp:UpdatePanel runat="server" ID="PasswordPolicyPanel" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
@@ -176,7 +176,7 @@
 
                 </div>
                 </div>
-                    <div class="panel-footer text-right">
+                    <div class="card-footer text-end">
                         <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SettingsEditor"
                             OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                     </div>

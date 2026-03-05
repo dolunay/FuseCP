@@ -8,16 +8,16 @@
 <asp:UpdatePanel runat="server" ID="updatePanelUsers">
     <ContentTemplate> 
         <div class="FormButtonsBar right">
-          <CPCC:StyleButton ID="btnAddUser" runat="server" CssClass="btn btn-primary" OnClick="btnAddUser_Click" >
-            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddUser"/>
-            </CPCC:StyleButton>
+          <asp:LinkButton ID="btnAddUser" runat="server" CssClass="btn btn-primary" OnClick="btnAddUser_Click" >
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddUser"/>
+            </asp:LinkButton>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-8 text-right form-inline">
-                    <div class="form-group">
+                <div class="col-md-8 text-end form-inline">
+                    <div class="mb-3">
                         <div class="input-group">
                             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" resourcekey="ddlStatus" AutoPostBack="true">
                                 <asp:ListItem Value="0">ByStatus</asp:ListItem>
@@ -28,7 +28,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <div class="input-group">
                             <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-control" resourcekey="ddlRole" AutoPostBack="true">
                                 <asp:ListItem Value="0">ByRole</asp:ListItem>
@@ -37,7 +37,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <uc1:SearchBox ID="searchBox" runat="server" />
                     </div>
                 </div>

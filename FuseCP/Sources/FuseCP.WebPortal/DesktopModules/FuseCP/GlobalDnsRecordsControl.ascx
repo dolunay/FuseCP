@@ -2,10 +2,10 @@
 <%@ Register Src="UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 
 <asp:Panel ID="pnlRecords" runat="server">
-    <div class="text-right" style="margin-bottom:10px;">
-        <CPCC:StyleButton ID="btnAdd" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" CausesValidation="False">
-            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd" />
-        </CPCC:StyleButton>
+    <div class="text-end" style="margin-bottom:10px;">
+        <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" CausesValidation="False">
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd" />
+        </asp:LinkButton>
         <br />
     </div>
 </asp:Panel>
@@ -26,9 +26,9 @@
         <asp:TemplateField>
             <ItemStyle Width="65px" HorizontalAlign="Center" />
             <ItemTemplate>
-                <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirm('Delete?');"> 
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                </CPCC:StyleButton>
+                <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirm('Delete?');"> 
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -105,8 +105,8 @@
 
         <tr>
             <td colspan="2" align="right">
-                <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="DnsRecord"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </CPCC:StyleButton>
+                <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="DnsRecord"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
             </td>
         </tr>
     </table>

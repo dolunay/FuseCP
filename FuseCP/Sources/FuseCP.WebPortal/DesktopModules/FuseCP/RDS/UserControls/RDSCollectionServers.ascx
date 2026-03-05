@@ -5,9 +5,9 @@
 <asp:UpdatePanel ID="UsersUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
 	<div class="FormButtonsBarClean">
-		<CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-        <CPCC:StyleButton id="btnRefresh" CssClass="btn btn-warning" runat="server" OnClick="btnRefresh_Click" OnClientClick="ShowProgressDialog('Refreshing...'); return true;"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRefreshText"/> </CPCC:StyleButton>&nbsp;
-        <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+		<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+        <asp:LinkButton id="btnRefresh" CssClass="btn btn-warning" runat="server" OnClick="btnRefresh_Click" OnClientClick="ShowProgressDialog('Refreshing...'); return true;"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRefreshText"/> </asp:LinkButton>&nbsp;
+        <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 	</div>
 	<asp:GridView ID="gvServers" runat="server" meta:resourcekey="gvServers" AutoGenerateColumns="False"
 		Width="600px" CssSelectorClass="NormalGridView"
@@ -39,21 +39,21 @@
             <asp:TemplateField meta:resourcekey="gvViewInfo">
                 <ItemStyle Width="10%" HorizontalAlign="Right"/>
                 <ItemTemplate>
-                    <CPCC:StyleButton OnClientClick="ShowProgressDialog('Getting Server Info ...');return true;" CssClass="btn btn-primary" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>' 
+                    <asp:LinkButton OnClientClick="ShowProgressDialog('Getting Server Info ...');return true;" CssClass="btn btn-primary" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>' 
                         CommandName="ViewInfo" CommandArgument='<%# Eval("FqdName")%>' ID="lbViewInfo" runat="server" Text="View Info" meta:resourcekey="lbViewInfo"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvRestart">
                 <ItemStyle Width="10%" HorizontalAlign="Right"/>
                 <ItemTemplate>
-                    <CPCC:StyleButton ID="lbRestart" CommandName="Restart" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-warning" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
+                    <asp:LinkButton ID="lbRestart" CommandName="Restart" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-warning" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
                         runat="server" Text="Restart" OnClientClick="return confirm('Are you sure you want to restart selected server?')" meta:resourcekey="lbRestart"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvShutdown">
                 <ItemStyle Width="10%" HorizontalAlign="Right"/>
                 <ItemTemplate>
-                    <CPCC:StyleButton ID="lbShutdown" CommandName="ShutDown" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-danger" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
+                    <asp:LinkButton ID="lbShutdown" CommandName="ShutDown" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-danger" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
                         runat="server" Text="Shut Down" OnClientClick="return confirm('Are you sure you want to shu down selected server?')" meta:resourcekey="lbShutdown"/>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -64,7 +64,7 @@
     <asp:Panel ID="ServerInfoPanel" runat="server" style="display:none">
         <div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-server"></i>  <asp:Localize ID="Localize1" runat="server" meta:resourcekey="headerServerInfo"></asp:Localize></h3>
+                           <h3><i class="bi bi-server"></i>  <asp:Localize ID="Localize1" runat="server" meta:resourcekey="headerServerInfo"></asp:Localize></h3>
                 </div>
                     <div class="widget-content Popup">
                 <asp:UpdatePanel ID="serverInfoUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -144,7 +144,7 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
 			<br /><br />             
-                <CPCC:StyleButton id="btnCancelServerInfo" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServerInfoCancelText"/> </CPCC:StyleButton>
+                <asp:LinkButton id="btnCancelServerInfo" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnServerInfoCancelText"/> </asp:LinkButton>
             </div>
         </div>
     </asp:Panel>
@@ -152,7 +152,7 @@
         <asp:Panel ID="AddServersPanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-user"></i>  <asp:Localize ID="headerAddServers" runat="server" meta:resourcekey="headerAddServers"></asp:Localize><h3 />
+                           <h3><i class="bi bi-person"></i>  <asp:Localize ID="headerAddServers" runat="server" meta:resourcekey="headerAddServers"></asp:Localize><h3 />
 			</div>
                     <div class="widget-content Popup">
 <asp:UpdatePanel ID="AddServersUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -163,10 +163,10 @@
                         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                <div class="input-group-btn">
-                                <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" style="vertical-align: middle;" CssClass="btn btn-primary">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </CPCC:StyleButton>      
+                                <div class="d-flex">
+                                <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" style="vertical-align: middle;" CssClass="btn btn-primary">
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                </asp:LinkButton>      
                                     </div>
                                 </div>
                         </asp:Panel>
@@ -198,9 +198,9 @@
 	</ContentTemplate>
 </asp:UpdatePanel>
                         </div>
-					<div class="popup-buttons text-right">
-			<CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+			<asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </asp:LinkButton>
 		</div>
         </div>
 </asp:Panel>

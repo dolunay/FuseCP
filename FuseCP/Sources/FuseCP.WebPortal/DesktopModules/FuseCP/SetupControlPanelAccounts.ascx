@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SetupControlPanelAccounts.ascx.cs" Inherits="FuseCP.Portal.SetupControlPanelAccounts" %>
 <%@ Register src="UserControls/PasswordControl.ascx" tagname="PasswordControl" TagPrefix="fcp" %>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<p class="SubHead" style="text-align: justify;"><asp:Localize runat="server" meta:resourcekey="ScpaProcedureDescription" /></p>
 	<table cellpadding="3" cellspacing="0">
 		<tr>

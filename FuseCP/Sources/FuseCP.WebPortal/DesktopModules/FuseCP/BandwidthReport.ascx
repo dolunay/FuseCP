@@ -6,34 +6,34 @@
 <div class="buttons-in-panel-header">
        <asp:Button ID="btnExportReport" runat="server" Text="Export Report" meta:resourcekey="btnExportReport" CssClass="btn btn-primary" CausesValidation="false" OnClick="btnExportReport_Click" />
 </div>
-<div class="panel-body">
+<div class="card-body">
     <fieldset>
         <h4><asp:Localize ID="locSortData" runat="server" meta:resourcekey="locSortData" Text="Sort Data"></asp:Localize></h4>
         <hr />
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-inline">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:" CssClass="form-label"></asp:Label>
                         <uc3:CalendarControl ID="calStartDate" runat="server" Cssclass="form-control" />
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:" CssClass="form-label"></asp:Label>
                         <uc3:CalendarControl ID="calEndDate" runat="server" Cssclass="form-control" />
                     </div>
-                      <div class="form-group">
+                      <div class="mb-3">
                     <asp:Button ID="btnDisplay" runat="server" Text="Display Report" meta:resourcekey="btnDisplay" CssClass="btn btn-primary" CausesValidation="false" OnClick="btnDisplay_Click" />
                 </div>
                 </div>
             </div>
-            <div class="col-sm-6 text-right">
+            <div class="col-sm-6 text-end">
                 <div class="form-inline">
-                    <div class="form-group">
-                        <CPCC:StyleButton ID="cmdPrevMonth" runat="server" meta:resourcekey="cmdPrevMonth" OnClick="cmdPrevMonth_Click" CssClass="btn btn-primary"></CPCC:StyleButton>&nbsp;
+                    <div class="mb-3">
+                        <asp:LinkButton ID="cmdPrevMonth" runat="server" meta:resourcekey="cmdPrevMonth" OnClick="cmdPrevMonth_Click" CssClass="btn btn-primary"></asp:LinkButton>&nbsp;
                         <asp:Literal ID="litStartDate" runat="server" Visible="false"></asp:Literal>
                         <asp:Literal ID="litPeriod" runat="server"></asp:Literal>
                         <asp:Literal ID="litEndDate" runat="server" Visible="false"></asp:Literal>&nbsp;
-                        <CPCC:StyleButton ID="cmdNextMonth" runat="server" meta:resourcekey="cmdNextMonth" OnClick="cmdNextMonth_Click" CssClass="btn btn-primary"></CPCC:StyleButton>
+                        <asp:LinkButton ID="cmdNextMonth" runat="server" meta:resourcekey="cmdNextMonth" OnClick="cmdNextMonth_Click" CssClass="btn btn-primary"></asp:LinkButton>
                     </div>
                 </div>
             </div>

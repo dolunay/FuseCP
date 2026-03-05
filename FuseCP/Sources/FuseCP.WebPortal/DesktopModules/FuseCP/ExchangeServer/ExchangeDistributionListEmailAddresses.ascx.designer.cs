@@ -106,7 +106,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnAddEmail;
+       protected global::System.Web.UI.WebControls.LinkButton btnAddEmail;
         
         /// <summary>
         /// secExistingAddresses control.
@@ -160,7 +160,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnSetAsPrimary;
+       protected global::System.Web.UI.WebControls.LinkButton btnSetAsPrimary;
         
         /// <summary>
         /// btnDeleteAddresses control.
@@ -169,6 +169,6 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnDeleteAddresses;
+       protected global::System.Web.UI.WebControls.LinkButton btnDeleteAddresses;
     }
 }

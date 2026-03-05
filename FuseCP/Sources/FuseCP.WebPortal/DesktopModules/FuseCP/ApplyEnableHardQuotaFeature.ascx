@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ApplyEnableHardQuotaFeature.ascx.cs" Inherits="FuseCP.Portal.ApplyEnableHardQuotaFeature" %>
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="messageBox" TagPrefix="uc4" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <table cellspacing="0" cellpadding="4" width="100%">
         <tr>
 
@@ -13,6 +13,6 @@
     </table>
     
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </asp:LinkButton>
 </div>

@@ -3,7 +3,7 @@
 <%@ Register Src="UserControls/Quota.ascx" TagName="Quota" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:PackageIPAddresses id="webAddresses" runat="server"
             Pool="WebSites"
             EditItemControl=""

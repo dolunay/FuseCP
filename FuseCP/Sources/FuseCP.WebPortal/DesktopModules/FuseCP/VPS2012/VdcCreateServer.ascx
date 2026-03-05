@@ -13,7 +13,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
     			    	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -31,24 +31,24 @@
                         <StepStyle VerticalAlign="Top" />
                         
                         <StartNavigationTemplate>
-                            <CPCC:StyleButton id="btnNext" CssClass="btn btn-primary" runat="server" CommandName="MoveNext" ValidationGroup="Vps"> <i class="fa fa-arrow-right">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnNextText"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnNext" CssClass="btn btn-primary" runat="server" CommandName="MoveNext" ValidationGroup="Vps"> <i class="bi bi-arrow-right">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnNextText"/> </asp:LinkButton>
                         </StartNavigationTemplate>
                         
                         <StepNavigationTemplate>
-                            <CPCC:StyleButton id="btnPrevious" CssClass="btn btn-primary" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPreviousText"/> </CPCC:StyleButton>&nbsp;
-                            <CPCC:StyleButton id="btnNext" CssClass="btn btn-primary" runat="server" CommandName="MoveNext" ValidationGroup="Vps"> <i class="fa fa-arrow-right">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnNextText"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnPrevious" CssClass="btn btn-primary" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPreviousText"/> </asp:LinkButton>&nbsp;
+                            <asp:LinkButton id="btnNext" CssClass="btn btn-primary" runat="server" CommandName="MoveNext" ValidationGroup="Vps"> <i class="bi bi-arrow-right">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnNextText"/> </asp:LinkButton>
 
                         </StepNavigationTemplate>
                         
                         <FinishNavigationTemplate>
-                            <CPCC:StyleButton id="btnPrevious" CssClass="btn btn-primary" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPreviousText"/> </CPCC:StyleButton>&nbsp;        
-                            <CPCC:StyleButton id="btnFinish" CssClass="btn btn-success" runat="server"  CommandName="MoveComplete" ValidationGroup="Vps"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnFinishText"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnPrevious" CssClass="btn btn-primary" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnPreviousText"/> </asp:LinkButton>&nbsp;        
+                            <asp:LinkButton id="btnFinish" CssClass="btn btn-success" runat="server"  CommandName="MoveComplete" ValidationGroup="Vps"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnFinishText"/> </asp:LinkButton>
                         </FinishNavigationTemplate>
                        
                         
                         <WizardSteps>
                             <asp:WizardStep ID="stepName" runat="server" meta:resourcekey="stepName" Title="Name and OS">
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
                                                 <div class="col-sm-10 form-inline">
                                                 <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
@@ -78,7 +78,7 @@
                                                 Text="Generate hostname automatically" meta:resourcekey="chkAutoHostName" />
                                         </div>
                                  </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                 <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2"  AssociatedControlID="listOperatingSystems"></asp:Label>
                                         <div class="col-sm-10 form-inline">
                                                 <asp:DropDownList ID="listOperatingSystems" runat="server"
@@ -93,7 +93,7 @@
                                     </div>
                                                 <fcp:PasswordControl id="password" runat="server" ValidationGroup="Vps" AllowGeneratePassword="true">
                                                 </fcp:PasswordControl>
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <div class="col-sm-12">
                                                 <asp:CheckBox ID="chkSendSummary" runat="server" AutoPostBack="true" Checked="true"
                                                     meta:resourcekey="chkSendSummary" Text="Send summary letter to:" /><br />
@@ -111,7 +111,7 @@
                                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow: hidden; padding: 5px;">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <asp:Label ID="lblCpu" meta:resourcekey="lblCpu" runat="server" Text="CPU:" CssClass="col-sm-2"  AssociatedControlID="ddlCpu"></asp:Label>
                                             <div class="col-sm-10 form-inline">
                                                     <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
@@ -143,7 +143,7 @@
                                                     <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
                                                     </div>
                                         <div style="margin-top:15px; margin-bottom:25px; margin-left:10px;">
-                                            <CPCC:StyleButton id="btnAddHdd" CssClass="btn btn-success" runat="server" Visible="false" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </CPCC:StyleButton>
+                                            <asp:LinkButton id="btnAddHdd" CssClass="btn btn-success" runat="server" Visible="false" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </asp:LinkButton>
                                         </div>
                                         <asp:Repeater ID="repHdd" runat="server">
                                             <HeaderTemplate>
@@ -160,7 +160,7 @@
 														ControlToValidate="txtAdditionalHdd" Display="Dynamic" SetFocusOnError="true" ValidationGroup="Vps">
 													</asp:RegularExpressionValidator>
                                                     <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
-                                                    <CPCC:StyleButton id="btnRemoveHdd" style="margin-left: 30px;" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveHdd"/> </CPCC:StyleButton>
+                                                    <asp:LinkButton id="btnRemoveHdd" style="margin-left: 30px;" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveHdd"/> </asp:LinkButton>
                                                 </div>
                                             </ItemTemplate>
                                             <SeparatorTemplate>
@@ -174,7 +174,7 @@
                                         TargetControlID="QOSManag" meta:resourcekey="secHddQOS" Text="Virtual Hard Disk Drive Quality of Service management">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                       <div class="form-group">
+                                       <div class="mb-3">
                                             <div class="col-sm-10">
                                         <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
                             Text="Specify Quality of Service management for this virtual hard disk. Minimum and maximum IOPS are measured in 8KB increments. Default value is 0." />
@@ -207,7 +207,7 @@
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 form-inline">
                                                     <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control form-control" Width="150" Text="0"></asp:TextBox>
@@ -223,7 +223,7 @@
                                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                              <div class="col-sm-12">
                                                     <asp:CheckBox ID="chkDvdInstalled" runat="server"
                                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
@@ -235,7 +235,7 @@
                                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <div class="col-sm-6">
                                                     <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
                                             </div>
@@ -249,7 +249,7 @@
                                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <div class="col-sm-4">
                                                     <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
                                              </div>

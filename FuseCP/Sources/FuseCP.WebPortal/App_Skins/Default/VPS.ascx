@@ -15,9 +15,9 @@
 <div class="wrapper" id="SkinOutline">
 	<nav class="top-bar navbar-fixed-top" role="navigation">
 		<div class="logo-area">
-			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified pull-left"><i class="icon ion-arrow-swap"></i></a>
-			<a class="btn btn-link btn-off-canvas pull-left"><i class="icon ion-navicon"></i></a>
-			<div class="logo pull-left">
+			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified float-start"><i class="icon ion-arrow-swap"></i></a>
+			<a class="btn btn-link btn-off-canvas float-start"><i class="icon ion-navicon"></i></a>
+			<div class="logo float-start">
 				<fcp:Logo ID="logo" runat="server" />
 			</div>
 		</div>

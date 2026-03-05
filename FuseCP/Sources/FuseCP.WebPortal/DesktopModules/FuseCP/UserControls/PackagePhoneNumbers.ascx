@@ -19,7 +19,7 @@
 
 <div class="FormButtonsBarClean">
     <div class="FormButtonsBarCleanLeft">
-        <CPCC:StyleButton id="btnAllocateAddress" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateAddress_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateAddressText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAllocateAddress" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateAddress_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateAddressText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
         <fcp:SearchBox ID="searchBox" runat="server" />

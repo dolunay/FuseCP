@@ -152,7 +152,7 @@ namespace FuseCP.Portal.CRM {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnActive;
+        protected global::System.Web.UI.WebControls.LinkButton btnActive;
         
         /// <summary>
         /// btnDeactivate control.
@@ -161,7 +161,7 @@ namespace FuseCP.Portal.CRM {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDeactivate;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeactivate;
         
         /// <summary>
         /// ddlLicenseType control.
@@ -188,7 +188,7 @@ namespace FuseCP.Portal.CRM {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpdate;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpdate;
         
         /// <summary>
         /// btnSaveExit control.
@@ -197,6 +197,6 @@ namespace FuseCP.Portal.CRM {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSaveExit;
+        protected global::System.Web.UI.WebControls.LinkButton btnSaveExit;
     }
 }

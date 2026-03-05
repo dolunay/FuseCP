@@ -160,7 +160,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnUpdate;
+       protected global::System.Web.UI.WebControls.LinkButton btnUpdate;
         
         /// <summary>
         /// btnCancel control.
@@ -169,7 +169,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnCancel;
+       protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnSaveAndAddAnother control.
@@ -178,6 +178,6 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       protected global::CPCC.StyleButton btnSaveAndAddAnother;
+       protected global::System.Web.UI.WebControls.LinkButton btnSaveAndAddAnother;
     }
 }

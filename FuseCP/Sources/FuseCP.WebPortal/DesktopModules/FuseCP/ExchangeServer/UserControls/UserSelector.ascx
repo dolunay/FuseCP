@@ -5,16 +5,16 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+                    <div class="mb-3">
+                        <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="DisplayNameLabel" runat="server" meta:resourcekey="DisplayNameLabel" Text="First Name:" />
                         </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-btn">
-                                    <CPCC:StyleButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary" />
-                                    <CPCC:StyleButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
+                                <span class="d-flex">
+                                    <asp:LinkButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary" />
+                                    <asp:LinkButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
                                 </span>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
             <div class="widget">
                 <div class="widget-header clearfix">
                     <h3>
-                        <i class="fa fa-user"></i>
+                        <i class="bi bi-person"></i>
                         <asp:Localize ID="headerAddAccounts" runat="server" meta:resourcekey="headerAddAccounts"></asp:Localize>
                     </h3>
                 </div>
@@ -48,8 +48,8 @@
                                                 </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                            <div class="d-flex">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div></div></div>
                                      </asp:Panel>
                                 </div>
@@ -76,10 +76,10 @@
 	                    </ContentTemplate>
                     </asp:UpdatePanel>
                     <br /><br />
-                    <CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False">
-                        <i class="fa fa-times">&nbsp;</i>&nbsp;
+                    <asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False">
+                        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                         <asp:Localize runat="server" meta:resourcekey="btnCancelText"/>
-                    </CPCC:StyleButton>
+                    </asp:LinkButton>
                     &nbsp;
                 </div>
             </div>

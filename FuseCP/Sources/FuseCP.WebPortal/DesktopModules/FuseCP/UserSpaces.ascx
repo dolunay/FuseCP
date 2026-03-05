@@ -8,12 +8,12 @@
 <script src="/JavaScript/chosen.min.js" type="text/javascript"></script>
 
 <asp:Panel id="ButtonsPanel" runat="server" class="FormButtonsBar UserSpaces right">
-    <CPCC:StyleButton id="btnAddItem" CssClass="btn btn-primary" runat="server" OnClick="btnAddItem_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/> </CPCC:StyleButton>
+    <asp:LinkButton id="btnAddItem" CssClass="btn btn-primary" runat="server" OnClick="btnAddItem_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/> </asp:LinkButton>
 </asp:Panel>
 
 
 <asp:Panel ID="UserPackagesPanel" runat="server" Visible="false">
-    <div class="panel-body">
+    <div class="card-body">
         <div class="space-select">
             <asp:DropDownList ID="ddlPackageSelect" OnSelectedIndexChanged="openSelectedPackage" AutoPostBack="true" CssClass="form-control" runat="server" Visible="false" />
         </div>
@@ -58,7 +58,7 @@
         </asp:Repeater>
     </div>
     
-    <asp:Panel ID="EmptyPackagesList" runat="server" Visible="false" CssClass="panel-body form-horizontal">
+    <asp:Panel ID="EmptyPackagesList" runat="server" Visible="false" CssClass="card-body form-horizontal">
         <asp:Literal ID="litEmptyList" runat="server" EnableViewState="false"></asp:Literal>
     </asp:Panel>
 </asp:Panel>

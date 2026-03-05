@@ -22,7 +22,7 @@
 
 <div class="Content">
     <div class="Center">
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_network" />
             <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
@@ -39,7 +39,7 @@
                 </div>
                 <asp:Repeater ID="repVMNetwork" runat="server">
                     <ItemTemplate>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <table style="border-collapse: separate; border-spacing: 15px 5px; padding-left: 5px;">
                                 <tr>
                                     <td>

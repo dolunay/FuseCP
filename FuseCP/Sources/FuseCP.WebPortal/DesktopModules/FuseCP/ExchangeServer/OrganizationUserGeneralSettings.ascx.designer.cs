@@ -153,7 +153,7 @@ namespace FuseCP.Portal.HostedSolution
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetUserPrincipalName;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetUserPrincipalName;
 
         /// <summary>
         /// locDisplayName control.
@@ -225,7 +225,7 @@ namespace FuseCP.Portal.HostedSolution
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetUserPassword;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetUserPassword;
 
         /// <summary>
         /// chkUserMustChangePassword control.

@@ -79,7 +79,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton ButtonDebuggerStop;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonDebuggerStop;
         
         /// <summary>
         /// ButtonDebuggerStart control.
@@ -88,7 +88,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton ButtonDebuggerStart;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonDebuggerStart;
         
         /// <summary>
         /// BUttonShowDebuggingPageLinkModal control.
@@ -97,7 +97,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton BUttonShowDebuggingPageLinkModal;
+        protected global::System.Web.UI.WebControls.LinkButton BUttonShowDebuggingPageLinkModal;
         
         /// <summary>
         /// DebuggerFramePanel control.
@@ -133,7 +133,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpdate;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpdate;
         
         /// <summary>
         /// btnCancel control.
@@ -142,7 +142,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
         
         /// <summary>
         /// btnSave control.
@@ -151,7 +151,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSave;
+        protected global::System.Web.UI.WebControls.LinkButton btnSave;
         
         /// <summary>
         /// DebuggingPageLinkPanel control.
@@ -187,7 +187,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelDebuggingPageLinkPanel;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDebuggingPageLinkPanel;
         
         /// <summary>
         /// DebuggingPageLinkModal control.

@@ -130,7 +130,7 @@
         </td>
         <td>
             <asp:TextBox runat="server" ID="txtAddGWServer" MaxLength="1000" Width="200px"  />  
-            <CPCC:StyleButton id="btnAddGWServer" CssClass="btn btn-success" runat="server" OnClick="btnAddGWServer_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnAddGWServer" CssClass="btn btn-success" runat="server" OnClick="btnAddGWServer_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
             <br />
             <asp:GridView ID="gvGWServers" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvGWServers_RowCommand" meta:resourcekey="gvGWServers">
@@ -143,9 +143,9 @@
                     
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServerName") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServerName") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -5,8 +5,8 @@
     <ContentTemplate>
     
 	<div class="FormButtonsBarClean">
-        <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-		<CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+		<asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 	</div>
     
 	<asp:GridView ID="gvAccounts" runat="server" meta:resourcekey="gvAccounts" AutoGenerateColumns="False"
@@ -62,7 +62,7 @@
 <asp:Panel ID="AddAccountsPanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-				 <h3><i class="fa fa-user"></i>  <asp:Localize ID="headerAddAccounts" runat="server" meta:resourcekey="headerAddAccounts"></asp:Localize></h3>
+				 <h3><i class="bi bi-person"></i>  <asp:Localize ID="headerAddAccounts" runat="server" meta:resourcekey="headerAddAccounts"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
 <asp:UpdatePanel ID="AddAccountsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -81,35 +81,35 @@
                             </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
+                <div class="d-flex">
                     <div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                  <div class="form-group">
+                                  <div class="mb-3">
                                     <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                                       <br />
 					<asp:CheckBox ID="chkIncludeMailboxes" runat="server" Text="Accounts" Checked="true"
-							meta:resourcekey="chkIncludeMailboxes" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeMailboxes" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
                     <asp:CheckBox ID="chkIncludeRooms" runat="server" Text="Rooms" Checked="true"
-						    meta:resourcekey="chkIncludeRooms" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+						    meta:resourcekey="chkIncludeRooms" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
                     <asp:CheckBox ID="chkIncludeEquipment" runat="server" Text="Equipment" Checked="true"
-							meta:resourcekey="chkIncludeEquipment" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeEquipment" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
                     <asp:CheckBox ID="chkIncludeSharedMailbox" runat="server" Text="Shared Mailbox" Checked="true"
-							meta:resourcekey="chkIncludeSharedMailbox" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeSharedMailbox" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
 							
 					<asp:CheckBox ID="chkIncludeContacts" runat="server" Text="Contacts" Checked="true"
-							meta:resourcekey="chkIncludeContacts" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeContacts" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
 					<asp:CheckBox ID="chkIncludeLists" runat="server" Text="Distribution Lists" Checked="true"
-							meta:resourcekey="chkIncludeLists" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeLists" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
                     <asp:CheckBox ID="chkIncludeGroups" runat="server" Text="Groups" Checked="true"
-							meta:resourcekey="chkIncludeGroups" AutoPostBack="true" CssClass="col-xs-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
+							meta:resourcekey="chkIncludeGroups" AutoPostBack="true" CssClass="col-12 col-sm-6" OnCheckedChanged="chkIncludeMailboxes_CheckedChanged" />
 
                                         </div>
                                   </div>
                             </div>
                         </div>
-                       <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                       <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                        </div></div>
                         </asp:Panel>
                     </div>
@@ -146,8 +146,8 @@
 					</asp:GridView>
 				</div>
 			<br /><br />
-			<CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </CPCC:StyleButton>
+			<asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

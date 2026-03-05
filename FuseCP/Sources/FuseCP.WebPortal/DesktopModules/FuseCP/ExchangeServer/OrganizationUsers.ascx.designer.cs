@@ -61,7 +61,7 @@ namespace FuseCP.Portal.HostedSolution {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreateUser;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateUser;
         
         /// <summary>
         /// messageBox control.
@@ -124,7 +124,7 @@ namespace FuseCP.Portal.HostedSolution {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSearch;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSearch;
         
         /// <summary>
         /// UsersPanel control.
@@ -214,7 +214,7 @@ namespace FuseCP.Portal.HostedSolution {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelDelete;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDelete;
         
         /// <summary>
         /// btnDeleteUser control.
@@ -223,7 +223,7 @@ namespace FuseCP.Portal.HostedSolution {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnDeleteUser;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteUser;
         
         /// <summary>
         /// btnDeleteUserFake control.

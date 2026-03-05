@@ -61,7 +61,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCreateList;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateList;
         
         /// <summary>
         /// messageBox control.
@@ -124,7 +124,7 @@ namespace FuseCP.Portal.ExchangeServer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSearch;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSearch;
         
         /// <summary>
         /// gvLists control.

@@ -10,15 +10,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="ServerConfig48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Configuration" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_config" />	
                     
@@ -40,8 +40,8 @@
                                     meta:resourcekey="locAdministratorPassword" Text="Administrator password:"></asp:Localize></td>
                                 <td>
                                     ********
-                                    <CPCC:StyleButton ID="btnChangePasswordPopup" runat="server" CausesValidation="false"
-                                        Text="Change" meta:resourcekey="btnChangePasswordPopup"></CPCC:StyleButton>
+                                    <asp:LinkButton ID="btnChangePasswordPopup" runat="server" CausesValidation="false"
+                                        Text="Change" meta:resourcekey="btnChangePasswordPopup"></asp:LinkButton>
                                 </td>
                             </tr>
                         </table>
@@ -184,13 +184,13 @@
                     </asp:Panel>
                     
                     <p style="padding: 5px;">
-                        <CPCC:StyleButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false"> <i class="fa fa-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false"> <i class="bi bi-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </asp:LinkButton>
                     </p>
 
 <asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none;">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-key"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
+                           <h3><i class="bi bi-key"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 			 </div>
                     <div class="widget-content Popup">
 			<table cellspacing="7" style="margin-left:20px;">
@@ -208,9 +208,9 @@
 			    </tr>
 			</table>                        
 			</div>
-					<div class="popup-buttons text-right">
-		    <CPCC:StyleButton id="btnCancelChangePassword" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelChangePasswordText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnChangePassword" CssClass="btn btn-primary" runat="server" OnClick="btnChangePassword_Click" ValidationGroup="ChangePassword"> <i class="fa fa-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangePasswordText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+		    <asp:LinkButton id="btnCancelChangePassword" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelChangePasswordText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnChangePassword" CssClass="btn btn-primary" runat="server" OnClick="btnChangePassword_Click" ValidationGroup="ChangePassword"> <i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangePasswordText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>

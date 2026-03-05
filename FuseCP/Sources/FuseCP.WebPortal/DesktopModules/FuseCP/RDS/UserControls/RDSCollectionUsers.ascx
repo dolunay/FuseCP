@@ -4,8 +4,8 @@
 <asp:UpdatePanel ID="UsersUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
         <div class="FormButtonsBarClean">
-            <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="ShowProgressDialog('Checking users ...');return true;"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
-            <asp:LinkButton ID="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Loading ...');return true;"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
+            <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="ShowProgressDialog('Checking users ...');return true;"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton ID="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Loading ...');return true;"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
         </div>
         <asp:GridView ID="gvUsers" runat="server" meta:resourcekey="gvUsers" AutoGenerateColumns="False"
             Width="100%" CssSelectorClass="NormalGridView" OnRowCommand="gvUsers_RowCommand"
@@ -38,7 +38,7 @@
                 <asp:TemplateField meta:resourcekey="gvSetupInstructions">
                     <ItemStyle Width="20%" HorizontalAlign="right"></ItemStyle>
                     <ItemTemplate>
-                        <CPCC:StyleButton ID="lbSetupInstructions" CommandName="SetupInstructions" CommandArgument='<%# Eval("AccountId")%>' runat="server"
+                        <asp:LinkButton ID="lbSetupInstructions" CommandName="SetupInstructions" CommandArgument='<%# Eval("AccountId")%>' runat="server"
                             Text="Setup Instructions" OnClientClick="ShowProgressDialog('Loading ...');return true;" meta:resourcekey="lbSetupInstructions" />
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -50,7 +50,7 @@
         <asp:Panel ID="AddAccountsPanel" runat="server" Style="display: none">
             <div class="widget">
                 <div class="widget-header clearfix">
-                    <h3><i class="fa fa-user"></i>
+                    <h3><i class="bi bi-person"></i>
                         <asp:Localize ID="headerAddAccounts" runat="server" meta:resourcekey="headerAddAccounts"></asp:Localize><h3 />
                 </div>
                 <div class="widget-content Popup">
@@ -68,8 +68,8 @@
                                                 </asp:DropDownList>
                                             </div>
                                             <div class="input-group">
-                                                <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox><div class="input-group-btn">
-                                                    <asp:LinkButton ID="cmdSearch" runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></asp:LinkButton>
+                                                <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox><div class="d-flex">
+                                                    <asp:LinkButton ID="cmdSearch" runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,14 +110,14 @@
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    <div class="popup-buttons text-right">
-                        <CPCC:StyleButton ID="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
-                            <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText" />
-                        </CPCC:StyleButton>
+                    <div class="popup-buttons text-end">
+                        <asp:LinkButton ID="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
+                            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText" />
+                        </asp:LinkButton>
                         &nbsp;
-                        <CPCC:StyleButton ID="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click" OnClientClick="CloseProgressDialog();">
-                            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText" />
-                        </CPCC:StyleButton>
+                        <asp:LinkButton ID="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click" OnClientClick="CloseProgressDialog();">
+                            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText" />
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
         <asp:Panel ID="DeleteWarningPanel" runat="server" Style="display: none">
             <div class="widget">
                 <div class="widget-header clearfix">
-                    <h3><i class="fa fa-trash-o"></i>
+                    <h3><i class="bi bi-trash"></i>
                         <asp:Localize ID="lcDeleteWarningHeader" runat="server" meta:resourcekey="headerDeleteWarning"></asp:Localize><h3 />
                 </div>
                 <div class="widget-content Popup">
@@ -142,10 +142,10 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-                <div class="popup-buttons text-right">
-                    <CPCC:StyleButton ID="btnCancelDeleteWarning" CssClass="btn btn-warning" runat="server" CausesValidation="False">
-                        <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelDeleteWarningText" />
-                    </CPCC:StyleButton>
+                <div class="popup-buttons text-end">
+                    <asp:LinkButton ID="btnCancelDeleteWarning" CssClass="btn btn-warning" runat="server" CausesValidation="False">
+                        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelDeleteWarningText" />
+                    </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>

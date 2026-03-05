@@ -3,15 +3,15 @@
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Reset Password"></asp:Localize>
                     -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                 </div>
 
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <asp:UpdatePanel ID="PasswrodResetUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
                             
@@ -60,6 +60,6 @@
 
                 </div>
 
-                    <div class="panel-footer text-right">
-                        <CPCC:StyleButton id="btnResetPassoword" CssClass="btn btn-success" runat="server" OnClick="btnResetPassoword_Click" ValidationGroup="ResetUserPassword"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnResetPassowordText"/> </CPCC:StyleButton>
+                    <div class="card-footer text-end">
+                        <asp:LinkButton id="btnResetPassoword" CssClass="btn btn-success" runat="server" OnClick="btnResetPassoword_Click" ValidationGroup="ResetUserPassword"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnResetPassowordText"/> </asp:LinkButton>
                     </div>

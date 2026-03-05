@@ -19,20 +19,20 @@
 
  <div class="FormButtonsBar right">
      <div class="right">
-        <CPCC:StyleButton ID="btnAddItembtn" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
-            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize id="btnAddItem" runat="server" meta:resourcekey="btnAddItem" Text="btnAddItem"/>
-        </CPCC:StyleButton>
+        <asp:LinkButton ID="btnAddItembtn" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize id="btnAddItem" runat="server" meta:resourcekey="btnAddItem" Text="btnAddItem"/>
+        </asp:LinkButton>
          &nbsp;<asp:CheckBox ID="chkRecursive" runat="server" Text="Show Nested Spaces Items" meta:resourcekey="chkRecursive" AutoPostBack="true" Checked="True" CssClass="Normal" />
      </div>
       </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
             <div class="col-md-4">
                     <fcp:WebsiteActions ID="websiteActions" runat="server" GridViewID="gvItems" CheckboxesName="chkSelectedIds" Visible="False" />
                     <%-- Mail Accounts --%>
                     <fcp:MailAccountActions ID="mailActions" runat="server" GridViewID="gvItems" CheckboxesName="chkSelectedIds" Visible="False" />
             </div>
-            <div class="col-md-8 text-right form-inline">
+            <div class="col-md-8 text-end form-inline">
                     <fcp:SearchBox ID="searchBox" runat="server" />
             </div>
     </div>
@@ -102,11 +102,11 @@
         </asp:TemplateField>
         <asp:TemplateField>
 			<ItemTemplate>
-				<CPCC:StyleButton ID="cmdDetach" runat="server" 
+				<asp:LinkButton ID="cmdDetach" runat="server" 
  					CommandName="Detach" CommandArgument='<%# Eval("ItemID") %>'
-					CssClass="btn btn-default btn-sm" OnClientClick="return confirm('Remove this item?');">
-                    <i class="fa fa-chain-broken">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
-                </CPCC:StyleButton>
+					CssClass="btn btn-secondary btn-sm" OnClientClick="return confirm('Remove this item?');">
+                    <i class="bi bi-link-45deg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
+                </asp:LinkButton>
 			</ItemTemplate>
         </asp:TemplateField>
     </Columns>

@@ -9,18 +9,18 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Mailbox"></asp:Localize>					
                 </h3>
                         </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <fcp:UserTabs ID="UserTabs" runat="server" SelectedTab="organization_user_setup" />
                     <fcp:MailboxTabs id="MailboxTabs" runat="server" SelectedTab="organization_user_setup" IsADUserTabs="true" />
                     </div>
-                    <div class="panel panel-default tab-content">	
+                    <div class="card tab-content">	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"

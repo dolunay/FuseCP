@@ -9,7 +9,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
     			
 			        <fcp:SimpleMessageBox id="messageBox" runat="server" />
     			
@@ -45,7 +45,7 @@
 				            </Columns>
 			            </asp:GridView>
 			            <br />
-                        <CPCC:StyleButton id="btnUpdateVdcPermissions" CssClass="btn btn-success" runat="server" OnClick="btnUpdateVdcPermissions_Click" CausesValidation="false"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVdcPermissionsText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdateVdcPermissions" CssClass="btn btn-success" runat="server" OnClick="btnUpdateVdcPermissions_Click" CausesValidation="false"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVdcPermissionsText"/> </asp:LinkButton>
                         <br />
                         <br />
                     </asp:Panel>
@@ -88,7 +88,7 @@
 				            </Columns>
 			            </asp:GridView>
 			            <br />
-                        <CPCC:StyleButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" onclick="btnUpdateVpsPermissions_Click" CausesValidation="false"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" onclick="btnUpdateVpsPermissions_Click" CausesValidation="false"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </asp:LinkButton>
                         <br />
                         
                     </asp:Panel>

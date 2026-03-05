@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditFeedsList.ascx.cs" Inherits="FuseCP.Portal.UserControls.EditFeedsList" %>
 <div style="width:100%;">
 	<div class="FormButtonsBar">
-		<CPCC:StyleButton id="btnAddFeed" runat="server" meta:resourcekey="btnAddFeed" Text="Add" CssClass="btn btn-primary" CausesValidation="false" OnClick="BtnAddClick"/>
+		<asp:Button id="btnAddFeed" runat="server" meta:resourcekey="btnAddFeed" Text="Add" CssClass="btn btn-primary" CausesValidation="false" OnClick="BtnAddClick"/>
 	</div>
 
 	<asp:GridView id="gvFeeds" Runat="server" AutoGenerateColumns="False"
@@ -25,7 +25,7 @@
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<itemtemplate>
-					<CPCC:StyleButton id="cmdDeleteFeed" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false" meta:resourcekey="cmdDeleteFeed"/> 
+					<asp:LinkButton id="cmdDeleteFeed" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false" meta:resourcekey="cmdDeleteFeed"/> 
 
 				</itemtemplate>
 				<ItemStyle HorizontalAlign="Center" />

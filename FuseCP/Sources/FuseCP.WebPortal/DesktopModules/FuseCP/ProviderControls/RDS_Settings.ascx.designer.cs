@@ -295,7 +295,7 @@ namespace FuseCP.Portal.ProviderControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddGWServer;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddGWServer;
         
         /// <summary>
         /// gvGWServers control.

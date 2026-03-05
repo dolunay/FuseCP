@@ -8,7 +8,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 
                     
                     <fcp:PackageIPAddresses id="packageAddresses" runat="server"

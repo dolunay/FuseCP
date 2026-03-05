@@ -13,6 +13,10 @@ function Test-IsAdministrator {
 }
 
 function Ensure-ElevatedSession {
+    param(
+        [string]$Reason = "Start-of-day requires administrator permissions."
+    )
+
     if (Test-IsAdministrator) {
         return
     }
@@ -31,7 +35,8 @@ function Ensure-ElevatedSession {
     if ($SkipSolutionSyncCheck) { $args += "-SkipSolutionSyncCheck" }
     if ($StartWebsites) { $args += "-StartWebsites" }
 
-    Write-Host "Current shell is not elevated. Requesting Administrator permissions for start-of-day tasks..." -ForegroundColor Yellow
+    Write-Host $Reason -ForegroundColor Yellow
+    Write-Host "Requesting Administrator permissions for start-of-day tasks..." -ForegroundColor Yellow
 
     try {
         $childProcess = Start-Process -FilePath "pwsh" -ArgumentList $args -Verb RunAs -Wait -PassThru -WorkingDirectory (Get-Location) -Environment @{ FUSECP_START_OF_DAY_ELEVATED = "1" }
@@ -42,8 +47,35 @@ function Ensure-ElevatedSession {
     }
 }
 
+function Get-SqlExpressService {
+    return Get-Service -Name "MSSQL`$SQLEXPRESS" -ErrorAction SilentlyContinue
+}
+
+function Ensure-AdminIfRequired {
+    if (Test-IsAdministrator) {
+        return
+    }
+
+    if ($StartWebsites) {
+        Ensure-ElevatedSession -Reason "Current shell is not elevated and website startup may require IIS administrator permissions."
+    }
+
+    if ($SkipEnvironmentCheck) {
+        return
+    }
+
+    $sqlService = Get-SqlExpressService
+    if ($null -eq $sqlService) {
+        return
+    }
+
+    if ($sqlService.Status -ne "Running") {
+        Ensure-ElevatedSession -Reason "Current shell is not elevated and SQLExpress is stopped. Elevation is required to start MSSQL`$SQLEXPRESS."
+    }
+}
+
 function Ensure-SqlExpressRunning {
-    $sqlService = Get-Service -Name "MSSQL`$SQLEXPRESS" -ErrorAction SilentlyContinue
+    $sqlService = Get-SqlExpressService
     if ($null -eq $sqlService) {
         Write-Host "SQLExpress service not found (MSSQL`$SQLEXPRESS)." -ForegroundColor DarkYellow
         return
@@ -76,7 +108,7 @@ if ($StartWebsites -and -not (Test-Path $startWebsiteScript)) {
 
 Set-Location $repoRoot
 
-Ensure-ElevatedSession
+Ensure-AdminIfRequired
 
 if (-not $SkipEnvironmentCheck) {
     Ensure-SqlExpressRunning

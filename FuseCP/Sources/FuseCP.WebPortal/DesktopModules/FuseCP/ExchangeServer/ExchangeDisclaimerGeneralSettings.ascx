@@ -29,17 +29,17 @@
         ],
     });
 </script>
-                <div class="panel-heading">
-                    <h3 class="panel-title">
+                <div class="card-header">
+                    <h3 class="card-title">
                         <asp:Image ID="Image1" SkinID="ExchangeDisclaimers48" runat="server" />
                         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Distribution List"></asp:Localize>
                         -
                         <asp:Literal ID="litDisplayName" runat="server" Text="" />
                     </h3>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-                    <div class="form-group">
+                    <div class="mb-3">
                         <asp:Label ID="locDisplayName" meta:resourcekey="locDisplayName" runat="server" Text="Display Name:" CssClass="col-sm-2" AssociatedControlID="txtDisplayName"></asp:Label>
                         <div class="col-sm-10 form-inline">
                             <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ValidationGroup="CreateMailbox" Style="width: 100%;"></asp:TextBox>
@@ -52,9 +52,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-right">
-                    <CPCC:StyleButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditList"><i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText" />
-                    </CPCC:StyleButton>
+                <div class="card-footer text-end">
+                    <asp:LinkButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditList"><i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText" />
+                    </asp:LinkButton>
                     &nbsp;
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditList" />
                 </div>

@@ -19,26 +19,26 @@
 </script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Users"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click">
-        <i class="fa fa-user-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click">
+        <i class="bi bi-person-plus">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateUserText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
         <div class="col-md-3">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvUsers" CheckboxesName="chkSelectedUsersIds" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-right form-inline">
-            <div class="form-group">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end form-inline">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -48,7 +48,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -59,13 +59,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                         <ItemTemplate>
                             <asp:Linkbutton ID="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Container.DataItemIndex %>' OnClientClick="return ShowProgressDialog('Please wait...');">
                                 &nbsp;
-                                <i class="fa fa-trash-o"></i>&nbsp;
+                                <i class="bi bi-trash"></i>&nbsp;
                             </asp:Linkbutton>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -147,7 +147,7 @@
             <asp:Panel ID="DeleteUserPanel" runat="server" Style="display: none">
                 <div class="widget">
                     <div class="widget-header clearfix">
-                        <h3><i class="fa fa-user"></i>  <asp:Localize ID="headerDeleteUser" runat="server" meta:resourcekey="headerDeleteUser"></asp:Localize></h3>
+                        <h3><i class="bi bi-person"></i>  <asp:Localize ID="headerDeleteUser" runat="server" meta:resourcekey="headerDeleteUser"></asp:Localize></h3>
                     </div>
                     <div class="widget-content Popup">
                         <asp:UpdatePanel ID="DeleteUserUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -158,15 +158,15 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-					<div class="popup-buttons text-right">
-                        <CPCC:StyleButton ID="btnCancelDelete" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
-                            <i class="fa fa-times">&nbsp;</i>&nbsp;
+					<div class="popup-buttons text-end">
+                        <asp:LinkButton ID="btnCancelDelete" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
+                            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                             <asp:Localize runat="server" meta:resourcekey="btnCancelText" />
-                        </CPCC:StyleButton>&nbsp;
-			            <CPCC:StyleButton ID="btnDeleteUser" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="closePopup(); return ShowProgressDialog('Deleting user...');">
-                            <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
+                        </asp:LinkButton>&nbsp;
+			            <asp:LinkButton ID="btnDeleteUser" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="closePopup(); return ShowProgressDialog('Deleting user...');">
+                            <i class="bi bi-trash">&nbsp;</i>&nbsp;
                             <asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-			            </CPCC:StyleButton>
+			            </asp:LinkButton>
                     </div>
                 </div>
             </asp:Panel>
@@ -184,7 +184,7 @@
         </Triggers>
     </asp:UpdatePanel>
 </asp:Panel>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Users Created:"></asp:Localize>
     &nbsp;&nbsp;&nbsp;
     <fcp:QuotaViewer ID="usersQuota" runat="server" QuotaTypeId="2" />

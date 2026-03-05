@@ -13,6 +13,7 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Remove="CryptSharp\obj\**\*.cs" />
 	  <Compile Remove="CryptSharp\Properties\AssemblyInfo.cs" />
 	  <Compile Remove="CryptSharp\Properties\AssemblyInfo.SCryptSubset.cs" />
 	</ItemGroup>

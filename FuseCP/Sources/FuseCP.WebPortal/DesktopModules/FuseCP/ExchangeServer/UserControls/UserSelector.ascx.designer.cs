@@ -62,7 +62,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton UserLookUp;
+        protected global::System.Web.UI.WebControls.LinkButton UserLookUp;
         
         /// <summary>
         /// cmdClear control.
@@ -71,7 +71,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdClear;
+        protected global::System.Web.UI.WebControls.LinkButton cmdClear;
         
         /// <summary>
         /// AddAccountsPanel control.
@@ -143,7 +143,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdSearch;
+        protected global::System.Web.UI.WebControls.LinkButton cmdSearch;
         
         /// <summary>
         /// gvPopupAccounts control.
@@ -161,7 +161,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnCancelAdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelAdd;
         
         /// <summary>
         /// btnSelectAccountFake control.

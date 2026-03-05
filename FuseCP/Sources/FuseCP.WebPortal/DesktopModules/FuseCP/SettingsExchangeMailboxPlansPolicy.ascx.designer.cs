@@ -61,7 +61,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSetDefaultMailboxPlan;
+        protected global::System.Web.UI.WebControls.LinkButton btnSetDefaultMailboxPlan;
         
         /// <summary>
         /// secMailboxPlan control.
@@ -628,7 +628,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnUpdateMailboxPlan;
+        protected global::System.Web.UI.WebControls.LinkButton btnUpdateMailboxPlan;
         
         /// <summary>
         /// btnAddMailboxPlan control.
@@ -637,7 +637,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddMailboxPlan;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddMailboxPlan;
         
         /// <summary>
         /// txtStatus control.

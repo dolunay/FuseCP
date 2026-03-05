@@ -8,16 +8,16 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeMailboxPlans48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server"></asp:Localize>
                         </h3>
 				</div>
        <div class="FormButtonsBar right">
-                        <CPCC:StyleButton id="btnAddMailboxPlan" CssClass="btn btn-primary" runat="server" OnClick="btnAddMailboxPlan_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddMailboxPlan"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnAddMailboxPlan" CssClass="btn btn-primary" runat="server" OnClick="btnAddMailboxPlan_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddMailboxPlan"/> </asp:LinkButton>
                     </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
              </div>
@@ -49,20 +49,20 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField >
 							    <ItemTemplate>
-									<CPCC:StyleButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("MailboxPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+									<asp:LinkButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("MailboxPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 							    </ItemTemplate>
 						    </asp:TemplateField>
 					    </Columns>
 				    </asp:GridView>
 				    <br />
-				    <div class="panel-body text-right">
-				        <CPCC:StyleButton id="btnSetDefaultMailboxPlan" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetDefaultMailboxPlan_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetDefaultMailboxPlan"/> </CPCC:StyleButton>
+				    <div class="card-body text-end">
+				        <asp:LinkButton id="btnSetDefaultMailboxPlan" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetDefaultMailboxPlan_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetDefaultMailboxPlan"/> </asp:LinkButton>
                     </div>
-<div class="panel-body">
+<div class="card-body">
 					<fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true" TargetControlID="ToolsPanel" meta:resourcekey="secMainTools" Text="Mailbox plan maintenance">
 					</fcp:CollapsiblePanel>
-					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;" CssClass="panel panel-default">
-                        <div class="panel-body">
+					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;" CssClass="card">
+                        <div class="card-body">
 						<table id="tblMaintenance" runat="server" cellpadding="10">
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="lblSourcePlan" runat="server" meta:resourcekey="locSourcePlan" Text="Replace"></asp:Localize></td>
@@ -89,8 +89,8 @@
                             </tr>
 						</table>
                             </div>
-                        				        <div class="panel-footer text-right">
-					        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick = "ShowProgressDialog('Stamping mailboxes, this might take a while ...');"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>
+                        				        <div class="card-footer text-end">
+					        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick = "ShowProgressDialog('Stamping mailboxes, this might take a while ...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>
 				        </div>
 					</asp:Panel>
 				</div>

@@ -67,7 +67,7 @@
 				</table>
 			</div>
 			<br />
-			<asp:Button ID="btnRenew" runat="server" UseSubmitBehavior="true" meta:resourcekey="btnRenew"
+			<asp:Button ID="btnRenew" runat="server" meta:resourcekey="btnRenew"
 				CssClass="btn btn-primary" Text="Renew" OnClick="btnRenew_Click" />&nbsp;&nbsp;
 			<asp:Button ID="btnExportModal" runat="server" meta:resourcekey="btnExportModal"
 				CssClass="btn btn-warning" Text="Export" />&nbsp;&nbsp;
@@ -76,7 +76,7 @@
 			<asp:Panel ID="pnlPFXPassword" Style="display: none" runat="server">
                 <div class="widget" style="max-width:100%;">
                 <div class="widget-header clearfix">
-								<h3><i class="fa fa-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
+								<h3><i class="bi bi-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
                 </div>
                                 <div class="widget-content">
 						<div class="FormFieldDescription">
@@ -92,9 +92,9 @@
 							<asp:CompareValidator ID="valtxtPFXPassConfirm" runat="server" ValidationGroup="pfxExport" 
 								ControlToCompare="txtPFXPass" ControlToValidate="txtPFXPassConfirm" meta:resourcekey="valtxtPFXPassConfirm" /></div>
 					</div>
-					<div class="popup-buttons text-right">
+					<div class="popup-buttons text-end">
 						<asp:Button ID="btnExport" meta:resourcekey="btnExport" ValidationGroup="pfxExport"
-							runat="server" OnClick="btnExport_Click" CssClass="btn btn-warning" UseSubmitBehavior="false"
+							runat="server" OnClick="btnExport_Click" CssClass="btn btn-warning"
 							Text="Export" />&nbsp;&nbsp;
 						<asp:Button ID="btnPFXExportCancel" meta:resourcekey="btnPFXExportCancel" runat="server"
 							Text="Cancel" CssClass="btn btn-danger" />
@@ -114,8 +114,8 @@
 						<asp:Literal ID="LENotInstalledHeading" runat="server" meta:resourcekey="LENotInstalledHeading" /></h3>
                     <p class="Normal">
 						<asp:Literal ID="LENotInstalledDescription" runat="server" meta:resourcekey="LENotInstalledDescription" /></p>
-                    <div class="form-group text-center">
-                        <CPCC:StyleButton ID="LEInstall" CssClass="btn btn-primary" runat="server" OnClick="LEInstallCertificate_Click"> <i class="fa fa-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="LEInstallText" /></CPCC:StyleButton>
+                    <div class="mb-3 text-center">
+                        <asp:LinkButton ID="LEInstall" CssClass="btn btn-primary" runat="server" OnClick="LEInstallCertificate_Click"> <i class="bi bi-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="LEInstallText" /></asp:LinkButton>
                     </div>
                 </div>
 				<div id="NoSSL" class="col-sm-6">
@@ -124,7 +124,7 @@
 					<p class="Normal">
 						<asp:Literal ID="SSLNotInstalledDescription" runat="server" meta:resourcekey="SSLNotInstalledDescription" /></p>
 				</div>
-				<div class="form-group text-center">
+				<div class="mb-3 text-center">
 					<asp:Button ID="btnShowpnlCSR" runat="server" meta:resourcekey="btnShowpnlCSR" CssClass="btn btn-primary"
 						Text="Generate CSR" OnClick="btnShowpnlCSR_click" />
 					<asp:Button ID="btnShowUpload" meta:resourcekey="btnShowUpload" CssClass="btn btn-primary"

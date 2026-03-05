@@ -12,14 +12,14 @@
 
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeMailboxAdd48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create Mailbox"></asp:Localize>
 				    </h3>
                 </div>
 				
-				<div class="panel-body form-horizontal" width="100%">
+				<div class="card-body form-horizontal" width="100%">
 				    
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 										  					   					    							
@@ -50,7 +50,7 @@
 					
 
 				</div>
-					<div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateCRMUser" OnClientClick="ShowProgressDialog('Creating CRM user...');"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+					<div class="card-footer text-end">
+					    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateCRMUser" OnClientClick="ShowProgressDialog('Creating CRM user...');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateMailbox" />
 				    </div>
