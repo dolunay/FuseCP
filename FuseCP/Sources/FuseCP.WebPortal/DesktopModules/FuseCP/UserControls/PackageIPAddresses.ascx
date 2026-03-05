@@ -39,7 +39,7 @@
 </div>
 
 <asp:GridView ID="gvAddresses" runat="server" AutoGenerateColumns="False"
-    Width="100%" EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
     AllowPaging="True" AllowSorting="True" DataSourceID="odsExternalAddressesPaged" PageSize="20"
     onrowdatabound="gvAddresses_RowDataBound" DataKeyNames="PackageAddressID" >
     <Columns>

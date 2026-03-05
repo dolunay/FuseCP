@@ -26,7 +26,7 @@
     AllowSorting="True" DataSourceID="odsNestedPackages" AllowPaging="True" OnDataBound="gvPackages_DataBound" OnInit="gvPackages_Init">
     <Columns>
         <asp:TemplateField SortExpression="PackageName" HeaderText="gvPackagesName">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id="lnkEdit" runat="server" NavigateUrl='<%# GetSpaceHomePageUrl((int)Eval("PackageID")) %>'>
 		            <%# Eval("PackageName") %>

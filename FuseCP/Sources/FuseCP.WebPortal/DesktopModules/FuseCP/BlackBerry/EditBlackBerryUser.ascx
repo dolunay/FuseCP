@@ -65,7 +65,7 @@
                     
                     
                     <asp:GridView runat="server" ID="dvStats" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%"  CssSelectorClass="NormalGridView" ShowHeader="true" ShowFooter="false">
+					     CssSelectorClass="NormalGridView" ShowHeader="true" ShowFooter="false">
                         <Columns>
                             <asp:BoundField DataField="Name" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Value" />

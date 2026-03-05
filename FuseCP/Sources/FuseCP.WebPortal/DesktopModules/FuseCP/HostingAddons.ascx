@@ -10,7 +10,7 @@
 	CssSelectorClass="NormalGridView">
 	<Columns>
 		<asp:TemplateField SortExpression="PlanName" HeaderText="gvAddonsName">
-			<ItemStyle Width="100%"></ItemStyle>
+			<ItemStyle></ItemStyle>
 			<ItemTemplate>
 				<b><asp:hyperlink id="lnkEdit" runat="server" NavigateUrl='<%# EditUrl("PlanID", Eval("PlanID").ToString(), "edit_addon", "UserID=" + Eval("UserID").ToString()) %>'>
 					<%# PortalAntiXSS.EncodeOld((string) Eval("PlanName")) %>

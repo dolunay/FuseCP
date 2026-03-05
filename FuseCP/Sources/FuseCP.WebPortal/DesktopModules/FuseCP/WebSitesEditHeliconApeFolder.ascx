@@ -31,7 +31,7 @@
 		<td class="NormalBold" style="white-space: nowrap">
 		    <asp:Label runat="server" ID="LabelWebSiteName"></asp:Label>
 
-			<uc1:FileLookup id="folderPath" runat="server" Width="400">
+			<uc1:FileLookup id="folderPath" runat="server">
 			</uc1:FileLookup>
 			<asp:HiddenField ID="contentPath" runat="server" />
 			<asp:HiddenField ID="DebuggerUrlField" runat="server" />

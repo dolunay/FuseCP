@@ -28,7 +28,7 @@
             <asp:Localize ID="locMailboxSizeLimit" runat="server" meta:resourcekey="lblMailboxSizeLimit" />
         </asp:Label>
         <div class="col-sm-8">
-            <uc2:FileLookup ID="fileLookup" runat="server" Width="300" />
+            <uc2:FileLookup ID="fileLookup" runat="server" />
         </div>
     </div>
     <br />
