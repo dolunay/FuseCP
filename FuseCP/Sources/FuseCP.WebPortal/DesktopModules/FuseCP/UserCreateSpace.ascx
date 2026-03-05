@@ -14,9 +14,9 @@
     
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
 
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="SubHead" style="width:150px;">
+        <td class="SubHead" >
             <asp:Label ID="lblHostingPlan" meta:resourcekey="lblHostingPlan" runat="server" Text="Hosting Plan:"></asp:Label>
         </td>
         <td>
@@ -39,7 +39,7 @@
     </tr>
     <tr id="tblRowAddons1" runat="server">
         <td rowspan="2"><div class="FormButtonsBar">
-            <asp:Button ID="btnAddAddon" runat="server" meta:resourcekey="btnAddAddon" Text="Add Add-on" CssClass="Button2" OnClick="btnAddAddon_Click" />
+            <asp:Button ID="btnAddAddon" runat="server" meta:resourcekey="btnAddAddon" Text="Add Add-on" CssClass="btn btn-success" OnClick="btnAddAddon_Click" />
             </div>
         </td>
         <td>
@@ -80,7 +80,7 @@
         </ItemTemplate>
         <SeparatorTemplate>
             <br/>
-            <%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px;"/>--%>
+            <%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>--%>
         </SeparatorTemplate>
     </asp:Repeater>
     <tr>
@@ -120,9 +120,9 @@
         <legend>
             <asp:Label ID="lblSystemGroup" meta:resourcekey="lblSystemGroup" runat="server" Text="System" CssClass="NormalBold"></asp:Label>&nbsp;
         </legend>
-        <table width="100%" cellpadding="4" style="margin-bottom:20px;" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0 w-100" style="margin-bottom:20px">
             <tr>
-                <td class="Normal" width="100%">
+                <td class="Normal">
                     <fcp:DomainControl ID="txtDomainName" runat="server" RequiredEnabled="True" ValidationGroup="CreateSpace" OnTextChanged="txtDomainName_OnTextChanged"></fcp:DomainControl>
                 </td>
             </tr>
@@ -134,16 +134,16 @@
         <legend>
             <asp:Label ID="lblWebGroup" meta:resourcekey="lblWebGroup" runat="server" Text="Web" CssClass="NormalBold"></asp:Label>&nbsp;
         </legend>
-        <table width="100%" cellpadding="4" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0 w-100">
             <tr>
-                <td class="Normal" width="40" nowrap rowspan="2"></td>
+                <td class="Normal text-nowrap" rowspan="2"></td>
                 <td class="Normal">
                     <asp:CheckBox ID="chkCreateWebSite" runat="server" meta:resourcekey="chkCreateWebSite"
                         Text="Create Web Site" Checked="True" />
                 </td>
             </tr>
             <tr>
-		        <td class="Normal" width="100%">
+		        <td class="Normal">
 		            <asp:Label ID="lblHostName" runat="server" meta:resourcekey="lblHostName" Text="Host name:"></asp:Label>
 			        <asp:TextBox ID="txtHostName" runat="server" CssClass="form-control" MaxLength="64" ></asp:TextBox>
                 </td>
@@ -156,16 +156,16 @@
         <legend>
             <asp:Label ID="lblFtpGroup" meta:resourcekey="lblFtpGroup" runat="server" Text="FTP" CssClass="NormalBold"></asp:Label>&nbsp;
         </legend>
-        <table width="100%" cellpadding="4" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0 w-100">
             <tr>
-                <td class="Normal" width="40" nowrap rowspan="2"></td>
+                <td class="Normal text-nowrap" rowspan="2"></td>
                 <td class="Normal">
                     <asp:CheckBox ID="chkCreateFtpAccount" runat="server" meta:resourcekey="chkCreateFtpAccount"
                         Text="Create FTP Account" Checked="True" />
                 </td>
             </tr>
             <tr>
-                <td class="Normal" width="100%">
+                <td class="Normal">
                     <asp:RadioButtonList ID="rbFtpAccountName" runat="server" CssClass="Normal"
                             RepeatDirection="Horizontal" AutoPostBack="true" resourcekey="rbFtpAccountName" OnSelectedIndexChanged="rbFtpAccountName_SelectedIndexChanged">
                         <asp:ListItem Value="Default" Selected="True">Default</asp:ListItem>
@@ -183,10 +183,10 @@
         <legend>
             <asp:Label ID="lblMailGroup" meta:resourcekey="lblMailGroup" runat="server" Text="Mail" CssClass="NormalBold"></asp:Label>&nbsp;
         </legend>
-        <table width="100%" cellpadding="4" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0 w-100">
             <tr>
-                <td class="Normal" width="40" nowrap></td>
-                <td class="Normal" width="100%">
+                <td class="Normal text-nowrap"></td>
+                <td class="Normal">
                     <asp:CheckBox ID="chkCreateMailAccount" runat="server" meta:resourcekey="chkCreateMailAccount"
                         Text="Create 'Catch-all' Mail Account" Checked="True" /></td>
             </tr>
@@ -205,3 +205,4 @@
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateSpace" OnClientClick="ShowProgressDialog('Creating hosting space...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
 </div>
+

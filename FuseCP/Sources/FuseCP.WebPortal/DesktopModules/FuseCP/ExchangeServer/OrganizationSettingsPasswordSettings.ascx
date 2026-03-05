@@ -18,7 +18,7 @@
                         </h3>
                 </div>
                 <div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_password_settings" />
                     </div>
                     <div class="card tab-content">
@@ -28,9 +28,9 @@
                             <fcp:CollapsiblePanel ID="colPasswordSettings" runat="server" TargetControlID="panelPasswordSettings" meta:ResourceKey="colPasswordSettings" Text="Password settings"></fcp:CollapsiblePanel>
 
                             <asp:Panel runat="server" ID="panelPasswordSettings">
-                                <table id="PolicyTable" runat="server" cellpadding="2">
+                                <table id="PolicyTable" runat="server" class="table table-borderless align-middle mb-0">
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblMinimumLength" runat="server"
                                                 meta:resourcekey="lblMinimumLength" Text="Minimum length:"></asp:Label></td>
                                         <td class="Normal">
@@ -53,7 +53,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblEnforcePasswordHistory" runat="server"
                                                 meta:resourcekey="lblEnforcePasswordHistory" Text="Enforce Password History:"></asp:Label></td>
                                         <td class="Normal">
@@ -64,7 +64,7 @@
                                                 Display="Dynamic" ErrorMessage="*" ValidationExpression="\d{1,3}" ValidationGroup="SettingsEditor"></asp:RegularExpressionValidator></td>
                                     </tr>
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblMaxPasswordAge" runat="server"
                                                 meta:resourcekey="lblMaxPasswordAge" Text="Max Password Age  (days):"></asp:Label></td>
                                         <td class="Normal">
@@ -81,7 +81,7 @@
                                         </td>
                                     </tr>
                                     <tr id="RowAccountLockoutDuration" runat="server">
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblAccountLockoutDuration" runat="server"
                                                 meta:resourcekey="lblAccountLockoutDuration" Text="Account Lockout Duration (minutes):"></asp:Label></td>
                                         <td class="Normal">
@@ -180,3 +180,4 @@
                         <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SettingsEditor"
                             OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                     </div>
+

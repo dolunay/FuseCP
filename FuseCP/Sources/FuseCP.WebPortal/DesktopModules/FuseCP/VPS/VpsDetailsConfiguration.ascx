@@ -26,8 +26,8 @@
                     <fcp:CollapsiblePanel id="secSoftware" runat="server"
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
                                     meta:resourcekey="locOperatingSystem" Text="Operating system:"></asp:Localize></td>
@@ -51,8 +51,8 @@
                     <fcp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px;width:400px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
                                         meta:resourcekey="lblCpu" Text="CPU:" /></td>
@@ -61,7 +61,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblRam" runat="server"
                                         meta:resourcekey="lblRam" Text="RAM:" /></td>
@@ -70,7 +70,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHdd" runat="server"
                                         meta:resourcekey="lblHdd" Text="HDD:" /></td>
@@ -84,8 +84,8 @@
                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
@@ -99,8 +99,8 @@
                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <fcp:CheckBoxOption id="optionDvdInstalled" runat="server"
@@ -113,10 +113,10 @@
                     <fcp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:200px;">
+                                <td >
                                     <fcp:CheckBoxOption id="optionBootFromCD" runat="server"
                                         Text="Boot from CD" meta:resourcekey="optionBootFromCD" Value="True" />
                                 </td>
@@ -131,10 +131,10 @@
                     <fcp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table style="width:400px;" cellspacing="5">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0" >
                             <tr>
-                                <td style="width:200px;">
+                                <td >
                                     <fcp:CheckBoxOption id="optionStartShutdown" runat="server"
                                         Text="Start, Turn off and Shutdown" meta:resourcekey="optionStartShutdown" Value="True" />
                                 </td>
@@ -168,8 +168,8 @@
                     <fcp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><fcp:CheckBoxOption id="optionExternalNetwork" runat="server"
                                         Text="External network enabled" meta:resourcekey="optionExternalNetwork" Value="True" />
@@ -183,17 +183,17 @@
                         </table>
                     </asp:Panel>
                     
-                    <p style="padding: 5px;">
+                    <p style="padding: 5px">
                         <asp:LinkButton id="btnEdit" CssClass="btn btn-success" runat="server" OnClick="btnEdit_Click" CausesValidation="false"> <i class="bi bi-pencil">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnEditText"/> </asp:LinkButton>
                     </p>
 
-<asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none;">
+<asp:Panel ID="ChangePasswordPanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
                            <h3><i class="bi bi-key"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 			 </div>
                     <div class="widget-content Popup">
-			<table cellspacing="7" style="margin-left:20px;">
+			<table class="table table-borderless align-middle mb-0" style="margin-left:20px">
 			    <tr>
 			        <td>
 			            <asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"
@@ -221,3 +221,4 @@
 <ajaxToolkit:ModalPopupExtender ID="ChangePasswordModal" runat="server" BehaviorID="PasswordModal"
 	TargetControlID="btnChangePasswordPopup" PopupControlID="ChangePasswordPanel"
 	BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelChangePassword" />
+

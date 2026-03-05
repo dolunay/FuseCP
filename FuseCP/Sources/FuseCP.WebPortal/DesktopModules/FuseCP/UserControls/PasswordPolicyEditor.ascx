@@ -5,9 +5,9 @@
 
 <asp:CheckBox id="chkEnabled" runat="server" meta:resourcekey="chkEnabled"
 	Text="Enable Policy" CssClass="NormalBold" AutoPostBack="true" OnCheckedChanged="chkEnabled_CheckedChanged" />
-<table id="PolicyTable" runat="server" cellpadding="2">
+<table class="table table-borderless align-middle mb-0" id="PolicyTable" runat="server">
     <tr>
-        <td class="Normal" style="width:150px;"><asp:Label ID="lblMinimumLength" runat="server"
+        <td class="Normal" ><asp:Label ID="lblMinimumLength" runat="server"
             meta:resourcekey="lblMinimumLength" Text="Minimum length:"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtMinimumLength" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
@@ -28,7 +28,7 @@
             </td>
     </tr>
     <tr>
-        <td class="Normal" style="width:150px;"><asp:Label ID="lblEnforcePasswordHistory" runat="server"
+        <td class="Normal" ><asp:Label ID="lblEnforcePasswordHistory" runat="server"
             meta:resourcekey="lblEnforcePasswordHistory" Text="Enforce Password History:"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtEnforcePasswordHistory" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
@@ -38,7 +38,7 @@
                 Display="Dynamic" ErrorMessage="*" ValidationExpression="\d{1,3}" ValidationGroup="SettingsEditor"></asp:RegularExpressionValidator></td>
     </tr>
     <tr>
-        <td class="Normal" style="width:150px;"><asp:Label ID="lblMaxPasswordAge" runat="server"
+        <td class="Normal" ><asp:Label ID="lblMaxPasswordAge" runat="server"
             meta:resourcekey="lblMaxPasswordAge" Text="Max Password Age (days):"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtMaxPasswordAge" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
@@ -54,7 +54,7 @@
         </td>
     </tr>
     <tr id="RowAccountLockoutDuration" runat="server">
-        <td class="Normal" style="width:150px;"><asp:Label ID="lblAccountLockoutDuration" runat="server"
+        <td class="Normal" ><asp:Label ID="lblAccountLockoutDuration" runat="server"
             meta:resourcekey="lblAccountLockoutDuration" Text="Account Lockout Duration (minutes):"></asp:Label></td>
         <td class="Normal">
             <asp:TextBox ID="txtAccountLockoutDuration" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
@@ -135,3 +135,4 @@
 
 	</ContentTemplate>
 </asp:UpdatePanel>
+

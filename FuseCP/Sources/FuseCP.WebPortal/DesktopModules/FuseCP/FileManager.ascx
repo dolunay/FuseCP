@@ -314,9 +314,9 @@
 <asp:UpdatePanel ID="FilesUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
  <div class="FormButtonsBar">
-	<table cellpadding="2" cellspacing="0" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 		<tr>
-			<td class="Medium" style="width:100%;">
+			<td class="Medium" >
 				<asp:Repeater ID="path" Runat="server" OnItemCommand="path_ItemCommand">
 					<ItemTemplate><asp:LinkButton ID="fileName" Runat="server" CssClass=CommandButton CommandName="browse" CommandArgument='<%# Eval("FullName")%>' Text='<%# Eval("Name")%>' CausesValidation="false">
 					</asp:LinkButton></ItemTemplate>
@@ -337,18 +337,18 @@
 	</table>
 </div><div class="NormalGridView">
 	<div class="AspNet-GridView">
-		<table cellpadding="0" cellspacing="0">
+		<table class="table table-borderless align-middle mb-0">
 			<thead>
 				<tr>
-					<th style="width:25px;"><asp:CheckBox ID="selectAll" Runat="server" onclick="checkAll(this);"></asp:CheckBox></th>
+					<th ><asp:CheckBox ID="selectAll" Runat="server" onclick="checkAll(this);"></asp:CheckBox></th>
 					<th><asp:Localize ID="locFileName" runat="server" meta:resourcekey="locFileName" /></th>
-					<th style="width:65px;"><asp:Localize ID="locSize" runat="server" meta:resourcekey="locSize" /></th>
-					<th style="width:135px;"><asp:Localize ID="locModified" runat="server" meta:resourcekey="locModified" /></th>
+					<th ><asp:Localize ID="locSize" runat="server" meta:resourcekey="locSize" /></th>
+					<th ><asp:Localize ID="locModified" runat="server" meta:resourcekey="locModified" /></th>
 				</tr>
 			</thead>
 		</table>
 	</div>
-</div><div style="height:350px;overflow:auto;">
+</div><div style="height:350px;overflow:auto">
 	<asp:GridView ID="gvFiles" runat="server" AutoGenerateColumns="False"
 		AllowSorting="True" CssSelectorClass="NormalGridView" ShowHeader="false"
 		EmptyDataText="gvFiles" DataKeyNames="Name" OnRowCommand="gvFiles_RowCommand"
@@ -362,7 +362,7 @@
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="gvFilesFileName">
 				<ItemTemplate>
-				    <img src="<%# GetFileIcon(Container.DataItem) %>" align=absmiddle border="0" hspace="2">
+				    <img src="<%# GetFileIcon(Container.DataItem) %>" class="align-middle me-1">
 					<asp:HyperLink ID="lnkDownload" runat="server" Visible='<%# !(bool)Eval("IsDirectory") %>'
 						NavigateUrl='<%# GetDownloadLink((string)Eval("Name")) %>'>
 						<%# Eval("Name")%>
@@ -429,7 +429,7 @@
 		</div>
 	</div>
 </asp:Panel>
-<asp:Button ID="btnEditFile" runat="server" style="display:none;" />
+<asp:Button ID="btnEditFile" runat="server" style="display:none" />
 <ajaxToolkit:ModalPopupExtender ID="EditFileModal" runat="server"
     TargetControlID="btnEditFile" PopupControlID="EditFilePanel"
     BackgroundCssClass="modalBackground" DropShadow="false" />
@@ -452,7 +452,7 @@
 		</div>
 	</div>
 </asp:Panel>
-<asp:Button ID="btnRenameFile" runat="server" style="display:none;" />
+<asp:Button ID="btnRenameFile" runat="server" style="display:none" />
 <ajaxToolkit:ModalPopupExtender ID="RenameFileModal" runat="server"
     TargetControlID="btnRenameFile" PopupControlID="RenameFilePanel"
     BackgroundCssClass="modalBackground" DropShadow="false" />
@@ -464,7 +464,7 @@
             <h3><i class="bi bi-people"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" /></h3>
         </div>
         <div class="widget-content Popup">
-            <div style="border-top: solid 1px #e0e0e0;width:380px; height: 175px; overflow: auto; white-space: nowrap;">
+            <div style="border-top: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap">
                 <asp:GridView id="gvFilePermissions" runat="server" AutoGenerateColumns="False"
                         CssSelectorClass="NormalGridView" ShowHeader="false">
                     <Columns>
@@ -503,8 +503,8 @@
 	<div class="Content">
 		<div class="Body">
 			<br />
-            <div style="border-top: solid 1px #e0e0e0;width:380px; height: 175px; overflow: auto; white-space: nowrap;">
-				<table cellpadding="2" cellspacing="0" width="100%">
+            <div style="border-top: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap">
+				<table class="table table-borderless align-middle mb-0 w-100">
 					<tr>
 						<td><asp:Literal ID="lblOwner" runat="server" Text="Owner:" meta:resourcekey="lblOwner" /></td>
 						<td>
@@ -549,13 +549,13 @@
 			<br />
 		</div>
 		<div class="FormFooter">
-            <asp:Button ID="btnSetPermissionsUnix" runat="server" CssClass="Button1" meta:resourcekey="btnSetPermissions" Text="Set Permissions" OnClick="btnSetPermissionsUnix_Click" />
-            <asp:Button ID="btnCancelPermissionsUnix" runat="server" CssClass="Button1" meta:resourcekey="btnCancelPermissions" Text="Cancel" CausesValidation="false" OnClick="btnCancelPermissionsUnix_Click" />
+            <asp:Button ID="btnSetPermissionsUnix" runat="server" CssClass="btn btn-primary" meta:resourcekey="btnSetPermissions" Text="Set Permissions" OnClick="btnSetPermissionsUnix_Click" />
+            <asp:Button ID="btnCancelPermissionsUnix" runat="server" CssClass="btn btn-primary" meta:resourcekey="btnCancelPermissions" Text="Cancel" CausesValidation="false" OnClick="btnCancelPermissionsUnix_Click" />
 		</div>
 	</div>
 </asp:Panel>
 
-<asp:LinkButton ID="btnSetPermissionsFile" runat="server" style="display:none;" />
+<asp:LinkButton ID="btnSetPermissionsFile" runat="server" style="display:none" />
 <ajaxToolkit:ModalPopupExtender ID="PermissionsFileModal" runat="server"
     TargetControlID="btnSetPermissionsFile" PopupControlID="PermissionsWindowsFilePanel"
     BackgroundCssClass="modalBackground" DropShadow="false" />
@@ -570,7 +570,8 @@
 	</div>
 	<div class="Right">
 		<asp:LinkButton ID="btnRecalcDiskspace" runat="server" meta:resourcekey="btnRecalcDiskspace"
-						CssClass="Button3"
+						CssClass="btn btn-primary"
 						Text="Calculate Diskspace" OnClientClick="return confirm('Proceed?');" OnClick="btnRecalcDiskspace_Click" />
 	</div>
 </div>
+
