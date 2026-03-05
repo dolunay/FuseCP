@@ -44,11 +44,11 @@
         </asp:Panel>
     </div>
 </div>
-<asp:GridView ID="gvOrgs" runat="server" AutoGenerateColumns="False" DataSourceID="odsOrgsPaged" Width="100%" meta:resourcekey="gvOrgs" CssSelectorClass="NormalGridView" OnRowCommand="gvOrgs_RowCommand" AllowPaging="True" AllowSorting="True" EnableViewState="false">
+<asp:GridView ID="gvOrgs" runat="server" AutoGenerateColumns="False" DataSourceID="odsOrgsPaged" meta:resourcekey="gvOrgs" CssSelectorClass="NormalGridView" OnRowCommand="gvOrgs_RowCommand" AllowPaging="True" AllowSorting="True" EnableViewState="false">
     <Columns>
         <asp:BoundField meta:resourcekey="gvOrgsID" DataField="OrganizationID" />
         <asp:TemplateField meta:resourcekey="gvOrgsName" SortExpression="ItemName">
-            <ItemStyle Width="80%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <div style="padding:7px">
                     <asp:hyperlink id="lnk1" runat="server" EnableViewState="false" CssClass="NormalBold" NavigateUrl='<%# GetOrganizationEditUrl(Eval("ItemID").ToString()) %>'>

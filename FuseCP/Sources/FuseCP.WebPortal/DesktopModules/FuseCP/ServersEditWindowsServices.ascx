@@ -26,7 +26,7 @@
             OnRowCommand="gvServices_RowCommand" OnRowDataBound="gvServices_RowDataBound">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="gvServicesId" />
-                <asp:BoundField DataField="Name" HeaderText="gvServicesName" ItemStyle-Wrap="false" ItemStyle-Width="100%"/>
+                <asp:BoundField DataField="Name" HeaderText="gvServicesName" ItemStyle-Wrap="false"/>
                 <asp:TemplateField ItemStyle-Wrap="false" HeaderText="gvServicesStatus">
                     <ItemTemplate>
                         <%# GetLocalizedString("Status." + Eval("Status").ToString()) %>

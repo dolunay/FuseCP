@@ -23,7 +23,7 @@
              </div>
 
 				    <asp:GridView ID="gvMailboxPlans" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvMailboxPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvMailboxPlan_RowCommand">
+					    EmptyDataText="gvMailboxPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvMailboxPlan_RowCommand">
 					    <Columns>
 						    <asp:TemplateField>
 							    <ItemTemplate>							        
@@ -32,7 +32,7 @@
 						    </asp:TemplateField>
 
 						    <asp:TemplateField HeaderText="gvMailboxPlan">
-							    <ItemStyle Width="70%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnkDisplayMailboxPlan" runat="server" EnableViewState="false"
 									    NavigateUrl='<%# GetMailboxPlanDisplayUrl(Eval("MailboxPlanId").ToString()) %>'>
