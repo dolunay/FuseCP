@@ -207,7 +207,7 @@
 			</div>
 			<div class="FormRow">
 				<asp:Label ID="lblFileContentOptional" runat="server" meta:resourcekey="lblFileContentOptional" Text="File Content (Optional):"></asp:Label>
-				<asp:TextBox ID="txtFileContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" Wrap="False"></asp:TextBox>
+				<asp:TextBox ID="txtFileContent" runat="server" Rows="10" TextMode="MultiLine" Wrap="False"></asp:TextBox>
 			</div>
             </div>
 					<div class="popup-buttons text-end">
@@ -420,7 +420,7 @@
 			</div>
 			<div class="FormRow">
 				<asp:Label ID="lblFileContent" runat="server" meta:resourcekey="lblFileContent" Text="File Content:"></asp:Label>
-				<asp:TextBox ID="txtEditFileContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" Wrap="False"></asp:TextBox>
+				<asp:TextBox ID="txtEditFileContent" runat="server" Rows="10" TextMode="MultiLine" Wrap="False"></asp:TextBox>
 			</div>
             </div>
 					<div class="popup-buttons text-end">

@@ -219,7 +219,7 @@
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="10"
-                                            Width="220" height="200" SelectionMode="Multiple"></asp:ListBox>
+                                            height="200" SelectionMode="Multiple"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredExternalAddresses" runat="server"
                                             ControlToValidate="ExternalAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredExternalAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -249,7 +249,7 @@
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="10"
-                                            Width="220" height="200" SelectionMode="Single"></asp:ListBox>
+                                            height="200" SelectionMode="Single"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredManagementAddresses" runat="server"
                                             ControlToValidate="ManagementAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredManagementAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
