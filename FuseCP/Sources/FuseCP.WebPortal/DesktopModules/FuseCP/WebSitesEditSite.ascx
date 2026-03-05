@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="FormField">
                                     <asp:DropDownList ID="MyDatabaseList" runat="server" DataTextField="Name" DataValueField="Id"
-                                        AutoPostBack="true" Width="100%" OnSelectedIndexChanged="MyDatabaseList_SelectedIndexChanged">
+                                        AutoPostBack="true" OnSelectedIndexChanged="MyDatabaseList_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -77,7 +77,7 @@
                                     <asp:Localize ID="Localize4" runat="server">Please choose database user name...</asp:Localize>
                                 </div>
                                 <div class="FormField">
-                                    <asp:DropDownList ID="MyDatabaseUserList" runat="server" DataTextField="Name" DataValueField="Id" Width="100%">
+                                    <asp:DropDownList ID="MyDatabaseUserList" runat="server" DataTextField="Name" DataValueField="Id">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -90,7 +90,7 @@
                                     <asp:Localize ID="Localize6" runat="server">Please choose FTP account...</asp:Localize>
                                 </div>
                                 <div class="FormField">
-                                    <asp:DropDownList ID="MyFtpAccountList" runat="server" DataTextField="Name" DataValueField="Id" Width="100%">
+                                    <asp:DropDownList ID="MyFtpAccountList" runat="server" DataTextField="Name" DataValueField="Id">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -178,7 +178,7 @@
                     DataKeyNames="DomainID" OnRowDeleting="gvPointers_RowDeleting">
                     <Columns>
                         <asp:TemplateField HeaderText="gvPointersName">
-                            <ItemStyle Wrap="false" Width="100%"></ItemStyle>
+                            <ItemStyle Wrap="false"></ItemStyle>
                             <ItemTemplate>
                                 <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
                                     Target="_blank"><%# Eval("DomainName") %></asp:HyperLink>
@@ -306,7 +306,7 @@
                                         ShowHeader="true" HeaderStyle-CssClass="header" CssSelectorClass="NormalGridView" CssClass="table table-hover table-striped" EmptyDataText="gvVirtualDirectories">
                                         <Columns>
                                             <asp:TemplateField HeaderText="gvVirtualDirectoriesName">
-                                                <ItemStyle Width="35%" CssClass="NormalBold"></ItemStyle>
+                                                <ItemStyle CssClass="NormalBold"></ItemStyle>
                                                 <ItemTemplate>
                                                     <asp:HyperLink ID="lnkEditVDir" runat="server" NavigateUrl='<%# EditUrl("ItemID", PanelRequest.ItemID.ToString(), "edit_vdir", "VirtDir=" + Eval("Name"), "SpaceID=" + PanelSecurity.PackageId) %>'>
 									        <%# Eval("Name") %>
@@ -314,7 +314,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ContentPath" HeaderText="gvVirtualDirectoriesPath">
-                                                <ItemStyle Width="65%" />
+                                                <ItemStyle />
                                             </asp:BoundField>
 
                                         </Columns>
@@ -346,7 +346,7 @@
                                         ShowHeader="true" CssSelectorClass="NormalGridView" CssClass="table table-hover table-striped" EmptyDataText="gvAppVirtualDirectories">
                                         <Columns>
                                             <asp:TemplateField HeaderText="gvAppVirtualDirectoriesName">
-                                                <ItemStyle Width="35%" CssClass="NormalBold"></ItemStyle>
+                                                <ItemStyle CssClass="NormalBold"></ItemStyle>
                                                 <ItemTemplate>
                                                     <asp:HyperLink ID="lnkEditVDir" runat="server" NavigateUrl='<%# EditUrl("ItemID", PanelRequest.ItemID.ToString(), "edit_vapps", "VirtDir=" + Eval("Name"), "SpaceID=" + PanelSecurity.PackageId) %>'>
 									        <%# Eval("Name") %>
@@ -354,7 +354,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ContentPath" HeaderText="gvAppVirtualDirectoriesPath">
-                                                <ItemStyle Width="65%" />
+                                                <ItemStyle />
                                             </asp:BoundField>
                                         </Columns>
                                     </asp:GridView>

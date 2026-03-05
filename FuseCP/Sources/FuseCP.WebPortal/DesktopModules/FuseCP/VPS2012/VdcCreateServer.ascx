@@ -51,7 +51,7 @@
                                     <div class="mb-3">
                                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
+                                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
                                                 <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                                                     ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -62,7 +62,7 @@
 			                                    </asp:RegularExpressionValidator>
                                                 
                                                . 
-                                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
+                                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
                                                     
                                                 <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                                                     ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -114,13 +114,13 @@
                                         <div class="mb-3">
                                             <asp:Label ID="lblCpu" meta:resourcekey="lblCpu" runat="server" Text="CPU:" CssClass="col-sm-2"  AssociatedControlID="ddlCpu"></asp:Label>
                                             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
+                                                    <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control">
                                                     </asp:DropDownList>
                                              <asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores"/>
                                             </div>
                                          <asp:Label ID="lblRam" meta:resourcekey="lblRam" runat="server" Text="RAM:" CssClass="col-sm-2"  AssociatedControlID="txtRam"></asp:Label>
                                             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -132,7 +132,7 @@
                                             </div>
                                          <asp:Label ID="lblHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-2"  AssociatedControlID="txtHdd"></asp:Label>
                                                     <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -151,7 +151,7 @@
                                             <ItemTemplate>
                                                 <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblAdditionalHdd" runat="server" Text="Additional HDD:" CssClass="col-sm-2" AssociatedControlID="txtAdditionalHdd"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Width="150" Text='<%# Eval("DiskSize") %>'></asp:TextBox>
+                                                    <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Text='<%# Eval("DiskSize") %>'></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtAdditionalHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -182,7 +182,7 @@
                                             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center"> 
                                             <asp:Label ID="lblHddMinIOPS" meta:resourcekey="lblHddMinIOPS" runat="server" Text="Minimum:" CssClass="col-sm-2" AssociatedControlID="txtHddMinIOPS"/>
                                                                                            
-                                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequireHddMinIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                                      ControlToValidate="txtHddMinIOPS" meta:resourcekey="RequireHddMinIOPSValidator" SetFocusOnError="true"
                                                      ValidationGroup="Vps">*</asp:RequiredFieldValidator>    
@@ -192,7 +192,7 @@
                                             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">  
                                             <asp:Label ID="lblHddMaxIOPS" meta:resourcekey="lblHddMaxIOPS" runat="server" Text="Maximum:" CssClass="col-sm-2" AssociatedControlID="txtHddMaxIOPS"/>
                                                                             
-                                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequireHddMaxIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                                      ControlToValidate="txtHddMaxIOPS" meta:resourcekey="RequireHddMaxIOPSValidator" SetFocusOnError="true"
                                                      ValidationGroup="Vps">*</asp:RequiredFieldValidator>                                                
@@ -210,7 +210,7 @@
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                     
                                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -297,7 +297,7 @@
                                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                                                 
                                                 <asp:RequiredFieldValidator ID="ExternalAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtExternalAddressesNumber" meta:resourcekey="ExternalAddressesValidator" SetFocusOnError="true"
@@ -316,7 +316,7 @@
                                         <tr id="ExternalAddressesListRow" runat="server">
                                             <td style="padding-left: 30px">
                                                 <asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
-                                                    CssClass="form-control" Width="300" SelectionMode="Multiple" Height="80"></asp:ListBox>
+                                                    CssClass="form-control" SelectionMode="Multiple" Height="80"></asp:ListBox>
                                                 <br />
                                                 <asp:Localize ID="locHoldCtrl" runat="server"
                                                         meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses"></asp:Localize>
@@ -328,14 +328,14 @@
 		                                            <asp:Localize ID="locExternalMACAddress" runat="server"
 				                                            meta:resourcekey="locExternalMACAddress" Text="MAC:"></asp:Localize>
 
-		                                            <asp:TextBox ID="txtExternalMACAddress" runat="server" CssClass="form-control" Width="145" Text=""></asp:TextBox>
+		                                            <asp:TextBox ID="txtExternalMACAddress" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 		
 		                                            <asp:RequiredFieldValidator id="MACAddressValidator" ControlToValidate="txtExternalMACAddress" 
-		                                            ErrorMessage="MAC Address is incorrect." Display="Dynamic" Width="100%" runat="server" 
+		                                            ErrorMessage="MAC Address is incorrect." Display="Dynamic" runat="server" 
                                                         meta:resourcekey="MACAddressValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
 		                                            <asp:RegularExpressionValidator ID="valMACformat" runat="server" ControlToValidate="txtExternalMACAddress" 
-		                                            ErrorMessage="MAC Address format is incorrect." Display="Dynamic" Width="100%" ValidationExpression="((\d|([a-f]|[A-F])){2}[:\-]?){5}(\d|([a-f]|[A-F])){2}" 
+		                                            ErrorMessage="MAC Address format is incorrect." Display="Dynamic" ValidationExpression="((\d|([a-f]|[A-F])){2}[:\-]?){5}(\d|([a-f]|[A-F])){2}" 
                                                         meta:resourcekey="valMACformat" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RegularExpressionValidator>
                                                 </div>
@@ -369,7 +369,7 @@
                                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                                                 
                                                 <asp:RequiredFieldValidator ID="PrivateAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtPrivateAddressesNumber" meta:resourcekey="PrivateAddressesValidator" SetFocusOnError="true"
@@ -388,7 +388,7 @@
                                         <tr id="PrivateAddressesListRow" runat="server">
                                             <td style="padding-left: 30px">
                                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
-                                                    CssClass="form-control" Width="300" Rows="5"></asp:TextBox>
+                                                    CssClass="form-control" Rows="5"></asp:TextBox>
                                                 <br />
                                                 <asp:Localize ID="locOnePerLine" runat="server"
                                                         meta:resourcekey="locOnePerLine" Text="* Type one IP address per line"></asp:Localize>
@@ -408,25 +408,25 @@
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locGateway" runat="server"
                                                         meta:resourcekey="locGateway" Text="Gateway:"></asp:Localize>
-                                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:RequiredFieldValidator ID="DNSValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtDNS1" meta:resourcekey="DNSValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locDNS1" runat="server"
                                                         meta:resourcekey="locDNS1" Text="Preferred DNS server:"></asp:Localize>
-                                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:Localize ID="locDNS2" runat="server"
                                                         meta:resourcekey="locDNS2" Text="Alternate DNS server:"></asp:Localize>
-                                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:RequiredFieldValidator ID="maskValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtMask" meta:resourcekey="maskValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locMask" runat="server"
                                                         meta:resourcekey="locMask" Text="Subnet mask:"></asp:Localize>
-                                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                                             </td>
                                             <td>
                                                 
@@ -477,7 +477,7 @@
                                                 <asp:Localize ID="locDmzAddresses" runat="server"
                                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                                <asp:TextBox ID="txtDmzAddressesNumber" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDmzAddressesNumber" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                                                 
                                                 <asp:RequiredFieldValidator ID="DmzAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtDmzAddressesNumber" meta:resourcekey="DmzAddressesValidator" SetFocusOnError="true"
@@ -496,7 +496,7 @@
                                         <tr id="DmzAddressesListRow" runat="server">
                                             <td style="padding-left: 30px">
                                                 <asp:TextBox ID="txtDmzAddressesList" runat="server" TextMode="MultiLine"
-                                                    CssClass="form-control" Width="300" Rows="5"></asp:TextBox>
+                                                    CssClass="form-control" Rows="5"></asp:TextBox>
                                                 <br />
                                                 <asp:Localize ID="locDmzOnePerLine" runat="server"
                                                         meta:resourcekey="locOnePerLine" Text="* Type one IP address per line"></asp:Localize>
@@ -516,25 +516,25 @@
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locDmzGateway" runat="server"
                                                         meta:resourcekey="locGateway" Text="Gateway:"></asp:Localize>
-                                                <asp:TextBox ID="txtDmzGateway" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDmzGateway" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:RequiredFieldValidator ID="DmzDNSValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtDmzDNS1" meta:resourcekey="DNSValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locDmzDNS1" runat="server"
                                                         meta:resourcekey="locDNS1" Text="Preferred DNS server:"></asp:Localize>
-                                                <asp:TextBox ID="txtDmzDNS1" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDmzDNS1" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:Localize ID="locDmzDNS2" runat="server"
                                                         meta:resourcekey="locDNS2" Text="Alternate DNS server:"></asp:Localize>
-                                                <asp:TextBox ID="txtDmzDNS2" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDmzDNS2" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                                 <asp:RequiredFieldValidator ID="dmzMaskValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtDmzMask" meta:resourcekey="maskValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                                 <asp:Localize ID="locDmzMask" runat="server"
                                                         meta:resourcekey="locMask" Text="Subnet mask:"></asp:Localize>
-                                                <asp:TextBox ID="txtDmzMask" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                                <asp:TextBox ID="txtDmzMask" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                                             </td>
                                             <td>
                                                 

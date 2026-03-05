@@ -20,7 +20,7 @@
                 <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td class="Normal">
-                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="VirtualServerNameValidator" runat="server" ControlToValidate="txtName"
                                 ValidationGroup="Server" meta:resourcekey="ServerNameValidator">
                             </asp:RequiredFieldValidator>
@@ -29,7 +29,7 @@
                     <tr>
                         <td class="Normal">
                             <asp:TextBox ID="txtComments" runat="server" CssClass="form-control"
-                                Width="100%" Rows="3" TextMode="MultiLine">
+                                Rows="3" TextMode="MultiLine">
                             </asp:TextBox>
                         </td>
                     </tr>
@@ -43,7 +43,7 @@
                                 <asp:Label ID="lblServerUrl" runat="server" meta:resourcekey="lblServerUrl"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -82,7 +82,7 @@
                                 <asp:Label ID="lblAuthType" runat="server" meta:resourcekey="lblAuthType"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:DropDownList ID="ddlAdAuthType" runat="server" AutoPostBack="True" meta:resourcekey="ddlAdAuthType" CssClass="form-control" Width="100%">
+                                <asp:DropDownList ID="ddlAdAuthType" runat="server" AutoPostBack="True" meta:resourcekey="ddlAdAuthType" CssClass="form-control">
                                     <asp:ListItem Value="None">None</asp:ListItem>
                                     <asp:ListItem Value="Secure">Secure</asp:ListItem>
                                     <asp:ListItem Value="Delegation">Delegation</asp:ListItem>
@@ -106,7 +106,7 @@
                                 <asp:Label ID="lblAdParentDomain" runat="server" meta:resourcekey="lblAdParentDomain"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdParentDomain" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdParentDomain" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
 
@@ -115,7 +115,7 @@
                                 <asp:Label ID="lblAdParentDomainController" runat="server" meta:resourcekey="lblAdParentDomainController"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdParentDomainController" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdParentDomainController" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
 
@@ -124,7 +124,7 @@
                                 <asp:Label ID="lblAdDomain" runat="server" meta:resourcekey="lblAdDomain"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr id="trAdUserName" runat="server">
@@ -132,7 +132,7 @@
                                 <asp:Label ID="lblAdUsername" runat="server" meta:resourcekey="lblAdUsername"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdUsername" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdUsername" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr id="trAdPassword" runat="server">

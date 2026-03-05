@@ -41,10 +41,10 @@
                     <fcp:CollapsiblePanel id="secRdsUserSessions" runat="server" TargetControlID="panelRdsUserSessions" meta:resourcekey="secRdsUserSessions" Text=""></fcp:CollapsiblePanel>
                     <asp:Panel runat="server" ID="panelRdsUserSessions">
                         <div style="padding: 10px">
-                            <asp:GridView ID="gvRDSUserSessions" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%" EmptyDataText="No Sessions available" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSCollections_RowCommand" AllowPaging="True" AllowSorting="True" meta:resourcekey="gvRDSUserSessions">
+                            <asp:GridView ID="gvRDSUserSessions" runat="server" AutoGenerateColumns="False" EnableViewState="true" EmptyDataText="No Sessions available" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSCollections_RowCommand" AllowPaging="True" AllowSorting="True" meta:resourcekey="gvRDSUserSessions">
                                 <Columns>
                                     <asp:TemplateField meta:resourcekey="gvUserName" HeaderText="gvUserName">
-                                        <ItemStyle Width="20%" Wrap="false"/>
+                                        <ItemStyle Wrap="false"/>
                                         <ItemTemplate>
                                             <asp:Image ID="vipImage" runat="server" ImageUrl='<%# GetAccountImage(Convert.ToBoolean(Eval("IsVip"))) %>' ImageAlign="AbsMiddle"/>
                                             <asp:Literal ID="litUserName" runat="server" Text='<%# Eval("UserName") %>'/>
@@ -52,13 +52,13 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField meta:resourcekey="gvHostServer" HeaderText="gvHostServer">
-                                        <ItemStyle Width="20%" Wrap="false"/>
+                                        <ItemStyle Wrap="false"/>
                                         <ItemTemplate>
                                             <asp:Literal ID="litHostServer" runat="server" Text='<%# Eval("HostServer") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField meta:resourcekey="gvSessionState" HeaderText="gvSessionState">
-                                        <ItemStyle Width="20%" Wrap="false"/>
+                                        <ItemStyle Wrap="false"/>
                                         <ItemTemplate>
                                             <asp:Literal ID="litSessionState" runat="server" Text='<%# Eval("SessionState") %>'/>
                                         </ItemTemplate>
@@ -107,16 +107,16 @@
                                 <asp:UpdatePanel ID="MessagesHistoryUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                                     <ContentTemplate>
                                         <div class="Popup-Scroll">
-                                            <asp:GridView ID="gvMessagesHistory" runat="server" meta:resourcekey="gvMessagesHistory" AutoGenerateColumns="False" Width="100%" CssSelectorClass="NormalGridView" DataKeyNames="Id">
+                                            <asp:GridView ID="gvMessagesHistory" runat="server" meta:resourcekey="gvMessagesHistory" AutoGenerateColumns="False" CssSelectorClass="NormalGridView" DataKeyNames="Id">
                                                 <Columns>
                                                     <asp:TemplateField meta:resourcekey="gvMessageText">
-                                                        <ItemStyle Width="70%"/>
+                                                        <ItemStyle/>
                                                         <ItemTemplate>
                                                             <asp:Literal ID="litMessage" runat="server" Text='<%# Eval("MessageText") %>'></asp:Literal>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField meta:resourcekey="gvUser" HeaderText="gvUser">
-                                                        <ItemStyle Width="15%" Wrap="false"/>
+                                                        <ItemStyle Wrap="false"/>
                                                         <ItemTemplate>
                                                             <asp:Literal ID="litUserName" runat="server" Text='<%# Eval("UserName") %>'/>
                                                         </ItemTemplate>

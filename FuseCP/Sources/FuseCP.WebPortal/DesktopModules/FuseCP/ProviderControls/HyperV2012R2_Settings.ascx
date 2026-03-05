@@ -259,7 +259,7 @@
                         <asp:Localize ID="locHyperVConfig" runat="server" meta:resourcekey="locHyperVConfig" Text="HyperV Config Version:"></asp:Localize>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlHyperVConfig" runat="server" CssClass="form-control" Width="450"
+                        <asp:DropDownList ID="ddlHyperVConfig" runat="server" CssClass="form-control"
                             DataValueField="Version" DataTextField="Name">
                         </asp:DropDownList>                        
                     </td>
@@ -319,7 +319,7 @@
                         <asp:Localize ID="locTemplateGeneration" runat="server" meta:resourcekey="locTemplateGeneration" Text="Generation of VM:"></asp:Localize>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlTemplateGeneration" runat="server" CssClass="form-control" Width="350"
+                        <asp:DropDownList ID="ddlTemplateGeneration" runat="server" CssClass="form-control"
                             DataValueField="TemplateGenerationId" DataTextField="Name" SelectedIndex='<%# Eval("Generation") %>'>
                                 <asp:ListItem Text="Select a VM Generation" Value="0"></asp:ListItem>
                                 <asp:ListItem Text="First" Value="1"></asp:ListItem>
@@ -368,7 +368,7 @@
                             <asp:Localize ID="locSecureBootTemplate" runat="server" meta:resourcekey="locSecureBootTemplate" Text="Secure boot template:"></asp:Localize>
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddlSecureBootTemplate" runat="server" CssClass="form-control" Width="470" Enabled='<%# IsSecureBootEnabled(Eval("EnableSecureBoot")) %>' DataSource ='<%# GetSecureBootTemplatesList() %>'
+                            <asp:DropDownList ID="ddlSecureBootTemplate" runat="server" CssClass="form-control" Enabled='<%# IsSecureBootEnabled(Eval("EnableSecureBoot")) %>' DataSource ='<%# GetSecureBootTemplatesList() %>'
                                 DataValueField="Name" DataTextField="Description" SelectedIndex='<%# GetSecureBootTemplateIndex(Eval("SecureBootTemplate")) %>'>
                             </asp:DropDownList>
                         </td>
@@ -409,7 +409,7 @@
                                         <asp:TextBox CssClass="form-control" Runat="server" ID="txtManualTempplateTimeZone" Text='<%# Eval("timeZoneId") %>'></asp:TextBox>
 	                                </td>
 	                                <td>
-                                        <asp:DropDownList ID="ddlTemplateTimeZone" runat="server" CssClass="form-control" Width="450"
+                                        <asp:DropDownList ID="ddlTemplateTimeZone" runat="server" CssClass="form-control"
 	                                                DataValueField="Key" DataTextField="Value" DataSource='<%# FuseCP.EnterpriseServer.Base.Virtualization.VirtualMachineTimeZoneList.GetList() %>'
                                             SelectedValue='<%#  SetSelectedValueIfTimeZoneExis(Eval("timeZoneId")) %>'>
                                         </asp:DropDownList>
@@ -535,7 +535,7 @@
                         <asp:Localize ID="locRunAt" runat="server" meta:resourcekey="locRunAt" Text="Execute at:"></asp:Localize>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlRunAt" runat="server" CssClass="form-control" Width="450"
+                        <asp:DropDownList ID="ddlRunAt" runat="server" CssClass="form-control"
                             SelectedIndex='<%# GetPsScriptIndex(Container, Eval("Name")) %>'>
                                 <asp:ListItem meta:resourcekey="liRunAtDisabled" Text="Disabled" Value="disabled"></asp:ListItem>
                                 <asp:ListItem meta:resourcekey="liRunAtAfterCreation" Text="After VM creation" Value="after_creation"></asp:ListItem>
@@ -556,7 +556,7 @@
                         <asp:Localize ID="locScript" runat="server" meta:resourcekey="locScript" Text="PS Script:"></asp:Localize>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" Font-Names="Consolas" Font-Size="11" ID="txtPsScript" TextMode="MultiLine" Rows="10" Width="100%" Spellcheck="false" Text='<%# Eval("Description") %>'></asp:TextBox>
+                        <asp:TextBox runat="server" Font-Names="Consolas" Font-Size="11" ID="txtPsScript" TextMode="MultiLine" Rows="10" Spellcheck="false" Text='<%# Eval("Description") %>'></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -699,7 +699,7 @@
 		        <asp:Localize ID="locExternalNetworkName" runat="server" meta:resourcekey="locExternalNetworkName" Text="Connect to Network:"></asp:Localize>
 		    </td>
 		    <td>
-                <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control" Width="450"
+                <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control"
                     DataValueField="SwitchId" DataTextField="Name"></asp:DropDownList>
             </td>
             <td>
@@ -745,7 +745,7 @@
 		    </td>
 		    <td>
                 <asp:DropDownList ID="ddlManagementNetworks" runat="server" 
-                    CssClass="form-control" Width="450"
+                    CssClass="form-control"
                     DataValueField="SwitchId" DataTextField="Name" AutoPostBack="true" 
                     onselectedindexchanged="ddlManagementNetworks_SelectedIndexChanged"></asp:DropDownList>
             </td>
@@ -860,7 +860,7 @@
 		        <asp:Localize ID="locPrivateNetworkName" runat="server" meta:resourcekey="locExternalNetworkName" Text="Connect to Network:"></asp:Localize>
 		    </td>
 		    <td>
-                <asp:DropDownList ID="ddlExternalNetworksPrivate" runat="server" CssClass="form-control" Width="450" Enabled="false"
+                <asp:DropDownList ID="ddlExternalNetworksPrivate" runat="server" CssClass="form-control" Enabled="false"
                     DataValueField="SwitchId" DataTextField="Name"></asp:DropDownList>
             </td>
 	    </tr>
@@ -950,7 +950,7 @@
 		        <asp:Localize ID="locDmzExternalNetworkName" runat="server" meta:resourcekey="locExternalNetworkName" Text="Connect to Network:"></asp:Localize>
 		    </td>
 		    <td>
-                <asp:DropDownList ID="ddlExternalNetworksDmz" runat="server" CssClass="form-control" Width="450" Enabled="false"
+                <asp:DropDownList ID="ddlExternalNetworksDmz" runat="server" CssClass="form-control" Enabled="false"
                     DataValueField="SwitchId" DataTextField="Name"></asp:DropDownList>
             </td>
 	    </tr>

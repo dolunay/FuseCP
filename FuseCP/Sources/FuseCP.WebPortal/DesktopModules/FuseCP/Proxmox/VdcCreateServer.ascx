@@ -67,7 +67,7 @@
 									<asp:Localize ID="locHostname" runat="server"
 										meta:resourcekey="locHostname" Text="Host name:"></asp:Localize></td>
 								<td>
-									<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
+									<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
 
 									<asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
 										ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -78,7 +78,7 @@
 									</asp:RegularExpressionValidator>
 
 									<span class="Medium">.</span>
-									<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="150"></asp:TextBox>
+									<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
 
 									<asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
 										ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -155,7 +155,7 @@
 										<asp:Label ID="lblCpu" runat="server"
 											meta:resourcekey="lblCpu" Text="CPU:" /></td>
 									<td>
-										<asp:DropDownList ID="ddlCpu" runat="server" CssClass="HugeTextBox" Width="80">
+										<asp:DropDownList ID="ddlCpu" runat="server" CssClass="HugeTextBox">
 										</asp:DropDownList>
 									</td>
 									<td>
@@ -168,7 +168,7 @@
 										<asp:Label ID="lblRam" runat="server"
 											meta:resourcekey="lblRam" Text="RAM:" /></td>
 									<td>
-										<asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox" Width="70" Text="0"></asp:TextBox>
+										<asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox" Text="0"></asp:TextBox>
 										<asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
 											ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
 											ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -183,7 +183,7 @@
 										<asp:Label ID="lblHdd" runat="server"
 											meta:resourcekey="lblHdd" Text="HDD:" /></td>
 									<td>
-										<asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox" Width="70" Text="0"></asp:TextBox>
+										<asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox" Text="0"></asp:TextBox>
 										<asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
 											ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
 											ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -205,7 +205,7 @@
 										<asp:Localize ID="locSnapshots" runat="server"
 											meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
 									<td>
-										<asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50" Text="0"></asp:TextBox>
+										<asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
 
 										<asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
 											ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -310,7 +310,7 @@
 									<asp:Localize ID="locExternalAddresses" runat="server"
 										meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-									<asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Width="50" Text=""></asp:TextBox>
+									<asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
 									<asp:RequiredFieldValidator ID="ExternalAddressesValidator" runat="server" Text="*" Display="Dynamic"
 										ControlToValidate="txtExternalAddressesNumber" meta:resourcekey="ExternalAddressesValidator" SetFocusOnError="true"
@@ -329,7 +329,7 @@
 							<tr id="ExternalAddressesListRow" runat="server">
 								<td style="padding-left: 30px">
 									<asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
-										CssClass="_form-control" Width="300" SelectionMode="Multiple" Height="80"></asp:ListBox>
+										CssClass="_form-control" SelectionMode="Multiple" Height="80"></asp:ListBox>
 									<br />
 									<asp:Localize ID="locHoldCtrl" runat="server"
 										meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses"></asp:Localize>
@@ -371,7 +371,7 @@
 									<asp:Localize ID="locPrivateAddresses" runat="server"
 										meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-									<asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Width="50" Text=""></asp:TextBox>
+									<asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
 									<asp:RequiredFieldValidator ID="PrivateAddressesValidator" runat="server" Text="*" Display="Dynamic"
 										ControlToValidate="txtPrivateAddressesNumber" meta:resourcekey="PrivateAddressesValidator" SetFocusOnError="true"
@@ -390,7 +390,7 @@
 							<tr id="PrivateAddressesListRow" runat="server">
 								<td style="padding-left: 30px">
 									<asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
-										CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
+										CssClass="form-control" Rows="5"></asp:TextBox>
 									<br />
 									<asp:Localize ID="locOnePerLine" runat="server"
 										meta:resourcekey="locOnePerLine" Text="* Type one IP address per line"></asp:Localize>
