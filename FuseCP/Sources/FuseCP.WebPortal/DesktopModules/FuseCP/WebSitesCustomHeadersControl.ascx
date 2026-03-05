@@ -10,13 +10,13 @@
 	    <columns>
 		    <asp:TemplateField HeaderText="gvCustomHeadersName">
 			    <itemtemplate>
-				    <asp:TextBox id="txtName" Runat="server" Width="150" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Key") %>'>
+				    <asp:TextBox id="txtName" Runat="server" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Key") %>'>
 				    </asp:TextBox>
 			    </itemtemplate>
 		    </asp:TemplateField>
 		    <asp:TemplateField HeaderText="gvCustomHeadersValue">
 			    <itemtemplate>
-				    <asp:TextBox id="txtValue" Runat="server" Width="150" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Value") %>'>
+				    <asp:TextBox id="txtValue" Runat="server" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Value") %>'>
 				    </asp:TextBox>
 			    </itemtemplate>
 		    </asp:TemplateField>

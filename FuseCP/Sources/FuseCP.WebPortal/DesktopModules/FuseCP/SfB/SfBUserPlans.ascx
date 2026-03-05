@@ -18,7 +18,7 @@
      </div>
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <asp:GridView ID="gvPlans" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand">
+					    EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand">
 					    <Columns>
 						    <asp:TemplateField>
 							    <ItemTemplate>							        
@@ -26,7 +26,7 @@
 							    </ItemTemplate>
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvPlan">
-							    <ItemStyle Width="70%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnkDisplayPlan" runat="server" EnableViewState="false"
 									    NavigateUrl='<%# GetPlanDisplayUrl(Eval("SfBUserPlanId").ToString()) %>'>

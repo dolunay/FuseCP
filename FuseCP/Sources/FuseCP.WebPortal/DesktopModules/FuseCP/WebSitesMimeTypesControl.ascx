@@ -11,13 +11,13 @@
 	    <columns>
 		    <asp:TemplateField HeaderText="gvMimeTypesExtension">
 			    <itemtemplate>
-				    <asp:TextBox id="txtExtension" Runat="server" Width="70" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Extension") %>'>
+				    <asp:TextBox id="txtExtension" Runat="server" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Extension") %>'>
 				    </asp:TextBox>
 			    </itemtemplate>
 		    </asp:TemplateField>
 		    <asp:TemplateField HeaderText="gvMimeTypesMIMEtype">
 			    <itemtemplate>
-				    <asp:TextBox id="txtMimeType" Runat="server" Width="150" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "MimeType") %>'>
+				    <asp:TextBox id="txtMimeType" Runat="server" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "MimeType") %>'>
 				    </asp:TextBox>
 			    </itemtemplate>
 		    </asp:TemplateField>

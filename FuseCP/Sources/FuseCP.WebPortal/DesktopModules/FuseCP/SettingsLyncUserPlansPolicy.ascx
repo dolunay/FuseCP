@@ -6,7 +6,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvPlans" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand" >
+	 EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand" >
 		<Columns>
             <asp:TemplateField HeaderText="gvPlanEdit">
                 <ItemTemplate>
@@ -19,7 +19,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="gvPlan">
-				<ItemStyle Width="70%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkDisplayPlan" runat="server" EnableViewState="true" ><%# Eval("LyncUserPlanName")%></asp:Label>
                  </ItemTemplate>

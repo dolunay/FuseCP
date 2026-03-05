@@ -23,7 +23,7 @@
             <asp:Label ID="lblMailTo" runat="server" meta:resourcekey="lblMailTo" Text="Mail To:"></asp:Label>
         </td>
         <td class="Normal">
-            <asp:TextBox ID="txtMailTo" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
+            <asp:TextBox ID="txtMailTo" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox>
          </td>
     </tr>
 
@@ -32,7 +32,7 @@
             <asp:Label ID="lblDayBeforeNotify" runat="server" meta:resourcekey="lblDayBeforeNotify" Text="Notify before (days):"></asp:Label>
         </td>
         <td class="Normal">
-            <asp:TextBox ID="txtDaysBeforeNotify" runat="server" Width="95%" CssClass="form-control" MaxLength="1000" placeholder="Number of days before expiration date"></asp:TextBox>
+            <asp:TextBox ID="txtDaysBeforeNotify" runat="server" CssClass="form-control" MaxLength="1000" placeholder="Number of days before expiration date"></asp:TextBox>
         </td>
     </tr>
 </table>

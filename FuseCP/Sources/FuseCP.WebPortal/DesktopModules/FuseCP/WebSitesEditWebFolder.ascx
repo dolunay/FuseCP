@@ -11,13 +11,13 @@
 						<asp:Label ID="lblFolderTitle" runat="server" meta:resourcekey="lblFolderTitle" Text="Folder Title:"></asp:Label>
 					</td>
 		            <td class="NormalBold">
-                        <asp:TextBox ID="txtTitle" runat="server" Width="200" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
                     </td>
 	            </tr>
 	            <tr>
 		            <td class="SubHead"><asp:Label ID="lblFolderName" runat="server" meta:resourcekey="lblFolderName" Text="Folder Path:"></asp:Label></td>
 		            <td class="NormalBold">
-                        <uc1:FileLookup id="folderPath" runat="server" Width="250">
+                        <uc1:FileLookup id="folderPath" runat="server">
                         </uc1:FileLookup></td>
 	            </tr>
             </table>
