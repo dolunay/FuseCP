@@ -163,15 +163,7 @@
                             OnClick="btnClearThumbnailphoto_Click" />
 
                         <!--[if lte IE 9]>
-                                    <script type="text/javascript">
-                                        var agentStr = navigator.userAgent;
-                                        if ((agentStr.indexOf("Trident/5") > -1)||(agentStr.indexOf("Trident/4") > -1)||(agentStr.indexOf("Trident") == -1)){
-                                            $().ready(function () {
-                                                $("#divUpThumbnailphoto").show();
-                                                $(".btnload").hide();
-                                            });
-                                        } 
-                                    </script>
+                                    <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/organization-user-general-settings-ie9.js"></script>
                                     <![endif]-->
                     </asp:Panel>
             </div>

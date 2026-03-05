@@ -9,20 +9,7 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<script type="text/javascript">
-    function ValidateCheckBoxList(sender, args) {
-        var checkBoxList = document.getElementsByClassName("vhdContainer");
-        var checkboxes = checkBoxList.getElementsByTagName("input");
-        var isValid = false;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                isValid = true;
-                break;
-            }
-        }
-        args.IsValid = isValid;
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-replication-validator.js"></script>
 <style>
     .ReplicaTable td {
         padding-bottom: 10px;

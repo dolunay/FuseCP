@@ -47,7 +47,8 @@ $legacyLines = @(& $rg -n --glob $glob -e $legacyPattern)
 $oldHtmlLines = @(& $rg -n --glob $glob -e $oldHtmlPattern)
 $widthLines = @(& $rg -n --glob $glob -e $widthPattern)
 $widthLines = @($widthLines | Where-Object { $_ -notmatch "window\.open\(" })
-$inlineScriptLines = @(& $rg -n -P --glob $glob -e "<script(?![^>]*\bsrc\s*=)[^>]*>")
+$inlineScriptPattern = '<script(?![^>]*\bsrc\s*=)(?![^>]*\brunat\s*=\s*["'']server["''])[^>]*>'
+$inlineScriptLines = @(& $rg -n -P --glob $glob -e $inlineScriptPattern)
 
 $legacyCount = $legacyLines.Count
 $oldHtmlCount = $oldHtmlLines.Count

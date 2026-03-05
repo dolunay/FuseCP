@@ -152,6 +152,8 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/async-tasks-config.js` for async task hidden-field config bootstrap.
 - Added shared helper `DesktopModules/FuseCP/Scripts/helicon-ape-user.js` for Helicon Ape user auth-type toggle behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps-rdp-panel.js` for VPS and VPSForPC RDP popup launch behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/vps-replication-validator.js` for replication VHD checkbox validation.
+- Added shared helper `DesktopModules/FuseCP/Scripts/organization-user-general-settings-ie9.js` for legacy IE thumbnail-upload fallback behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -189,7 +191,10 @@ Keep using:
 - Replaced inline auth-type script in `WebSitesEditHeliconApeUser.ascx` with shared `helicon-ape-user.js`.
 - Replaced inline RDP popup launch scripts in `VPS/VpsDetailsGeneral.ascx` and `VPSForPC/VpsDetailsGeneral.ascx` with shared `vps-rdp-panel.js`.
 - Replaced inline thumbnail refresh init in `Proxmox/VpsDetailsGeneral.ascx` with shared `proxmox-vps-general.js` auto initialization.
-- Reduced inline-script candidate count from `100` to `16` in guard output.
+- Replaced inline replication validator scripts in `VPS2012/VpsDetailsReplications.ascx` and `Proxmox/VpsDetailsReplications.ascx` with shared `vps-replication-validator.js`.
+- Replaced inline IE conditional thumbnail fallback script in `ExchangeServer/OrganizationUserGeneralSettings.ascx` with shared `organization-user-general-settings-ie9.js`.
+- Refined `FuseCP/Tools/run-gui-modernization-guards.ps1` to count client-side inline scripts only (excluding `<script runat="server">`).
+- Reduced inline-script candidate count from `100` to `1` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
