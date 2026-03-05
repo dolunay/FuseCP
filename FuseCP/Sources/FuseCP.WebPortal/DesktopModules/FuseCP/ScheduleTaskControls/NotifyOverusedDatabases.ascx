@@ -6,7 +6,7 @@
     TargetControlID="pnlOverusageDefinition" resourcekey="clpOverusageDefinitionHeader" Text="Notify for">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlOverusageDefinition" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxMSSQLOverused" runat="server" meta:resourcekey="cbxMSSQLOverused" Text="Microsoft SQL usage greater than defined below threshold" />
@@ -37,24 +37,24 @@
     TargetControlID="pnlWarningSettings" resourcekey="clpWarningSettingsHeader" Text="Issue warning">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlWarningSettings" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxDoSendWarning" runat="server" meta:resourcekey="cbxDoSendWarning" Text="Send email notification when usage exceeds" />
    				</td>
-   				<td class="SubHead" width="100%">
+   				<td class="SubHead">
    					<asp:TextBox ID="txtWarningThreshold" runat="server" Width="30" CssClass="form-control" MaxLength="1000"></asp:TextBox>% 
    					<asp:CompareValidator ID="valWarningThreshold" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="txtWarningThreshold" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
    					<asp:Label ID="lblWarningThreshold" runat="server" meta:resourcekey="lblWarningThreshold" Text="threshold."></asp:Label>
    				</td>
 			</tr>
 		</table>
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailFrom" runat="server" meta:resourcekey="lblWarningMailFrom" Text="Mail From:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailFrom" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="warningMailFromRegExValidator" runat="server" ControlToValidate="txtWarningMailFrom" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -63,7 +63,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailBcc" runat="server" meta:resourcekey="lblWarningMailBcc" Text="BCC:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailBcc" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="warningMailBccRegExValidator" runat="server" ControlToValidate="txtWarningMailBcc" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -72,7 +72,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailSubject" runat="server" meta:resourcekey="lblWarningMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 				</td>
 			</tr>
@@ -100,12 +100,12 @@
     TargetControlID="pnlOverusedSettings" resourcekey="clpOverusedSettingsHeader" Text="Issue Overused">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlOverusedSettings" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWhenUsageThresholdExceeds" runat="server" meta:resourcekey="lblWhenUsageThresholdExceeds" Text="When usage exceeds"></asp:Label>
 				</td>
-   				<td class="SubHead" width="100%">
+   				<td class="SubHead">
 	   				<asp:TextBox ID="txtOverusedThreshold" runat="server" Width="30" CssClass="form-control" MaxLength="1000"></asp:TextBox>%
 	   				<asp:CompareValidator ID="valOverusedThreshold" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="txtOverusedThreshold" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
    					<asp:Label ID="lblOverusedThreshold" runat="server" meta:resourcekey="lblWarningThreshold" Text="threshold."></asp:Label>
@@ -117,12 +117,12 @@
    				</td>
 			</tr>
 		</table>
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblOverusedMailFrom" runat="server" meta:resourcekey="lblOverusedMailFrom" Text="Mail From:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtOverusedMailFrom" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="overusedMailFromRegExValidator" runat="server" ControlToValidate="txtOverusedMailFrom" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -131,7 +131,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblOverusedMailBcc" runat="server" meta:resourcekey="lblOverusedMailBcc" Text="BCC:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtOverusedMailBcc" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="overusedMailBccRegExValidator" runat="server" ControlToValidate="txtOverusedMailBcc" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -140,7 +140,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblOverusedMailSubject" runat="server" meta:resourcekey="lblOverusedMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtOverusedMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 				</td>
 			</tr>

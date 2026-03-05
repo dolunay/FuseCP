@@ -3,12 +3,12 @@
 <%@ Register TagPrefix="fcp" Namespace="FuseCP.WebPortal.Code.Controls" Assembly="FuseCP.WebPortal" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
-		<td class="normal" width="100%">
+		<td class="normal">
             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="3" Width="300px"></asp:TextBox>
 		</td>
 	</tr>
@@ -76,7 +76,7 @@
 		<td class="Normal">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="text-end" width="200px">
+		<td class="text-end">
 		    <asp:Label ID="lblListOptions" runat="server" meta:resourcekey="lblListOptions" Text="List Options:"></asp:Label>
 		</td>
 		<td>
@@ -134,39 +134,39 @@
 <fcp:collapsiblepanel id="AdditionalOptions" runat="server" targetcontrolid="pAdditionalOptions"
     meta:resourcekey="AdditionalOptions" ></fcp:collapsiblepanel>
 <asp:Panel runat="server" ID="pAdditionalOptions">
-   <table width="100%">
+   <table>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbDigestMode" runat="server" meta:resourcekey="lbDigestMode" /></td>
+        <td class="text-end"><asp:Label ID="lbDigestMode" runat="server" meta:resourcekey="lbDigestMode" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbDigestMode"/>
         </td>
     </tr>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbSendSubscribe" runat="server" meta:resourcekey="lbSendSubscribe" /></td>
+        <td class="text-end"><asp:Label ID="lbSendSubscribe" runat="server" meta:resourcekey="lbSendSubscribe" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbSendSubcsribe"/>
         </td>
     </tr>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbSendUnsubscribe" runat="server" meta:resourcekey="lbSendUnsubscribe" /></td>
+        <td class="text-end"><asp:Label ID="lbSendUnsubscribe" runat="server" meta:resourcekey="lbSendUnsubscribe" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbSendUnsubscribe"/>
         </td>
     </tr>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbAllowUnsubscribe" runat="server" meta:resourcekey="lbAllowUnsubscribe" /></td>
+        <td class="text-end"><asp:Label ID="lbAllowUnsubscribe" runat="server" meta:resourcekey="lbAllowUnsubscribe" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbAllowUnsubscribe"/>
         </td>
     </tr>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbDisableListcommand" runat="server" meta:resourcekey="lbDisableListcommand" /></td>
+        <td class="text-end"><asp:Label ID="lbDisableListcommand" runat="server" meta:resourcekey="lbDisableListcommand" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbDisableListcommand"/>
         </td>
     </tr>
     <tr>
-        <td class="text-end" width="200px"><asp:Label ID="lbDisableSubscribecommand" runat="server" meta:resourcekey="lbDisableSubscribecommand" /></td>
+        <td class="text-end"><asp:Label ID="lbDisableSubscribecommand" runat="server" meta:resourcekey="lbDisableSubscribecommand" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbDisableSubscribecommand"/>
         </td>

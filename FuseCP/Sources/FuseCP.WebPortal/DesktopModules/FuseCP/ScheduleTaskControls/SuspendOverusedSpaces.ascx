@@ -6,7 +6,7 @@
     TargetControlID="pnlOverusageDefinition" resourcekey="clpOverusageDefinitionHeader" Text="Space overused when">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlOverusageDefinition" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxSuspendWhenDiskSpaceOverused" runat="server" meta:resourcekey="cbxSuspendWhenDiskSpaceOverused" Text="Disk space usage greater than defined below threshold" />
@@ -32,24 +32,24 @@
     TargetControlID="pnlWarningSettings" resourcekey="clpWarningSettingsHeader" Text="Issue warning">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlWarningSettings" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxDoSendWarning" runat="server" meta:resourcekey="cbxDoSendWarning" Text="Send email notification when usage exceeds" />
    				</td>
-   				<td class="SubHead" width="100%">
+   				<td class="SubHead">
    					<asp:TextBox ID="txtWarningThreshold" runat="server" Width="30" CssClass="form-control" MaxLength="1000"></asp:TextBox>% 
    					<asp:CompareValidator ID="valWarningThreshold" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="txtWarningThreshold" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
    					<asp:Label ID="lblWarningThreshold" runat="server" meta:resourcekey="lblWarningThreshold" Text="threshold."></asp:Label>
    				</td>
 			</tr>
 		</table>
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailFrom" runat="server" meta:resourcekey="lblWarningMailFrom" Text="Mail From:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailFrom" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="warningMailFromRegExValidator" runat="server" ControlToValidate="txtWarningMailFrom" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -58,7 +58,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailBcc" runat="server" meta:resourcekey="lblWarningMailBcc" Text="BCC:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailBcc" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="warningMailBccRegExValidator" runat="server" ControlToValidate="txtWarningMailBcc" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -67,7 +67,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailSubject" runat="server" meta:resourcekey="lblWarningMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtWarningMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 				</td>
 			</tr>
@@ -95,12 +95,12 @@
     TargetControlID="pnlSuspensionSettings" resourcekey="clpSuspensionSettingsHeader" Text="Suspend space">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlSuspensionSettings" runat="server" CssClass="Normal">
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWhenUsageThresholdExceeds" runat="server" meta:resourcekey="lblWhenUsageThresholdExceeds" Text="When usage exceeds"></asp:Label>
 				</td>
-   				<td class="SubHead" width="100%">
+   				<td class="SubHead">
 	   				<asp:TextBox ID="txtSuspensionThreshold" runat="server" Width="30" CssClass="form-control" MaxLength="1000"></asp:TextBox>%
 	   				<asp:CompareValidator ID="valSuspensionThreshold" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="txtSuspensionThreshold" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
    					<asp:Label ID="lblSuspensionThreshold" runat="server" meta:resourcekey="lblWarningThreshold" Text="threshold."></asp:Label>
@@ -117,12 +117,12 @@
    				</td>
 			</tr>
 		</table>
-		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailFrom" runat="server" meta:resourcekey="lblSuspensionMailFrom" Text="Mail From:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtSuspensionMailFrom" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="suspensionMailFromRegExValidator" runat="server" ControlToValidate="txtSuspensionMailFrom" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -131,7 +131,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailBcc" runat="server" meta:resourcekey="lblSuspensionMailBcc" Text="BCC:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtSuspensionMailBcc" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 	   				<asp:RegularExpressionValidator ID="suspensionMailBccRegExValidator" runat="server" ControlToValidate="txtSuspensionMailBcc" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
 				</td>
@@ -140,7 +140,7 @@
 				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailSubject" runat="server" meta:resourcekey="lblSuspensionMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
-				<td class="Normal" width="100%">
+				<td class="Normal">
    					<asp:TextBox ID="txtSuspensionMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
 				</td>
 			</tr>
