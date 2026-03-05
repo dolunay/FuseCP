@@ -36,7 +36,7 @@
                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Width="50" Text="1"></asp:TextBox>
+                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Text="1"></asp:TextBox>
                                 
                                 <asp:RequiredFieldValidator ID="PrivateAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtPrivateAddressesNumber" meta:resourcekey="PrivateAddressesValidator" SetFocusOnError="true"
@@ -55,7 +55,7 @@
                         <tr id="PrivateAddressesListRow" runat="server">
                             <td style="padding-left: 30px">
                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
-                                    CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
+                                    CssClass="form-control" Rows="5"></asp:TextBox>
                                 <br />
                                 <asp:Localize ID="locOnePerLine" runat="server"
                                         meta:resourcekey="locOnePerLine" Text="* Type one IP address per line"></asp:Localize>
@@ -75,25 +75,25 @@
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locGateway" runat="server"
                                     meta:resourcekey="locGateway" Text="Gateway:"></asp:Localize>
-                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                 <asp:RequiredFieldValidator ID="DNSValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtDNS1" meta:resourcekey="DNSValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locDNS1" runat="server"
                                     meta:resourcekey="locDNS1" Text="Preferred DNS server:"></asp:Localize>
-                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                 <asp:Localize ID="locDNS2" runat="server"
                                     meta:resourcekey="locDNS2" Text="Alternate DNS server:"></asp:Localize>
-                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control" Text=""></asp:TextBox>
 
                                 <asp:RequiredFieldValidator ID="MaskValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtMask" meta:resourcekey="MaskValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locMask" runat="server"
                                     meta:resourcekey="locMask" Text="Subnet mask:"></asp:Localize>
-                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                             </td>
                         </tr>
                     </table>

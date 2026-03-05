@@ -26,7 +26,7 @@
 	</table>
 	<asp:GridView ID="gvHeliconApeFolders" runat="server" EnableViewState="True" AutoGenerateColumns="false"
 		ShowHeader="False" CssSelectorClass="LightGridView" EmptyDataText="gvHeliconApeFolders"
-		DataKeyNames="Path,ContentPath" OnRowDeleting="gvHeliconApeFolders_RowDeleting" Width="100%">
+		DataKeyNames="Path,ContentPath" OnRowDeleting="gvHeliconApeFolders_RowDeleting">
 		<Columns>
 			<asp:TemplateField HeaderText="gvHeliconApeFoldersName" ItemStyle-Width="782px">
 				<ItemStyle CssClass="NormalText"></ItemStyle>
@@ -82,9 +82,9 @@
 	</table>
 	<asp:GridView ID="gvHeliconApeUsers" runat="server" EnableViewState="True" AutoGenerateColumns="false"
 		ShowHeader="False" CssSelectorClass="LightGridView" EmptyDataText="gvHeliconApeUsers"
-		DataKeyNames="Name" OnRowDeleting="gvHeliconApeUsers_RowDeleting" Width="100%">
+		DataKeyNames="Name" OnRowDeleting="gvHeliconApeUsers_RowDeleting">
 		<Columns>
-			<asp:TemplateField ItemStyle-Width="100%">
+			<asp:TemplateField>
 				<ItemStyle CssClass="NormalBold"></ItemStyle>
 				<ItemTemplate>
 					<asp:HyperLink ID="lnkEditUser" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_htaccessuser", Eval("Name").ToString()) %>'>
@@ -121,9 +121,9 @@
 
 	<asp:GridView ID="gvHeliconApeGroups" runat="server" EnableViewState="True" AutoGenerateColumns="false"
 		ShowHeader="False" EmptyDataText="gvHeliconApeGroups" CssSelectorClass="LightGridView"
-		DataKeyNames="Name" OnRowDeleting="gvHeliconApeGroups_RowDeleting" Width="100%">
+		DataKeyNames="Name" OnRowDeleting="gvHeliconApeGroups_RowDeleting">
 		<Columns>
-			<asp:TemplateField ItemStyle-Width="100%">
+			<asp:TemplateField>
 				<ItemStyle CssClass="NormalBold"></ItemStyle>
 				<ItemTemplate>
 					<asp:HyperLink ID="lnkEditGroup" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_htaccessgroup", Eval("Name").ToString()) %>'>

@@ -10,7 +10,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvMailboxPlans" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvMailboxPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvMailboxPlan_RowCommand" >
+	 EmptyDataText="gvMailboxPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvMailboxPlan_RowCommand" >
 		<Columns>
             <asp:TemplateField HeaderText="Edit">
                 <ItemTemplate>
@@ -23,13 +23,13 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Policy">
-				<ItemStyle Width="70%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkDisplayMailboxPlan" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("MailboxPlan"))%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField >
-				<ItemStyle Width="15%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 				    &nbsp;<label>
 				        <input type="radio" name="DefaultMailboxPlan" value='<%# Eval("MailboxPlanId") %>' <%# IsChecked((bool) Eval("IsDefault")) %>/>
@@ -263,7 +263,7 @@
                 <tr>
                     <td class="FormLabel200 text-end"><asp:Label ID="lblLitigationHoldMsg" runat="server" meta:resourcekey="lblLitigationHoldMsg" Text="Page Content:"></asp:Label></td>
                     <td class="Normal align-top" style="padding-left: 5px">
-                        <asp:TextBox ID="txtLitigationHoldMsg" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False" MaxLength="511"></asp:TextBox></td>
+                        <asp:TextBox ID="txtLitigationHoldMsg" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False" MaxLength="511"></asp:TextBox></td>
                 </tr>
 
 			</table>
@@ -309,10 +309,10 @@
             <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                 <ContentTemplate>
                 <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		        Width="100%" EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
+		        EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
 		        <Columns>
 			        <asp:TemplateField HeaderText="Tag">
-				        <ItemStyle Width="70%"></ItemStyle>
+				        <ItemStyle></ItemStyle>
 				        <ItemTemplate>
 					        <asp:Label id="displayPolicy" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("TagName"))%></asp:Label>
                         </ItemTemplate>

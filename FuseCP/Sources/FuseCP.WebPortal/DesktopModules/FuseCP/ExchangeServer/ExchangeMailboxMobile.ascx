@@ -20,30 +20,30 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <asp:GridView ID="gvMobile" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvUsers" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvUsers" CssSelectorClass="NormalGridView"
 					    AllowSorting="False" onrowcommand="gvMobile_RowCommand" 
                         onrowdatabound="gvMobile_RowDataBound" meta:resourcekey="gvMobile" 
                         onrowdeleting="gvMobile_RowDeleting" onrowediting="gvMobile_RowEditing">
 					    <Columns>						     						   						    
 						    <asp:TemplateField HeaderText=""  SortExpression="DeviceUserAgent" meta:resourcekey="deviceUserAgentColumn" >
-							    <ItemStyle Width="50%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							       
 								    <asp:hyperlink id="lnkDeviceUserAgent" runat="server" NavigateUrl='<%# GetEditUrl(Eval("Id").ToString()) %>' >
 									    <%# Eval("DeviceUserAgent") %>
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-						    <asp:BoundField HeaderText="" DataField="DeviceType" ItemStyle-Width="50%" meta:resourcekey="deviceTypeColumn" />
+						    <asp:BoundField HeaderText="" DataField="DeviceType" meta:resourcekey="deviceTypeColumn" />
 						    	   
 						    <asp:TemplateField HeaderText="" SortExpression="LastSuccessSync" meta:resourcekey="lastSyncTimeColumn" >
-							    <ItemStyle Width="50%" Wrap="false"></ItemStyle>
+							    <ItemStyle Wrap="false"></ItemStyle>
 							    <ItemTemplate>							       
 								    <asp:Label runat="server" ID="lblLastSyncTime" Text='<%# Eval("LastSuccessSync") %>' />								    
 							    </ItemTemplate>
 						    </asp:TemplateField>
 						    
 						   <asp:TemplateField HeaderText="" SortExpression="Status"  meta:resourcekey="deviceStatus" >
-							    <ItemStyle Width="50%"  Wrap="false"></ItemStyle>
+							    <ItemStyle  Wrap="false"></ItemStyle>
 							    <ItemTemplate>							       
 								     <asp:Label runat="server" ID="lblStatus" Text='<%# Eval("Status") %>' />								    
 							    </ItemTemplate>
