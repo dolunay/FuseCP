@@ -57,6 +57,8 @@ Use fixed-size batches to control risk and preserve momentum:
 4. Commit exactly those 10 pages as a local checkpoint.
 5. Repeat with next 10 pages.
 6. Continue to next batch without waiting for confirmation unless user says to pause.
+7. Do not push after each batch.
+8. Keep local checkpoint commits per batch and push in large milestones (for example after 100+ batches) to avoid excessive CI/GitHub Actions churn.
 
 Commit message format:
 - `WebPortal GUI optimization batch <N> (10 pages): responsive + legacy width cleanup`
