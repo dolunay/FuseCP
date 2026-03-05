@@ -40,16 +40,6 @@ namespace FuseCP.Portal.SkinControls
 
         private bool initialized;
 
-        protected HtmlGenericControl ddl;
-
-        protected HtmlInputHidden hdSelectedIndex;
-
-        protected HtmlButton btn;
-
-        protected HtmlGenericControl lit;
-
-        protected HtmlInputHidden hdSelectedValue;
-
         public bool AutoPostBack
         {
             get;
