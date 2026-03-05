@@ -48,7 +48,7 @@
     </asp:GridView>
     <br />
     <fcp:CollapsiblePanel id="secPolicy" runat="server" TargetControlID="Policy" meta:resourcekey="secPolicy" Text="Policy"></fcp:CollapsiblePanel>
-    <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden">
         <div class="mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="valRequirePolicy">
                 <asp:Localize ID="lblPolicyTagName" runat="server" meta:resourcekey="lblPolicyTagName" Text="Tag Name:"></asp:Localize>
@@ -61,7 +61,7 @@
         </div>
     </asp:Panel>
     <fcp:CollapsiblePanel id="secPolicyFeatures" runat="server" TargetControlID="PolicyFeatures" meta:resourcekey="secPolicyFeatures" Text="Policy Tag Features"></fcp:CollapsiblePanel>
-    <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden">
         <div class="mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddTagType">
                 <asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize>

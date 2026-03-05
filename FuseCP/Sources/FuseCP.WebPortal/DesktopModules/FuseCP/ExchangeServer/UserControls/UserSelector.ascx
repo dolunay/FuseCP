@@ -33,7 +33,7 @@
                 <div class="widget-content Popup">
                     <asp:UpdatePanel ID="AddAccountsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
-	                        <div style="text-align:right;margin-bottom: 4px;">
+	                        <div style="text-align:right; margin-bottom: 4px">
 			                    <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                             </div>
                             <div class="FormButtonsBarClean">
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </asp:Panel>
-        <asp:Button ID="btnSelectAccountFake" runat="server" style="display:none;" />
+        <asp:Button ID="btnSelectAccountFake" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="SelectAccountsModal" runat="server" TargetControlID="btnSelectAccountFake" PopupControlID="AddAccountsPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelAdd" />
 	</ContentTemplate>
 </asp:UpdatePanel>

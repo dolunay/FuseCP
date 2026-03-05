@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SqlBackupDatabase.ascx.cs" Inherits="FuseCP.Portal.SqlBackupDatabase" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc1" %>
 <div class="card-body form-horizontal">
-    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+    <table class="table table-borderless align-middle mb-0 w-100">
 	    <tr>
 		    <td class="Huge" colspan="2"><asp:Literal id="litDatabaseName" runat="server"></asp:Literal></td>
 	    </tr>

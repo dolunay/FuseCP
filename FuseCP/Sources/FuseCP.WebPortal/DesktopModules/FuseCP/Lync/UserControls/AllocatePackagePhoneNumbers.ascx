@@ -18,7 +18,7 @@
 
  <asp:UpdatePanel runat="server" ID="AddressesTable" UpdateMode="Conditional">
      <ContentTemplate>
-        <table class="table table-borderless align-middle mb-0" style="width: 100%;">
+        <table class="table table-borderless align-middle mb-0" >
             <tr>
                 <td>
                     <asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"
@@ -28,7 +28,7 @@
                 </td>
             </tr>
             <tr id="AddressesNumberRow" runat="server">
-                <td style="padding-left: 30px;">
+                <td style="padding-left: 30px">
                     <asp:Localize ID="locExternalAddresses" runat="server"
                             meta:resourcekey="locExternalAddresses" Text="Number of Phone Numbers:"></asp:Localize>
 
@@ -50,9 +50,9 @@
                 </td>
             </tr>
             <tr id="AddressesListRow" runat="server">
-                <td style="padding-left: 30px;">
+                <td style="padding-left: 30px">
                     <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
-                        CssClass="form-control" Width="220" style="height:100px;" ></asp:ListBox>
+                        CssClass="form-control" Width="220" style="height:100px" ></asp:ListBox>
                     <br />
                     <asp:Localize ID="locHoldCtrl" runat="server" 
                             meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple phone numbers" ></asp:Localize>
@@ -61,7 +61,7 @@
         </table>
     </ContentTemplate>
 </asp:UpdatePanel>
-<p style="text-align:right;">
+<p style="text-align:right">
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddAddress"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 </p>
