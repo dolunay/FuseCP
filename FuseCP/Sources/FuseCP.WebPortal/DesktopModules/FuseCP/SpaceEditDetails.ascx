@@ -9,7 +9,7 @@
 
 <div class="card-body form-horizontal">
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-<table class="table table-borderless align-middle mb-0 w-100" id="tblEditPackage" runat="server" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblEditPackage" runat="server">
 	<tr>
 		<td class="SubHead">
             <asp:Label ID="lblSpaceName" runat="server" meta:resourcekey="lblSpaceName" Text="Space Name:"></asp:Label></td>
@@ -64,7 +64,7 @@
 <fcp:CollapsiblePanel id="secAddons" runat="server"
     TargetControlID="AddonsPanel" meta:resourcekey="secAddons" Text="Space Add-Ons">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden">
     <div class="FormButtonsBar">
         <asp:Button ID="btnAddAddon" runat="server" meta:resourcekey="btnAddAddon" Text="Add Add-on" CssClass="btn btn-success" OnClick="btnAddAddon_Click" />
     </div>
@@ -100,15 +100,15 @@
 <fcp:CollapsiblePanel id="secQuotas" runat="server"
     TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Space Quotas">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table class="table table-borderless align-middle mb-0 w-100" id="tblQuotas" runat="server" width="100%">
+<asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0 w-100" id="tblQuotas" runat="server">
         <tr>
             <td>
-                <table class="table table-borderless align-middle mb-0 w-100" id="tblOverrideQuotas" runat="server" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" id="tblOverrideQuotas" runat="server">
                     <tr>
-                        <td class="SubHead text-nowrap" width="200" rowspan="2">
+                        <td class="SubHead text-nowrap" rowspan="2">
                         </td>
-                        <td class="NormalBold" width="100%">
+                        <td class="NormalBold">
                             <asp:RadioButton ID="rbPlanQuotas" runat="server" GroupName="OverrideQuotas" AutoPostBack="true"
                                 meta:resourcekey="rbPlanQuotas" Text="Use quotas defined on plan level" OnCheckedChanged="rbPlanQuotas_CheckedChanged" />
                         </td>

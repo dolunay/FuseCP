@@ -1,12 +1,12 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail60_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail60_Settings" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-	 <td class="SubHead text-nowrap" width="200">
+	 <td class="SubHead text-nowrap">
 		    <asp:Label ID="lblServiceUrl" runat="server" meta:resourcekey="lblServiceUrl" Text="Web Services URL:"></asp:Label>
 		</td>
-		<td width="100%"><asp:TextBox Runat="server" ID="txtServiceUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtServiceUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead">
@@ -92,7 +92,7 @@
 	        </asp:GridView>
             <br />
             <div class="input-group col-sm-6">
-             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
+             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle" runat="server"></asp:TextBox>
                 <span class="d-flex">
                 <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
                 <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />

@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AWStats_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.AWStats_Settings" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">
+		<td class="SubHead text-nowrap" >
 		    <asp:Label ID="lblCgiBinFolder" runat="server" meta:resourcekey="lblCgiBinFolder" Text="Cgi-Bin Folder:"></asp:Label>
 		</td>
 		<td><asp:TextBox Runat="server" ID="txtAwStatsFolder" CssClass="form-control" Width="200px"></asp:TextBox></td>
