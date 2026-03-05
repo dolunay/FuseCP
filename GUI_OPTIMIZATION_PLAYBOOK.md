@@ -147,6 +147,8 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/file-manager.js` for FileManager grid selection, modal keyboard handling, and unzip progress behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/updatepanel-endrequest-close-progress.js` for UpdatePanel async callback progress-close behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/organization-create-user.js` for organization create-user display-name composition.
+- Added shared helper `DesktopModules/FuseCP/Scripts/exchange-mailbox-autoreply.js` for Exchange mailbox auto-reply TinyMCE configuration.
+- Added shared helper `DesktopModules/FuseCP/Scripts/exchange-disclaimer-general-settings.js` for Exchange disclaimer TinyMCE configuration.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -177,7 +179,8 @@ Keep using:
 - Replaced inline endRequest scripts in `ServersEditEventViewer.ascx` and `StorageSpaces/EditStorageSpace.ascx` with shared `updatepanel-endrequest-close-progress.js`.
 - Replaced inline datepicker script in `VPSForPC/MonitoringPage.aspx` with shared `vps-monitoring.js` include.
 - Replaced inline display-name script in `ExchangeServer/OrganizationCreateUser.ascx` with shared `organization-create-user.js`.
-- Reduced inline-script candidate count from `100` to `28` in guard output.
+- Replaced inline TinyMCE initialization scripts in `ExchangeServer/ExchangeMailboxAutoReply.ascx` and `ExchangeServer/ExchangeDisclaimerGeneralSettings.ascx` with shared script includes.
+- Reduced inline-script candidate count from `100` to `26` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.

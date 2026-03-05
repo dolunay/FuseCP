@@ -6,29 +6,7 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <script src='/tinymce/tinymce.min.js'></script>
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-    tinymce.init({
-        selector: ".tinymce",
-        plugins: ['active_directory advlist autolink lists link image charmap preview hr anchor pagebreak searchreplace htmlchar_count visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality template paste textcolor colorpicker textpattern imagetools codesample'],
-        toolbar: false,
-        custom_undo_redo_levels: 10,
-        height: 250,
-        max_chars: 5000,
-        menu: {
-            edit: { title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall' },
-            insert: { title: 'Insert', items: 'template active_directory | media image link | hr charmap' },
-            view: { title: 'View', items: 'visualaid' },
-            format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript | formats | removeformat' },
-            table: { title: 'Table', items: 'inserttable tableprops deletetable | cell row column' },
-            tools: { title: 'Tools', items: 'code preview' },
-        },
-        toolbar1: 'undo redo | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
-        templates: [
-            { title: 'Default Exchange Disclaimer', description: 'Exchange Disclaimer Default Template', url: '/tinymce/plugins/template/exchange_disclaimer_default.htm' }
-        ],
-    });
-</script>
+<script src='/DesktopModules/FuseCP/Scripts/exchange-disclaimer-general-settings.js'></script>
                 <div class="card-header">
                     <h3 class="card-title">
                         <asp:Image ID="Image1" SkinID="ExchangeDisclaimers48" runat="server" />
