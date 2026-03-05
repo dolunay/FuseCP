@@ -1,5 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PasswordControl.ascx.cs" Inherits="FuseCP.Portal.PasswordControl" %>
 <script src="<%= GetRandomPasswordUrl() %>" language="javascript" type="text/javascript"></script>
+<script src="/DesktopModules/FuseCP/Scripts/password-visibility.js" type="text/javascript"></script>
 
 <div class="mb-3">
     <label for="txtPassword" class="col-sm-2 form-label">
@@ -25,7 +26,6 @@
                 <i class="bi bi-lock fs-5" aria-hidden="true"></i>
             </span>
             <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="hideContentOnBlur form-control" type="password" TextMode="Password" MaxLength="50" meta:resourcekey="loctxtConfirmPassword" placeholder="Confirm your password"></asp:TextBox>
-            <script type="text/javascript">$(".hideContentOnBlur").blur(function () { this.type = 'password'; }); $(".hideContentOnBlur").focus(function () { this.type = 'text'; });</script>
         </div>
         <asp:RequiredFieldValidator ID="valRequireConfirmPassword" runat="server" meta:resourcekey="valRequireConfirmPassword" ErrorMessage="*" ControlToValidate="txtConfirmPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>

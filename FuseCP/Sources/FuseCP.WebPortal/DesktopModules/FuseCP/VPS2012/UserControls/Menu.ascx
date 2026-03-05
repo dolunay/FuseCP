@@ -16,9 +16,4 @@
         </SelectedItemTemplate>
 	</asp:DataList>	
 </ul>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('.nav-tabs li').unwrap();
-    $('.nav-tabs li').unwrap();
-});
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>

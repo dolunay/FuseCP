@@ -128,8 +128,10 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps2012-general.js` for VPS2012 general page RDP + warning logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps-monitoring.js` for VPS monitoring popup/date-picker logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/proxmox-vps-general.js` for Proxmox general page RDP + thumbnail refresh logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/password-visibility.js` for password mask/reveal focus behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
-- Reduced inline-script candidate count from `100` to `85` in guard output.
+- Reused shared nav-tab helper in `VPS/UserControls/Menu.ascx`, `VPS2012/UserControls/Menu.ascx`, and `VPSForPC/UserControls/Menu.ascx`.
+- Reduced inline-script candidate count from `100` to `80` in guard output.
 
 ## Next Modernization Queue
 
