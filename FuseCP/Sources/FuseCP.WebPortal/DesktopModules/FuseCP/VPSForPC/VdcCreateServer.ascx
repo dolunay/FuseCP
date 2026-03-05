@@ -13,7 +13,7 @@
     TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />     
         <div class="card">
-                <div class="card-header">
+                <div class="card-header">>
                     <asp:Image ID="imgIcon" SkinID="AddServer48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create New VM"></asp:Localize>
                 </div>
@@ -24,7 +24,7 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <asp:ValidationSummary ID="validatorsSummary" runat="server" ValidationGroup="VpsWizard"
                         ShowMessageBox="True" ShowSummary="False" />
-                    <asp:Wizard ID="wizard" runat="server" meta:resourcekey="wizard" CellSpacing="5"
+                    <asp:Wizard ID="wizard" runat="server" meta:resourcekey="wizard"
                         OnFinishButtonClick="wizard_FinishButtonClick" OnSideBarButtonClick="wizard_SideBarButtonClick"
                         OnActiveStepChanged="wizard_ActiveStepChanged" OnNextButtonClick="wizard_NextButtonClick">
                         <SideBarStyle CssClass="SideBar" VerticalAlign="Top" />
@@ -46,7 +46,7 @@
                                     <asp:Localize ID="locNameStepTitle" runat="server" meta:resourcekey="locNameStepTitle"
                                         Text="Name and Operating System" /></p>
                                 <br />
-                                <table>
+                                <table class="table table-borderless align-middle mb-0">
                                     <tr>
                                         <td>
                                             &nbsp;
@@ -72,7 +72,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="FormLabel150" valign="top">
+                                        <td class="FormLabel150 align-top">
                                             <asp:Localize ID="Localize3" runat="server" meta:resourcekey="VMName" Text="VM Name:"></asp:Localize>
                                         </td>
                                         <td>
@@ -113,9 +113,9 @@
                                 </fcp:CollapsiblePanel>
                                 <asp:Panel ID="ResourcesPanel" runat="server" Height="0" Style="overflow: hidden;
                                     padding: 10px; width: 400px;">
-                                    <table cellpadding="3">
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
-                                            <td style="width: 60px;">
+                                            <td >
                                                 <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu" meta:resourcekey="lblCpu"
                                                     Text="CPU:" CssClass="MediumBold" />
                                             </td>
@@ -128,9 +128,9 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table cellpadding="3">
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
-                                            <td style="width: 60px;">
+                                            <td >
                                                 <asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam" meta:resourcekey="lblRam"
                                                     Text="RAM:" CssClass="MediumBold" />
                                             </td>
@@ -145,9 +145,9 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table cellpadding="3">
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
-                                            <td style="width: 60px;">
+                                            <td >
                                                 <asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd" meta:resourcekey="lblHdd"
                                                     Text="HDD:" CssClass="MediumBold" />
                                             </td>
@@ -168,7 +168,7 @@
                                 </fcp:CollapsiblePanel>
                                 <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" Style="overflow: hidden;
                                     padding: 5px;">
-                                    <table>
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td class="FormLabel150">
                                                 <asp:Localize ID="locSnapshots" runat="server" meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize>
@@ -187,7 +187,7 @@
                                     Text="DVD">
                                 </fcp:CollapsiblePanel>
                                 <asp:Panel ID="DvdPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-                                    <table>
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td>
                                                 <asp:CheckBox ID="chkDvdInstalled" runat="server" Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
@@ -199,9 +199,9 @@
                                     Text="BIOS">
                                 </fcp:CollapsiblePanel>
                                 <asp:Panel ID="BiosPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-                                    <table>
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
-                                            <td style="width: 200px;">
+                                            <td >
                                                 <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
                                             </td>
                                             <td>
@@ -214,9 +214,9 @@
                                     meta:resourcekey="secActions" Text="Allowed actions">
                                 </fcp:CollapsiblePanel>
                                 <asp:Panel ID="ActionsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-                                    <table style="width: 400px;">
+                                    <table class="table table-borderless align-middle mb-0">
                                         <tr>
-                                            <td style="width: 200px;">
+                                            <td >
                                                 <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown"
                                                     meta:resourcekey="chkStartShutdown" />
                                             </td>
@@ -254,7 +254,7 @@
                                         meta:resourcekey="chkPrivateNetworkEnabled" Text="Private network enabled" />
                                 </p>
                                 <p runat="server" id="pVLanListIsEmptyMessage">User account does not have available VLans</p>
-                                <table id="tablePrivateNetwork" runat="server" cellspacing="5" style="width: 100%;">
+                                <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" >
                                     <tr>
                                         <td>
                                             <asp:Localize ID="lvPrivateVLanID" Text="VLanID" runat="server" />
@@ -276,7 +276,7 @@
                                     <asp:CheckBox ID="chkExternalNetworkEnabled" runat="server" AutoPostBack="true" Checked="true"
                                         meta:resourcekey="chkExternalNetworkEnabled" Text="External network enabled" />
                                 </p>
-                                <div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px;" visible="false">
+                                <div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
                                     <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                         meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                                 </div>
@@ -286,7 +286,7 @@
                                 <p class="SubTitle">
                                     <asp:Localize ID="locSummary" runat="server" meta:resourcekey="locSummary" Text="Summary" /></p>
                                 <br />
-                                <table cellspacing="6">
+                                <table class="table table-borderless align-middle mb-0">
                                     <tr>
                                         <td colspan="2" class="NormalBold">
                                             <asp:Localize ID="locNameStepTitle2" runat="server" meta:resourcekey="locNameStepTitle"
@@ -462,3 +462,4 @@
             <div class="alert alert-info">
                 <asp:Localize ID="FormComments" runat="server" meta:resourcekey="FormComments"></asp:Localize>
             </div>
+

@@ -2,14 +2,14 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="Calendar" Src="../UserControls/CalendarControl.ascx" %>
 
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td colspan="2">
             <asp:CheckBox runat="server" meta:resourcekey="cbDomainAdmin" ID="cbDomainAdmin" Text="Domain Administrator" />
         </td>
     </tr>   
     <tr>
-        <td class="SubHead" width="150">
+        <td class="SubHead">
             <asp:Label ID="lblAccountType" runat="server" meta:resourcekey="lblAccountType" Text="Account type:"></asp:Label>
         </td>
         <td class="Normal">
@@ -38,7 +38,7 @@
             <asp:Label ID="lblFullName" runat="server" meta:resourcekey="lblFullName" Text="Full Name:"></asp:Label>
         </td>
         <td class="Normal">
-            <asp:TextBox ID="txtFullName" runat="server" CssClass="TextBox400"></asp:TextBox>
+            <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>
         </td>
     </tr>
 </table>
@@ -51,9 +51,9 @@
 <asp:Panel ID="AutoresponderPanel" runat="server">
     <asp:UpdatePanel ID="AutoresponderUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-        <table width="100%">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" width="150">
+                <td class="SubHead">
                     <asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Responder type:"></asp:Label>
                 </td>
                 <td class="Normal">
@@ -101,7 +101,7 @@
                 <td class="SubHead">
                     <asp:Label ID="lblSubject" runat="server" meta:resourcekey="lblSubject" Text="Subject:"></asp:Label></td>
                 <td class="Normal">
-                    <asp:TextBox ID="txtSubject" runat="server" CssClass="TextBox400"></asp:TextBox>
+                    <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -109,7 +109,7 @@
                     <asp:Label ID="lblRespondWithReplyFrom" runat="server" meta:resourcekey="lblRespondWithReplyFrom" Text="Respond with reply from:"></asp:Label>
                 </td>
                 <td class="Normal">
-                    <asp:TextBox ID="txtRespondWithReplyFrom" runat="server" CssClass="TextBox400"></asp:TextBox>
+                    <asp:TextBox ID="txtRespondWithReplyFrom" runat="server" CssClass="form-control"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -117,7 +117,7 @@
                     <asp:Label ID="lblMessage" runat="server" meta:resourcekey="lblMessage" Text="Message:"></asp:Label>
                 </td>
                 <td class="Normal">
-                    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="5" CssClass="TextBox400"></asp:TextBox>
+                    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="5" CssClass="form-control"></asp:TextBox>
                 </td>
             </tr>
             </tbody>
@@ -128,9 +128,9 @@
 <fcp:CollapsiblePanel id="secForwarding" runat="server" TargetControlID="ForwardingPanel" meta:resourcekey="Forwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="ForwardingPanel" runat="server">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label>
             </td>
             <td class="Normal">
@@ -150,7 +150,7 @@
 <asp:Panel ID="OlderMailsPanel" runat="server">
     <asp:UpdatePanel ID="DeleteOlderUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <td colspan="2">
                 <asp:CheckBox ID="cbDeleteOlder" runat="server" meta:resourcekey="cbDeleteOlder" AutoPostBack="True" OnCheckedChanged="cbDeleteOlder_CheckedChanged"
@@ -159,7 +159,7 @@
         </tr>
         <tbody runat="server" id="DeleteOlderEnabled">
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblDeleteOlderDays" runat="server" meta:resourcekey="lblDeleteOlderDays" Text="Delete older than (days):"></asp:Label>
             </td>
             <td class="Normal">
@@ -173,7 +173,7 @@
 
     <asp:UpdatePanel ID="ForwardOlderUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <td colspan="2">
                 <asp:CheckBox ID="cbForwardOlder" runat="server" meta:resourcekey="cbForwardOlder" AutoPostBack="True" OnCheckedChanged="cbForwardOlder_CheckedChanged"
@@ -182,7 +182,7 @@
         </tr>
         <tbody runat="server" id="ForwardOlderEnabled">
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblForwardOlderDays" runat="server" meta:resourcekey="lblForwardOlderDays" Text="Forward older than (days):"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox ID="txtForwardOlderDays" runat="server" CssClass="form-control"></asp:TextBox>
@@ -201,3 +201,4 @@
     </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Panel>
+

@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IceWarp_EditDomain.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.IceWarp_EditDomain" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="SubHead" width="150">
+        <td class="SubHead">
             <asp:Label ID="lblPostMaster" runat="server" meta:resourcekey="lblPostMaster"  Text="Postmaster Account:"></asp:Label></td>
         <td class="Normal">
             <asp:DropDownList ID="ddlPostMasterAccount" runat="server" DataTextField="Name" AppendDataBoundItems="True">
@@ -27,9 +27,9 @@
     meta:resourcekey="Limits" text="Limits"></fcp:CollapsiblePanel>
 
 <asp:Panel runat="server" ID="LimitsPanel">
-    <table width="100%">
+    <table class="table table-borderless align-middle mb-0">
         <tr runat="server" ID="rowMaxDomainDiskSpace">
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblMaxDomainDiskSpace" runat="server" meta:resourcekey="lblMaxDomainDiskSpace" Text="Domain Disk Space, MB:"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox runat="server"  ID="txtMaxDomainDiskSpace" Text="0" Width="80px" CssClass="form-control" />
@@ -41,7 +41,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblMaxDomainUsers" runat="server" meta:resourcekey="lblMaxDomainUsers" Text="Max users:"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox runat="server"  ID="txtMaxDomainUsers" Text="0" Width="80px" CssClass="form-control" />
@@ -53,7 +53,7 @@
         </tr>
         <tbody runat="server" ID="rowDomainLimits">
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblLimitVolume" runat="server" meta:resourcekey="lblLimitVolume" Text="Send out data limit per day, MB:"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox runat="server"  ID="txtLimitVolume" Text="0" Width="80px" CssClass="form-control" />
@@ -78,7 +78,7 @@
         </tbody>
         <tbody runat="server" ID="rowUserLimits">
         <tr>
-            <td class="SubHead" width="150">
+            <td class="SubHead">
                 <asp:Label ID="lblDefaultUserQuotaInMB" runat="server" meta:resourcekey="lblDefaultUserQuotaInMB" Text="Default user quota, MB:"></asp:Label>
             </td>
             <td class="Normal">
@@ -131,3 +131,4 @@
 </asp:Panel>
 
 </asp:Panel>
+

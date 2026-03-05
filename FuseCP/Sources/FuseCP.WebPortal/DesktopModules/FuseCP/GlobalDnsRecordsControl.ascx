@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 
 <asp:Panel ID="pnlRecords" runat="server">
-    <div class="text-end" style="margin-bottom:10px;">
+    <div class="text-end" style="margin-bottom:10px">
         <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" CausesValidation="False">
             <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd" />
         </asp:LinkButton>
@@ -22,7 +22,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:BoundField DataField="RecordType" HeaderText="gvRecordsType" />
-        <asp:BoundField DataField="FullRecordData" HeaderText="gvRecordsData" ItemStyle-Width="100%" />
+        <asp:BoundField DataField="FullRecordData" HeaderText="gvRecordsData" />
         <asp:TemplateField>
             <ItemStyle Width="65px" HorizontalAlign="Center" />
             <ItemTemplate>
@@ -34,9 +34,9 @@
     </Columns>
 </asp:GridView>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnSave">
-    <table>
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" width="150" nowrap><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
+            <td class="SubHead text-nowrap"><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
             <td class="Normal" width="260px">
                 <asp:DropDownList ID="ddlRecordType" runat="server" SelectedValue='<%# Bind("RecordType") %>' CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlRecordType_SelectedIndexChanged">
                     <asp:ListItem>A</asp:ListItem>
@@ -58,8 +58,8 @@
         </tr>
         <tr id="rowData" runat="server">
             <td class="SubHead"><asp:Label ID="lblRecordData" runat="server" meta:resourcekey="lblRecordData" Text="Record Data:"></asp:Label></td>
-            <td class="Normal" nowrap>
-                <div class="form-inline">
+            <td class="Normal text-nowrap">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:TextBox ID="txtRecordData" runat="server" Width="260px" CssClass="form-control"></asp:TextBox> <uc1:SelectIPAddress ID="ipAddress" CssClass="form-control" runat="server" />
                     </div>
 <!--
@@ -74,7 +74,7 @@
         <tr id="rowMXPriority" runat="server">
             <td class="SubHead"><asp:Label ID="lblMXPriority" runat="server" meta:resourcekey="lblMXPriority" Text="MX Priority:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtMXPriority" runat="server" style="width:60px;" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtMXPriority" runat="server"  CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireMxPriority" runat="server" ControlToValidate="txtMXPriority"
                     ErrorMessage="*" ValidationGroup="DnsRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="valRequireCorrectPriority" runat="server" ControlToValidate="txtMXPriority"
@@ -85,29 +85,30 @@
         <tr id="rowSRVPriority" runat="server">
             <td class="SubHead"><asp:Label ID="lblSRVPriority" runat="server" meta:resourcekey="lblSRVPriority" Text="SRV Priority:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtSRVPriority" runat="server" style="width:60px;" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtSRVPriority" runat="server"  CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
 
         <tr id="rowSRVWeight" runat="server">
             <td class="SubHead"><asp:Label ID="lblSRVWeight" runat="server" meta:resourcekey="lblSRVWeight" Text="Weight:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtSRVWeight" runat="server" style="width:60px;" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtSRVWeight" runat="server"  CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
 
         <tr id="rowSRVPort" runat="server">
             <td class="SubHead"><asp:Label ID="lblSRVPort" runat="server" meta:resourcekey="lblSRVPort" Text="Port Number:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtSRVPort" runat="server" style="width:60px;" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtSRVPort" runat="server"  CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2" align="right">
+            <td class="text-end" colspan="2">
                 <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
                 <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="DnsRecord"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
             </td>
         </tr>
     </table>
 </asp:Panel>
+
