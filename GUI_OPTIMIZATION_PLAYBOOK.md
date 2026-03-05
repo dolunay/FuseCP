@@ -133,10 +133,11 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/mail-confirmation.js` for mail-page delete confirmation with progress dialog wiring.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
+- Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
 - Reused shared nav-tab helper in `VPS/UserControls/Menu.ascx`, `VPS2012/UserControls/Menu.ascx`, and `VPSForPC/UserControls/Menu.ascx`.
 - Reused shared tab-click helper in `ExchangeServer/UserControls/EnterpriseStorageEditFolderTabs.ascx`, `ExchangeServer/UserControls/OrganizationSettingsTabs.ascx`, and `RDS/UserControls/RDSCollectionTabs.ascx`.
 - Reused shared mail confirmation helper in `MailAccountsEditAccount.ascx`, `MailDomainsEditDomain.ascx`, `MailForwardingsEditForwarding.ascx`, `MailGroupsEditGroup.ascx`, and `MailListsEditList.ascx`.
-- Reduced inline-script candidate count from `100` to `70` in guard output.
+- Reduced inline-script candidate count from `100` to `68` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.

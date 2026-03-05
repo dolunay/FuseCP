@@ -1,17 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VLANs.ascx.cs" Inherits="FuseCP.Portal.VLANs" %>
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 
-<script type="text/javascript">
-    function checkAll(selectAllCheckbox) {
-        //get all checkbox and select it
-        $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-    }
-    function unCheckSelectAll(selectCheckbox) {
-        //if any item is unchecked, uncheck header checkbox as also
-        if (!selectCheckbox.checked)
-            $('th :checkbox').prop("checked", false);
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
