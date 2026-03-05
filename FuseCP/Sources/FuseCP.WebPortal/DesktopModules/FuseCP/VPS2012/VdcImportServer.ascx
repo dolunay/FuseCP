@@ -50,7 +50,7 @@
                     <fcp:CollapsiblePanel id="secOsTemplate" runat="server"
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <div class="mb-3">
                             <asp:Label ID="locOsTemplate" runat="server" CssClass="col-sm-1" meta:resourcekey="locOsTemplate" AssociatedControlID="OsTemplates" Text="OS Template:"></asp:Label>
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
@@ -82,7 +82,7 @@
                         <fcp:CollapsiblePanel id="secConfiguration" runat="server"
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <fcp:Generation runat="server" ID="GenerationSetting" Mode="Summary"/>
 
                             <div class="mb-3">
@@ -131,7 +131,7 @@
                         <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots quota">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
@@ -147,7 +147,7 @@
                         <fcp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">                            
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">                            
                             <div class="mb-3">
                                 <div id="divBootFromCdChkOption" runat="server" class="col-sm-6">
                                     <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
@@ -170,7 +170,7 @@
                         <fcp:CollapsiblePanel id="secDvd" runat="server"
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <div class="mb-3">
                                 <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
@@ -186,7 +186,7 @@
                         <fcp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <div class="mb-3">
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
@@ -209,7 +209,7 @@
                         <fcp:CollapsiblePanel id="secExternalNetwork" runat="server"
                             TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
 
                             <div class="mb-3">
 
@@ -239,7 +239,7 @@
                         <fcp:CollapsiblePanel id="secManagementNetwork" runat="server"
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <div class="mb-3">
 
                                 <asp:Label ID="locManagementAdapter" runat="server" CssClass="col-sm-1" 

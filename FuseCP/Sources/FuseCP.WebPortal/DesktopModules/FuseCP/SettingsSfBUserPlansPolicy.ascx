@@ -41,7 +41,7 @@
 					<fcp:CollapsiblePanel id="secPlan" runat="server"
                         TargetControlID="Plan" meta:resourcekey="secPlan" Text="Plan">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td class="FormLabel200 text-end">
@@ -60,7 +60,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeatures" runat="server"
                         TargetControlID="PlanFeatures" meta:resourcekey="secPlanFeatures" Text="Plan Features">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeatures" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeatures" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -90,7 +90,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesFederation" runat="server"
                         TargetControlID="PlanFeaturesFederation" meta:resourcekey="secPlanFeaturesFederation" Text="Federation">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesFederation" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesFederation" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -109,7 +109,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesArchiving" runat="server"
                         TargetControlID="PlanFeaturesArchiving" meta:resourcekey="secPlanFeaturesArchiving" Text="Archiving">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesArchiving" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesArchiving" runat="server" Height="0" style="overflow:hidden">
 					    <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -126,7 +126,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesMeeting" runat="server"
                         TargetControlID="PlanFeaturesMeeting" meta:resourcekey="secPlanFeaturesMeeting" Text="Meeting">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesMeeting" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesMeeting" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -140,7 +140,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesTelephony" runat="server"
                         TargetControlID="PlanFeaturesTelephony" meta:resourcekey="secPlanFeaturesTelephony" Text="Telephony">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesTelephony" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesTelephony" runat="server" Height="0" style="overflow:hidden">
 					    <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -217,7 +217,7 @@
 	<fcp:CollapsiblePanel id="secEnterpriseVoice" runat="server"
         TargetControlID="EnterpriseVoice" meta:resourcekey="secEnterpriseVoice" Text="Enterprise Voice Policy">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="EnterpriseVoice" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="EnterpriseVoice" runat="server" Height="0" style="overflow:hidden">
 		<table>
 			<tr>
 				<td>
