@@ -34,3 +34,23 @@ body .page-login {
 .page-login .top-bar img {
 	width: 140px;
 }
+
+/* Keep login input icons inline with textboxes after Bootstrap migration. */
+.page-login .card-body .input-group {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+
+.page-login .card-body .input-group .input-group-text {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	border-right: 0;
+}
+
+.page-login .card-body .input-group .form-control {
+	flex: 1 1 auto;
+	min-width: 0;
+}
