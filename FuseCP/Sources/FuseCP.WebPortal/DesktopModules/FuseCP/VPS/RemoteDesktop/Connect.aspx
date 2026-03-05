@@ -7,7 +7,7 @@
         <asp:Literal ID="litServerName" runat="server"></asp:Literal>
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Remote Desktop Web Connection"></asp:Localize></title>
 </head>
-<body style="margin:0;">
+<body style="margin:0">
 
 
 <script language="vbscript" type="text/vbscript">
@@ -222,7 +222,7 @@ end sub
     onreadystatechange="OnControlLoad"
     classid="CLSID:9059f30f-4eb1-4bd2-9fdc-36f43a218f4a"
     codebase="msrdp.cab#version=5,1,2600,2180"
-    width="100" height="100">
+    height="100">
 </object>
 
     <form id="AspForm" runat="server">

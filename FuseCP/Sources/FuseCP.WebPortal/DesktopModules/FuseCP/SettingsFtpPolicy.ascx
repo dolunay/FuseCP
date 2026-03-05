@@ -5,10 +5,10 @@
 
 <fcp:CollapsiblePanel id="secAccountPolicy" runat="server"
     TargetControlID="AccountPolicyPanel" meta:resourcekey="secAccountPolicy" Text="FTP Account Policy"/>
-<asp:Panel ID="AccountPolicyPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AccountPolicyPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblUsername" runat="server" meta:resourcekey="lblUsername" Text="Username Policy:"></asp:Label>
             </td>
             <td class="Normal">
