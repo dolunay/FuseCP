@@ -63,7 +63,7 @@
  	                NavigateUrl='<%# GetItemEditUrl(Eval("PackageID"), Eval("DomainID")) %>'>
  		            <%# Eval("DomainName")%></asp:hyperlink>
  	            </b>
- 	            <div runat="server" class="Small" style="margin-top:2px;" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
+ 	            <div runat="server" class="Small" style="margin-top:2px" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
                      <asp:Label ID="lblMailDomain" runat="server" meta:resourcekey="lblMailDomain" Text="Mail:"></asp:Label>
                      <b><%# Eval("MailDomainName")%></b>
  	            </div>
@@ -83,7 +83,7 @@
              <ItemStyle Width="5%"></ItemStyle>
              <ItemTemplate>
  	            <div style="display:inline-block" runat="server" Visible='<%# ShowDomainDnsInfo(Eval("ExpirationDate"), Eval("LastUpdateDate"), !(bool)Eval("IsSubDomain") && !(bool)Eval("IsPreviewDomain") && !(bool)Eval("IsDomainPointer")) && !string.IsNullOrEmpty(GetDomainDnsRecords((int)Eval("DomainId"))) %>'>
-                   <img style="border-width: 0px;" src="App_Themes/Default/Images/information_icon_small.gif" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
+                   <img style="border-width: 0px" src="App_Themes/Default/Images/information_icon_small.gif" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
                  </div>
              </ItemTemplate>
          </asp:TemplateField>

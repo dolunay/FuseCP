@@ -12,7 +12,7 @@
 				
 <asp:UpdatePanel ID="RecordsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
-    <div class="FormButtonsBar right" style="margin: -68px 0px 20px !important;">
+    <div class="FormButtonsBar right" style="margin: -68px 0px 20px !important">
 						<asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" CausesValidation="False"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 	</div>
 				<fcp:SimpleMessageBox id="messageBox" runat="server" />

@@ -100,7 +100,7 @@
 	</div>
 </asp:Panel>
         
-<asp:Button ID="btnAddAccountsFake" runat="server" style="display:none;" />
+<asp:Button ID="btnAddAccountsFake" runat="server" style="display:none" />
 <ajaxToolkit:ModalPopupExtender ID="AddAccountsModal" runat="server"
 	TargetControlID="btnAddAccountsFake" PopupControlID="AddAccountsPanel"
 	BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelAdd" />

@@ -30,9 +30,9 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 			    <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
-				    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" style="width:100%;">
+				    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
 				        <tr>
-				            <td class="align-top" style="width:40%;">
+				            <td class="align-top" >
 
                                 <table class="table table-borderless align-middle mb-0">
                                    <tr>
@@ -43,8 +43,8 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                             <asp:LinkButton ID="btnChangeHostnamePopup" runat="server"
                                                 meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit"></asp:LinkButton>
                                                 
-                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none;">
-                                                <div style="padding-bottom:3px;">
+                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none">
+                                                <div style="padding-bottom:3px">
                                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                                 </div>
@@ -105,14 +105,14 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				                 </asp:UpdatePanel>
 				                 
 				            </td>
-				            <td class="align-top" style="width:35%;">
+				            <td class="align-top" >
 				                
 				                <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                     <Triggers>
                                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                                     </Triggers>
                                     <ContentTemplate>                
-				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge;border-; border-color: #ffffff" />
+				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge; border-; border-color: #ffffff" />
 				                    </ContentTemplate>
 				                 </asp:UpdatePanel>
 
@@ -192,7 +192,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				    </table>
 			    </div>
     </div>
-<asp:Panel ID="ChangeHostnamePanel" runat="server" style="display:none;">
+<asp:Panel ID="ChangeHostnamePanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>

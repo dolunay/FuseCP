@@ -9,10 +9,10 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 <div class="card-body form-horizontal">
-<table class="table table-borderless align-middle mb-0 w-100" id="tblEditItem" runat="server" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblEditItem" runat="server">
 	<tr>
 		<td class="SubHead text-nowrap" width=200><asp:Label ID="lblWebSite" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
-		<td width="100%" class="NormalBold">
+		<td class="NormalBold">
             <asp:DropDownList ID="ddlWebSites" runat="server" CssClass="form-control"
                 DataTextField="Name" DataValueField="Name">
             </asp:DropDownList>
@@ -84,10 +84,10 @@
 	</tr>
 </table>
 
-<table class="table table-borderless align-middle mb-0 w-100" id="tblViewItem" runat="server" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblViewItem" runat="server">
 	<tr>
-		<td class="SubHead text-nowrap" width="200"><asp:Label ID="lblWebSite2" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
-		<td width="100%" class="NormalBold">
+		<td class="SubHead text-nowrap"><asp:Label ID="lblWebSite2" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
+		<td class="NormalBold">
 		    <asp:Literal ID="litWebSite" runat="server"></asp:Literal>
         </td>
 	</tr>
@@ -133,13 +133,13 @@
 	</tr>
 </table>
 
-<table width="100%">
+<table>
     <tr>
         <td>
             <fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true"
                 TargetControlID="ToolsPanel" meta:resourcekey="secMainTools" Text="SharePoint Site Tools">
             </fcp:CollapsiblePanel>
-            <asp:Panel ID="ToolsPanel" runat="server" Height="0" style="overflow:hidden;">
+            <asp:Panel ID="ToolsPanel" runat="server" Height="0" style="overflow:hidden">
                 <table class="table table-borderless align-middle mb-0" id="tblMaintenance" runat="server">
                     <tr>
                         <td>
