@@ -135,7 +135,7 @@
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="150" Text="0" MaxLength="255"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Text="0" MaxLength="255"></asp:TextBox>
                                                     
                                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -226,7 +226,7 @@
                                     <asp:Label ID="locExternalAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Multiple"></asp:ListBox>
+                                            SelectionMode="Multiple"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredExternalAddresses" runat="server"
                                             ControlToValidate="ExternalAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredExternalAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -255,7 +255,7 @@
                                     <asp:Label ID="locManagementAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Single"></asp:ListBox>
+                                            SelectionMode="Single"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredManagementAddresses" runat="server"
                                             ControlToValidate="ManagementAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredManagementAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">

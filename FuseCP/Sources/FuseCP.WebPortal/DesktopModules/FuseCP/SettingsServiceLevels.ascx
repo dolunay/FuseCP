@@ -7,7 +7,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvServiceLevels" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvServiceLevels" CssSelectorClass="NormalGridView" OnRowCommand="gvServiceLevels_RowCommand">
+	 EmptyDataText="gvServiceLevels" CssSelectorClass="NormalGridView" OnRowCommand="gvServiceLevels_RowCommand">
 		<Columns>
             <asp:TemplateField HeaderText="Edit">
                 <ItemTemplate>
@@ -15,13 +15,13 @@
                 </ItemTemplate>
              </asp:TemplateField>
 			<asp:TemplateField HeaderText="Service Level">
-				<ItemStyle Width="30%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkServiceLevel" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("LevelName"))%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
             <asp:TemplateField HeaderText="Description">
-				<ItemStyle Width="60%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkServiceLevelDescription" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("LevelDescription"))%></asp:Label>
                  </ItemTemplate>

@@ -48,12 +48,12 @@
                     </div>
 
 				    <asp:GridView ID="gvDeletedUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvDeletedUsers" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvDeletedUsers" CssSelectorClass="NormalGridView"
 					    OnRowCommand="gvDeletedUsers_RowCommand" AllowPaging="True" AllowSorting="True"
 					    DataSourceID="odsAccountsPaged" PageSize="20">
 					    <Columns>
 						    <asp:TemplateField HeaderText="gvDeletedUsersDisplayName" SortExpression="DisplayName">
-							    <ItemStyle Width="25%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
 								    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("OriginAT"),(bool)Eval("User.IsVIP")) %>' ImageAlign="AbsMiddle"/>
 								    <asp:hyperlink id="lnk1" runat="server"
@@ -64,7 +64,7 @@
 						    </asp:TemplateField>
                             <asp:BoundField HeaderText="gvDeletedUsersLogin" DataField="User.UserPrincipalName" SortExpression="UserPrincipalName" />
                             <asp:TemplateField HeaderText="gvServiceLevel">
-                                <ItemStyle Width="25%"></ItemStyle>
+                                <ItemStyle></ItemStyle>
                                 <ItemTemplate>
                                     <asp:Label id="lbServLevel" runat="server" ToolTip = '<%# GetServiceLevel((int)Eval("User.LevelId")).LevelDescription%>'>
                                         <%# GetServiceLevel((int)Eval("User.LevelId")).LevelName%>

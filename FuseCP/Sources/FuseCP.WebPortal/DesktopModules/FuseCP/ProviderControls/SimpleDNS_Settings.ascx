@@ -49,13 +49,13 @@
 				<td class="SubHead">
 					<asp:Label ID="lblAdminUrl" runat="server" meta:resourcekey="lblAdminUrl" Text="Admin Console URL:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtUrl" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+				<td class="Normal"><asp:textbox id="txtUrl" CssClass="form-control" Runat="server"></asp:textbox></td>
 			</tr>
 			<tr>
 				<td class="SubHead">
 					<asp:Label ID="lblLogin" runat="server" meta:resourcekey="lblLogin" Text="Admin Login:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtLogin" Width="200" CssClass="form-control" 
+				<td class="Normal"><asp:textbox id="txtLogin" CssClass="form-control" 
 						Runat="server" Text="Admin"></asp:textbox></td>
 			</tr>
 			<tr id = "curPassword" runat ="server">
@@ -69,7 +69,7 @@
 				<td class="SubHead">
 					<asp:Label ID="lblPassword" runat="server" meta:resourcekey="lblPassword" Text="Password:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtPassword" Width="200" CssClass="form-control" Runat="server" TextMode="Password"></asp:textbox></td>
+				<td class="Normal"><asp:textbox id="txtPassword" CssClass="form-control" Runat="server" TextMode="Password"></asp:textbox></td>
 			</tr>
 			<tr>
 				<td class="SubHead">

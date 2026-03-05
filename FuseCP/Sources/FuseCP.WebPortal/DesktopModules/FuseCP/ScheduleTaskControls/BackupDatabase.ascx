@@ -13,14 +13,14 @@
 				<asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName" Text="Database Name:"></asp:Label>
 			</td>
             <td class="Normal">
-   				<asp:TextBox ID="txtDatabaseName" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
+   				<asp:TextBox ID="txtDatabaseName" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
             <td class="SubHead text-nowrap align-top">
 				<asp:Label ID="lblBackupFolder" runat="server" meta:resourcekey="lblBackupFolder">Backup Fodler: </asp:Label>
 			</td>
             <td class="Normal">
-   				<asp:TextBox ID="txtBackupFolder" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
+   				<asp:TextBox ID="txtBackupFolder" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
    				<asp:Label ID="lblBackupFolderHint" runat="server" meta:resourcekey="lblBackupFolderHint" Text="([date], [time] variables are supported)"></asp:Label>
         </tr>
         <tr>
@@ -28,7 +28,7 @@
 				<asp:Label ID="lblBackupName" runat="server" meta:resourcekey="lblBackupName">Backup File Name: </asp:Label>
 			</td>
             <td class="Normal">
-   				<asp:TextBox ID="txtBackupName" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
+   				<asp:TextBox ID="txtBackupName" runat="server" CssClass="form-control" MaxLength="1000"></asp:TextBox><br />
    				<asp:Label ID="lblBackupNameHint" runat="server" meta:resourcekey="lblBackupNameHint" Text="([date], [time] variables are supported)"></asp:Label>
         </tr>
         <tr>

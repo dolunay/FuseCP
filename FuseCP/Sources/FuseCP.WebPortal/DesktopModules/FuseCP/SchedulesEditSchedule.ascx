@@ -38,7 +38,7 @@
                     DataKeyNames="ParameterID" OnRowDataBound="gvTaskParameters_RowDataBound" Visible="false">
                     <Columns>
                         <asp:TemplateField HeaderText="gvTaskParametersName">
-                            <ItemStyle CssClass="NormalBold" Width="150" Wrap="false" />
+                            <ItemStyle CssClass="NormalBold" Wrap="false" />
 	                        <ItemTemplate>
 		                        <%# GetSharedLocalizedString("SchedulerTaskParameter." + Eval("ParameterID").ToString()) %>
 	                        </ItemTemplate>
@@ -181,7 +181,7 @@
                         </tr>
                     </table>
                     <asp:GridView id="gvHistory" runat="server" AutoGenerateColumns="False"
-                        Width="100%" EmptyDataText="gvHistory" GridLines="None" CssClass="GridOutline" OnRowEditing="gvHistory_RowEditing" OnRowCancelingEdit="gvHistory_RowCancelingEdit">
+                        EmptyDataText="gvHistory" GridLines="None" CssClass="GridOutline" OnRowEditing="gvHistory_RowEditing" OnRowCancelingEdit="gvHistory_RowCancelingEdit">
                         <Columns>
                             <asp:TemplateField HeaderText="gvHistoryStartTime" HeaderStyle-Wrap="false" ItemStyle-Wrap="false">
 	                            <ItemTemplate>
@@ -205,7 +205,7 @@
 	                            <EditItemTemplate>
 	                                <asp:TextBox ID="txtLog" runat="server"
 	                                    CssClass="LogArea"
-	                                    TextMode="MultiLine" Rows="10" Width="400" Wrap="false"
+	                                    TextMode="MultiLine" Rows="10" Wrap="false"
 	                                    Text='<%# GetHistoryLog((int)Eval("ScheduleHistoryID")) %>'></asp:TextBox>
 	                                <asp:LinkButton ID="cmdClose" runat="server" meta:resourcekey="cmdClose" Text="Close" CommandName="cancel" CausesValidation="false"></asp:LinkButton>
 	                            </EditItemTemplate>

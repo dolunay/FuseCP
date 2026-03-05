@@ -77,7 +77,7 @@
     <asp:UpdatePanel ID="UsersUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
         <ContentTemplate>
             <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                Width="100%" EmptyDataText="gvUsers" CssSelectorClass="NormalGridView" DataKeyNames="AccountId,AccountType"
+                EmptyDataText="gvUsers" CssSelectorClass="NormalGridView" DataKeyNames="AccountId,AccountType"
                 OnRowCommand="gvUsers_RowCommand" AllowPaging="True" AllowSorting="True"
                 DataSourceID="odsAccountsPaged" PageSize="20">
                 <Columns>
@@ -95,7 +95,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-                        <ItemStyle Width="25%"></ItemStyle>
+                        <ItemStyle></ItemStyle>
                         <ItemTemplate>
                             <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType"),(bool)Eval("IsVIP")) %>' ImageAlign="AbsMiddle" />
                             <asp:Hyperlink ID="lnk1" runat="server" NavigateUrl='<%# GetUserEditUrl(Eval("AccountId").ToString()) %>'>
@@ -105,7 +105,7 @@
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="gvUsersLogin" DataField="UserPrincipalName" SortExpression="UserPrincipalName" />
                     <asp:TemplateField HeaderText="gvServiceLevel">
-                        <ItemStyle Width="25%"></ItemStyle>
+                        <ItemStyle></ItemStyle>
                         <ItemTemplate>
                             <asp:Label ID="lbServLevel" runat="server" ToolTip='<%# GetServiceLevel((int)Eval("LevelId")).LevelDescription%>'>
                                 <%# GetServiceLevel((int)Eval("LevelId")).LevelName%>
