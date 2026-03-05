@@ -98,16 +98,25 @@
 
 								<p>
 									<script language="JavaScript" type="text/javascript">
+										function buildRdpWindowFeatures(width, height, left, top) {
+											return "status=0,resizable=1,scrollbars=1,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left;
+										}
+
+										function openRdpPopup(url, width, height) {
+											var left = (screen.width - width) / 2;
+											var top = (screen.height - height) / 2;
+											var popup = window.open(url, "RDP", buildRdpWindowFeatures(width, height, left, top));
+											if (popup && typeof popup.focus === "function") {
+												popup.focus();
+											}
+										}
+
 										function OpenRemoteDesktopWindow(width, height) {
 											var popup = $find("RdpPopup");
 											if (popup != null) popup.hidePopup();
 
 											var rdpUrl = '<%= RdpPageUrl %>';
-
-											var left = (screen.width - width) / 2;
-											var top = (screen.height - height) / 2;
-
-											window.open(rdpUrl, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left).focus(); // window.open + focus
+											openRdpPopup(rdpUrl, width, height);
 										};
 									</script>
 

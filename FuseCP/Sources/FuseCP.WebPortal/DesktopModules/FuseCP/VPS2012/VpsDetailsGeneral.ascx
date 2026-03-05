@@ -12,12 +12,24 @@
 <asp:Timer runat="server" Interval="30000" ID="operationTimer" />
 
 <script language="JavaScript" type="text/javascript">
-    function OpenRemoteDesktopWindow(resolution, width, height) {
-        $find("RdpPopup").hidePopup();
-        var rdpUrl = document.getElementById("litRdpPageUrl").innerText;
+    function buildRdpWindowFeatures(width, height, left, top) {
+        return "status=0,resizable=1,scrollbars=1,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left;
+    }
+
+    function openRdpPopup(url, width, height) {
         var left = (screen.width - width) / 2;
         var top = (screen.height - height) / 2;
-        my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
+        var popup = window.open(url, "RDP", buildRdpWindowFeatures(width, height, left, top));
+        if (popup && typeof popup.focus === "function") {
+            popup.focus();
+        }
+    }
+
+    function OpenRemoteDesktopWindow(resolution, width, height) {
+        $find("RdpPopup").hidePopup();
+        var urlElement = document.getElementById("litRdpPageUrl");
+        var rdpUrl = urlElement ? (urlElement.innerText || urlElement.textContent || "") : "";
+        openRdpPopup(rdpUrl + resolution, width, height);
     }
 </script>
 <script type="text/javascript"> 
