@@ -16,7 +16,7 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 				    
-				    <table style="width:100%;">
+				    <table >
 				        <tr>
 				            <td class="align-top">
 				            
@@ -33,7 +33,7 @@
                                     <NodeStyle CssClass="TreeNode" />
 				                </asp:TreeView>
 				                
-				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px;">
+				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px">
 				                    <asp:Localize ID="locNoSnapshots" runat="server" meta:resourcekey="locNoSnapshots" Text="No snapshots"></asp:Localize>
 				                </div>
                                 
@@ -79,7 +79,7 @@
 		    </div>
 	    </div>
 
-<asp:Panel ID="RenamePanel" runat="server" style="display:none;" Width="380">
+<asp:Panel ID="RenamePanel" runat="server" style="display:none" Width="380">
 	 <div class="widget">
              <div class="widget-header clearfix">
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locRenameSnapshot" runat="server" Text="Rename snapshot" meta:resourcekey="locRenameSnapshot"></asp:Localize></h3>

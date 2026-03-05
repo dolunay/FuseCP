@@ -23,12 +23,12 @@
 }
 </style>
 <div class="card-body form-horizontal">
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="white-space: nowrap;">
+		<td class="SubHead" style="white-space: nowrap">
 			<asp:Label ID="lblFolderName" runat="server" meta:resourcekey="lblFolderName"></asp:Label>
 		</td>
-		<td class="NormalBold" style="white-space: nowrap;">
+		<td class="NormalBold" style="white-space: nowrap">
 		    <asp:Label runat="server" ID="LabelWebSiteName"></asp:Label>
 
 			<uc1:FileLookup id="folderPath" runat="server" Width="400">
@@ -36,7 +36,7 @@
 			<asp:HiddenField ID="contentPath" runat="server" />
 			<asp:HiddenField ID="DebuggerUrlField" runat="server" />
 		</td>
-        <td style="width: 40%">
+        <td >
             <asp:LinkButton id="ButtonDebuggerStop" CssClass="btn btn-warning" runat="server" OnClick="DebugStopClick"> <i class="bi bi-stop-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStopText"/> </asp:LinkButton>&nbsp;
             <asp:LinkButton id="ButtonDebuggerStart" CssClass="btn btn-success" runat="server" OnClick="DebugStartClick"> <i class="bi bi-play-circle">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnApeDebuggerStartText"/> </asp:LinkButton>&nbsp;
             <asp:LinkButton id="BUttonShowDebuggingPageLinkModal" CssClass="btn btn-success Hidden" runat="server"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowDebuggingPageLinkModalText"/> </asp:LinkButton>
@@ -45,7 +45,7 @@
 </table>
 
 <asp:Panel runat="server" ID="DebuggerFramePanel" Visible="False">
-    <iframe runat="server" ID="DebuggerFrame" width="100%" height="400px"></iframe>
+    <iframe runat="server" ID="DebuggerFrame" height="400px"></iframe>
 </asp:Panel>
 
 
