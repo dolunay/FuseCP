@@ -29,4 +29,4 @@
 
 <!-- Javascript -->
 <fcp:ThemeScripts ID="themeScripts" runat="server" />
-<script src="<%= ResolveUrl(\"~/App_Themes/\" + Page.Theme + \"/js/fcp-form-layouts.js\") %>"></script>
+<script src='<%= ResolveUrl("~/App_Themes/" + Page.Theme + "/js/fcp-form-layouts.js") %>'></script>

@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Solid CP</title>
     <link runat="server" rel="stylesheet" href="~/Styles/Import.css" type="text/css" id="AdaptersInvariantImportCSS" />
-    <link rel="stylesheet" href="<%= ResolveUrl(\"~/App_Themes/\" + Theme + \"/Styles/bootstrap5.min.css\") %>" />
-    <link rel="stylesheet" href="<%= ResolveUrl(\"~/App_Themes/\" + Theme + \"/Styles/main.css\") %>" />
-    <link rel="stylesheet" href="<%= ResolveUrl(\"~/App_Themes/\" + Theme + \"/Styles/custom.css\") %>" />
+    <link rel="stylesheet" href='<%= ResolveUrl("~/App_Themes/" + Theme + "/Styles/bootstrap5.min.css") %>' />
+    <link rel="stylesheet" href='<%= ResolveUrl("~/App_Themes/" + Theme + "/Styles/main.css") %>' />
+    <link rel="stylesheet" href='<%= ResolveUrl("~/App_Themes/" + Theme + "/Styles/custom.css") %>' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Fav and touch icons -->
