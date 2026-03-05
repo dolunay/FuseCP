@@ -20,7 +20,7 @@
 			            </p>
 			            
 			            <asp:GridView ID="gvDisks" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-				            Width="100%" EmptyDataText="gvDisks" CssSelectorClass="NormalGridView"
+				            EmptyDataText="gvDisks" CssSelectorClass="NormalGridView"
                             onrowcommand="gvDisks_RowCommand">
 				            <Columns>
 					            <asp:TemplateField HeaderText="gvTitle" meta:resourcekey="gvTitle">

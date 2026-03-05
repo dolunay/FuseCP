@@ -26,7 +26,7 @@
                                                 <asp:Localize ID="locFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:" />
                     </CPCC:H5Label>
                     <div class="col-sm-6">
-                        <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" Width="300" />
+                        <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" />
                     </div>
                 </div>
             </div>

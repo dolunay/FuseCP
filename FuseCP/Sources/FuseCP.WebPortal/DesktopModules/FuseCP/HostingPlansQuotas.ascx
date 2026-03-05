@@ -17,7 +17,7 @@
                 </div>
             </div>
             <asp:Panel ID="QuotaPanel" runat="server" CssClass="card-body">
-                <asp:DataList ID="dlQuotas" runat="server" CssClass="table table-hover" DataSource='<%# GetGroupQuotas((int)Eval("GroupID")) %>' RepeatColumns="1" Width="100%">
+                <asp:DataList ID="dlQuotas" runat="server" CssClass="table table-hover" DataSource='<%# GetGroupQuotas((int)Eval("GroupID")) %>' RepeatColumns="1">
                     <ItemTemplate>
                         <div class="row">
                             <div class="col-6 col-md-3">

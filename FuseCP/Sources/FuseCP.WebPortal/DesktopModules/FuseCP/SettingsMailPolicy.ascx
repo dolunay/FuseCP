@@ -12,7 +12,7 @@
                 <asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtCatchAll" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtCatchAll" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireCatchAll" runat="server" ControlToValidate="txtCatchAll" meta:resourcekey="valRequireCatchAll"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator>
             </td>

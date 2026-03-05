@@ -26,7 +26,7 @@
 			    <asp:Label ID="lblPublicSharedIP" runat="server" meta:resourcekey="lblPublicSharedIP" Text="Web Sites Public Shared IP Address:"></asp:Label>
 			</td>
 			<td >
-                <asp:TextBox ID="txtPublicSharedIP" runat="server" Width="200" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtPublicSharedIP" runat="server" CssClass="form-control"></asp:TextBox>
 			</td>
 		</tr>
 		<tr>

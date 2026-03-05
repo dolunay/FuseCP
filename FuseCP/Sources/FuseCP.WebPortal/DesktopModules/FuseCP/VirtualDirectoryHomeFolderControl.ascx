@@ -15,7 +15,7 @@
 					                <asp:Label ID="lblSitePath" runat="server" meta:resourcekey="lblSitePath" Text="Content Path: "></asp:Label>&nbsp;
 					            </td>
 					            <td class="align-top">
-                                    <uc1:FileLookup ID="fileLookup" runat="server" Width="300" />
+                                    <uc1:FileLookup ID="fileLookup" runat="server" />
                                 </td>
 				            </tr>
 			            </table>     
