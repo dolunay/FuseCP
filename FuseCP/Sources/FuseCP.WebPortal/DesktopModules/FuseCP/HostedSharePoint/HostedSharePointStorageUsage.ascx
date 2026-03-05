@@ -24,7 +24,7 @@
 					<fcp:CollapsiblePanel id="secSiteCollectionsReport" runat="server"
                         TargetControlID="siteCollectionsReport" meta:resourcekey="secSiteCollectionsReport" Text="Site Collections">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="siteCollectionsReport" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="siteCollectionsReport" runat="server" Height="0" style="overflow:hidden">
 				        <asp:GridView ID="gvStorageUsage" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvStorageUsage"
 					        Width="100%" EmptyDataText="gvSiteCollections" CssSelectorClass="NormalGridView">
 					        <Columns>
@@ -33,7 +33,7 @@
 					        </Columns>
 				        </asp:GridView>
 				        <br />
-			            <table class="table table-borderless align-middle mb-0" style="width: 100%;">
+			            <table class="table table-borderless align-middle mb-0" >
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="locTotalboxItems" runat="server" meta:resourcekey="locTotalMailboxItems" ></asp:Localize></td>
 					            <td><asp:Label ID="lblTotalItems" runat="server" CssClass="NormalBold">177</asp:Label></td>

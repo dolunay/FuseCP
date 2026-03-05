@@ -17,7 +17,7 @@
 
 					<table>
 					    <tr>
-						    <td class="FormLabel150" style="width: 100px;"><asp:Localize ID="locCollectionName" runat="server" meta:resourcekey="locCollectionName" Text="Collection Name"></asp:Localize></td>
+						    <td class="FormLabel150" ><asp:Localize ID="locCollectionName" runat="server" meta:resourcekey="locCollectionName" Text="Collection Name"></asp:Localize></td>
 						    <td>
                                 <asp:TextBox ID="txtCollectionName" runat="server" CssClass="TextBox300" />
                                 <asp:RequiredFieldValidator ID="valCollectionName" runat="server" ErrorMessage="*" ControlToValidate="txtCollectionName" ValidationGroup="SaveRDSCollection"></asp:RequiredFieldValidator>
@@ -27,7 +27,7 @@
 
                     <fieldset id="RDSServersPanel" runat="server">
                         <legend><asp:Localize ID="locRDSServersSection" runat="server" meta:resourcekey="locRDSServersSection" Text="RDS Servers"></asp:Localize></legend>
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <fcp:CollectionServers id="servers" runat="server" />
                         </div>  
                     </fieldset>

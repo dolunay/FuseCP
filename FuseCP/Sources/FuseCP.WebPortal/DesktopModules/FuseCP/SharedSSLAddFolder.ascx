@@ -7,7 +7,7 @@
 <div class="card-body form-horizontal">
     <table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td class="SubHead" style="width:150px;">
+		    <td class="SubHead" >
 		        <asp:Label ID="lblDomain" runat="server" meta:resourcekey="lblDomain" Text="Domain:"></asp:Label>
 		    </td>
 		    <td class="Normal">
@@ -44,7 +44,7 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead align-top" style="padding-top: 7px;">
+		    <td class="SubHead align-top" style="padding-top: 7px">
 			    <asp:Label ID="lblFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:"></asp:Label>
 	        </td>
 		    <td class="Normal align-top">

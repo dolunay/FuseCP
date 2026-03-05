@@ -12,9 +12,9 @@
             <fcp:menu id="menu" runat="server" selecteditem="vdc_account_vlan_network" />
             <div class="card tab-content">
                 <div class="card-body form-horizontal">
-                    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+                    <table class="table table-borderless align-middle mb-0 w-100">
                         <tr>
-                            <td class="SubHead" style="width: 150px;">
+                            <td class="SubHead" >
                                 <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>
                             </td>
                             <td class="Huge">

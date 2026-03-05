@@ -2,10 +2,10 @@
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead text-nowrap align-top" width="200">
+		<td class="SubHead text-nowrap align-top">
 		    <asp:Label ID="lblGroupMembers" runat="server" meta:resourcekey="lblGroupMembers" Text="Group e-mails:"></asp:Label>
 		</td>
-		<td class="normal align-top" width="100%">
+		<td class="normal align-top">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>
