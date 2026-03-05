@@ -19,7 +19,7 @@
             <fcp:GlobalSearch ID="GlobalSearchTop" runat="server" />
         </div>
 		<div class="logo-area">
-			<a class="btn btn-link btn-off-canvas float-start"><i class="icon ion-navicon"></i></a>
+			<a class="btn btn-link btn-off-canvas float-start"><i class="bi bi-list"></i></a>
 			<div class="logo float-start">
                 <fcp:Logo ID="logo" runat="server" />
 			</div>
@@ -34,7 +34,7 @@
 	<div id="col-left" class="col-left">
 		<div class="main-nav-wrapper">
 			<nav id="main-nav" class="main-nav">
-                <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified"><i class="icon ion-arrow-swap"></i></a>
+                <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified"><i class="bi bi-arrows-move"></i></a>
                 <h3>Main Menu</h3>
                 <fcp:TopMenu ID="leftMenu" runat="server" Align="left" />
                 <asp:PlaceHolder ID="LeftPane" runat="server"></asp:PlaceHolder>

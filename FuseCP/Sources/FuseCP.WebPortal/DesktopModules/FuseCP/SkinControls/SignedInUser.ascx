@@ -28,16 +28,16 @@
     <ul class="nav navbar-sm navbar-right">
     <li>
      <a href="#" class="show-search">
-        <i class="bi bi-search fa-2x">&nbsp;</i>
+        <i class="bi bi-search fs-2">&nbsp;</i>
      </a>
     </li>
     <li>
-    <asp:HyperLink ID="lnkEditUserDetailsSm" runat="server"><span><i class="bi bi-person fa-2x">&nbsp;</i></span>
+    <asp:HyperLink ID="lnkEditUserDetailsSm" runat="server"><span><i class="bi bi-person fs-2">&nbsp;</i></span>
     </asp:HyperLink>
     </li>
     <li>
     <asp:LinkButton ID="cmdSignOutSm" runat="server" CausesValidation="false" OnClick="cmdSignOut_Click">
-        <i class="bi bi-box-arrow-right fa-2x"></i>
+        <i class="bi bi-box-arrow-right fs-2"></i>
     </asp:LinkButton>
     </li>
         </ul>

@@ -207,15 +207,15 @@
                            
                             </asp:LinkButton>
                             <asp:LinkButton ID="cmdPause" CssClass="btn btn-sm btn-warning btn-circle" runat="server" CommandName="Paused" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="bi bi-sm fa-pause"></i>&nbsp;
+                                &nbsp;<i class="bi bi-pause-fill"></i>&nbsp;
                            
                             </asp:LinkButton>
                             <asp:LinkButton ID="cmdContinue" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Continuing" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="bi bi-sm fa-forward"></i>&nbsp;
+                                &nbsp;<i class="bi bi-skip-forward-fill"></i>&nbsp;
                            
                             </asp:LinkButton>
                             <asp:LinkButton ID="cmdStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="bi bi-sm fa-stop"></i>&nbsp;
+                                &nbsp;<i class="bi bi-stop-fill"></i>&nbsp;
                            
                             </asp:LinkButton>
                         </td>
@@ -238,7 +238,7 @@
                                
                                 </asp:LinkButton>
                                 <asp:LinkButton ID="cmdAppPoolStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdAppPoolChangeState_Click">
-                                    &nbsp;<i class="bi bi-sm fa-stop"></i>&nbsp;
+                                    &nbsp;<i class="bi bi-stop-fill"></i>&nbsp;
                                
                                 </asp:LinkButton>
                             </asp:Panel>

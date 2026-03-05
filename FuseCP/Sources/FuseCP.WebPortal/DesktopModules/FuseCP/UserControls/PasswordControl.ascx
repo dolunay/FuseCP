@@ -9,7 +9,7 @@
         <div class="input-group">
             <!-- Used to stop browsers auto-completing the username box --><input style="display:none" type="text" name="fakeusernameremembered" />
             <!-- Used to stop browsers auto-completing the password box --><input style="display:none" type="password" name="fakepasswordremembered" />
-            <span class="input-group-text"><i class="bi bi-lock fa-lg" aria-hidden="true"></i></span>
+            <span class="input-group-text"><i class="bi bi-lock fs-5" aria-hidden="true"></i></span>
             <asp:TextBox ID="txtPassword" runat="server" CssClass="hideContentOnBlur form-control" type="password" TextMode="Password" MaxLength="50" meta:resourcekey="loctxtPassword" placeholder="Enter your password"></asp:TextBox>
         </div>
         <asp:RequiredFieldValidator ID="valRequirePassword" runat="server" meta:resourcekey="valRequirePassword" ErrorMessage="*" ControlToValidate="txtPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -22,7 +22,7 @@
     <div class="col-sm-8">
         <div class="input-group">
             <span class="input-group-text">
-                <i class="bi bi-lock fa-lg" aria-hidden="true"></i>
+                <i class="bi bi-lock fs-5" aria-hidden="true"></i>
             </span>
             <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="hideContentOnBlur form-control" type="password" TextMode="Password" MaxLength="50" meta:resourcekey="loctxtConfirmPassword" placeholder="Confirm your password"></asp:TextBox>
             <script type="text/javascript">$(".hideContentOnBlur").blur(function () { this.type = 'password'; }); $(".hideContentOnBlur").focus(function () { this.type = 'text'; });</script>
