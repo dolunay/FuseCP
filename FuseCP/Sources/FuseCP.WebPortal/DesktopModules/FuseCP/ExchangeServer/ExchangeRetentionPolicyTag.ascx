@@ -53,7 +53,7 @@
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="valRequirePolicy">
                 <asp:Localize ID="lblPolicyTagName" runat="server" meta:resourcekey="lblPolicyTagName" Text="Tag Name:"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
 		        <asp:TextBox ID="txtPolicy" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequirePolicy" runat="server" meta:resourcekey="valRequirePolicy" ControlToValidate="txtPolicy"
 		            ErrorMessage="Enter policy tag name" ValidationGroup="CreatePolicy" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -66,7 +66,7 @@
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddTagType">
                 <asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:DropDownList ID="ddTagType" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ageLimitForRetention">
                 <asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention (Days):"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                  <uc1:QuotaEditor id="ageLimitForRetention" runat="server" QuotaTypeID="2" QuotaValue="1" QuotaMinValue="1" QuotaMaxValue="24855" ParentQuotaValue="-1"></uc1:QuotaEditor>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddRetentionAction">
                 <asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:DropDownList ID="ddRetentionAction" runat="server" CssClass="form-contro"></asp:DropDownList>
             </div>
         </div>

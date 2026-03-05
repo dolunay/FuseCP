@@ -37,7 +37,7 @@
         <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden;">
 			<table>
 				<tr>
-					<td class="FormLabel200" align="right">
+					<td class="FormLabel200 text-end">
 									
 					</td>
 					<td>
@@ -56,13 +56,13 @@
         <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden;">
 			<table>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize></td>
 					<td>
                         <asp:DropDownList ID="ddTagType"  CssClass="form-control" runat="server"></asp:DropDownList>
 					</td>
 				</tr>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention :"></asp:Localize></td>
 					<td>
                         <div class="Right">
                             <uc1:QuotaEditor id="ageLimitForRetention" runat="server"
@@ -74,7 +74,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize></td>
 					<td>
                         <asp:DropDownList ID="ddRetentionAction"  CssClass="form-control" runat="server"></asp:DropDownList>
 					</td>

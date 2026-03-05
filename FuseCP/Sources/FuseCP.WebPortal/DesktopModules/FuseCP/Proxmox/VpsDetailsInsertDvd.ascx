@@ -37,7 +37,7 @@
 					            <asp:TemplateField>
 						            <ItemTemplate>
 							            <asp:Button ID="btnInsert" runat="server" Text="Insert" meta:resourcekey="btnInsert"
-							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="SmallButton">
+							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="btn btn-primary btn-sm">
 							            </asp:Button>
 						            </ItemTemplate>
 					            </asp:TemplateField>
@@ -45,7 +45,7 @@
 			            </asp:GridView>
 			            <br />
 			            <asp:Button ID="btnCancel" runat="server" CausesValidation="false"
-			                      Text="Cancel" meta:resourcekey="btnCancel" CssClass="Button1" 
+			                      Text="Cancel" meta:resourcekey="btnCancel" CssClass="btn btn-primary" 
                         onclick="btnCancel_Click" Width="60px" />
      
 			    </div>

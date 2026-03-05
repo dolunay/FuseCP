@@ -20,7 +20,7 @@
 				ValidationGroup="Vps" ShowMessageBox="True" ShowSummary="False" />
 
 			<asp:Wizard ID="wizard" runat="server"
-				meta:resourcekey="wizard" CellSpacing="5"
+				meta:resourcekey="wizard"
 				OnFinishButtonClick="wizard_FinishButtonClick"
 				OnSideBarButtonClick="wizard_SideBarButtonClick"
 				OnActiveStepChanged="wizard_ActiveStepChanged"
@@ -31,34 +31,34 @@
 
 				<StartNavigationTemplate>
 					<asp:Button ID="btnNext" runat="server" CommandName="MoveNext" ValidationGroup="Vps"
-						CssClass="Button1" Text="Next" meta:resourcekey="btnNext" />
+						CssClass="btn btn-primary" Text="Next" meta:resourcekey="btnNext" />
 				</StartNavigationTemplate>
 
 				<StepNavigationTemplate>
 					<asp:Button ID="btnPrevious" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"
-						CssClass="Button1" Text="Previous" meta:resourcekey="btnPrevious" />
+						CssClass="btn btn-primary" Text="Previous" meta:resourcekey="btnPrevious" />
 
 					<asp:Button ID="btnNext" runat="server" CommandName="MoveNext" ValidationGroup="Vps"
-						CssClass="Button1" Text="Next" meta:resourcekey="btnNext" />
+						CssClass="btn btn-primary" Text="Next" meta:resourcekey="btnNext" />
 
 				</StepNavigationTemplate>
 
 				<FinishNavigationTemplate>
 					<asp:Button ID="btnPrevious" runat="server" CommandName="MovePrevious" ValidationGroup="Vps"
-						CssClass="Button1" Text="Previous" meta:resourcekey="btnPrevious" />
+						CssClass="btn btn-primary" Text="Previous" meta:resourcekey="btnPrevious" />
 
 					<asp:Button ID="btnFinish" runat="server" CommandName="MoveComplete" ValidationGroup="Vps"
-						CssClass="Button1" Text="Finish" meta:resourcekey="btnFinish" />
+						CssClass="btn btn-primary" Text="Finish" meta:resourcekey="btnFinish" />
 				</FinishNavigationTemplate>
 
 
 				<WizardSteps>
+					
 					<asp:WizardStep ID="stepName" runat="server" meta:resourcekey="stepName" Title="Name and OS">
 
-						<p class="SubTitle">
-							<asp:Localize ID="locNameStepTitle" runat="server"
-								meta:resourcekey="locNameStepTitle" Text="Name and Operating System" />
-						</p>
+
+						<asp:Localize ID="locNameStepTitle" runat="server"
+							meta:resourcekey="locNameStepTitle" Text="Name and Operating System" />
 						<br />
 
 						<table>
@@ -109,7 +109,7 @@
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td class="FormLabel150" valign="top">
+								<td class="FormLabel150 align-top">
 									<asp:Localize ID="locAdminPassword" runat="server"
 										meta:resourcekey="locAdminPassword" Text="Administrator password:"></asp:Localize></td>
 								<td>
@@ -136,7 +136,9 @@
 						<br />
 
 					</asp:WizardStep>
+					
 					<asp:WizardStep ID="stepConfig" runat="server" meta:resourcekey="stepConfig" Title="Configuration">
+
 
 						<p class="SubTitle">
 							<asp:Localize ID="locConfigStepTitle" runat="server"
@@ -147,7 +149,7 @@
 						<wsp:CollapsiblePanel ID="secResources" runat="server"
 							TargetControlID="ResourcesPanel" meta:ResourceKey="secResources" Text="Resources"></wsp:CollapsiblePanel>
 						<asp:Panel ID="ResourcesPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-							<table cellpadding="3">
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
 										<asp:Label ID="lblCpu" runat="server"
@@ -160,7 +162,7 @@
 										<asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores" /></td>
 								</tr>
 							</table>
-							<table cellpadding="3">
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
 										<asp:Label ID="lblRam" runat="server"
@@ -175,7 +177,7 @@
 										<asp:Localize ID="locMB" runat="server" meta:resourcekey="locMB" Text="MB" /></td>
 								</tr>
 							</table>
-							<table cellpadding="3">
+							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
 										<asp:Label ID="lblHdd" runat="server"
@@ -275,7 +277,9 @@
 
 
 
+					
 					<asp:WizardStep ID="stepExternalNetwork" runat="server" meta:resourcekey="stepExternalNetwork" Title="External network">
+
 						<p class="SubTitle">
 							<asp:Localize ID="locExternalNetwork" runat="server"
 								meta:resourcekey="locExternalNetwork" Text="External Network" />
@@ -293,7 +297,7 @@
 								meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
 						</div>
 
-						<table id="tableExternalNetwork" runat="server" cellspacing="5" style="width: 100%;">
+						<table class="table table-borderless align-middle mb-0" id="tableExternalNetwork" runat="server" style="width: 100%;">
 							<tr>
 								<td>
 									<asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"
@@ -339,7 +343,9 @@
 
 
 
+					
 					<asp:WizardStep ID="stepPrivateNetwork" runat="server" meta:resourcekey="stepPrivateNetwork" Title="Private network">
+
 						<p class="SubTitle">
 							<asp:Localize ID="locPrivateNetwork" runat="server"
 								meta:resourcekey="locPrivateNetwork" Text="Private Network" />
@@ -352,7 +358,7 @@
 						</p>
 
 
-						<table id="tablePrivateNetwork" runat="server" cellspacing="5" style="width: 100%;">
+						<table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" style="width: 100%;">
 							<tr>
 								<td>
 									<asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"
@@ -393,7 +399,7 @@
 						</table>
 						<br />
 
-						<table cellspacing="3">
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td>
 									<asp:Localize ID="locPrivateNetworkFormat" runat="server"
@@ -416,6 +422,8 @@
 
 
 
+					
+
 					<asp:WizardStep ID="stepSummary" runat="server" meta:resourcekey="stepSummary" Title="Summary">
 						<p class="SubTitle">
 							<asp:Localize ID="locSummary" runat="server"
@@ -423,7 +431,7 @@
 						</p>
 						<br />
 
-						<table cellspacing="6">
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td colspan="2" class="NormalBold">
 									<asp:Localize ID="locNameStepTitle2" runat="server"
@@ -625,11 +633,12 @@
 						<br />
 					</asp:WizardStep>
 				</WizardSteps>
-				<StepPreviousButtonStyle CssClass="Button1" />
-				<CancelButtonStyle CssClass="Button1" />
+				<StepPreviousButtonStyle CssClass="btn btn-primary" />
+				<CancelButtonStyle CssClass="btn btn-primary" />
 			</asp:Wizard>
 
 		</div>
 	</div>
 </div>
+
 

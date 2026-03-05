@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Merak_EditDomain.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Merak_EditDomain" %>
-<table width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap><asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label></td>
+        <td class="SubHead text-nowrap" width="200"><asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label></td>
         <td class="Normal" width="100%">
             <asp:DropDownList ID="ddlCatchAllAccount" runat="server" CssClass="form-control">
             </asp:DropDownList></td>

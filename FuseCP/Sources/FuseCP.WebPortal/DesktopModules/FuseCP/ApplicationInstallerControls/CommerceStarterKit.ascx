@@ -12,12 +12,12 @@
 				inst["InstallSampleData"] = "True";
 		}
 </script>
-<table cellPadding="2" width="100%">
+<table class="table table-borderless align-middle mb-0">
 	<tr>
-		<td class="SubHead" width="200" nowrap valign="top">
+		<td class="SubHead text-nowrap align-top" style="width: 200px;">
 			Install sample store data:
 		</td>
-		<td width="100%" class=NormalBold>
+		<td class="NormalBold">
 			<asp:CheckBox id="chkSample" runat="server" CssClass="NormalBold" Text="Yes"></asp:CheckBox>
 		</td>
 	</tr>

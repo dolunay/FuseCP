@@ -23,7 +23,7 @@
 }
 </style>
 <div class="card-body form-horizontal">
-<table cellspacing="0" cellpadding="5" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
 		<td class="SubHead" style="white-space: nowrap;">
 			<asp:Label ID="lblFolderName" runat="server" meta:resourcekey="lblFolderName"></asp:Label>

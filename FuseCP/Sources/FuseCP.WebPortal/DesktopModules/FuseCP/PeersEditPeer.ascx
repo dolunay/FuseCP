@@ -7,9 +7,9 @@
 </asp:BulletedList>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnUpdate">
 <div class="card-body form-horizontal">
-	<table id="tblAccount" runat="server" cellspacing="0" cellpadding="2" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" id="tblAccount" runat="server" width="100%">
 		<tr id="rowUsername" runat="server">
-			<td class="SubHead" style="width:200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Label ID="lblUserName1" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label>
 			</td>
 			<td class="NormalBold">
@@ -19,7 +19,7 @@
 			</td>
 		</tr>
 		<tr id="rowUsernameReadonly" runat="server">
-			<td class="SubHead" style="width:200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Label ID="lblUserNameReadonly" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label>
 			</td>
 			<td class="Huge">
@@ -35,17 +35,17 @@
 			<td class="SubHead">
 			</td>
 			<td class="Normal">
-				<asp:Button id="cmdChangePassword" runat="server" meta:resourcekey="cmdChangePassword" CssClass="Button3" Text="Change Password" OnClick="cmdChangePassword_Click" ValidationGroup="NewPassword"></asp:Button>
+				<asp:Button id="cmdChangePassword" runat="server" meta:resourcekey="cmdChangePassword" CssClass="btn btn-primary" Text="Change Password" OnClick="cmdChangePassword_Click" ValidationGroup="NewPassword"></asp:Button>
 			</td>
 		</tr>
 		<tr>
 			<td class="Normal">&nbsp;</td>
 		</tr>
 		<tr id="rowRole" runat="server">
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 			    <asp:Label ID="lblRole" runat="server" meta:resourcekey="lblRole" Text="Role:"></asp:Label>
 			</td>
-			<td class="NormalBold" valign="top">
+			<td class="NormalBold align-top">
 				<asp:DropDownList id="role" runat="server" resourcekey="role" AutoPostBack="true" CssClass="form-control">
 				</asp:DropDownList>
 			</td>
@@ -99,10 +99,10 @@
 			</td>
 		</tr>
         <tr id="roleLoginStatus" runat="server">
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 			    <asp:Label ID="lblLoginStatus" runat="server" meta:resourcekey="lblLoginStatus" Text="Login Status:"></asp:Label>
 			</td>
-			<td class="NormalBold" valign="top">
+			<td class="NormalBold align-top">
 				<asp:DropDownList id="loginStatus" runat="server" resourcekey="loginStatus"  CssClass="form-control">
 			        <asp:ListItem Value="Enabled">Enabled</asp:ListItem>
 			        <asp:ListItem Value="Disabled">Disabled</asp:ListItem>

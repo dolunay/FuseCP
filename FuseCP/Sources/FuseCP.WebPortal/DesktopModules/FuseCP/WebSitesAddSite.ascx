@@ -5,13 +5,13 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 <div class="card-body form-horizontal">
-<table cellSpacing="0" cellPadding="4">
+<table class="table table-borderless align-middle mb-0">
 	<tr>
 		<td class="SubHead">
 		    <asp:Label ID="lblDomainName" runat="server" meta:resourcekey="lblDomainName" Text="Domain name:"></asp:Label>
 		</td>
 		<td>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
 			<asp:TextBox ID="txtHostName" runat="server" CssClass="form-control" MaxLength="64" Text="www"></asp:TextBox><asp:Label ID="lblTheDotInTheMiddle" runat="server" meta:resourcekey="lblTheDotInTheMiddle" Text=" . "></asp:Label><uc1:DomainsSelectDomainControl ID="domainsSelectDomainControl" runat="server" HideWebSites="false" HideDomainPointers="true" HidePreviewDomain="true"/>
             <asp:RequiredFieldValidator ID="valRequireHostName" runat="server" meta:resourcekey="valRequireHostName" ControlToValidate="txtHostName"
 	            ErrorMessage="Enter hostname" ValidationGroup="CreateSite" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -22,7 +22,7 @@
 		</td>
 	</tr>
 	<tr>
-        <td class="Normal" nowrap rowspan="2"></td>
+        <td class="Normal text-nowrap" rowspan="2"></td>
         <td class="Normal">
             <asp:CheckBox ID="chkIgnoreGlobalDNSRecords" runat="server" meta:resourcekey="chkIgnoreGlobalDNSRecords"
                 Text="Include Zone Template" Checked="True" />
@@ -42,11 +42,11 @@
 		</td>
 	</tr>
 	<tr id="rowSiteIP" runat="server">
-		<td class="SubHead" vAlign="top">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblIPAddress" runat="server" meta:resourcekey="lblIPAddress" Text="IP address:"></asp:Label>
 		</td>
 		<td class="Normal">
-			<table cellpadding="3">
+			<table class="table table-borderless align-middle mb-0">
 				<tr>
 					<td><asp:RadioButton ID="rbSharedIP" Runat="server" meta:resourcekey="rbSharedIP" Text="Shared (recommended)" AutoPostBack="True" CssClass="Normal"
 							GroupName="IP" Checked="True" OnCheckedChanged="rbIP_CheckedChanged"></asp:RadioButton></td>

@@ -73,7 +73,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsAddressesQuota" runat="server" meta:resourcekey="locVpsAddressesQuota" Text="IP addresses per VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="addressesPerVps" runat="server" QuotaName="VPS2012.PrivateIPAddressesNumber" /></td>

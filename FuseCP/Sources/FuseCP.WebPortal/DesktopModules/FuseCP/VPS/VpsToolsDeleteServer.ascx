@@ -39,7 +39,7 @@
                             <asp:Localize ID="locAdminOptions" runat="server" meta:resourcekey="locAdminOptions" Text="Administrator options"></asp:Localize>
                         </legend>
 
-                            <table cellspacing="5">
+                            <table class="table table-borderless align-middle mb-0">
 				                <tr>
 				                    <td>
 				                        <asp:CheckBox ID="chkSaveFiles" runat="server"

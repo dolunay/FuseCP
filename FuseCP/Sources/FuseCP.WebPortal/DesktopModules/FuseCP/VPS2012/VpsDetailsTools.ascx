@@ -11,7 +11,7 @@
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_tools" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
-				    <table cellspacing="15">
+				    <table class="table table-borderless align-middle mb-0">
 				        <%-- <tr>
 				            <td>
 				                <asp:LinkButton id="btnReinstall" CssClass="btn btn-success" runat="server" CausesValidation="false" onclick="btnReinstall_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstallText"/> </asp:LinkButton>

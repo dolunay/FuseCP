@@ -26,7 +26,7 @@
                     <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden;">
 					    <table>
 						    <tr>
-							    <td class="FormLabel200" align="right">
+							    <td class="FormLabel200 text-end">
 									
 								</td>
 							    <td>

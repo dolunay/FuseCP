@@ -28,16 +28,16 @@
                         TargetControlID="StorageLimits" meta:resourcekey="secStorageLimits" >
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="StorageLimits" runat="server" Height="0" style="overflow:hidden;">
-					    <table>
+					    <table class="table table-borderless align-middle mb-0" style="width: 100%;">
 						    
 						    <tr>
-							    <td class="FormLabel200" align="right"><asp:Localize ID="locMaxStorage" runat="server" meta:resourcekey="locMaxStorage" ></asp:Localize></td>
+						    <td class="FormLabel200 text-end"><asp:Localize ID="locMaxStorage" runat="server" meta:resourcekey="locMaxStorage" ></asp:Localize></td>
 							    <td>                                    
 									<uc1:QuotaEditor QuotaTypeId="2" ID="maxStorageSettingsValue" runat="server" />                                    																	    
 								</td>
 						    </tr>
 						    <tr>
-							    <td class="FormLabel200" align="right"><asp:Localize ID="locWarningStorage" runat="server" meta:resourcekey="locWarningStorage" ></asp:Localize></td>
+						    <td class="FormLabel200 text-end"><asp:Localize ID="locWarningStorage" runat="server" meta:resourcekey="locWarningStorage" ></asp:Localize></td>
 							    <td>
 									<uc1:QuotaEditor  QuotaTypeId="2" ID="warningValue" runat="server" />
 									

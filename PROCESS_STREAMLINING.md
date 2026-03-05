@@ -51,3 +51,7 @@ flow faster while preserving build correctness.
 
 * Add optional preflight restore-only mode for dependency warmup.
 * Add per-scope timing summary to improve optimization prioritization.
+
+## Related Playbooks
+
+* GUI modernization workflow and per-page batch standards: `GUI_OPTIMIZATION_PLAYBOOK.md`.

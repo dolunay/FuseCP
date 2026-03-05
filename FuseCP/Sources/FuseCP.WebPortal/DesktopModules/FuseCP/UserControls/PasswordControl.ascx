@@ -31,13 +31,13 @@
     </div>
 </div>
 <div class="mb-3">
-    <div class="col-sm-10 col-sm-offset-2">
+    <div class="col-sm-10 offset-sm-2">
         <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
             PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
             RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
             TextStrengthDescriptionStyles="alert alert-danger;alert alert-warning;alert alert-default;alert alert-success;alert alert-success" CalculationWeightings="50;15;15;20" />
     </div>
-    <div class="col-sm-2 col-sm-offset-2">
+    <div class="col-sm-2 offset-sm-2">
         <asp:HyperLink ID="lnkGenerate" runat="server" NavigateUrl="#" meta:resourcekey="lnkGenerate" CssClass="btn btn-primary btn-sm" Visible="true">
             Generate Random Password
         </asp:HyperLink>

@@ -13,7 +13,7 @@
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolderName" runat="server" meta:resourcekey="locFolderName" Text="Folder Name: *"></asp:Localize>
             </label>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolderSize" runat="server" meta:resourcekey="locFolderSize" Text="Folder Limit Size (Gb):"></asp:Localize>
             </label>
@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locQuotaType" runat="server" meta:resourcekey="locQuotaType" Text="Quota Type:"></asp:Localize>
             </label>
@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locAddDefaultGroup" runat="server" meta:resourcekey="locAddDefaultGroup" Text="Add Default Group:"></asp:Localize>
             </label>

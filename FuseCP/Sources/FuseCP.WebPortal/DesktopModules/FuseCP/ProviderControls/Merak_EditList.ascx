@@ -2,9 +2,9 @@
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <%@ Register Src="../UserControls/EmailControl.ascx" TagName="EmailControl" TagPrefix="uc2" %>
 
-<table cellSpacing="0" cellPadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-		<td class="SubHead" width="200" nowrap>
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
 		<td class="normal" width="100%">
@@ -12,7 +12,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead" width="200" nowrap>
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Subscribers reply to:"></asp:Label>
 		</td>
 		<td class="normal" width="100%">
@@ -85,7 +85,7 @@
 		    <asp:Label ID="lblMaxMessageSize" runat="server" meta:resourcekey="lblMaxMessageSize" Text="Max Message Size, KB:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtMaxMessageSize" runat="server" CssClass="form-control" Width="50px">0</asp:TextBox>
+			<asp:TextBox id="txtMaxMessageSize" runat="server" CssClass="form-control" Width="50px" Text="0"></asp:TextBox>
 		    <asp:CheckBox ID="chkMaxMessageSizeEnabled" runat="server" meta:resourcekey="chkMaxMessageSizeEnabled" Text="Enabled" />
 		</td>
 	</tr>
@@ -94,17 +94,17 @@
 		    <asp:Label ID="lblMaxRecipients" runat="server" meta:resourcekey="lblMaxRecipients" Text="Max Recipients per Message:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtMaxRecipients" runat="server" CssClass="form-control" Width="50px">10</asp:TextBox>
+			<asp:TextBox id="txtMaxRecipients" runat="server" CssClass="form-control" Width="50px" Text="10"></asp:TextBox>
 		</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="SubHead" vAlign="top">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblMembers" runat="server" meta:resourcekey="lblMembers" Text="Mailing list members:"></asp:Label>
 		</td>
-		<td vAlign="top">
+		<td class="align-top">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>

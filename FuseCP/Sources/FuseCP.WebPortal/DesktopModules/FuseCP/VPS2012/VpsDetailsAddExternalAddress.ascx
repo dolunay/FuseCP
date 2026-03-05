@@ -28,7 +28,7 @@
                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                      </div>
                     
-                    <table id="ExternalAddressesTable" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="ExternalAddressesTable" runat="server" style="width: 100%;">
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"

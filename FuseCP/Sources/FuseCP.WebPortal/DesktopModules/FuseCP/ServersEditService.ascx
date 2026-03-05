@@ -15,7 +15,7 @@
 </script>
 <div class="card-body form-horizontal">
 	<fcp:ServerHeaderControl ID="ServerHeaderControl" runat="server" />
-	<table cellspacing="0" cellpadding="2" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 		<tr>
 			<td class="SubHead" style="width: 200px;">
 				<asp:Label ID="lblGroup" runat="server" meta:resourcekey="lblGroup" Text="Group:"></asp:Label>
@@ -33,9 +33,9 @@
 			</td>
 		</tr>
         <tr id="selectProvider" runat="server">
-		    <td class="SubHead" valign="top">
+		    <td class="SubHead align-top">
 			    <asp:Label ID="lblServiceProvider" runat="server" meta:resourcekey="lblServiceProvider" Text="Service provider:"></asp:Label></td>
-		    <td class="NormalBold" valign="top">
+		    <td class="NormalBold align-top">
 			    <asp:DropDownList id="ddlProviders" CssClass="form-control" runat="server" DataTextField="DisplayName"
 				    DataValueField="ProviderID"></asp:DropDownList>
 			    </td>
@@ -52,7 +52,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Comments:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -82,7 +82,7 @@
 	<asp:Panel ID="pnlQuota" runat="server" Visible="false">
 		<table id="tblQuota" runat="server" width="100%" visible="false">
 			<tr>
-				<td width="200" nowrap class="SubHead">
+				<td width="200" class="SubHead text-nowrap">
 					<asp:Label ID="lblQuotaName" runat="server"></asp:Label>
 				</td>
 				<td width="100%" class="Normal">
@@ -92,7 +92,7 @@
 		</table>
 		<table id="tblCluster" runat="server" visible="false" width="100%">
 			<tr>
-				<td width="200" nowrap class="SubHead">
+				<td width="200" class="SubHead text-nowrap">
 					<asp:Label ID="lblClusters" runat="server" meta:resourcekey="lblClusters"></asp:Label>
 				</td>
 				<td width="100%" class="Normal">

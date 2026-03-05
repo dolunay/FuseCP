@@ -26,7 +26,7 @@
 
 					<div class="FormButtonsBarClean">
 						<asp:Button ID="btnAddSpace" runat="server" meta:resourcekey="btnAddSpace"
-							Text="Add New Space" CssClass="Button1" OnClick="btnAddSpace_Click" />
+							Text="Add New Space" CssClass="btn btn-primary" OnClick="btnAddSpace_Click" />
 					</div>
 
 					<asp:GridView ID="gvSpaces" runat="server" AutoGenerateColumns="False" EnableViewState="true"

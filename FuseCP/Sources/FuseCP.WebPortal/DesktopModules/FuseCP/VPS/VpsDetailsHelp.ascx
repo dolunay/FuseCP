@@ -24,9 +24,9 @@
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send instructions by E-Mail">
                     </fcp:CollapsiblePanel>
 	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
-                        <table id="tblEmail" runat="server" cellpadding="2">
+                        <table class="table table-borderless align-middle mb-0" id="tblEmail" runat="server">
                             <tr>
-                                <td class="SubHead" width="30" nowrap>
+                                <td class="SubHead text-nowrap" width="30">
                                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                                 </td>
                                 <td class="Normal">
@@ -45,7 +45,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <asp:Button ID="btnSend" runat="server" CssClass="Button2"
+                                    <asp:Button ID="btnSend" runat="server" CssClass="btn btn-success"
                                         meta:resourcekey="btnSend" Text="Send" ValidationGroup="SendEmail" 
                                         onclick="btnSend_Click" /></td>
                             </tr>

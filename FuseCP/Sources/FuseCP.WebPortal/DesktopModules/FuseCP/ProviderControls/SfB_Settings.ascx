@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SfB_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SfB_Settings" %>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td class="Normal" width="200" >
             <asp:Localize runat="server" ID="locServerName" meta:resourcekey="locServerName"/>
@@ -19,7 +19,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap valign="top">
+        <td class="SubHead text-nowrap align-top" width="200">
             <asp:Localize ID="locLynServers" runat="server" meta:resourcekey="locLynServers"
                 Text="SfB Servers:"></asp:Localize>
         </td>

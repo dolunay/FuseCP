@@ -11,7 +11,7 @@
 
 <asp:UpdatePanel runat="server" ID="updatePanelUsers">
     <ContentTemplate>
-        <div class="card-body form-inline">
+        <div class="card-body d-flex flex-wrap gap-2 align-items-center">
             <div class="input-group">
                 <asp:DropDownList ID="ddlLogNames" runat="server" CssClass="form-control" onSelectedIndexChanged="LogNameSelected" AutoPostBack="true"></asp:DropDownList>
             </div>

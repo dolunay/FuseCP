@@ -107,6 +107,6 @@
 
 <div style="margin-top:4px;">
     <asp:Button ID="btnDeallocateAddresses" runat="server" meta:resourcekey="btnDeallocateAddresses"
-            Text="Deallocate selected" CssClass="SmallButton" CausesValidation="False" 
+            Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
         onclick="btnDeallocateAddresses_Click" />
 </div>

@@ -26,7 +26,7 @@
                                 <asp:Label ID="lblGroup" runat="server" CssClass="LinkText" Text='<%# Eval("Text") %>' />
                                 </h4>
                                 <asp:DataList ID="PackageIcons" runat="server" DataSource='<%# GetIconMenuItems(Eval("ChildItems")) %>'
-                                    CellSpacing="1" RepeatColumns="5" RepeatDirection="Horizontal">
+                                    RepeatColumns="5" RepeatDirection="Horizontal">
                                     <ItemTemplate>
                                         <asp:Panel ID="IconPanel" runat="server" CssClass="Icon">
                                             <asp:HyperLink ID="imgLink" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><asp:Image ID="imgIcon" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' /></asp:HyperLink>

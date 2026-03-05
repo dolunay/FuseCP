@@ -17,11 +17,11 @@
 			<wsp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
 			<wsp:SimpleMessageBox ID="messageBox" runat="server" />
 
-			<table id="DetailsTable" runat="server" style="width: 100%;" cellspacing="10">
+			<table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" style="width: 100%;">
 				<tr>
-					<td valign="top" style="width: 40%;">
+					<td class="align-top" style="width: 40%;">
 
-						<table cellspacing="2">
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td>
 									<asp:Localize ID="locHostname" runat="server"
@@ -70,7 +70,7 @@
 							</Triggers>
 							<ContentTemplate>
 
-								<table cellspacing="2">
+								<table class="table table-borderless align-middle mb-0">
 									<tr>
 										<td>
 											<asp:Localize ID="locStatus" runat="server"
@@ -122,7 +122,7 @@
 						</asp:UpdatePanel>
 
 					</td>
-					<td valign="top" style="width: 35%;">
+					<td class="align-top" style="width: 35%;">
 
 						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
 
@@ -138,7 +138,7 @@
 						</script>
 
 					</td>
-					<td rowspan="2" valign="top">
+					<td class="align-top" rowspan="2">
 						<ul class="ActionButtons">
 							<asp:Repeater ID="repButtons" runat="server"
 								OnItemCommand="repButtons_ItemCommand">
@@ -166,7 +166,7 @@
 							</Triggers>
 							<ContentTemplate>
 
-								<table cellspacing="5">
+								<table class="table table-borderless align-middle mb-0">
 									<tr>
 										<td class="NormalBold">
 											<asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:" />
@@ -217,7 +217,7 @@
 
 
 <asp:Panel ID="ChangeHostnamePanel" runat="server" CssClass="Popup" Style="display: none;">
-	<table class="Popup-Header" cellpadding="0" cellspacing="0">
+	<table class="Popup-Header table table-borderless align-middle mb-0">
 		<tr>
 			<td class="Popup-HeaderLeft"></td>
 			<td class="Popup-HeaderTitle">
@@ -231,7 +231,7 @@
 		<div class="Popup-Body">
 			<br />
 
-			<table cellspacing="5">
+			<table class="table table-borderless align-middle mb-0">
 				<tr>
 					<td colspan="2">
 						<asp:ValidationSummary ID="validatorsSummary" runat="server"
@@ -281,11 +281,11 @@
 		</div>
 
 		<div class="FormFooter">
-			<asp:Button ID="btnChangeHostname" runat="server" CssClass="Button1"
+			<asp:Button ID="btnChangeHostname" runat="server" CssClass="btn btn-primary"
 				meta:resourcekey="btnChangeHostname" Text="Change"
 				ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click" />
 
-			<asp:Button ID="btnCancelHostname" runat="server" CssClass="Button1"
+			<asp:Button ID="btnCancelHostname" runat="server" CssClass="btn btn-primary"
 				meta:resourcekey="btnCancelHostname" Text="Cancel" CausesValidation="false" />
 		</div>
 	</div>

@@ -23,7 +23,7 @@
         <td class="SubHead">
             <asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:"></asp:Label>
         </td>
-        <td class="normal" valign="top">
+        <td class="normal align-top">
             <asp:TextBox ID="txtLastName" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
         </td>
     </tr>
@@ -63,12 +63,12 @@
         <tr>
             <td class="SubHead">
                 <asp:Label ID="lblSubject" runat="server" meta:resourcekey="lblSubject" Text="Subject:"></asp:Label></td>
-            <td class="normal" valign="top">
+            <td class="normal align-top">
                 <asp:TextBox ID="txtSubject" runat="server" Width="400px" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
                 <asp:Label ID="lblMessage" runat="server" meta:resourcekey="lblMessage" Text="Message:"></asp:Label></td>
             <td class="normal">
                 <asp:TextBox ID="txtMessage" runat="server" Width="400px"  TextMode="MultiLine" Rows="5"

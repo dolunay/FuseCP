@@ -31,7 +31,7 @@
 
                             <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
                                         meta:resourcekey="lblCpu" Text="CPU:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
                                     </asp:DropDownList>
                                 <asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores"/>
@@ -39,7 +39,7 @@
 
                             <asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
                                         meta:resourcekey="lblRam" Text="RAM:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
@@ -49,7 +49,7 @@
 
                             <asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
                                         meta:resourcekey="lblHdd" Text="HDD:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
@@ -65,8 +65,8 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-1" AssociatedControlID="txtAdditionalHdd"></asp:Label>
-                                    <div class="col-sm-11 form-inline">
-                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control form-control" Width="70" Text='<%# Eval("DiskSize") %>'></asp:TextBox>
+                                    <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Width="70" Text='<%# Eval("DiskSize") %>'></asp:TextBox>
                                         <asp:HiddenField id="txtAdditionalHddPath" Value='<%# Eval("DiskPath") %>' runat="server" />
                                         <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                             ControlToValidate="txtAdditionalHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
@@ -103,7 +103,7 @@
 
                             <asp:Label ID="lblHddMinIOPS" runat="server" AssociatedControlID="txtHddMinIOPS"
                                         meta:resourcekey="lblHddMinIOPS" Text="Minimum:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMinIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMinIOPS" meta:resourcekey="RequireHddMinIOPSValidator" SetFocusOnError="true"
@@ -113,7 +113,7 @@
 
                             <asp:Label ID="lblHddMaxIOPS" runat="server" AssociatedControlID="txtHddMaxIOPS"
                                         meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMaxIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMaxIOPS" meta:resourcekey="RequireHddMaxIOPSValidator" SetFocusOnError="true"
@@ -134,7 +134,7 @@
 
                             <asp:Label ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:" CssClass="col-sm-1"></asp:Label>
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50"></asp:TextBox>                                    
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -148,7 +148,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
                         <div class="mb-3">
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="true"
                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
                             </div>
@@ -204,15 +204,15 @@
                                 <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough external IP Addresses."
                                              meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkExternalNetworkEnabled" runat="server"
                                              meta:resourcekey="chkExternalNetworkEnabled" Text="External network enabled" />
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkPrivateNetworkEnabled" runat="server"
                                                     meta:resourcekey="chkPrivateNetworkEnabled" Text="Private network enabled" />
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDmzNetworkEnabled" runat="server"
                                                     meta:resourcekey="chkDmzNetworkEnabled" Text="DMZ network enabled" />
                             </div>

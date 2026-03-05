@@ -35,10 +35,10 @@ function authTypeChanged(el) {
     }
 }
 </script>
-<table cellSpacing="0" cellPadding="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
 		<td>
-            <table cellSpacing="0" cellPadding="5" width="100%">
+            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	            <tr>
 		            <td class="SubHead" style="width: 150px;">
 						<asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User Name:"></asp:Label>
@@ -72,9 +72,9 @@ function authTypeChanged(el) {
                     </td>
 	            </tr>
 	            <tr>
-		            <td class="SubHead" valign="top">
+		            <td class="SubHead align-top">
                         <asp:Label ID="lblUserPassword" runat="server" meta:resourcekey="lblUserPassword" Text="User Password:"></asp:Label></td>
-		            <td class="Normal" valign="top">
+		            <td class="Normal align-top">
                         <uc2:PasswordControl ID="passwordControl" runat="server" />
 		            </td>
 	            </tr>
@@ -84,10 +84,10 @@ function authTypeChanged(el) {
                 TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Member Of">
             </fcp:CollapsiblePanel>
 	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table id="tblGroups" runat="server" cellSpacing="0" cellPadding="3" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" id="tblGroups" runat="server" width="100%">
 	                <tr>
 		                <td colspan="2">
-			                <asp:checkboxlist id="dlGroups" CellPadding="3" RepeatColumns="2" CssClass="NormalBold" DataTextField="Name"
+			                <asp:checkboxlist id="dlGroups" RepeatColumns="2" CssClass="NormalBold" DataTextField="Name"
 				                DataValueField="Name" Runat="server"></asp:checkboxlist>
 		                </td>
 	                </tr>

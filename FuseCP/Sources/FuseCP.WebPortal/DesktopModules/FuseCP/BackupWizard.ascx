@@ -4,7 +4,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 <div class="card-body form-horizontal">
-    <table cellpadding="3" cellspacing="0">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <td class="Huge" colspan="2">
                 <asp:Literal ID="litBackupType" runat="server"></asp:Literal>
@@ -14,11 +14,11 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="SubHead" style="width:200px">
+            <td class="SubHead FormLabel200">
                 <asp:Label ID="lblBackupFile" runat="server" meta:resourcekey="lblBackupFile" Text="Backup File Name:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtBackupFileName" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtBackupFileName" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireBackupFileName" runat="server" Display="Dynamic" ControlToValidate="txtBackupFileName"
                     ErrorMessage="*" ValidationGroup="Backup" meta:resourcekey="valRequireBackupFileName"></asp:RequiredFieldValidator></td>
         </tr>
@@ -38,9 +38,9 @@
         </tr>
     </table>
     <asp:Panel ID="SpaceFolderPanel" runat="server">
-        <table cellpadding="3" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" style="width:200px">
+                <td class="SubHead FormLabel200">
                     <asp:Label ID="lblSpace" runat="server" meta:resourcekey="lblSpace" Text="Space:"></asp:Label>
                 </td>
                 <td>
@@ -60,22 +60,22 @@
         </table>
     </asp:Panel>
     <asp:Panel ID="ServerFolderPanel" runat="server">
-        <table cellpadding="3" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" style="width:200px">
+                <td class="SubHead FormLabel200">
                     <asp:Label ID="lblServerPath" runat="server" meta:resourcekey="lblServerPath" Text="Path:"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtServerPath" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>
+                    <asp:TextBox ID="txtServerPath" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireServerPath" runat="server" Display="Dynamic" ControlToValidate="txtServerPath"
                         ErrorMessage="*" ValidationGroup="Backup" meta:resourcekey="valRequireServerPath"></asp:RequiredFieldValidator>
                 </td>
             </tr>
         </table>
     </asp:Panel>
-    <table cellpadding="3" cellspacing="0">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td style="width:200px">
+            <td class="FormLabel200">
             </td>
             <td class="SubHead">
                 <asp:CheckBox ID="chkDeleteBackup" runat="server" meta:resourcekey="chkDeleteBackup" Checked="true" Text="Delete backup after copying" />

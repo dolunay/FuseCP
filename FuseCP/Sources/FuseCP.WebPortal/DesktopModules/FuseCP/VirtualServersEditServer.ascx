@@ -111,7 +111,7 @@
         TargetControlID="PreviewDomainPanel" ResourceKey="secPreviewDomain" Text="Preview Domain">
 	</fcp:CollapsiblePanel>
     <asp:Panel ID="PreviewDomainPanel" runat="server">
-         <div class="form-inline">
+         <div class="d-flex flex-wrap gap-2 align-items-center">
       customerdomain.com.&nbsp;
        <asp:TextBox ID="txtPreviewDomain" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="DomainFormatValidator" ValidationGroup="VirtualServer" runat="server" meta:resourcekey="DomainFormatValidator"

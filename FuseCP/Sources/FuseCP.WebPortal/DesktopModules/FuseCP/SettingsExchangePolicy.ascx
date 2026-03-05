@@ -9,7 +9,7 @@
 <asp:Panel ID="MailboxPasswordPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" nowrap>
+            <td class="SubHead text-nowrap" width="150">
                 
             </td>
             <td>
@@ -23,7 +23,7 @@
 <asp:Panel ID="OrgIdPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" nowrap>
+            <td class="SubHead text-nowrap" width="150">
             </td>
             <td>
                 <fcp:OrgIdPolicyEditor id="orgIdPolicy" runat="server" />
@@ -36,7 +36,7 @@
 <asp:Panel ID="OrgPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" nowrap>
+            <td class="SubHead text-nowrap" width="150">
             </td>
             <td>
                 <fcp:OrgPolicyEditor id="orgPolicy" runat="server" />

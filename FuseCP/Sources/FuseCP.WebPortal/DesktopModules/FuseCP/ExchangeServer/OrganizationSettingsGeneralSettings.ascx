@@ -27,7 +27,7 @@
                             <fcp:CollapsiblePanel ID="colGeneralSettings" runat="server" TargetControlID="panelGeneralSettings" meta:ResourceKey="colGeneralSettings" Text="General settings"></fcp:CollapsiblePanel>
 
                             <asp:Panel runat="server" ID="panelGeneralSettings">
-                                <table id="GenerralSettignsTable" runat="server" cellpadding="2">
+                                <table class="table table-borderless align-middle mb-0" id="GenerralSettignsTable" runat="server">
                                     <tr>
                                         <td class="Normal" style="width: 150px;">
                                             <asp:Label ID="lblOrganizationLogoUrl" runat="server"

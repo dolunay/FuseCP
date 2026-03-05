@@ -23,7 +23,7 @@
 		                    Text="Add Private IP Addresses" />
 		            </p>
                     
-                    <table id="tablePrivateNetwork" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" style="width: 100%;">
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"
@@ -75,25 +75,25 @@
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locGateway" runat="server"
                                     meta:resourcekey="locGateway" Text="Gateway:"></asp:Localize>
-                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtGateway" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
 
                                 <asp:RequiredFieldValidator ID="DNSValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtDNS1" meta:resourcekey="DNSValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locDNS1" runat="server"
                                     meta:resourcekey="locDNS1" Text="Preferred DNS server:"></asp:Localize>
-                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtDNS1" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
 
                                 <asp:Localize ID="locDNS2" runat="server"
                                     meta:resourcekey="locDNS2" Text="Alternate DNS server:"></asp:Localize>
-                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtDNS2" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
 
                                 <asp:RequiredFieldValidator ID="MaskValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtMask" meta:resourcekey="MaskValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>
                                 <asp:Localize ID="locMask" runat="server"
                                     meta:resourcekey="locMask" Text="Subnet mask:"></asp:Localize>
-                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control form-control" Width="150" Text=""></asp:TextBox>
+                                <asp:TextBox ID="txtMask" runat="server" CssClass="form-control" Width="150" Text=""></asp:TextBox>
                             </td>
                         </tr>
                     </table>

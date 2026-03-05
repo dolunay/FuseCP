@@ -26,7 +26,7 @@
                             <asp:FileUpload ID="uploadFile" runat="server" Width="300px" /></td>
 					</tr>
 					<tr>
-						<td class="Small" nowrap><asp:Label ID="lblAllowedFiles1" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
+						<td class="Small text-nowrap"><asp:Label ID="lblAllowedFiles1" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
 					</tr>
 				</table>
 			</td>
@@ -40,7 +40,7 @@
                         </td>
 					</tr>
 					<tr>
-						<td class="Small" nowrap><asp:Label ID="lblAllowedFiles2" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
+						<td class="Small text-nowrap"><asp:Label ID="lblAllowedFiles2" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
 					</tr>
 				</table>
 			</td>

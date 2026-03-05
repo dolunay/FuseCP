@@ -12,7 +12,7 @@
         <hr />
         <div class="row">
             <div class="col-sm-6">
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <div class="mb-3">
                         <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:" CssClass="form-label"></asp:Label>
                         <uc3:CalendarControl ID="calStartDate" runat="server" Cssclass="form-control" />
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-sm-6 text-end">
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <div class="mb-3">
                         <asp:LinkButton ID="cmdPrevMonth" runat="server" meta:resourcekey="cmdPrevMonth" OnClick="cmdPrevMonth_Click" CssClass="btn btn-primary"></asp:LinkButton>&nbsp;
                         <asp:Literal ID="litStartDate" runat="server" Visible="false"></asp:Literal>

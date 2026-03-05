@@ -5,24 +5,22 @@
 
 <asp:Panel ID="pnlImport" runat="server">
     <div class="card-body form-horizontal">
-        <div class="Huge" style="padding: 10px;border: solid 1px #e5e5e5;background-color: #f5f5f5;">
+        <div class="Huge p-2 border bg-light">
             <asp:Literal ID="litDomainName" runat="server"></asp:Literal>
         </div>
     </div>
     <fieldset id="ImportPanel" runat="server" visible="True">
         <div class="FormRow" runat="server">
             <div class="col-md-12">
-                <form enctype="multipart/form-data">
-                    <label for="file">Zone file to upload</label>
-                    <input id="file" type="file" name="zoneFile" runat="server" required/>
-                    <br/>
-                    <asp:LinkButton ID="UploadZoneFile" runat="server" CssClass="btn btn-primary"
-                                      Text="Upload zone file"
-                                      OnClientClick="ShowProgressDialog('Uploading zone file');"
-                                      OnClick="UploadZoneFile_OnClick"></asp:LinkButton>
-                    <br/>
-                    <br/>
-                </form>
+                <label for="file">Zone file to upload</label>
+                <input id="file" type="file" name="zoneFile" runat="server" required/>
+                <br/>
+                <asp:LinkButton ID="UploadZoneFile" runat="server" CssClass="btn btn-primary"
+                                  Text="Upload zone file"
+                                  OnClientClick="ShowProgressDialog('Uploading zone file');"
+                                  OnClick="UploadZoneFile_OnClick"></asp:LinkButton>
+                <br/>
+                <br/>
             </div>
         </div>
     </fieldset>

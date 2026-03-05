@@ -19,7 +19,7 @@
                         ValidationGroup="MoveWizard" ShowMessageBox="True" ShowSummary="False" />
                         
                     
-                    <table cellpadding="3">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locSourceService" runat="server" meta:resourcekey="locSourceService" Text="Source Service:"></asp:Localize>
@@ -45,10 +45,10 @@
                     
                     <p>
                         <asp:Button ID="btnMove" runat="server" meta:resourcekey="btnMove"
-                            ValidationGroup="MoveWizard" Text="Move" CssClass="Button1" 
+                            ValidationGroup="MoveWizard" Text="Move" CssClass="btn btn-primary" 
                             onclick="btnMove_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
                         

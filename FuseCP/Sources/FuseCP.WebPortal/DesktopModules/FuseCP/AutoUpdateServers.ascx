@@ -11,7 +11,7 @@
 
 	<ItemTemplate>
         <div class="col-md-4">
-            <div class=" card border-info server-panel matchHeight">
+            <div class="card border-info server-panel matchHeight">
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="bi bi-server" aria-hidden="true">&nbsp;</i>&nbsp;
@@ -47,9 +47,9 @@
     </table>
 </asp:Panel>
 
-<table id="tblEmptyList" runat="server" cellpadding="10" cellspacing="0" width="100%">
+<table id="tblEmptyList" runat="server" class="table table-borderless mb-0 w-100">
     <tr>
-        <td class="Normal" align="center">
+        <td class="Normal text-center">
             <asp:Label ID="lblEmptyList" runat="server" meta:resourcekey="lblEmptyList" Text="Empty list..."></asp:Label>
         </td>
     </tr>

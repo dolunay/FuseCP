@@ -22,7 +22,7 @@
                         ValidationGroup="MoveWizard" ShowMessageBox="True" ShowSummary="False" />
                         
                     
-                    <table cellpadding="3">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locSourceService" runat="server" meta:resourcekey="locSourceService" Text="Source Service:"></asp:Localize>

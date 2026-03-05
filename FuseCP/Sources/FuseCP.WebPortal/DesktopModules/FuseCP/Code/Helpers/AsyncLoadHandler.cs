@@ -175,7 +175,7 @@ namespace FuseCP.Portal
             ExchangeAccount account = ES.Services.ExchangeServer.GetAccount(ItemId, AccountId);
             if (account != null && account.EnableArchiving)
             {
-                result = "<span class=\"fa fa-archive fa-lg text-success\"></span>";
+                result = "<span class=\"bi bi-archive fs-5 text-success\"></span>";
             }
             return result;
         }
@@ -186,11 +186,11 @@ namespace FuseCP.Portal
             ExchangeMailboxStatistics mailboxStatistics = ES.Services.ExchangeServer.GetMailboxStatistics(ItemId, AccountId);
             if (mailboxStatistics != null && mailboxStatistics.MaxSize > (long)0 && (double)mailboxStatistics.TotalSize / (double)mailboxStatistics.MaxSize > 0.9)
             {
-                result = "<span class=\"fa fa-hdd-o fa-lg text-success\"></span>";
+                result = "<span class=\"bi bi-hdd fs-5 text-success\"></span>";
             }
             if (mailboxStatistics != null && mailboxStatistics.MaxSize < (long)0 && (double)mailboxStatistics.TotalSize / (double)mailboxStatistics.MaxSize > 0.9)
             {
-                result = "<span class=\"fa fa-hdd-o fa-lg text-danger\"></span>";
+                result = "<span class=\"bi bi-hdd fs-5 text-danger\"></span>";
             }
             return result;
         }
@@ -201,7 +201,7 @@ namespace FuseCP.Portal
             ExchangeMailbox mailboxGeneralSettings = ES.Services.ExchangeServer.GetMailboxGeneralSettings(ItemId, AccountId);
             if (mailboxGeneralSettings != null && mailboxGeneralSettings.EnableLitigationHold)
             {
-                result = "<span class=\"fa fa-gavel fa-lg text-danger\" ></span>";
+                result = "<span class=\"bi bi-bank fs-5 text-danger\" ></span>";
             }
             return result;
         }
@@ -212,7 +212,7 @@ namespace FuseCP.Portal
             ExchangeMailbox mailboxMailFlowSettings = ES.Services.ExchangeServer.GetMailboxMailFlowSettings(ItemId, AccountId);
             if (mailboxMailFlowSettings != null && mailboxMailFlowSettings.EnableForwarding)
             {
-                result = "<span class=\"fa fa-arrow-circle-o-right fa-lg text-success\" ></span>";
+                result = "<span class=\"bi bi-arrow-right-circle fs-5 text-success\" ></span>";
             }
             return result;
         }
@@ -229,21 +229,21 @@ namespace FuseCP.Portal
             {
                 if (siteState == ServerState.Started)
                 {
-                    result = "<span class=\"fa fa-play-circle-o fa-lg text-success\"></span>";
+                    result = "<span class=\"bi bi-play-circle fs-5 text-success\"></span>";
                 }
                 if (siteState == ServerState.Paused)
                 {
-                    result = "<span class=\"fa fa-pause-circle-o fa-lg text-warning\"></span>";
+                    result = "<span class=\"bi bi-pause-circle fs-5 text-warning\"></span>";
                 }
                 if (siteState == ServerState.Stopped)
                 {
-                    result = "<span class=\"fa fa-stop-circle-o fa-lg text-danger\"></span>";
+                    result = "<span class=\"bi bi-stop-circle fs-5 text-danger\"></span>";
                 }
 
             }
             catch (Exception)
             {
-                result = "<span class=\"fa fa-exclamation-triangle fa-lg text-danger\"></span>";
+                result = "<span class=\"bi bi-exclamation-triangle fs-5 text-danger\"></span>";
             }
             return result;
         }
@@ -256,16 +256,16 @@ namespace FuseCP.Portal
                 AppPoolState appPoolState = ES.Services.WebServers.GetAppPoolState(ItemId);
                 if (appPoolState == AppPoolState.Started)
                 {
-                    result = "<span class=\"fa fa-play-circle-o fa-lg text-success\"></span>";
+                    result = "<span class=\"bi bi-play-circle fs-5 text-success\"></span>";
                 }
                 if (appPoolState == AppPoolState.Stopped)
                 {
-                    result = "<span class=\"fa fa-stop-circle-o fa-lg text-danger\"></span>";
+                    result = "<span class=\"bi bi-stop-circle fs-5 text-danger\"></span>";
                 }
             }
             catch (Exception)
             {
-                result = "<span class=\"fa fa-exclamation-triangle fa-lg text-danger\"></span>";
+                result = "<span class=\"bi bi-exclamation-triangle fs-5 text-danger\"></span>";
             }
             return result;
         }
@@ -277,7 +277,7 @@ namespace FuseCP.Portal
             {
                 if (!string.IsNullOrEmpty(ES.Services.WebServers.GetWebSite(ItemId).HttpRedirect))
                 {
-                    result = "<span class=\"fa fa-check fa-lg text-success\"></span>";
+                    result = "<span class=\"bi bi-check-circle fs-5 text-success\"></span>";
                 }
                 else
                 {
@@ -315,21 +315,21 @@ namespace FuseCP.Portal
                     if (SSLgood)
                     {
                         dateTime = certificatesForSite[0].ExpiryDate;
-                        result = "<i class=\"fa fa-clock-o fa-lg text-success\"></i><span class=\"text-success\" > " + dateTime.ToShortDateString() + "</span>";
+                        result = "<i class=\"bi bi-clock fs-5 text-success\"></i><span class=\"text-success\" > " + dateTime.ToShortDateString() + "</span>";
                         return result;
                     }
                     // Warning Less than 30 Days
                     else if (SSLexpiring)
                     {
                         dateTime = certificatesForSite[0].ExpiryDate;
-                        result = "<i class=\"fa fa-clock-o fa-lg text-warning\"></i><span class=\"text-warning\" title=\"Expiring on " + dateTime.ToShortDateString() + "\" > " + diffInDays + " Days Left</span>";
+                        result = "<i class=\"bi bi-clock fs-5 text-warning\"></i><span class=\"text-warning\" title=\"Expiring on " + dateTime.ToShortDateString() + "\" > " + diffInDays + " Days Left</span>";
                         return result;
                     }
                     // Danger Expired
                     else if (SSLexpired)
                     {
                         dateTime = certificatesForSite[0].ExpiryDate;
-                        result = "<i class=\"fa fa-clock-o fa-lg text-danger\"></i><span class=\"text-danger\" title=\"Expired on " + dateTime.ToShortDateString() + "\" ><strong> EXPIRED</strong></span>";
+                        result = "<i class=\"bi bi-clock fs-5 text-danger\"></i><span class=\"text-danger\" title=\"Expired on " + dateTime.ToShortDateString() + "\" ><strong> EXPIRED</strong></span>";
                         return result;
                     }
                     else
@@ -359,11 +359,11 @@ namespace FuseCP.Portal
             {
                 if (ES.Services.WebServers.GetCertificatesForSite(ItemId).Length == 1)
                 {
-                    result = "<span class=\"fa fa-lock fa-lg text-success\"></span>";
+                    result = "<span class=\"bi bi-lock fs-5 text-success\"></span>";
                 }
                 else
                 {
-                    result = "<span class=\"fa fa-unlock fa-lg text-danger\"></span>";
+                    result = "<span class=\"bi bi-unlock fs-5 text-danger\"></span>";
                 }
 
                 return result;

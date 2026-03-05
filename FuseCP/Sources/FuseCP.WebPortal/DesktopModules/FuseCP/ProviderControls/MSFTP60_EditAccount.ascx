@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MSFTP60_EditAccount.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MSFTP60_EditAccount" %>
-<table cellSpacing="0" cellPadding="4" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" valign="top" style="width:150px;">
+		<td class="SubHead align-top" style="width:150px;">
 		    <asp:Label ID="lblAccessRights" runat="server" meta:resourcekey="lblAccessRights" Text="Access rights:"></asp:Label>
 		</td>
 		<td class="Normal">

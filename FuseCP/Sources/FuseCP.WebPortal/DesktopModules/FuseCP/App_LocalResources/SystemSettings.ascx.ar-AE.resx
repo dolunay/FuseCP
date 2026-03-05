@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -157,7 +157,7 @@
     <value>إعدادات مثبت منصة الويب</value>
   </data>
   <data name="SettingbtnSaveSettings.Text" xml:space="preserve">
-    <value>&amp;lt;span class='fa fa-floppy-o' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;احفظ التغييرات</value>
+    <value>&amp;lt;span class='bi bi-floppy' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;احفظ التغييرات</value>
   </data>
   <data name="SettinglblWpiAddCustomFeeds.Text" xml:space="preserve">
     <value>إضافة رابط تغذية مخصص:</value>
@@ -262,7 +262,7 @@
     <value>قم بزيارة &amp;lt;a  href='https://www.twilio.com'/&amp;gt;https://www.twilio.com&amp;lt;/a&amp;gt; للحصول على معلومات Twilio الخاصة بك.</value>
   </data>
   <data name="btnTwillioDisable.Text" xml:space="preserve">
-    <value>&amp;lt;span class='fa fa-ban' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;تعطيل</value>
+    <value>&amp;lt;span class='bi bi-ban' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;تعطيل</value>
   </data>
   <data name="Settingsconfiguremailtemplates.Text" xml:space="preserve">
     <value>*** من فضلك لا تنسى تكوين قوالب البريد الإلكتروني الخاصة بك (من الاسم / من عنوان البريد الإلكتروني). يمكن تهيئتها على:</value>

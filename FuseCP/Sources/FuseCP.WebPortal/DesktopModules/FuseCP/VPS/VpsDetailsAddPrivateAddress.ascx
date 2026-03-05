@@ -27,7 +27,7 @@
 		                    Text="Add Private IP Addresses" />
 		            </p>
                     
-                    <table id="tablePrivateNetwork" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" style="width: 100%;">
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"

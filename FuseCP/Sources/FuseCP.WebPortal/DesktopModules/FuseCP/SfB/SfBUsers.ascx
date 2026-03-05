@@ -19,7 +19,7 @@
                     <div class="row">
                        
  
-                            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 col-md-offset-6 text-end form-inline">
+                            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 offset-md-6 text-end d-flex flex-wrap gap-2 align-items-center">
                                    <div class="mb-3">
                                 <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"    
                                 onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   

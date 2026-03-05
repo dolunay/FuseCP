@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="messageBox" TagPrefix="uc4" %>
 
 <div class="card-body form-horizontal">
-    <table cellspacing="0" cellpadding="4" width="100%">
+    <table class="table table-borderless mb-0 w-100">
         <tr>
 
             <td class="Normal">

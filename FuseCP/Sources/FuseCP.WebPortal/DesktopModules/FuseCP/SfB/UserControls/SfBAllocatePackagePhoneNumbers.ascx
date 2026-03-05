@@ -18,7 +18,7 @@
 
  <asp:UpdatePanel runat="server" ID="AddressesTable" UpdateMode="Conditional">
      <ContentTemplate>
-        <table cellspacing="5" style="width: 100%;">
+        <table class="table table-borderless align-middle mb-0" style="width: 100%;">
             <tr>
                 <td>
                     <asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"

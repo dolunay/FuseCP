@@ -20,7 +20,7 @@ function confirmation()
     </div>
     <div class="card-body form-horizontal" style="width: 400px;">
         <div class="FormButtonsBar">
-            <asp:Button ID="btnAddPointer" runat="server" meta:resourcekey="btnAddPointer" Text="Add Pointer" CssClass="Button2" OnClick="btnAddPointer_Click" />
+            <asp:Button ID="btnAddPointer" runat="server" meta:resourcekey="btnAddPointer" Text="Add Pointer" CssClass="btn btn-success" OnClick="btnAddPointer_Click" />
         </div>
         <asp:GridView id="gvPointers" Runat="server" EnableViewState="True" AutoGenerateColumns="false"
             ShowHeader="false"

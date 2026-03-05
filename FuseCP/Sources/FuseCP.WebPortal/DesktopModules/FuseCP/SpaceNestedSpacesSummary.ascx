@@ -5,7 +5,7 @@
 <div class="card-body form-horizontal">
     <div class="FormRow">
         <asp:Panel ID="tblSearch" runat="server" DefaultButton="cmdSearch" CssClass="NormalBold">
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
             <asp:DropDownList ID="ddlFilterColumn" runat="server" CssClass="form-control" resourcekey="ddlFilterColumn">
                 <asp:ListItem Value="Username">Username</asp:ListItem>

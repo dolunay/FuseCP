@@ -24,7 +24,7 @@
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
                                     meta:resourcekey="locOperatingSystem" Text="Operating system:"></asp:Localize></td>
@@ -43,7 +43,7 @@
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px;width:400px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
                                         meta:resourcekey="lblCpu" Text="CPU:" /></td>
@@ -52,7 +52,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblRam" runat="server"
                                         meta:resourcekey="lblRam" Text="RAM:" /></td>
@@ -61,7 +61,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHdd" runat="server"
                                         meta:resourcekey="lblHdd" Text="HDD:" /></td>
@@ -78,7 +78,7 @@
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
@@ -93,7 +93,7 @@
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <wsp:CheckBoxOption id="optionDvdInstalled" runat="server"
@@ -107,7 +107,7 @@
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td style="width:200px;">
                                     <wsp:CheckBoxOption id="optionBootFromCD" runat="server"
@@ -121,7 +121,7 @@
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table style="width:400px;" cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0" style="width:400px;">
                             <tr>
                                 <td style="width:200px;">
                                     <wsp:CheckBoxOption id="optionStartShutdown" runat="server"
@@ -158,7 +158,7 @@
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </wsp:CollapsiblePanel>
                     <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><wsp:CheckBoxOption id="optionExternalNetwork" runat="server"
                                         Text="External network enabled" meta:resourcekey="optionExternalNetwork" Value="True" />
@@ -173,7 +173,7 @@
                     </asp:Panel>
                     
                     <p style="padding: 5px;">
-                        <asp:Button ID="btnEdit" runat="server" CssClass="Button1"
+                        <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-primary"
 			                 meta:resourcekey="btnEdit" Text="Edit configuration" CausesValidation="false" 
                             onclick="btnEdit_Click" />
                     </p>
@@ -184,7 +184,7 @@
 	    </div>
     	
 <asp:Panel ID="ChangePasswordPanel" runat="server" CssClass="Popup" style="display:none;">
-	<table class="Popup-Header" cellpadding="0" cellspacing="0">
+	<table class="Popup-Header table table-borderless align-middle mb-0">
 		<tr>
 			<td class="Popup-HeaderLeft"></td>
 			<td class="Popup-HeaderTitle">
@@ -198,7 +198,7 @@
 		<div class="Popup-Body">
 			<br />
 			
-			<table cellspacing="7" style="margin-left:20px;">
+			<table class="table table-borderless align-middle mb-0" style="margin-left:20px;">
 			    <tr>
 			        <td>
 			            <asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"
@@ -218,11 +218,11 @@
 		</div>
 		
 		<div class="FormFooter">
-		    <asp:Button ID="btnChangePassword" runat="server" CssClass="Button1"
+		    <asp:Button ID="btnChangePassword" runat="server" CssClass="btn btn-primary"
 		        meta:resourcekey="btnChangePassword" Text="Change password" 
                 ValidationGroup="ChangePassword" onclick="btnChangePassword_Click" />
 		        
-			<asp:Button ID="btnCancelChangePassword" runat="server" CssClass="Button1"
+			<asp:Button ID="btnCancelChangePassword" runat="server" CssClass="btn btn-primary"
 			    meta:resourcekey="btnCancelChangePassword" Text="Cancel" CausesValidation="false" />
 		</div>
 	</div>

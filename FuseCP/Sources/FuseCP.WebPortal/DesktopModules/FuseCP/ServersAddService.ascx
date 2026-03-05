@@ -7,9 +7,9 @@
     <uc1:ServerHeaderControl id="ServerHeaderControl" runat="server">
     </uc1:ServerHeaderControl>
     <br />
-    <table cellSpacing="0" cellPadding="5" width="100%">
+    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	    <tr>
-		    <td class="SubHead" noWrap width="200"><asp:Label ID="lblServiceGroupName" runat="server" meta:resourcekey="lblServiceGroupName" Text="Service group name:"></asp:Label></td>
+		    <td class="SubHead text-nowrap" width="200"><asp:Label ID="lblServiceGroupName" runat="server" meta:resourcekey="lblServiceGroupName" Text="Service group name:"></asp:Label></td>
 		    <td class="NormalBold" width="100%">
 			    <asp:Literal ID="litGroupName" Runat="server"></asp:Literal>
 		    </td>
@@ -23,9 +23,9 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" valign="top">
+		    <td class="SubHead align-top">
 			    <asp:Label ID="lblServiceProvider" runat="server" meta:resourcekey="lblServiceProvider" Text="Service provider:"></asp:Label></td>
-		    <td class="NormalBold" valign="top">
+		    <td class="NormalBold align-top">
 			    <asp:DropDownList id="ddlProviders" CssClass="form-control" runat="server" DataTextField="DisplayName"
 				    DataValueField="ProviderID"></asp:DropDownList>
 			    <asp:RequiredFieldValidator id="serviceValidator" meta:resourcekey="serviceValidator" runat="server" Display="Dynamic" ControlToValidate="ddlProviders"

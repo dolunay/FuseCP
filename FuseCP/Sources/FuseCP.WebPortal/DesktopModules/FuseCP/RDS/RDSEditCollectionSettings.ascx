@@ -29,25 +29,25 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsSessionSettings">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="3" style="width:auto;"><asp:Localize ID="locSessionLimitHeader" runat="server" meta:resourcekey="locSessionLimitHeader" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="3" style="width:auto"><asp:Localize ID="locSessionLimitHeader" runat="server" meta:resourcekey="locSessionLimitHeader" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width:260px;" colspan="2"><asp:Localize ID="locDisconnectedSessionLimit" runat="server" meta:resourcekey="locDisconnectedSessionLimit" Text=""></asp:Localize></td>
-                                    <td style="width:250px;">
+                                    <td class="Label"  colspan="2"><asp:Localize ID="locDisconnectedSessionLimit" runat="server" meta:resourcekey="locDisconnectedSessionLimit" Text=""></asp:Localize></td>
+                                    <td >
                                         <fcp:SessionLimit ID="slDisconnectedSessionLimit" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width:260px;" colspan="2"><asp:Localize ID="locActiveSessionLimit" runat="server" meta:resourcekey="locActiveSessionLimit" Text=""></asp:Localize></td>
+                                    <td class="Label"  colspan="2"><asp:Localize ID="locActiveSessionLimit" runat="server" meta:resourcekey="locActiveSessionLimit" Text=""></asp:Localize></td>
                                     <td>
                                         <fcp:SessionLimit ID="slActiveSessionLimit" runat="server"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width:260px;" colspan="2"><asp:Localize ID="locIdleSessionLimit" runat="server" meta:resourcekey="locIdleSessionLimit" Text=""></asp:Localize></td>
+                                    <td class="Label"  colspan="2"><asp:Localize ID="locIdleSessionLimit" runat="server" meta:resourcekey="locIdleSessionLimit" Text=""></asp:Localize></td>
                                     <td>
                                         <fcp:SessionLimit ID="slIdleSessionLimit" runat="server"/>
                                     </td>
@@ -56,7 +56,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto;"><asp:Localize ID="locCollectionBroken" runat="server" meta:resourcekey="locCollectionBroken" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locCollectionBroken" runat="server" meta:resourcekey="locCollectionBroken" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">
@@ -64,7 +64,7 @@
                                     </td>
                                 </tr>    
                                 <tr>
-                                    <td style="width:20px;"></td>
+                                    <td ></td>
                                     <td>
                                         <asp:CheckBox ID="chAutomaticReconnection" Text="Enable automatic reconnection" runat="server" meta:resourcekey="chAutomaticReconnection"/>
                                     </td>
@@ -78,7 +78,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto;"><asp:Localize ID="locTempFolder" runat="server" meta:resourcekey="locTempFolder" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locTempFolder" runat="server" meta:resourcekey="locTempFolder" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td>
@@ -99,10 +99,10 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsClientSettings">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto;"><asp:Localize ID="locEnableRedirection" runat="server" meta:resourcekey="locEnableRedirection" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locEnableRedirection" runat="server" meta:resourcekey="locEnableRedirection" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -138,7 +138,7 @@
                             <br />
                             <table>                                
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto;"><asp:Localize ID="locPrinters" runat="server" meta:resourcekey="locPrinters" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locPrinters" runat="server" meta:resourcekey="locPrinters" Text=""></asp:Localize></td>
                                 </tr> 
                                 <tr>
                                     <td colspan="2">
@@ -146,13 +146,13 @@
                                     </td>
                                 </tr>    
                                 <tr>
-                                    <td style="width:20px;"></td>
+                                    <td ></td>
                                     <td>
                                         <asp:CheckBox ID="chDefaultDevice" Text="Use the client default printing device" runat="server" meta:resourcekey="chDefaultDevice"/>
                                     </td>
                                 </tr>                   
                                 <tr>
-                                    <td style="width:20px;"></td>
+                                    <td ></td>
                                     <td>
                                         <asp:CheckBox ID="chEasyPrint" Text="Use the Remote Desktop Easy Print print driver first" runat="server" meta:resourcekey="chEasyPrint"/>
                                     </td>
@@ -161,11 +161,11 @@
                             <br />
                             <table>
                                 <tr>
-                                    <td class="FormLabel260" colspan="2" style="width:auto;"><asp:Localize ID="locMonitors" runat="server" meta:resourcekey="locMonitors" Text=""></asp:Localize></td>
+                                    <td class="FormLabel260" colspan="2" style="width:auto"><asp:Localize ID="locMonitors" runat="server" meta:resourcekey="locMonitors" Text=""></asp:Localize></td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width:260px;"><asp:Localize ID="locMonitorsNumber" runat="server" meta:resourcekey="locMonitorsNumber" Text=""></asp:Localize></td>
-                                    <td style="width:250px;">
+                                    <td class="Label" ><asp:Localize ID="locMonitorsNumber" runat="server" meta:resourcekey="locMonitorsNumber" Text=""></asp:Localize></td>
+                                    <td >
                                         <asp:TextBox ID="tbMonitorsNumber" runat="server" CssClass="form-control" />
                                     </td>
                                 </tr>                                
@@ -178,11 +178,11 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsSecuritySettings">                                                
-                        <div style="padding: 10px;">                            
+                        <div style="padding: 10px">                            
                             <table>
                                 <tr>
-                                    <td class="Label" style="width:260px;"><asp:Localize ID="locSecurityLayer" runat="server" meta:resourcekey="locSecurityLayer" Text=""></asp:Localize></td>
-                                    <td style="width:250px;">
+                                    <td class="Label" ><asp:Localize ID="locSecurityLayer" runat="server" meta:resourcekey="locSecurityLayer" Text=""></asp:Localize></td>
+                                    <td >
                                         <asp:DropDownList ID="ddSecurityLayer" runat="server" CssClass="form-control">
                                             <asp:ListItem Value="RDP" Text="RDP Security Layer" />
                                             <asp:ListItem Value="Negotiate" Text="Negotiate" />
@@ -191,8 +191,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width:260px;"><asp:Localize ID="locEncryptionLevel" runat="server" meta:resourcekey="locEncryptionLevel" Text=""></asp:Localize></td>
-                                    <td style="width:250px;">
+                                    <td class="Label" ><asp:Localize ID="locEncryptionLevel" runat="server" meta:resourcekey="locEncryptionLevel" Text=""></asp:Localize></td>
+                                    <td >
                                         <asp:DropDownList ID="ddEncryptionLevel" runat="server" CssClass="form-control">
                                             <asp:ListItem Value="Low" Text="Low" />
                                             <asp:ListItem Value="ClientCompatible" Text="Client Compatible" />
@@ -219,3 +219,4 @@
 			        </div>   		
                      </div>
 		</div>
+

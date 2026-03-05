@@ -15,7 +15,7 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-md-4 offset-md-4">
                             <asp:LinkButton id="btnReplicaStates" CssClass="btn btn-success" runat="server" OnClick="btnReplicaStates_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReplicaStatesText"/> </asp:LinkButton>
                             <asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 							<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"   
@@ -110,7 +110,7 @@
     	
                     <asp:Panel ID="QuotasPanel" runat="server" class="card-footer">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsQuota" runat="server" meta:resourcekey="locVpsQuota" Text="Number of VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="vpsQuota" runat="server" QuotaName="VPS2012.ServersNumber" /></td>

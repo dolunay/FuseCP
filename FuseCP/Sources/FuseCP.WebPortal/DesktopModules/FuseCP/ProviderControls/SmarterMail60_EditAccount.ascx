@@ -18,7 +18,7 @@
         </td>
     </tr>   
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap" width="200">
             <asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:"></asp:Label>
         </td>
         <td class="normal" width="100%">
@@ -29,7 +29,7 @@
         <td class="SubHead">
             <asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:"></asp:Label>
         </td>
-        <td class="normal" valign="top">
+        <td class="normal align-top">
             <asp:TextBox ID="txtLastName" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
         </td>
     </tr>
@@ -58,7 +58,7 @@
 <asp:Panel ID="AutoresponderPanel" runat="server" Height="0" Style="overflow: hidden;">
     <table width="100%">
         <tr>
-            <td class="SubHead" width="200" nowrap>
+            <td class="SubHead text-nowrap" width="200">
                 <asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled"
                     Text="Enable autoresponder:"></asp:Label></td>
             <td class="normal" width="100%">
@@ -69,12 +69,12 @@
         <tr>
             <td class="SubHead">
                 <asp:Label ID="lblSubject" runat="server" meta:resourcekey="lblSubject" Text="Subject:"></asp:Label></td>
-            <td class="normal" valign="top">
+            <td class="normal align-top">
                 <asp:TextBox ID="txtSubject" runat="server" Width="400px" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
                 <asp:Label ID="lblMessage" runat="server" meta:resourcekey="lblMessage" Text="Message:"></asp:Label></td>
             <td class="normal">
                 <asp:TextBox ID="txtMessage" runat="server" Width="400px"  TextMode="MultiLine" Rows="5"
@@ -89,9 +89,9 @@
 <asp:Panel ID="ForwardingPanel" runat="server" Height="0" Style="overflow: hidden;">
     <table width="100%">
         <tr>
-            <td class="SubHead" width="200" nowrap>
+            <td class="SubHead text-nowrap" width="200">
                 <asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
-            <td class="normal" width="100%" valign="top">
+            <td class="normal align-top" width="100%">
                 <asp:TextBox ID="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>

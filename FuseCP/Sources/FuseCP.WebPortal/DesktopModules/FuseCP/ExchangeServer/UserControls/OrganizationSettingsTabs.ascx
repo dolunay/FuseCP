@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OrganizationSettingsTabs.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.UserControls.OrganizationSettingsTabs" %>
 
 
-<table width="100%" cellpadding="0" cellspacing="1">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
     <tr>
         <td class="Tabs">                 
             <asp:DataList ID="osTabs" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" EnableViewState="false">

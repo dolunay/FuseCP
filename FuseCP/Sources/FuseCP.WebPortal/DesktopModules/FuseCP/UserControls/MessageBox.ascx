@@ -11,10 +11,10 @@
             TargetControlID="TechnicalDetailsPanel" resourcekey="secTechnicalDetails" Text="Technical Details">
         </fcp:CollapsiblePanel>
         <asp:Panel ID="TechnicalDetailsPanel" runat="server" Height="0" style="overflow:hidden;">
-            <table id="tblTechnicalDetails" runat="server" class="TechnicalDetailsTable" cellpadding="0" cellspacing="0">
+            <table id="tblTechnicalDetails" runat="server" class="TechnicalDetailsTable table table-borderless align-middle mb-0">
                 <tr>
                     <td>
-                        <table cellspacing="0" cellpadding="3">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="NormalBold" width="150" style="white-space:nowrap;" >
                                     <asp:Label ID="lblPageUrl" runat="server" meta:resourcekey="lblPageUrl" Text="Page URL:"></asp:Label>
@@ -48,10 +48,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="NormalBold" valign="top">
+                                <td class="NormalBold align-top">
                                     <asp:Label ID="lblStackTrace" runat="server" meta:resourcekey="lblStackTrace" Text="Stack Trace:"></asp:Label>
                                 </td>
-                                <td class="WrapText" valign="top">
+                                <td class="WrapText align-top">
                                     <asp:Literal ID="litStackTrace" runat="server"></asp:Literal>
                                 </td>
                             </tr>
@@ -65,9 +65,9 @@
             TargetControlID="SendReportPanel" resourcekey="secSendReport" Text="Send Report to Host">
         </fcp:CollapsiblePanel>
         <asp:Panel ID="SendReportPanel" runat="server" Height="0" style="overflow:hidden;">
-            <table cellspacing="0" cellpadding="3">
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
-                    <td class="NormalBold" width="150" nowrap>
+                    <td class="NormalBold text-nowrap" width="150">
                         <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -99,16 +99,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="NormalBold" valign="top">
+                    <td class="NormalBold align-top">
                         <asp:Label ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Personal Comments:"></asp:Label>
                     </td>
-                    <td class="Normal" valign="top" style="width:85%;">
+                    <td class="Normal align-top" style="width:85%;">
                         <asp:TextBox ID="txtSendComments" runat="server" CssClass="LogArea TechnicalDetailsTable" Rows="5" TextMode="MultiLine"
                             style="width:85%;"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:Button ID="btnSend" runat="server" meta:resourcekey="btnSend" Text="Send Report" CssClass="Button2" CausesValidation="false" OnClick="btnSend_Click" />
+                        <asp:Button ID="btnSend" runat="server" meta:resourcekey="btnSend" Text="Send Report" CssClass="btn btn-success" CausesValidation="false" OnClick="btnSend_Click" />
                         <asp:Label ID="lblSentMessage" runat="server" meta:resourcekey="lblSentMessage"
                             Text="Message has been sent" CssClass="NormalBold" Visible="false"></asp:Label>
                     </td>

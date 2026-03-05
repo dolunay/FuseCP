@@ -18,9 +18,9 @@
 	        <td>
 	            <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="labelSelectHtacesEdit"></asp:Label>
             </td>
-            <td align="right">
+            <td class="text-end">
 		        <asp:Button ID="btnAddHeliconApeFolder" runat="server" meta:resourcekey="btnAddHeliconApeFolder"
-			        Text="Add .htaccess" CssClass="Button2" CausesValidation="false" OnClick="btnAddHeliconApeFolder_Click" />
+			        Text="Add .htaccess" CssClass="btn btn-success" CausesValidation="false" OnClick="btnAddHeliconApeFolder_Click" />
             </td>
         </tr>
 	</table>
@@ -67,16 +67,16 @@
     
 
     
-    <input class="Button2" id="ShowSecurityPanelButton" value="Show Security Options (.htpasswd)" type="button" />
+    <input class="btn btn-success" id="ShowSecurityPanelButton" value="Show Security Options (.htpasswd)" type="button" />
     <div id="SecurityPanel" class="Hidden">
 	<table class="FormButtonsBar" width="100%" style="margin-top: 2em;">
 	    <tr>
 	        <td>
 	            <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="HeliconApeUsersHeader"></asp:Label>
 	        </td>
-            <td align="right">
+            <td class="text-end">
                 <asp:Button ID="btnAddHeliconApeUser" runat="server" meta:resourcekey="btnAddHeliconApeUser"
-			        Text="Add User" CssClass="Button2" CausesValidation="false" OnClick="btnAddHeliconApeUser_Click" />
+			        Text="Add User" CssClass="btn btn-success" CausesValidation="false" OnClick="btnAddHeliconApeUser_Click" />
             </td>
 	    </tr>
 	</table>
@@ -112,9 +112,9 @@
 	        <td>
 	            <asp:Label ID="Label1" runat="server" CssClass="NormalBold" meta:resourcekey="HeliconApeGroupsHeader"></asp:Label>
 	        </td>
-            <td align="right">
+            <td class="text-end">
                 <asp:Button ID="btnAddHeliconApeGroup" runat="server" meta:resourcekey="btnAddHeliconApeGroup"
-        			Text="Add Group" CssClass="Button2" CausesValidation="false" OnClick="btnAddHeliconApeGroup_Click" />
+        			Text="Add Group" CssClass="btn btn-success" CausesValidation="false" OnClick="btnAddHeliconApeGroup_Click" />
             </td>
 	    </tr>
 	</table>
@@ -157,7 +157,7 @@
 			<asp:Localize ID="Localize2" runat="server" meta:resourcekey="ApeProductNotes" /></p>
 	</asp:Panel>
 	<asp:Button ID="btnToggleHeliconApe" runat="server" meta:resourcekey="btnToggleHeliconApe"
-		Text="Enable Helicon Ape" CssClass="Button2" CausesValidation="false" OnClick="btnToggleHeliconApe_Click" />
+		Text="Enable Helicon Ape" CssClass="btn btn-success" CausesValidation="false" OnClick="btnToggleHeliconApe_Click" />
 	<div style="float: right;">
 		<asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl="http://www.helicontech.com/ape/doc/wsp.htm"
 			meta:resourcekey="ModuleHelpLink" />

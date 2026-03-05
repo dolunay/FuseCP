@@ -17,13 +17,13 @@
         <div class="widget-content Popup">
             <div class="ProgressPanelArea">
 				<div class="MediumBold" style="white-space:nowrap;padding-right:45px;">
-					<img id="imgAjaxIndicator" src='<%= PortalUtils.GetThemedImage("indicator_medium.gif") %>' align="absmiddle" />&nbsp;
+					<img id="imgAjaxIndicator" src='<%= PortalUtils.GetThemedImage("indicator_medium.gif") %>' class="align-middle" />&nbsp;
 					<span id="objProgressDialogTitle"></span>
 				</div>
 			</div>
 			<div id="ProgressPanelArea" class="ProgressPanelArea">
 				<fieldset>
-					<table width="100%" cellpadding="3">
+					<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 						<tr>
 							<td class="SubHead" colspan="2">
 								<span id="objProgressDialogStep">Step</span>
@@ -37,7 +37,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="SubHead" width="100" nowrap>
+							<td class="SubHead text-nowrap" width="100">
 								<asp:Label ID="lblStarted" runat="server" meta:resourcekey="lblStarted" Text="Started"></asp:Label>
 							</td>
 							<td class="Normal" width="100%">

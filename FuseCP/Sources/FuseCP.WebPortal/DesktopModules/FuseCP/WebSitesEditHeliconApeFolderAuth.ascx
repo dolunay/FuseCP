@@ -2,10 +2,10 @@
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <div class="card-body form-horizontal">
-<table cellSpacing="0" cellPadding="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
 		<td>
-            <table cellSpacing="0" cellPadding="5" width="100%">
+            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	            <tr>
 		            <td class="SubHead" style="width: 150px;">
 						<asp:Label ID="lblFolderTitle" runat="server" meta:resourcekey="lblFolderTitle" Text="AuthName"></asp:Label>
@@ -33,10 +33,10 @@
                 TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Allowed Users">
             </fcp:CollapsiblePanel>
 	        <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table cellspacing="0" cellpadding="3" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	                <tr>
 		                <td colspan="2">
-			                <asp:checkboxlist id="dlUsers" CellPadding="3" RepeatColumns="2" CssClass="NormalBold" Runat="server"
+			                <asp:checkboxlist id="dlUsers" RepeatColumns="2" CssClass="NormalBold" Runat="server"
 				                DataValueField="Name" DataTextField="Name"></asp:checkboxlist>
 		                </td>
 	                </tr>
@@ -47,10 +47,10 @@
                 TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Allowed Groups">
             </fcp:CollapsiblePanel>
 	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table cellspacing="0" cellpadding="3" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	                <tr>
 		                <td colspan="2">
-			                <asp:checkboxlist id="dlGroups" CellPadding="3" RepeatColumns="2" CssClass="NormalBold" Runat="server"
+			                <asp:checkboxlist id="dlGroups" RepeatColumns="2" CssClass="NormalBold" Runat="server"
 				                DataValueField="Name" DataTextField="Name"></asp:checkboxlist>
 		                </td>
 	                </tr>

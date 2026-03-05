@@ -21,7 +21,7 @@
             <div class="col-sm-10">
                 <uc1:ServerPasswordControl id="serverPassword" runat="server"></uc1:ServerPasswordControl>
             </div>
-            <div class="col-sm-10 col-md-offset-2">
+            <div class="col-sm-10 offset-md-2">
                 <asp:CheckBox runat="server" ID="cbAutoDiscovery" Checked="false" meta:resourcekey="cbAutoDiscovery" />
             </div>
         </div>

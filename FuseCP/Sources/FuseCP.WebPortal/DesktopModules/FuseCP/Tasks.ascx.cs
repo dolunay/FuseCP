@@ -55,7 +55,7 @@ namespace FuseCP.Portal
             HyperLink lnkTaskName = (HyperLink)e.Row.FindControl("lnkTaskName");
             Literal litTaskDuration = (Literal)e.Row.FindControl("litTaskDuration");
             Panel pnlProgressIndicator = (Panel)e.Row.FindControl("pnlProgressIndicator");
-            CPCC.StyleButton cmdStop = (CPCC.StyleButton)e.Row.FindControl("cmdStop");
+            LinkButton cmdStop = (LinkButton)e.Row.FindControl("cmdStop");
 
             // bind controls
             lnkTaskName.Text = GetAuditLogTaskName(task.Source, task.TaskName);

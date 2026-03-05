@@ -17,7 +17,7 @@ function confirmation()
 </script>
 
 <div class="card-body form-horizontal">
-	<table cellspacing="0" cellpadding="3" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 		<tr>
 			<td class="SubHead" style="width: 150px;"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName" Text="Database name:"></asp:Label></td>
 			<td class="NormalBold">
@@ -39,11 +39,11 @@ function confirmation()
         TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Database Users">
     </fcp:CollapsiblePanel>
     <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-	    <table cellspacing="0" cellpadding="3" width="100%">
+	    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 		    <tr>
 			    <td colspan="2">
 				    <asp:CheckBoxList ID="dlUsers" runat="server" CssClass="NormalBold" DataTextField="Name" DataValueField="Name"
-					    RepeatColumns="2" CellPadding="3"></asp:CheckBoxList>
+					    RepeatColumns="2"></asp:CheckBoxList>
 			    </td>
 		    </tr>
 	    </table>

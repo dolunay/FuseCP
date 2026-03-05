@@ -90,7 +90,7 @@
 							</td>
 						</tr>
 						<tr>
-						    <td class="FormLabel150" valign="top">
+						    <td class="FormLabel150 align-top">
                                 <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" />
 						    </td>
 						    <td>
@@ -98,7 +98,7 @@
 						    </td>
 						</tr>
 						<tr>
-						    <td class="FormLabel150" valign="top">
+						    <td class="FormLabel150 align-top">
                                 <asp:Localize ID="locExternalEmailAddress" runat="server" meta:resourcekey="locExternalEmailAddress" />
 						    </td>
 						    <td><asp:Label runat="server" ID="lblExternalEmailAddress" />

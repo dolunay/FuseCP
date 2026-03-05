@@ -30,15 +30,15 @@
 		<div class="main-nav-wrapper">
 			<nav id="main-nav" class="main-nav">
 				<h3>MAIN</h3>
-				<fcp:TopMenu ID="leftMenu" runat="server" Align="left" />
+				<fcp:TopMenu ID="leftMenu" runat="server" MenuAlignment="left" />
 				<asp:PlaceHolder ID="LeftPane" runat="server"></asp:PlaceHolder>
-				<fcp:TopMenu ID="rightMenu" runat="server" Align="right" />
+				<fcp:TopMenu ID="rightMenu" runat="server" MenuAlignment="right" />
 			</nav>
 		</div>
 	</div>
 	<!-- END COLUMN LEFT -->
 	<!-- COLUMN RIGHT -->
-	<div id="col-right" class="col-right ">
+	<div id="col-right" class="col-right">
 		<div class="container-fluid primary-content" id="SkinContent">
 			<!-- PRIMARY CONTENT HEADING -->
 			<div class="primary-content-heading clearfix">

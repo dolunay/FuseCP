@@ -36,8 +36,8 @@
                         <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
                         <div class="mb-3" id="hostnameSetting" runat="server">
                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
-                                <div class="col-sm-10 form-inline">
-                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
                                                 
                                 <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -48,7 +48,7 @@
 			                    </asp:RegularExpressionValidator>
                                                 
                                 . 
-                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
+                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
                                                     
                                 <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -62,7 +62,7 @@
 				    
                         <div class="mb-3">
                             <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2"  AssociatedControlID="listOperatingSystems"></asp:Label>
-                                <div class="col-sm-10 form-inline">
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:DropDownList ID="listOperatingSystems" runat="server"
                                         DataValueField="Path" DataTextField="Name">
                                     </asp:DropDownList>
@@ -78,7 +78,7 @@
                             <fcp:PasswordControl id="password" runat="server" ValidationGroup="Vps" AllowGeneratePassword="true">
                             </fcp:PasswordControl>
                         </asp:Panel> 
-				        <%--<table cellspacing="5"> Too demanding resources!!!				        
+				        <%--<table class="table table-borderless align-middle mb-0"> Too demanding resources!!!				        
 				            <tr> 
 				                <td colspan="2">
 				                    <asp:CheckBox ID="chkPreserveExistingFiles" runat="server" CssClass="NormalBold"
@@ -164,7 +164,7 @@
                             </asp:Panel>                        
 
 				        <br />
-                        <%--<table cellspacing="5" id="AdminOptionsPanel" runat="server">
+                        <%--<table class="table table-borderless align-middle mb-0" id="AdminOptionsPanel" runat="server">
 				            <tr>
 				                <td>
 				                    <asp:CheckBox ID="chkSaveVhd" runat="server"

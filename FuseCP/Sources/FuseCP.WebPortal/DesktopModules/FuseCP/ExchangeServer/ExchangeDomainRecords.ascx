@@ -85,10 +85,10 @@
                                 <div class="widget-content Popup">
 			<asp:UpdatePanel ID="EditRecordUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
 				<ContentTemplate>
-					<table width="450">
+					<table class="table table-borderless align-middle mb-0" style="max-width: 450px;">
 						<tr>
-							<td class="SubHead" width="150" nowrap><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
-							<td class="NormalBold" width="100%">
+							<td class="SubHead text-nowrap" style="width: 150px;"><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
+							<td class="NormalBold">
 								<asp:DropDownList ID="ddlRecordType" runat="server" Width="120px" SelectedValue='<%# Bind("RecordType") %>' CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlRecordType_SelectedIndexChanged">
                                     <asp:ListItem>A</asp:ListItem>
 									<asp:ListItem>AAAA</asp:ListItem>
@@ -106,9 +106,9 @@
 								<asp:TextBox ID="txtRecordName" runat="server" Width="100px" CssClass="form-control"></asp:TextBox>
 							</td>
 						</tr>
-                        <tr id="rowData" runat="server">
+						<tr id="rowData" runat="server">
                             <td class="SubHead"><asp:Label ID="lblRecordData" runat="server" meta:resourcekey="lblRecordData" Text="Record Data:"></asp:Label></td>
-                            <td class="NormalBold" nowrap>
+							<td class="NormalBold text-nowrap">
 				                <asp:TextBox ID="txtRecordData" runat="server" Width="260px" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireData" runat="server" ControlToValidate="txtRecordData"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>

@@ -7,7 +7,7 @@
 <asp:Panel ID="NameServersPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top" width="150">
                 <asp:Label ID="lblNameServers" runat="server" meta:resourcekey="lblNameServers" Text="Name Servers:"></asp:Label>
             </td>
             <td class="Normal">

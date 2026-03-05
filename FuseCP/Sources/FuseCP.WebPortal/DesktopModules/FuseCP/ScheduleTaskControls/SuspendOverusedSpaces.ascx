@@ -6,19 +6,19 @@
     TargetControlID="pnlOverusageDefinition" resourcekey="clpOverusageDefinitionHeader" Text="Space overused when">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlOverusageDefinition" runat="server" CssClass="Normal">
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxSuspendWhenDiskSpaceOverused" runat="server" meta:resourcekey="cbxSuspendWhenDiskSpaceOverused" Text="Disk space usage greater than defined below threshold" />
    				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxSuspendWhenBandwidthOverused" runat="server" meta:resourcekey="cbxSuspendWhenBandwidthOverused" Text="Bandwidth usage greater than defined below threshold" />
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblThreshold" runat="server" meta:resourcekey="lblThreshold" Text="usage greater than defined below threshold."></asp:Label> 
 				</td>
 			</tr>
@@ -32,9 +32,9 @@
     TargetControlID="pnlWarningSettings" resourcekey="clpWarningSettingsHeader" Text="Issue warning">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlWarningSettings" runat="server" CssClass="Normal">
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:CheckBox ID="cbxDoSendWarning" runat="server" meta:resourcekey="cbxDoSendWarning" Text="Send email notification when usage exceeds" />
    				</td>
    				<td class="SubHead" width="100%">
@@ -44,9 +44,9 @@
    				</td>
 			</tr>
 		</table>
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailFrom" runat="server" meta:resourcekey="lblWarningMailFrom" Text="Mail From:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -55,7 +55,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailBcc" runat="server" meta:resourcekey="lblWarningMailBcc" Text="BCC:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -64,7 +64,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailSubject" runat="server" meta:resourcekey="lblWarningMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -72,7 +72,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="SubHead" nowrap>
+				<td colspan="2" class="SubHead text-nowrap">
 					<asp:Label ID="lblWarningMailBody" runat="server" meta:resourcekey="lblWarningMailBody" Text="Mail Body:"></asp:Label>
 				</td>
 			</tr>
@@ -95,9 +95,9 @@
     TargetControlID="pnlSuspensionSettings" resourcekey="clpSuspensionSettingsHeader" Text="Suspend space">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlSuspensionSettings" runat="server" CssClass="Normal">
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblWhenUsageThresholdExceeds" runat="server" meta:resourcekey="lblWhenUsageThresholdExceeds" Text="When usage exceeds"></asp:Label>
 				</td>
    				<td class="SubHead" width="100%">
@@ -107,19 +107,19 @@
    				</td>
    			</tr>
    			<tr>
-				<td class="SubHead" nowrap colspan="2">
+				<td class="SubHead text-nowrap" colspan="2">
 					<asp:CheckBox ID="cbxDoSendSuspension" runat="server" meta:resourcekey="cbxDoSendSuspension" Text="Send email notification" />
    				</td>
 			</tr>
    			<tr>
-				<td class="SubHead" nowrap colspan="2">
+				<td class="SubHead text-nowrap" colspan="2">
 					<asp:CheckBox ID="cbxDoSuspend" runat="server" meta:resourcekey="cbxDoSuspend" Text="Suspend space" />
    				</td>
 			</tr>
 		</table>
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailFrom" runat="server" meta:resourcekey="lblSuspensionMailFrom" Text="Mail From:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -128,7 +128,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailBcc" runat="server" meta:resourcekey="lblSuspensionMailBcc" Text="BCC:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -137,7 +137,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" nowrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailSubject" runat="server" meta:resourcekey="lblSuspensionMailSubject" Text="Mail Subject:"></asp:Label>
 				</td>
 				<td class="Normal" width="100%">
@@ -145,7 +145,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="SubHead" nowrap>
+				<td colspan="2" class="SubHead text-nowrap">
 					<asp:Label ID="lblSuspensionMailBody" runat="server" meta:resourcekey="lblSuspensionMailBody" Text="Mail Body:"></asp:Label>
 				</td>
 			</tr>

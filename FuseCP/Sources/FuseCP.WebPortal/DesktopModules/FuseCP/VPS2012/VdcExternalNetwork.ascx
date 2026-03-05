@@ -24,7 +24,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locIPQuota" runat="server" meta:resourcekey="locIPQuota" Text="Number of IP Addresses:"></asp:Localize></td>
                                 <td><fcp:Quota ID="addressesQuota" runat="server" QuotaName="VPS2012.ExternalIPAddressesNumber" /></td>

@@ -23,7 +23,7 @@
 				</div>
 				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
-					<table cellspacing="0" cellpadding="5" width="100%">
+					<table class="table table-borderless align-middle mb-0">
 						<tr>
 							<td class="Huge" colspan="2">
 								<asp:Literal ID="litSiteCollectionName" runat="server"></asp:Literal></td>
@@ -33,7 +33,7 @@
 								&nbsp;</td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupFileName" runat="server" meta:resourcekey="lblBackupFileName"
 									Text="Backup File Name:"></asp:Label></td>
 							<td class="normal">
@@ -42,7 +42,7 @@
 									Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator></td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupOptions" runat="server" meta:resourcekey="lblBackupOptions"
 									Text="Backup Options:"></asp:Label></td>
 							<td class="normal">
@@ -53,7 +53,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupDestination" runat="server" meta:resourcekey="lblBackupDestination"
 									Text="Backup Destination:"></asp:Label></td>
 							<td class="normal">

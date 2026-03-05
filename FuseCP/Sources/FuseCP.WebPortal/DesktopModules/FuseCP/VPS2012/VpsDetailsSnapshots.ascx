@@ -18,7 +18,7 @@
 				    
 				    <table style="width:100%;">
 				        <tr>
-				            <td valign="top">
+				            <td class="align-top">
 				            
                                 <div class="FormButtonsBarClean">
                                     <asp:LinkButton id="btnTakeSnapshot" CssClass="btn btn-success" runat="server" onclick="btnTakeSnapshot_Click" meta:resourcekey="btnTakeSnapshot"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnTakeSnapshotText"/> </asp:LinkButton>
@@ -45,7 +45,7 @@
 				                <fcp:QuotaViewer ID="snapshotsQuota" runat="server" QuotaTypeId="2" />
 				    
 				            </td>
-				            <td valign="top" id="SnapshotDetailsPanel" runat="server">
+				            <td class="align-top" id="SnapshotDetailsPanel" runat="server">
 				                <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" />
 				                <p>
 				                    <asp:Localize ID="locCreated" runat="server" meta:resourcekey="locCreated"
@@ -85,7 +85,7 @@
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locRenameSnapshot" runat="server" Text="Rename snapshot" meta:resourcekey="locRenameSnapshot"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="10">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td>
 			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control" Width="300"></asp:TextBox>

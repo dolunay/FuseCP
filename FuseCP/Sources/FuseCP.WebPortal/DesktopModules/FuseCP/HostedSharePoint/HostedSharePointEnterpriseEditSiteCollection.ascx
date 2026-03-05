@@ -25,14 +25,14 @@
 				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="localMessageBox" runat="server">
                     </fcp:SimpleMessageBox>					
-					<table id="tblEditItem" runat="server" cellspacing="0" cellpadding="5" width="100%">
+					<table id="tblEditItem" runat="server" class="table table-borderless align-middle mb-0">
 						<tr id="rowUrl">
-							<td class="SubHead" nowrap width="200">
+							<td class="SubHead text-nowrap" style="width: 200px;">
 								<asp:Label ID="lblSiteCollectionUrl" runat="server" meta:resourcekey="lblSiteCollectionUrl"
 									Text="Url:"></asp:Label>
 							</td>
-							<td width="100%" class="NormalBold">
-                                <div class="form-inline">
+							<td class="NormalBold">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
 			                    <asp:TextBox ID="txtHostName" runat="server" CssClass="form-control" MaxLength="64"></asp:TextBox>.<uc1:DomainsSelectDomainControl ID="domain" runat="server" HideWebSites="false" HideDomainPointers="true" HidePreviewDomain="true"/>
                                 <asp:RequiredFieldValidator ID="valRequireHostName" runat="server" meta:resourcekey="valRequireHostName" ControlToValidate="txtHostName"
 	                                ErrorMessage="Enter hostname" ValidationGroup="CreateSite" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -101,13 +101,13 @@
 							</td>
 						</tr>
 					</table>
-					<table id="tblViewItem" runat="server" cellspacing="0" cellpadding="5" width="100%">
+					<table id="tblViewItem" runat="server" class="table table-borderless align-middle mb-0">
 						<tr>
-							<td class="SubHead" nowrap width="200">
+							<td class="SubHead text-nowrap" style="width: 200px;">
 								<asp:Label ID="lblSiteCollectionUrl2" runat="server" meta:resourcekey="lblSiteCollectionUrl"
 									Text="Url:"></asp:Label>
 							</td>
-							<td width="100%" class="NormalBold">
+							<td class="NormalBold">
 								<span class="Huge">
 								<asp:HyperLink runat="server" ID="lnkUrl" />								</span>
 							</td>
@@ -170,14 +170,14 @@
 							</td>
 						</tr>
 					</table>
-					<table width="100%">
+					<table class="table table-borderless mb-0">
 						<tr>
 							<td>
 								<fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true" TargetControlID="ToolsPanel"
 									meta:resourcekey="secMainTools" Text="SharePoint Site Collection Tools">
 								</fcp:CollapsiblePanel>
 								<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;">
-									<table id="tblMaintenance" runat="server" cellpadding="10">
+									<table id="tblMaintenance" runat="server" class="table table-borderless mb-0">
 										<tr>
 											<td>
 												<asp:LinkButton ID="btnBackup" runat="server" meta:resourcekey="btnBackup" CausesValidation="false"

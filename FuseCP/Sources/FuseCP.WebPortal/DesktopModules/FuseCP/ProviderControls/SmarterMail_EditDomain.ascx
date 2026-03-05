@@ -44,7 +44,7 @@
 <asp:Panel runat="server" ID="LimitsPanel">
     <table width="100%">
         <tr>
-            <td class="SubHead" style="width:150px;" align="right">
+            <td class="SubHead text-end" style="width:150px;">
                 <asp:Label ID="lblDomainDiskSpace" runat="server" meta:resourcekey="lblDomainDiskSpace"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server"  ID="txtSize" Text="0" Width="80px" CssClass="form-control" />
@@ -55,7 +55,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" align="right">
+            <td class="SubHead text-end">
                 <asp:Label ID="lblDomainAliases" runat="server" meta:resourcekey="lblDomainAliases"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" ID="txtDomainAliases" Text="0" Width="80px" CssClass="form-control"/>
@@ -66,7 +66,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" align="right">
+            <td class="SubHead text-end">
                 <asp:Label ID="lblUserQuota" runat="server" meta:resourcekey="lblUserQuota"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" ID="txtUser" Width="80px" CssClass="form-control"/>
@@ -77,7 +77,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" align="right">
+            <td class="SubHead text-end">
                 <asp:Label ID="lblUserAliasesQuota" runat="server" meta:resourcekey="lblUserAliasesQuota"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" ID="txtUserAliases" Width="80px" CssClass="form-control"/>
@@ -88,7 +88,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" align="right">
+            <td class="SubHead text-end">
                 <asp:Label ID="lblMailingListsQuota" runat="server" meta:resourcekey="lblMailingListsQuota"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" Width="80px" ID="txtMailingLists" CssClass="form-control"/>
@@ -99,7 +99,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" width="200" nowrap  align="right">
+            <td class="SubHead text-nowrap text-end" width="200">
                 <asp:Label ID="lblMessageSizeQuota" runat="server" meta:resourcekey="lblMessageSizeQuota"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" ID="txtMessageSize" CssClass="form-control" Width="80px"/>
@@ -110,7 +110,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" align="right">
+            <td class="SubHead text-end">
                 <asp:Label ID="lblRecipientsPerMessageQuota" runat="server" meta:resourcekey="lblRecipientsPerMessageQuota"></asp:Label></td>
             <td>
                 <asp:TextBox runat="server" ID="txtRecipientsPerMessage" CssClass="form-control" Width="80px"/>

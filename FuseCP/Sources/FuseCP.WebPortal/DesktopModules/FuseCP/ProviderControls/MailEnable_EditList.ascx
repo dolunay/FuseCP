@@ -3,7 +3,7 @@
 <%@ Register Src="../UserControls/EmailControl.ascx" TagName="EmailControl" TagPrefix="uc2" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<table cellSpacing="0" cellPadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
 		<td class="SubHead" style="width:150px;">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
@@ -94,10 +94,10 @@
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="SubHead" vAlign="top">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblMembers" runat="server" meta:resourcekey="lblMembers" Text="Mailing list members:"></asp:Label>
 		</td>
-		<td vAlign="top">
+		<td class="align-top">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>
@@ -106,7 +106,7 @@
 <fcp:collapsiblepanel id="HeaderFooterSection" runat="server" targetcontrolid="pHeaderFooter"
     meta:resourcekey="HeaderFooterSection" ></fcp:collapsiblepanel>
 <asp:Panel runat="server" ID="pHeaderFooter">
-   <table width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
 		<td>&nbsp;</td>
 	</tr>

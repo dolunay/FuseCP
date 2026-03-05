@@ -2,7 +2,7 @@
 <div style="width:400px;">
 	<div class="FormButtonsBar">
 		<asp:Button id="btnAddDomain" runat="server" meta:resourcekey="btnAddDomain" Text="Add"
-			CssClass="Button2" CausesValidation="false" OnClick="BtnAddClick"/>
+			CssClass="btn btn-success" CausesValidation="false" OnClick="BtnAddClick"/>
 	</div>
 
 	<asp:GridView id="gvDomains" Runat="server" AutoGenerateColumns="False"

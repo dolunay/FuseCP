@@ -58,7 +58,7 @@
 						<tr>
 							<td class="col-sm-2"><asp:Localize ID="locFirstName" runat="server" meta:resourcekey="locFirstName" Text="First Name:"></asp:Localize></td>
 							<td>
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
 								<asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
 								&nbsp;
 								<asp:Localize ID="locInitials" runat="server" meta:resourcekey="locInitials" Text="Middle Initial:" />&nbsp;

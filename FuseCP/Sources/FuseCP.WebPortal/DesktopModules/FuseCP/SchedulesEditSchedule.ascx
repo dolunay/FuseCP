@@ -8,7 +8,7 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 <div class="card-body">
-	<table cellspacing="0" cellpadding="4" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
         <tr>
             <td class="SubHead" style="width:150px;"><asp:Label ID="lblTaskName" runat="server" meta:resourcekey="lblTaskName" Text="Task Name:"></asp:Label></td>
             <td class="Normal">
@@ -27,10 +27,10 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" Display="Static" ControlToValidate="ddlTaskType"></asp:RequiredFieldValidator></td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblTaskParameters" runat="server" meta:resourcekey="lblTaskParameters" Text="Task Parameters:"></asp:Label>
 			</td>
-			<td class="Normal" valign="top">
+			<td class="Normal align-top">
 				<input id="ControlToLoad" type="hidden" value="" runat="server"/>
 			    <asp:PlaceHolder runat="server" ID="TaskParametersPlaceHolder" />
                 <asp:GridView id="gvTaskParameters" runat="server" AutoGenerateColumns="False"
@@ -57,11 +57,11 @@
 		    <td class="Normal">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
                 <asp:Label ID="lblSchedule" runat="server" meta:resourcekey="lblSchedule" Text="Schedule:"></asp:Label>
 			</td>
-			<td valign="top">
-                <div class="form-inline">
+			<td class="align-top">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
 			    <asp:DropDownList ID="ddlSchedule" runat="server"   CssClass="form-control" resourcekey="ddlSchedule"
 			        AutoPostBack="True" OnSelectedIndexChanged="ddlSchedule_SelectedIndexChanged">
 			        <asp:ListItem Value="Daily">Daily</asp:ListItem>
@@ -72,9 +72,9 @@
                 </asp:DropDownList>
                 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<asp:Label ID="lblStartTime" runat="server" meta:resourcekey="lblStartTime" Text="Start Time:"></asp:Label>
                 <uc3:ScheduleTime ID="timeStartTime" runat="server" />
-                <table id="tblInterval" runat="server" cellpadding="5">
+                <table class="table table-borderless align-middle mb-0" id="tblInterval" runat="server">
                     <tr>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <asp:Label ID="lblRunEvery" runat="server" meta:resourcekey="lblRunEvery" Text="Run Every:"></asp:Label>
                         </td>
                         <td>
@@ -82,19 +82,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label>
                         </td>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <uc3:ScheduleTime ID="timeFromTime" runat="server" />
                             &nbsp;&nbsp;
                             <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To: "></asp:Label><uc3:ScheduleTime ID="timeToTime" runat="server" />
                         </td>
                     </tr>
                 </table>
-                <table id="tblOneTime" runat="server" cellpadding="5">
+                <table class="table table-borderless align-middle mb-0" id="tblOneTime" runat="server">
                     <tr>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <asp:Label ID="lblRunOn" runat="server" meta:resourcekey="lblRunOn" Text="Run On:"></asp:Label>
                         </td>
                         <td>
@@ -103,9 +103,9 @@
                                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
                     </tr>
                 </table>
-                <table id="tblWeekly" runat="server" cellpadding="5">
+                <table class="table table-borderless align-middle mb-0" id="tblWeekly" runat="server">
                     <tr>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <asp:Label ID="lblWeekDay" runat="server" meta:resourcekey="lblWeekDay" Text="Day of the Week:"></asp:Label>
                         </td>
                         <td>
@@ -114,9 +114,9 @@
                                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
                     </tr>
                 </table>
-                <table id="tblMonthly" runat="server" cellpadding="5">
+                <table class="table table-borderless align-middle mb-0" id="tblMonthly" runat="server">
                     <tr>
-                        <td class="SubHead" nowrap>
+                        <td class="SubHead text-nowrap">
                             <asp:Label ID="lblMonthDay" runat="server" meta:resourcekey="lblMonthDay" Text="Day of the Month:"></asp:Label>
                         </td>
                         <td>
@@ -132,17 +132,17 @@
 		    <td class="Normal">&nbsp;</td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblEnabled" runat="server" meta:resourcekey="lblEnabled" Text="Enabled:"></asp:Label>
 			</td>
-			<td valign="top">
+			<td class="align-top">
                 <asp:CheckBox ID="chkEnabled" runat="server" meta:resourcekey="chkEnabled" Text="Yes" Checked="true" /></td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblPriority" runat="server" meta:resourcekey="lblPriority" Text="Priority:"></asp:Label>
 			</td>
-			<td class="Normal" valign="top">
+			<td class="Normal align-top">
                 <asp:DropDownList ID="ddlPriority" runat="server"   CssClass="NormalDropDown" resourcekey="ddlPriority">
                     <asp:ListItem Value="Highest">High</asp:ListItem>
                     <asp:ListItem Value="AboveNormal">AboveNormal</asp:ListItem>
@@ -152,10 +152,10 @@
                 </asp:DropDownList></td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblMaxExecutionTime" runat="server" meta:resourcekey="lblMaxExecutionTime" Text="Max Execution Time:"></asp:Label>
 			</td>
-			<td class="Normal" valign="top">
+			<td class="Normal align-top">
                 <uc2:ScheduleInterval ID="intMaxExecutionTime" runat="server" Interval="0" />
             </td>
 		</tr>
@@ -165,24 +165,23 @@
         TargetControlID="HistoryPanel" meta:resourcekey="secHistory" Text="History Log">
     </fcp:CollapsiblePanel>
     <asp:Panel ID="HistoryPanel" runat="server" Height="0" style="overflow:hidden;">
-	    <table width="100%" cellspacing="0" cellpadding="0">
+	    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
 		    <tr>
 			    <td>
-                    <table width="100%" cellpadding="3" cellspacing="1"
-                        class="GridToolbox">
+                    <table width="100%"
+                        class="GridToolbox table table-borderless align-middle mb-0 w-100">
                         <tr>
                             <td class="GridToolboxCell">
-                                <table width="100%" cellpadding="0" cellspacing="0">
+                                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                                     <tr>
-                                        <td><asp:Button ID="btnClearLog" runat="server" meta:resourcekey="btnClearLog" Text="Clear History" CssClass="Button3" OnClick="btnClearLog_Click" CausesValidation="False" /></td>
+                                        <td><asp:Button ID="btnClearLog" runat="server" meta:resourcekey="btnClearLog" Text="Clear History" CssClass="btn btn-primary" OnClick="btnClearLog_Click" CausesValidation="False" /></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                     </table>
                     <asp:GridView id="gvHistory" runat="server" AutoGenerateColumns="False"
-                        Width="100%" EmptyDataText="gvHistory"
-                        CellPadding="4" CellSpacing="1" GridLines="None" Border="1" BorderColor="#C4D6BB" CssClass="GridOutline" OnRowEditing="gvHistory_RowEditing" OnRowCancelingEdit="gvHistory_RowCancelingEdit">
+                        Width="100%" EmptyDataText="gvHistory" GridLines="None" CssClass="GridOutline" OnRowEditing="gvHistory_RowEditing" OnRowCancelingEdit="gvHistory_RowCancelingEdit">
                         <Columns>
                             <asp:TemplateField HeaderText="gvHistoryStartTime" HeaderStyle-Wrap="false" ItemStyle-Wrap="false">
 	                            <ItemTemplate>

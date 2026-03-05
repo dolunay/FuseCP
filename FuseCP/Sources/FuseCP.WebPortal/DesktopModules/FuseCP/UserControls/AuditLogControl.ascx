@@ -20,7 +20,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="SubHead" nowrap>
+                    <td class="SubHead text-nowrap">
                         <asp:Label id="lblSeverity" runat="server" meta:resourcekey="lblSeverity" Text="Severity"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
                 <tr id="SourceRow" runat="server">
-                    <td class="SubHead" nowrap>
+                    <td class="SubHead text-nowrap">
                         <asp:Label id="lblSource" runat="server" meta:resourcekey="lblSource" Text="Source"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -42,7 +42,7 @@
                         </asp:DropDownList></td>
                 </tr>
                 <tr>
-                    <td class="SubHead" nowrap style="height: 24px">
+                    <td class="SubHead text-nowrap" style="height: 24px">
                         <asp:Label id="lblTask" runat="server" meta:resourcekey="lblTask" Text="Task"></asp:Label>
                     </td>
                     <td class="Normal" style="height: 24px">
@@ -50,7 +50,7 @@
                         </asp:DropDownList></td>
                 </tr>
                 <tr id="ItemNameRow" runat="server">
-                    <td class="SubHead" nowrap style="height: 24px">
+                    <td class="SubHead text-nowrap" style="height: 24px">
                         <asp:Label id="lblItemName" runat="server" meta:resourcekey="lblItemName" Text="Item Name"></asp:Label>
                     </td>
                     <td>
@@ -81,7 +81,7 @@
 		<asp:UpdateProgress ID="recordsProgress" runat="server"
 			AssociatedUpdatePanelID="updatePanelLog" DynamicLayout="false">
 			<ProgressTemplate>
-				<asp:Image ID="imgSep" runat="server" SkinID="AjaxIndicator" vspace="4" />
+                <asp:Image ID="imgSep" runat="server" SkinID="AjaxIndicator" CssClass="my-1" />
 			</ProgressTemplate>
 		</asp:UpdateProgress>
 	</div>
@@ -100,7 +100,7 @@
         <asp:TemplateField SortExpression="SeverityID" HeaderText="gvLogSeverity">
             <ItemStyle Wrap="False" />
             <ItemTemplate>
-                <asp:Image ID="imgIcon" runat="server" hspace="2" ImageUrl='<%# GetIconUrl((int)Eval("SeverityID")) %>' ImageAlign="AbsMiddle" />
+                <asp:Image ID="imgIcon" runat="server" CssClass="align-middle me-1" ImageUrl='<%# GetIconUrl((int)Eval("SeverityID")) %>' />
 	            <%# GetAuditLogRecordSeverityName((int)Eval("SeverityID")) %>
             </ItemTemplate>
         </asp:TemplateField>

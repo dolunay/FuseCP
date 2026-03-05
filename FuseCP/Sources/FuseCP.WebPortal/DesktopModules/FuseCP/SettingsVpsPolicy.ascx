@@ -7,7 +7,7 @@
 <asp:Panel ID="AdministratorPasswordPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" nowrap>
+            <td class="SubHead text-nowrap" width="150">
                 <asp:Label ID="lblPasswordPolicy" runat="server" meta:resourcekey="lblPasswordPolicy" Text="Password Policy:"></asp:Label>
             </td>
             <td>

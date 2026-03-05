@@ -13,7 +13,7 @@
                 <td colspan="2">
                     <asp:CheckBox ID="chkDynamicMemoryEnabled" runat="server" AutoPostBack="true" meta:resourcekey="chkDynamicMemoryEnabled" Text="Dynamic memory enabled" />
                 
-                    <table id="tableDynamicMemory" runat="server" cellspacing="5" style="width: 100%; margin-top: 15px">
+                    <table class="table table-borderless align-middle mb-0" id="tableDynamicMemory" runat="server" style="width: 100%; margin-top: 15px">
                         <tr>
                             <td class="FormLabel150" >
                                 <asp:Localize ID="locMinimum" runat="server" meta:resourcekey="locMinimum" Text="Minimum RAM:"></asp:Localize>

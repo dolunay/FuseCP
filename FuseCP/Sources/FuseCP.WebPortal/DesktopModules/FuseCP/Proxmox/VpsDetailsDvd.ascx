@@ -30,10 +30,10 @@
 			                        <br />
 			                        <br />
 			                        <asp:Button ID="btnInsertDisk" runat="server" CausesValidation="false"
-			                            Text="Insert Disk..." meta:resourcekey="btnInsertDisk" CssClass="Button1" 
+			                            Text="Insert Disk..." meta:resourcekey="btnInsertDisk" CssClass="btn btn-primary" 
                                         onclick="btnInsertDisk_Click" />
                                     <asp:Button ID="btnEjectDisk" runat="server" CausesValidation="false"
-			                            Text="Eject" meta:resourcekey="btnEjectDisk" CssClass="Button1" 
+			                            Text="Eject" meta:resourcekey="btnEjectDisk" CssClass="btn btn-primary" 
                                         onclick="btnEjectDisk_Click" />
 			                    </td>
 			                </tr>

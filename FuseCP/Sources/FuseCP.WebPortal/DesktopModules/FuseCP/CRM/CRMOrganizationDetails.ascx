@@ -59,6 +59,6 @@
 				    </div>
 				</div>
        <div class="card-footer text-end">
-					    <asp:Button runat="server" meta:resourcekey="btnCreate" ID="btnCreate" CssClass="Button2" OnClick="btnCreate_Click"  />		
-					    <asp:Button runat="server" meta:resourcekey="btnDelete" ID="btnDelete" CssClass="Button2" Visible="false" OnClick="btnDelete_Click" />			    					    
+					    <asp:Button runat="server" meta:resourcekey="btnCreate" ID="btnCreate" CssClass="btn btn-success" OnClick="btnCreate_Click"  />		
+					    <asp:Button runat="server" meta:resourcekey="btnDelete" ID="btnDelete" CssClass="btn btn-success" Visible="false" OnClick="btnDelete_Click" />			    					    
 				    </div>

@@ -15,7 +15,7 @@
                     <asp:UpdatePanel ID="PasswrodResetUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
                             
-                            <table>
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locSendTo" runat="server" meta:resourcekey="locSendTo" Text="Send to:"></asp:Localize></td>
@@ -27,7 +27,7 @@
                                     </td>
                                 </tr>
                                 <tr id="EmailRow" runat="server">
-                                    <td class="FormLabel150" valign="top">
+                                    <td class="FormLabel150 align-top">
                                         <asp:Localize ID="locEmailAddress" runat="server" meta:resourcekey="locEmailAddress"></asp:Localize></td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtEmailAddress" CssClass="form-control" />
@@ -36,7 +36,7 @@
                                     </td>
                                 </tr>
                                 <tr id="MobileRow" runat="server" visible="False">
-                                    <td class="FormLabel150" valign="top">
+                                    <td class="FormLabel150 align-top">
                                         <asp:Localize ID="locMobile" runat="server" meta:resourcekey="locMobile"></asp:Localize></td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control" />

@@ -2,7 +2,7 @@
 
 
 <div style="padding: 20; margin-bottom: 10px;">
-<table cellpadding="4">
+<table class="table table-borderless align-middle mb-0">
   <tr id="rowAspNet" runat="server">
     <td class="SubHead">
         <asp:Label ID="lblErrorMode" runat="server" meta:resourcekey="lblErrorMode"></asp:Label>:

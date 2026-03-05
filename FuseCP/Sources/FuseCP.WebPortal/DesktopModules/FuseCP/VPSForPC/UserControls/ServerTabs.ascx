@@ -45,7 +45,7 @@
             </tr>
         </table>
 
-        <table id="TabsTable" runat="server" width="100%" cellpadding="0" cellspacing="1" visible="false">
+        <table class="table table-borderless align-middle mb-0 w-100" id="TabsTable" runat="server" width="100%" visible="false">
             <tr>
                 <td class="Tabs">
                     <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"

@@ -16,10 +16,10 @@
                     <div class="FormButtonsBar">
                         <div class="Left">
                             <asp:Button ID="btnCreate" runat="server" meta:resourcekey="btnCreate"
-                                Text="Create VPS" CssClass="Button1" CausesValidation="False" 
+                                Text="Create VPS" CssClass="btn btn-primary" CausesValidation="False" 
                                 onclick="btnCreate_Click" />
                             <asp:Button ID="btnImport" runat="server" meta:resourcekey="btnImport"
-                                Text="Import VPS" CssClass="Button1" CausesValidation="False" 
+                                Text="Import VPS" CssClass="btn btn-primary" CausesValidation="False" 
                                 onclick="btnImport_Click" />
                         </div>
                         <div class="Right">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="Right" style="margin-right: 20px">
                             <asp:Button ID="btnReplicaStates" runat="server" meta:resourcekey="btnReplicaStates"
-                                Text="Show Replication Statuses" CssClass="Button1" CausesValidation="False"
+                                Text="Show Replication Statuses" CssClass="btn btn-primary" CausesValidation="False"
                                 OnClick="btnReplicaStates_Click" />
                             <asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 							<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"   

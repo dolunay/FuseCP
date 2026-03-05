@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-8 text-end form-inline">
+                <div class="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
                     <div class="mb-3">
                         <div class="input-group">
                             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" resourcekey="ddlStatus" AutoPostBack="true">

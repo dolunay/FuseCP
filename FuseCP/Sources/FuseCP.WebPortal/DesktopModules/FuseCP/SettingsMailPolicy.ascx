@@ -8,7 +8,7 @@
 <asp:Panel ID="GeneralPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top" width="150">
                 <asp:Label ID="lblCatchAll" runat="server" meta:resourcekey="lblCatchAll" Text="Catch-All Account:"></asp:Label>
             </td>
             <td class="Normal">
@@ -25,7 +25,7 @@
 <asp:Panel ID="AccountPolicyPanel" runat="server" Height="0" style="overflow:hidden;">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top" width="150">
                 <asp:Label ID="lblAccount" runat="server" meta:resourcekey="lblAccount" Text="Account Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -33,7 +33,7 @@
                 </uc2:UsernamePolicyEditor></td>
         </tr>
         <tr>
-            <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
                 <asp:Label ID="lblPassword" runat="server" meta:resourcekey="lblPassword" Text="Password Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -60,16 +60,16 @@
         </td>
         </tr>
             <tr>
-        <td width="200px" valign="top">
+        <td class="align-top" width="200px">
             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="lblCountry" Text="Add Country:" />
         </td>
         <td class="Normal">
             <asp:DropDownList ID="ddlAddCountry" runat="server"> </asp:DropDownList>
-            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="Button2" />
+            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="btn btn-success" />
         </td>
     </tr>
     <tr>
-        <td width="200px" valign="top">
+        <td class="align-top" width="200px">
             <asp:Localize ID="Localize2" runat="server" meta:resourcekey="lblSelectedCountries" Text="Selected Countries:" />
         </td>
         <td class="Normal">

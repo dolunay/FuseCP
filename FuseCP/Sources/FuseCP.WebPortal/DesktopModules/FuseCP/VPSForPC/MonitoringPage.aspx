@@ -19,22 +19,22 @@
 	</asp:ScriptManager>
 	<asp:Timer runat="server" Interval="10000" ID="operationTimer" OnTick="operationTimer_Tick" />
 	<div id="testClass" style="width: 590px; height: 700px">
-		<table cellpadding="3" width="100%">
+		<table style="width:100%;">
 			<tr>
-				<td>
+				<td style="padding:3px;">
 					<asp:Label ID="lblStartPeriod" runat="server" AssociatedControlID="txtStartPeriod"
 						meta:resourcekey="lblStartPeriod" Text="Start day" CssClass="MediumBold" />
 				</td>
-				<td>
+				<td style="padding:3px;">
 					<asp:TextBox ID="txtStartPeriod" runat="server" CssClass="form-control txtDateTimePeriod"></asp:TextBox>
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td style="padding:3px;">
 					<asp:Label ID="lblEndPeriod" runat="server" AssociatedControlID="txtEndPeriod" meta:resourcekey="lblEndPeriod"
 						Text="End day" CssClass="MediumBold" />
 				</td>
-				<td>
+				<td style="padding:3px;">
 					<asp:TextBox ID="txtEndPeriod" runat="server" CssClass="form-control txtDateTimePeriod"></asp:TextBox>
 				</td>
 			</tr>

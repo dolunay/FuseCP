@@ -5,7 +5,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 <div class="card-body form-horizontal">
-    <table cellSpacing="0" cellPadding="3">
+    <table class="table table-borderless align-middle mb-0">
 	    <tr>
 		    <td class="SubHead" style="width:150px;">
 		        <asp:Label ID="lblDomain" runat="server" meta:resourcekey="lblDomain" Text="Domain:"></asp:Label>
@@ -20,10 +20,10 @@
     		<td>&nbsp;</td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" valign="top">
+		    <td class="SubHead align-top">
 		        <asp:Label ID="lblWebSites" runat="server" meta:resourcekey="lblWebSites" Text="Web Site:"></asp:Label>
 		    </td>
-		    <td class="Normal" valign="top">
+		    <td class="Normal align-top">
                 <asp:DropDownList ID="ddlWebSites" runat="server" CssClass="form-control">
                 </asp:DropDownList>&nbsp;&nbsp;
                 <asp:RequiredFieldValidator ID="valRequireWebSite" runat="server" meta:resourcekey="valRequireWebSite"
@@ -44,10 +44,10 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" valign="top" style="padding-top: 7px;">
+		    <td class="SubHead align-top" style="padding-top: 7px;">
 			    <asp:Label ID="lblFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:"></asp:Label>
 	        </td>
-		    <td class="Normal" valign="top">
+		    <td class="Normal align-top">
                 <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" Width="300" />
     			
 		    </td>

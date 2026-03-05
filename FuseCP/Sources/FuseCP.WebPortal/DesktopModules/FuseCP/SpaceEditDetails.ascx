@@ -9,7 +9,7 @@
 
 <div class="card-body form-horizontal">
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-<table id="tblEditPackage" runat="server" cellspacing="0" cellpadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblEditPackage" runat="server" width="100%">
 	<tr>
 		<td class="SubHead">
             <asp:Label ID="lblSpaceName" runat="server" meta:resourcekey="lblSpaceName" Text="Space Name:"></asp:Label></td>
@@ -66,7 +66,7 @@
 </fcp:CollapsiblePanel>
 <asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden;">
     <div class="FormButtonsBar">
-        <asp:Button ID="btnAddAddon" runat="server" meta:resourcekey="btnAddAddon" Text="Add Add-on" CssClass="Button2" OnClick="btnAddAddon_Click" />
+        <asp:Button ID="btnAddAddon" runat="server" meta:resourcekey="btnAddAddon" Text="Add Add-on" CssClass="btn btn-success" OnClick="btnAddAddon_Click" />
     </div>
     <asp:GridView ID="gvAddons" runat="server" AutoGenerateColumns="False"
         CssSelectorClass="NormalGridView"
@@ -101,12 +101,12 @@
     TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Space Quotas">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table id="tblQuotas" runat="server" width="100%" cellpadding="0" cellspacing="0">
+    <table class="table table-borderless align-middle mb-0 w-100" id="tblQuotas" runat="server" width="100%">
         <tr>
             <td>
-                <table id="tblOverrideQuotas" runat="server" border="0" cellpadding="2" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" id="tblOverrideQuotas" runat="server" width="100%">
                     <tr>
-                        <td class="SubHead" width="200" nowrap rowspan="2">
+                        <td class="SubHead text-nowrap" width="200" rowspan="2">
                         </td>
                         <td class="NormalBold" width="100%">
                             <asp:RadioButton ID="rbPlanQuotas" runat="server" GroupName="OverrideQuotas" AutoPostBack="true"

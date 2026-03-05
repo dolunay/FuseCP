@@ -153,7 +153,7 @@ namespace FuseCP.Portal
 
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            string codeToRemove = ((CPCC.StyleButton)sender).CommandArgument;
+            string codeToRemove = ((LinkButton)sender).CommandArgument;
             selectedCountries.RemoveAll(c => c.Code == codeToRemove);
             BindSelectedCountriesGrid();
         }

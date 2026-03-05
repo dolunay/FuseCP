@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServU_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.ServU_Settings" %>
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" width="200" nowrap>
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblSite" runat="server" meta:resourcekey="lblSite" Text="FTP Accounts Site:"></asp:Label>
 		</td>
 		<td width="100%">

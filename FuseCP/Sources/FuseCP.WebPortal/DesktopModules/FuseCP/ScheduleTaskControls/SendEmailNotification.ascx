@@ -1,28 +1,28 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SendEmailNotification.ascx.cs" Inherits="FuseCP.Portal.ScheduleTaskControls.SendEmailNotification" %>
-	<table cellspacing="0" cellpadding="4" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
         <tr>
-            <td class="SubHead" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailFrom" runat="server" meta:resourcekey="lblMailFrom" Text="Mail From:"></asp:Label>
 			</td>
-            <td class="Normal" width="100%">
+			<td class="Normal">
    				<asp:TextBox ID="txtMailFrom" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailTo" runat="server" meta:resourcekey="lblMailTo" Text="Mail To:"></asp:Label>
 			</td>
-            <td class="Normal" width="100%">
+			<td class="Normal">
    				<asp:TextBox ID="txtMailTo" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailSubject" runat="server" meta:resourcekey="lblMailSubject" Text="Mail Subject:"></asp:Label>
 			</td>
-            <td class="Normal" width="100%">
+			<td class="Normal">
    				<asp:TextBox ID="txtMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-			<td colspan="2" class="SubHead" nowrap>
+			<td colspan="2" class="SubHead text-nowrap">
 				<asp:Label ID="lblMailBody" runat="server" meta:resourcekey="lblMailBody" Text="Mail Body:"></asp:Label>
 			</td>
         </tr>

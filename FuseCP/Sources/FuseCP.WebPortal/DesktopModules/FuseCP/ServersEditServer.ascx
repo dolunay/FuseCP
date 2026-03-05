@@ -47,7 +47,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top" style="width: 150px">
+                            <td class="SubHead align-top" style="width: 150px">
                                 <asp:Label ID="lblNewPassword" runat="server" meta:resourcekey="lblNewPassword"></asp:Label>
                             </td>
                             <td class="Normal">
@@ -67,10 +67,10 @@
                 <asp:Panel ID="ADPanel" runat="server" Height="0" Style="overflow: hidden;">
                     <table>
                         <tr>
-                            <td class="SubHead" valign="top" width="150px">
+                            <td class="SubHead align-top" width="150px">
                                 <asp:Label ID="lblSecurityMode" runat="server" meta:resourcekey="lblSecurityMode"></asp:Label>
                             </td>
-                            <td class="Normal" valign="top">
+                            <td class="Normal align-top">
                                 <asp:RadioButtonList ID="rbUsersCreationMode" runat="server" AutoPostBack="True" resourcekey="rbUsersCreationMode" CssClass="Normal" onchange="AccountChange();">
                                     <asp:ListItem Value="0">LocalAccounts</asp:ListItem>
                                     <asp:ListItem Value="1">ADAccounts</asp:ListItem>
@@ -136,7 +136,7 @@
                             </td>
                         </tr>
                         <tr id="trAdPassword" runat="server">
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblAdPassword" runat="server" meta:resourcekey="lblAdPassword"></asp:Label>
                             </td>
                             <td class="Normal">
@@ -158,7 +158,7 @@
                     <table width="100%">
                         <tr>
                             <td class="Normal">
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                     customerdomain.com.&nbsp;<asp:TextBox ID="txtPreviewDomain" runat="server" CssClass="form-control" CausesValidation="true"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="DomainFormatValidator" ValidationGroup="Server" runat="server" meta:resourcekey="DomainFormatValidator"
                                         ControlToValidate="txtPreviewDomain" Display="Dynamic" SetFocusOnError="true"

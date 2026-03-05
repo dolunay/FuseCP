@@ -1,11 +1,11 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail50_EditGroup.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail50_EditGroup" %>
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
-<table cellSpacing="0" cellPadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
-		<td class="SubHead" width="200" nowrap valign="top">
+		<td class="SubHead text-nowrap align-top" width="200">
 		    <asp:Label ID="lblGroupMembers" runat="server" meta:resourcekey="lblGroupMembers" Text="Group e-mails:"></asp:Label>
 		</td>
-		<td class="normal" width="100%" valign="top">
+		<td class="normal align-top" width="100%">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>

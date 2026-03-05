@@ -14,7 +14,7 @@
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLetter" runat="server" meta:resourcekey="locDriveLetter" Text="Select Drive Letter:"></asp:Localize>
             </label>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolder" runat="server" meta:resourcekey="locFolder" Text="Storage Folder:"></asp:Localize>
             </label>
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLabel" runat="server" meta:resourcekey="locDriveLabel" Text="Label As:"></asp:Localize>
             </label>

@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterStats_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterStats_Settings" %>
 <%@ Register Src="../UserControls/TimeZones.ascx" TagName="TimeZones" TagPrefix="uc1" %>
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
-		<td class="SubHead" nowrap width="200">
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblSmarterUrl" runat="server" meta:resourcekey="lblSmarterUrl" Text="SmarterStats Web Services URL:"></asp:Label>
 		</td>
 		<td width="100%"><asp:TextBox Runat="server" ID="txtSmarterUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>

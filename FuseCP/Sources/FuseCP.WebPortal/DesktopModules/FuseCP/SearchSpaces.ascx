@@ -41,8 +41,8 @@
 <div class="FormButtonsBar">
    <asp:Panel ID="tblSearch" runat="server" DefaultButton="cmdSearch" CssClass="NormalBold">
    <asp:Label ID="lblSearch" runat="server" meta:resourcekey="lblSearch"></asp:Label>
-   <div align="center">
-                                <div class="form-inline">
+   <div class="text-center">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                 <asp:DropDownList ClientIDMode="Static" ID="ddlItemType" runat="server" CssClass="form-control"></asp:DropDownList>
                                                 </div>

@@ -27,7 +27,7 @@
          &nbsp;<asp:CheckBox ID="chkRecursive" runat="server" Text="Show Nested Spaces Items" meta:resourcekey="chkRecursive" AutoPostBack="true" Checked="True" CssClass="Normal" />
      </div>
       </div>
-     <div class="card-body ">
+     <div class="card-body">
          <div class="row">
          <div class="col-md-3">
              <fcp:DomainActions ID="websiteActions" runat="server" GridViewID="gvDomains" CheckboxesName="chkSelectedIds" />

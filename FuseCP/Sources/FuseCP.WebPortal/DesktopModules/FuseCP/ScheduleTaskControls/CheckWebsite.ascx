@@ -5,7 +5,7 @@
     TargetControlID="pnlSendMessageIf" resourcekey="clpSendMessageIfHeader" Text="Send message if">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlSendMessageIf" runat="server" CssClass="Normal">
-		<table cellspacing="0" cellpadding="4" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 			<tr>
 				<td class="SubHead" style="white-space: nowrap;">
 					<asp:CheckBox ID="cbxResponseStatus" runat="server" meta:resourcekey="cbxResponseStatus" Text="Response status equal to" /> :
@@ -40,30 +40,30 @@
     TargetControlID="pnlMessage" resourcekey="clpMessageHeader" Text="Configure target site and message as">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="pnlMessage" runat="server" CssClass="Normal">
-	<table cellspacing="0" cellpadding="4" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblUrl" runat="server" meta:resourcekey="lblUrl" Text="URL:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
    				<asp:TextBox ID="txtUrl" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblAccessUsername" runat="server" meta:resourcekey="lblAccessUsername" Text="Access Username:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
    				<asp:TextBox ID="txtAccessUsername" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblAccessPassword" runat="server" meta:resourcekey="lblAccessPassword" Text="Access Password:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
    				<asp:TextBox ID="txtAccessPassword" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailFrom" runat="server" meta:resourcekey="lblMailFrom" Text="Mail From:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
@@ -71,7 +71,7 @@
    				<asp:RegularExpressionValidator ID="mailFromRegExValidator" runat="server" ControlToValidate="txtMailFrom" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailTo" runat="server" meta:resourcekey="lblMailTo" Text="Mail To:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
@@ -79,14 +79,14 @@
    				<asp:RegularExpressionValidator ID="mailToRegExValidator" runat="server" ControlToValidate="txtMailTo" ValidationExpression='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$' Display="Static" ErrorMessage="*" />
         </tr>
         <tr>
-            <td class="SubHead" nowrap>
+            <td class="SubHead text-nowrap">
 				<asp:Label ID="lblMailSubject" runat="server" meta:resourcekey="lblMailSubject" Text="Mail Subject:"></asp:Label>
 			</td>
             <td class="Normal" width="100%">
    				<asp:TextBox ID="txtMailSubject" runat="server" Width="95%" CssClass="form-control" MaxLength="1000"></asp:TextBox>
         </tr>
         <tr>
-			<td colspan="2" class="SubHead" nowrap>
+			<td colspan="2" class="SubHead text-nowrap">
 				<asp:Label ID="lblMailBody" runat="server" meta:resourcekey="lblMailBody" Text="Mail Body:"></asp:Label>
 			</td>
         </tr>

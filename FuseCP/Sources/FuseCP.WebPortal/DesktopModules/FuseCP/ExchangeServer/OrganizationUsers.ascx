@@ -37,7 +37,7 @@
         <div class="col-md-3">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvUsers" CheckboxesName="chkSelectedUsersIds" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end d-flex flex-wrap gap-2 align-items-center">
             <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">

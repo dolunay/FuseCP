@@ -16,7 +16,7 @@
     </li>
     <li>
     <asp:LinkButton ID="cmdSignOut" runat="server" CausesValidation="false" OnClick="cmdSignOut_Click">
-        <i class="bi bi-box-arrow-right "></i>
+        <i class="bi bi-box-arrow-right"></i>
         <asp:Localize runat="server" meta:resourcekey="cmdSignOut" />
     </asp:LinkButton>
     </li>

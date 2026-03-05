@@ -23,10 +23,10 @@
 					Text="Choose either a time frame or a month to see the bandwidth overusage for." meta:resourcekey="bandwidthCaption"
 					/>
 			</p>
-			<table width="100%" cellpadding="0" cellspacing="0">
+			<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 				<tr>
 					<!-- Time frame -->
-					<td class="Normal" valign="top" width="150px">
+					<td class="Normal align-top" width="150px">
 						<table>
 							<tr>
 								<td class="Normal">
@@ -57,12 +57,12 @@
 					</td>
 					
 					<!-- Monthes -->
-					<td class="Normal" valign="top" align="left" width="300px">
+					<td class="Normal align-top text-start" width="300px">
 						<table>
-							<tr valign="middle" height="18px">
+							<tr class="align-middle" height="18px">
 								<td class="Normal">
 									<table>
-										<tr valign="baseline">
+										<tr>
 											<td class="Normal">
 												<a  ID="prevMonthLink" runat="server" meta:resourcekey="prevMonthLink"
 													href="javascript:PreviousMonth()" style="text-decoration:none" 

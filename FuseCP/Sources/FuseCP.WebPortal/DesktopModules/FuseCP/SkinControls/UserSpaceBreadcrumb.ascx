@@ -42,12 +42,12 @@
 			        <asp:Label ID="lblSpaceDescription" runat="server" Visible="false"></asp:Label>
 		        </asp:Panel>
 		        <asp:Panel ID="pnlEditSpace" runat="server" DefaultButton="cmdSave" Visible="false">
-			        <table cellpadding="0" cellspacing="0">
+			        <table class="table table-borderless align-middle mb-0">
 				        <tr>
 					        <td>
 						        <asp:TextBox ID="txtName" runat="server" CssClass="Huge" Width="300px"></asp:TextBox>
 					        </td>
-					        <td rowspan="2" valign="top">
+					        <td class="align-top" rowspan="2">
 						        &nbsp;&nbsp;<asp:LinkButton ID="cmdSave" runat="server" Text="Save" CssClass="Button" OnClick="cmdSave_Click" ValidationGroup="SpaceName" />
 						        <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CssClass="Button" OnClick="cmdCancel_Click" CausesValidation="false" />
 					        </td>

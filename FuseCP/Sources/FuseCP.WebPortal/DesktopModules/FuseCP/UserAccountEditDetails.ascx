@@ -70,7 +70,7 @@
 
 
 		<div id="rowDemo" runat="server" class="mb-3">
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="offset-sm-2 col-sm-10">
 			    <div class="checkbox">
                     <asp:Label ID="lblDemoAccount" runat="server" AssociatedControlID="chkDemo">
                         <asp:CheckBox id="chkDemo" runat="server"></asp:CheckBox>

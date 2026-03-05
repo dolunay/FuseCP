@@ -1,14 +1,14 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RemoteDesktopServices_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.RemoteDesktopServices_Settings" %>
-<table cellpadding="1" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap" width="200">
             <asp:Label ID="lblSpacesFolder" runat="server" meta:resourcekey="lblSpacesFolder" Text="User Packages Folder:"></asp:Label>
         </td>
         <td width="100%">
             <asp:TextBox runat="server" ID="txtFolder" Width="300px" CssClass="NormalTextBox"></asp:TextBox></td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap" width="200">
             <asp:Label ID="lblLocationDrive" runat="server" meta:resourcekey="lblLocationDrive" Text="Location Drive:"></asp:Label>
         </td>
         <td width="100%">
@@ -19,9 +19,9 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap></td>
+        <td class="SubHead text-nowrap" width="200"></td>
         <td width="100%">
-            <table>
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
                     <td>
                         <asp:CheckBox runat="server" AutoPostBack="false" ID="chkEnableHardQuota" meta:resourcekey="chkEnableHardQuota" Text="Enable Hard Quota:" /></td>

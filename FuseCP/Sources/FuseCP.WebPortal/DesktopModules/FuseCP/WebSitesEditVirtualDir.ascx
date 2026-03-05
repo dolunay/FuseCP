@@ -10,7 +10,7 @@
 <div class="card-body form-horizontal">
     <table width="100%">
         <tr>
-            <td width="100%" valign="top">
+            <td class="align-top" width="100%">
                 <table>
                     <tr>
                         <td class="Big">

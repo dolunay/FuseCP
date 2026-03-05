@@ -8,7 +8,7 @@
         <asp:Literal ID="litRestoreType" runat="server"></asp:Literal>
     </div>
     <br />
-    <table cellpadding="3" cellspacing="0">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <td class="SubHead" style="width:200px">
                 <asp:Label ID="lblBackupLocation" runat="server" meta:resourcekey="lblBackupLocation" Text="Backup Location:"></asp:Label>
@@ -23,7 +23,7 @@
         </tr>
     </table>
     <asp:Panel ID="SpaceFolderPanel" runat="server">
-        <table cellpadding="3" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
                 <td class="SubHead" style="width:200px">
                     <asp:Label ID="lblSpace" runat="server" meta:resourcekey="lblSpace" Text="Space:"></asp:Label>
@@ -46,7 +46,7 @@
         </table>
     </asp:Panel>
     <asp:Panel ID="ServerFolderPanel" runat="server">
-        <table cellpadding="3" cellspacing="0">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
                 <td class="SubHead" style="width:200px">
                     <asp:Label ID="lblServerPath" runat="server" meta:resourcekey="lblServerPath" Text="Path:"></asp:Label>

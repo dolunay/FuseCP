@@ -7,7 +7,7 @@
 
 <div class="card-body form-horizontal">
 
-    <div class="Huge" style="padding: 10px;border: solid 1px #e5e5e5;background-color: #f5f5f5;">
+    <div class="Huge p-2 border bg-light">
         <asp:Literal ID="DomainName" runat="server"></asp:Literal>
     </div>
     
@@ -125,7 +125,7 @@
         <legend><asp:Localize ID="ResellersSection" runat="server" meta:resourcekey="ResellersSection" Text="Resellers"></asp:Localize></legend>
         
         <asp:CheckBox ID="AllowSubDomains" runat="server" meta:resourcekey="AllowSubDomains" Text="Allow sub-domains" CssClass="Checkbox Bold" />
-        <div style="padding-left: 20px;">
+        <div class="ps-3">
             <asp:Localize ID="DescribeAllowSubDomains" runat="server" meta:resourcekey="DescribeAllowSubDomains">Description...</asp:Localize>
         </div>
     </fieldset>

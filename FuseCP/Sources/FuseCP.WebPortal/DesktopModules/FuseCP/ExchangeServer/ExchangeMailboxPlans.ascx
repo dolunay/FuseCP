@@ -63,7 +63,7 @@
 					</fcp:CollapsiblePanel>
 					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;" CssClass="card">
                         <div class="card-body">
-						<table id="tblMaintenance" runat="server" cellpadding="10">
+						<table id="tblMaintenance" runat="server" class="table table-borderless align-middle mb-0">
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="lblSourcePlan" runat="server" meta:resourcekey="locSourcePlan" Text="Replace"></asp:Localize></td>
 					            <td>                                

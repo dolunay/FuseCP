@@ -32,7 +32,7 @@
                     <%-- Mail Accounts --%>
                     <fcp:MailAccountActions ID="mailActions" runat="server" GridViewID="gvItems" CheckboxesName="chkSelectedIds" Visible="False" />
             </div>
-            <div class="col-md-8 text-end form-inline">
+            <div class="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
                     <fcp:SearchBox ID="searchBox" runat="server" />
             </div>
     </div>

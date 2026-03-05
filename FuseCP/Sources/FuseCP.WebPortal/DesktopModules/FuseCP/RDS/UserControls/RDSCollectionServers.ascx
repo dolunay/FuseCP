@@ -69,35 +69,35 @@
                     <div class="widget-content Popup">
                 <asp:UpdatePanel ID="serverInfoUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                     <ContentTemplate>
-                        <div class="Popup-Scroll" style="height:auto;">
+                        <div class="Popup-Scroll" style="height:auto">
                             <fcp:CollapsiblePanel id="secServerInfo" runat="server" TargetControlID="panelHardwareInfo" meta:resourcekey="secRdsApplicationEdit" Text=""/>                            
                             <asp:Panel runat="server" ID="panelHardwareInfo">
                                 <table>
                                     <tr>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="locProcessor" runat="server" Text="Processor:"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="litProcessor" runat="server"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="locLoadPercentage" Text="Load Percentage:" runat="server"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="litLoadPercentage" runat="server"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="locMemoryAllocated" runat="server" Text="Allocated Memory:"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="litMemoryAllocated" runat="server"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="locFreeMemory" Text="Free Memory:" runat="server"/>
                                         </td>
-                                        <td class="FormLabel150" style="width: 150px;">
+                                        <td class="FormLabel150" >
                                             <asp:Literal ID="litFreeMemory" runat="server"/>
                                         </td>
                                     </tr>
@@ -109,30 +109,30 @@
                                     <asp:Repeater ID="rpServerDrives" runat="server" EnableViewState="false">
                                         <ItemTemplate>
                                             <tr>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Localize ID="locDeviceID" runat="server" meta:resourcekey="locDeviceID" />
                                                 </td>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="litDeviceId" runat="server" Text='<%# Eval("DeviceId") %>'/>
                                                 </td>                                                                                                                                   
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="locVolumeName" Text="Volume Name:" runat="server"/>
                                                 </td>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="litVolumeName" Text='<%# Eval("VolumeName") %>' runat="server"/>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="locSize" Text="Size:" runat="server"/>
                                                 </td>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="litSize" Text='<%# Eval("SizeMb") + " MB" %>' runat="server"/>
                                                 </td>                                                                                                                                    
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="locFreeSpace" Text="Free Space:" runat="server"/>
                                                 </td>
-                                                <td class="FormLabel150" style="width: 150px;">
+                                                <td class="FormLabel150" >
                                                     <asp:Literal ID="litFreeSpace" Text='<%# Eval("FreeSpaceMb") + " MB" %>' runat="server"/>
                                                 </td>
                                             </tr>
@@ -164,7 +164,7 @@
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
                                 <div class="d-flex">
-                                <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" style="vertical-align: middle;" CssClass="btn btn-primary">
+                                <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" style="vertical-align: middle" CssClass="btn btn-primary">
                                     <i class="bi bi-search" aria-hidden="true"></i>
                                 </asp:LinkButton>      
                                     </div>
@@ -205,12 +205,13 @@
         </div>
 </asp:Panel>
 
-        <asp:Button ID="btnViewInfoFake" runat="server" style="display:none;" />
+        <asp:Button ID="btnViewInfoFake" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="ViewInfoModal" runat="server" TargetControlID="btnViewInfoFake" PopupControlID="ServerInfoPanel" 
             BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelServerInfo"/>
         
-        <asp:Button ID="btnAddServersFake" runat="server" style="display:none;" />
+        <asp:Button ID="btnAddServersFake" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="AddServersModal" runat="server" TargetControlID="btnAddServersFake" PopupControlID="AddServersPanel"
             BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelAdd"/>
 	</ContentTemplate>
 </asp:UpdatePanel>
+

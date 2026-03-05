@@ -83,7 +83,7 @@
 					    </table>
                       <table id="tablesavesentitems" runat="server" style="width:100%;margin-top:10px;">
     					    <tr>
-	   				            <td align="left">
+	   				            <td class="text-start">
                                    <asp:CheckBox ID="chkSaveSentItems" runat="server" meta:resourcekey="chkSaveSentItems" Text="Copy items sent as and on behalf of this mailbox" />
 			    		        </td>
 		    			    </tr>
@@ -109,7 +109,7 @@
 					
 					<table style="width:100%;margin-top:10px;">
 					    <tr>
-					        <td align="center">
+					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true" Visible="false"
 					                Text="Allow these settings to be managed from Personal Mailbox Manager" OnCheckedChanged="chkPmmAllowed_CheckedChanged" />
 					        </td>

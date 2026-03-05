@@ -59,7 +59,7 @@
                     <fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true" TargetControlID="ToolsPanel" meta:resourcekey="secMainTools" Text="Lync user plan maintenance">
 					</fcp:CollapsiblePanel>
 					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;">
-						<table id="tblMaintenance" runat="server" cellpadding="10">
+						<table class="table table-borderless align-middle mb-0" id="tblMaintenance" runat="server">
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="lblSourcePlan" runat="server" meta:resourcekey="locSourcePlan" Text="Replace"></asp:Localize></td>
 					            <td>                                

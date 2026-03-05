@@ -42,7 +42,7 @@
 					            <asp:TemplateField>
 						            <ItemTemplate>
 							            <asp:Button ID="btnInsert" runat="server" Text="Insert" meta:resourcekey="btnInsert"
-							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="SmallButton">
+							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="btn btn-primary btn-sm">
 							            </asp:Button>
 						            </ItemTemplate>
 					            </asp:TemplateField>

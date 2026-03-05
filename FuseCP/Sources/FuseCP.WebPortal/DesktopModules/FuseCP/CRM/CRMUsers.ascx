@@ -21,7 +21,7 @@
                         </div>
                         <div class="FormButtonsBarCleanRight">
                             <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                 <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged" CssClass="form-control">
                                     <asp:ListItem>10</asp:ListItem>
@@ -78,7 +78,7 @@
                     <asp:Panel ID="CRM2011Panel" runat="server">
                         <table>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
 				                    <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Full licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -86,7 +86,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locLimitedQuota" runat="server" meta:resourcekey="locLimitedQuota" Text="Limited licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -94,7 +94,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locESSQuota" runat="server" meta:resourcekey="locESSQuota" Text="ESS licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -107,7 +107,7 @@
                     <asp:Panel ID="CRM2013Panel" runat="server">
                         <table>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
 				                    <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locQuota" Text="Professional licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -115,7 +115,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locBasicQuota" runat="server" meta:resourcekey="locBasicQuota" Text="Basic licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -123,7 +123,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locEssentialQuota" runat="server" meta:resourcekey="locEssentialQuota" Text="Essential licenses :"></asp:Localize>
                                 </td>
                                 <td>

@@ -12,7 +12,7 @@
             <fcp:menu id="menu" runat="server" selecteditem="vdc_account_vlan_network" />
             <div class="card tab-content">
                 <div class="card-body form-horizontal">
-                    <table cellspacing="0" cellpadding="2" width="100%">
+                    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                         <tr>
                             <td class="SubHead" style="width: 150px;">
                                 <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>
@@ -22,7 +22,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblVLanID" runat="server" meta:resourcekey="lblVLanID" Text="VLan:" />
                             </td>
                             <td>
@@ -34,7 +34,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblComment" runat="server" meta:resourcekey="lblComment" Text="Comment:" />
                             </td>
                             <td class="NormalBold">

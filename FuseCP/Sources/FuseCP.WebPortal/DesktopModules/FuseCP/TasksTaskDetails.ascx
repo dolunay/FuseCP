@@ -18,7 +18,7 @@
     <tr>
         <td>
             <fieldset>
-                <table width="100%" cellpadding="3">
+                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                     <tr>
                         <td class="NormalBold" colspan="2">
                             <asp:Literal id="litStep" runat="server"></asp:Literal>
@@ -32,7 +32,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="NormalBold" width="100" nowrap>
+                        <td class="NormalBold text-nowrap" width="100">
                             <asp:Localize ID="locStarted" runat="server" meta:resourcekey="locStarted" Text="Started:"/>
                         </td>
                         <td class="Normal" width="100%">
@@ -52,7 +52,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center">
+        <td class="text-center">
             <asp:LinkButton id="btnStop" CssClass="btn btn-danger" runat="server" OnClick="btnStop_Click" OnClientClick="return confirm('Do you really want to terminate this task?');"> <i class="bi bi-hand-index-thumb">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStopText"/> </asp:LinkButton>
         </td>
     </tr>

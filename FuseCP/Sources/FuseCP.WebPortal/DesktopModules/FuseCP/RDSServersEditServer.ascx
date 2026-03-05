@@ -28,40 +28,40 @@
     <asp:Panel runat="server" ID="panelHardwareInfo">
         <table>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locStatus" runat="server" Text="Status:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litStatus" runat="server"/>
                 </td>
                 <td/>
                 <td/>
             </tr>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locProcessor" runat="server" Text="Processor:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litProcessor" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locLoadPercentage" Text="Load Percentage:" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litLoadPercentage" runat="server"/>
                 </td>
             </tr>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locMemoryAllocated" runat="server" Text="Allocated Memory:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litMemoryAllocated" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locFreeMemory" Text="Free Memory:" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litFreeMemory" runat="server"/>
                 </td>
             </tr>
@@ -70,30 +70,30 @@
             <asp:Repeater ID="rpServerDrives" runat="server" EnableViewState="false">
                 <ItemTemplate>
                     <tr>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Localize ID="locDeviceID" runat="server" meta:resourcekey="locDeviceID" />
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litDeviceId" runat="server" Text='<%# Eval("DeviceId") %>'/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locVolumeName" Text="Volume Name:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litVolumeName" Text='<%# Eval("VolumeName") %>' runat="server"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locSize" Text="Size:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litSize" Text='<%# Eval("SizeMb") + " MB" %>' runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locFreeSpace" Text="Free Space:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litFreeSpace" Text='<%# Eval("FreeSpaceMb") + " MB" %>' runat="server"/>
                         </td>
                     </tr>
@@ -113,3 +113,4 @@
         </i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/>
 	</asp:LinkButton>
 </div>
+

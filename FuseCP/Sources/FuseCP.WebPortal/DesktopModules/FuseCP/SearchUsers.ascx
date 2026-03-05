@@ -43,8 +43,8 @@
 <div class="FormButtonsBar">
     <asp:Panel ID="tblSearch" runat="server" CssClass="NormalBold" DefaultButton="cmdSearch">
     <asp:Label ID="lblSearch" runat="server" meta:resourcekey="lblSearch"></asp:Label>
-    <div align="center">
-                <div class="form-inline">
+    <div class="text-center">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                 <asp:DropDownList ClientIDMode="Static" ID="ddlFilterColumn" runat="server" CssClass="form-control" resourcekey="ddlFilterColumn">
                     <asp:ListItem Value="Username">Username</asp:ListItem>

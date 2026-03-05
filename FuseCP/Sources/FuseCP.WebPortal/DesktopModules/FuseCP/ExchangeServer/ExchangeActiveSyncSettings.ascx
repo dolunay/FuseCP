@@ -18,7 +18,7 @@
 				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
-				    <table>
+				    <table class="table table-borderless align-middle mb-0">
 					    <tr>
 						    <td class="Normal" colspan="2">
 						        <asp:CheckBox ID="chkAllowNonProvisionable" runat="server"
@@ -26,7 +26,7 @@
 						    </td>
 						</tr>
 						<tr>
-						    <td nowrap><asp:Label meta:resourcekey="lblRefreshInterval" runat="server" ID="lblRefreshInterval" /></td>
+						    <td class="text-nowrap"><asp:Label meta:resourcekey="lblRefreshInterval" runat="server" ID="lblRefreshInterval" /></td>
 						    <td><fcp:HoursBox id="hoursRefreshInterval" runat="server"  ValidationGroup="EditMailbox">
                                 </fcp:HoursBox>
 				            </td>
@@ -37,7 +37,7 @@
                         TargetControlID="ApplicationPanel" meta:resourcekey="secApplication" Text="Application">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ApplicationPanel" runat="server" Height="0" style="overflow:hidden;">
-                        <table>
+						<table class="table table-borderless align-middle mb-0">
 					        <tr>
 						        <td class="Normal" colspan="2">
 						            <asp:CheckBox ID="chkAllowAttachments" runat="server"
@@ -45,7 +45,7 @@
 						        </td>
 						    </tr>
 						    <tr>
-							    <td class="FormLabel200" align="right">
+							    <td class="FormLabel200 text-end">
 							        <asp:Localize ID="locMaxAttachmentSize" runat="server"
 							            meta:resourcekey="locMaxAttachmentSize" Text="Maximum attachment size:"></asp:Localize></td>
 							    <td>

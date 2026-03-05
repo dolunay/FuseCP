@@ -21,7 +21,7 @@
                 <div class="card-body form-horizontal">  
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-md-4 offset-md-4">
 		                        <asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 		                        <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"    
 			                        onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
@@ -106,7 +106,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsQuota" runat="server" meta:resourcekey="locVpsQuota" Text="Number of VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="vpsQuota" runat="server" QuotaName="VPS.ServersNumber" /></td>

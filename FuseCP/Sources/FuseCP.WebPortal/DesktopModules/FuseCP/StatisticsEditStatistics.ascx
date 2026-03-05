@@ -5,7 +5,7 @@
             <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="lblDomainName">
                 <asp:Localize ID="lblWebSite" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:Label ID="lblDomainName" runat="server" CssClass="h3"></asp:Label>
                 <asp:DropDownList ID="ddlWebSites" runat="server" CssClass="form-control" DataTextField="Name" DataValueField="Name"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="valRequireWebSite" runat="server" ErrorMessage="*" ControlToValidate="ddlWebSites"></asp:RequiredFieldValidator></td>

@@ -136,7 +136,7 @@ namespace FuseCP.Portal.UserControls
         {
             var lbl_name = (Label)e.Row.FindControl( _lbl_control_name );
             var txt_name = (TextBox)e.Row.FindControl( _txt_control_name );
-            var cmd_delete = (CPCC.StyleButton)e.Row.FindControl( _delete_control_name );
+            var cmd_delete = (LinkButton)e.Row.FindControl( _delete_control_name );
 
             if ( null == lbl_name )
                 {

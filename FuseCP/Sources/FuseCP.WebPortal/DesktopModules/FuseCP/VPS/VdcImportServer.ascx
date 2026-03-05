@@ -23,7 +23,7 @@
                         ValidationGroup="ImportWizard" ShowMessageBox="True" ShowSummary="False" />
                         
                     
-                    <table cellpadding="3">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locHyperVService" runat="server" meta:resourcekey="locHyperVService" Text="Hyper-V Service:"></asp:Localize>
@@ -83,7 +83,7 @@
                                 </td>
                             </tr>
                             <tr id="AdminPasswordPanel" runat="server" visible="false">
-                                <td class="FormLabel150" valign="top">
+                                <td class="FormLabel150 align-top">
                                     <asp:Localize ID="locAdminPassword" runat="server" meta:resourcekey="locAdminPassword" Text="Administrator password:"></asp:Localize>
                                 </td>
                                 <td>
@@ -102,7 +102,7 @@
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locCPU" runat="server" meta:resourcekey="locCPU" Text="CPU:"></asp:Localize>
@@ -142,7 +142,7 @@
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                                 <tr>
                                     <td style="width:30%;">
                                         <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
@@ -160,7 +160,7 @@
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td>
                                         <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
@@ -174,7 +174,7 @@
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                            <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                                 <tr>
                                     <td style="width:30%;">
                                         <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
@@ -209,7 +209,7 @@
                                     </td>
                                 </tr>
                                 <tr id="ExternalAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locExternalAddresses" runat="server" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>
@@ -239,7 +239,7 @@
                                     </td>
                                 </tr>
                                 <tr id="ManagementAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locManagementAddresses" runat="server" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>

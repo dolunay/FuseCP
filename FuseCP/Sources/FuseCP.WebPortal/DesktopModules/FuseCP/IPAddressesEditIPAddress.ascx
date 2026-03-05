@@ -5,9 +5,9 @@
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <asp:ValidationSummary ID="validatorsSummary" runat="server" ValidationGroup="EditAddress" ShowMessageBox="True" ShowSummary="False" />
-    <table cellspacing="0" cellpadding="3">
+	<table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td style="width:150px;">
+		    <td class="FormLabel150">
 		        <asp:Localize ID="locPool" runat="server" meta:resourcekey="locPool" Text="Pool:"></asp:Localize>
 		    </td>
 		    <td>

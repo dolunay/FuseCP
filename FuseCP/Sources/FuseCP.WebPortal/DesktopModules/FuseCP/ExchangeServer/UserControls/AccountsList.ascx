@@ -59,7 +59,7 @@
                 <div class="FormButtonsBarClean">
                     <div class="FormButtonsBarCleanRight">
                         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                            <div class="form-inline">
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
                                 <div class="input-group">
                             <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                                 <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>

@@ -5450,8 +5450,9 @@ ul.multiselect-container > li.active > a label i:before {
     }
 
         .dropzone .dz-preview .dz-remove:before {
-            font-family: FontAwesome;
-            content: '\f00d';
+            font-family: inherit;
+            font-weight: 700;
+            content: 'x';
             margin-right: 3px;
         }
 
@@ -5471,7 +5472,8 @@ ul.multiselect-container > li.active > a label i:before {
     }
 
         .dropzone .dz-preview .dz-error-mark:before, .dropzone .dz-preview .dz-success-mark:before {
-            font-family: FontAwesome;
+            font-family: inherit;
+            font-weight: 700;
             font-size: 15px;
             position: absolute;
             left: 5px;
@@ -5479,12 +5481,12 @@ ul.multiselect-container > li.active > a label i:before {
         }
 
         .dropzone .dz-preview .dz-error-mark:before {
-            content: '\f071';
+            content: '!';
             color: #ef2020;
         }
 
         .dropzone .dz-preview .dz-success-mark:before {
-            content: '\f00c';
+            content: '\2713';
             color: #7bae16;
         }
 
@@ -5642,18 +5644,18 @@ ul.multiselect-container > li.active > a label i:before {
             }
 
             .select2-container .select2-choice .select2-arrow:before {
-                font-family: FontAwesome;
+                font-family: inherit;
                 font-size: 15px;
-                content: '\f107';
+                content: '\25BE';
             }
 
 .select2-search {
-    font-family: FontAwesome;
+    font-family: inherit;
     font-size: 15px;
 }
 
     .select2-search:before {
-        content: '\f002';
+        content: '?';
         position: absolute;
         top: 5px;
         right: 12px;
@@ -7431,18 +7433,18 @@ ul.main-menu {
     }
 
         ul.main-menu li.has-submenu > a:after {
-            font: normal normal normal 14px/1 FontAwesome;
+            font-family: inherit;
             font-size: 14px;
             width: 10px;
             position: absolute;
             right: 15px;
             top: 15px;
             text-shadow: none;
-            content: "\f107";
+            content: "v";
         }
 
         ul.main-menu li.has-submenu.active > a:after {
-            content: "\f053";
+            content: "<";
         }
 
     ul.main-menu .sub-menu {
@@ -7500,9 +7502,9 @@ body.fixed-left-active .main-nav {
     }
 
     .main-nav-minified #col-left ul.main-menu > li.has-submenu li.has-submenu > a:after {
-        font: normal normal normal 14px/1 FontAwesome;
+        font-family: inherit;
         font-size: 14px;
-        content: "\f105";
+        content: ">";
         display: block;
     }
 

@@ -7,7 +7,7 @@
 			<asp:CheckBox ID="chkEnableLetter" runat="server" meta:resourcekey="chkEnableLetter" Text="Enable Space Summary Letter" /></td>
 	</tr>
 	<tr>
-		<td class="SubHead" width="150" nowrap><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
+		<td class="SubHead text-nowrap" width="150"><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
 		<td class="Normal" width="100%">
 			<asp:TextBox ID="txtFrom" runat="server" Width="500px" CssClass="form-control"></asp:TextBox></td>
 	</tr>

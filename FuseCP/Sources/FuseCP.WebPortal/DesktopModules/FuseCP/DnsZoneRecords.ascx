@@ -74,7 +74,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="ddlRecordType">
                     <asp:Localize ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Localize>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:DropDownList ID="ddlRecordType" runat="server" SelectedValue='<%# Bind("RecordType") %>' CssClass="form-control" Width="110px" AutoPostBack="True" OnSelectedIndexChanged="ddlRecordType_SelectedIndexChanged">
                         <asp:ListItem>A</asp:ListItem>
 	                    <asp:ListItem>AAAA</asp:ListItem>
@@ -95,7 +95,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordName">
                     <asp:Label ID="lblRecordName" runat="server" meta:resourcekey="lblRecordName" Text="Record Name:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtRecordName" runat="server" CssClass="form-control" Width="300px"></asp:TextBox><asp:Label ID="lblDomainName" runat="server" meta:resourcekey="lblDomainName" Text=""></asp:Label>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordData">
                     <asp:Label ID="lblRecordData" runat="server" meta:resourcekey="lblRecordData" Text="Record Data:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtRecordData" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireData" runat="server" ControlToValidate="txtRecordData" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:CustomValidator ID="IPValidator" runat="server" ControlToValidate="txtRecordData" ValidationGroup="DnsZoneRecord" Display="Dynamic" Text="Please enter a valid IP" OnServerValidate="Validate" meta:resourcekey="IPValidator" />
@@ -117,7 +117,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtMXPriority">
                     <asp:Label ID="lblMXPriority" runat="server" meta:resourcekey="lblMXPriority" Text="MX Priority:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtMXPriority" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireMxPriority" runat="server" ControlToValidate="txtMXPriority" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic" />
                     <asp:RegularExpressionValidator ID="valRequireCorrectPriority" runat="server" ControlToValidate="txtMXPriority" ErrorMessage="*" ValidationExpression="\d{1,3}" ValidationGroup="DnsZoneRecord" />
@@ -129,7 +129,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtSRVPriority">
                     <asp:Label ID="lblSRVPriority" runat="server" meta:resourcekey="lblSRVPriority" Text="Priority:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtSRVPriority" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireSrvPriority" runat="server" ControlToValidate="txtSRVPriority" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="valRequireCorrectSrvPriority" runat="server" ControlToValidate="txtSRVPriority" ErrorMessage="*" ValidationExpression="\d{1,3}"></asp:RegularExpressionValidator>
@@ -141,7 +141,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtSRVWeight">
                     <asp:Label ID="lblSRVWeight" runat="server" meta:resourcekey="lblSRVWeight" Text="Weight:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtSRVWeight" runat="server" CssClass="form-control" Width="60px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireSrvWeight" runat="server" ControlToValidate="txtSRVWeight" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="valRequireCorrectSrvWeight" runat="server" ControlToValidate="txtSRVWeight" ErrorMessage="*" ValidationExpression="\d{1,3}"></asp:RegularExpressionValidator>
@@ -153,7 +153,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="ddlRecordType">
                     <asp:Label ID="lblSRVPort" runat="server" meta:resourcekey="lblSRVPort" Text="Port Number:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtSRVPort" runat="server" CssClass="form-control" Width="115px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireSrvPort" runat="server" ControlToValidate="txtSRVPort" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="valRequireCorrectSrvPort" runat="server" ControlToValidate="txtSRVPort" ErrorMessage="*" ValidationExpression="\d{1,3}"></asp:RegularExpressionValidator>
@@ -165,7 +165,7 @@
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtRecordTTL">
                     <asp:Label ID="lblRecordTTL" runat="server" meta:resourcekey="lblRecordTTL" Text="Record TTL:"></asp:Label>
                 </asp:Label>
-                <div class="form-inline">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                     <asp:TextBox ID="txtRecordTTL" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireRecordTTL" runat="server" ControlToValidate="txtRecordTTL" ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="valRequireCorrectRecordTTL" runat="server" ControlToValidate="txtRecordTTL" ErrorMessage="*" ValidationExpression="^(\d+)|(?=\s*)$"></asp:RegularExpressionValidator>

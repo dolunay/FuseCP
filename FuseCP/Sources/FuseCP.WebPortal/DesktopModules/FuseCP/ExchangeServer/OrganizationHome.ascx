@@ -45,7 +45,7 @@
                         </tr>
 <!--
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkDomains" runat="server" meta:resourcekey="lnkDomains"></asp:HyperLink>
                             </td>
                             <td width="100%">
@@ -54,7 +54,7 @@
                         </tr>
 -->
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkUsers" runat="server" meta:resourcekey="lnkUsers"></asp:HyperLink>
                             </td>
                             <td>
@@ -62,7 +62,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkDeletedUsers" runat="server" meta:resourcekey="lnkDeletedUsers"></asp:HyperLink>
                             </td>
                             <td>
@@ -70,7 +70,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow" id="securGroupsStat" runat="server">
-                            <td class="OrgStatsQuota" nowrap >
+                            <td class="OrgStatsQuota text-nowrap" >
                                 <asp:HyperLink ID="lnkGroups" runat="server" meta:resourcekey="lnkGroups" Text="Groups:"></asp:HyperLink>
                             </td>
                             <td>
@@ -86,7 +86,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkMailboxes" runat="server" meta:resourcekey="lnkMailboxes" />
                             </td>
                             <td>
@@ -95,7 +95,7 @@
                         </tr>
 
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkSharedMailboxes" runat="server" meta:resourcekey="lnkSharedMailboxes" Text="Shared mailboxes" />
                             </td>
                             <td>
@@ -103,7 +103,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkResourceMailboxes" runat="server" meta:resourcekey="lnkResourceMailboxes" Text="Resource mailboxes" />
                             </td>
                             <td>
@@ -111,7 +111,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkJournalingMailboxes" runat="server" meta:resourcekey="lnkJournalingMailboxes" Text="Resource mailboxes" />
                             </td>
                             <td>
@@ -120,7 +120,7 @@
                         </tr>
 
                         <tr class="OrgStatsRow" id="rowContacts" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkContacts" runat="server" meta:resourcekey="lnkContacts"></asp:HyperLink>
                             </td>
                             <td>
@@ -128,7 +128,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow" id="rowLists" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkLists" runat="server" meta:resourcekey="lnkLists"></asp:HyperLink>
                             </td>
                             <td>
@@ -136,7 +136,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"  id="rowFolders" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkFolders" runat="server" meta:resourcekey="lnkFolders"></asp:HyperLink>
                             </td>
                             <td>
@@ -144,7 +144,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow" id="rowExchangeStorage" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkExchangeStorage" runat="server" meta:resourcekey="lnkExchangeStorage"></asp:HyperLink>
                             </td>
                             <td>
@@ -152,7 +152,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow" id="rowExchangeLitigationHold" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkExchangeLitigationHold" runat="server" meta:resourcekey="lnkExchangeLitigationHold"></asp:HyperLink>
                             </td>
                             <td>
@@ -160,7 +160,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow" id="rowExchangeArchiving" runat="server">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkExchangeArchiving" runat="server" meta:resourcekey="lnkExchangeArchiving">Archiving Storage (Mb):</asp:HyperLink>
                             </td>
                             <td>
@@ -177,7 +177,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkBESUsers" runat="server" meta:resourcekey="lnkBESUsers" />
                             </td>
                             <td>
@@ -193,7 +193,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkSfBUsers" runat="server" meta:resourcekey="lnkSfBUsers" />
                             </td>
                             <td>
@@ -209,7 +209,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkLyncUsers" runat="server" meta:resourcekey="lnkLyncUsers" />
                             </td>
                             <td>
@@ -229,7 +229,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap> 
+                            <td class="OrgStatsQuota text-nowrap"> 
                                 <asp:HyperLink ID="lnkSiteCollections" runat="server" meta:resourcekey="lnkSiteCollections"></asp:HyperLink>
                             </td>
                             <td>
@@ -246,7 +246,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap> 
+                            <td class="OrgStatsQuota text-nowrap"> 
                                 <asp:HyperLink ID="lnkEnterpriseSiteCollections" runat="server" meta:resourcekey="lnkSiteCollections"></asp:HyperLink>
                             </td>
                             <td>
@@ -264,7 +264,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkOCSUsers" runat="server" meta:resourcekey="lnkOCSUsers" />
                             </td>
                             <td>
@@ -282,7 +282,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkCRMUsers" runat="server" meta:resourcekey="lnkCRMUsers" Text="Full licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -290,7 +290,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkLimitedCRMUsers" runat="server" meta:resourcekey="lnkLimitedCRMUsers" Text="Limited licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -298,7 +298,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkESSCRMUsers" runat="server" meta:resourcekey="lnkESSCRMUsers" Text="ESS licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -306,7 +306,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
 				                <asp:HyperLink ID="lnkCRMDBSize" runat="server" meta:resourcekey="lnkCRMDBSize" Text="Storage size (MB):"></asp:HyperLink>
                             </td>
                             <td>
@@ -323,7 +323,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td align="right" nowrap>
+                            <td class="text-nowrap text-end">
                                 <asp:HyperLink ID="lnkProfessionalCRMUsers" runat="server" meta:resourcekey="lnkProfessionalCRMUsers" Text="Professional licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -331,7 +331,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td align="right" nowrap>
+                            <td class="text-nowrap text-end">
                                 <asp:HyperLink ID="lnkBasicCRMUsers" runat="server" meta:resourcekey="lnkBasicCRMUsers" Text="Basic licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -339,7 +339,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td align="right" nowrap>
+                            <td class="text-nowrap text-end">
                                 <asp:HyperLink ID="lnkEssentialCRMUsers" runat="server" meta:resourcekey="lnkEssentialCRMUsers" Text="Essential licenses :"></asp:HyperLink>
                             </td>
                             <td>
@@ -347,7 +347,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td align="right" nowrap>
+                            <td class="text-nowrap text-end">
 				                <asp:HyperLink ID="lnkCRM2013DBSize" runat="server" meta:resourcekey="lnkCRMDBSize" Text="Storage size (MB):"></asp:HyperLink>
                             </td>
                             <td>
@@ -364,7 +364,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkEnterpriseStorageSpace" runat="server" meta:resourcekey="lnkEnterpriseStorageSpace" />
                             </td>
                             <td>
@@ -372,7 +372,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow">
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkEnterpriseStorageFolders" runat="server" meta:resourcekey="lnkEnterpriseStorageFolders"></asp:HyperLink>
                             </td>
                             <td>
@@ -396,7 +396,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkRdsServers" runat="server" meta:resourcekey="lnkRdsServers" />
                             </td>
                             <td>
@@ -404,7 +404,7 @@
                             </td>
                         </tr>
                         <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkRdsCollections" runat="server" meta:resourcekey="lnkRdsCollections" />
                             </td>
                             <td>
@@ -412,7 +412,7 @@
                             </td>
                         </tr>
                             <tr class="OrgStatsRow"> 
-                            <td class="OrgStatsQuota" nowrap>
+                            <td class="OrgStatsQuota text-nowrap">
                                 <asp:HyperLink ID="lnkRdsUsers" runat="server" meta:resourcekey="lnkRdsUsers" />
                             </td>
                             <td>

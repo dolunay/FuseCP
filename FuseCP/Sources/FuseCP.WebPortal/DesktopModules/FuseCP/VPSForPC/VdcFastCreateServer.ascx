@@ -37,7 +37,7 @@
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
                         ValidationGroup="VpsWizard" ShowMessageBox="True" ShowSummary="False" />
 
-                    <table cellspacing="5">
+                    <table class="table table-borderless align-middle mb-0">
 				        <tr>
                             <td class="FormLabel150"><asp:Localize ID="locOperatingSystem" runat="server"
                                 meta:resourcekey="locOperatingSystem" Text="Virtual Machine:"></asp:Localize></td>
@@ -52,7 +52,7 @@
                         </tr>
                         <tr><td>&nbsp;</td></tr>
                         <tr>
-                            <td class="FormLabel150" valign="top"><asp:Localize ID="Localize3" runat="server"
+                            <td class="FormLabel150 align-top"><asp:Localize ID="Localize3" runat="server"
                                 meta:resourcekey="VMName" Text="VM Name:"></asp:Localize></td>
                             <td>
                                 <asp:TextBox id="txtVmName" runat="server" ValidationGroup="VpsWizard">

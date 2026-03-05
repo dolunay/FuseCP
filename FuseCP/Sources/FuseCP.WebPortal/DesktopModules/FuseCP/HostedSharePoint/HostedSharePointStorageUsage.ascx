@@ -33,7 +33,7 @@
 					        </Columns>
 				        </asp:GridView>
 				        <br />
-			            <table cellpadding="2">
+			            <table class="table table-borderless align-middle mb-0" style="width: 100%;">
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="locTotalboxItems" runat="server" meta:resourcekey="locTotalMailboxItems" ></asp:Localize></td>
 					            <td><asp:Label ID="lblTotalItems" runat="server" CssClass="NormalBold">177</asp:Label></td>

@@ -45,7 +45,7 @@
                             <div class="FormButtonsBarClean">
                                 <div class="FormButtonsBarCleanRight">
                                     <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                        <div class="form-inline">
+                                        <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
                 <div class="d-flex">

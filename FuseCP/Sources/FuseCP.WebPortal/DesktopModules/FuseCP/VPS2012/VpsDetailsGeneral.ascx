@@ -33,11 +33,11 @@
 <div class="card-body form-horizontal">
     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-    <table id="DetailsTable" runat="server" style="width: 100%;" cellspacing="10">
+    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" style="width: 100%;">
         <tr>
-            <td valign="top" style="width: 40%;">
+            <td class="align-top" style="width: 40%;">
 
-                <table cellspacing="2">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td>
                             <asp:Localize ID="locHostname" runat="server"
@@ -87,7 +87,7 @@
                         <asp:Panel ID="pRDPLink" runat="server" Style="display: none;">
                             <asp:Label ID="litRdpPageUrl" ClientIDMode="Static" Text="" runat="server" />
                         </asp:Panel>
-                        <table cellspacing="2">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <asp:Localize ID="locStatus" runat="server"
@@ -128,7 +128,7 @@
                 </asp:UpdatePanel>
 
             </td>
-            <td valign="top" style="width: 35%;">
+            <td class="align-top" style="width: 35%;">
                 <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
@@ -139,7 +139,7 @@
                 </asp:UpdatePanel>
                 <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" Width="160" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="bi bi-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
             </td>
-            <td rowspan="2" valign="top">
+            <td class="align-top" rowspan="2">
                 <ul class="ActionButtons">
                     <asp:Repeater ID="repButtons" runat="server"
                         OnItemCommand="repButtons_ItemCommand">
@@ -167,7 +167,7 @@
                     </Triggers>
                     <ContentTemplate>
 
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="NormalBold">
                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:" />
@@ -220,7 +220,7 @@
                 <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
         </div>
         <div class="widget-content Popup">
-            <table cellspacing="5">
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
                     <td colspan="2">
                         <asp:ValidationSummary ID="validatorsSummary" runat="server"

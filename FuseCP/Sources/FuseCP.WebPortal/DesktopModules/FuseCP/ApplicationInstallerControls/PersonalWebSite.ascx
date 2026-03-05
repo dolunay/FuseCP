@@ -10,9 +10,9 @@
 		{
 		}
 </script>
-<table cellPadding="2" width="100%">
+<table class="table table-borderless align-middle mb-0">
 	<tr>
-		<td class="SubHead" nowrap valign="top">
+		<td class="SubHead text-nowrap align-top">
 			Personal Web Site doesn't have any specific settings.
 		</td>
 	</tr>

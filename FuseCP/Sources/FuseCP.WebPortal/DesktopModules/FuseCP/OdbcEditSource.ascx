@@ -3,9 +3,9 @@
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc3" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc2" %>
 <div class="card-body form-horizontal">
-<table cellSpacing="0" cellPadding="4" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width:150px;">
+		<td class="SubHead FormLabel150">
 		    <asp:Label ID="lblSourceName" runat="server" meta:resourcekey="lblSourceName" Text="Data Source Name:"></asp:Label>
 		</td>
 		<td class="NormalBold">
@@ -13,7 +13,7 @@
         </td>
 	</tr>
 	<tr>
-		<td class="SubHead" valign="top"><asp:Label ID="lblDriver" runat="server" meta:resourcekey="lblDriver" Text="ODBC Driver:"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDriver" runat="server" meta:resourcekey="lblDriver" Text="ODBC Driver:"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDriver" runat="server" CssClass="form-control" resourcekey="ddlDriver"
                 AutoPostBack="true" OnSelectedIndexChanged="ddlDriver_SelectedIndexChanged">
@@ -23,7 +23,7 @@
                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
 	</tr>
 	<tr id="rowDatabaseName" runat="server">
-		<td class="SubHead" valign="top"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDatabaseName" runat="server" CssClass="form-control"
                 DataValueField="Name" DataTextField="Name">
@@ -38,7 +38,7 @@
 		</td>
 	</tr>
 	<tr id="rowDatabaseUser" runat="server">
-		<td class="SubHead" valign="top"><asp:Label ID="lblDatabaseUser" runat="server" meta:resourcekey="lblDatabaseUser"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDatabaseUser" runat="server" meta:resourcekey="lblDatabaseUser"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDatabaseUser" runat="server" CssClass="form-control"
                 DataValueField="Name" DataTextField="Name">

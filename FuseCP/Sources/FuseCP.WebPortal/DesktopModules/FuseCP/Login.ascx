@@ -30,7 +30,7 @@
     </div>
     <hr />
     <div class="row">
-        <div class="col-sm-12 ">
+        <div class="col-sm-12">
             <h5><asp:Localize ID="forgotpass" runat="server" meta:resourcekey="forgotpass" /></h5>
             <p><asp:Localize ID="noworries" runat="server" meta:resourcekey="noworries" />
                 <asp:LinkButton ID="cmdForgotPassword" runat="server" CssClass="color-green" CausesValidation="False" OnClick="cmdForgotPassword_Click"><asp:Localize runat="server" meta:resourcekey="cmdForgotPassword" /></asp:LinkButton>

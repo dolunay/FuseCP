@@ -27,7 +27,7 @@
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
                                     meta:resourcekey="locOperatingSystem" Text="Operating system:"></asp:Localize></td>
@@ -52,7 +52,7 @@
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px;width:400px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
                                         meta:resourcekey="lblCpu" Text="CPU:" /></td>
@@ -61,7 +61,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblRam" runat="server"
                                         meta:resourcekey="lblRam" Text="RAM:" /></td>
@@ -70,7 +70,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHdd" runat="server"
                                         meta:resourcekey="lblHdd" Text="HDD:" /></td>
@@ -85,7 +85,7 @@
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table style="width:400px;" cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0" style="width:400px;">
                             <tr>
                                 <td style="width:200px;">
                                     <fcp:CheckBoxOption id="optionStartShutdown" runat="server"
@@ -122,7 +122,7 @@
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><fcp:CheckBoxOption id="optionExternalNetwork" runat="server"
                                         Text="External network enabled" meta:resourcekey="optionExternalNetwork" Value="True" />
@@ -155,7 +155,7 @@
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangePassword" runat="server" Text="Change Administrator Password" meta:resourcekey="locChangePassword"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="7" style="margin-left:20px;">
+			<table class="table table-borderless align-middle mb-0" style="margin-left:20px;">
 			    <tr>
 			        <td>
 			            <asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"

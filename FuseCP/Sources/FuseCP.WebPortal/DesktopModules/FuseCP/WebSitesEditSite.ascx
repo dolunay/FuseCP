@@ -193,7 +193,7 @@
         </div>
         <div class="col-md-4">
             <div class="alert alert-info">
-                <table cellpadding="7" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
                     <tr>
                         <td>
                             <asp:Label ID="lblWebsiteStatus" runat="server" meta:resourcekey="lblWebsiteStatus" Text="Website Status"></asp:Label>
@@ -287,7 +287,7 @@
                     <div class="row">
                         <div id="VirtualDirectoriesCol" runat="server" class="col-sm-12 col-md-6">
                             <div class="container">
-                                <h3 class="text-center ">
+                                <h3 class="text-center">
                                     <label><asp:Localize ID="HeaderVirtualDirectories" runat="server" meta:resourcekey="HeaderVirtualDirectories"></asp:Localize></label>
                                 </h3>
                                 <p>
@@ -325,7 +325,7 @@
                         <div class="col-md-2 d-sm-none d-md-block-down"></div>
                         <div id="VirtualApplicationsCol" runat="server" class="col-sm-12 col-md-6">
                             <div class="container">
-                                <h3 class="text-center ">
+                                <h3 class="text-center">
                                     <label>
 
                                         <asp:Localize ID="HeaderVirtualApplications" runat="server" meta:resourcekey="HeaderVirtualApplications"></asp:Localize></label>
@@ -379,7 +379,7 @@
                             </tr>
                         </table>
                         <asp:Literal ID="litFrontPageUnavailable" runat="server"></asp:Literal>
-                        <table id="tblFrontPage" cellspacing="0" cellpadding="2" width="100%" runat="server">
+                        <table class="table table-borderless align-middle mb-0 w-100" id="tblFrontPage" width="100%" runat="server">
                             <tr>
                                 <td class="SubHead" style="width: 150px;" height="30">
                                     <asp:Label ID="lblFPStatus" runat="server" meta:resourcekey="lblFPStatus" Text="FrontPage status:"></asp:Label>
@@ -397,7 +397,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="SubHead" valign="top">
+                                <td class="SubHead align-top">
                                     <asp:Label ID="lblFPPassword" runat="server" meta:resourcekey="lblFPPassword" Text="Password:"></asp:Label>
                                 </td>
                                 <td>
@@ -427,7 +427,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <h4 class="text-center ">
+                                    <h4 class="text-center">
                                         <label><asp:Localize ID="Localize14" runat="server" meta:resourcekey="HeaderVirtualDirectoriesFP"></asp:Localize></label>
                                     </h4>
                                     <p>
@@ -483,7 +483,7 @@
                             <br />
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="PanelWDeployPublishingCredentials" Visible="false">
-                            <table cellpadding="4" border="0">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="Normal">
                                         <asp:Localize runat="server" meta:resourcekey="WDeployPublishingAccountLocalize" />
@@ -568,7 +568,7 @@
                             </td>
                             <td class="Normal">
                                 <asp:Label ID="lblVirtDir" runat="server" meta:resourcekey="lblVirtDir" Text="Create Virtual Directories for scripts and Flash remoting."></asp:Label><br />
-                                <h4 class="text-center ">
+                                <h4 class="text-center">
                                     <label><asp:Localize ID="Localize13" runat="server" meta:resourcekey="HeaderVirtualDirectoriesCF"></asp:Localize></label>
                                 </h4>
                                 <p>
@@ -607,7 +607,7 @@
                             <br />
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="pnlWmcSvcManagement">
-                            <table cellpadding="4" border="0">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="Normal">
                                         <asp:Localize runat="server" meta:resourcekey="lclWmSvcAccountName" />

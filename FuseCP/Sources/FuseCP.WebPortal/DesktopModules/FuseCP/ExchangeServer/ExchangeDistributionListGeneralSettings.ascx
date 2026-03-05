@@ -36,7 +36,7 @@
                         </div>
                         </div>
                         <div class="mb-3">
-                        <div class="col-sm-10 col-sm-offset-2">
+                        <div class="col-sm-10 offset-sm-2">
 						        <asp:CheckBox ID="chkHideAddressBook" runat="server" meta:resourcekey="chkHideAddressBook" Text="Hide from Address Book" />
 						</div>
                         </div>
@@ -67,7 +67,7 @@
 						</div>
                         </div>
 						<div class="mb-3">
-                        <div class="col-sm-10 col-sm-offset-2">
+                        <div class="col-sm-10 offset-sm-2">
 							    <asp:TextBox ID="txtNotes" runat="server" CssClass="form-control" Rows="4" TextMode="MultiLine"></asp:TextBox>
 						</div>
                         </div>

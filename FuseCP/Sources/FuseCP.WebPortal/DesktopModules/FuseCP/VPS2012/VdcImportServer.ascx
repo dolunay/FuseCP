@@ -53,7 +53,7 @@
                     <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
                         <div class="mb-3">
                             <asp:Label ID="locOsTemplate" runat="server" CssClass="col-sm-1" meta:resourcekey="locOsTemplate" AssociatedControlID="OsTemplates" Text="OS Template:"></asp:Label>
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:DropDownList ID="OsTemplates" runat="server" CssClass="form-control"
                                         DataValueField="Path" DataTextField="Name"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredOsTemplate" runat="server"
@@ -67,7 +67,7 @@
                             </div>
                             <div id="AdminPasswordPanel" runat="server" visible="false">
                                 <asp:Label ID="locAdminPassword" runat="server" CssClass="col-sm-2" meta:resourcekey="locAdminPassword" AssociatedControlID="adminPassword" Text="Administrator password:"></asp:Label>
-                                <div class="col-sm-10 form-inline">
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredAdminPassword" runat="server"
                                         ControlToValidate="adminPassword" ValidationGroup="ImportWizard" meta:resourcekey="RequiredAdminPassword"
@@ -134,8 +134,8 @@
                                     <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
-                                                <div class="col-sm-10 form-inline">
-                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control form-control" Width="150" Text="0"></asp:TextBox>
+                                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
+                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
                                                     
                                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -172,11 +172,11 @@
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
                             <div class="mb-3">
-                                <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 form-inline">
+                                <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
                                         <asp:Localize ID="locDvdInstalled" runat="server" meta:resourcekey="locDvdInstalled"></asp:Localize>
                                 </div>
-                                <div id="divDvdInstalledChkBox" runat="server" class="col-sm-12 form-inline">
+                                <div id="divDvdInstalledChkBox" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="False"
                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
                                 </div>

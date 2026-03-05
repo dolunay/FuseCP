@@ -18,7 +18,7 @@ function confirmation()
 </script>
 
 <div class="card-body form-horizontal">
-    <table cellSpacing="0" cellPadding="3" width="100%">
+    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
         <tr>
             <td class="SubHead" style="width: 150px;"><asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label></td>
             <td class="NormalBold">
@@ -26,7 +26,7 @@ function confirmation()
             </td>
         </tr>
         <tr>
-            <td colspan="2" valign="top">
+            <td class="align-top" colspan="2">
                 <uc3:PasswordControl ID="passwordControl" runat="server" />
 	        </td>
         </tr>
@@ -38,10 +38,10 @@ function confirmation()
         TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Databases">
     </fcp:CollapsiblePanel>
     <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-        <table id="tblDatabases" runat="server" cellSpacing="0" cellPadding="3" width="100%">
+        <table class="table table-borderless align-middle mb-0 w-100" id="tblDatabases" runat="server" width="100%">
             <tr>
                 <td colspan="2">
-	                <asp:CheckBoxList id="dlDatabases" runat="server" CellPadding="3" RepeatColumns="2" CssClass="NormalBold"
+	                <asp:CheckBoxList id="dlDatabases" runat="server" RepeatColumns="2" CssClass="NormalBold"
                         DataTextField="Name" DataValueField="Name"></asp:CheckBoxList>
                 </td>
             </tr>

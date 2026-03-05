@@ -14,16 +14,16 @@
         </td>
     </tr>
     <tr>
-        <td width="200px" valign="top">
+        <td class="align-top" width="200px">
             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="lblCountry" Text="Add Country:" />
         </td>
         <td class="Normal">
             <asp:DropDownList ID="ddlAddCountry" runat="server"> </asp:DropDownList>
-            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="Button2" />
+            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="btn btn-success" />
         </td>
     </tr>
     <tr>
-        <td width="200px" valign="top">
+        <td class="align-top" width="200px">
             <asp:Localize ID="Localize2" runat="server" meta:resourcekey="lblSelectedCountries" Text="Selected Countries:" />
         </td>
         <td class="Normal">

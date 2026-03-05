@@ -63,20 +63,20 @@
                                     </div>
        </div>
             <div class="row">
-                <div class="col-sm-10 col-sm-offset-2">
+                <div class="col-sm-10 offset-sm-2">
                     <br />
         <fcp:SendToControl ID="sendToControl" runat="server" ValidationGroup="CreateMailbox" ControlToHide="PasswordBlock"></fcp:SendToControl>
                 </div>
                 </div>
                 <div id="PasswordBlock" runat="server">
                     <fcp:PasswordControl ID="password" runat="server" ValidationGroup="ValidatePassword" AllowGeneratePassword="true"></fcp:PasswordControl>
-					<div class="col-sm-offset-6 col-sm-4 float-end" style="margin-top: -50px;margin-right: -40px;"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
+					<div class="offset-sm-6 col-sm-4 float-end" style="margin-top: -50px;margin-right: -40px;"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
                                 </asp:LinkButton></div>
                 </div>
      
                     <fieldset>
                      <div class="mb-3">
-                         <div class="col-sm-10 col-sm-offset-2">
+                         <div class="col-sm-10 offset-sm-2">
                                         <div class="input-group">
                                 <asp:CheckBox ID="chkUserMustChangePassword" runat="server" meta:resourcekey="chkUserMustChangePassword" Text="User must change password at next login" /><br />
                                 <asp:CheckBox ID="chkDisable" runat="server" meta:resourcekey="chkDisable" Text="Disable User" /><br />

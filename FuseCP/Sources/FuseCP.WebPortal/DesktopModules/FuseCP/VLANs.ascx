@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-4">
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
             <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control"
@@ -115,7 +115,7 @@
     <div class="row">
         <div class="col-md-9">
             <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected"
-                meta:resourcekey="btnDeleteSelected" CssClass="SmallButton"
+                meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary btn-sm"
                 CausesValidation="false" OnClick="btnDeleteSelected_Click"></asp:Button>
         </div>
     </div>

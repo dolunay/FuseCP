@@ -17,7 +17,7 @@
 				    
 				    <div style="margin-left: 30px;margin-top: 30px;">
 				       
-			            <table cellpadding="2">					        
+			            <table class="table table-borderless align-middle mb-0">					        
 					        <tr>
 					            <td class="FormLabel150" style="white-space:nowrap;"><asp:Localize ID="locUsedSize" runat="server" meta:resourcekey="locUsedSize" Text="Allocated Disk Space:"></asp:Localize></td>
 					            <td style="white-space:nowrap;">

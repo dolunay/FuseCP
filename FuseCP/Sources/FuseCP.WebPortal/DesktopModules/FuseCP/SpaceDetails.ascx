@@ -71,9 +71,9 @@
 	</div>
 	<div class="widget-content">
 		<asp:Panel ID="StatusPanel" runat="server">
-			<table cellpadding="5" style="width: 100%;">
+			<table class="table table-borderless align-middle mb-0" style="width: 100%;">
 				<tr>
-					<td align="center">
+					<td class="text-center">
 						<div class="MediumBold" style="padding: 5px;">
 							<asp:Literal ID="litStatus" runat="server"></asp:Literal>
 						</div>

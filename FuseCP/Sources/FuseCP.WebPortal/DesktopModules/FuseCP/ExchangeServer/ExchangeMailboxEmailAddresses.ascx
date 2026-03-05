@@ -95,7 +95,7 @@
 					<br />
 					<table style="width:100%;margin-top:10px;">
 					    <tr>
-					        <td align="center">
+					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" Visible="false" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true"
 					                Text="Allow these settings to be managed from Personal Mailbox Manager" OnCheckedChanged="chkPmmAllowed_CheckedChanged" />
 					        </td>

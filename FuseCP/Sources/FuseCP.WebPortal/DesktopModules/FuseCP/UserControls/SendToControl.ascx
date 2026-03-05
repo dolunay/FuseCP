@@ -3,7 +3,7 @@
     <div>
         <fieldset>
                 <div class="mb-3">
-                    <div class="col-sm-10 col-sm-offset-2">
+                    <div class="col-sm-10 offset-sm-2">
                         <div id="SendPasswordResetEmailDiv" class="input-group" runat="server">
                             <asp:CheckBox ID="chkSendPasswordResetEmail" runat="server" AutoPostBack="true" OnCheckedChanged="chkSendPasswordResetEmail_StateChanged" />
                             <asp:Label runat="server" AssociatedControlID="chkSendPasswordResetEmail" style="white-space:nowrap;">
@@ -18,12 +18,12 @@
 <div id="SendToBody" runat="server" visible="False">
         <fieldset>
                 <div class="col-md-12">
-                    <div class="mb-3 form-inline">
+                    <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
                         <label for="locSendTo" class="col-sm-2 form-label">
                             <asp:Localize ID="locSendTo" runat="server" meta:resourcekey="locSendTo" Text="Send to:" />
                         </label> 
 						<div class="col-sm-10">
-                            <div class="input-group form-inline">
+                            <div class="input-group d-flex flex-wrap gap-2 align-items-center">
                                 <div class="FormRBtnL">
                                     <label class="input-group-text">
                                         <i class="bi bi-envelope" aria-hidden="true"></i>
@@ -39,7 +39,7 @@
             </div>
                     </div>
                 <div id="EmailDiv" runat="server" class="col-md-12">
-                    <div class="mb-3 form-inline">
+                    <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
                         <label for="txtEmailAddress" class="col-sm-2 form-label">
                             <asp:Localize ID="locEmailAddress" runat="server" meta:resourcekey="locEmailAddress" />
                         </label>
@@ -54,7 +54,7 @@
                 </div>
             </div>
                 <div id="MobileDiv" runat="server" class="col-md-12">
-                    <div class="mb-3 form-inline">
+                    <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
                         <label for="txtMobile" class="col-sm-2 form-label">
                             <asp:Localize ID="locMobile" runat="server" meta:resourcekey="locMobile" />
                         </label>

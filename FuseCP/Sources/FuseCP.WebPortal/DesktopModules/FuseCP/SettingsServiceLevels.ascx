@@ -41,7 +41,7 @@
     <asp:Panel ID="ServiceLevel" runat="server" Height="0" style="overflow:hidden;">
 		<table>
             <tr>
-                <td class="FormLabel200" align="right">
+                <td class="FormLabel200 text-end">
                     <asp:Label ID="lblServiceLevelName" runat="server" meta:resourcekey="lblServiceLevelName" Text="Name:"></asp:Label>
                 </td>
                 <td>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="FormLabel200" align="right">
+                <td class="FormLabel200 text-end">
                     <asp:Label ID="lblServiceLevelDescr" runat="server" meta:resourcekey="lblServiceLevelDescr" Text="Description:"></asp:Label>
                 </td>
                 <td>

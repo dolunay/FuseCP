@@ -137,9 +137,9 @@
 						<asp:Localize ID="SSLImportHeading" runat="server" meta:resourcekey="SSLImportHeading" /></h2>
 					<p class="Normal">
 						<asp:Localize ID="SSLImportDescription" runat="server" meta:resourcekey="SSLImportDescription" /></p>
-					<asp:Button ID="btnImport" meta:resourcekey="btnImport" CssClass="Button1" runat="server" OnClick="btnImport_click" />
+					<asp:Button ID="btnImport" meta:resourcekey="btnImport" CssClass="btn btn-primary" runat="server" OnClick="btnImport_click" />
 			        <asp:Button ID="btnDeleteAll" runat="server" Text="Delete" meta:resourcekey="btnDelete"
-				        CssClass="Button1" OnClick="btnDeleteAll_Click" />
+				        CssClass="btn btn-primary" OnClick="btnDeleteAll_Click" />
 				</div>
 			</asp:Panel>
 			<asp:Panel ID="pnlCSR" runat="server" Visible="false">

@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AWStats_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.AWStats_Settings" %>
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" nowrap width="200">
+		<td class="SubHead text-nowrap" style="width: 200px;">
 		    <asp:Label ID="lblCgiBinFolder" runat="server" meta:resourcekey="lblCgiBinFolder" Text="Cgi-Bin Folder:"></asp:Label>
 		</td>
-		<td width="100%"><asp:TextBox Runat="server" ID="txtAwStatsFolder" CssClass="form-control" Width="200px"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtAwStatsFolder" CssClass="form-control" Width="200px"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead">
@@ -19,13 +19,13 @@
 		<td><asp:TextBox Runat="server" ID="txtBatchLineTemplate" CssClass="form-control" Width="100%"></asp:TextBox></td>
 	</tr>
 	<tr>
-		<td class="SubHead" noWrap>
+		<td class="SubHead text-nowrap">
             <asp:Label ID="lblConfigFileName" runat="server" meta:resourcekey="lblConfigFileName" Text="Configuration File Name:"></asp:Label>
         </td>
-		<td vAlign="top"><asp:TextBox Runat="server" ID="txtConfigFileName" CssClass="form-control" Width="200px"></asp:TextBox></td>
+		<td class="align-top"><asp:TextBox Runat="server" ID="txtConfigFileName" CssClass="form-control" Width="200px"></asp:TextBox></td>
 	</tr>
 	<tr>
-		<td class="SubHead" vAlign="top">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblFileTemplate" runat="server" meta:resourcekey="lblFileTemplate" Text="Configuration File Template:"></asp:Label>
 		</td>
 		<td><asp:TextBox Runat="server" ID="txtConfigFileTemplate" CssClass="form-control" Width="100%"

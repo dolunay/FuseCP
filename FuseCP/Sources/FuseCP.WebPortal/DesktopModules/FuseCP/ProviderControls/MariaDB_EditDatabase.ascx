@@ -5,17 +5,17 @@
     TargetControlID="FilesPanel" meta:resourcekey="secDataFiles" Text="Database Files">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="FilesPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table id="tblFiles" runat="server" width="100%" cellpadding="3">
+    <table id="tblFiles" runat="server" class="table table-borderless align-middle mb-0 w-100">
         <tr>
             <td style="width: 150px;" class="Medium">
                 <asp:Label ID="lblDataFile" runat="server" meta:resourcekey="lblDataFile" Text="Data File"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td valign="top">
-                <table cellspacing="0" cellpadding="3">
+            <td class="align-top">
+                <table class="table table-borderless align-middle mb-0">
 	                <tr>
-		                <td class="SubHead" nowrap><asp:Label ID="lblDataSize" runat="server" meta:resourcekey="lblSize" Text="Size, KB:"></asp:Label></td>
+		                <td class="SubHead text-nowrap"><asp:Label ID="lblDataSize" runat="server" meta:resourcekey="lblSize" Text="Size, KB:"></asp:Label></td>
 		                <td class="Normal"><asp:Literal id="litDataSize" Runat="server" Text="0"></asp:Literal></td>
 	                </tr>
                 </table>
@@ -27,7 +27,7 @@
     TargetControlID="MainToolsPanel" meta:resourcekey="secMainTools" Text="Maintenance Tools">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="MainToolsPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table cellpadding="10">
+    <table class="table table-borderless mb-0">
         <tr>
             <td>
                 <asp:LinkButton id="btnBackup" CssClass="btn btn-primary" runat="server" OnClick="btnBackup_Click" CausesValidation="false"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackupText"/> </asp:LinkButton>&nbsp;
@@ -41,7 +41,7 @@
     TargetControlID="HousekeepingToolsPanel" meta:resourcekey="secHousekeepingTools" Text="Housekeeping Tools">
 </fcp:CollapsiblePanel>
 <asp:Panel ID="HousekeepingToolsPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table cellpadding="10">
+    <table class="table table-borderless mb-0">
         <tr>
             <td>
                 <asp:Button ID="btnTruncate" runat="server" meta:resourcekey="btnTruncate" CausesValidation="false" 

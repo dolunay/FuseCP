@@ -30,11 +30,11 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 			    <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
-				    <table id="DetailsTable" runat="server" style="width:100%;" cellspacing="10">
+				    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" style="width:100%;">
 				        <tr>
-				            <td valign="top" style="width:40%;">
+				            <td class="align-top" style="width:40%;">
 
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                    <tr>
                                         <td><asp:Localize ID="locHostname" runat="server"
                                             meta:resourcekey="locHostname" Text="Host name:"/></td>
@@ -79,7 +79,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                     <tr>
                                         <td><asp:Localize ID="locStatus" runat="server"
                                             meta:resourcekey="locStatus" Text="Status:"/></td>
@@ -105,7 +105,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				                 </asp:UpdatePanel>
 				                 
 				            </td>
-				            <td valign="top" style="width:35%;">
+				            <td class="align-top" style="width:35%;">
 				                
 				                <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                     <Triggers>
@@ -118,7 +118,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 
 
 				            </td>
-				            <td rowspan="2" valign="top">
+				            <td class="align-top" rowspan="2">
 				                <ul class="ActionButtons">
 				                    <asp:Repeater ID="repButtons" runat="server" 
                                         onitemcommand="repButtons_ItemCommand">
@@ -146,7 +146,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-				                        <table cellspacing="5">
+				                        <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td class="NormalBold">
                                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:"/>
@@ -198,7 +198,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                            <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="5">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td colspan="2">
 			            <asp:ValidationSummary ID="validatorsSummary" runat="server" 

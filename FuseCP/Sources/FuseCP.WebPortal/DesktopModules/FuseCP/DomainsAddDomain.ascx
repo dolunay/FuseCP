@@ -7,7 +7,7 @@
 
 <asp:ValidationSummary ID="summary" runat="server" ShowMessageBox="true" ShowSummary="true" ValidationGroup="Domain" />
 
-<div id="DomainPanel" runat="server" style="padding: 15px 0 15px 5px;">
+<div id="DomainPanel" runat="server" class="py-3 ps-2">
         <fcp:DomainControl ID="DomainName" runat="server" RequiredEnabled="True" ValidationGroup="Domain"></fcp:DomainControl>
 </div>
 <div class="card-body">
@@ -17,51 +17,51 @@
     <asp:Panel ID="OptionsPanel" runat="server">
         
         <br />
-        <asp:Panel id="CreateFuseCP" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="CreateFuseCP" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="CreateWebSite" runat="server" meta:resourcekey="CreateWebSite" Text="Create Web Site" CssClass="input-group" Checked="true" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:Localize ID="DescribeCreateWebSite" runat="server" meta:resourcekey="DescribeCreateWebSite">Description...</asp:Localize>
             </div>
-            <div class="form-inline" style="padding-left: 20px;">
+            <div class="d-flex flex-wrap gap-2 align-items-center ps-3">
 		        <asp:Label ID="lblHostName" runat="server" meta:resourcekey="lblHostName" Text="Host name:"></asp:Label>
 			    <asp:TextBox ID="txtHostName" runat="server" CssClass="form-control" Text="www"></asp:TextBox>
             </div>
         </asp:Panel>
 
-        <asp:Panel id="PointFuseCP" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="PointFuseCP" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="PointWebSite" runat="server" meta:resourcekey="PointWebSite" Text="Assign to Web Site" CssClass="input-group"
                 AutoPostBack="true" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:DropDownList ID="WebSitesList" Runat="server" CssClass="form-control" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
             </div>
         </asp:Panel>
         
-        <asp:Panel id="PointMailDomainPanel" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="PointMailDomainPanel" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="PointMailDomain" runat="server" meta:resourcekey="PointMailDomain" Text="Assign to Mail Domain" CssClass="input-group"
                 AutoPostBack="true" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:DropDownList ID="MailDomainsList" Runat="server" CssClass="form-control" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
             </div>
         </asp:Panel>
         
-        <asp:Panel id="EnableDnsPanel" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="EnableDnsPanel" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="EnableDns" runat="server" meta:resourcekey="EnableDns" Text="Enable DNS" CssClass="input-group"
                 Checked="true" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:Localize ID="DescribeEnableDns" runat="server" meta:resourcekey="DescribeEnableDns">Description...</asp:Localize>
             </div>
         </asp:Panel>
  
-        <asp:Panel id="PreviewDomainPanel" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="PreviewDomainPanel" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="CreatePreviewDomain" runat="server" meta:resourcekey="CreatePreviewDomain"
                 Text="Create Preview Domain" CssClass="input-group" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:Localize ID="DescribeCreatePreviewDomain" runat="server" meta:resourcekey="DescribeCreatePreviewDomain">Description...</asp:Localize>
             </div>
         </asp:Panel>       
-        <asp:Panel id="AllowSubDomainsPanel" runat="server" style="padding-bottom: 15px;">
+        <asp:Panel id="AllowSubDomainsPanel" runat="server" CssClass="pb-3">
             <asp:CheckBox ID="AllowSubDomains" runat="server" meta:resourcekey="AllowSubDomains" Text="Allow sub-domains" CssClass="input-group" /><br />
-            <div style="padding-left: 20px;">
+            <div class="ps-3">
                 <asp:Localize ID="DescribeAllowSubDomains" runat="server" meta:resourcekey="DescribeAllowSubDomains">Description...</asp:Localize>
             </div>
         </asp:Panel>

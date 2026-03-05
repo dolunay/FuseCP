@@ -4,9 +4,9 @@
 		{
 		}
 </script>
-<table cellPadding="10" width="100%">
+<table class="table table-borderless w-100 mb-0">
 	<tr>
-		<td class="NormalBold" align="center">
+		<td class="NormalBold text-center">
 		    Commerce Starter Kit has been successfully installed.
 		</td>
 	</tr>

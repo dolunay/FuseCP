@@ -86,10 +86,10 @@
     <div class="row">
     <div class="col-md-9">
         <asp:Button id="btnEditSelected" runat="server" Text="Edit Selected..."
-            meta:resourcekey="btnEditSelected" CssClass="SmallButton" 
+            meta:resourcekey="btnEditSelected" CssClass="btn btn-primary btn-sm" 
             CausesValidation="false" onclick="btnEditSelected_Click"></asp:Button>
         <asp:Button id="btnDeleteSelected" runat="server" Text="Delete Selected"
-            meta:resourcekey="btnDeleteSelected" CssClass="SmallButton" 
+            meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary btn-sm" 
             CausesValidation="false" onclick="btnDeleteSelected_Click"></asp:Button>
     </div>
     <div class="col-md-3">

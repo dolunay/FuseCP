@@ -49,7 +49,7 @@
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
         <div class="mb-3">
-            <div class="col-sm-10 form-inline">
+            <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                 <table style="width: 950px;">
                     <tr>
                         <td>

@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MDaemon_EditList.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MDaemon_EditList" %>
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
-<table cellSpacing="0" cellPadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" width="200" nowrap>
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Subscribers reply to:"></asp:Label>
 		</td>
 		<td class="normal" width="100%">
@@ -58,10 +58,10 @@
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="SubHead" vAlign="top">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblMembers" runat="server" meta:resourcekey="lblMembers" Text="Mailing list members:"></asp:Label>
 		</td>
-		<td vAlign="top">
+		<td class="align-top">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>

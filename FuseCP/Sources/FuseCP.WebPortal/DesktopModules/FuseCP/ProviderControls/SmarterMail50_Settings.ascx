@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail50_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail50_Settings" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-<table cellpadding="7" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" width="100%">
 	<tr>
-		<td class="SubHead" nowrap width="200">
+		<td class="SubHead text-nowrap" width="200">
 		    <asp:Label ID="lblServiceUrl" runat="server" meta:resourcekey="lblServiceUrl" Text="Web Services URL:"></asp:Label>
 		</td>
 		<td width="100%"><asp:TextBox Runat="server" ID="txtServiceUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>

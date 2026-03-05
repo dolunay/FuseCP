@@ -25,7 +25,7 @@
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
     <div class="row" style="margin-bottom:15px;">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-end form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 offset-md-5 text-end d-flex flex-wrap gap-2 align-items-center">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
             <div class="mb-3">
                 <div class="input-group">

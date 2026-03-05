@@ -41,7 +41,7 @@
 					            <asp:TemplateField>
 						            <ItemTemplate>
 							            <asp:LinkButton ID="btnInsert" runat="server" Text="Insert" meta:resourcekey="btnInsert"
-							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="SmallButton">
+							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="btn btn-primary btn-sm">
 							            </asp:LinkButton>
 						            </ItemTemplate>
 					            </asp:TemplateField>

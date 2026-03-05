@@ -3,14 +3,14 @@
 
 <div class="FormRow">
     <asp:Button id="btnToggleSecuredFolders" runat="server" meta:resourcekey="btnToggleSecuredFolders"
-            Text="Enable Secured Folders" CssClass="Button2" CausesValidation="false"
+            Text="Enable Secured Folders" CssClass="btn btn-success" CausesValidation="false"
             OnClick="btnToggleSecuredFolders_Click"/>
 </div>
 
 <asp:Panel ID="SecuredFoldersPanel" runat="server">
     <div class="FormButtonsBar">
         <asp:Button id="btnAddFolder" runat="server" meta:resourcekey="btnAddFolder"
-            Text="Add Folder" CssClass="Button2" CausesValidation="false"
+            Text="Add Folder" CssClass="btn btn-success" CausesValidation="false"
             OnClick="btnAddFolder_Click"/>
     </div>
     
@@ -40,7 +40,7 @@
     <br />
     <div class="FormButtonsBar">
         <asp:Button id="btnAddUser" runat="server" meta:resourcekey="btnAddUser"
-            Text="Add User" CssClass="Button2" CausesValidation="false"
+            Text="Add User" CssClass="btn btn-success" CausesValidation="false"
             OnClick="btnAddUser_Click"/>
     </div>
     <asp:GridView id="gvUsers" Runat="server" EnableViewState="True" AutoGenerateColumns="false"
@@ -69,7 +69,7 @@
     <br />
     <div class="FormButtonsBar">
         <asp:Button id="btnAddGroup" runat="server" meta:resourcekey="btnAddGroup"
-            Text="Add Group" CssClass="Button2" CausesValidation="false"
+            Text="Add Group" CssClass="btn btn-success" CausesValidation="false"
             OnClick="btnAddGroup_Click"/>
     </div>
     <asp:GridView id="gvGroups" Runat="server" EnableViewState="True" AutoGenerateColumns="false"
