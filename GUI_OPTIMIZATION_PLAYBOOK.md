@@ -150,6 +150,8 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/exchange-mailbox-autoreply.js` for Exchange mailbox auto-reply TinyMCE configuration.
 - Added shared helper `DesktopModules/FuseCP/Scripts/exchange-disclaimer-general-settings.js` for Exchange disclaimer TinyMCE configuration.
 - Added shared helper `DesktopModules/FuseCP/Scripts/async-tasks-config.js` for async task hidden-field config bootstrap.
+- Added shared helper `DesktopModules/FuseCP/Scripts/helicon-ape-user.js` for Helicon Ape user auth-type toggle behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/vps-rdp-panel.js` for VPS and VPSForPC RDP popup launch behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -184,7 +186,10 @@ Keep using:
 - Replaced inline async-task globals script in `UserControls/EnableAsyncTasksSupport.ascx` with shared `async-tasks-config.js` bootstrap.
 - Replaced remaining page-local VBScript server variable blocks in `VPS/RemoteDesktop/Connect.aspx`, `VPS2012/RemoteDesktop/Connect.aspx`, `VPSForPC/RemoteDesktop/Connect.aspx`, and `Proxmox/RemoteControl/Connect.aspx` with hidden-field configuration consumed by shared `rdp-connect.vbs`.
 - Replaced inline TinyMCE initialization in `ProviderControls/SmarterMail100x_EditAccount.ascx` with shared `smartermail100x-edit-account.js`.
-- Reduced inline-script candidate count from `100` to `20` in guard output.
+- Replaced inline auth-type script in `WebSitesEditHeliconApeUser.ascx` with shared `helicon-ape-user.js`.
+- Replaced inline RDP popup launch scripts in `VPS/VpsDetailsGeneral.ascx` and `VPSForPC/VpsDetailsGeneral.ascx` with shared `vps-rdp-panel.js`.
+- Replaced inline thumbnail refresh init in `Proxmox/VpsDetailsGeneral.ascx` with shared `proxmox-vps-general.js` auto initialization.
+- Reduced inline-script candidate count from `100` to `16` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.

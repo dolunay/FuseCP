@@ -5,36 +5,8 @@
 <script src="/JavaScript/jquery-1.4.4.min.js" type="text/javascript">
 
 </script>
+<script src="/DesktopModules/FuseCP/Scripts/helicon-ape-user.js" type="text/javascript"></script>
 <div class="card-body form-horizontal">
-<script type="text/javascript">
-function pageLoad() {
-    $('.AuthType input').change(function () {
-        authTypeChanged(this);
-    });
-
-    authTypeChanged($('.AuthType input')[0]);
-}
-
-function authTypeChanged(el) {
-    if ('Basic' == el.value) {
-        if (el.checked) {
-            $('.EncType').show();
-            $('.DigestRealm').hide();
-        } else {
-            $('.EncType').hide();
-            $('.DigestRealm').show();
-        }
-    } else if ('Digest' == el.value) {
-        if (el.checked) {
-            $('.EncType').hide();
-            $('.DigestRealm').show();
-        } else {
-            $('.EncType').show();
-            $('.DigestRealm').hide();
-        }
-    }
-}
-</script>
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
 		<td>

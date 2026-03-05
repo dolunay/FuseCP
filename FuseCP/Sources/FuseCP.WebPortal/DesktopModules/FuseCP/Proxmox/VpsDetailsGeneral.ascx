@@ -116,10 +116,6 @@
 
 						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
 
-						<script type="text/javascript">
-							FuseCPProxmoxVpsGeneral.initThumbnailRefresh('imgThumbnail');
-						</script>
-
 					</td>
 					<td class="align-top" rowspan="2">
 						<ul class="ActionButtons">

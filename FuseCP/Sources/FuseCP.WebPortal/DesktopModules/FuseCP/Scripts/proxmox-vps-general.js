@@ -44,4 +44,8 @@
         openRemoteDesktopWindow: openRemoteDesktopWindow,
         initThumbnailRefresh: initThumbnailRefresh
     };
+
+    if (document.getElementById("imgThumbnail")) {
+        initThumbnailRefresh("imgThumbnail");
+    }
 }(window));

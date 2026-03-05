@@ -12,23 +12,8 @@
 <asp:Timer runat="server" Interval="90000" ID="operationTimer" />
 
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
-
-<script language="JavaScript" type="text/javascript">
-function OpenRemoteDesktopWindow(resolution, width, height) {
-    $find("RdpPopup").hidePopup();
-    var rdpUrl = "<asp:literal id="litRdpPageUrl" runat="server" />";
-
-    if (window.FuseCPRdpPopup && typeof window.FuseCPRdpPopup.open === "function") {
-        window.FuseCPRdpPopup.open(rdpUrl + resolution, width, height, "RDP");
-        return;
-    }
-
-    // Fallback to legacy behavior if shared helper is unavailable.
-    var left = (screen.width - width) / 2;
-    var top = (screen.height - height) / 2;
-    window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
-}
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-rdp-panel.js"></script>
+<input type="hidden" id="vpsRdpPageUrl" value="<asp:literal id='litRdpPageUrl' runat='server' />" />
 	    <div class="card">
 			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
