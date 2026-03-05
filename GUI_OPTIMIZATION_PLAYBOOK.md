@@ -154,6 +154,7 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps-rdp-panel.js` for VPS and VPSForPC RDP popup launch behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps-replication-validator.js` for replication VHD checkbox validation.
 - Added shared helper `DesktopModules/FuseCP/Scripts/organization-user-general-settings-ie9.js` for legacy IE thumbnail-upload fallback behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/search-box.js` for SearchBox autocomplete and submit behavior.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -194,7 +195,8 @@ Keep using:
 - Replaced inline replication validator scripts in `VPS2012/VpsDetailsReplications.ascx` and `Proxmox/VpsDetailsReplications.ascx` with shared `vps-replication-validator.js`.
 - Replaced inline IE conditional thumbnail fallback script in `ExchangeServer/OrganizationUserGeneralSettings.ascx` with shared `organization-user-general-settings-ie9.js`.
 - Refined `FuseCP/Tools/run-gui-modernization-guards.ps1` to count client-side inline scripts only (excluding `<script runat="server">`).
-- Reduced inline-script candidate count from `100` to `1` in guard output.
+- Replaced inline SearchBox script in `UserControls/SearchBox.ascx` with shared `search-box.js` and server-provided data attributes.
+- Reduced inline-script candidate count from `100` to `0` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
