@@ -27,8 +27,8 @@
 					<fcp:CollapsiblePanel id="secStorageLimits" runat="server"
                         TargetControlID="StorageLimits" meta:resourcekey="secStorageLimits" >
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="StorageLimits" runat="server" Height="0" style="overflow:hidden;">
-					    <table class="table table-borderless align-middle mb-0" style="width: 100%;">
+                    <asp:Panel ID="StorageLimits" runat="server" Height="0" style="overflow:hidden">
+					    <table class="table table-borderless align-middle mb-0" >
 						    
 						    <tr>
 						    <td class="FormLabel200 text-end"><asp:Localize ID="locMaxStorage" runat="server" meta:resourcekey="locMaxStorage" ></asp:Localize></td>

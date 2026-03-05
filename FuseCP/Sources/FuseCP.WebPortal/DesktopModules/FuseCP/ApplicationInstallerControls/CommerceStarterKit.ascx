@@ -14,7 +14,7 @@
 </script>
 <table class="table table-borderless align-middle mb-0">
 	<tr>
-		<td class="SubHead text-nowrap align-top" style="width: 200px;">
+		<td class="SubHead text-nowrap align-top" >
 			Install sample store data:
 		</td>
 		<td class="NormalBold">

@@ -21,7 +21,7 @@
         <asp:LinkButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
-		<div style="float: right;">
+		<div style="float: right">
 			<asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 			<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"
 				onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
@@ -79,7 +79,7 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div style="margin-top:4px;">
+<div style="margin-top:4px">
     <asp:Button ID="btnDeallocateVLANs" runat="server" meta:resourcekey="btnDeallocateVLANs"
             Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
         onclick="btnDeallocateVLANs_Click" />

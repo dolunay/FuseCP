@@ -61,7 +61,7 @@
 				    <wsp:CollapsiblePanel id="secQuotas" runat="server"
                         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Quotas">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
                     
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
