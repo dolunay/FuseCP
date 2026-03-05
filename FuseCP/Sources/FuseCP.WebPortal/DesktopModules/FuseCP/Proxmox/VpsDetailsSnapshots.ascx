@@ -93,7 +93,7 @@
 			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td>
-			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="SnapshotNameValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtSnapshotName" meta:resourcekey="SnapshotNameValidator" SetFocusOnError="true"

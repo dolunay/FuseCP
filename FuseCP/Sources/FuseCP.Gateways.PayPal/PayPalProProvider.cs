@@ -22,6 +22,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using FuseCP.EnterpriseServer;
 
 namespace FuseCP.Ecommerce.EnterpriseServer
 {

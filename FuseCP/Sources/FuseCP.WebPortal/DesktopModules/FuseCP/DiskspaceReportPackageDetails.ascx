@@ -14,7 +14,7 @@
         <asp:GridView ID="gvSummary" runat="server" AutoGenerateColumns="False"
             EmptyDataText="gvSummary" CssSelectorClass="NormalGridView">
             <Columns>
-	            <asp:TemplateField HeaderText="gvSummaryGroupName" ItemStyle-Width="150">
+	            <asp:TemplateField HeaderText="gvSummaryGroupName">
 		            <ItemTemplate>
 			            <span class="Big"><%# GetSharedLocalizedString("ReportResourceGroup." + Eval("GroupName")) %></span>
 		            </ItemTemplate>

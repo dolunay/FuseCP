@@ -6,18 +6,9 @@
 <%@ Register Src="UserControls/FormTitle.ascx" TagName="FormTitle" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-network-selection.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-    function SelectAllCheckboxes(box) {
-        var state = box.checked;
-        var elm = box.parentElement.parentElement.parentElement.parentElement.getElementsByTagName("INPUT");
-        for (i = 0; i < elm.length; i++)
-            if (elm[i].type == "checkbox" && elm[i].id != box.id && elm[i].checked != state && !elm[i].disabled)
-                elm[i].checked = state;
-    }
-</script>
 
 
 <div class="Content">

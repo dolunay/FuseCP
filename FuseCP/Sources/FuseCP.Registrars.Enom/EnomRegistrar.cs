@@ -143,6 +143,24 @@ namespace FuseCP.Ecommerce.EnterpriseServer
 			return result.ToString();
 		}
 
+		private string GetDomainName(string fqdn)
+		{
+			if (String.IsNullOrWhiteSpace(fqdn))
+				return String.Empty;
+
+			int dot = fqdn.IndexOf('.');
+			return dot > 0 ? fqdn.Substring(0, dot) : fqdn;
+		}
+
+		private string GetDomainTLD(string fqdn)
+		{
+			if (String.IsNullOrWhiteSpace(fqdn))
+				return String.Empty;
+
+			int dot = fqdn.IndexOf('.');
+			return dot >= 0 && dot + 1 < fqdn.Length ? fqdn.Substring(dot + 1) : String.Empty;
+		}
+
 		private void AddParam(string key, string value)
 		{
 			queryString.Add(key, value);

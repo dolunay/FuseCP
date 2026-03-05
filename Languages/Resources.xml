@@ -23605,7 +23605,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\SystemSettings.ascx.resx</File>
     <Key>SettingbtnSaveSettings.Text</Key>
-    <DefaultValue>&amp;lt;span class='fa fa-floppy-o' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Save Settings</DefaultValue>
+    <DefaultValue>&amp;lt;span class='bi bi-floppy' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Save Settings</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\SystemSettings.ascx.resx</File>
@@ -23805,7 +23805,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\SystemSettings.ascx.resx</File>
     <Key>btnTwillioDisable.Text</Key>
-    <DefaultValue>&amp;lt;span class='fa fa-ban' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Disable</DefaultValue>
+    <DefaultValue>&amp;lt;span class='bi bi-ban' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Disable</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\SystemSettings.ascx.resx</File>
@@ -35394,7 +35394,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\MailboxSelector.ascx.resx</File>
     <Key>UserLookup.Text</Key>
-    <DefaultValue>&amp;lt;i class='fa fa-folder-open-o' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
+    <DefaultValue>&amp;lt;i class='bi bi-folder2-open' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\MailboxSelector.ascx.resx</File>
@@ -35784,7 +35784,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\UserSelector.ascx.resx</File>
     <Key>UserLookup.Text</Key>
-    <DefaultValue>&amp;lt;i class='fa fa-folder-open-o' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
+    <DefaultValue>&amp;lt;i class='bi bi-folder2-open' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\UserSelector.ascx.resx</File>
@@ -53763,7 +53763,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\EditFeedsList.ascx.resx</File>
     <Key>btnAddFeed.Text</Key>
-    <DefaultValue>&amp;lt;i class='fa fa-plus' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/i&amp;gt;&amp;nbsp;Add Feed</DefaultValue>
+    <DefaultValue>&amp;lt;i class='bi bi-plus-circle' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/i&amp;gt;&amp;nbsp;Add Feed</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\EditFeedsList.ascx.resx</File>
@@ -53798,7 +53798,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\EditFeedsList.ascx.resx</File>
     <Key>cmdDeleteFeed.Text</Key>
-    <DefaultValue>&amp;lt;i class='fa fa-trash-o' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/i&amp;gt;&amp;nbsp;Delete Feed</DefaultValue>
+    <DefaultValue>&amp;lt;i class='bi bi-trash' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/i&amp;gt;&amp;nbsp;Delete Feed</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\EditIPAddressControl.ascx.resx</File>

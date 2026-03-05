@@ -26,7 +26,7 @@
     </h3>
 </div>
 <div class="card-body form-horizontal">
-<div class="nav nav-tabs" style="padding-bottom:7px !important;">
+<div class="nav nav-tabs" style="padding-bottom:7px !important">
         <fcp:UserTabs ID="UserTabsId" runat="server" SelectedTab="edit_user" />
         <fcp:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="edit_user" />
 </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div id="PasswordBlock" runat="server">
                     <fcp:PasswordControl ID="password" runat="server" ValidationGroup="ValidatePassword" AllowGeneratePassword="true"></fcp:PasswordControl>
-					<div class="offset-sm-6 col-sm-4 float-end" style="margin-top: -50px;margin-right: -40px;"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
+					<div class="offset-sm-6 col-sm-4 float-end" style="margin-top: -50px; margin-right: -40px"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
                                 </asp:LinkButton></div>
                 </div>
      
@@ -147,7 +147,7 @@
         <div class="col-sm-3">
                     <asp:Panel ID="pnlThumbnailphoto" runat="server" HorizontalAlign="Center">
                             <h3><i class="bi bi-camera"></i> <asp:Localize ID="locThumbnailphoto" runat="server" meta:resourcekey="locThumbnailphoto" Text="Thumbnail photo:"></asp:Localize></h3>
-                        <div id="divUpThumbnailphoto" style="display: none;">
+                        <div id="divUpThumbnailphoto" style="display: none">
                             <asp:FileUpload ID="upThumbnailphoto" ClientIDMode="Static" runat="server" Style="width: 190px;"
                                 onchange="__doPostBack('<%= btnLoadThumbnailphoto.ClientID %>', '')" />
                             <br />
@@ -176,7 +176,7 @@
                     </asp:Panel>
             </div>
             </div>
-        <div class="row" style="padding:20px;">
+        <div class="row" style="padding:20px">
             <div class="accordion" id="accordion">
                 <div class="card">
                     <div class="card-header card-header-link">
@@ -185,7 +185,7 @@
 							<span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
-                    <div id="secServiceLevels2" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <div id="secServiceLevels2" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px">
 					<div id="secServiceLevels" TargetControlID="ServiceLevels" runat="server">
                         <div class="card-body">
                             <fieldset>
@@ -219,7 +219,7 @@
                             <asp:Localize runat="server" meta:resourcekey="secCompanyInfo" Text="Company Information" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
-                    <div id="secCompanyInfo" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <div id="secCompanyInfo" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px">
                         <div class="card-body">
                             <fieldset>
                               
@@ -279,7 +279,7 @@
                             <asp:Localize runat="server" meta:resourcekey="secContactInfo" Text="Contact Information" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
-                    <div id="secContactInfo2" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <div id="secContactInfo2" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px">
                         <div class="card-body">
                             <fieldset>
                            
@@ -347,7 +347,7 @@
                             <asp:Localize runat="server" meta:ResourceKey="secAddressInfo" Text="Address" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
-                    <div id="secAddressInfo" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <div id="secAddressInfo" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px">
                         <div class="card-body">
                             <fieldset>
                              
@@ -406,7 +406,7 @@
                             <asp:Localize runat="server" meta:ResourceKey="secAdvanced" Text="Advanced" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                         </a>
                     </div>
-                    <div id="secAdvanced" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <div id="secAdvanced" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px">
                         <div class="card-body">
                             <fieldset>
                                

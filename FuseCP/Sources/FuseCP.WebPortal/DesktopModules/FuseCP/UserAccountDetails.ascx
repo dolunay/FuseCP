@@ -66,13 +66,13 @@
 							</div>
 							<div class="widget-content">
 <asp:Panel ID="StatusPanel" runat="server">
-	<table class="table table-borderless align-middle mb-0" style="width:100%; display:normal;">
+	<table class="table table-borderless align-middle mb-0" style="display:normal">
 		<tr>
 			<td class="text-center">
-				<div class="MediumBold" style="padding:5px;">
+				<div class="MediumBold" style="padding:5px">
 					<asp:Literal ID="litStatus" runat="server"></asp:Literal>
 				</div>
-				<div id="StatusBlock" runat="server" style="padding:5px;text-align:center;">
+				<div id="StatusBlock" runat="server" style="padding:5px; text-align:center">
 					<asp:ImageButton ID="cmdActive" runat="server" SkinID="Start" meta:resourcekey="cmdActive" CommandName="Active" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdSuspend" runat="server" SkinID="Pause" meta:resourcekey="cmdSuspend" CommandName="Suspended" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdCancel" runat="server" SkinID="Stop" meta:resourcekey="cmdCancel" CommandName="Cancelled" OnClick="statusButton_Click" />
