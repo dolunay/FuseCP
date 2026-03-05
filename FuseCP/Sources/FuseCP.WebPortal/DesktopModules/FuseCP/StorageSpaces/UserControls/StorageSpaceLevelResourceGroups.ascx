@@ -22,7 +22,7 @@
                     <ItemStyle Width="10px" />
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvResourceGroupsName" >
-                    <ItemStyle Width="96%" Wrap="false" HorizontalAlign="Left"></ItemStyle>
+                    <ItemStyle Wrap="false" HorizontalAlign="Left"></ItemStyle>
                     <ItemTemplate>
                         <asp:Literal ID="litGroupName" runat="server" Text='<%# LocalizeGroup(Eval("GroupName").ToString()) %>'></asp:Literal>
                         <asp:HiddenField ID="hdnGroupId" runat="server" Value='<%# Eval("GroupId") %>' />
@@ -56,7 +56,7 @@
                             </div>
                             <div class="Popup-Scroll">
                                 <asp:GridView ID="gvPopupResourceGroups" runat="server" meta:resourcekey="gvPopupResourceGroups" AutoGenerateColumns="False"
-                                    Width="100%" CssSelectorClass="NormalGridView"
+                                    CssSelectorClass="NormalGridView"
                                     DataKeyNames="GroupId">
                                     <Columns>
                                         <asp:TemplateField>
@@ -69,7 +69,7 @@
                                             <ItemStyle Width="10px" />
                                         </asp:TemplateField>
                                         <asp:TemplateField meta:resourcekey="gvResourceGroupsName">
-                                            <ItemStyle Width="50%" HorizontalAlign="Left"></ItemStyle>
+                                            <ItemStyle HorizontalAlign="Left"></ItemStyle>
                                             <ItemTemplate>
                                                 <asp:Literal ID="litGroupName" runat="server" Text='<%# LocalizeGroup(Eval("GroupName").ToString()) %>'></asp:Literal>
                                                 <asp:HiddenField ID="hdnGroupId" runat="server" Value='<%# Eval("GroupId") %>' />

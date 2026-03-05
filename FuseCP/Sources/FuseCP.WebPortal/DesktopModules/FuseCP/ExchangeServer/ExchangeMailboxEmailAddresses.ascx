@@ -55,7 +55,7 @@
                     <asp:Panel ID="ExistingAddresses" runat="server" Height="0" style="overflow:hidden">
                         <br />
 				        <asp:GridView ID="gvEmails" runat="server" AutoGenerateColumns="False"
-					        Width="100%" EmptyDataText="gvEmails" CssSelectorClass="NormalGridView" DataKeyNames="EmailAddress">
+					        EmptyDataText="gvEmails" CssSelectorClass="NormalGridView" DataKeyNames="EmailAddress">
 					        <Columns>
 					            <asp:TemplateField>
 					                <HeaderTemplate>
@@ -67,7 +67,7 @@
                                     <ItemStyle Width="10px" />
 					            </asp:TemplateField>
 						        <asp:TemplateField HeaderText="gvEmailAddress">
-							        <ItemStyle Width="60%"></ItemStyle>
+							        <ItemStyle></ItemStyle>
 							        <ItemTemplate>
 								        <%# Eval("EmailAddress") %>
 							        </ItemTemplate>

@@ -22,7 +22,7 @@
 				<ItemStyle Width="10px" />
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvAppName" HeaderText="gvAppName">
-				<ItemStyle Width="90%" Wrap="false">
+				<ItemStyle Wrap="false">
 				</ItemStyle>
 				<ItemTemplate>                    
                     <asp:LinkButton id="lnkDisplayName" meta:resourcekey="lnkDisplayName" runat="server" Text='<%# Eval("DisplayName")%>' CommandName="EditApplication" CommandArgument='<%# Eval("Alias") %>' OnClientClick="ShowProgressDialog('Loading ...');return true;"/>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupApps" runat="server" meta:resourcekey="gvPopupApps" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView"
 						DataKeyNames="DisplayName">
 						<Columns>
 							<asp:TemplateField>
@@ -67,7 +67,7 @@
 								<ItemStyle Width="10px" />
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvPopupAppName">
-								<ItemStyle Width="70%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Literal ID="litName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
                                     <asp:HiddenField ID="hfFilePathPopup" runat="server" Value='<%# Eval("FilePath") %>'/>

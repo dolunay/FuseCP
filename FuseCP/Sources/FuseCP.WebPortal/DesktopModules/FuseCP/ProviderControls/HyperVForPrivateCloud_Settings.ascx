@@ -29,7 +29,7 @@
             </td>
             <td>
                 <asp:DropDownList ID="listHosts" runat="server" DataValueField="Path" DataTextField="Name" CssClass="form-control"
-                    Width="500" AutoPostBack="true" OnSelectedIndexChanged="listHosts_OnSelectedIndexChanged">
+                    AutoPostBack="true" OnSelectedIndexChanged="listHosts_OnSelectedIndexChanged">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="HostsValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="listHosts" meta:resourcekey="HostsValidator" SetFocusOnError="true"
@@ -325,7 +325,7 @@
             </td>
             <td>
                 <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control"
-                    Width="450" DataValueField="Name" DataTextField="Name" />
+                    DataValueField="Name" DataTextField="Name" />
                 <asp:RequiredFieldValidator ID="ExternalNetworkValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="ddlExternalNetworks" meta:resourcekey="ExternalNetworkValidator" 
                     SetFocusOnError="true" ValidationGroup="ValidationSummary">*</asp:RequiredFieldValidator>
@@ -347,7 +347,7 @@
             </td>
             <td>
                 <asp:DropDownList ID="ddlPrivateNetworks" runat="server" CssClass="form-control"
-                    Width="450" DataValueField="Name" DataTextField="Name" />
+                    DataValueField="Name" DataTextField="Name" />
                 <asp:RequiredFieldValidator ID="PrivateNetworkValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="ddlPrivateNetworks" meta:resourcekey="PrivateNetworkValidator" 
                     SetFocusOnError="true" ValidationGroup="ValidationSummary">*</asp:RequiredFieldValidator>

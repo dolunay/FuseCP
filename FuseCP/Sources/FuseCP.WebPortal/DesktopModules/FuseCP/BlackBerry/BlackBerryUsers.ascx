@@ -51,12 +51,12 @@
                         </div>
                         <div class="FormButtonsBarCleanRight">
                             <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                                Width="100%" CssSelectorClass="NormalGridView" 
+                                CssSelectorClass="NormalGridView" 
                                 DataSourceID="odsAccountsPaged" meta:resourcekey="gvUsers"
                                 AllowPaging="true" AllowSorting="true" PageSize="20">
                                 <Columns>
                                     <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-                                        <ItemStyle Width="50%"></ItemStyle>
+                                        <ItemStyle></ItemStyle>
                                         <ItemTemplate>
                                             <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>'
                                                 ImageAlign="AbsMiddle" />
@@ -66,7 +66,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress"
-                                        ItemStyle-Width="50%" />
+                                        />
                                 </Columns>
                             </asp:GridView>
                             <asp:ObjectDataSource ID="odsAccountsPaged" runat="server" EnablePaging="True" SelectCountMethod="GetBlackBerryUsersPagedCount"

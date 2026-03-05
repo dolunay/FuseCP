@@ -8,7 +8,7 @@
             <tr>
                 <td colspan="2" style="padding-top: 10px">
 	                <asp:GridView id="gvAdditionalGroups" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		                Width="100%" meta:resourcekey="gvAdditionalGroups" CssSelectorClass="NormalGridView" OnRowCommand="gvAdditionalGroup_RowCommand" DataKeyNames="GroupId">
+		                meta:resourcekey="gvAdditionalGroups" CssSelectorClass="NormalGridView" OnRowCommand="gvAdditionalGroup_RowCommand" DataKeyNames="GroupId">
 		                <Columns>
                             <asp:TemplateField meta:resourcekey="gvAdditionalGroupEdit" HeaderText="gvAdditionalGroupEdit">
                                 <ItemTemplate>
@@ -16,7 +16,7 @@
                                 </ItemTemplate>
                                 </asp:TemplateField>
 			                <asp:TemplateField meta:resourcekey="gvAdditionalGroup" HeaderText="gvAdditionalGroup">
-				                <ItemStyle Width="100%"></ItemStyle>
+				                <ItemStyle></ItemStyle>
 				                <ItemTemplate>
 					                <asp:Literal id="litDisplayAdditionalGroup" runat="server" Text='<%# Eval("GroupName") %>'></asp:Literal>
                                 </ItemTemplate>
@@ -36,7 +36,7 @@
                     <asp:Label ID="lblAdditionalGroupName" runat="server" meta:resourcekey="lblAdditionalGroupName" Text="Display Name:"/>
                 </td>
                 <td class="Normal" style="padding-top: 10px">
-                    <asp:TextBox ID="txtAdditionalGroup" runat="server" CssClass="form-control" Width="200"/>
+                    <asp:TextBox ID="txtAdditionalGroup" runat="server" CssClass="form-control"/>
                     <asp:RequiredFieldValidator ID="valRequireAdditionalGroup" runat="server" meta:resourcekey="valRequireAdditionalGroup" ControlToValidate="txtAdditionalGroup"
 					    ErrorMessage="Enter Display Name" Display="Dynamic" Text="*" ValidationGroup="SettingsAdditionalGroupEditor" SetFocusOnError="True"></asp:RequiredFieldValidator>
                     <asp:CustomValidator ID="valDuplicateAdditionalGroup" runat="server" meta:resourcekey="valDuplicateAdditionalGroup" ControlToValidate="txtAdditionalGroup"

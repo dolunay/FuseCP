@@ -47,13 +47,13 @@
                     </div>
                     <div class="FormButtonsBarCleanRight">
                         <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                            Width="100%" CssSelectorClass="NormalGridView" DataSourceID="odsAccountsPaged"
+                            CssSelectorClass="NormalGridView" DataSourceID="odsAccountsPaged"
                             meta:resourcekey="gvUsers" AllowPaging="true" AllowSorting="true" 
                             OnRowCommand="gvUsers_RowCommand" PageSize="20">
                             <Columns>
                                 <asp:TemplateField HeaderText="gvUsersDisplayName" meta:resourcekey="gvUsersDisplayName"
                                     SortExpression="DisplayName">
-                                    <ItemStyle Width="50%"></ItemStyle>
+                                    <ItemStyle></ItemStyle>
                                     <ItemTemplate>
                                         <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage() %>' ImageAlign="AbsMiddle" />
                                         <asp:HyperLink ID="lnk1" runat="server" NavigateUrl='<%# GetUserEditUrl(Eval("AccountId").ToString(), Eval("InstanceId").ToString()) %>'> 
@@ -62,7 +62,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField HeaderText="gvUsersEmail" meta:resourcekey="gvUsersEmail" DataField="PrimaryEmailAddress"
-                                    SortExpression="PrimaryEmailAddress" ItemStyle-Width="50%" />
+                                    SortExpression="PrimaryEmailAddress" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("InstanceID") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
