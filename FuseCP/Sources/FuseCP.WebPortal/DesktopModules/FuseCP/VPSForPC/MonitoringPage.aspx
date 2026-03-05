@@ -13,13 +13,13 @@
 	<link href="/App_Themes/Default/Styles/jquery-ui-1.8.9.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<form id="form1" runat="server" style="width: 590px; height: 700px">
+	<form id="form1" runat="server" style="height: 700px">
 	<asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true"
 		EnableScriptGlobalization="true" EnableScriptLocalization="true">
 	</asp:ScriptManager>
 	<asp:Timer runat="server" Interval="10000" ID="operationTimer" OnTick="operationTimer_Tick" />
-	<div id="testClass" style="width: 590px; height: 700px">
-		<table style="width:100%;">
+	<div id="testClass" style="height: 700px">
+		<table style="width:100%;" class="table table-sm">
 			<tr>
 				<td style="padding:3px;">
 					<asp:Label ID="lblStartPeriod" runat="server" AssociatedControlID="txtStartPeriod"

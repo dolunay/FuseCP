@@ -102,7 +102,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                                     </Triggers>
                                     <ContentTemplate>                
-				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge;border-width: 3px;border-color: #ffffff;" />
+				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge;border-; border-color: #ffffff" />
 				                    </ContentTemplate>
 				                 </asp:UpdatePanel>
 
@@ -141,7 +141,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                                 <td class="NormalBold">
                                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:"/>
                                                 </td>
-				                                <td class="NormalBold" style="width:150px;">
+				                                <td class="NormalBold">
 				                                    <fcp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
 				                                    <asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
 				                                </td>

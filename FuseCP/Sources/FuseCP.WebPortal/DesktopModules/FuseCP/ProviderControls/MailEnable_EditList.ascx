@@ -5,7 +5,7 @@
 
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-		<td class="SubHead" style="width:150px;">
+		<td class="SubHead">
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
 		<td class="normal">
@@ -46,7 +46,7 @@
 		    <asp:Label ID="lblPostingPassword" runat="server" meta:resourcekey="lblPostingPassword" Text="Posting password:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtPassword" runat="server" CssClass="form-control"  TextMode="Password" Width="150px"></asp:TextBox>
+			<asp:TextBox id="txtPassword" runat="server" CssClass="form-control"  TextMode="Password" Width="150px" MaxLength="255"></asp:TextBox>
 		</td>
 	</tr>
 	<tr>
@@ -67,7 +67,7 @@
 		    <asp:Label ID="Label4" runat="server" meta:resourcekey="lblPrefix" Text="Prefix:"></asp:Label>
 		</td>
 		<td class="normal">
-			<asp:TextBox id="txtSubjectPrefix" runat="server" CssClass="form-control" Width="150px"></asp:TextBox>
+			<asp:TextBox id="txtSubjectPrefix" runat="server" CssClass="form-control" Width="150px" MaxLength="255"></asp:TextBox>
 		</td>
 	</tr>
 	<tr>
@@ -111,7 +111,7 @@
 		<td>&nbsp;</td>
 	</tr>
       <tr>
-      	<td style="width:150px;">
+      	<td>
 		    <asp:Label ID="lblHeader" runat="server" meta:resourcekey="lblHeader" Text="Header:"></asp:Label>
 		</td>
 		<td class="normal">

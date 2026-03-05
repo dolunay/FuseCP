@@ -68,7 +68,7 @@
                             <div id="AdminPasswordPanel" runat="server" visible="false">
                                 <asp:Label ID="locAdminPassword" runat="server" CssClass="col-sm-2" meta:resourcekey="locAdminPassword" AssociatedControlID="adminPassword" Text="Administrator password:"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                    <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredAdminPassword" runat="server"
                                         ControlToValidate="adminPassword" ValidationGroup="ImportWizard" meta:resourcekey="RequiredAdminPassword"
                                         Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -135,7 +135,7 @@
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="150" Text="0"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="150" Text="0" MaxLength="255"></asp:TextBox>
                                                     
                                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -147,7 +147,7 @@
                         <fcp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:450px;">                            
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">                            
                             <div class="mb-3">
                                 <div id="divBootFromCdChkOption" runat="server" class="col-sm-6">
                                     <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
@@ -186,7 +186,7 @@
                         <fcp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:450px;">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
                             <div class="mb-3">
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
@@ -267,7 +267,7 @@
                     </asp:Panel>
 
                     <p>
-                        <asp:CheckBox ID="chkIgnoreCheckes" runat="server" CssClass="NormalBold"
+                        <asp:CheckBox ID="chkIgnoreCheckes" runat="server" CssClass="form-label"
 				                    meta:resourcekey="chkIgnoreCheckes" Text="Ignore Quotas checkes" />
                     </p>
                     

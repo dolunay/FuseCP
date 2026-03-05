@@ -7,9 +7,9 @@
 <fcp:CollapsiblePanel id="secUsername" runat="server"
     TargetControlID="UsernamePanel" meta:resourcekey="secUsername" Text="SharePoint Users Policy"/>
 <asp:Panel ID="UsernamePanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+    <table class="table table-sm">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblUsername" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>
             </td>
             <td class="Normal">
@@ -31,9 +31,9 @@
 <fcp:CollapsiblePanel id="secGroup" runat="server"
     TargetControlID="GroupPanel" meta:resourcekey="secGroup" Text="SharePoint Groups Policy"/>
 <asp:Panel ID="GroupPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table>
+    <table class="table table-sm">
         <tr>
-            <td class="SubHead text-nowrap align-top" width="150">
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblGroupName" runat="server" meta:resourcekey="lblGroupName" Text="Group Name:"></asp:Label>
             </td>
             <td class="Normal">
