@@ -1,6 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServersEditTerminalConnections.ascx.cs" Inherits="FuseCP.Portal.ServersEditTerminalConnections" %>
 <%@ Register Src="ServerHeaderControl.ascx" TagName="ServerHeaderControl" TagPrefix="uc1" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/terminal-connections.js"></script>
 <uc1:ServerHeaderControl id="ServerHeaderControl1" runat="server">
 </uc1:ServerHeaderControl>
 
@@ -34,15 +35,3 @@
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
     </asp:LinkButton>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-        prm.add_endRequest(EndRequest);
-    });
-
-
-    function EndRequest(sender, args) {
-        CloseProgressDialog();
-    }
-</script>

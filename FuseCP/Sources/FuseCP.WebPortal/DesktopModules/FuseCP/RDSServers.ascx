@@ -7,16 +7,9 @@
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/PopupHeader.ascx" TagName="PopupHeader" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rds-servers.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {        
-        setTimeout(checkStatus, 3000);        
-    });    
-    //]]>
-</script>
 <asp:UpdatePanel runat="server" ID="messageBoxPanel" UpdateMode="Conditional"><ContentTemplate><fcp:SimpleMessageBox id="messageBox" runat="server" /></ContentTemplate></asp:UpdatePanel>
 <div class="FormButtonsBar right">
     <asp:LinkButton ID="btnAddRDSServer"  runat="server" CssClass="btn btn-primary" OnClick="btnAddRDSServer_Click" >
