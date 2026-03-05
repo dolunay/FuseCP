@@ -3,10 +3,10 @@
 <fcp:CollapsiblePanel id="secDataFiles" runat="server" IsCollapsed="true"
     TargetControlID="FilesPanel" meta:resourcekey="secDataFiles" Text="Database Files">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="FilesPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="FilesPanel" runat="server" Height="0" style="overflow:hidden">
     <table id="tblFiles" runat="server" class="table table-borderless align-middle mb-0 w-100">
         <tr>
-            <td style="width: 150px;" class="Medium">
+            <td  class="Medium">
                 <asp:Label ID="lblDataFile" runat="server" meta:resourcekey="lblDataFile" Text="Data File"></asp:Label>
             </td>
         </tr>
@@ -25,7 +25,7 @@
 <fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true"
     TargetControlID="MainToolsPanel" meta:resourcekey="secMainTools" Text="Maintenance Tools">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="MainToolsPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="MainToolsPanel" runat="server" Height="0" style="overflow:hidden">
     <table class="table table-borderless align-middle mb-0">
         <tr>
             <td>
@@ -39,7 +39,7 @@
 <fcp:CollapsiblePanel id="secHousekeepingTools" runat="server" IsCollapsed="true"
     TargetControlID="HousekeepingToolsPanel" meta:resourcekey="secHousekeepingTools" Text="Housekeeping Tools">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="HousekeepingToolsPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="HousekeepingToolsPanel" runat="server" Height="0" style="overflow:hidden">
     <table class="table table-borderless align-middle mb-0">
         <tr>
             <td>

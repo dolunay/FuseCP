@@ -69,7 +69,7 @@
     </tr>
     <tr>
         <td class="Normal">
-            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; width: auto; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px">
+            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px">
                 <asp:Literal ID="litLog" runat="server"></asp:Literal>
             </asp:Panel>
         </td>

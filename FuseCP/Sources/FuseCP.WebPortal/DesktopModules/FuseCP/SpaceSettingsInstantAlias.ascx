@@ -3,10 +3,10 @@
 
 <fcp:CollapsiblePanel id="secPreviewDomain" runat="server"
     TargetControlID="PreviewDomainPanel" meta:resourcekey="secPreviewDomain" Text="Preview Domain"/>
-<asp:Panel ID="PreviewDomainPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="PreviewDomainPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead text-nowrap" width="150">
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblPreviewDomain" runat="server" meta:resourcekey="lblPreviewDomain" Text="Preview Domain:"></asp:Label>
             </td>
             <td class="NormalBold">
