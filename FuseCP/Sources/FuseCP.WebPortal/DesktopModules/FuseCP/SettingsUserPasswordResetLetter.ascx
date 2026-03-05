@@ -32,14 +32,14 @@
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtHtmlBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtHtmlBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="lblTextBody" runat="server" meta:resourcekey="lblTextBody" Text="Text Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtTextBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtTextBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 
     <tr>
@@ -47,7 +47,7 @@
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtBodyPasswordResetLinkSmsBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtBodyPasswordResetLinkSmsBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
     
 </table>

@@ -217,12 +217,12 @@
                             <tr>
                                 <td class="SubHead" ><asp:Label ID="lblLitigationHoldUrl" runat="server" meta:resourcekey="lblLitigationHoldUrl" Text="Url:"></asp:Label></td>
                                 <td class="Normal" style="padding-left: 5px">
-                                    <asp:TextBox ID="txtLitigationHoldUrl" runat="server" Width="200" CssClass="form-control" MaxLength="255"></asp:TextBox></td>
+                                    <asp:TextBox ID="txtLitigationHoldUrl" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td class="SubHead align-top"><asp:Label ID="lblLitigationHoldMsg" runat="server" meta:resourcekey="lblLitigationHoldMsg" Text="Page Content:"></asp:Label></td>
                                 <td class="Normal align-top" style="padding-left: 5px">
-                                    <asp:TextBox ID="txtLitigationHoldMsg" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False" MaxLength="511"></asp:TextBox></td>
+                                    <asp:TextBox ID="txtLitigationHoldMsg" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False" MaxLength="511"></asp:TextBox></td>
                             </tr>
 
 						</table>
@@ -274,10 +274,10 @@
                         <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                             <ContentTemplate>
                             <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		                    Width="100%" EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
+		                    EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
 		                    <Columns>
 			                    <asp:TemplateField HeaderText="Tag">
-				                    <ItemStyle Width="70%"></ItemStyle>
+				                    <ItemStyle></ItemStyle>
 				                    <ItemTemplate>
 					                    <asp:Label id="displayPolicy" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("TagName"))%></asp:Label>
                                     </ItemTemplate>

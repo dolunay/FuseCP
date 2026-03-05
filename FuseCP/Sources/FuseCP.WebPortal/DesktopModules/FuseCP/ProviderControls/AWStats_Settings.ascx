@@ -16,7 +16,7 @@
 		<td class="SubHead">
 		    <asp:Label ID="lblLineTemplate" runat="server" meta:resourcekey="lblLineTemplate" Text="Batch File Line Template:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtBatchLineTemplate" CssClass="form-control" Width="100%"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtBatchLineTemplate" CssClass="form-control"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead text-nowrap">
@@ -28,14 +28,14 @@
 		<td class="SubHead align-top">
 		    <asp:Label ID="lblFileTemplate" runat="server" meta:resourcekey="lblFileTemplate" Text="Configuration File Template:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtConfigFileTemplate" CssClass="form-control" Width="100%"
+		<td><asp:TextBox Runat="server" ID="txtConfigFileTemplate" CssClass="form-control"
 				TextMode="MultiLine" Rows="10" Wrap="False"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead">
 		    <asp:Label ID="lblFileTemplatePath" runat="server" meta:resourcekey="lblFileTemplatePath" Text="Configuration Template Path:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtConfigFileTemplatePath" CssClass="form-control" Width="100%"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtConfigFileTemplatePath" CssClass="form-control"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead">
@@ -49,6 +49,6 @@
 		<td class="SubHead">
 		    <asp:Label ID="lblStatsUrl" runat="server" meta:resourcekey="lblStatsUrl" Text="Statistics Help URL:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control" Width="100%"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control"></asp:TextBox></td>
 	</tr>
 </table>

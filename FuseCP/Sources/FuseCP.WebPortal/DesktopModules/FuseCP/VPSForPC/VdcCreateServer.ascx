@@ -120,7 +120,7 @@
                                                     Text="CPU:" CssClass="MediumBold" />
                                             </td>
                                             <td>
-                                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
+                                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control">
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
@@ -135,7 +135,7 @@
                                                     Text="RAM:" CssClass="MediumBold" />
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Width="70" Text="0"></asp:TextBox>
+                                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                                     ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                                     ValidationGroup="VpsWizard">*</asp:RequiredFieldValidator>
@@ -152,7 +152,7 @@
                                                     Text="HDD:" CssClass="MediumBold" />
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Width="70" Text="0"></asp:TextBox>
+                                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                                     ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                                     ValidationGroup="VpsWizard">*</asp:RequiredFieldValidator>
@@ -174,7 +174,7 @@
                                                 <asp:Localize ID="locSnapshots" runat="server" meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50"
+                                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control"
                                                     Text="0"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                     ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"

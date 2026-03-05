@@ -53,19 +53,19 @@
         </div>
     </div>
     <asp:GridView ID="gvContacts" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-        Width="100%" EmptyDataText="gvContacts" CssSelectorClass="NormalGridView"
+        EmptyDataText="gvContacts" CssSelectorClass="NormalGridView"
         OnRowCommand="gvContacts_RowCommand" AllowPaging="True" AllowSorting="True"
         DataSourceID="odsAccountsPaged" PageSize="20">
         <Columns>
             <asp:TemplateField HeaderText="gvContactsDisplayName" SortExpression="DisplayName">
-                <ItemStyle Width="50%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
                     <asp:hyperlink id="lnk1" runat="server" NavigateUrl='<%# GetContactEditUrl(Eval("AccountId").ToString()) %>'>
                         <%# Eval("DisplayName") %>
                     </asp:hyperlink>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="gvContactsEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="50%" />
+            <asp:BoundField HeaderText="gvContactsEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');">

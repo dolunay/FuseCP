@@ -32,25 +32,25 @@
 		    <td class="SubHead">
 		        <asp:Label ID="lblBindConfigPath" runat="server" meta:resourcekey="lblBindConfigPath" Text="BIND Configuration File:"></asp:Label>
 		    </td>
-		    <td class="Normal"><asp:textbox id="txtBindConfigPath" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+		    <td class="Normal"><asp:textbox id="txtBindConfigPath" CssClass="form-control" Runat="server"></asp:textbox></td>
 	    </tr>
 	    <tr>
 		    <td class="SubHead">
 		        <asp:Label ID="lblZonesFolderPath" runat="server" meta:resourcekey="lblZonesFolderPath" Text="Zone Files Folder:"></asp:Label>
 		    </td>
-		    <td class="Normal"><asp:textbox id="txtZonesFolderPath" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+		    <td class="Normal"><asp:textbox id="txtZonesFolderPath" CssClass="form-control" Runat="server"></asp:textbox></td>
 	    </tr>
 	    <tr>
 		    <td class="SubHead">
 		        <asp:Label ID="lblZoneFileNameTemplate" runat="server" meta:resourcekey="lblZoneFileNameTemplate" Text="Zone File Name Template:"></asp:Label>
 		    </td>
-		    <td class="Normal"><asp:textbox id="txtZoneFileNameTemplate" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+		    <td class="Normal"><asp:textbox id="txtZoneFileNameTemplate" CssClass="form-control" Runat="server"></asp:textbox></td>
 	    </tr>
 	    <tr>
 		    <td class="SubHead">
 		        <asp:Label ID="lblBindReloadBatch" runat="server" meta:resourcekey="lblBindReloadBatch" Text="Bind Reload Batch:"></asp:Label>
 		    </td>
-		    <td class="Normal"><asp:textbox id="txtBindReloadBatch" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+		    <td class="Normal"><asp:textbox id="txtBindReloadBatch" CssClass="form-control" Runat="server"></asp:textbox></td>
 	    </tr>
 	    <tr>
 		    <td class="SubHead">

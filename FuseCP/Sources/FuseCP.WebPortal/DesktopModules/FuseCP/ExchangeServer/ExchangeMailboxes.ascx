@@ -85,7 +85,7 @@
         </asp:Panel>
     </div>
 </div>
-<asp:GridView ID="gvMailboxes" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%" EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView" DataKeyNames="AccountId" OnRowCommand="gvMailboxes_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsAccountsPaged" PageSize="20">
+<asp:GridView ID="gvMailboxes" runat="server" AutoGenerateColumns="False" EnableViewState="true" EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView" DataKeyNames="AccountId" OnRowCommand="gvMailboxes_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsAccountsPaged" PageSize="20">
     <Columns>
     <asp:TemplateField>
         <HeaderTemplate>
@@ -101,7 +101,7 @@
         </ItemTemplate>
     </asp:TemplateField>
     <asp:TemplateField HeaderText="gvMailboxesDisplayName" SortExpression="DisplayName">
-        <ItemStyle Width="20%"></ItemStyle>
+        <ItemStyle></ItemStyle>
         <ItemTemplate>
             <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType"),(bool)Eval("IsVIP")) %>' ImageAlign="AbsMiddle" />
             <asp:HyperLink id="lnk1" runat="server" NavigateUrl='<%# GetMailboxEditUrl(Eval("AccountId").ToString()) %>'>
@@ -110,7 +110,7 @@
         </ItemTemplate>
     </asp:TemplateField>
     <asp:TemplateField HeaderText="gvUsersLogin" SortExpression="UserPrincipalName">
-        <ItemStyle Width="20%"></ItemStyle>
+        <ItemStyle></ItemStyle>
         <ItemTemplate>							        
             <asp:HyperLink id="lnk2" runat="server" NavigateUrl='<%# GetOrganizationUserEditUrl(Eval("AccountId").ToString()) %>'>
                 <%# Eval("UserPrincipalName") %>
@@ -118,7 +118,7 @@
         </ItemTemplate>
     </asp:TemplateField>
     <asp:TemplateField HeaderText="gvServiceLevel">
-        <ItemStyle Width="15%"></ItemStyle>
+        <ItemStyle></ItemStyle>
         <ItemTemplate>
             <asp:Label id="lbServLevel" runat="server" ToolTip = '<%# GetServiceLevel((int)Eval("LevelId")).LevelDescription%>'>
                 <%# GetServiceLevel((int)Eval("LevelId")).LevelName%>
