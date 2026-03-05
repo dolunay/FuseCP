@@ -44,25 +44,25 @@
     </div>
 </div>
 <asp:GridView ID="gvDriveMaps" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-    Width="100%" EmptyDataText="gvDriveMaps" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvDriveMaps" CssSelectorClass="NormalGridView"
     OnRowCommand="gvDriveMaps_RowCommand" AllowPaging="True" AllowSorting="True"
     DataSourceID="odsEnterpriseDriveMapsPaged" PageSize="20">
     <Columns>
         <asp:TemplateField HeaderText="gvDrive">
-            <ItemStyle Width="25%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Image ID="img1" runat="server" ImageUrl='<%# GetDriveImage() %>' ImageAlign="AbsMiddle" />
                 <asp:Literal id="litDrive" runat="server" Text='<%# string.Format("{0}:", Eval("DriveLetter")) %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvLabelAs">
-            <ItemStyle Width="25%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litLabelAs" runat="server" Text='<%# Eval("LabelAs") %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderUrl">
-            <ItemStyle Width="50%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderUrl" runat="server" Text='<%# (Eval("Folder.UncPath") ?? Eval("Folder.Url")).ToString()  %>'></asp:Literal>
             </ItemTemplate>

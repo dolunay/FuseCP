@@ -51,7 +51,7 @@
 
 									<ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
 										PopupControlID="RdpPanel" Position="Bottom" />
-									<ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />--%>
+									<ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />--%>
 								</td>
 							</tr>
 							<tr>
@@ -124,7 +124,7 @@
 					</td>
 					<td class="align-top" >
 
-						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
+						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
 
 						<script>
 							var img = document.getElementById('imgThumbnail');
@@ -244,7 +244,7 @@
 							meta:resourcekey="locHostname1"></asp:Localize>
 					</td>
 					<td>
-						<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+						<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
 
 						<asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
 							ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -261,7 +261,7 @@
 							meta:resourcekey="locDomain"></asp:Localize>
 					</td>
 					<td>
-						<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+						<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
 
 						<asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
 							ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"

@@ -56,12 +56,12 @@
                     </div>
 
                     <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                        Width="100%" DataSourceID="odsAccountsPaged" EmptyDataText="gvUsers" CssSelectorClass="NormalGridView"
+                        DataSourceID="odsAccountsPaged" EmptyDataText="gvUsers" CssSelectorClass="NormalGridView"
                         meta:resourcekey="gvUsers" AllowPaging="true" AllowSorting="true" OnRowCommand="gvUsers_RowCommand" PageSize="20">
                         <Columns>
                             <asp:TemplateField HeaderText="gvUsersDisplayName" meta:resourcekey="gvUsersDisplayName"
                                 SortExpression="DisplayName">
-                                <ItemStyle Width="50%"></ItemStyle>
+                                <ItemStyle></ItemStyle>
                                 <ItemTemplate>
                                     <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage() %>' ImageAlign="AbsMiddle" />
                                     <asp:HyperLink ID="lnk1" runat="server" NavigateUrl='<%# GetUserEditUrl(Eval("AccountId").ToString()) %>'> 
@@ -78,8 +78,8 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvUsersEmail" meta:resourcekey="gvUsersEmail" DataField="SipAddress" SortExpression="SipAddress" ItemStyle-Width="25%" />
-                            <asp:BoundField HeaderText="gvSfBUserPlan" meta:resourcekey="gvSfBUserPlan" DataField="SfBUserPlanName" SortExpression="SfBUserPlanName" ItemStyle-Width="25%" />
+                            <asp:BoundField HeaderText="gvUsersEmail" meta:resourcekey="gvUsersEmail" DataField="SipAddress" SortExpression="SipAddress" />
+                            <asp:BoundField HeaderText="gvSfBUserPlan" meta:resourcekey="gvSfBUserPlan" DataField="SfBUserPlanName" SortExpression="SfBUserPlanName" />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>

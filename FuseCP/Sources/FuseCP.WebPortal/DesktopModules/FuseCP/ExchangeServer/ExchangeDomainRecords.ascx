@@ -48,7 +48,7 @@
 						<asp:BoundField DataField="RecordName" SortExpression="RecordName" HeaderText="gvRecordsName" />
 						<asp:BoundField DataField="RecordType" SortExpression="RecordType" HeaderText="gvRecordsType" />
 						<asp:TemplateField SortExpression="RecordData" HeaderText="gvRecordsData" >
-							<ItemStyle Width="100%" />
+							<ItemStyle />
 							<ItemTemplate>
                                 <%# GetRecordFullData((string)Eval("RecordType"), (string)Eval("RecordData"), (int)Eval("MxPriority"), (int)Eval("SrvPort"))%>
 							</ItemTemplate>
@@ -122,7 +122,7 @@
                         <tr id="rowMXPriority" runat="server">
                             <td class="SubHead"><asp:Label ID="lblMXPriority" runat="server" meta:resourcekey="lblMXPriority" Text="MX Priority:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtMXPriority" runat="server" Width="30" CssClass="form-control" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtMXPriority" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireMxPriority" runat="server" ControlToValidate="txtMXPriority"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectPriority" runat="server" ControlToValidate="txtMXPriority"
@@ -132,7 +132,7 @@
                         <tr id="rowSRVPriority" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVPriority" runat="server" meta:resourcekey="lblSRVPriority" Text="Priority:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVPriority" runat="server" Width="30" CssClass="form-control" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVPriority" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvPriority" runat="server" ControlToValidate="txtSRVPriority"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvPriority" runat="server" ControlToValidate="txtSRVPriority"
@@ -142,7 +142,7 @@
                         <tr id="rowSRVWeight" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVWeight" runat="server" meta:resourcekey="lblSRVWeight" Text="Weight:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVWeight" runat="server" Width="30" CssClass="form-control" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVWeight" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvWeight" runat="server" ControlToValidate="txtSRVWeight"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvWeight" runat="server" ControlToValidate="txtSRVWeight"
@@ -152,7 +152,7 @@
                         <tr id="rowSRVPort" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVPort" runat="server" meta:resourcekey="lblSRVPort" Text="Port Number:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVPort" runat="server" Width="30" CssClass="form-control" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVPort" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvPort" runat="server" ControlToValidate="txtSRVPort"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvPort" runat="server" ControlToValidate="txtSRVPort"

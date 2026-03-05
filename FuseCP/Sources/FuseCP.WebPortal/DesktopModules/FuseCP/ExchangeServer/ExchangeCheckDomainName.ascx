@@ -22,10 +22,10 @@
 				    <br />
 
 				    <asp:GridView ID="gvObjects" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" CssSelectorClass="NormalGridView" OnRowCommand="gvObjects_RowCommand">
+					    CssSelectorClass="NormalGridView" OnRowCommand="gvObjects_RowCommand">
 					    <Columns>
 						    <asp:TemplateField HeaderText="gvObjectsDisplayName">
-							    <ItemStyle Width="40%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 							        <asp:Image ID="img1" runat="server" ImageUrl='<%# GetObjectImage(Eval("ObjectName").ToString(),(int)Eval("ObjectType")) %>' ImageAlign="AbsMiddle" />
 								    <asp:hyperlink id="lnk1" runat="server"
@@ -35,14 +35,14 @@
 							    </ItemTemplate>
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvObjectsObjectType">
-							    <ItemStyle Width="40%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
 									<%# GetObjectType(Eval("ObjectName").ToString(),(int)Eval("ObjectType")) %>
 							    </ItemTemplate>
 						    </asp:TemplateField>
 
 						    <asp:TemplateField HeaderText="gvObjectsView">
-							    <ItemStyle Width="10%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>	
 								    <asp:hyperlink id="lnk2" runat="server"
 									    NavigateUrl='<%# GetEditUrl(Eval("ObjectName").ToString(),(int)Eval("ObjectType"),Eval("ObjectID").ToString(),Eval("OwnerID").ToString()) %>'>
@@ -52,7 +52,7 @@
 						    </asp:TemplateField>
 
 						    <asp:TemplateField HeaderText="gvObjectsDelete">
-							    <ItemStyle Width="10%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
                                     <asp:LinkButton id="lnkDelete" runat="server" Text="Delete" meta:resourcekey="lnkDelete" 
                                         OnClientClick="if(!confirm('Are you sure you want to delete ?')) return false; else ShowProgressDialog('Deleting ...');"

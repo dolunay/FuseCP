@@ -20,7 +20,7 @@
 				<ItemStyle Width="10px" />
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvUsersAccount" HeaderText="gvUsersAccount">
-				<ItemStyle Width="96%" Wrap="false" HorizontalAlign="Left">
+				<ItemStyle Wrap="false" HorizontalAlign="Left">
 				</ItemStyle>
 				<ItemTemplate>
                     <asp:Literal ID="litAccount" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView"
 						DataKeyNames="AccountName">
 						<Columns>
 							<asp:TemplateField>
@@ -75,7 +75,7 @@
 								<ItemStyle Width="10px" />
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvAccountsDisplayName">
-								<ItemStyle Width="50%" HorizontalAlign="Left"></ItemStyle>
+								<ItemStyle HorizontalAlign="Left"></ItemStyle>
 								<ItemTemplate>
 									<asp:Image ID="imgAccount" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 									<asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
@@ -83,7 +83,7 @@
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvAccountsEmail">
-								<ItemStyle Width="50%" HorizontalAlign="Left"></ItemStyle>
+								<ItemStyle HorizontalAlign="Left"></ItemStyle>
 								<ItemTemplate>
 									<asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 								</ItemTemplate>
