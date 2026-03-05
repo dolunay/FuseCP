@@ -45,11 +45,11 @@
                     </div>
 
 				    <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvUsers"  meta:resourcekey="gvUsers" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvUsers"  meta:resourcekey="gvUsers" CssSelectorClass="NormalGridView"
 					     AllowPaging="True" AllowSorting="True" DataSourceID="odsAccountsPaged" PageSize="20">
 					    <Columns>						     						   						    
 						    <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-							    <ItemStyle Width="50%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
 								    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 								    <asp:hyperlink id="lnk1" runat="server"
@@ -58,7 +58,7 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-						    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="50%" />						   
+						    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />						   
 					    </Columns>
 				    </asp:GridView>
 					<asp:ObjectDataSource ID="odsAccountsPaged" runat="server" EnablePaging="True"

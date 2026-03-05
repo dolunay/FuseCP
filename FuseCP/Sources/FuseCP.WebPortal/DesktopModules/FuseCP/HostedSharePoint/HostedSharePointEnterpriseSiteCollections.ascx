@@ -54,18 +54,18 @@ function confirmation()
 						</div>
 					</div>
 					<asp:GridView ID="gvSiteCollections" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-						Width="100%" EmptyDataText="gvSiteCollection" CssSelectorClass="NormalGridView" OnRowCommand="gvSiteCollections_RowCommand"
+					 EmptyDataText="gvSiteCollection" CssSelectorClass="NormalGridView" OnRowCommand="gvSiteCollections_RowCommand"
 						AllowPaging="True" AllowSorting="True" DataSourceID="odsSiteCollectionsPaged">
 						<Columns>
 							<asp:TemplateField meta:resourcekey="gvSiteCollectionUrl" SortExpression="ItemName">
-								<ItemStyle Width="50%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:HyperLink ID="lnk1" runat="server" NavigateUrl='<%# GetSiteCollectionEditUrl(Eval("Id").ToString()) %>'>
 									    <%# Eval("PhysicalAddress") %>
 									</asp:HyperLink>
 								</ItemTemplate>
 							</asp:TemplateField>
-							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName"	ItemStyle-Width="50%" />
+							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName" />
 							<asp:TemplateField>
 								<ItemTemplate>
 									<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="confirmation()"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>

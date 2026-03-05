@@ -52,19 +52,19 @@
         </div>
     </div>
     <asp:GridView ID="gvGroups" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-    Width="100%" EmptyDataText="gvGroups" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvGroups" CssSelectorClass="NormalGridView"
     OnRowCommand="gvSecurityGroups_RowCommand" OnRowDataBound="gvSecurityGroups_RowDataBound" AllowPaging="True" AllowSorting="True"
     DataSourceID="odsSecurityGroupsPaged" PageSize="20">
         <Columns>
             <asp:TemplateField HeaderText="gvGroupsDisplayName" SortExpression="DisplayName">
-                <ItemStyle Width="35%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
                     <asp:hyperlink id="lnk1" runat="server" NavigateUrl='<%# GetListEditUrl(Eval("AccountId").ToString()) %>'>
                         <%# Eval("DisplayName") %>
                     </asp:hyperlink>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="gvGroupsNotes" DataField="Notes" ItemStyle-Width="65%" />
+            <asp:BoundField HeaderText="gvGroupsNotes" DataField="Notes" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' Visible='<%# IsNotDefault(Eval("AccountType").ToString()) %>' OnClientClick="return confirm('Remove this item?');">
