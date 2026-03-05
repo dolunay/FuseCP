@@ -32,7 +32,7 @@
                     </div>
                     </div>
 			        <asp:GridView ID="gvServers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-				        Width="100%" EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataSourceID="odsServersPaged" PageSize="20"
                         onrowcommand="gvServers_RowCommand">
 				        <Columns>

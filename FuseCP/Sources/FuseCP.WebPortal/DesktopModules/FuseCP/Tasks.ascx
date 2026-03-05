@@ -11,7 +11,7 @@
     DataSourceID="odsTasks" OnRowDataBound="gvTasks_RowDataBound" OnRowCommand="gvTasks_RowCommand">
     <Columns>
         <asp:TemplateField HeaderText="gvTasksName">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id="lnkTaskName" runat="server">
 	            </asp:hyperlink>

@@ -34,7 +34,7 @@
 	OnRowCommand="gvSchedules_RowCommand" CssSelectorClass="NormalGridView" DataKeyNames="ScheduleID">
 	<Columns>
 		<asp:TemplateField SortExpression="ScheduleName" HeaderText="gvSchedulesName">
-			<ItemStyle Width="100%"></ItemStyle>
+			<ItemStyle></ItemStyle>
 			<HeaderStyle Wrap="false" />
 			<ItemTemplate>
 				<asp:hyperlink id="lnkEdit" runat="server" NavigateUrl='<%# EditUrl("ScheduleID", Eval("ScheduleID").ToString(), "edit", "SpaceID=" + PanelSecurity.PackageId) %>'>

@@ -23,7 +23,7 @@
                     </div>
 
 			        <asp:GridView ID="gvAddresses" runat="server" AutoGenerateColumns="False" EnableViewState="false"
-				        Width="100%" EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataKeyNames="PrivateAddressId" DataSourceID="odsPrivateAddressesPaged">
 				        <Columns>
 					        <asp:BoundField HeaderText="gvAddressesIPAddress" meta:resourcekey="gvAddressesIPAddress"
