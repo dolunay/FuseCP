@@ -3,6 +3,7 @@
 	Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="CalendarControl" Src="UserControls/CalendarControl.ascx" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/overusage-report.js"></script>
 
 <!-- Our Toolbar -->
 <div class="card-body form-horizontal">
@@ -121,22 +122,11 @@
 	<asp:LinkButton id="refreshButton" CssClass="btn btn-success" runat="server" OnClick="OnRefreshButtonClick"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="refreshButtonText"/> </asp:LinkButton>
 </div>
 
-<script>
-	<!-- 
-	
-	if (typeof(BindOverusageReportClientFunctionality) == "function")
-	{
-		BindOverusageReportClientFunctionality();
-	}
-	
-	// -->
-</script>
-
 <!-- Report Viewer -->
 <rsweb:ReportViewer ID="rvContent" runat="server" 
 	EnableTheming="true"
 	CssClass="Module"	
-	Width="100%"
+
 	InternalBorderWidth="0"
 	Font-Names="Tahoma"
 	Font-Size="8pt"

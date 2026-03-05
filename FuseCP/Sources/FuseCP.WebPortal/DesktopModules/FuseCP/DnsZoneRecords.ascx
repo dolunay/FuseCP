@@ -1,14 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DnsZoneRecords.ascx.cs" Inherits="FuseCP.Portal.DnsZoneRecords" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-
-    function confirmation() {
-        if (!confirm('Are you sure you want to delete this DNS Zone Record?')) return false; else ShowProgressDialog('Deleting DNS Zone Record...');
-    }
-</script>
 <asp:Panel ID="pnlRecords" runat="server">
 	<div class="card-body form-horizontal">
 		<div class="Huge" style="padding: 10px; border: solid 1px #e5e5e5; background-color: #f5f5f5">
@@ -51,7 +45,7 @@
             <asp:TemplateField>
                 <ItemStyle Width="65px" HorizontalAlign="Center" />
                 <ItemTemplate>
-                    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirmation();"> 
+                    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this DNS Zone Record?', 'Deleting DNS Zone Record...');"> 
                     &nbsp;<i class="bi bi-trash"></i>&nbsp; 
                     </asp:LinkButton>
                 </ItemTemplate>

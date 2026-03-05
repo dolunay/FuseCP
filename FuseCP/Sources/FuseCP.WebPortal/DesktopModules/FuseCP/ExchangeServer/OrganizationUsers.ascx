@@ -7,6 +7,7 @@
 <%@ Import Namespace="FuseCP.Portal" %>
 
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/organization-users.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 <div class="card-header">
@@ -163,11 +164,6 @@
             <asp:Button ID="btnDeleteUserFake" runat="server" Style="display: none;" />
             <ajaxToolkit:ModalPopupExtender ID="DeleteUserModal" BehaviorID="DeleteUserModal" runat="server" TargetControlID="btnDeleteUserFake" EnableViewState="true"
                 PopupControlID="DeleteUserPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelDelete" />
-            <script type="text/javascript">
-                function closePopup() {
-                    $find('DeleteUserModal').hide();
-                }
-            </script>
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="btnDeleteUser" />
