@@ -6,18 +6,7 @@
  <%@ Register Src="UserControls/DomainActions.ascx" TagName="DomainActions" TagPrefix="fcp" %>
  <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
  <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<script type="text/javascript">
-                var gridViewId = '<%# gvDomains.ClientID %>';
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox', gridViewId).prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox', gridViewId).prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
  <div class="FormButtonsBar right">
      <div class="right">
@@ -83,7 +72,7 @@
              <ItemStyle></ItemStyle>
              <ItemTemplate>
                 <div style="display:inline-block" runat="server" Visible='<%# ShowDomainDnsInfo(Eval("ExpirationDate"), Eval("LastUpdateDate"), !(bool)Eval("IsSubDomain") && !(bool)Eval("IsPreviewDomain") && !(bool)Eval("IsDomainPointer")) && !string.IsNullOrEmpty(GetDomainDnsRecords((int)Eval("DomainId"))) %>'>
-                      <img src="App_Themes/Default/Images/information_icon_small.gif" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
+                      <img src="App_Themes/Default/Images/information_icon_small.gif" alt="Domain DNS information" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
                  </div>
              </ItemTemplate>
          </asp:TemplateField>

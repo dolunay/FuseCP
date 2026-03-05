@@ -8,7 +8,7 @@
 
 				<div class="card-header">
                     <h3 class="card-title">
-					<asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" />
+					<asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" AlternateText="Exchange mailbox" ToolTip="Exchange mailbox" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Mailbox"></asp:Localize>
 					-
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
@@ -66,7 +66,7 @@
 							        <ItemTemplate>
 							            <div>
 							                &nbsp;
-								            <asp:Image ID="Image1" runat="server" SkinID="Checkbox16" Visible='<%# (bool)Eval("IsPrimary")%>' />
+								            <asp:Image ID="Image1" runat="server" SkinID="Checkbox16" Visible='<%# (bool)Eval("IsPrimary")%>' AlternateText="Primary e-mail address" ToolTip="Primary e-mail address" />
 								        </div>
 							        </ItemTemplate>
 						        </asp:TemplateField>

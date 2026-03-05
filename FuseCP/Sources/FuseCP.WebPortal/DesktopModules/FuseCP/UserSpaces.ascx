@@ -29,7 +29,7 @@
                                     RepeatColumns="5" RepeatDirection="Horizontal">
                                     <ItemTemplate>
                                         <asp:Panel ID="IconPanel" runat="server" CssClass="Icon">
-                                            <asp:HyperLink ID="imgLink" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><asp:Image ID="imgIcon" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' /></asp:HyperLink>
+                                            <asp:HyperLink ID="imgLink" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><asp:Image ID="imgIcon" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText='<%# Eval("Text") %>' ToolTip='<%# Eval("Text") %>' /></asp:HyperLink>
                                             <br />
                                             <asp:HyperLink ID="lnkIcon" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><%# Eval("Text") %></asp:HyperLink>
                                         </asp:Panel>

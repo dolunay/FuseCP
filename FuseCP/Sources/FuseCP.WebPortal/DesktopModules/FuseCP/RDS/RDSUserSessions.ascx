@@ -46,7 +46,7 @@
                                     <asp:TemplateField meta:resourcekey="gvUserName" HeaderText="gvUserName">
                                         <ItemStyle Wrap="false"/>
                                         <ItemTemplate>
-                                            <asp:Image ID="vipImage" runat="server" ImageUrl='<%# GetAccountImage(Convert.ToBoolean(Eval("IsVip"))) %>' ImageAlign="AbsMiddle"/>
+                                            <asp:Image ID="vipImage" runat="server" ImageUrl='<%# GetAccountImage(Convert.ToBoolean(Eval("IsVip"))) %>' ImageAlign="AbsMiddle" AlternateText='<%# Convert.ToBoolean(Eval("IsVip")) ? "VIP user" : "Standard user" %>' ToolTip='<%# Convert.ToBoolean(Eval("IsVip")) ? "VIP user" : "Standard user" %>'/>
                                             <asp:Literal ID="litUserName" runat="server" Text='<%# Eval("UserName") %>'/>
                                             <asp:HiddenField ID="hfUnifiedSessionId" runat="server"  Value='<%# Eval("UnifiedSessionId") %>'/>
                                         </ItemTemplate>
