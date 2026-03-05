@@ -17,7 +17,7 @@
 </script>
 <table class="table table-borderless align-middle mb-0">
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Admin Username:</td>
+		<td class="SubHead text-nowrap" >Admin Username:</td>
 		<td class="Normal">
 			<asp:textbox id="txtUsername" runat="server" CssClass=form-control>admin</asp:textbox>
 		</td>

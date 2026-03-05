@@ -62,7 +62,7 @@
                     <fcp:CollapsiblePanel id="secVLAN" runat="server"
                         TargetControlID="VLANPanel" meta:resourcekey="secVLAN" Text="VLAN" IsCollapsed="false">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="VLANPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="VLANPanel" runat="server" Height="0" style="overflow:hidden">
                         <fcp:PackageVLANs id="packageVLANs" runat="server"
                             SpaceHomeControl="vdc_dmz_network"
                             AllocateVLANsControl="vdc_allocate_dmz_vlan"  />
@@ -71,7 +71,7 @@
 				    <fcp:CollapsiblePanel id="secQuotas" runat="server"
                         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Quotas">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
                     
                         <table class="table table-borderless align-middle mb-0">
                             <tr>

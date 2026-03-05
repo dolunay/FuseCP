@@ -19,7 +19,7 @@
 				    </h3>
                 </div>
 				
-				<div class="card-body form-horizontal" width="100%">
+				<div class="card-body form-horizontal">
 				    
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 										  					   					    							

@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SpaceDetailsHeaderControl.ascx.cs" Inherits="FuseCP.Portal.SpaceDetailsHeaderControl" %>
 <%@ Register Src="UserControls/UserDetails.ascx" TagName="UserDetails" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/ServerDetails.ascx" TagName="ServerDetails" TagPrefix="fcp" %>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
 		<td class="Huge" colspan="2">
 			<asp:Literal ID="litPackageName" runat="server"></asp:Literal>
