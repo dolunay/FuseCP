@@ -25,11 +25,11 @@
 				            <Columns>
 					            <asp:TemplateField HeaderText="gvTitle" meta:resourcekey="gvTitle">
 						            <ItemTemplate>
-						                <asp:Image ID="Image2" SkinID="Dvd48" runat="server" style="float: left;" />
-						                <div style="font-weight: bold;padding: 3px; margin-left: 50px;">
+						                <asp:Image ID="Image2" SkinID="Dvd48" runat="server" style="float: left" />
+						                <div style="font-weight: bold; padding: 3px; margin-left: 50px">
 						                    <%# Eval("Name") %>
 						                </div>
-						                <div style="padding: 3px; margin-left: 50px;">
+						                <div style="padding: 3px; margin-left: 50px">
 							                <%# Eval("Description") %>
 							            </div>
 						            </ItemTemplate>

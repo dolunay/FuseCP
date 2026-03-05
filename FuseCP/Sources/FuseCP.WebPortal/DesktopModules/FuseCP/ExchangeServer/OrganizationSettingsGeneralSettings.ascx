@@ -19,7 +19,7 @@
                         </h3>
                 </div>
                 <div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_general_settings" />
                     </div>
                     <div class="card tab-content">
@@ -29,7 +29,7 @@
                             <asp:Panel runat="server" ID="panelGeneralSettings">
                                 <table class="table table-borderless align-middle mb-0" id="GenerralSettignsTable" runat="server">
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblOrganizationLogoUrl" runat="server"
                                                 meta:resourcekey="lblOrganizationLogoUrl" Text="Minimum length:"></asp:Label></td>
                                         <td class="Normal">

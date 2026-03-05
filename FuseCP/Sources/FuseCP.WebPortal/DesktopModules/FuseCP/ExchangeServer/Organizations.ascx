@@ -18,14 +18,14 @@
 </div>
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div style="text-align:right;margin-bottom: 4px;">
+    <div style="text-align:right; margin-bottom: 4px">
         <asp:CheckBox ID="chkRecursive" runat="server" Text="Show Reseller Organizations" meta:resourcekey="chkRecursive" AutoPostBack="true" CssClass="Normal" />
     </div>
     <div class="row">
         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 offset-md-5 text-end d-flex flex-wrap gap-2 align-items-center">
             <div class="mb-3">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control" style="vertical-align: middle;">
+                    <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control" style="vertical-align: middle">
                         <asp:ListItem Value="ItemName" meta:resourcekey="ddlSearchColumnItemName">OrganizationName</asp:ListItem>
                         <asp:ListItem Value="Username" meta:resourcekey="ddlSearchColumnUsername">OwnerUsername</asp:ListItem>
                     </asp:DropDownList>
@@ -50,7 +50,7 @@
         <asp:TemplateField meta:resourcekey="gvOrgsName" SortExpression="ItemName">
             <ItemStyle Width="80%"></ItemStyle>
             <ItemTemplate>
-                <div style="padding:7px;">
+                <div style="padding:7px">
                     <asp:hyperlink id="lnk1" runat="server" EnableViewState="false" CssClass="NormalBold" NavigateUrl='<%# GetOrganizationEditUrl(Eval("ItemID").ToString()) %>'>
                         <%# Eval("ItemName") %>
                     </asp:hyperlink>

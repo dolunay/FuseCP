@@ -9,9 +9,9 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
 <div class="card-body form-horizontal">
-    <table width="100%">
+    <table>
         <tr>
-            <td class="align-top" width="100%">
+            <td class="align-top">
                 <table>
                     <tr>
                         <td class="Big">

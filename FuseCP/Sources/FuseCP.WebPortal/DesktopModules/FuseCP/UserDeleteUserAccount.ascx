@@ -4,7 +4,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 <div class="card-body form-horizontal">
-<table width="400">
+<table>
 	<tr>
 		<td class="Normal">
 			<asp:Label ID="lblAccountContains" runat="server" meta:resourcekey="lblAccountContains" Text="The account contains ..."></asp:Label>
