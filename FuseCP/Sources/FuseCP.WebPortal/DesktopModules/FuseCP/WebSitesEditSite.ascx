@@ -123,7 +123,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-4" style="padding-top:6px;">
+                        <div class="col-md-4" style="padding-top:6px">
                             <asp:HyperLink ID="lnkSiteName" runat="server" NavigateUrl="#" CssClass="card-title" Target="_blank">domain.com</asp:HyperLink>
                         </div>
                         <div class="col-md-4 padding-top-sm">
@@ -180,7 +180,7 @@
                         <asp:TemplateField HeaderText="gvPointersName">
                             <ItemStyle Wrap="false" Width="100%"></ItemStyle>
                             <ItemTemplate>
-                                <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px;" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
+                                <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
                                     Target="_blank"><%# Eval("DomainName") %></asp:HyperLink>
 
                                 <asp:LinkButton runat="server" ID="cmdDeletePointer" CommandName='delete' CommandArgument='<%# Eval("DomainId") %>' Visible='<%# !(bool)Eval("IsPreviewDomain") %>' CssClass="btn btn-danger float-end" OnClientClick="return confirm('Remove pointer?');">&nbsp;<i class="bi bi-trash">&nbsp;</i></asp:LinkButton>
@@ -193,7 +193,7 @@
         </div>
         <div class="col-md-4">
             <div class="alert alert-info">
-                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100">
                     <tr>
                         <td>
                             <asp:Label ID="lblWebsiteStatus" runat="server" meta:resourcekey="lblWebsiteStatus" Text="Website Status"></asp:Label>
@@ -379,9 +379,9 @@
                             </tr>
                         </table>
                         <asp:Literal ID="litFrontPageUnavailable" runat="server"></asp:Literal>
-                        <table class="table table-borderless align-middle mb-0 w-100" id="tblFrontPage" width="100%" runat="server">
+                        <table class="table table-borderless align-middle mb-0 w-100" id="tblFrontPage" runat="server">
                             <tr>
-                                <td class="SubHead" style="width: 150px;" height="30">
+                                <td class="SubHead"  height="30">
                                     <asp:Label ID="lblFPStatus" runat="server" meta:resourcekey="lblFPStatus" Text="FrontPage status:"></asp:Label>
                                 </td>
                                 <td class="NormalBold">
@@ -389,10 +389,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="SubHead" style="margin-bottom:10px;">
+                                <td class="SubHead" style="margin-bottom:10px">
                                     <asp:Label ID="lblFPAccount" runat="server" meta:resourcekey="lblFPAccount" Text="FrontPage User Account:"></asp:Label>
                                 </td>
-                                <td class="Normal" style="margin-bottom:10px;">
+                                <td class="Normal" style="margin-bottom:10px">
                                     <fcp:UsernameControl ID="frontPageUsername" runat="server" ValidationGroup="FrontPage" />
                                 </td>
                             </tr>
@@ -454,7 +454,7 @@
                     <uc6:WebSitesCustomHeadersControl ID="webSitesCustomHeadersControl" runat="server" />
                 </asp:View>
                 <asp:View ID="tabWebDeployPublishing" runat="server">
-                    <div style="padding: 20;">
+                    <div style="padding: 20">
                         <asp:PlaceHolder runat="server" ID="PanelWDeploySitePublishingDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="WDeploySitePublishingDisabled" />
@@ -585,7 +585,7 @@
                     </table>
                 </asp:View>
                 <asp:View ID="tabWebManagement" runat="server">
-                    <div style="padding: 20px;">
+                    <div style="padding: 20px">
                         <asp:PlaceHolder runat="server" ID="pnlWmSvcSiteDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="lclWmSvcSiteDisabled" />

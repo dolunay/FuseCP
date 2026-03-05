@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail_EditList.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail_EditList" %>
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
 <%@ Register TagPrefix="fcp" Namespace="FuseCP.WebPortal.Code.Controls" Assembly="FuseCP.WebPortal" %>
-<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width:150px;">
+		<td class="SubHead" >
 		    <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		</td>
 		<td class="normal">
@@ -80,7 +80,7 @@
 		<td class="normal align-top">
             <table>
                 <tr>
-                    <td class="Normal" width="200">
+                    <td class="Normal">
                         <asp:CheckBox ID="chkReplyToList" runat="server" meta:resourcekey="chkReplyToList" Text="Reply To List" />
                     </td>
                     <td class="Normal"></td>

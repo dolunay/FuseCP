@@ -33,9 +33,9 @@
 <div class="card-body form-horizontal">
     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" style="width: 100%;">
+    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
         <tr>
-            <td class="align-top" style="width: 40%;">
+            <td class="align-top" >
 
                 <table class="table table-borderless align-middle mb-0">
                     <tr>
@@ -50,7 +50,7 @@
                             </asp:LinkButton>
 
                             <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" Style="display: none;">
-                                <div style="padding-bottom: 3px;">
+                                <div style="padding-bottom: 3px">
                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                 </div>
@@ -128,7 +128,7 @@
                 </asp:UpdatePanel>
 
             </td>
-            <td class="align-top" style="width: 35%;">
+            <td class="align-top" >
                 <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
@@ -172,7 +172,7 @@
                                 <td class="NormalBold">
                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:" />
                                 </td>
-                                <td class="NormalBold" style="width: 150px;">
+                                <td class="NormalBold" >
                                     <fcp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
                                     <asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
                                 </td>
@@ -270,7 +270,7 @@
                 </tr>
             </table>
         </div>
-        <div style="color:red; text-align:center;" id="divReboot" class="hidden">
+        <div style="color:red; text-align:center" id="divReboot" class="hidden">
             <asp:Localize ID="locReboot" runat="server" Text="Restart required" meta:resourcekey="locReboot"></asp:Localize>
         </div>
         <div class="popup-buttons text-end">

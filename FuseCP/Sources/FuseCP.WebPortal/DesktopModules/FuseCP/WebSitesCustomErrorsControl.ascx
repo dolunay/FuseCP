@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebSitesCustomErrorsControl.ascx.cs" Inherits="FuseCP.Portal.WebSitesCustomErrorsControl" %>
 
 
-<div style="padding: 20; margin-bottom: 10px;">
+<div style="padding: 20; margin-bottom: 10px">
 <table class="table table-borderless align-middle mb-0">
   <tr id="rowAspNet" runat="server">
     <td class="SubHead">
