@@ -164,11 +164,4 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#ShowSecurityPanelButton').click(function () {
-            $('#ShowSecurityPanelButton').slideUp();
-            $('#SecurityPanel').slideDown();
-        });
-    });
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/helicon-ape-control.js"></script>

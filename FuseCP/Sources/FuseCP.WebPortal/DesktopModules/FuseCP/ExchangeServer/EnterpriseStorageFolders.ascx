@@ -4,14 +4,7 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        setTimeout(getFolderData, 3000);
-    });
-    //]]>
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/enterprise-storage-folders.js"></script>
 
 <div class="card-header">
     <h3 class="card-title">

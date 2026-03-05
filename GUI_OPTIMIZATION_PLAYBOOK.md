@@ -140,6 +140,10 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/space-import-resources.js` for resource-import tree interaction behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/rds-servers.js` for RDS servers client bootstrap.
 - Added shared helper `DesktopModules/FuseCP/Scripts/terminal-connections.js` for terminal session postback progress closing.
+- Added shared helper `DesktopModules/FuseCP/Scripts/rdp-connect.vbs` for legacy RDP ActiveX connect-page client logic.
+- Added shared helper `DesktopModules/FuseCP/Scripts/enterprise-storage-folders.js` for enterprise storage folders delayed data loading.
+- Added shared helper `DesktopModules/FuseCP/Scripts/helicon-ape-control.js` for Helicon Ape security panel reveal behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/global-search.js` for global search autocomplete wiring and submit flow.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -158,13 +162,15 @@ Keep using:
 - Reused shared confirmation helper in `SqlEditUser.ascx`.
 - Replaced inline script in `RDSServers.ascx` with shared `rds-servers.js`.
 - Replaced inline script in `ServersEditTerminalConnections.ascx` with shared `terminal-connections.js`.
+- Replaced duplicated inline VBScript in `VPS/RemoteDesktop/Connect.aspx`, `VPS2012/RemoteDesktop/Connect.aspx`, `VPSForPC/RemoteDesktop/Connect.aspx`, and `Proxmox/RemoteControl/Connect.aspx` with shared `rdp-connect.vbs` plus page-local server variable assignment.
 - Reused shared confirmation helper in `SqlEditDatabase.ascx`.
 - Reused shared confirmation helper in `HostedSharePoint/HostedSharePointSiteCollections.ascx`, `HostedSharePoint/HostedSharePointEnterpriseSiteCollections.ascx`, and `ServersEditService.ascx`.
 - Reused shared nav-tab helper in `WebSitesEditVirtualDir.ascx`.
 - Reused shared nav-tab helper in `VPS/UserControls/Menu.ascx`, `VPS2012/UserControls/Menu.ascx`, and `VPSForPC/UserControls/Menu.ascx`.
 - Reused shared tab-click helper in `ExchangeServer/UserControls/EnterpriseStorageEditFolderTabs.ascx`, `ExchangeServer/UserControls/OrganizationSettingsTabs.ascx`, and `RDS/UserControls/RDSCollectionTabs.ascx`.
 - Reused shared mail confirmation helper in `MailAccountsEditAccount.ascx`, `MailDomainsEditDomain.ascx`, `MailForwardingsEditForwarding.ascx`, `MailGroupsEditGroup.ascx`, and `MailListsEditList.ascx`.
-- Reduced inline-script candidate count from `100` to `40` in guard output.
+- Replaced inline scripts with external helpers in `ExchangeServer/EnterpriseStorageFolders.ascx`, `WebSitesHeliconApeControl.ascx`, and `SkinControls/GlobalSearch.ascx`.
+- Reduced inline-script candidate count from `100` to `33` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
