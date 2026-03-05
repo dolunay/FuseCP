@@ -21,11 +21,4 @@
         </td>
     </tr>
 </table>
-
-<script type="text/javascript">
-    function tabClicked() {
-        ShowProgressDialog('Loading');
-        ShowProgressDialogInternal();
-        return true;
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/tab-progress.js"></script>
