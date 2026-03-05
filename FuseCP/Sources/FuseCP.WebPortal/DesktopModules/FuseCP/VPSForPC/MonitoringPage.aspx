@@ -75,10 +75,6 @@
 		</asp:UpdatePanel>
 	</div>
 	</form>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".txtDateTimePeriod").datepicker();
-		});
-	</script>
+	<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-monitoring.js"></script>
 </body>
 </html>

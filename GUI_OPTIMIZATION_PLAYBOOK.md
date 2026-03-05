@@ -145,6 +145,8 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/helicon-ape-control.js` for Helicon Ape security panel reveal behavior.
 - Added shared helper `DesktopModules/FuseCP/Scripts/global-search.js` for global search autocomplete wiring and submit flow.
 - Added shared helper `DesktopModules/FuseCP/Scripts/file-manager.js` for FileManager grid selection, modal keyboard handling, and unzip progress behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/updatepanel-endrequest-close-progress.js` for UpdatePanel async callback progress-close behavior.
+- Added shared helper `DesktopModules/FuseCP/Scripts/organization-create-user.js` for organization create-user display-name composition.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -172,7 +174,10 @@ Keep using:
 - Reused shared mail confirmation helper in `MailAccountsEditAccount.ascx`, `MailDomainsEditDomain.ascx`, `MailForwardingsEditForwarding.ascx`, `MailGroupsEditGroup.ascx`, and `MailListsEditList.ascx`.
 - Replaced inline scripts with external helpers in `ExchangeServer/EnterpriseStorageFolders.ascx`, `WebSitesHeliconApeControl.ascx`, and `SkinControls/GlobalSearch.ascx`.
 - Replaced inline script in `FileManager.ascx` with shared `file-manager.js`.
-- Reduced inline-script candidate count from `100` to `32` in guard output.
+- Replaced inline endRequest scripts in `ServersEditEventViewer.ascx` and `StorageSpaces/EditStorageSpace.ascx` with shared `updatepanel-endrequest-close-progress.js`.
+- Replaced inline datepicker script in `VPSForPC/MonitoringPage.aspx` with shared `vps-monitoring.js` include.
+- Replaced inline display-name script in `ExchangeServer/OrganizationCreateUser.ascx` with shared `organization-create-user.js`.
+- Reduced inline-script candidate count from `100` to `28` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.

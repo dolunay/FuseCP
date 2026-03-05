@@ -9,22 +9,12 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div runat="server" id="divWrapper">
-    <script language="javascript" type="text/javascript">
-        function buildDisplayName() {
-            document.getElementById("<%= txtDisplayName.ClientID %>").value = '';
-
-            if (document.getElementById("<%= txtFirstName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtFirstName.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtInitials.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtInitials.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtLastName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtLastName.ClientID %>").value;
-        }
-    </script>
-</div>
+<div id="orgCreateUserConfig"
+     data-display-id="<%= txtDisplayName.ClientID %>"
+     data-first-id="<%= txtFirstName.ClientID %>"
+     data-initials-id="<%= txtInitials.ClientID %>"
+     data-last-id="<%= txtLastName.ClientID %>"></div>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/organization-create-user.js"></script>
 <div class="card-header">
                     <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationUserAdd48" runat="server" />
@@ -43,16 +33,16 @@
                                     </asp:Label>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="First Name"></asp:TextBox>
+                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="FuseCPOrganizationCreateUser.buildDisplayName();" placeholder="First Name"></asp:TextBox>
                                             <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Initials"></asp:TextBox>
+                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="FuseCPOrganizationCreateUser.buildDisplayName();" placeholder="Initials"></asp:TextBox>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Last Name"></asp:TextBox>
+                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="FuseCPOrganizationCreateUser.buildDisplayName();" placeholder="Last Name"></asp:TextBox>
                                             <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>

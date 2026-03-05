@@ -75,14 +75,4 @@
     </asp:LinkButton>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-        prm.add_endRequest(EndRequest);
-    });
-
-
-    function EndRequest(sender, args) {
-        CloseProgressDialog();
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/updatepanel-endrequest-close-progress.js"></script>
