@@ -12,7 +12,7 @@ namespace FuseCP.Portal {
     
     
     public partial class EnableAsyncTasksSupport {
-        
+
         /// <summary>
         /// taskID control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden taskID;
+        protected global::System.Web.UI.WebControls.HiddenField taskID;
         
         /// <summary>
         /// pnlModal control.

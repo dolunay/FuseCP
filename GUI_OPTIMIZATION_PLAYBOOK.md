@@ -182,7 +182,9 @@ Keep using:
 - Replaced inline display-name script in `ExchangeServer/OrganizationCreateUser.ascx` with shared `organization-create-user.js`.
 - Replaced inline TinyMCE initialization scripts in `ExchangeServer/ExchangeMailboxAutoReply.ascx` and `ExchangeServer/ExchangeDisclaimerGeneralSettings.ascx` with shared script includes.
 - Replaced inline async-task globals script in `UserControls/EnableAsyncTasksSupport.ascx` with shared `async-tasks-config.js` bootstrap.
-- Reduced inline-script candidate count from `100` to `25` in guard output.
+- Replaced remaining page-local VBScript server variable blocks in `VPS/RemoteDesktop/Connect.aspx`, `VPS2012/RemoteDesktop/Connect.aspx`, `VPSForPC/RemoteDesktop/Connect.aspx`, and `Proxmox/RemoteControl/Connect.aspx` with hidden-field configuration consumed by shared `rdp-connect.vbs`.
+- Replaced inline TinyMCE initialization in `ProviderControls/SmarterMail100x_EditAccount.ascx` with shared `smartermail100x-edit-account.js`.
+- Reduced inline-script candidate count from `100` to `20` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.

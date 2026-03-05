@@ -45,7 +45,26 @@ const L_LicenseNoRemoteConnections_ErrorMessage = "The remote session was discon
 const L_DecompressionFailed_ErrorMessage = "The remote session was disconnected because of a decompression failure at the client side. Please try connecting to the remote computer again."
 const L_ServerDeniedConnection_ErrorMessage ="The client could not establish a connection to the remote computer.The most likely causes for this error are:1) Remote connections might not be enabled at the remote computer.2) The maximum number of connections was exceeded at the remote computer.3) A network error occurred while establishing the connection."
 
+resWidth = 0
+resHeight = 0
+resolution = ""
+serverName = ""
+username = ""
+domain = ""
+password = ""
+
+sub LoadConnectionConfig
+   set cfg = document.getElementById("rdpConnectConfig")
+   if Not cfg is Nothing then
+      resolution = cfg.getAttribute("data-resolution")
+      serverName = cfg.getAttribute("data-server-name")
+      username = cfg.getAttribute("data-username")
+      password = cfg.getAttribute("data-password")
+   end if
+end sub
+
 sub OnControlLoad
+   LoadConnectionConfig
    set Control = Document.getElementById("MsRdpClient")
    if Not Control is Nothing then
       if Control.readyState = 4 then

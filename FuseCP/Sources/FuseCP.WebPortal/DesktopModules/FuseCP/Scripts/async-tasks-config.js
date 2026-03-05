@@ -7,6 +7,8 @@
         return;
     }
 
+    var taskConfig = document.querySelector("input[id$='taskConfig']");
+
     global._ctrlTaskID = taskInput.id;
-    global._completeMessage = taskInput.getAttribute("data-complete-message") || "";
+    global._completeMessage = taskConfig ? (taskConfig.getAttribute("data-complete-message") || "") : "";
 }(window));

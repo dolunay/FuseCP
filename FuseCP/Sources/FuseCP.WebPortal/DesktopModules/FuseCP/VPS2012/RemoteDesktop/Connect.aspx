@@ -10,18 +10,11 @@
 <body style="margin:0">
 
 
-<script language="vbscript" type="text/vbscript">
-<!--
-resWidth = 0
-resHeight = 0
-resolution = "<asp:Literal id="resolution" runat="server"/>"
-
-serverName = "<asp:Literal id="serverName" runat="server"/>"
-username = "<asp:Literal id="username" runat="server"/>"
-domain = ""
-password = "<asp:Literal id="password" runat="server"/>"
--->
-</script>
+<input type="hidden" id="rdpConnectConfig"
+    data-resolution="<asp:Literal id='resolution' runat='server'/>"
+    data-server-name="<asp:Literal id='serverName' runat='server'/>"
+    data-username="<asp:Literal id='username' runat='server'/>"
+    data-password="<asp:Literal id='password' runat='server'/>" />
 <script language="vbscript" type="text/vbscript" src="/DesktopModules/FuseCP/Scripts/rdp-connect.vbs"></script>
 
 <object language="vbscript" id="MsRdpClient"
