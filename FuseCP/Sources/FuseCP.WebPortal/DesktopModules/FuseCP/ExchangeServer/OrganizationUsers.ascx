@@ -103,7 +103,7 @@
                             </asp:Hyperlink>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="gvUsersLogin" DataField="UserPrincipalName" SortExpression="UserPrincipalName" ItemStyle-Width="25%" />
+                    <asp:BoundField HeaderText="gvUsersLogin" DataField="UserPrincipalName" SortExpression="UserPrincipalName" />
                     <asp:TemplateField HeaderText="gvServiceLevel">
                         <ItemStyle Width="25%"></ItemStyle>
                         <ItemTemplate>
@@ -112,8 +112,8 @@
                             </asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="25%" />
-                    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" ItemStyle-Width="20%" />
+                    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />
+                    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" />
                     <asp:TemplateField ItemStyle-Wrap="False">
                         <ItemTemplate>
                             <asp:ImageButton ID="Image2" runat="server" Width="16px" Height="16px" ToolTip="Mail" ImageUrl='<%# GetMailImage((int)Eval("AccountType")) %>' CommandName="OpenMailProperties" CommandArgument='<%# Eval("AccountId") %>' Enabled='<%# EnableMailImageButton((int)Eval("AccountType")) %>' />
@@ -203,3 +203,4 @@
         </div>
     </ItemTemplate>
 </asp:Repeater>
+

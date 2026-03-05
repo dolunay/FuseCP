@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MailEnable_EditAccount.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MailEnable_EditAccount" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
 	<tr>
-		<td class="SubHead" style="width:150px;"><asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Reply to address:"></asp:Label></td>
+		<td class="SubHead" ><asp:Label ID="lblReplyTo" runat="server" meta:resourcekey="lblReplyTo" Text="Reply to address:"></asp:Label></td>
 		<td class="normal">
 			<asp:TextBox id="txtReplyTo" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
 		</td>
@@ -13,10 +13,10 @@
 <fcp:CollapsiblePanel id="secAutoresponder" runat="server"
     TargetControlID="AutoresponderPanel" meta:resourcekey="secAutoresponder" Text="Autoresponder">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="AutoresponderPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table width="100%">
+<asp:Panel ID="AutoresponderPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td class="SubHead" style="width:150px;"><asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Enable autoresponder:"></asp:Label></td>
+		    <td class="SubHead" ><asp:Label ID="lblResponderEnabled" runat="server" meta:resourcekey="lblResponderEnabled" Text="Enable autoresponder:"></asp:Label></td>
 		    <td class="normal">
 			    <asp:CheckBox ID="chkResponderEnabled" Runat="server" meta:resourcekey="chkResponderEnabled" Text="Yes"></asp:CheckBox>
 		    </td>
@@ -39,10 +39,10 @@
 <fcp:CollapsiblePanel id="secForwarding" runat="server"
     TargetControlID="ForwardingPanel" meta:resourcekey="secForwarding" Text="Mail Forwarding">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="ForwardingPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table width="100%">
+<asp:Panel ID="ForwardingPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td class="SubHead" style="width:150px;"><asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
+		    <td class="SubHead" ><asp:Label ID="lblForwardTo" runat="server" meta:resourcekey="lblForwardTo" Text="Forward mail to address:"></asp:Label></td>
 		    <td class="normal">
 			    <asp:TextBox id="txtForward" runat="server" Width="200px" CssClass="form-control"></asp:TextBox>
 		    </td>
@@ -57,3 +57,4 @@
         </tr>
     </table>
 </asp:Panel>
+

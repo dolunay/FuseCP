@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MSFTP70_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MSFTP70_Settings" %>
 <%@ Register Src="Common_ActiveDirectoryIntegration.ascx" TagName="ActiveDirectoryIntegration" TagPrefix="uc1" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="SubHead" width="150">
+        <td class="SubHead">
             <asp:Label ID="lblSharedIP" runat="server" meta:resourcekey="lblSharedIP" Text="Web Sites Shared IP Address:"></asp:Label>
         </td>
         <td class="Normal">
@@ -13,9 +13,9 @@
 </table>
 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-        <table width="100%">
+        <table class="table table-borderless align-middle mb-0">
             <tr>
-                <td class="SubHead" width="150">
+                <td class="SubHead">
                     <asp:Label ID="lblSite" runat="server" meta:resourcekey="lblSite" Text="FTP Accounts Site:"></asp:Label>
                 </td>
                 <td class="Normal">
@@ -34,9 +34,9 @@
         </table>
     </ContentTemplate>
 </asp:UpdatePanel>
-<table width="100%">
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="SubHead" width="150">
+        <td class="SubHead">
             <asp:Label ID="lblGroupName" runat="server" meta:resourcekey="lblGroupName" Text="FTP Users Group Name:"></asp:Label>
         </td>
         <td class="Normal">
@@ -59,3 +59,4 @@
         </td>
     </tr>
 </table>
+

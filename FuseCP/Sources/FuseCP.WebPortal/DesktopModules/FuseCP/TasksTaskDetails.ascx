@@ -9,7 +9,7 @@
   </Triggers>
   <ContentTemplate>
   
-<table width="400">
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td class="MediumBold">
             <asp:Literal id="litTitle" runat="server"></asp:Literal>
@@ -18,7 +18,7 @@
     <tr>
         <td>
             <fieldset>
-                <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100">
                     <tr>
                         <td class="NormalBold" colspan="2">
                             <asp:Literal id="litStep" runat="server"></asp:Literal>
@@ -32,10 +32,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="NormalBold text-nowrap" width="100">
+                        <td class="NormalBold text-nowrap">
                             <asp:Localize ID="locStarted" runat="server" meta:resourcekey="locStarted" Text="Started:"/>
                         </td>
-                        <td class="Normal" width="100%">
+                        <td class="Normal">
                             <asp:Literal id="litStartTime" runat="server"></asp:Literal>
                         </td>
                     </tr>
@@ -58,7 +58,7 @@
     </tr>
 </table>
 
-<table width="400">
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td>&nbsp;</td>
     </tr>
@@ -69,7 +69,7 @@
     </tr>
     <tr>
         <td class="Normal">
-            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; width: auto; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px;">
+            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; width: auto; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px">
                 <asp:Literal ID="litLog" runat="server"></asp:Literal>
             </asp:Panel>
         </td>
@@ -83,3 +83,4 @@
 <div class="card-footer text-end">
     <asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click" CausesValidation="false"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackText"/> </asp:LinkButton>
 </div>
+

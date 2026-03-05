@@ -5,7 +5,7 @@
     TagPrefix="uc1" %>
 <table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead text-nowrap" width="200">
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblUserName" meta:resourcekey="lblUserName" /></td>
         <td class="Normal">
             <asp:TextBox runat="server" ID="txtUserName" MaxLength="1000" />
@@ -20,7 +20,7 @@
 		</td>
 	</tr>
     <tr>
-        <td class="SubHead text-nowrap" width="200">
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblPassword" meta:resourcekey="lblPassword" /></td>
         <td class="Normal">
             <asp:TextBox runat="server" ID="txtPassword"  TextMode="Password" 
@@ -29,10 +29,10 @@
             </td>
     </tr>
     <tr>
-            <td class="SubHead text-nowrap align-top" width="200">
+            <td class="SubHead text-nowrap align-top">
 			    <asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 			</td>
-            <td class="align-top" width="100%">
+            <td class="align-top">
                 <uc2:IPAddressesList id="iPAddressesList" runat="server">
                 </uc2:IPAddressesList></td>
 		</tr>
@@ -49,3 +49,4 @@
 	    <td><asp:CheckBox runat="server" ID="cbApplyDefaultTemplate" meta:resourcekey="cbApplyDefaultTemplate"/></td>
 	</tr>		        
 </table>
+

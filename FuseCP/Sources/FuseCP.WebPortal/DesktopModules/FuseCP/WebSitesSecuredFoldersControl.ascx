@@ -19,7 +19,7 @@
         CssSelectorClass="NormalGridView" EmptyDataText="gvFolders"
         DataKeyNames="Path" OnRowDeleting="gvFolders_RowDeleting">
         <Columns>
-            <asp:TemplateField HeaderText="gvFoldersName" ItemStyle-Width="100%">
+            <asp:TemplateField HeaderText="gvFoldersName">
 	            <ItemStyle CssClass="NormalBold"></ItemStyle>
 	            <ItemTemplate>
 		            <asp:hyperlink ID="lnkEditFolder" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_webfolder", Eval("Path").ToString()) %>'>
@@ -48,7 +48,7 @@
         CssSelectorClass="NormalGridView" EmptyDataText="gvUsers"
         DataKeyNames="Name" OnRowDeleting="gvUsers_RowDeleting">
         <Columns>
-            <asp:TemplateField HeaderText="gvUsersName" ItemStyle-Width="100%">
+            <asp:TemplateField HeaderText="gvUsersName">
 	            <ItemStyle CssClass="NormalBold"></ItemStyle>
 	            <ItemTemplate>
 		            <asp:hyperlink ID="lnkEditUser" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_webuser", Eval("Name").ToString()) %>'>
@@ -77,7 +77,7 @@
         EmptyDataText="gvGroups" CssSelectorClass="NormalGridView"
         DataKeyNames="Name" OnRowDeleting="gvGroups_RowDeleting">
         <Columns>
-            <asp:TemplateField HeaderText="gvGroupsName" ItemStyle-Width="100%">
+            <asp:TemplateField HeaderText="gvGroupsName">
 	            <ItemStyle CssClass="NormalBold"></ItemStyle>
 	            <ItemTemplate>
 		            <asp:hyperlink ID="lnkEditGroup" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_webgroup", Eval("Name").ToString()) %>'>
@@ -95,3 +95,4 @@
         </Columns>
     </asp:GridView>
 </asp:Panel>
+

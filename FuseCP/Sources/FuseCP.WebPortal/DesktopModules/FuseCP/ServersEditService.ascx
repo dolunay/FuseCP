@@ -15,9 +15,9 @@
 </script>
 <div class="card-body form-horizontal">
 	<fcp:ServerHeaderControl ID="ServerHeaderControl" runat="server" />
-	<table class="table table-borderless align-middle mb-0 w-100" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead" >
 				<asp:Label ID="lblGroup" runat="server" meta:resourcekey="lblGroup" Text="Group:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -80,22 +80,22 @@
 					<fcp:GlobalDnsRecordsControl ID="GlobalDnsRecordsControl" runat="server" IPServerIDParam="ServerID" ServiceIdParam="ServiceID" />
 	</asp:Panel>
 	<asp:Panel ID="pnlQuota" runat="server" Visible="false">
-		<table id="tblQuota" runat="server" width="100%" visible="false">
+		<table id="tblQuota" runat="server" visible="false">
 			<tr>
-				<td width="200" class="SubHead text-nowrap">
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblQuotaName" runat="server"></asp:Label>
 				</td>
-				<td width="100%" class="Normal">
+				<td class="Normal">
 					<asp:TextBox ID="txtQuotaValue" runat="server" CssClass="form-control" Width="100px" Text="0"></asp:TextBox>
 				</td>
 			</tr>
 		</table>
-		<table id="tblCluster" runat="server" visible="false" width="100%">
+		<table id="tblCluster" runat="server" visible="false">
 			<tr>
-				<td width="200" class="SubHead text-nowrap">
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblClusters" runat="server" meta:resourcekey="lblClusters"></asp:Label>
 				</td>
-				<td width="100%" class="Normal">
+				<td class="Normal">
 					<asp:DropDownList ID="ddlClusters" runat="server" Width="200px" CssClass="form-control"
 						DataTextField="ClusterName" DataValueField="ClusterID">
 					</asp:DropDownList>
@@ -124,3 +124,4 @@
 	<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
 	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Service...');"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </asp:LinkButton>
 </div>
+
