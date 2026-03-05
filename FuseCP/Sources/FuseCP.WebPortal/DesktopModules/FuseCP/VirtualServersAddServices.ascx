@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="card border-info server-panel matchHeight">
                     <div class="card-header">
-                        <h3 class="card-title" style="line-height:inherit;white-space:nowrap;overflow:hidden;" title="<%# Eval("ServerName") %>">
+                        <h3 class="card-title" style="line-height:inherit; white-space:nowrap; overflow:hidden" title="<%# Eval("ServerName") %>">
                             <i class="bi bi-server" aria-hidden="true">&nbsp;</i>&nbsp;
                             <%# Eval("ServerName") %>
                         </h3>

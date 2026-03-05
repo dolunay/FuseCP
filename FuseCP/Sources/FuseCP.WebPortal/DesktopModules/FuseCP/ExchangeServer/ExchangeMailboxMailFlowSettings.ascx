@@ -22,7 +22,7 @@
                     </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                     <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_mailflow" />	
                     </div>
                     <div class="card tab-content">
@@ -30,7 +30,7 @@
 					<fcp:CollapsiblePanel id="secForwarding" runat="server"
                         TargetControlID="Forwarding" meta:resourcekey="secForwarding" Text="Forwarding Address">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="Forwarding" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="Forwarding" runat="server" Height="0" style="overflow:hidden">
 						<asp:UpdatePanel ID="ForwardingUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
 							<ContentTemplate>
 							
@@ -67,7 +67,7 @@
 					<fcp:CollapsiblePanel id="secSendOnBehalf" runat="server"
                         TargetControlID="SendOnBehalf" meta:resourcekey="secSendOnBehalf" Text="Send On Behalf">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SendOnBehalf" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="SendOnBehalf" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 							<tr>
 								<td>
@@ -81,7 +81,7 @@
 								</td>
 							</tr>
 					    </table>
-                      <table id="tablesavesentitems" runat="server" style="width:100%;margin-top:10px;">
+                      <table id="tablesavesentitems" runat="server" style="margin-top:10px">
     					    <tr>
 	   				            <td class="text-start">
                                    <asp:CheckBox ID="chkSaveSentItems" runat="server" meta:resourcekey="chkSaveSentItems" Text="Copy items sent as and on behalf of this mailbox" />
@@ -94,7 +94,7 @@
 					<fcp:CollapsiblePanel id="secAcceptMessagesFrom" runat="server"
                         TargetControlID="AcceptMessagesFrom" meta:resourcekey="secAcceptMessagesFrom" Text="Accept Messages From">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="AcceptMessagesFrom" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="AcceptMessagesFrom" runat="server" Height="0" style="overflow:hidden">
 					    <fcp:AcceptedSenders id="acceptAccounts" runat="server" />
 					    <asp:CheckBox ID="chkSendersAuthenticated" runat="server" meta:resourcekey="chkSendersAuthenticated" Text="Require that all senders are authenticated" />
 					</asp:Panel>
@@ -103,11 +103,11 @@
 					<fcp:CollapsiblePanel id="secRejectMessagesFrom" runat="server"
                         TargetControlID="RejectMessagesFrom" meta:resourcekey="secRejectMessagesFrom" Text="Reject Messages From">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="RejectMessagesFrom" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="RejectMessagesFrom" runat="server" Height="0" style="overflow:hidden">
 					    <fcp:RejectedSenders id="rejectAccounts" runat="server" />
 					</asp:Panel>
 					
-					<table style="width:100%;margin-top:10px;">
+					<table style="margin-top:10px">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true" Visible="false"

@@ -16,7 +16,7 @@
                     <wsp:SimpleMessageBox id="messageBox" runat="server" />
                     
 				    
-				    <table style="width:100%;">
+				    <table >
 				        <tr>
 				            <td class="align-top">
 				            
@@ -34,7 +34,7 @@
                                     <NodeStyle CssClass="TreeNode" />
 				                </asp:TreeView>
 				                
-				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px;">
+				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px">
 				                    <asp:Localize ID="locNoSnapshots" runat="server" meta:resourcekey="locNoSnapshots" Text="No snapshots"></asp:Localize>
 				                </div>
                                 
@@ -75,7 +75,7 @@
 		    </div>
 	    </div>
 
-<asp:Panel ID="RenamePanel" runat="server" CssClass="Popup" style="display:none;">
+<asp:Panel ID="RenamePanel" runat="server" CssClass="Popup" style="display:none">
 	<table class="Popup-Header table table-borderless align-middle mb-0">
 		<tr>
 			<td class="Popup-HeaderLeft"></td>

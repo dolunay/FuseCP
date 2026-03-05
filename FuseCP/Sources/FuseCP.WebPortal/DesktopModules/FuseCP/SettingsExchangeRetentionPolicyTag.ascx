@@ -34,7 +34,7 @@
     	<fcp:CollapsiblePanel id="secPolicy" runat="server"
             TargetControlID="Policy" meta:resourcekey="secPolicy" Text="Policy">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden">
 			<table>
 				<tr>
 					<td class="FormLabel200 text-end">
@@ -53,7 +53,7 @@
 		<fcp:CollapsiblePanel id="secPolicyFeatures" runat="server"
             TargetControlID="PolicyFeatures" meta:resourcekey="secPolicyFeatures" Text="Policy Tag Features">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden">
 			<table>
 				<tr>
 					<td class="FormLabel200 text-end"><asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize></td>

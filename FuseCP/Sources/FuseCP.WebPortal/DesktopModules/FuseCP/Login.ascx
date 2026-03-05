@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6" style="padding-bottom: 15px;">
+        <div class="col-sm-6" style="padding-bottom: 15px">
             <asp:CheckBox ID="chkRemember" runat="server" meta:resourcekey="chkRemember" Text="Remember me on this computer"></asp:CheckBox>
         </div>
         <div class="col-sm-6">
@@ -40,7 +40,7 @@
 </div>
 <div class="card-body mb-3" runat="server" id="tokenDiv" visible="false">
     <div class="row">
-        <div class="col-sm-12"  style="padding-bottom: 15px;">
+        <div class="col-sm-12"  style="padding-bottom: 15px">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
                 <asp:TextBox ID="txtPin" runat="server" CssClass="form-control"></asp:TextBox>

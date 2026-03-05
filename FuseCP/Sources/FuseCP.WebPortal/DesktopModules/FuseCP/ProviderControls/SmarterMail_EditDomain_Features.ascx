@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail_EditDomain_Features.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail_EditDomain_Features" %>
-<table width="100%">
+<table>
     <tr>
-        <td class="text-end" style="width:150px;"><asp:Label runat="server" meta:resourcekey="cbShowcontentfilteringmenu" /></td>
+        <td class="text-end" ><asp:Label runat="server" meta:resourcekey="cbShowcontentfilteringmenu" /></td>
         <td>
             <asp:CheckBox runat="server" ID="cbShowcontentfilteringmenu"  />
         </td>
