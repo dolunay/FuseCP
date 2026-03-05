@@ -4,7 +4,7 @@
 </uc1:ServerHeaderControl>
 
 <div class="FormButtonsBar">
-    <div class="Left" style="padding: 5px;">
+    <div class="Left" style="padding: 5px">
         <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
     </div>
     <div class="Right">

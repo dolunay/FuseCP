@@ -9,7 +9,7 @@
     <fcp:CollapsiblePanel id="secSummary" runat="server"
         TargetControlID="SummaryPanel" meta:resourcekey="secSummary" Text="Disk Space by Resources">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden">
 
         <asp:GridView ID="gvSummary" runat="server" AutoGenerateColumns="False"
             EmptyDataText="gvSummary" CssSelectorClass="NormalGridView">
