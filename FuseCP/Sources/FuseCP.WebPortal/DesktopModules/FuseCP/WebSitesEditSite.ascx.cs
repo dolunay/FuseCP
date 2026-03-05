@@ -584,7 +584,7 @@ namespace FuseCP.Portal
 				// Disable user name validation
 				WDeployPublishingAccountRequiredFieldValidator.Enabled = false;
 				// Display plain-text publishing account name
-				WDeployPublishingAccountLiteral.Text = item.WebDeployPublishingAccount;
+				WDeployPublishingAccountLiteral.Text = HttpUtility.HtmlEncode(item.WebDeployPublishingAccount);
 				// Miscellaneous
 				// Enable empty publishing password for stylistic purposes
 				WDeployPublishingPasswordTextBox.Text = PasswordControl.EMPTY_PASSWORD;
