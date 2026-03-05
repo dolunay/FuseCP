@@ -56,7 +56,7 @@
                         
                         <div>
                             <asp:GridView ID="gvRoles" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                                Width="100%"  CssSelectorClass="NormalGridView" 
+                                 CssSelectorClass="NormalGridView" 
                                 AllowPaging="False" AllowSorting="False" DataKeyNames="RoleID" >
                                 <Columns>
                                     <asp:TemplateField >
@@ -66,7 +66,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="gvRole" DataField="RoleName" 
-                                        ItemStyle-Width="100%" />
+                                        />
                                     
                                 </Columns>
                             </asp:GridView>

@@ -66,14 +66,14 @@
                     </tr>
                     <tr>
                         <td style="padding-left: 30px; padding-bottom: 5px; padding-top: 5px">
-                            <asp:Label ID="locStartTime" runat="server" meta:resourcekey="locStartTime" Text="Start time:" Width="100"></asp:Label>
+                            <asp:Label ID="locStartTime" runat="server" meta:resourcekey="locStartTime" Text="Start time:"></asp:Label>
                             <asp:TextBox ID="txtStartDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtStartTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding-left: 30px; padding-bottom: 10px; padding-top: 5px">
-                            <asp:Label ID="locEndTime" runat="server" meta:resourcekey="locEndTime" Text="End time:" Width="100"></asp:Label>
+                            <asp:Label ID="locEndTime" runat="server" meta:resourcekey="locEndTime" Text="End time:"></asp:Label>
                             <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtEndTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>

@@ -72,7 +72,7 @@
     AllowSorting="True" DataSourceID="odsPackages">
     <Columns>
         <asp:TemplateField SortExpression="PackageName" HeaderText="gvPackagesName">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id=lnkEdit runat="server" CssClass="Medium" NavigateUrl='<%# GetSpaceHomePageUrl((int)Eval("PackageID")) %>'>
 		            <%# PortalAntiXSS.EncodeOld((string) Eval("PackageName")) %>
@@ -80,7 +80,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField SortExpression="ServerName" HeaderText="gvPackagesServer">
-            <ItemStyle Width="30%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 		         <uc3:ServerDetails ID="serverDetails" runat="server"
 		            ServerID='<%# Eval("ServerID") %>'

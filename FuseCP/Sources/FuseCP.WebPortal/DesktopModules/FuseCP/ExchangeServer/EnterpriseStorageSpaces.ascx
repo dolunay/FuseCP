@@ -30,10 +30,10 @@
 					</div>
 
 					<asp:GridView ID="gvSpaces" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-						Width="100%" EmptyDataText="gvSpaces" CssSelectorClass="NormalGridView" OnRowCommand="gvSpaces_RowCommand">
+					 EmptyDataText="gvSpaces" CssSelectorClass="NormalGridView" OnRowCommand="gvSpaces_RowCommand">
 						<Columns>
 							<asp:TemplateField HeaderText="gvSpaceName">
-								<ItemStyle Width="50%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:HyperLink ID="lnkEditZone" runat="server" EnableViewState="false" NavigateUrl='<%# GetSpaceRecordsEditUrl((string)Eval("Name")) %>' />
 								</ItemTemplate>
