@@ -31,7 +31,7 @@
     }
     
 </script>
-<table class="table table-borderless align-middle mb-0" style="width: 100%;">
+<table class="table table-borderless align-middle mb-0" >
 	<tr>
 		<td class="SubHead">WebLog Title:</td>
 		<td class="Normal">
@@ -39,8 +39,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Username:</td>
-		<td class="Normal" style="width: 100%;">
+		<td class="SubHead text-nowrap" >Username:</td>
+		<td class="Normal" >
 			<b>admin</b>
 		</td>
 	</tr>
@@ -58,8 +58,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHead text-nowrap" style="width: 200px;">Administrator E-Mail:</td>
-		<td class="Normal" style="width: 100%;">
+		<td class="SubHead text-nowrap" >Administrator E-Mail:</td>
+		<td class="Normal" >
 			<asp:textbox id="txtEmail" runat="server" CssClass=form-control>admin@admin.com</asp:textbox>
 		</td>
 	</tr>

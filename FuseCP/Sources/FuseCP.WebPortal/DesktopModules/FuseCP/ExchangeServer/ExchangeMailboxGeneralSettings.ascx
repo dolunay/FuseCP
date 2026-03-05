@@ -20,11 +20,11 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
 					<asp:Literal ID="litMailboxType" runat="server" Text="" Visible="false" />
                     <asp:Image ID="imgVipUser" SkinID="VipUser16" runat="server" tooltip="VIP user" Visible="false"/>
-                    <asp:Label ID="litServiceLevel" runat="server" style="float:right;padding-right:8px;" Visible="false"></asp:Label>
+                    <asp:Label ID="litServiceLevel" runat="server" style="float:right; padding-right:8px" Visible="false"></asp:Label>
               </h3>
                           </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_settings" />
                     </div>
                     <div class="card tab-content">
@@ -33,7 +33,7 @@
     				    <ContentTemplate>
 
 					        <fcp:CollapsiblePanel id="secGeneral" runat="server" TargetControlID="General" meta:resourcekey="secGeneral" Text="General"></fcp:CollapsiblePanel>
-                            <asp:Panel ID="General" runat="server" Height="0" style="overflow:hidden;">
+                            <asp:Panel ID="General" runat="server" Height="0" style="overflow:hidden">
 					            <table>
 						            <tr>
 						                <td></td>
@@ -83,7 +83,7 @@
 					        </asp:Panel>
 
                             <fcp:CollapsiblePanel id="secRetentionPolicy" runat="server" TargetControlID="RetentionPolicy" meta:resourcekey="secRetentionPolicy" Text="Retention policy"></fcp:CollapsiblePanel>
-                            <asp:Panel ID="RetentionPolicy" runat="server" Height="0" style="overflow:hidden;">
+                            <asp:Panel ID="RetentionPolicy" runat="server" Height="0" style="overflow:hidden">
 					            <table>
 					                <tr runat="server">
 					                    <td class="FormLabel150"><asp:Localize ID="locRetentionPolicyName" runat="server" meta:resourcekey="locRetentionPolicyName" Text="Retention policy: "></asp:Localize></td>
@@ -95,7 +95,7 @@
 					        </asp:Panel>
 
                             <fcp:CollapsiblePanel id="secLitigationHoldSettings" runat="server" TargetControlID="LitigationHoldSettings" meta:resourcekey="secLitigationHoldSettings" Text="Litigation Hold"></fcp:CollapsiblePanel>
-                            <asp:Panel ID="LitigationHoldSettings" runat="server" Height="0" style="overflow:hidden;">
+                            <asp:Panel ID="LitigationHoldSettings" runat="server" Height="0" style="overflow:hidden">
 					            <table>
 <!--
 						            <tr>
@@ -117,7 +117,7 @@
 					        </asp:Panel>
 
                             <fcp:CollapsiblePanel id="secArchiving" runat="server" TargetControlID="Archiving" meta:resourcekey="secArchiving" Text="Archiving"></fcp:CollapsiblePanel>
-                            <asp:Panel ID="Archiving" runat="server" Height="0" style="overflow:hidden;">
+                            <asp:Panel ID="Archiving" runat="server" Height="0" style="overflow:hidden">
 					            <table>
 						            <tr>
 						                <td class="FormLabel150"></td>
@@ -139,7 +139,7 @@
 					</asp:UpdatePanel>
 
 					<fcp:CollapsiblePanel id="secBookingDelegates" runat="server" TargetControlID="BookingDelegates" meta:resourcekey="secBookingDelegates" Text="Booking delegates"></fcp:CollapsiblePanel>
-                    <asp:Panel ID="BookingDelegates" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="BookingDelegates" runat="server" Height="0" style="overflow:hidden">
 						<asp:UpdatePanel ID="upBookingDelegates" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
 							<ContentTemplate>
 					            <table>
@@ -172,7 +172,7 @@
                     
 
 					<fcp:CollapsiblePanel id="secBookingOptions" runat="server" TargetControlID="BookingOptions" meta:resourcekey="secBookingOptions" Text="Booking options"></fcp:CollapsiblePanel>
-                    <asp:Panel ID="BookingOptions" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="BookingOptions" runat="server" Height="0" style="overflow:hidden">
 						<asp:UpdatePanel ID="upBookingOptions" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
 							<ContentTemplate>
 					            <table>
@@ -231,7 +231,7 @@
 						</asp:UpdatePanel>
 					</asp:Panel>
 					
-					<table style="width:100%;margin-top:10px;">
+					<table style="margin-top:10px">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" Visible="false" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true"
@@ -241,7 +241,7 @@
 					</table>
 
                     <fcp:CollapsiblePanel id="secAdvancedInfo" runat="server" TargetControlID="AdvancedInfo" meta:resourcekey="secAdvancedInfo" Text="Advanced Information" IsCollapsed="true"></fcp:CollapsiblePanel>
-                    <asp:Panel ID="AdvancedInfo" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="AdvancedInfo" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 						    <td class="FormLabel150"> <asp:Localize ID="locExchangeGuid" runat="server" meta:resourcekey="locExchangeGuid" Text="Exchange Guid:"></asp:Localize></td>

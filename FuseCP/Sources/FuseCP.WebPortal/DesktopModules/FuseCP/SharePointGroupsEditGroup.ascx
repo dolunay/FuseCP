@@ -2,10 +2,10 @@
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc2" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <div class="card-body form-horizontal">
-    <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+    <table class="table table-borderless align-middle mb-0 w-100">
         <tr>
-            <td class="SubHead text-nowrap" width="200"><asp:Label ID="lblGroupName" runat="server" meta:resourcekey="lblGroupName" Text="Group name:"></asp:Label></td>
-            <td class="NormalBold" width="100%">
+            <td class="SubHead text-nowrap"><asp:Label ID="lblGroupName" runat="server" meta:resourcekey="lblGroupName" Text="Group name:"></asp:Label></td>
+            <td class="NormalBold">
                 <uc2:UsernameControl ID="usernameControl" runat="server" />
             </td>
         </tr>
@@ -14,8 +14,8 @@
     <fcp:CollapsiblePanel id="secUsers" runat="server"
         TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Members">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-        <table class="table table-borderless align-middle mb-0 w-100" id="tblUsers" runat="server" width="100%">
+    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden">
+        <table class="table table-borderless align-middle mb-0 w-100" id="tblUsers" runat="server">
             <tr>
                 <td colspan="2">
 	                <asp:checkboxlist id="dlUsers" RepeatColumns="2" CssClass="NormalBold" Runat="server"
