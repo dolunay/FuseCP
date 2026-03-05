@@ -1,12 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EnableAsyncTasksSupport.ascx.cs" Inherits="FuseCP.Portal.EnableAsyncTasksSupport" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<input type="hidden" id="taskID" runat="server" />
-
-<script type="text/javascript">
-	var _ctrlTaskID = "<%= taskID.ClientID %>";
-	var _completeMessage = "<%= GetLocalizedString("Text.CompleteMessage") %>";
-</script>
+<input type="hidden" id="taskID" runat="server" data-complete-message="<%= GetLocalizedString("Text.CompleteMessage") %>" />
+<script src="/DesktopModules/FuseCP/Scripts/async-tasks-config.js" type="text/javascript"></script>
 <script src="<%= GetAjaxUtilsUrl() %>" type="text/javascript"></script>
 
 <asp:Panel id="pnlModal" runat="server" CssClass="PopupContainer" style="display:none">

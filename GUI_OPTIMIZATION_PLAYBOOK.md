@@ -149,6 +149,7 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/organization-create-user.js` for organization create-user display-name composition.
 - Added shared helper `DesktopModules/FuseCP/Scripts/exchange-mailbox-autoreply.js` for Exchange mailbox auto-reply TinyMCE configuration.
 - Added shared helper `DesktopModules/FuseCP/Scripts/exchange-disclaimer-general-settings.js` for Exchange disclaimer TinyMCE configuration.
+- Added shared helper `DesktopModules/FuseCP/Scripts/async-tasks-config.js` for async task hidden-field config bootstrap.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
 - Applied shared checkbox helper to `Domains.ascx` and `IPAddresses.ascx`.
 - Applied shared checkbox helper to `PhoneNumbers.ascx` and `VLANs.ascx`.
@@ -180,7 +181,8 @@ Keep using:
 - Replaced inline datepicker script in `VPSForPC/MonitoringPage.aspx` with shared `vps-monitoring.js` include.
 - Replaced inline display-name script in `ExchangeServer/OrganizationCreateUser.ascx` with shared `organization-create-user.js`.
 - Replaced inline TinyMCE initialization scripts in `ExchangeServer/ExchangeMailboxAutoReply.ascx` and `ExchangeServer/ExchangeDisclaimerGeneralSettings.ascx` with shared script includes.
-- Reduced inline-script candidate count from `100` to `26` in guard output.
+- Replaced inline async-task globals script in `UserControls/EnableAsyncTasksSupport.ascx` with shared `async-tasks-config.js` bootstrap.
+- Reduced inline-script candidate count from `100` to `25` in guard output.
 
 8. Accessibility batch:
 - Added missing icon alternate text/tooltip improvements in `Domains.ascx`, `UserSpaces.ascx`, `ExchangeServer/ExchangeMailboxEmailAddresses.ascx`, and `RDS/RDSUserSessions.ascx`.
