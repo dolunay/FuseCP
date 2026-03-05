@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FuseCP.EnterpriseServer;
@@ -56,7 +57,7 @@ namespace FuseCP.Portal
             }
             catch (Exception ex)
             {
-                Response.Write(ex);
+                Response.Write(HttpUtility.HtmlEncode(ex.ToString()));
             }
 
             // add "select" item
