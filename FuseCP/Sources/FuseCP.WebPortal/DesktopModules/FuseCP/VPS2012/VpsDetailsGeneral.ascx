@@ -66,7 +66,7 @@
 
                             <ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
                                 PopupControlID="RdpPanel" Position="Bottom" />
-                            <ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />
+                            <ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />
                         </td>
                     </tr>
                     <tr>
@@ -134,10 +134,10 @@
                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                     </Triggers>
                     <ContentTemplate>
-                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
+                        <asp:Image ID="imgThumbnail" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" Width="160" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="bi bi-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
+                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="bi bi-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
             </td>
             <td class="align-top" rowspan="2">
                 <ul class="ActionButtons">
@@ -233,7 +233,7 @@
                             meta:resourcekey="locHostname1"></asp:Localize>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                        <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -250,7 +250,7 @@
                             meta:resourcekey="locDomain"></asp:Localize>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                        <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"

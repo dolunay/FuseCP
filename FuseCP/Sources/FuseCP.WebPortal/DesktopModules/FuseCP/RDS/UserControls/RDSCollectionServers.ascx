@@ -23,35 +23,35 @@
 				<ItemStyle Width="10px" />
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvServerName" HeaderText="gvServerName">
-				<ItemStyle Width="30%" Wrap="false">
+				<ItemStyle Wrap="false">
 				</ItemStyle>
 				<ItemTemplate>
                     <asp:Literal ID="litFqdName" runat="server" Text='<%# Eval("FqdName") %>'></asp:Literal>
 				</ItemTemplate>
 			</asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvPopupStatus">
-                <ItemStyle Width="30%" HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
                 <ItemTemplate>
                     <asp:Literal ID="litStatus" runat="server" Text='<%# Eval("Status") %>'></asp:Literal>
                     <asp:HiddenField ID="hdnRdsCollectionId" runat="server" Value='<%# Eval("RdsCollectionId") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvViewInfo">
-                <ItemStyle Width="10%" HorizontalAlign="Right"/>
+                <ItemStyle HorizontalAlign="Right"/>
                 <ItemTemplate>
                     <asp:LinkButton OnClientClick="ShowProgressDialog('Getting Server Info ...');return true;" CssClass="btn btn-primary" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>' 
                         CommandName="ViewInfo" CommandArgument='<%# Eval("FqdName")%>' ID="lbViewInfo" runat="server" Text="View Info" meta:resourcekey="lbViewInfo"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvRestart">
-                <ItemStyle Width="10%" HorizontalAlign="Right"/>
+                <ItemStyle HorizontalAlign="Right"/>
                 <ItemTemplate>
                     <asp:LinkButton ID="lbRestart" CommandName="Restart" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-warning" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
                         runat="server" Text="Restart" OnClientClick="return confirm('Are you sure you want to restart selected server?')" meta:resourcekey="lbRestart"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvShutdown">
-                <ItemStyle Width="10%" HorizontalAlign="Right"/>
+                <ItemStyle HorizontalAlign="Right"/>
                 <ItemTemplate>
                     <asp:LinkButton ID="lbShutdown" CommandName="ShutDown" CommandArgument='<%# Eval("FqdName")%>' CssClass="btn btn-danger" Visible='<%# Eval("Status") != null && Eval("Status").ToString().StartsWith("Online") %>'
                         runat="server" Text="Shut Down" OnClientClick="return confirm('Are you sure you want to shu down selected server?')" meta:resourcekey="lbShutdown"/>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupServers" runat="server" meta:resourcekey="gvPopupServers" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView"
 						DataKeyNames="Id">
 						<Columns>
 							<asp:TemplateField>
@@ -187,7 +187,7 @@
 								<ItemStyle Width="10px" />
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvPopupServerName">
-								<ItemStyle Width="70%"/>
+								<ItemStyle/>
 								<ItemTemplate>
 									<asp:Literal ID="litName" runat="server" Text='<%# Eval("FqdName") %>'></asp:Literal>
 								</ItemTemplate>

@@ -14,12 +14,12 @@
         <tr>
             <td class="SubHead" ><asp:Label ID="lblParkingPageName" runat="server" meta:resourcekey="lblParkingPageName" Text="Page Name:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtPageName" runat="server" Width="200" CssClass="form-control"></asp:TextBox></td>
+                <asp:TextBox ID="txtPageName" runat="server" CssClass="form-control"></asp:TextBox></td>
         </tr>
         <tr>
             <td class="SubHead align-top"><asp:Label ID="lblParkingPageContent" runat="server" meta:resourcekey="lblParkingPageContent" Text="Page Content:"></asp:Label></td>
             <td class="Normal align-top">
-                <asp:TextBox ID="txtPageContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False"></asp:TextBox></td>
+                <asp:TextBox ID="txtPageContent" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False"></asp:TextBox></td>
         </tr>
         <tr>
             <td class="SubHead align-top"></td>
@@ -35,7 +35,7 @@
         <tr>
             <td class="SubHead" ><asp:Label ID="lblHostName" runat="server" meta:resourcekey="lblHostName" Text="Page Name:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtHostName" runat="server" Width="200" CssClass="form-control"></asp:TextBox></td>
+                <asp:TextBox ID="txtHostName" runat="server" CssClass="form-control"></asp:TextBox></td>
         </tr>
     </table>
 </asp:Panel>
@@ -51,7 +51,7 @@
         <tr>
             <td class="SubHead align-top" ><asp:Label ID="PublishingProfileLabel" runat="server" meta:resourcekey="PublishingProfileLabel" Text="Publishing Profile:"></asp:Label></td>
             <td class="Normal align-top">
-                <asp:TextBox ID="PublishingProfileTextBox" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False"></asp:TextBox></td>
+                <asp:TextBox ID="PublishingProfileTextBox" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False"></asp:TextBox></td>
         </tr>
     </table>
 </asp:Panel>
@@ -321,7 +321,7 @@
                 <asp:Label ID="lblWebSiteRootFolder" runat="server" meta:resourcekey="lblWebSiteRootFolder" Text="Root Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteRootFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteRootFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireRootFolder" runat="server" ControlToValidate="txtSiteRootFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>
@@ -330,7 +330,7 @@
                 <asp:Label ID="lblWebSiteLogsFolder" runat="server" meta:resourcekey="lblWebSiteLogsFolder" Text="Logs Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteLogsFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteLogsFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireLogsFolder" runat="server" ControlToValidate="txtSiteLogsFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>
@@ -339,7 +339,7 @@
                 <asp:Label ID="lblWebSiteDataFolder" runat="server" meta:resourcekey="lblWebSiteDataFolder" Text="Data Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteDataFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteDataFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireDataFolder" runat="server" ControlToValidate="txtSiteDataFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>

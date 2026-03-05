@@ -55,18 +55,18 @@
 </div>
 <asp:HiddenField runat="server" ID="hdnGridState" Value="false" />
 <asp:HiddenField runat="server" ID="hdnItemId"  />
-<asp:GridView ID="gvFolders" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%"
+<asp:GridView ID="gvFolders" runat="server" AutoGenerateColumns="False" EnableViewState="true"
     EmptyDataText="gvFolders" CssSelectorClass="NormalGridView" OnRowCommand="gvFolders_RowCommand" AllowPaging="True"
     AllowSorting="True" DataSourceID="odsEnterpriseFoldersPaged" PageSize="20">
     <Columns>
         <asp:TemplateField>
-            <ItemStyle Width="0%" />
+            <ItemStyle />
             <ItemTemplate>                        
                 <asp:HiddenField ID="hdnFolderName" runat="server" Value='<%# Eval("Name") %>' />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderName" SortExpression="FolderName">
-            <ItemStyle Width="20%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:hyperlink id="lnkFolderName" runat="server" NavigateUrl='<%# GetFolderEditUrl(Eval("Name").ToString()) %>'>
                     <%# Eval("Name") %>
@@ -74,25 +74,25 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderQuota" SortExpression="FolderQuota">
-            <ItemStyle Width="15%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderQuota" runat="server" Text='<%# ConvertMBytesToGB(Eval("FRSMQuotaMB")).ToString() + " Gb" %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderSize">
-            <ItemStyle Width="15%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderSize" runat="server" Text='...'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderUrl">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderUrl" runat="server" Text='<%# (Eval("UncPath") ?? Eval("Url")).ToString() %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvMappedDrive">
-            <ItemStyle Width="10%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Image ID="img1" runat="server" ImageUrl='<%# GetDriveImage() %>' ImageAlign="AbsMiddle"  style="display:none"/>
                 <asp:Literal id="litMappedDrive" runat="server" Text='...'></asp:Literal>

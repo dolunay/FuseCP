@@ -32,7 +32,7 @@
                             <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
                                         meta:resourcekey="lblCpu" Text="CPU:" CssClass="col-sm-1" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
+                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control">
                                     </asp:DropDownList>
                                 <asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores"/>
                             </div>
@@ -40,7 +40,7 @@
                             <asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
                                         meta:resourcekey="lblRam" Text="RAM:" CssClass="col-sm-1" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Width="70" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -50,7 +50,7 @@
                             <asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
                                         meta:resourcekey="lblHdd" Text="HDD:" CssClass="col-sm-1" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Width="70" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>                                    
@@ -66,7 +66,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-1" AssociatedControlID="txtAdditionalHdd"></asp:Label>
                                     <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Width="70" Text='<%# Eval("DiskSize") % MaxLength="255">'></asp:TextBox>
+                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Text='<%# Eval("DiskSize") % MaxLength="255">'></asp:TextBox>
                                         <asp:HiddenField id="txtAdditionalHddPath" Value='<%# Eval("DiskPath") %>' runat="server" />
                                         <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                             ControlToValidate="txtAdditionalHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
@@ -104,7 +104,7 @@
                             <asp:Label ID="lblHddMinIOPS" runat="server" AssociatedControlID="txtHddMinIOPS"
                                         meta:resourcekey="lblHddMinIOPS" Text="Minimum:" CssClass="col-sm-1" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" Width="70" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMinIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMinIOPS" meta:resourcekey="RequireHddMinIOPSValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -114,7 +114,7 @@
                             <asp:Label ID="lblHddMaxIOPS" runat="server" AssociatedControlID="txtHddMaxIOPS"
                                         meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" CssClass="col-sm-1" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" Width="70" MaxLength="255"></asp:TextBox>
+                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMaxIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMaxIOPS" meta:resourcekey="RequireHddMaxIOPSValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -135,7 +135,7 @@
                             <asp:Label ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:" CssClass="col-sm-1"></asp:Label>
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50" MaxLength="255"></asp:TextBox>                                    
+                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>                                    
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>

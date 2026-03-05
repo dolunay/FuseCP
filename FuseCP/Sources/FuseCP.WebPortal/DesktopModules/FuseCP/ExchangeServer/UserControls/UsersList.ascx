@@ -23,7 +23,7 @@
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvAccountsDisplayName" HeaderText="gvAccountsDisplayName">
 				<HeaderStyle Wrap="false" />
-				<ItemStyle Width="34%" Wrap="false"></ItemStyle>
+				<ItemStyle Wrap="false"></ItemStyle>
 				<ItemTemplate>
 					<asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 					<asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
@@ -31,14 +31,14 @@
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvAccountsEmail" HeaderText="gvAccountsEmail">
 				<HeaderStyle Wrap="false" />
-				<ItemStyle Width="33%" Wrap="false"></ItemStyle>
+				<ItemStyle Wrap="false"></ItemStyle>
 				<ItemTemplate>
 					<asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 				</ItemTemplate>
 			</asp:TemplateField>
             <asp:TemplateField meta:resourcekey="gvAccountsAccountType" HeaderText="gvAccountsAccountType">
 				<HeaderStyle Wrap="false" />
-				<ItemStyle Width="33%" Wrap="false"></ItemStyle>
+				<ItemStyle Wrap="false"></ItemStyle>
 				<ItemTemplate>
 					<asp:Literal ID="litType" runat="server" Text='<%# GetType((int)Eval("AccountType")) %>'></asp:Literal>
 				</ItemTemplate>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView"
 						DataKeyNames="AccountName">
 						<Columns>
 							<asp:TemplateField>
@@ -90,20 +90,20 @@
 								<ItemStyle Width="10px" />
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvAccountsDisplayName">
-								<ItemStyle Width="34%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 									<asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvAccountsEmail">
-								<ItemStyle Width="33%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 								</ItemTemplate>
 							</asp:TemplateField>
                             <asp:TemplateField meta:resourcekey="gvAccountsAccountType" HeaderText="gvAccountsAccountType">
-				                <ItemStyle Width="33%"></ItemStyle>
+				                <ItemStyle></ItemStyle>
 				                <ItemTemplate>
 					                <asp:Literal ID="litType" runat="server" Text='<%# GetType((int)Eval("AccountType")) %>'></asp:Literal>
 				                </ItemTemplate>

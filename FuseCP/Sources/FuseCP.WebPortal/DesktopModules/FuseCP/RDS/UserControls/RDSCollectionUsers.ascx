@@ -8,7 +8,7 @@
             <asp:LinkButton ID="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Loading ...');return true;"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
         </div>
         <asp:GridView ID="gvUsers" runat="server" meta:resourcekey="gvUsers" AutoGenerateColumns="False"
-            Width="100%" CssSelectorClass="NormalGridView" OnRowCommand="gvUsers_RowCommand"
+            CssSelectorClass="NormalGridView" OnRowCommand="gvUsers_RowCommand"
             DataKeyNames="AccountName">
             <Columns>
                 <asp:TemplateField>
@@ -21,7 +21,7 @@
                     <ItemStyle Width="10px" />
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvUsersAccount" HeaderText="gvUsersAccount">
-                    <ItemStyle Width="40%" Wrap="false" HorizontalAlign="Left"></ItemStyle>
+                    <ItemStyle Wrap="false" HorizontalAlign="Left"></ItemStyle>
                     <ItemTemplate>
                         <asp:Literal ID="litAccount" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# GetThemedImage("Exchange/admin_16.png") %>' Visible='<%# Convert.ToBoolean(Eval("IsVIP")) %>' ImageAlign="AbsMiddle" />
@@ -30,13 +30,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvEmail" HeaderText="gvEmail">
-                    <ItemStyle Width="40%" Wrap="false" HorizontalAlign="Left"></ItemStyle>
+                    <ItemStyle Wrap="false" HorizontalAlign="Left"></ItemStyle>
                     <ItemTemplate>
                         <asp:Literal ID="litEmail" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField meta:resourcekey="gvSetupInstructions">
-                    <ItemStyle Width="20%" HorizontalAlign="right"></ItemStyle>
+                    <ItemStyle HorizontalAlign="right"></ItemStyle>
                     <ItemTemplate>
                         <asp:LinkButton ID="lbSetupInstructions" CommandName="SetupInstructions" CommandArgument='<%# Eval("AccountId")%>' runat="server"
                             Text="Setup Instructions" OnClientClick="ShowProgressDialog('Loading ...');return true;" meta:resourcekey="lbSetupInstructions" />
@@ -78,7 +78,7 @@
                             </div>
                             <div class="Popup-Scroll">
                                 <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False"
-                                    Width="100%" CssSelectorClass="NormalGridView"
+                                    CssSelectorClass="NormalGridView"
                                     DataKeyNames="AccountName">
                                     <Columns>
                                         <asp:TemplateField>
@@ -92,7 +92,7 @@
                                             <ItemStyle Width="10px" />
                                         </asp:TemplateField>
                                         <asp:TemplateField meta:resourcekey="gvAccountsDisplayName">
-                                            <ItemStyle Width="50%" HorizontalAlign="Left"></ItemStyle>
+                                            <ItemStyle HorizontalAlign="Left"></ItemStyle>
                                             <ItemTemplate>
                                                 <asp:Image ID="imgAccount" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
                                                 <asp:Literal ID="litDisplayName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal><asp:HiddenField ID="hdnSamName" runat="server" Value='<%# Eval("SamAccountName") %>' />
@@ -100,7 +100,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField meta:resourcekey="gvAccountsEmail">
-                                            <ItemStyle Width="50%" HorizontalAlign="Left"></ItemStyle>
+                                            <ItemStyle HorizontalAlign="Left"></ItemStyle>
                                             <ItemTemplate>
                                                 <asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
                                             </ItemTemplate>

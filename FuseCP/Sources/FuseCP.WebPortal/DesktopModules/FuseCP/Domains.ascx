@@ -42,7 +42,7 @@
      </div>
  
  
- <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" Width="100%" AllowSorting="True" DataSourceID="odsDomainsPaged"
+ <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" AllowSorting="True" DataSourceID="odsDomainsPaged"
      EmptyDataText="gvDomains" DataKeyNames="DomainID"
      CssSelectorClass="NormalGridView" AllowPaging="True" OnRowCommand="gvDomains_RowCommand">
      <Columns>
@@ -57,7 +57,7 @@
 
 
          <asp:TemplateField SortExpression="DomainName" HeaderText="gvDomainsName">
-             <ItemStyle Width="45%" Wrap="False"></ItemStyle>
+             <ItemStyle Wrap="False"></ItemStyle>
              <ItemTemplate>
  	            <b><asp:hyperlink id=lnkEdit1 runat="server" CssClass="Medium"
  	                NavigateUrl='<%# GetItemEditUrl(Eval("PackageID"), Eval("DomainID")) %>'>
@@ -72,7 +72,7 @@
 
 
          <asp:TemplateField HeaderText="gvDomainsExpirationDate">
-             <ItemStyle Width="11%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <%# GetDomainExpirationDate(Eval("ExpirationDate"), Eval("LastUpdateDate"))%>
              </ItemTemplate>
@@ -80,7 +80,7 @@
 
 
          <asp:TemplateField HeaderText="">
-             <ItemStyle Width="5%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <div style="display:inline-block" runat="server" Visible='<%# ShowDomainDnsInfo(Eval("ExpirationDate"), Eval("LastUpdateDate"), !(bool)Eval("IsSubDomain") && !(bool)Eval("IsPreviewDomain") && !(bool)Eval("IsDomainPointer")) && !string.IsNullOrEmpty(GetDomainDnsRecords((int)Eval("DomainId"))) %>'>
                    <img style="border-width: 0px" src="App_Themes/Default/Images/information_icon_small.gif" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
@@ -90,7 +90,7 @@
 
 
          <asp:TemplateField HeaderText="gvDomainsType">
-             <ItemStyle Width="30%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <%# GetDomainTypeName((bool)Eval("IsSubDomain"), (bool)Eval("IsPreviewDomain"), (bool)Eval("IsDomainPointer"))%>
              </ItemTemplate>
@@ -98,7 +98,7 @@
 
 
          <asp:TemplateField SortExpression="PackageName" HeaderText="gvDomainsSpace">
-             <ItemStyle Width="30%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <asp:hyperlink id="lnkEdit2" runat="server" EnableViewState="false"
  	                NavigateUrl='<%# GetSpaceHomePageUrl((int)Eval("PackageID")) %>'>
