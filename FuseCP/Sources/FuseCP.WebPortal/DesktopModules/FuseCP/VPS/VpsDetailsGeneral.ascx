@@ -11,24 +11,22 @@
 
 <asp:Timer runat="server" Interval="10000" ID="operationTimer" />
 
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+
 <script language="JavaScript" type="text/javascript">
-function buildRdpWindowFeatures(width, height, left, top) {
-    return "status=0,resizable=1,scrollbars=1,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left;
-}
-
-function openRdpPopup(url, width, height) {
-    var left = (screen.width - width) / 2;
-    var top = (screen.height - height) / 2;
-    var popup = window.open(url, "RDP", buildRdpWindowFeatures(width, height, left, top));
-    if (popup && typeof popup.focus === "function") {
-        popup.focus();
-    }
-}
-
 function OpenRemoteDesktopWindow(resolution, width, height) {
     $find("RdpPopup").hidePopup();
     var rdpUrl = "<asp:literal id="litRdpPageUrl" runat="server" />";
-    openRdpPopup(rdpUrl + resolution, width, height);
+
+    if (window.FuseCPRdpPopup && typeof window.FuseCPRdpPopup.open === "function") {
+        window.FuseCPRdpPopup.open(rdpUrl + resolution, width, height, "RDP");
+        return;
+    }
+
+    // Fallback to legacy behavior if shared helper is unavailable.
+    var left = (screen.width - width) / 2;
+    var top = (screen.height - height) / 2;
+    window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
 }
 </script>
 <div class="card">
