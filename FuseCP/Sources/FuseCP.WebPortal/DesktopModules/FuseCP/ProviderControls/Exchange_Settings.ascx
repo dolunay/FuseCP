@@ -4,8 +4,8 @@
 
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<table cellpadding="3" cellspacing="0" width="100%">
-    <tr runat="server" id="Ex2016CU6orhigher" width="200" nowrap>
+<table class="table table-borderless align-middle mb-0 w-100">
+    <tr runat="server" id="Ex2016CU6orhigher">
         <td class="SubHead">
             <asp:Localize ID="lblEx2016CU6orhigher" runat="server" meta:resourcekey="lblEx2016CU6orhigher"
                 Text="Exchange 2016 version:"></asp:Localize>
@@ -15,7 +15,7 @@
         </td>
     </tr>
     
-    <tr runat="server" id="powershellUrl1" width="200" nowrap>
+    <tr runat="server" id="powershellUrl1">
         <td class="SubHead">
         </td>
         <td>
@@ -23,7 +23,7 @@
         </td>
     </tr>
 
-    <tr runat="server" id="powershellUrl2" width="200" nowrap>
+    <tr runat="server" id="powershellUrl2">
         <td class="SubHead">
             <asp:Localize ID="loclocPowerShellUrl" runat="server" meta:resourcekey="locPowerShellUrl"
                 Text="Powershell URL:"></asp:Localize>
@@ -34,7 +34,7 @@
     </tr>
     
     <tr runat="server" id="storageGroup">
-			<td class="SubHead" width="200" nowrap>
+            <td class="SubHead text-nowrap" >
 			    <asp:Localize ID="locStorageGroup" runat="server" meta:resourcekey="locStorageGroup" Text="Storage Group Name:"></asp:Localize>
 			</td>
 			<td>
@@ -42,7 +42,7 @@
             </td>
 		</tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap" >
             <asp:Localize ID="locMailboxDatabase" runat="server" meta:resourcekey="locMailboxDatabase"
                 Text="Mailbox Database Name:"></asp:Localize>
             <asp:Localize ID="locMailboxDAG" runat="server" meta:resourcekey="locMailboxDAG"
@@ -54,7 +54,7 @@
     </tr>
 
     <tr>
-        <td class="SubHead" runat="server" id="archivingGroup" width="200" nowrap>
+        <td class="SubHead text-nowrap" runat="server" id="archivingGroup" >
             <asp:Localize ID="locArchivingDatabase" runat="server" meta:resourcekey="locArchivingDatabase"
                 Text="Archiving Database Name:"></asp:Localize>
         </td>
@@ -84,7 +84,7 @@
     </tr>
 </table>
 <br />
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr runat="server" id="clusteredMailboxServer">
         <td class="SubHead">
             <asp:Localize ID="locMailboxClusterName" runat="server" meta:resourcekey="locMailboxClusterName"
@@ -113,11 +113,11 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap valign="top" style="padding-top:15px;">
+        <td class="SubHead text-nowrap align-top" style="padding-top:15px">
             <asp:Localize ID="locHubTransport" runat="server" meta:resourcekey="locHubTransport"
                 Text="Hub Transport Service:"></asp:Localize>
         </td>
-        <td style="padding-top:15px;">
+        <td style="padding-top:15px">
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlHubTransport" runat="server" CssClass="form-control">
                 </asp:DropDownList>
@@ -128,7 +128,7 @@
              <asp:GridView ID="gvHubTransport" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvHubTransport_RowCommand" meta:resourcekey="gvHubTransport">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="locServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="locServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServiceName" Text='<%#Eval("ServiceName") + "(" + Eval("ServerName") +")"%>' />
                         </ItemTemplate>
@@ -146,22 +146,22 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap valign="top" style="padding-top:15px;">
+        <td class="SubHead text-nowrap align-top" style="padding-top:15px">
             <asp:Localize ID="locClientAccess" runat="server" meta:resourcekey="locClientAccess"
                 Text="Client Access Service:"></asp:Localize>
         </td>
-        <td style="padding-top:15px;">
+        <td style="padding-top:15px">
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlClientAccess" runat="server" CssClass="form-control">
                 </asp:DropDownList>
                 <span class="d-flex">
-                    <asp:LinkButton id="Button1" CssClass="btn btn-primary" runat="server" OnClick="btnAddClientAccess_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton><br />
+                    <asp:LinkButton id="btnAddClientAccess" CssClass="btn btn-primary" runat="server" OnClick="btnAddClientAccess_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton><br />
                 </span>
             </div>
             <asp:GridView ID="gvClients" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvClientAccess_RowCommand" meta:resourcekey="gvClientAccess">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="locServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="locServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServiceName" Text='<%#Eval("ServiceName") + "(" + Eval("ServerName") +")"%>' />
                         </ItemTemplate>
@@ -185,9 +185,9 @@
         <asp:Label ID="lblSetupVariables" runat="server" meta:resourcekey="lblSetupVariables"
             Text="Setup Instruction Variables" CssClass="NormalBold"></asp:Label>&nbsp;
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" valign="top" style="width: 200px;">
+            <td class="SubHead align-top" >
                 <asp:Localize ID="locSmtpServers" runat="server" meta:resourcekey="locSmtpServers"
                     Text="SMTP Servers:"></asp:Localize>
             </td>
@@ -268,7 +268,7 @@
 	        </asp:GridView>
             <br />
             <div class="input-group col-sm-6">
-             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
+             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle" runat="server"></asp:TextBox>
                 <span class="d-flex">
                 <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
                 <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />
@@ -282,5 +282,6 @@
     <br />
 </fieldset>
 </div>
+
 
 

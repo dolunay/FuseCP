@@ -3,9 +3,9 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
 <asp:Panel runat="server" ID="MainPanel">
-        <table width="100%">
+        <table>
     	    <tr>
-		        <td class="SubHead" width="150">
+		        <td class="SubHead">
 		            <asp:Label ID="lblDescription" runat="server" meta:resourcekey="lblDescription" Text="List Description:"></asp:Label>
 		        </td>
 		        <td class="Normal">
@@ -24,9 +24,9 @@
         </table>
     <asp:UpdatePanel ID="MembersUpdatePanel" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <table width="100%">
+            <table>
 	        <tr>
-		        <td class="SubHead" width="150">
+		        <td class="SubHead">
 		            <asp:Label ID="lblMembersSource" runat="server" meta:resourcekey="lblMembersSource" Text="Members Source:"></asp:Label>
 		        </td>
 		        <td class="Normal">
@@ -54,9 +54,9 @@
 <asp:Panel runat="server" ID="MessagePanel">
     <asp:UpdatePanel ID="FromHeaderUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-        <table width="100%">
+        <table>
 	        <tr>
-		        <td class="SubHead" width="150">
+		        <td class="SubHead">
 		            <asp:Label ID="lblFromHeader" runat="server" meta:resourcekey="lblFromHeader" Text="From Header:"></asp:Label>
 		        </td>
 		        <td class="Normal">
@@ -82,9 +82,9 @@
 
     <asp:UpdatePanel ID="ReplyToHeaderUpdatePanel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
-        <table width="100%">
+        <table>
 	        <tr>
-		        <td class="SubHead" width="150">
+		        <td class="SubHead">
 		            <asp:Label ID="lblReplyToHeader" runat="server" meta:resourcekey="lblReplyToHeader" Text="Reply-To Header:"></asp:Label>
 		        </td>
 		        <td class="Normal">
@@ -107,14 +107,14 @@
         </table>
     </ContentTemplate>
     </asp:UpdatePanel>
-    <table width="100%">
+    <table>
 	    <tr>
 		    <td colspan="2">
                 <asp:CheckBox ID="chkSetRecipientToToHeader" runat="server" meta:resourcekey="chkSetRecipientToToHeader" Text="Set recipient to To header" />
             </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" width="150">
+		    <td class="SubHead">
 		        <asp:Label ID="lblSubjectPrefix" runat="server" meta:resourcekey="lblSubjectPrefix" Text="Subject Prefix:"></asp:Label>
 		    </td>
 		    <td class="Normal">
@@ -138,9 +138,9 @@
 
 <fcp:CollapsiblePanel id="Security" runat="server" targetcontrolid="SecurityPanel" meta:resourcekey="Security" Text="Security"></fcp:CollapsiblePanel>
 <asp:Panel runat="server" ID="SecurityPanel">
-    <table width="100%">
+    <table>
 	    <tr>
-		    <td class="SubHead" width="150">
+		    <td class="SubHead">
 		        <asp:Label ID="lblPostingMode" runat="server" meta:resourcekey="lblPostingMode" Text="Posting mode:"></asp:Label>
 		    </td>
 		    <td class="Normal">
@@ -230,7 +230,7 @@
 
 <fcp:CollapsiblePanel id="Options" runat="server" targetcontrolid="OptionsPanel" meta:resourcekey="Options" Text="Options"></fcp:CollapsiblePanel>
 <asp:Panel runat="server" ID="OptionsPanel">
-   <table width="100%">
+   <table>
         <tr>
             <td colspan="2">
                 <asp:CheckBox ID="chkSendToSender" runat="server" meta:resourcekey="chkSendToSender" Text="Send to sender" Checked="True"></asp:CheckBox>
@@ -242,7 +242,7 @@
             </td>
         </tr>
 	    <tr>
-		    <td class="SubHead" width="150">
+		    <td class="SubHead">
 		        <asp:Label ID="lblMaxMessagesPerMinute" runat="server" meta:resourcekey="lblMaxMessagesPerMinute" Text="Max # of messages to send out in 1 minute:"></asp:Label>
 		    </td>
 		    <td class="Normal">
@@ -317,3 +317,4 @@
         </tr>
  </table>
  </asp:Panel>
+
