@@ -22,23 +22,23 @@
     OnRowCommand="gvErrorPages_RowCommand" OnRowDataBound="gvErrorPages_RowDataBound"
     EmptyDataText="gvErrorPages">
     <columns>
-	    <asp:TemplateField HeaderText="gvErrorPagesCode" ItemStyle-Width="60px">
+	    <asp:TemplateField HeaderText="gvErrorPagesCode">
 		    <itemtemplate>
 			    <asp:TextBox id="txtErrorCode" Runat="server" Width="55px" CssClass="form-control" Text='<%# Eval("ErrorCode") %>'></asp:TextBox>
             </itemtemplate>
         </asp:TemplateField>
-        <asp:TemplateField ItemStyle-Width="5px">
+        <asp:TemplateField>
             <itemtemplate>
 			    . 
             </itemtemplate>
         </asp:TemplateField>
-        <asp:TemplateField ItemStyle-Width="60px">
+        <asp:TemplateField>
             <itemtemplate>
             <asp:TextBox id="txtErrorSubcode" Runat="server" Width="55px" CssClass="form-control" Text='<%# GetSubCode(Eval("ErrorSubcode")) %>'>
 			    </asp:TextBox>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField HeaderText="gvErrorPagesHandlerType" ItemStyle-Width="100px">
+	    <asp:TemplateField HeaderText="gvErrorPagesHandlerType">
 		    <itemtemplate>
 			    <asp:dropdownlist id="ddlHandlerType" Width="100px" Runat="server"
 			        CssClass="form-control">
@@ -51,7 +51,7 @@
 			    </asp:TextBox>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField ItemStyle-HorizontalAlign="Center" ItemStyle-Width="65px">
+	    <asp:TemplateField ItemStyle-HorizontalAlign="Center">
 		    <itemtemplate>
 			    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
                     &nbsp;<i class="bi bi-trash"></i>&nbsp; 

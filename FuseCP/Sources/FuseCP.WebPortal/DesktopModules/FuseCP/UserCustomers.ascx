@@ -79,7 +79,7 @@
                         <%# PanelFormatter.GetAccountStatusName((int)Eval("StatusID"))%>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField ItemStyle-Width="20px" ItemStyle-Wrap="false">
+                <asp:TemplateField ItemStyle-Wrap="false">
                     <ItemTemplate>
                         <uc4:Comments id="Comments1" runat="server" Comments='<%# Eval("Comments") %>'></uc4:Comments>
                     </ItemTemplate>

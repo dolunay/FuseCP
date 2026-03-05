@@ -81,7 +81,7 @@
                 </div>
             </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField ItemStyle-Width="20px">
+        <asp:TemplateField>
             <ItemTemplate>
                 <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("ItemID") %>' OnClientClick="return confirm('Remove this item?');">
                     &nbsp;

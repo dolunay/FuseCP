@@ -111,6 +111,15 @@ Keep using:
 - Normalized 18 markup files from `/JavaScript/jquery.min.js?v=1.4.4` to `/JavaScript/jquery-1.4.4.min.js`.
 - Post-checks passed: `net10` portal modules build, legacy guard, old-HTML guard, and no remaining querystring jQuery includes in module markup scope.
 
+5. Width backlog follow-up phase:
+- Additional cleanup batch completed across 8 files.
+- Current `width_backlog_hits_excluding_popup`: `0` (verified by `FuseCP/Tools/run-gui-modernization-guards.ps1`).
+
+6. Validation automation phase:
+- Added `FuseCP/Tools/run-gui-modernization-guards.ps1`.
+- Script reports in one run:
+`legacy button/icon patterns`, `actionable old HTML attrs`, `width backlog excluding popup strings`, and `inline script candidate hotspots`.
+
 ## Next Modernization Queue
 
 1. JS include normalization batch:
@@ -130,3 +139,4 @@ Keep using:
 5. Validation automation batch:
 - Add a repeatable scan script for:
 `legacy button/icon patterns`, `actionable old HTML attrs`, `width backlog excluding popup strings`, `inline script duplication candidates`.
+- Completed via `FuseCP/Tools/run-gui-modernization-guards.ps1`.

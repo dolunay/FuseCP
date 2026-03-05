@@ -28,7 +28,7 @@
 		ShowHeader="False" CssSelectorClass="LightGridView" EmptyDataText="gvHeliconApeFolders"
 		DataKeyNames="Path,ContentPath" OnRowDeleting="gvHeliconApeFolders_RowDeleting">
 		<Columns>
-			<asp:TemplateField HeaderText="gvHeliconApeFoldersName" ItemStyle-Width="782px">
+			<asp:TemplateField HeaderText="gvHeliconApeFoldersName">
 				<ItemStyle CssClass="NormalText"></ItemStyle>
 				<ItemTemplate>
 					<asp:HyperLink ID="lnkEditHeliconApeFolder" runat="server" 
@@ -38,7 +38,7 @@
 					</asp:HyperLink>
 				</ItemTemplate>
 			</asp:TemplateField>
-			<asp:TemplateField ItemStyle-Width="110px">
+			<asp:TemplateField>
 				<ItemTemplate>
 					<asp:HyperLink ID="lnkEditHeliconApeFolderAuth" runat="server" NavigateUrl='<%# GetEditControlUrl("edit_htaccessfolderauth", Eval("Path").ToString()) %>'
 						title="Folder Security Properties (.htpasswd)">
@@ -92,7 +92,7 @@
 					</asp:HyperLink>
 				</ItemTemplate>
 			</asp:TemplateField>
-			<asp:TemplateField ItemStyle-Width="30px">
+			<asp:TemplateField>
 				<ItemTemplate>
 					<asp:LinkButton id="cmdDeleteUser" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete user?');"> 
                         &nbsp;<i class="bi bi-trash"></i>&nbsp; 
@@ -131,7 +131,7 @@
 					</asp:HyperLink>
 				</ItemTemplate>
 			</asp:TemplateField>
-			<asp:TemplateField ItemStyle-Width="30px">
+			<asp:TemplateField>
 				<ItemTemplate>
 					<asp:LinkButton id="cmdDeleteGroup" CssClass="btn btn-danger" runat="server" CommandName='delete' CausesValidation="false" OnClientClick="return confirm('Delete group?');"> 
                         &nbsp;<i class="bi bi-trash"></i>&nbsp; 

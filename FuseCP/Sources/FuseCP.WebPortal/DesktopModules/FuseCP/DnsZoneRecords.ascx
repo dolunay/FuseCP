@@ -40,8 +40,8 @@
                 <ItemStyle Wrap="False" />
             </asp:TemplateField>
             <asp:BoundField DataField="RecordName" SortExpression="RecordName" HeaderText="gvRecordsName" />
-            <asp:BoundField DataField="RecordType" SortExpression="RecordType" HeaderText="gvRecordsType" ItemStyle-Width="70px" />
-            <asp:BoundField DataField="RecordTTL" SortExpression="RecordTTL" HeaderText="gvRecordsTTL" ItemStyle-Width="70px" Visible="false"/>
+            <asp:BoundField DataField="RecordType" SortExpression="RecordType" HeaderText="gvRecordsType" />
+            <asp:BoundField DataField="RecordTTL" SortExpression="RecordTTL" HeaderText="gvRecordsTTL" Visible="false"/>
             <asp:TemplateField SortExpression="RecordData" HeaderText="gvRecordsData" >
                 <ItemStyle />
                 <ItemTemplate>

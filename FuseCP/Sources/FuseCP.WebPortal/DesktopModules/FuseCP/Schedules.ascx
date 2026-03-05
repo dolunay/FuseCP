@@ -61,7 +61,7 @@
                 <%# GetScheduleStatus((int)Eval("StatusID")) %>
 			</ItemTemplate>
 		</asp:TemplateField>
-		<asp:TemplateField HeaderText="gvSchedulesResult" HeaderStyle-Wrap="false" ItemStyle-Width="150px">
+		<asp:TemplateField HeaderText="gvSchedulesResult" HeaderStyle-Wrap="false">
 			<ItemTemplate>
     			<%# GetAuditLogRecordSeverityName((int)Eval("LastResult"))%>
 			</ItemTemplate>
