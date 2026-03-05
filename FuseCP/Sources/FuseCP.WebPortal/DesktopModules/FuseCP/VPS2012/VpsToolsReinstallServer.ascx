@@ -37,7 +37,7 @@
                         <div class="mb-3" id="hostnameSetting" runat="server">
                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
-                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
+                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
                                 <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -48,7 +48,7 @@
 			                    </asp:RegularExpressionValidator>
                                                 
                                 . 
-                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="40%"></asp:TextBox>
+                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
                                                     
                                 <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"

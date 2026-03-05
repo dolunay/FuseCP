@@ -19,10 +19,10 @@
                     </div>
 
 				    <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvDomains" CssSelectorClass="NormalGridView" OnRowCommand="gvDomains_RowCommand">
+					    EmptyDataText="gvDomains" CssSelectorClass="NormalGridView" OnRowCommand="gvDomains_RowCommand">
 					    <Columns>
 						    <asp:TemplateField HeaderText="gvDomainsName">
-							    <ItemStyle Width="70%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnkEditZone" runat="server" EnableViewState="false">
 									    <%# Eval("DomainName") %>
