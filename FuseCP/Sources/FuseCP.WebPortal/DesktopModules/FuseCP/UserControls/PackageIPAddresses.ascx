@@ -2,18 +2,7 @@
 <%@ Register Src="SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="SearchBox.ascx" TagName="SearchBox" TagPrefix="fcp" %>
 
-
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
@@ -73,7 +62,7 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvAddressesPrimary" meta:resourcekey="gvAddressesPrimary" SortExpression="IsPrimary">						        						        
 	        <ItemTemplate>						        
-		        <asp:Image ID="imgPrimary" runat="server" SkinID="Checkbox16" Visible='<%# Eval("IsPrimary") %>' />&nbsp;
+                <asp:Image ID="imgPrimary" runat="server" SkinID="Checkbox16" Visible='<%# Eval("IsPrimary") %>' AlternateText="Primary address" ToolTip="Primary address" />&nbsp;
 	        </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvAddressesSpace" meta:resourcekey="gvAddressesSpace" SortExpression="PackageName" >
