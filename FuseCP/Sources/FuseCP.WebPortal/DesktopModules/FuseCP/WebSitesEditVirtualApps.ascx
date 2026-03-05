@@ -7,6 +7,7 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 
 <div class="card-body form-horizontal">
     <table>
@@ -42,12 +43,6 @@
                                 </SelectedItemTemplate>
                             </asp:DataList>
                         </ul>
-                        <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('.nav-tabs li').unwrap();
-                                $('.nav-tabs li').unwrap();
-                            });
-                        </script>
                     </div>
                     <div class="widget-content tab-content">
                         <div class="card-body form-horizontal">

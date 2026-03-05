@@ -129,7 +129,7 @@ Keep using:
 - Added shared helper `DesktopModules/FuseCP/Scripts/vps-monitoring.js` for VPS monitoring popup/date-picker logic.
 - Added shared helper `DesktopModules/FuseCP/Scripts/proxmox-vps-general.js` for Proxmox general page RDP + thumbnail refresh logic.
 - Applied shared checkbox helper to `ExchangeServer/OrganizationUsers.ascx`.
-- Reduced inline-script candidate count from `100` to `86` in guard output.
+- Reduced inline-script candidate count from `100` to `85` in guard output.
 
 ## Next Modernization Queue
 
