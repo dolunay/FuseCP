@@ -1,0 +1,36 @@
+/* Login layout fallback for Bootstrap 5 migration: keep sign-in pane centered. */
+body .page-login {
+	background-color: #EFEFEF;
+	display: table;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.page-login .login-table-row {
+	display: table-row;
+}
+
+.page-login .login-table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.page-login .row {
+	justify-content: center;
+}
+
+.page-login .centering {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page-login .top-bar {
+	margin: 0;
+	padding: 10px 0;
+}
+
+.page-login .top-bar img {
+	width: 140px;
+}
