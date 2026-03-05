@@ -7,7 +7,7 @@
 </asp:BulletedList>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnUpdate">
 <div class="card-body form-horizontal">
-	<table class="table table-borderless align-middle mb-0 w-100" id="tblAccount" runat="server" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100" id="tblAccount" runat="server">
 		<tr id="rowUsername" runat="server">
 			<td class="SubHead FormLabel200">
 				<asp:Label ID="lblUserName1" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label>
@@ -131,7 +131,7 @@
 	
     <fcp:CollapsiblePanel id="headContact" runat="server" IsCollapsed="true"
         TargetControlID="pnlContact" meta:resourcekey="secContact" Text="Contact"></fcp:CollapsiblePanel>
-	<asp:Panel ID="pnlContact" runat="server" Height="0" style="overflow:hidden;">
+	<asp:Panel ID="pnlContact" runat="server" Height="0" style="overflow:hidden">
 	    <dnc:usercontact id="contact" runat="server"></dnc:usercontact>
 	</asp:Panel>
 

@@ -21,7 +21,7 @@ function confirmation()
     </div>
     <div class="FormRow widget">
         <div class="widget-header clearfix">
-        <table class="table table-borderless align-middle mb-0 w-100" width="100%">
+        <table class="table table-borderless align-middle mb-0 w-100">
             <tr>
                 <td class="Tabs">
                     <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal"

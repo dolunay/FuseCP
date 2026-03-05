@@ -14,7 +14,7 @@
                         </div>
                 <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-                    <table id="ExistingUserTable"   runat="server" width="100%"> 					    
+                    <table id="ExistingUserTable"   runat="server"> 					    
 					    <tr>
 					        <td class="FormLabel150"><asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize></td>
 					        <td>                                

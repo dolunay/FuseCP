@@ -9,7 +9,7 @@
     <fcp:CollapsiblePanel id="secSummary" runat="server"
         TargetControlID="SummaryPanel" meta:resourcekey="secSummary" Text="Bandwidth by Resources">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden">
         <div class="Big">
             <asp:Literal ID="litPeriod" runat="server"></asp:Literal>
         </div>
