@@ -150,3 +150,155 @@ body .page-login {
 .NormalGridView .AspNet-GridView tr:last-child td {
 	border-bottom: 0;
 }
+
+/* Keep Hosted organization selector compact and right-aligned in breadcrumb. */
+#Breadcrumb .Path.d-flex {
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#Breadcrumb .Path.d-flex > .flex-grow-1 {
+	min-width: 0;
+}
+
+#Breadcrumb .Path.d-flex .OrgsSelector {
+	float: none;
+	position: static;
+	bottom: auto;
+}
+
+#Breadcrumb .Path.d-flex .OrgsSelector .input-group {
+	display: flex;
+	flex-wrap: nowrap;
+	width: auto;
+}
+
+#Breadcrumb .Path.d-flex .OrgsSelector .form-control {
+	width: 130px;
+	min-width: 130px;
+}
+
+#Breadcrumb .Path.d-flex .OrgsSelector .btn {
+	white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+	#Breadcrumb .Path.d-flex {
+		justify-content: flex-start;
+	}
+
+	#Breadcrumb .Path.d-flex .OrgsSelector .form-control {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+/* Keep Exchange Mailboxes actions/search toolbar on one line on desktop. */
+.mailbox-actions-row {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.mailbox-actions-row > .mailbox-actions-left {
+	flex: 0 0 340px;
+	max-width: 340px;
+}
+
+.mailbox-actions-row > .mailbox-actions-right {
+	flex: 1 1 auto;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 8px;
+}
+
+.mailbox-actions-row .mailbox-actions-left .input-group,
+.mailbox-actions-row .mailbox-actions-right .input-group {
+	flex-wrap: nowrap;
+}
+
+.mailbox-actions-row .user-actions-toolbar .user-actions-group {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+}
+
+.mailbox-actions-row .user-actions-toolbar .user-actions-group .form-control {
+	min-width: 0;
+}
+
+.mailbox-actions-row .user-actions-toolbar .user-actions-apply {
+	display: flex;
+	flex: 0 0 auto;
+}
+
+.mailbox-actions-row .user-actions-toolbar .user-actions-apply .btn {
+	white-space: nowrap;
+}
+
+.mailbox-actions-row .mailbox-search-input {
+	min-width: 260px;
+}
+
+
+.mailbox-actions-row .mailbox-search-input .btn-search-options {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 34px;
+	padding: 0;
+	border: 1px solid #6c757d !important;
+	background-color: #6c757d !important;
+	color: #ffffff !important;
+}
+
+.mailbox-actions-row .mailbox-search-input .btn-search-options:hover,
+.mailbox-actions-row .mailbox-search-input .btn-search-options:focus {
+	background-color: #5a6268 !important;
+	border-color: #545b62 !important;
+	color: #ffffff !important;
+}
+
+.mailbox-actions-row .mailbox-search-input .btn-search-options .search-options-caret {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 6px solid #ffffff;
+}
+
+.mailbox-actions-row .mailbox-search-input .input-group-btn {
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+.mailbox-actions-row .mailbox-search-input .btn-group > .btn-primary {
+	min-width: 40px;
+}
+
+@media (max-width: 991.98px) {
+	.mailbox-actions-row {
+		flex-wrap: wrap;
+	}
+
+	.mailbox-actions-row > .mailbox-actions-left,
+	.mailbox-actions-row > .mailbox-actions-right {
+		flex: 1 1 100%;
+		max-width: 100%;
+	}
+
+	.mailbox-actions-row > .mailbox-actions-right {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.mailbox-actions-row .mailbox-search-input {
+		min-width: 0;
+		width: 100%;
+	}
+}

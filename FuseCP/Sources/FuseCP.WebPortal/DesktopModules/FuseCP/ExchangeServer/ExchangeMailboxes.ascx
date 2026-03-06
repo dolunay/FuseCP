@@ -22,12 +22,12 @@
 </div>
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row mailbox-actions-row">
+        <div class="col-md-4 mailbox-actions-left">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvMailboxes" CheckboxesName="chkSelectedUsersIds" ShowSetMailboxPlan="true" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
-            <div class="mb-3">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center mailbox-actions-right">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -37,7 +37,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -48,28 +48,28 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-0 mailbox-search-input">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="d-flex">
-                        <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <div class="dropdown-menu dropdown-menu-end" role="menu">
-                                  <div class="mb-3">
-                                    <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
-                                      <br />
-                                      <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
-                                      <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
-                                      <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />
-                                    </div>
-                                  </div>
-                            </div>
-                        </div>
+                    <span class="input-group-btn dropdown dropdown-lg">
+                        <button type="button" class="btn btn-search-options" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Search options">
+                            <span class="search-options-caret" aria-hidden="true"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" role="menu">
+                              <div class="mb-3">
+                                <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
+                                  <br />
+                                  <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
+                                  <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
+                                  <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />
+                                </div>
+                              </div>
+                    </span>
+                    <span class="input-group-btn">
                         <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
                             <i class="bi bi-search" aria-hidden="true"></i>
-                        </asp:LinkButton>      
-                    </div>     
+                        </asp:LinkButton>
+                    </span>
                 </div>
             </div>
         </asp:Panel>

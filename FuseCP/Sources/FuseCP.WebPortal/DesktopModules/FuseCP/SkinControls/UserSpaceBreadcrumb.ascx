@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserSpaceBreadcrumb.ascx.cs" Inherits="FuseCP.Portal.SkinControls.UserSpaceBreadcrumb" %>
 <%@ Register TagPrefix="fcp" TagName="SpaceOrgsSelector" Src="SpaceOrganizationsSelector.ascx" %>
 <div id="Breadcrumb">
-    <div class="Path">
-        <div class="col-8">
+    <div class="Path d-flex flex-wrap gap-2">
+        <div class="col-12 col-md flex-grow-1">
         <asp:Repeater ID="repUsersPath" runat="server" OnItemDataBound="repUsersPath_ItemDataBound"
             EnableViewState="false">
             <ItemTemplate>

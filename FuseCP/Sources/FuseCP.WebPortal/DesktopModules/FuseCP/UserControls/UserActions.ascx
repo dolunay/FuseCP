@@ -9,9 +9,9 @@
     }
 </style>
 
-<asp:UpdatePanel ID="tblActions" runat="server" CssClass="NormalBold" UpdateMode="Conditional" ChildrenAsTriggers="true" >
+<asp:UpdatePanel ID="tblActions" runat="server" CssClass="NormalBold user-actions-toolbar" UpdateMode="Conditional" ChildrenAsTriggers="true" >
     <ContentTemplate>
-        <div class="input-group">
+        <div class="input-group user-actions-group">
         <asp:DropDownList ID="ddlUserActions" runat="server" CssClass="form-control" resourcekey="ddlUserActions" 
             AutoPostBack="True">
             <asp:ListItem Value="0">Actions</asp:ListItem>
@@ -24,9 +24,10 @@
             <asp:ListItem Value="7">SendBySms</asp:ListItem>
             <asp:ListItem Value="8">SendByEmail</asp:ListItem>
         </asp:DropDownList>
-            <div class="d-flex">
-        <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowUserActionProgress(this);"><asp:Localize runat="server" meta:resourcekey="btnApplyText"/> </asp:LinkButton>
-        </div></div>
+        <span class="input-group-btn user-actions-apply">
+            <asp:LinkButton id="btnApply" CssClass="btn btn-primary" runat="server" OnClick="btnApply_Click" OnClientClick="return ShowUserActionProgress(this);"><asp:Localize runat="server" meta:resourcekey="btnApplyText"/> </asp:LinkButton>
+        </span>
+        </div>
 
         
         <ajaxToolkit:ModalPopupExtender ID="Modal" runat="server" EnableViewState="true" TargetControlID="FakeModalPopupTarget"
