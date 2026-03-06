@@ -81,8 +81,8 @@
                             </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="d-flex">
-                    <div class="btn-group" role="group">
+				<span class="input-group-btn">
+					<div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
 							<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
 							<div class="dropdown-menu dropdown-menu-end" role="menu">
@@ -107,10 +107,13 @@
 
                                         </div>
                                   </div>
-                            </div>
-                        </div>
-                       <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
-                       </div></div>
+							</div>
+						</div>
+					</div>
+				</span>
+				<span class="input-group-btn">
+					   <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
+				</span></div>
                         </asp:Panel>
                     </div>
                 </div></div>

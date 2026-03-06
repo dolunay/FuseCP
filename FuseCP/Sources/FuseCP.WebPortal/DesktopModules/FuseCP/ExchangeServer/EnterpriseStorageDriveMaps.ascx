@@ -33,11 +33,11 @@
             <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="d-flex">
+                    <span class="input-group-btn">
                         <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
                             <i class="bi bi-search" aria-hidden="true"></i>
                         </asp:LinkButton>
-                    </div>
+                    </span>
                 </div>
             </div>
         </asp:Panel>

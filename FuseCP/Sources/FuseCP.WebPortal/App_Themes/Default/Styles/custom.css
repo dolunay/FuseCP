@@ -277,6 +277,30 @@ body .page-login {
 	vertical-align: middle;
 }
 
+.exchange-search-inline .input-group {
+	flex-wrap: nowrap;
+}
+
+.exchange-search-inline {
+	justify-content: flex-end;
+}
+
+.exchange-search-inline .input-group-btn {
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+.FormButtonsBarCleanRight .input-group {
+	flex-wrap: nowrap;
+}
+
+.FormButtonsBarCleanRight .input-group-btn {
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
 .mailbox-actions-row .mailbox-search-input .btn-group > .btn-primary {
 	min-width: 40px;
 }

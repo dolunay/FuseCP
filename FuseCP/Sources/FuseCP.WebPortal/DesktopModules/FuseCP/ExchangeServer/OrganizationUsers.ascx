@@ -28,8 +28,8 @@
         <div class="col-md-3">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvUsers" CheckboxesName="chkSelectedUsersIds" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end d-flex flex-wrap gap-2 align-items-center">
-            <div class="mb-3">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end d-flex flex-wrap gap-2 align-items-center exchange-search-inline">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -39,7 +39,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -50,14 +50,14 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="d-flex">
+                    <span class="input-group-btn">
                         <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
                             <i class="bi bi-search" aria-hidden="true"></i>
                         </asp:LinkButton>
-                    </div>
+                    </span>
                 </div>
             </div>
         </asp:Panel>
