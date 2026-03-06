@@ -45,30 +45,27 @@
         (function () {
             document.addEventListener('submit', function (event) {
                 var form = event.target;
-                if (!form || form.tagName !== 'FORM') {
-                    return;
-                }
+                if (form && form.tagName === 'FORM') {
+                    if (form.getAttribute('data-submitting') === 'true') {
+                        event.preventDefault();
+                    } else {
+                        form.setAttribute('data-submitting', 'true');
 
-                if (form.getAttribute('data-submitting') === 'true') {
-                    event.preventDefault();
-                    return false;
-                }
+                        var submitControls = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+                        for (var i = 0; i < submitControls.length; i++) {
+                            if (submitControls[i].getAttribute('data-allow-multi-submit') !== 'true') {
+                                submitControls[i].setAttribute('disabled', 'disabled');
+                            }
+                        }
 
-                form.setAttribute('data-submitting', 'true');
-
-                var submitControls = form.querySelectorAll('button[type="submit"], input[type="submit"]');
-                for (var i = 0; i < submitControls.length; i++) {
-                    if (submitControls[i].getAttribute('data-allow-multi-submit') !== 'true') {
-                        submitControls[i].setAttribute('disabled', 'disabled');
+                        window.setTimeout(function () {
+                            form.removeAttribute('data-submitting');
+                            for (var j = 0; j < submitControls.length; j++) {
+                                submitControls[j].removeAttribute('disabled');
+                            }
+                        }, 15000);
                     }
                 }
-
-                window.setTimeout(function () {
-                    form.removeAttribute('data-submitting');
-                    for (var j = 0; j < submitControls.length; j++) {
-                        submitControls[j].removeAttribute('disabled');
-                    }
-                }, 15000);
             }, true);
         })();
     </script>
