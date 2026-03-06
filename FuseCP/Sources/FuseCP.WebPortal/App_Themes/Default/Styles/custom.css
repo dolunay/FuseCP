@@ -7,6 +7,14 @@ body .page-login {
 	height: 100%;
 }
 
+/* Bridge Bootstrap 5 .input-group-text with legacy Bootstrap 3 input-group table layout. */
+.input-group > .input-group-text {
+	display: table-cell;
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
 .page-login .login-table-row {
 	display: table-row;
 }

@@ -2,7 +2,7 @@
 <script src="<%= GetRandomPasswordUrl() %>" language="javascript" type="text/javascript"></script>
 <script src="/DesktopModules/FuseCP/Scripts/password-visibility.js" type="text/javascript"></script>
 
-<div class="mb-3">
+<div class="row mb-3">
     <label for="txtPassword" class="col-sm-2 form-label">
         <asp:Localize ID="locPassword" runat="server" meta:resourcekey="locPassword" Text="Password:" />
     </label>
@@ -16,7 +16,7 @@
         <asp:RequiredFieldValidator ID="valRequirePassword" runat="server" meta:resourcekey="valRequirePassword" ErrorMessage="*" ControlToValidate="txtPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
 </div>
-<div class="mb-3">
+<div class="row mb-3">
     <label for="txtConfirmPassword" class="col-sm-2 form-label">
         <asp:Localize ID="locConfirmPassword" runat="server" meta:resourcekey="locConfirmPassword" Text="Confirm Password:" />
     </label>
@@ -30,7 +30,7 @@
         <asp:RequiredFieldValidator ID="valRequireConfirmPassword" runat="server" meta:resourcekey="valRequireConfirmPassword" ErrorMessage="*" ControlToValidate="txtConfirmPassword" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
 </div>
-<div class="mb-3">
+<div class="row mb-3">
     <div class="col-sm-10 offset-sm-2">
         <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
             PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"

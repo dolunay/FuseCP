@@ -11,7 +11,7 @@
 
         <fieldset class="form-horizontal">
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblUsername1" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="locFirstName" runat="server" meta:resourcekey="lblUsername" Text="Username:" />
                 </label>
@@ -29,7 +29,7 @@
         <uc2:PasswordControl ID="userPassword" runat="server" AllowGeneratePassword="true" />
         <fieldset class="form-horizontal">
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblFirstName" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocalFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" />
                 </label>
@@ -43,7 +43,7 @@
         </fieldset>
         <fieldset class="form-horizontal">
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblLastName" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" />
                 </label>
@@ -56,7 +56,7 @@
 
 
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblSubscriberNumber" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocSubscriberNumber" runat="server" meta:resourcekey="lblSubscriberNumber" Text="Account Number:" />
                 </label>
@@ -67,7 +67,7 @@
 
 
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblEmail" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="Localize4" runat="server" meta:resourcekey="lblEmail" Text="E-mail:" />
                 </label>
@@ -78,7 +78,7 @@
 
 
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblSecondaryEmail" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="Localize5" runat="server" meta:resourcekey="lblSecondaryEmail" Text="Secondary e-mail:" />
                 </label>
@@ -89,7 +89,7 @@
 
 
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblMailFormat" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocMailFormat" runat="server" meta:resourcekey="lblMailFormat" Text="Mail Format:" />
                 </label>
@@ -103,7 +103,7 @@
 
 
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblRole" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocRole" runat="server" meta:resourcekey="lblRole" Text="Role:" />
                 </label>
@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblStatus" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocStatus" runat="server" meta:resourcekey="lblStatus" Text="Status:" />
                 </label>
@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblDemoAccount" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocDemoAccount" runat="server" meta:resourcekey="lblDemoAccount" Text="Demo Account:" />
                 </label>
@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="row mb-3">
                 <label id="lblAccountLetter" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocAccountLetter" runat="server" meta:resourcekey="lblAccountLetter" Text="Send Account Summary Letter" />
                 </label>
