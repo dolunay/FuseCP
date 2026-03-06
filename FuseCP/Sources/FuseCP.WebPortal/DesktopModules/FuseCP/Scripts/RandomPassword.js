@@ -102,15 +102,28 @@ function nchar(num) {
 	
 	function GeneratePassword(_maxLength, _Upper, _Number, _Special, txt1, txt2)
 	{
+	    // Fallback when policy values are missing or invalid.
+	    if (!_maxLength || _maxLength < 1)
+	    {
+	        _maxLength = 14;
+	        _Upper = 2;
+	        _Number = 2;
+	        _Special = 2;
+	    }
+
+	    // Normalize negative policy values to avoid invalid calculations.
+	    if (_Upper < 0) _Upper = 0;
+	    if (_Number < 0) _Number = 0;
+	    if (_Special < 0) _Special = 0;
+
+	    // Ensure there is room for lowercase characters as well.
+	    var _required = _Upper + _Number + _Special;
+	    if (_required >= _maxLength)
+	        _maxLength = _required + 4;
+
 	    // If the length is greater than 26 then and no Uppercase and Numbers and Symbols are required then set the max length to 26
 	    if ((_maxLength > 26) && (_Upper == 0) && (_Number == 0) && (_Special == 0)) _maxLength = 26;
-	    if (_maxLength == 0)
-	    {
-	         alert("Your password length is set to 0. Please check your FuseCP Policy");
-	         _Upper = 0;
-	         _Number = 0;
-	         _Special = 0;
-	    }   
+
 	    var pass = "";
 	    var pas_chars = [];
 	    var _Lower = _maxLength - _Upper - _Number - _Special;
