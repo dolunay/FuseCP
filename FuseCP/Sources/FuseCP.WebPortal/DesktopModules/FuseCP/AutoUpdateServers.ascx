@@ -13,10 +13,10 @@
         <div class="col-md-4">
             <div class="card border-info server-panel matchHeight">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        <i class="bi bi-server" aria-hidden="true">&nbsp;</i>&nbsp;
-                        <asp:CheckBox ID="chkServer" AutoPostBack="true" runat="server" Checked="true" Value='<%# Eval("ServerID") %>' /> 
-                        <%# PortalAntiXSS.EncodeOld((string)Eval("ServerName")) %>
+                    <h3 class="card-title m-0 d-flex align-items-center gap-2" title="<%# PortalAntiXSS.EncodeOld((((string)Eval("ServerName")) ?? string.Empty).Trim()) %>">
+                        <i class="bi bi-server" aria-hidden="true"></i>
+                        <asp:CheckBox ID="chkServer" AutoPostBack="true" runat="server" Checked="true" Value='<%# Eval("ServerID") %>' />
+                        <span><%# PortalAntiXSS.EncodeOld((((string)Eval("ServerName")) ?? string.Empty).Trim()) %></span>
                     </h3>
                 </div> 
             </div>
