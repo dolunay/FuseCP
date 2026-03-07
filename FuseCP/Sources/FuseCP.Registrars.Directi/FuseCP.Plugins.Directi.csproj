@@ -57,10 +57,10 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OrderBoxCoreLib">
+    <Reference Include="OrderBoxCoreLib" Condition="Exists('..\..\Lib\References\Directi\OrderBoxCoreLib.dll')">
       <HintPath>..\..\Lib\References\Directi\OrderBoxCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="OrderBoxDomainsLib">
+    <Reference Include="OrderBoxDomainsLib" Condition="Exists('..\..\Lib\References\Directi\OrderBoxDomainsLib.dll')">
       <HintPath>..\..\Lib\References\Directi\OrderBoxDomainsLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="..\LegacyCompat\LegacyEcommerceCompat.cs">
       <Link>LegacyEcommerceCompat.cs</Link>
+    </Compile>
+    <Compile Include="..\LegacyCompat\OrderBoxCompat.cs" Condition="!Exists('..\..\Lib\References\Directi\OrderBoxCoreLib.dll') Or !Exists('..\..\Lib\References\Directi\OrderBoxDomainsLib.dll')">
+      <Link>OrderBoxCompat.cs</Link>
     </Compile>
     <Compile Include="DirectiRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,22 +18,22 @@
 					<asp:Image ID="Image1" SkinID="ExchangeStorageConfig48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Storage Usage"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 					<fcp:CollapsiblePanel id="secSiteCollectionsReport" runat="server"
                         TargetControlID="siteCollectionsReport" meta:resourcekey="secSiteCollectionsReport" Text="Site Collections">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="siteCollectionsReport" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="siteCollectionsReport" runat="server" Height="0" style="overflow:hidden">
 				        <asp:GridView ID="gvStorageUsage" runat="server" AutoGenerateColumns="False" meta:resourcekey="gvStorageUsage"
-					        Width="100%" EmptyDataText="gvSiteCollections" CssSelectorClass="NormalGridView">
+					        EmptyDataText="gvSiteCollections" CssSelectorClass="NormalGridView">
 					        <Columns>
 						        <asp:BoundField meta:resourcekey="gvSiteCollectionName" DataField="Url" />
 						        <asp:BoundField meta:resourcekey="gvSiteCollectionSize" DataField="DiskSpace" />						        
 					        </Columns>
 				        </asp:GridView>
 				        <br />
-			            <table cellpadding="2">
+			            <table class="table table-borderless align-middle mb-0" >
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="locTotalboxItems" runat="server" meta:resourcekey="locTotalMailboxItems" ></asp:Localize></td>
 					            <td><asp:Label ID="lblTotalItems" runat="server" CssClass="NormalBold">177</asp:Label></td>
@@ -47,11 +47,12 @@
 				    </asp:Panel>                   										                    								    
 				
 				
-				<div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnRecalculateDiscSpace" CssClass="btn btn-success" runat="server" onclick="btnRecalculateDiscSpace_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateDiscSpaceText"/> </CPCC:StyleButton>					
+				<div class="card-footer text-end">
+					    <asp:LinkButton id="btnRecalculateDiscSpace" CssClass="btn btn-success" runat="server" onclick="btnRecalculateDiscSpace_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateDiscSpaceText"/> </asp:LinkButton>					
 				    </div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

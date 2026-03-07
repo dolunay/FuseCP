@@ -15,7 +15,7 @@
 <%@ Register Src="UserControls/PopupHeader.ascx" TagName="PopupHeader" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" Namespace="FuseCP.Portal" %>
 <%@ Register Src="WebsitesSSL.ascx" TagName="WebsitesSSL" TagPrefix="uc2" %>
-<%@ Register Src="UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
+<%@ Register Src="UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="uc8" %>
 
 <style type="text/css">
     .style1 {
@@ -23,28 +23,11 @@
     }
 </style>
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-<script type="text/javascript">
-
-    function confirmationSITE() {
-        if (!confirm("Are you sure you want to delete Web site?")) return false; else ShowProgressDialog('Deleting Web site...');
-    }
-
-    function confirmationFPSE() {
-        if (!confirm("Are you sure you want to delete Frontpage account?")) return false; else ShowProgressDialog('Uninstalling Frontpage...');
-    }
-
-    function confirmationWMSVC() {
-        if (!confirm("Are you sure you want to disable Remote Management?")) return false; else ShowProgressDialog('Disabling Remote Management...');
-    }
-
-    function confirmationWebDeployPublishing() {
-        if (!confirm("Are you sure you want to disable Web Publishing?")) return false; else ShowProgressDialog('Disabling Web Publishing...');
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 <asp:Panel ID="WDeployBuildPublishingProfileWizardPanel" runat="server" CssClass="PopupContainer" DefaultButton="PubProfileWizardOkButton" Style="display: none;">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-list"></i>
+            <h3><i class="bi bi-list"></i>
                 <fcp:PopupHeader runat="server" meta:resourcekey="WDeployBuildPublishingProfileWizard" />
             </h3>
         </div>
@@ -54,7 +37,7 @@
                     <asp:AsyncPostBackTrigger ControlID="MyDatabaseList" EventName="SelectedIndexChanged" />
                 </Triggers>
                 <ContentTemplate>
-                    <div class="panel-body form-horizontal">
+                    <div class="card-body form-horizontal">
                         <asp:PlaceHolder runat="server" ID="ChooseDatabasePanel">
                             <fieldset>
                                 <legend>
@@ -64,7 +47,7 @@
                                 </div>
                                 <div class="FormField">
                                     <asp:DropDownList ID="MyDatabaseList" runat="server" DataTextField="Name" DataValueField="Id"
-                                        AutoPostBack="true" Width="100%" OnSelectedIndexChanged="MyDatabaseList_SelectedIndexChanged">
+                                        AutoPostBack="true" OnSelectedIndexChanged="MyDatabaseList_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -77,7 +60,7 @@
                                     <asp:Localize ID="Localize4" runat="server">Please choose database user name...</asp:Localize>
                                 </div>
                                 <div class="FormField">
-                                    <asp:DropDownList ID="MyDatabaseUserList" runat="server" DataTextField="Name" DataValueField="Id" Width="100%">
+                                    <asp:DropDownList ID="MyDatabaseUserList" runat="server" DataTextField="Name" DataValueField="Id">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -90,7 +73,7 @@
                                     <asp:Localize ID="Localize6" runat="server">Please choose FTP account...</asp:Localize>
                                 </div>
                                 <div class="FormField">
-                                    <asp:DropDownList ID="MyFtpAccountList" runat="server" DataTextField="Name" DataValueField="Id" Width="100%">
+                                    <asp:DropDownList ID="MyFtpAccountList" runat="server" DataTextField="Name" DataValueField="Id">
                                     </asp:DropDownList>
                                 </div>
                             </fieldset>
@@ -99,32 +82,32 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <div class="popup-buttons text-right">
-            <CPCC:StyleButton ID="PubProfileWizardCancelButton" CssClass="btn btn-warning" runat="server" ValidationGroup="WDeployBuildPublishingProfileWizard" CausesValidation="False">
+        <div class="popup-buttons text-end">
+            <asp:LinkButton ID="PubProfileWizardCancelButton" CssClass="btn btn-warning" runat="server" ValidationGroup="WDeployBuildPublishingProfileWizard" CausesValidation="False">
                
-<i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="PubProfileWizardCancelButtonText" />
-            </CPCC:StyleButton>
+<i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="PubProfileWizardCancelButtonText" />
+            </asp:LinkButton>
             &nbsp;
            
-            <CPCC:StyleButton ID="PubProfileWizardOkButton" CssClass="btn btn-success" runat="server" OnClick="PubProfileWizardOkButton_Click" ValidationGroup="WDeployBuildPublishingProfileWizard">
+            <asp:LinkButton ID="PubProfileWizardOkButton" CssClass="btn btn-success" runat="server" OnClick="PubProfileWizardOkButton_Click" ValidationGroup="WDeployBuildPublishingProfileWizard">
                
-<i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="PubProfileWizardOkButtonText" />
-            </CPCC:StyleButton>
+<i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="PubProfileWizardOkButtonText" />
+            </asp:LinkButton>
         </div>
     </div>
 </asp:Panel>
 <ajaxToolkit:ModalPopupExtender ID="WDeployRebuildPublishingProfileWizardModal" runat="server"
     TargetControlID="WDeployRebuildPubProfileLinkButton" PopupControlID="WDeployBuildPublishingProfileWizardPanel"
     BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="PubProfileWizardCancelButton" />
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox ID="messageBox" runat="server" EnableViewState="false" />
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="card">
+                <div class="card-header">
                     <div class="row">
-                        <div class="col-md-4" style="padding-top:6px;">
-                            <asp:HyperLink ID="lnkSiteName" runat="server" NavigateUrl="#" CssClass="panel-title" Target="_blank">domain.com</asp:HyperLink>
+                        <div class="col-md-4" style="padding-top:6px">
+                            <asp:HyperLink ID="lnkSiteName" runat="server" NavigateUrl="#" CssClass="card-title" Target="_blank">domain.com</asp:HyperLink>
                         </div>
                         <div class="col-md-4 padding-top-sm">
                             <asp:Panel ID="sharedIP" runat="server">
@@ -134,7 +117,7 @@
                                
                                
 
-                                <CPCC:StyleButton ID="cmdSwitchToDedicatedIP" meta:resourcekey="cmdSwitchToDedicatedIP" runat="server" Text="Switch to dedicated IP" OnClick="cmdSwitchToDedicatedIP_Click"></CPCC:StyleButton>
+                                <asp:LinkButton ID="cmdSwitchToDedicatedIP" meta:resourcekey="cmdSwitchToDedicatedIP" runat="server" Text="Switch to dedicated IP" OnClick="cmdSwitchToDedicatedIP_Click"></asp:LinkButton>
                             </asp:Panel>
                             <asp:Panel ID="dedicatedIP" runat="server">
                                 <asp:Localize ID="locDedicatedIPAddress" runat="server" meta:resourcekey="locDedicatedIPAddress" Text="IP address:" />
@@ -143,7 +126,7 @@
                                
                                
 
-                                <CPCC:StyleButton ID="cmdSwitchToSharedIP" meta:resourcekey="cmdSwitchToSharedIP" runat="server" Text="Switch to shared IP" OnClick="cmdSwitchToSharedIP_Click"></CPCC:StyleButton>
+                                <asp:LinkButton ID="cmdSwitchToSharedIP" meta:resourcekey="cmdSwitchToSharedIP" runat="server" Text="Switch to shared IP" OnClick="cmdSwitchToSharedIP_Click"></asp:LinkButton>
                             </asp:Panel>
                             <asp:Panel ID="switchToDedicatedIP" runat="server" Visible="false">
                                 <asp:Localize ID="locSelectIPAddress" runat="server" meta:resourcekey="locSelectIPAddress" Text="Select IP address:" />
@@ -152,20 +135,20 @@
                                
                                
 
-                                <CPCC:StyleButton ID="cmdApplyDedicatedIP" meta:resourcekey="cmdApplyDedicatedIP" runat="server" Text="Apply" OnClick="cmdApplyDedicatedIP_Click"></CPCC:StyleButton>
+                                <asp:LinkButton ID="cmdApplyDedicatedIP" meta:resourcekey="cmdApplyDedicatedIP" runat="server" Text="Apply" OnClick="cmdApplyDedicatedIP_Click"></asp:LinkButton>
                                 &nbsp;
                                
                                
 
-                                <CPCC:StyleButton ID="cmdCancelDedicatedIP" meta:resourcekey="cmdCancelDedicatedIP" runat="server" Text="Cancel" OnClick="cmdCancelDedicatedIP_Click"></CPCC:StyleButton>
+                                <asp:LinkButton ID="cmdCancelDedicatedIP" meta:resourcekey="cmdCancelDedicatedIP" runat="server" Text="Cancel" OnClick="cmdCancelDedicatedIP_Click"></asp:LinkButton>
                             </asp:Panel>
                         </div>
-                        <div class="col-md-4 text-right">
+                        <div class="col-md-4 text-end">
 
-                            <CPCC:StyleButton ID="btnAddPointer" runat="server" CssClass="btn btn-primary" OnClick="btnAddPointer_Click">
+                            <asp:LinkButton ID="btnAddPointer" runat="server" CssClass="btn btn-primary" OnClick="btnAddPointer_Click">
                                
-<i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPointer" />
-                            </CPCC:StyleButton>
+<i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPointer" />
+                            </asp:LinkButton>
                         </div>
 
                     </div>
@@ -178,12 +161,12 @@
                     DataKeyNames="DomainID" OnRowDeleting="gvPointers_RowDeleting">
                     <Columns>
                         <asp:TemplateField HeaderText="gvPointersName">
-                            <ItemStyle Wrap="false" Width="100%"></ItemStyle>
+                            <ItemStyle Wrap="false"></ItemStyle>
                             <ItemTemplate>
-                                <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px;" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
+                                <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
                                     Target="_blank"><%# Eval("DomainName") %></asp:HyperLink>
 
-                                <CPCC:StyleButton runat="server" ID="cmdDeletePointer" CommandName='delete' CommandArgument='<%# Eval("DomainId") %>' Visible='<%# !(bool)Eval("IsPreviewDomain") %>' CssClass="btn btn-danger pull-right" OnClientClick="return confirm('Remove pointer?');">&nbsp;<i class="fa fa-trash">&nbsp;</i></CPCC:StyleButton>
+                                <asp:LinkButton runat="server" ID="cmdDeletePointer" CommandName='delete' CommandArgument='<%# Eval("DomainId") %>' Visible='<%# !(bool)Eval("IsPreviewDomain") %>' CssClass="btn btn-danger float-end" OnClientClick="return confirm('Remove pointer?');">&nbsp;<i class="bi bi-trash">&nbsp;</i></asp:LinkButton>
 
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -193,7 +176,7 @@
         </div>
         <div class="col-md-4">
             <div class="alert alert-info">
-                <table cellpadding="7" width="100%">
+                <table class="table table-borderless align-middle mb-0 w-100">
                     <tr>
                         <td>
                             <asp:Label ID="lblWebsiteStatus" runat="server" meta:resourcekey="lblWebsiteStatus" Text="Website Status"></asp:Label>
@@ -201,23 +184,23 @@
                         <td class="MediumBold">
                             <asp:Literal ID="litStatus" runat="server"></asp:Literal>
                         </td>
-                        <td class="text-right margin-bottom-xs">
-                            <CPCC:StyleButton ID="cmdStart" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Started" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="fa fa-play"></i>&nbsp;
+                        <td class="text-end margin-bottom-xs">
+                            <asp:LinkButton ID="cmdStart" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Started" OnClick="cmdChangeState_Click">
+                                &nbsp;<i class="bi bi-play"></i>&nbsp;
                            
-                            </CPCC:StyleButton>
-                            <CPCC:StyleButton ID="cmdPause" CssClass="btn btn-sm btn-warning btn-circle" runat="server" CommandName="Paused" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="fa fa-sm fa-pause"></i>&nbsp;
+                            </asp:LinkButton>
+                            <asp:LinkButton ID="cmdPause" CssClass="btn btn-sm btn-warning btn-circle" runat="server" CommandName="Paused" OnClick="cmdChangeState_Click">
+                                &nbsp;<i class="bi bi-pause-fill"></i>&nbsp;
                            
-                            </CPCC:StyleButton>
-                            <CPCC:StyleButton ID="cmdContinue" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Continuing" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="fa fa-sm fa-forward"></i>&nbsp;
+                            </asp:LinkButton>
+                            <asp:LinkButton ID="cmdContinue" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Continuing" OnClick="cmdChangeState_Click">
+                                &nbsp;<i class="bi bi-skip-forward-fill"></i>&nbsp;
                            
-                            </CPCC:StyleButton>
-                            <CPCC:StyleButton ID="cmdStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdChangeState_Click">
-                                &nbsp;<i class="fa fa-sm fa-stop"></i>&nbsp;
+                            </asp:LinkButton>
+                            <asp:LinkButton ID="cmdStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdChangeState_Click">
+                                &nbsp;<i class="bi bi-stop-fill"></i>&nbsp;
                            
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -228,19 +211,19 @@
                             <asp:Literal ID="litAppPoolStatus" runat="server"></asp:Literal>
                         </td>
                         <td class="padding-top-sm">
-                            <asp:Panel runat="server" ID="AppPoolRestartPanel" CssClass="pull-right">
-                                <CPCC:StyleButton ID="cmdAppPoolStart" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Started" OnClick="cmdAppPoolChangeState_Click">
-                                    &nbsp;<i class="fa fa-play"></i>&nbsp;
+                            <asp:Panel runat="server" ID="AppPoolRestartPanel" CssClass="float-end">
+                                <asp:LinkButton ID="cmdAppPoolStart" CssClass="btn btn-sm btn-success btn-circle" runat="server" CommandName="Started" OnClick="cmdAppPoolChangeState_Click">
+                                    &nbsp;<i class="bi bi-play"></i>&nbsp;
                                
-                                </CPCC:StyleButton>
-                                <CPCC:StyleButton ID="cmdAppPoolRecycle" CssClass="btn btn-sm btn-warning btn-circle" runat="server" CommandName="Recycle" OnClick="cmdAppPoolChangeState_Click">
-                                    &nbsp;<i class="fa fa-refresh"></i>&nbsp;
+                                </asp:LinkButton>
+                                <asp:LinkButton ID="cmdAppPoolRecycle" CssClass="btn btn-sm btn-warning btn-circle" runat="server" CommandName="Recycle" OnClick="cmdAppPoolChangeState_Click">
+                                    &nbsp;<i class="bi bi-arrow-clockwise"></i>&nbsp;
                                
-                                </CPCC:StyleButton>
-                                <CPCC:StyleButton ID="cmdAppPoolStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdAppPoolChangeState_Click">
-                                    &nbsp;<i class="fa fa-sm fa-stop"></i>&nbsp;
+                                </asp:LinkButton>
+                                <asp:LinkButton ID="cmdAppPoolStop" CssClass="btn btn-sm btn-danger btn-circle" runat="server" CommandName="Stopped" OnClick="cmdAppPoolChangeState_Click">
+                                    &nbsp;<i class="bi bi-stop-fill"></i>&nbsp;
                                
-                                </CPCC:StyleButton>
+                                </asp:LinkButton>
                             </asp:Panel>
                         </td>
                     </tr>
@@ -270,15 +253,9 @@
 
         </asp:DataList>
     </ul>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.nav-tabs li').unwrap();
-            $('.nav-tabs li').unwrap();
-        });
-    </script>
-    <div class="panel panel-default tab-content">
+    <div class="card tab-content">
 
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <asp:MultiView ID="tabs" runat="server" ActiveViewIndex="0">
                 <asp:View ID="tabHomeFolder" runat="server">
                     <uc1:WebSitesHomeFolderControl ID="webSitesHomeFolderControl" runat="server" />
@@ -287,17 +264,17 @@
                     <div class="row">
                         <div id="VirtualDirectoriesCol" runat="server" class="col-sm-12 col-md-6">
                             <div class="container">
-                                <h3 class="text-center ">
+                                <h3 class="text-center">
                                     <label><asp:Localize ID="HeaderVirtualDirectories" runat="server" meta:resourcekey="HeaderVirtualDirectories"></asp:Localize></label>
                                 </h3>
                                 <p>
                                     <asp:Localize ID="VirtualDirectoriesInfo" runat="server" meta:resourcekey="VirtualDirectoriesInfo"></asp:Localize>
                                 </p>
                                 <div class="row">
-                                    <CPCC:StyleButton ID="btnAddVirtualDirectory" runat="server"
-                                        CssClass="btn btn-primary btn-block" CausesValidation="false" OnClick="btnAddVirtualDirectory_Click">
-                                            <i class="fa fa-folder-open-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddVirtualDirectory" />
-                                    </CPCC:StyleButton>
+                                    <asp:LinkButton ID="btnAddVirtualDirectory" runat="server"
+                                        CssClass="btn btn-primary w-100" CausesValidation="false" OnClick="btnAddVirtualDirectory_Click">
+                                            <i class="bi bi-folder2-open">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddVirtualDirectory" />
+                                    </asp:LinkButton>
 
                                 </div>
                                 <hr />
@@ -306,7 +283,7 @@
                                         ShowHeader="true" HeaderStyle-CssClass="header" CssSelectorClass="NormalGridView" CssClass="table table-hover table-striped" EmptyDataText="gvVirtualDirectories">
                                         <Columns>
                                             <asp:TemplateField HeaderText="gvVirtualDirectoriesName">
-                                                <ItemStyle Width="35%" CssClass="NormalBold"></ItemStyle>
+                                                <ItemStyle CssClass="NormalBold"></ItemStyle>
                                                 <ItemTemplate>
                                                     <asp:HyperLink ID="lnkEditVDir" runat="server" NavigateUrl='<%# EditUrl("ItemID", PanelRequest.ItemID.ToString(), "edit_vdir", "VirtDir=" + Eval("Name"), "SpaceID=" + PanelSecurity.PackageId) %>'>
 									        <%# Eval("Name") %>
@@ -314,7 +291,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ContentPath" HeaderText="gvVirtualDirectoriesPath">
-                                                <ItemStyle Width="65%" />
+                                                <ItemStyle />
                                             </asp:BoundField>
 
                                         </Columns>
@@ -322,10 +299,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2 hidden-sm-down"></div>
+                        <div class="col-md-2 d-sm-none d-md-block-down"></div>
                         <div id="VirtualApplicationsCol" runat="server" class="col-sm-12 col-md-6">
                             <div class="container">
-                                <h3 class="text-center ">
+                                <h3 class="text-center">
                                     <label>
 
                                         <asp:Localize ID="HeaderVirtualApplications" runat="server" meta:resourcekey="HeaderVirtualApplications"></asp:Localize></label>
@@ -335,10 +312,10 @@
                                 </p>
 
                                 <div class="row">
-                                    <CPCC:StyleButton ID="btnAddAppVirtualDirectory" runat="server" CssClass="btn btn-primary btn-block" CausesValidation="false" OnClick="btnAddAppVirtualDirectory_Click">
+                                    <asp:LinkButton ID="btnAddAppVirtualDirectory" runat="server" CssClass="btn btn-primary w-100" CausesValidation="false" OnClick="btnAddAppVirtualDirectory_Click">
                                        
-<i class="fa fa-code-fork">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddAppVirtualDirectory" />
-                                    </CPCC:StyleButton>
+<i class="bi bi-code-fork">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddAppVirtualDirectory" />
+                                    </asp:LinkButton>
                                 </div>
                                 <hr />
                                 <div class="grid">
@@ -346,7 +323,7 @@
                                         ShowHeader="true" CssSelectorClass="NormalGridView" CssClass="table table-hover table-striped" EmptyDataText="gvAppVirtualDirectories">
                                         <Columns>
                                             <asp:TemplateField HeaderText="gvAppVirtualDirectoriesName">
-                                                <ItemStyle Width="35%" CssClass="NormalBold"></ItemStyle>
+                                                <ItemStyle CssClass="NormalBold"></ItemStyle>
                                                 <ItemTemplate>
                                                     <asp:HyperLink ID="lnkEditVDir" runat="server" NavigateUrl='<%# EditUrl("ItemID", PanelRequest.ItemID.ToString(), "edit_vapps", "VirtDir=" + Eval("Name"), "SpaceID=" + PanelSecurity.PackageId) %>'>
 									        <%# Eval("Name") %>
@@ -354,7 +331,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ContentPath" HeaderText="gvAppVirtualDirectoriesPath">
-                                                <ItemStyle Width="65%" />
+                                                <ItemStyle />
                                             </asp:BoundField>
                                         </Columns>
                                     </asp:GridView>
@@ -379,9 +356,9 @@
                             </tr>
                         </table>
                         <asp:Literal ID="litFrontPageUnavailable" runat="server"></asp:Literal>
-                        <table id="tblFrontPage" cellspacing="0" cellpadding="2" width="100%" runat="server">
+                        <table class="table table-borderless align-middle mb-0 w-100" id="tblFrontPage" runat="server">
                             <tr>
-                                <td class="SubHead" style="width: 150px;" height="30">
+                                <td class="SubHead"  height="30">
                                     <asp:Label ID="lblFPStatus" runat="server" meta:resourcekey="lblFPStatus" Text="FrontPage status:"></asp:Label>
                                 </td>
                                 <td class="NormalBold">
@@ -389,15 +366,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="SubHead" style="margin-bottom:10px;">
+                                <td class="SubHead" style="margin-bottom:10px">
                                     <asp:Label ID="lblFPAccount" runat="server" meta:resourcekey="lblFPAccount" Text="FrontPage User Account:"></asp:Label>
                                 </td>
-                                <td class="Normal" style="margin-bottom:10px;">
+                                <td class="Normal" style="margin-bottom:10px">
                                     <fcp:UsernameControl ID="frontPageUsername" runat="server" ValidationGroup="FrontPage" />
                                 </td>
                             </tr>
                             <tr>
-                                <td class="SubHead" valign="top">
+                                <td class="SubHead align-top">
                                     <asp:Label ID="lblFPPassword" runat="server" meta:resourcekey="lblFPPassword" Text="Password:"></asp:Label>
                                 </td>
                                 <td>
@@ -407,27 +384,27 @@
                             <tr>
                                 <td></td>
                                 <td class="Normal">
-                                    <CPCC:StyleButton ID="btnUninstallFrontPage" CssClass="btn btn-danger" runat="server" CausesValidation="false" OnClick="btnUninstallFrontPage_Click" OnClientClick="confirmationFPSE()">
+                                    <asp:LinkButton ID="btnUninstallFrontPage" CssClass="btn btn-danger" runat="server" CausesValidation="false" OnClick="btnUninstallFrontPage_Click" OnClientClick="confirmationFPSE()">
                                        
-<i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnUninstallFrontPageText" />
-                                    </CPCC:StyleButton>
+<i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnUninstallFrontPageText" />
+                                    </asp:LinkButton>
                                     &nbsp;
                                            
-                                    <CPCC:StyleButton ID="btnChangeFrontPagePassword" CssClass="btn btn-warning" runat="server" ValidationGroup="FrontPage" OnClick="btnChangeFrontPagePassword_Click">
+                                    <asp:LinkButton ID="btnChangeFrontPagePassword" CssClass="btn btn-warning" runat="server" ValidationGroup="FrontPage" OnClick="btnChangeFrontPagePassword_Click">
                                                
-<i class="fa fa-key">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnChangeFrontPagePasswordText" />
-                                            </CPCC:StyleButton>
+<i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnChangeFrontPagePasswordText" />
+                                            </asp:LinkButton>
                                     &nbsp;
                                            
-                                    <CPCC:StyleButton ID="btnInstallFrontPage" CssClass="btn btn-success" runat="server" ValidationGroup="FrontPage" OnClick="btnInstallFrontPage_Click" OnClientClick="ShowProgressDialog('Installing Frontpage...');">
+                                    <asp:LinkButton ID="btnInstallFrontPage" CssClass="btn btn-success" runat="server" ValidationGroup="FrontPage" OnClick="btnInstallFrontPage_Click" OnClientClick="ShowProgressDialog('Installing Frontpage...');">
                                                
-<i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnInstallFrontPageText" />
-                                            </CPCC:StyleButton>
+<i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Label runat="server" meta:resourcekey="btnInstallFrontPageText" />
+                                            </asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <h4 class="text-center ">
+                                    <h4 class="text-center">
                                         <label><asp:Localize ID="Localize14" runat="server" meta:resourcekey="HeaderVirtualDirectoriesFP"></asp:Localize></label>
                                     </h4>
                                     <p>
@@ -454,7 +431,7 @@
                     <uc6:WebSitesCustomHeadersControl ID="webSitesCustomHeadersControl" runat="server" />
                 </asp:View>
                 <asp:View ID="tabWebDeployPublishing" runat="server">
-                    <div style="padding: 20;">
+                    <div style="padding: 20">
                         <asp:PlaceHolder runat="server" ID="PanelWDeploySitePublishingDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="WDeploySitePublishingDisabled" />
@@ -475,15 +452,15 @@
                             </div>
                             <br />
                             <p>
-                                <CPCC:StyleButton runat="server" ID="WDeployDownloadPubProfileLink" CssClass="btn btn-success" Text="Download Publishing Profile for this web site"
+                                <asp:LinkButton runat="server" ID="WDeployDownloadPubProfileLink" CssClass="btn btn-success" Text="Download Publishing Profile for this web site"
                                     CommandName="DownloadProfile" OnCommand="WDeployDownloadPubProfileLink_Command" />
-                                &nbsp;&nbsp;<CPCC:StyleButton
+                                &nbsp;&nbsp;<asp:LinkButton
                                     runat="server" ID="WDeployRebuildPubProfileLinkButton" Text="Re-build Publishing Profile for this web site" />
                             </p>
                             <br />
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="PanelWDeployPublishingCredentials" Visible="false">
-                            <table cellpadding="4" border="0">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="Normal">
                                         <asp:Localize runat="server" meta:resourcekey="WDeployPublishingAccountLocalize" />
@@ -524,22 +501,22 @@
                             </table>
                             <br />
                             <div>
-                                <CPCC:StyleButton ID="WDeployDisablePublishingButton" CssClass="btn btn-danger" runat="server" OnClick="WDeployDisablePublishingButton_Click" OnClientClick="return confirmationWebDeployPublishing();" ValidationGroup="WDeployPublishingGroup" CausesValidation="false">
+                                <asp:LinkButton ID="WDeployDisablePublishingButton" CssClass="btn btn-danger" runat="server" OnClick="WDeployDisablePublishingButton_Click" OnClientClick="return confirmationWebDeployPublishing();" ValidationGroup="WDeployPublishingGroup" CausesValidation="false">
                                    
-<i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployDisablePublishingButtonText" />
-                                </CPCC:StyleButton>
+<i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployDisablePublishingButtonText" />
+                                </asp:LinkButton>
                                 &nbsp;
                                        
-                                <CPCC:StyleButton ID="WDeployChangePublishingPasswButton" CssClass="btn btn-warning" runat="server" OnClick="WDeployChangePublishingPasswButton_Click" ValidationGroup="WDeployPublishingGroup">
+                                <asp:LinkButton ID="WDeployChangePublishingPasswButton" CssClass="btn btn-warning" runat="server" OnClick="WDeployChangePublishingPasswButton_Click" ValidationGroup="WDeployPublishingGroup">
                                            
-<i class="fa fa-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployChangePublishingPasswButtonText" />
-                                        </CPCC:StyleButton>
+<i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployChangePublishingPasswButtonText" />
+                                        </asp:LinkButton>
                                 &nbsp;
 									
-                                <CPCC:StyleButton ID="WDeployEnabePublishingButton" CssClass="btn btn-success" runat="server" OnClick="WDeployEnabePublishingButton_Click" ValidationGroup="WDeployPublishingGroup">
+                                <asp:LinkButton ID="WDeployEnabePublishingButton" CssClass="btn btn-success" runat="server" OnClick="WDeployEnabePublishingButton_Click" ValidationGroup="WDeployPublishingGroup">
                                            
-<i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployEnabePublishingButtonText" />
-                                        </CPCC:StyleButton>
+<i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="WDeployEnabePublishingButtonText" />
+                                        </asp:LinkButton>
                             </div>
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="PanelWDeployNotInstalled" Visible="false">Web Deploy
@@ -568,7 +545,7 @@
                             </td>
                             <td class="Normal">
                                 <asp:Label ID="lblVirtDir" runat="server" meta:resourcekey="lblVirtDir" Text="Create Virtual Directories for scripts and Flash remoting."></asp:Label><br />
-                                <h4 class="text-center ">
+                                <h4 class="text-center">
                                     <label><asp:Localize ID="Localize13" runat="server" meta:resourcekey="HeaderVirtualDirectoriesCF"></asp:Localize></label>
                                 </h4>
                                 <p>
@@ -585,7 +562,7 @@
                     </table>
                 </asp:View>
                 <asp:View ID="tabWebManagement" runat="server">
-                    <div style="padding: 20px;">
+                    <div style="padding: 20px">
                         <asp:PlaceHolder runat="server" ID="pnlWmSvcSiteDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="lclWmSvcSiteDisabled" />
@@ -607,7 +584,7 @@
                             <br />
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="pnlWmcSvcManagement">
-                            <table cellpadding="4" border="0">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="Normal">
                                         <asp:Localize runat="server" meta:resourcekey="lclWmSvcAccountName" />
@@ -647,22 +624,22 @@
                             </table>
                             <br />
                             <div>
-                                <CPCC:StyleButton ID="btnWmSvcSiteDisable" CssClass="btn btn-danger" runat="server" OnClick="btnWmSvcSiteDisable_Click" OnClientClick="return confirmationWMSVC();" ValidationGroup="WmSvcGroup" CausesValidation="false">
+                                <asp:LinkButton ID="btnWmSvcSiteDisable" CssClass="btn btn-danger" runat="server" OnClick="btnWmSvcSiteDisable_Click" OnClientClick="return confirmationWMSVC();" ValidationGroup="WmSvcGroup" CausesValidation="false">
                                    
-<i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcSiteDisableText" />
-                                </CPCC:StyleButton>
+<i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcSiteDisableText" />
+                                </asp:LinkButton>
                                 &nbsp;
                                        
-                                <CPCC:StyleButton ID="btnWmSvcChangePassw" CssClass="btn btn-warning" runat="server" OnClick="btnWmSvcChangePassw_Click" ValidationGroup="WmSvcGroup">
+                                <asp:LinkButton ID="btnWmSvcChangePassw" CssClass="btn btn-warning" runat="server" OnClick="btnWmSvcChangePassw_Click" ValidationGroup="WmSvcGroup">
                                            
-<i class="fa fa-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcChangePasswText" />
-                                        </CPCC:StyleButton>
+<i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcChangePasswText" />
+                                        </asp:LinkButton>
                                 &nbsp;
                                        
-                                <CPCC:StyleButton ID="btnWmSvcSiteEnable" CssClass="btn btn-success" runat="server" OnClick="btnWmSvcSiteEnable_Click" ValidationGroup="WmSvcGroup">
+                                <asp:LinkButton ID="btnWmSvcSiteEnable" CssClass="btn btn-success" runat="server" OnClick="btnWmSvcSiteEnable_Click" ValidationGroup="WmSvcGroup">
                                            
-<i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcSiteEnableText" />
-                                        </CPCC:StyleButton>
+<i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnWmSvcSiteEnableText" />
+                                        </asp:LinkButton>
                             </div>
                         </asp:PlaceHolder>
                         <asp:PlaceHolder runat="server" ID="pnlNotInstalled" Visible="false">
@@ -683,18 +660,18 @@
 
 
 </div>
-<div class="panel-footer">
+<div class="card-footer">
     <div class="row">
         <div class="col-md-6">
-            <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="false" OnClientClick="return confirm('Delete this web site?');" OnClick="btnDelete_Click">
+            <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="false" OnClientClick="return confirm('Delete this web site?');" OnClick="btnDelete_Click">
                
-<i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-            </CPCC:StyleButton>&nbsp;&nbsp;
+<i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
+            </asp:LinkButton>&nbsp;&nbsp;
             <asp:CheckBox ID="chkDeleteWebsiteDirectory" runat="server" Text="Delete Website Directory?" AutoPostBack="false" meta:resourcekey="chkDeleteWebsiteDirectory" />
 
         </div>
-        <div class="col-md-6 text-right">
-            <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox"
+        <div class="col-md-6 text-end">
+            <uc8:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox"
                 OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
         </div>
     </div>

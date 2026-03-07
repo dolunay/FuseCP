@@ -7,29 +7,29 @@
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="Organization48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Settings"></asp:Localize>
 
                     <asp:Literal ID="litOrganizationName" runat="server" Text="Organization" />
                         </h3>
                 </div>
-                <div class="panel-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                <div class="card-body form-horizontal">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_general_settings" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                             <fcp:CollapsiblePanel ID="colGeneralSettings" runat="server" TargetControlID="panelGeneralSettings" meta:ResourceKey="colGeneralSettings" Text="General settings"></fcp:CollapsiblePanel>
 
                             <asp:Panel runat="server" ID="panelGeneralSettings">
-                                <table id="GenerralSettignsTable" runat="server" cellpadding="2">
+                                <table class="table table-borderless align-middle mb-0" id="GenerralSettignsTable" runat="server">
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblOrganizationLogoUrl" runat="server"
                                                 meta:resourcekey="lblOrganizationLogoUrl" Text="Minimum length:"></asp:Label></td>
                                         <td class="Normal">
@@ -45,7 +45,7 @@
 
                 </div>
                     </div>
-                    <div class="panel-footer text-right">
+                    <div class="card-footer text-end">
                         <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SettingsEditor"
                             OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                     </div>

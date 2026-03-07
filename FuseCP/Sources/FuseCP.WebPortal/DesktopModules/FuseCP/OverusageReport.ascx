@@ -3,9 +3,10 @@
 	Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="CalendarControl" Src="UserControls/CalendarControl.ascx" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/overusage-report.js"></script>
 
 <!-- Our Toolbar -->
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
 	<!-- Bandwidth search criteria -->
 	<fcp:CollapsiblePanel 
@@ -15,7 +16,7 @@
 		IsCollapsed="true"
 		>
 	</fcp:CollapsiblePanel>
-	<asp:Panel ID="bandwidthSearchCriteria" runat="server" Height="0" style="overflow:hidden;">
+	<asp:Panel ID="bandwidthSearchCriteria" runat="server" Height="0" style="overflow:hidden">
 		<div style="margin-left: 5pt">
 			<p>
 				<asp:Label
@@ -23,10 +24,10 @@
 					Text="Choose either a time frame or a month to see the bandwidth overusage for." meta:resourcekey="bandwidthCaption"
 					/>
 			</p>
-			<table width="100%" cellpadding="0" cellspacing="0">
+			<table class="table table-borderless align-middle mb-0 w-100">
 				<tr>
 					<!-- Time frame -->
-					<td class="Normal" valign="top" width="150px">
+					<td class="Normal align-top">
 						<table>
 							<tr>
 								<td class="Normal">
@@ -57,18 +58,18 @@
 					</td>
 					
 					<!-- Monthes -->
-					<td class="Normal" valign="top" align="left" width="300px">
+					<td class="Normal align-top text-start">
 						<table>
-							<tr valign="middle" height="18px">
+							<tr class="align-middle" height="18px">
 								<td class="Normal">
 									<table>
-										<tr valign="baseline">
+										<tr>
 											<td class="Normal">
 												<a  ID="prevMonthLink" runat="server" meta:resourcekey="prevMonthLink"
 													href="javascript:PreviousMonth()" style="text-decoration:none" 
 													>< previous month</a>
 											</td>
-											<td width="70px" class="Normal Centered">
+											<td class="Normal Centered">
 												<span id="currentMonth">current month</span>
 											</td>
 											<td class="Normal">
@@ -99,7 +100,7 @@
 		IsCollapsed="true"
 		>
 	</fcp:CollapsiblePanel>
-	<asp:Panel ID="exportPanel" runat="server" Height="0" style="overflow:hidden;">
+	<asp:Panel ID="exportPanel" runat="server" Height="0" style="overflow:hidden">
 		<div style="margin-left: 5pt">
 			<asp:HyperLink 
 				ID="exportToExcel" runat="server"
@@ -118,25 +119,14 @@
 	</asp:Panel>
 </div>
 <div class="FormButtonsBar">
-	<CPCC:StyleButton id="refreshButton" CssClass="btn btn-success" runat="server" OnClick="OnRefreshButtonClick"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="refreshButtonText"/> </CPCC:StyleButton>
+	<asp:LinkButton id="refreshButton" CssClass="btn btn-success" runat="server" OnClick="OnRefreshButtonClick"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="refreshButtonText"/> </asp:LinkButton>
 </div>
-
-<script>
-	<!-- 
-	
-	if (typeof(BindOverusageReportClientFunctionality) == "function")
-	{
-		BindOverusageReportClientFunctionality();
-	}
-	
-	// -->
-</script>
 
 <!-- Report Viewer -->
 <rsweb:ReportViewer ID="rvContent" runat="server" 
 	EnableTheming="true"
 	CssClass="Module"	
-	Width="100%"
+
 	InternalBorderWidth="0"
 	Font-Names="Tahoma"
 	Font-Size="8pt"

@@ -8,11 +8,11 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
-<table id="tblEditItem" runat="server" cellSpacing="0" cellPadding="5" width="100%">
+<div class="card-body form-horizontal">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblEditItem" runat="server">
 	<tr>
-		<td class="SubHead" nowrap width=200><asp:Label ID="lblWebSite" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
-		<td width="100%" class="NormalBold">
+		<td class="SubHead text-nowrap" width=200><asp:Label ID="lblWebSite" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
+		<td class="NormalBold">
             <asp:DropDownList ID="ddlWebSites" runat="server" CssClass="form-control"
                 DataTextField="Name" DataValueField="Name">
             </asp:DropDownList>
@@ -75,7 +75,7 @@
         </td>
 	</tr>
 	<tr>
-	    <td class="SubHead" valign="top">
+	    <td class="SubHead align-top">
 	        <asp:Label ID="lblDatabasePassword" runat="server" meta:resourcekey="lblDatabasePassword" Text="Database Password:"></asp:Label>
 	    </td>
 		<td class="Normal">
@@ -84,10 +84,10 @@
 	</tr>
 </table>
 
-<table id="tblViewItem" runat="server" cellSpacing="0" cellPadding="5" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100" id="tblViewItem" runat="server">
 	<tr>
-		<td class="SubHead" nowrap width="200"><asp:Label ID="lblWebSite2" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
-		<td width="100%" class="NormalBold">
+		<td class="SubHead text-nowrap"><asp:Label ID="lblWebSite2" runat="server" meta:resourcekey="lblWebSite" Text="Web Site:"></asp:Label></td>
+		<td class="NormalBold">
 		    <asp:Literal ID="litWebSite" runat="server"></asp:Literal>
         </td>
 	</tr>
@@ -133,30 +133,30 @@
 	</tr>
 </table>
 
-<table width="100%">
+<table>
     <tr>
         <td>
             <fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true"
                 TargetControlID="ToolsPanel" meta:resourcekey="secMainTools" Text="SharePoint Site Tools">
             </fcp:CollapsiblePanel>
-            <asp:Panel ID="ToolsPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table id="tblMaintenance" runat="server" cellpadding="10">
+            <asp:Panel ID="ToolsPanel" runat="server" Height="0" style="overflow:hidden">
+                <table class="table table-borderless align-middle mb-0" id="tblMaintenance" runat="server">
                     <tr>
                         <td>
                             <asp:Button ID="btnBackup" runat="server" meta:resourcekey="btnBackup" CausesValidation="false" 
-                                Text="Backup Site" CssClass="Button3" OnClick="btnBackup_Click" />
+                                Text="Backup Site" CssClass="btn btn-primary" OnClick="btnBackup_Click" />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <asp:Button ID="btnRestore" runat="server" meta:resourcekey="btnRestore" CausesValidation="false" 
-                                Text="Restore Site" CssClass="Button3" OnClick="btnRestore_Click" />                    
+                                Text="Restore Site" CssClass="btn btn-primary" OnClick="btnRestore_Click" />                    
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <asp:Button ID="btnWebParts" runat="server" meta:resourcekey="btnWebParts" CausesValidation="false" 
-                                Text="WebParts Packages" CssClass="Button3" OnClick="btnWebParts_Click" />                    
+                                Text="WebParts Packages" CssClass="btn btn-primary" OnClick="btnWebParts_Click" />                    
                         </td>
                     </tr>
                 </table>
@@ -165,8 +165,8 @@
     </tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete Site?');"  meta:resourcekey="btnDelete"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click" meta:resourcekey="btnCancel"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" useSubmitBehavior="false" meta:resourcekey="btnUpdate"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete Site?');"  meta:resourcekey="btnDelete"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click" meta:resourcekey="btnCancel"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" meta:resourcekey="btnUpdate"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </asp:LinkButton>
 </div>

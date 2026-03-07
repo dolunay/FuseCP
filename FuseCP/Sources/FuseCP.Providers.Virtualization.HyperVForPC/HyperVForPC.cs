@@ -35,8 +35,18 @@ using FuseCP.Providers.VirtualizationForPC.MonitoringWebService;
 
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using System.ServiceModel.Channels;
 using System.Management.Automation;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+
+namespace FuseCP.Providers.VirtualizationForPC.MonitoringWebService
+{
+	public partial class PerformanceDataValue
+	{
+		public ExtensionDataObject ExtensionData { get; set; }
+	}
+}
 
 namespace FuseCP.Providers.VirtualizationForPC
 {
@@ -155,22 +165,43 @@ namespace FuseCP.Providers.VirtualizationForPC
 
 	public class FCPVirtualMachineManagementServiceClient : VirtualMachineManagementServiceClient, IDisposable
 	{
+		private static EndpointAddress BuildEndpoint(string remoteAddress, string endpointConfigurationName)
+		{
+			if (!String.IsNullOrWhiteSpace(remoteAddress))
+				return new EndpointAddress(remoteAddress);
+
+			var defaultAddress = ConfigurationManager.AppSettings["SCVMMServer"];
+			if (String.IsNullOrWhiteSpace(defaultAddress))
+				defaultAddress = "http://localhost/SCVMMService/VirtualMachineManagementService.svc";
+
+			return new EndpointAddress(defaultAddress);
+		}
+
+		private static Binding BuildBinding(string endpointConfigurationName)
+		{
+			if (!String.IsNullOrWhiteSpace(endpointConfigurationName))
+				return new WSHttpBinding(endpointConfigurationName);
+
+			return new WSHttpBinding("WSHttpBinding_IVirtualMachineManagementService");
+		}
+
 		public FCPVirtualMachineManagementServiceClient()
+			: base(BuildBinding("WSHttpBinding_IVirtualMachineManagementService"), BuildEndpoint(null, "WSHttpBinding_IVirtualMachineManagementService"))
 		{
 		}
 
 		public FCPVirtualMachineManagementServiceClient(string endpointConfigurationName) :
-			base(endpointConfigurationName)
+			base(BuildBinding(endpointConfigurationName), BuildEndpoint(null, endpointConfigurationName))
 		{
 		}
 
 		public FCPVirtualMachineManagementServiceClient(string endpointConfigurationName, string remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
+			base(BuildBinding(endpointConfigurationName), BuildEndpoint(remoteAddress, endpointConfigurationName))
 		{
 		}
 
 		public FCPVirtualMachineManagementServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
+			base(BuildBinding(endpointConfigurationName), remoteAddress)
 		{
 		}
 
@@ -184,26 +215,74 @@ namespace FuseCP.Providers.VirtualizationForPC
 			if ((this.State == CommunicationState.Opened || this.State == CommunicationState.Opening))
 				this.Close();
 		}
+
+		public VirtualMachineInfo GetVirtualMachineByName(string virtualMachineName) => GetVirtualMachineByNameAsync(virtualMachineName).GetAwaiter().GetResult();
+		public HostInfo GetHostById(Guid hostId) => GetHostByIdAsync(hostId).GetAwaiter().GetResult();
+		public byte[] GetVirtualSystemThumbnailImage(int imgWidth, int imgHeight, string systemName, string serverName) => GetVirtualSystemThumbnailImageAsync(imgWidth, imgHeight, systemName, serverName).GetAwaiter().GetResult();
+		public TemplateInfo GetTemplateById(Guid templateId) => GetTemplateByIdAsync(templateId).GetAwaiter().GetResult();
+		public HostClusterInfo GetHostClusterByName(string clusterName) => GetHostClusterByNameAsync(clusterName).GetAwaiter().GetResult();
+		public HostInfo GetHostByName(string hostName) => GetHostByNameAsync(hostName).GetAwaiter().GetResult();
+		public HardwareProfileInfo[] GetHardwareProfles() => GetHardwareProflesAsync().GetAwaiter().GetResult();
+		public void ShutdownVirtualMachine(Guid vmId) => ShutdownVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public LibraryServerInfo[] GetLibraryServers() => GetLibraryServersAsync().GetAwaiter().GetResult();
+		public VMHostRatingInfo[] GetVMHostRatingsByCluster(Guid vmId, bool isMigration, string clusterName) => GetVMHostRatingsByClusterAsync(vmId, isMigration, clusterName).GetAwaiter().GetResult();
+		public VirtualMachineInfo NewVirtualMachineFromVM(Guid vmId, string vmName, string description, string owner, LibraryServerInfo library, string sharePath, HardwareProfileInfo hwConfig, Guid? jobGroup) => NewVirtualMachineFromVMAsync(vmId, vmName, description, owner, library, sharePath, hwConfig, jobGroup).GetAwaiter().GetResult();
+		public void MoveVirtualMachine(Guid vmId, Guid hostId, string path, bool startVM, bool useLan, bool runAsynchronously, Guid? jobGroup) => MoveVirtualMachineAsync(vmId, hostId, path, startVM, useLan, runAsynchronously, jobGroup).GetAwaiter().GetResult();
+		public FuseCP.Providers.VirtualizationForPC.SVMMService.VirtualNetworkInfo[] GetVirtualNetworkByHost(HostInfo host) => GetVirtualNetworkByHostAsync(host).GetAwaiter().GetResult();
+		public void StartVirtualMachine(Guid vmId) => StartVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public void ResumeVirtualMachine(Guid vmId) => ResumeVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public void PauseVirtualMachine(Guid vmId) => PauseVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public void StopVirtualMachine(Guid vmId) => StopVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public void DeleteVirtualMachine(Guid vmId) => DeleteVirtualMachineAsync(vmId).GetAwaiter().GetResult();
+		public VirtualNetworkAdapterInfo[] GetVirtualNetworkAdaptersByVM(Guid vmId) => GetVirtualNetworkAdaptersByVMAsync(vmId).GetAwaiter().GetResult();
+		public void RemoveVirtualNetworkAdapter(VirtualNetworkAdapterInfo adapter, bool runAsync, Guid? jobGroup) => RemoveVirtualNetworkAdapterAsync(adapter, runAsync, jobGroup).GetAwaiter().GetResult();
+		public VMCheckpointInfo NewVirtualMachineCheckpoint(Guid vmId, string name, string description) => NewVirtualMachineCheckpointAsync(vmId, name, description).GetAwaiter().GetResult();
+		public void RestoreVirtualMachineCheckpoint(string checkpointId) => RestoreVirtualMachineCheckpointAsync(checkpointId).GetAwaiter().GetResult();
+		public void DeleteVirtualMachineCheckpoint(string checkpointId) => DeleteVirtualMachineCheckpointAsync(checkpointId).GetAwaiter().GetResult();
+		public TemplateInfo[] GetTemplates() => GetTemplatesAsync().GetAwaiter().GetResult();
+		public HostClusterInfo[] GetHostClusters() => GetHostClustersAsync().GetAwaiter().GetResult();
+		public HostInfo[] GetHosts() => GetHostsAsync().GetAwaiter().GetResult();
 	}
 
 	public class FCPMonitoringServiceClient : MonitoringServiceClient, IDisposable
 	{
+		private static EndpointAddress BuildEndpoint(string remoteAddress, string endpointConfigurationName)
+		{
+			if (!String.IsNullOrWhiteSpace(remoteAddress))
+				return new EndpointAddress(remoteAddress);
+
+			var defaultAddress = ConfigurationManager.AppSettings["SCOMServer"];
+			if (String.IsNullOrWhiteSpace(defaultAddress))
+				defaultAddress = "http://localhost/MonitoringWebService/MonitoringService.svc";
+
+			return new EndpointAddress(defaultAddress);
+		}
+
+		private static Binding BuildBinding(string endpointConfigurationName)
+		{
+			if (!String.IsNullOrWhiteSpace(endpointConfigurationName))
+				return new WSHttpBinding(endpointConfigurationName);
+
+			return new WSHttpBinding("WSHttpBinding_IMonitoringService");
+		}
+
 		public FCPMonitoringServiceClient()
+			: base(BuildBinding("WSHttpBinding_IMonitoringService"), BuildEndpoint(null, "WSHttpBinding_IMonitoringService"))
 		{
 		}
 
 		public FCPMonitoringServiceClient(string endpointConfigurationName) :
-			base(endpointConfigurationName)
+			base(BuildBinding(endpointConfigurationName), BuildEndpoint(null, endpointConfigurationName))
 		{
 		}
 
 		public FCPMonitoringServiceClient(string endpointConfigurationName, string remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
+			base(BuildBinding(endpointConfigurationName), BuildEndpoint(remoteAddress, endpointConfigurationName))
 		{
 		}
 
 		public FCPMonitoringServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-			base(endpointConfigurationName, remoteAddress)
+			base(BuildBinding(endpointConfigurationName), remoteAddress)
 		{
 		}
 
@@ -217,6 +296,12 @@ namespace FuseCP.Providers.VirtualizationForPC
 			if ((this.State == CommunicationState.Opened || this.State == CommunicationState.Opening))
 				this.Close();
 		}
+
+		public MonitoredObject GetMonitoredObjectByDisplayName(string serviceName, string displayName) => GetMonitoredObjectByDisplayNameAsync(serviceName, displayName).GetAwaiter().GetResult();
+		public PerformanceData[] GetSingleVMHyperVCPUCounters(string serverName, string vmName) => GetSingleVMHyperVCPUCountersAsync(serverName, vmName).GetAwaiter().GetResult();
+		public PerformanceData[] GetSingleVMHyperVVirtualNetwork(string serverName, string vmName) => GetSingleVMHyperVVirtualNetworkAsync(serverName, vmName).GetAwaiter().GetResult();
+		public PerformanceData[] GetSingleVMHyperVGuestMemoryPagesAllocated(string serverName, string vmName) => GetSingleVMHyperVGuestMemoryPagesAllocatedAsync(serverName, vmName).GetAwaiter().GetResult();
+		public FuseCP.Providers.VirtualizationForPC.MonitoringWebService.PerformanceDataValue[] GetMonitoringPerformanceValues(string serviceName, PerformanceData perfData, DateTime startRange, DateTime endRange) => GetMonitoringPerformanceValuesAsync(serviceName, perfData, startRange, endRange).GetAwaiter().GetResult();
 	}
 
 	public class HyperVForPC : HostingServiceProviderBase, IVirtualizationServerForPC

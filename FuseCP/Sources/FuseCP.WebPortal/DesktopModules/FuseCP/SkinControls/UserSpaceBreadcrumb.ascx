@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserSpaceBreadcrumb.ascx.cs" Inherits="FuseCP.Portal.SkinControls.UserSpaceBreadcrumb" %>
 <%@ Register TagPrefix="fcp" TagName="SpaceOrgsSelector" Src="SpaceOrganizationsSelector.ascx" %>
 <div id="Breadcrumb">
-    <div class="Path">
-        <div class="col-xs-8">
+    <div class="Path d-flex flex-wrap gap-2">
+        <div class="col-12 col-md flex-grow-1">
         <asp:Repeater ID="repUsersPath" runat="server" OnItemDataBound="repUsersPath_ItemDataBound"
             EnableViewState="false">
             <ItemTemplate>
@@ -37,17 +37,17 @@
         <asp:UpdatePanel runat="server" ID="updatePanelUsers" UpdateMode="Conditional" ChildrenAsTriggers="true">
 			<ContentTemplate>
 	            <asp:Panel ID="pnlViewSpace" runat="server">
-                    <asp:Label ID="lblUserAccountName" runat="server" Text="Account-" CssClass="Huge" style="margin-right:2px;"/>
+                    <asp:Label ID="lblUserAccountName" runat="server" Text="Account-" CssClass="Huge" style="margin-right:2px"/>
 			        <asp:LinkButton ID="cmdSpaceName" runat="server" Text="Change Name" OnClick="cmdChangeName_Click" CssClass="Huge" CausesValidation="false" />
 			        <asp:Label ID="lblSpaceDescription" runat="server" Visible="false"></asp:Label>
 		        </asp:Panel>
 		        <asp:Panel ID="pnlEditSpace" runat="server" DefaultButton="cmdSave" Visible="false">
-			        <table cellpadding="0" cellspacing="0">
+			        <table class="table table-borderless align-middle mb-0">
 				        <tr>
 					        <td>
 						        <asp:TextBox ID="txtName" runat="server" CssClass="Huge" Width="300px"></asp:TextBox>
 					        </td>
-					        <td rowspan="2" valign="top">
+					        <td class="align-top" rowspan="2">
 						        &nbsp;&nbsp;<asp:LinkButton ID="cmdSave" runat="server" Text="Save" CssClass="Button" OnClick="cmdSave_Click" ValidationGroup="SpaceName" />
 						        <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CssClass="Button" OnClick="cmdCancel_Click" CausesValidation="false" />
 					        </td>

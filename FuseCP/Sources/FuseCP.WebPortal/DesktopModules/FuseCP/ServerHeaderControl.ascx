@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServerHeaderControl.ascx.cs" Inherits="FuseCP.Portal.ServerHeaderControl" %>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<div class="Huge">
 		<asp:Literal ID="litServerName" runat="server"></asp:Literal>
 	</div>

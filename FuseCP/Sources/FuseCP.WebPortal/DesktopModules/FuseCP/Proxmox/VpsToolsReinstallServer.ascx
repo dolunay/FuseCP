@@ -31,9 +31,9 @@
 				                    meta:resourcekey="chkConfirmReinstall" Text="Yes, I confirm re-installation of this VPS" />
                     </p>
 				    
-				    <table cellspacing="5">
+				    <table class="table table-borderless align-middle mb-0">
 				        <tr>
-				            <td valign="top">
+				            <td class="align-top">
 				                <asp:Localize ID="locPassword" runat="server"
 		                            meta:resourcekey="locPassword" Text="New administrator password:" />
 				            </td>
@@ -53,7 +53,7 @@
 				        </tr>
 				    </table>
 				    <br />
-                    <table cellspacing="5" id="AdminOptionsPanel" runat="server">
+                    <table class="table table-borderless align-middle mb-0" id="AdminOptionsPanel" runat="server">
 				        <tr>
 				            <td>
 				                <asp:CheckBox ID="chkSaveVhd" runat="server"
@@ -67,7 +67,7 @@
 				            </td>
 				        </tr>
 				        <tr>
-				            <td style="padding-left:20px;">
+				            <td style="padding-left:20px">
 				                <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
 				                
 				                <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"
@@ -79,11 +79,11 @@
 				    
                     <p>
                         <asp:Button ID="btnReinstall" runat="server" meta:resourcekey="btnReinstall"
-                            ValidationGroup="Reinstall" Text="Re-install" CssClass="Button1" 
+                            ValidationGroup="Reinstall" Text="Re-install" CssClass="btn btn-primary" 
                             onclick="btnUpdate_Click" />
                             
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
 			    </div>

@@ -18,7 +18,7 @@
 
  <asp:UpdatePanel runat="server" ID="VLANsTable" UpdateMode="Conditional">
      <ContentTemplate>
-        <table style="width: 100%;">
+        <table >
             <tr>
                 <td>
                     <asp:RadioButton ID="radioVLANRandom" runat="server" AutoPostBack="true"
@@ -28,11 +28,11 @@
                 </td>
             </tr>
             <tr id="VLANsNumberRow" runat="server">
-                <td style="padding-left: 30px;">
+                <td style="padding-left: 30px">
                     <asp:Localize ID="locVLANs" runat="server"
                             meta:resourcekey="locVLANs" Text="Number of VLANs:"></asp:Localize>
 
-                    <asp:TextBox ID="txtVLANsNumber" runat="server" CssClass="form-control" Width="50"></asp:TextBox>
+                    <asp:TextBox ID="txtVLANsNumber" runat="server" CssClass="form-control"></asp:TextBox>
                     
                     <asp:RequiredFieldValidator ID="VLANsValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtVLANsNumber" meta:resourcekey="VLANsValidator" SetFocusOnError="true"
@@ -50,9 +50,9 @@
                 </td>
             </tr>
             <tr id="VLANsListRow" runat="server">
-                <td style="padding-left: 30px;">
+                <td style="padding-left: 30px">
                     <asp:ListBox ID="listVLANs" SelectionMode="Multiple" runat="server" Rows="8"
-                        CssClass="form-control" Width="220" style="height:100px;" ></asp:ListBox>
+                        CssClass="form-control" style="height:100px" ></asp:ListBox>
                     <br />
                     <asp:Localize ID="locHoldCtrl" runat="server" 
                             meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses" ></asp:Localize>
@@ -61,7 +61,7 @@
         </table>
     </ContentTemplate>
 </asp:UpdatePanel>
-<p style="text-align:right;">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddVLAN"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </CPCC:StyleButton>
+<p style="text-align:right">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddVLAN"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 </p>

@@ -13,13 +13,13 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
     			    	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <asp:ValidationSummary ID="validatorsSummary" runat="server" 
                         ValidationGroup="ImportWizard" ShowMessageBox="True" ShowSummary="False" />
-                    <div class="form-group">
+                    <div class="mb-3">
 
                         <asp:Label ID="locHyperVService" runat="server" CssClass="col-sm-1" AssociatedControlID="HyperVServices" meta:resourcekey="locHyperVService" Text="Hyper-V Service:"></asp:Label>
                         <div class="col-sm-11">
@@ -50,10 +50,10 @@
                     <fcp:CollapsiblePanel id="secOsTemplate" runat="server"
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group">
+                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
                             <asp:Label ID="locOsTemplate" runat="server" CssClass="col-sm-1" meta:resourcekey="locOsTemplate" AssociatedControlID="OsTemplates" Text="OS Template:"></asp:Label>
-                            <div class="col-sm-11 form-inline">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:DropDownList ID="OsTemplates" runat="server" CssClass="form-control"
                                         DataValueField="Path" DataTextField="Name"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredOsTemplate" runat="server"
@@ -67,8 +67,8 @@
                             </div>
                             <div id="AdminPasswordPanel" runat="server" visible="false">
                                 <asp:Label ID="locAdminPassword" runat="server" CssClass="col-sm-2" meta:resourcekey="locAdminPassword" AssociatedControlID="adminPassword" Text="Administrator password:"></asp:Label>
-                                <div class="col-sm-10 form-inline">
-                                    <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
+                                    <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredAdminPassword" runat="server"
                                         ControlToValidate="adminPassword" ValidationGroup="ImportWizard" meta:resourcekey="RequiredAdminPassword"
                                         Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -82,10 +82,10 @@
                         <fcp:CollapsiblePanel id="secConfiguration" runat="server"
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                             <fcp:Generation runat="server" ID="GenerationSetting" Mode="Summary"/>
 
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <asp:Label ID="locCPU" runat="server" CssClass="col-sm-1" meta:resourcekey="locCPU" Text="CPU:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:Literal ID="CpuCores" runat="server" Text="0"></asp:Literal>
@@ -131,11 +131,11 @@
                         <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots quota">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                        <div class="form-group">
+                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                        <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
-                                                <div class="col-sm-10 form-inline">
-                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control form-control" Width="150" Text="0"></asp:TextBox>
+                                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
+                                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Text="0" MaxLength="255"></asp:TextBox>
                                                     
                                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -147,8 +147,8 @@
                         <fcp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:450px;">                            
-                            <div class="form-group">
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">                            
+                            <div class="mb-3">
                                 <div id="divBootFromCdChkOption" runat="server" class="col-sm-6">
                                     <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
                                     <asp:Localize ID="locBootFromCd" runat="server" meta:resourcekey="locBootFromCd"></asp:Localize>
@@ -170,13 +170,13 @@
                         <fcp:CollapsiblePanel id="secDvd" runat="server"
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <div class="form-group">
-                                <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 form-inline">
+                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <div class="mb-3">
+                                <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
                                         <asp:Localize ID="locDvdInstalled" runat="server" meta:resourcekey="locDvdInstalled"></asp:Localize>
                                 </div>
-                                <div id="divDvdInstalledChkBox" runat="server" class="col-sm-12 form-inline">
+                                <div id="divDvdInstalledChkBox" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="False"
                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
                                 </div>
@@ -186,8 +186,8 @@
                         <fcp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:450px;">
-                            <div class="form-group">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <div class="mb-3">
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
                                 </div>
@@ -209,9 +209,9 @@
                         <fcp:CollapsiblePanel id="secExternalNetwork" runat="server"
                             TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
 
-                            <div class="form-group">
+                            <div class="mb-3">
 
                                 <asp:Label ID="locExternalAdapter" runat="server" CssClass="col-sm-1" 
                                     meta:resourcekey="locExternalAdapter" AssociatedControlID="ExternalAdapters" Text="Connected NIC:"></asp:Label>
@@ -226,7 +226,7 @@
                                     <asp:Label ID="locExternalAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Multiple"></asp:ListBox>
+                                            SelectionMode="Multiple"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredExternalAddresses" runat="server"
                                             ControlToValidate="ExternalAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredExternalAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -239,8 +239,8 @@
                         <fcp:CollapsiblePanel id="secManagementNetwork" runat="server"
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <div class="form-group">
+                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <div class="mb-3">
 
                                 <asp:Label ID="locManagementAdapter" runat="server" CssClass="col-sm-1" 
                                     meta:resourcekey="locManagementAdapter" AssociatedControlID="ManagementAdapters" Text="Connected NIC:"></asp:Label>
@@ -255,7 +255,7 @@
                                     <asp:Label ID="locManagementAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Single"></asp:ListBox>
+                                            SelectionMode="Single"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredManagementAddresses" runat="server"
                                             ControlToValidate="ManagementAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredManagementAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -267,13 +267,13 @@
                     </asp:Panel>
 
                     <p>
-                        <asp:CheckBox ID="chkIgnoreCheckes" runat="server" CssClass="NormalBold"
+                        <asp:CheckBox ID="chkIgnoreCheckes" runat="server" CssClass="form-label"
 				                    meta:resourcekey="chkIgnoreCheckes" Text="Ignore Quotas checkes" />
                     </p>
                     
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnImport" CssClass="btn btn-success" runat="server" OnClick="btnImport_Click" ValidationGroup="ImportWizard"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnImport" CssClass="btn btn-success" runat="server" OnClick="btnImport_Click" ValidationGroup="ImportWizard"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </asp:LinkButton>
                     </div>
                         
 			    </div>

@@ -8,6 +8,7 @@ IF not defined SkipIISReset (
 	IF NOT ERRORLEVEL 1 (
 		echo Running IIS reset to clear potential file locks...
 		iisreset /restart >nul 2>&1
+		timeout /t 2 /nobreak >nul
 		IF ERRORLEVEL 1 echo IIS reset skipped or failed; likely requires elevated shell.
 	)
 )

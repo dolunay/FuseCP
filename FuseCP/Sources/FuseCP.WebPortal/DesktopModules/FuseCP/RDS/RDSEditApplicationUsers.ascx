@@ -5,30 +5,30 @@
 <%@ Register Src="UserControls/RDSCollectionTabs.ascx" TagName="CollectionTabs" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-heading">
+<div class="card-header">
 					<asp:Image ID="imgEditRDSCollection" SkinID="EnterpriseRDSCollections48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit RDS Collection"></asp:Localize>
                     -
 					<asp:Literal ID="litCollectionName" runat="server" Text="" />
 				</div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
 				<fcp:CollectionTabs id="tabs" runat="server" SelectedTab="rds_collection_edit_apps" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="SimpleMessageBox1" runat="server" />
                     <fcp:CollapsiblePanel id="secRdsApplicationEdit" runat="server"
                         TargetControlID="panelRdsApplicationEdit" meta:resourcekey="secRdsApplicationEdit" Text="">
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationEdit">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap;">
+                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
                                         <asp:Localize ID="locLblApplicationName" runat="server" meta:resourcekey="locLblApplicationName" Text="Application Name"/>
                                     </td>
                                     <td>
@@ -47,7 +47,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td  style="width:40px;"/>
+                                    <td  />
                                     <td colspan="2">
                                         <asp:Localize ID="locAllowAny" runat="server" meta:resourcekey="locAllowAny" Text=""/>                                        
                                     </td>
@@ -58,7 +58,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap;">
+                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
                                         <asp:Localize ID="locCommandLine" runat="server" meta:resourcekey="locCommandLine" Text="Command-line parameters"/>
                                     </td>
                                     <td>
@@ -74,14 +74,14 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationUsers">                                                
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <fcp:CollectionUsers id="users" runat="server" />
                         </div>                            
                     </asp:Panel>
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnExit" CssClass="btn btn-warning" runat="server" OnClick="btnExit_Click" OnClientClick="ShowProgressDialog('Loading ...');"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnExitText"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click" OnClientClick="ShowProgressDialog('Updating ...');"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Updating ...');"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnExit" CssClass="btn btn-warning" runat="server" OnClick="btnExit_Click" OnClientClick="ShowProgressDialog('Loading ...');"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnExitText"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click" OnClientClick="ShowProgressDialog('Updating ...');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Updating ...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>
 			        </div>
 				</div>	
 			</div>

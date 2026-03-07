@@ -11,47 +11,31 @@
 <%@ Register Src="../UserControls/SendToControl.ascx" TagName="SendToControl" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<div runat="server" id="divWrapper">
-    <script type="text/javascript">
-        function buildDisplayName() {
-            document.getElementById("<%= txtDisplayName.ClientID %>").value = '';
-
-            if (document.getElementById("<%= txtFirstName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtFirstName.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtInitials.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtInitials.ClientID %>").value + ' ';
-
-            if (document.getElementById("<%= txtLastName.ClientID %>").value != '')
-                document.getElementById("<%= txtDisplayName.ClientID %>").value = document.getElementById("<%= txtDisplayName.ClientID %>").value + document.getElementById("<%= txtLastName.ClientID %>").value;
-    }
-    </script>
-</div>
-<div class="panel-heading">
-    <h3 class="panel-title">
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/exchange-create-mailbox.js"></script>
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="ExchangeMailboxAdd48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create Mailbox"></asp:Localize>
     </h3>
 </div>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Always" runat="server">
         <ContentTemplate>
                
                
-                            <div class="panel-body">
+                            <div class="card-body">
                                 <h4>
                                     <asp:Literal ID="TopComments" runat="server" meta:resourcekey="TopComments" /></h4>
                                 <div class="radio">
-                                    <label class="btn btn-primary radio-inline" data-initialize="radio" id="radios-inline-0">
-                                        <asp:RadioButton runat="server" class="sr-only form-control" name="radios-inline" type="button" ID="rbtnCreateNewMailbox" AutoPostBack="true" Checked="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnCreateNewMailbox_CheckedChanged" />
+                                    <label class="btn btn-primary form-check-inline" data-initialize="radio" id="radios-inline-0">
+                                        <asp:RadioButton runat="server" class="visually-hidden form-control" name="radios-inline" type="button" ID="rbtnCreateNewMailbox" AutoPostBack="true" Checked="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnCreateNewMailbox_CheckedChanged" />
                                         <span class="radio-label">
                                             <asp:Localize runat="server" meta:resourcekey="rbtnCreateNewMailbox" Text="First Name: " /></span>
                                     </label>
-                                    <label class="btn btn-primary radio-inline" data-initialize="radio" id="radios-inline-1">
-                                        <asp:RadioButton runat="server" class="sr-only form-control" name="radios-inline" type="button" ID="rbtnUserExistingUser" AutoPostBack="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnUserExistingUser_CheckedChanged" />
+                                    <label class="btn btn-primary form-check-inline" data-initialize="radio" id="radios-inline-1">
+                                        <asp:RadioButton runat="server" class="visually-hidden form-control" name="radios-inline" type="button" ID="rbtnUserExistingUser" AutoPostBack="true" GroupName="CreateMailboxGoup" OnCheckedChanged="rbtnUserExistingUser_CheckedChanged" />
                                         <span class="radio-label">
                                             <asp:Localize runat="server" meta:resourcekey="rbtnUserExistingUser" Text="First Name: " /></span>
                                     </label>
@@ -65,40 +49,40 @@
               
                     <fieldset>
                   
-                                <div class="row form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtFirstName">
+                                <div class="row mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtFirstName">
                                         <asp:Localize ID="locName" runat="server" meta:resourcekey="locName" Text="Name:" />
                                     </asp:Label>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="First Name" MaxLength="64"></asp:TextBox>
+                                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="First Name" MaxLength="64"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valFirstName" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtFirstName" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Initials"></asp:TextBox>
+                                            <asp:TextBox ID="txtInitials" runat="server" MaxLength="6" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="Initials"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valInitials" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtInitials" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="buildDisplayName();" placeholder="Last Name" MaxLength="64"></asp:TextBox>
+                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onKeyUp="FuseCPExchangeCreateMailbox.buildDisplayName('<%= txtDisplayName.ClientID %>','<%= txtFirstName.ClientID %>','<%= txtInitials.ClientID %>','<%= txtLastName.ClientID %>');" placeholder="Last Name" MaxLength="64"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="valLastName" runat="server" ErrorMessage="Enter valid name" ControlToValidate="txtLastName" meta:resourcekey="valRequireCorrectName" 
                                                 ValidationExpression="^[^'&quot;]+$" SetFocusOnError="True" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+                                <div class="row mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                                         <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
                                             <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" MaxLength="64"></asp:TextBox>
-                                            <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                            <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                                         </div>
                                         <asp:RequiredFieldValidator ID="valRequireDisplayName" runat="server" meta:resourcekey="valRequireDisplayName" ControlToValidate="txtDisplayName"
                                             ErrorMessage="Enter Display Name" ValidationGroup="CreateMailbox" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -107,8 +91,8 @@
                                     </div>
                                 </div>
                               
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
+                                <div class="row mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
                                         <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
                                     </asp:Label>
                                     <div class="col-sm-10">
@@ -120,8 +104,8 @@
                                     </div>
                                 </div>
                         
-                                <div class="form-group">
-                                    <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="email">
+                                <div class="row mb-3">
+                                    <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
                                         <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *" />
                                     </asp:Label>
                                     <div class="col-sm-10">
@@ -138,12 +122,12 @@
                 </div>
                 <fieldset>
                   
-                            <fieldset class="form-group">
-                                <label class="col-sm-2 control-label">
+                            <fieldset class="mb-3">
+                                <label class="col-sm-2 form-label">
                                     <asp:Localize ID="locMailboxType" runat="server" meta:resourcekey="locMailboxType" Text="Choose mailbox type:" /></label>
                                 <div class="radio radiobuttonlist col-sm-10">
                                     <asp:RadioButtonList ID="rbMailboxType" runat="server">
-                                        <asp:ListItem Value="1" Selected="true" meta:resourcekey="UserMailbox" CssClass="btn btn-default">User mailbox</asp:ListItem>
+                                        <asp:ListItem Value="1" Selected="true" meta:resourcekey="UserMailbox" CssClass="btn btn-secondary">User mailbox</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </div>
                             </fieldset>
@@ -152,7 +136,7 @@
             </div>
             <div id="ExistingUserDiv" visible="false" runat="server">
                 <div class="container">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="userSelector">
                             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *" />
                         </label>
@@ -165,8 +149,8 @@
 
         <fieldset>
      
-                    <div class="form-group">
-                        <label for="mailboxPlanSelector" class="col-sm-2 control-label">
+                    <div class="mb-3">
+                        <label for="mailboxPlanSelector" class="col-sm-2 form-label">
                             <asp:Localize ID="locMailboxplanName" runat="server" meta:resourcekey="locMailboxplanName" Text="Mailboxplan Name: *" />
                         </label>
                         <div class="col-sm-10">
@@ -176,8 +160,8 @@
                         </div>
                     </div>
         
-                    <div id="divRetentionPolicy" runat="server" class="form-group">
-                        <label for="archivingMailboxPlanSelector" class="col-sm-2 control-label">
+                    <div id="divRetentionPolicy" runat="server" class="mb-3">
+                        <label for="archivingMailboxPlanSelector" class="col-sm-2 form-label">
                             <asp:Localize ID="locRetentionPolicyName" runat="server" meta:resourcekey="locRetentionPolicyName" Text="Retention policy Name:  " />
                         </label>
                         <div class="col-sm-10">
@@ -187,8 +171,8 @@
                         </div>
                     </div>
            
-                    <div id="divArchiving" runat="server" class="form-group">
-                        <label for="chkEnableArchiving" class="col-sm-2 control-label">
+                    <div id="divArchiving" runat="server" class="mb-3">
+                        <label for="chkEnableArchiving" class="col-sm-2 form-label">
                         </label>
                         <div class="col-sm-10">
                             <div class="input-group">
@@ -197,8 +181,8 @@
                         </div>
                     </div>
             
-                    <div class="form-group">
-                        <label for="chkSendInstructions" class="col-sm-2 control-label">
+                    <div class="mb-3">
+                        <label for="chkSendInstructions" class="col-sm-2 form-label">
                             <asp:CheckBox ID="CheckBox1" runat="server" meta:resourcekey="chkSendInstructions" Text="Send Setup Instructions" Checked="false" />
                         </label>
                         <div class="col-sm-10">
@@ -208,8 +192,8 @@
                         </div>
                     </div>
               
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">
+                    <div class="mb-3">
+                        <label class="col-sm-2 form-label">
                         </label>
                         <div class="col-sm-10">
                             <div class="input-group">
@@ -222,26 +206,9 @@
  
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateMailbox" OnClientClick="ShowProgressDialog('Creating mailbox...');">
-        <i class="fa fa-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText" />
-    </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateMailbox" OnClientClick="ShowProgressDialog('Creating mailbox...');">
+        <i class="bi bi-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText" />
+    </asp:LinkButton>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateMailbox" />
 </div>
-<script type="text/javascript">
-    function ShowProgress() {
-        setTimeout(function () {
-            var modal = $('<div />');
-            modal.addClass("modal");
-            $('body').append(modal);
-            var loading = $(".loading");
-            loading.show();
-            var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
-            var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
-            loading.css({ top: top, left: left });
-        }, 200);
-    }
-    $('form').live("submit", function () {
-        ShowProgress();
-    });
-</script>

@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HostedSolutionReport.ascx.cs"
     Inherits="FuseCP.Portal.ScheduleTaskControls.HostedSolutionReport" %>
-<table width="100%">
+<table>
     <tr>
         <td>
             <asp:Label runat="server" ID="lblMail" meta:resourcekey="lblMail" />

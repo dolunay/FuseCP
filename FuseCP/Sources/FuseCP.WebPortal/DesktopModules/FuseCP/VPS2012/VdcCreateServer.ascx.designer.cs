@@ -369,7 +369,7 @@ namespace FuseCP.Portal.VPS2012
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnAddHdd;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddHdd;
 
         /// <summary>
         /// repHdd control.

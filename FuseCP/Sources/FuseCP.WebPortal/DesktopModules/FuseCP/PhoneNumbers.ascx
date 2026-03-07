@@ -2,29 +2,19 @@
 <%@ Register Src="UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
 
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
+    </asp:LinkButton>
 
 </div>
 
-<div class="panel-body text-right">
+<div class="card-body text-end">
 
 		<fcp:SearchBox ID="searchBox" runat="server" />
 
@@ -82,18 +72,18 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div class="panel-footer">
+<div class="card-footer">
     <div class="row">
     <div class="col-md-9">
         <asp:Button id="btnEditSelected" runat="server" Text="Edit Selected..."
-            meta:resourcekey="btnEditSelected" CssClass="SmallButton" 
+            meta:resourcekey="btnEditSelected" CssClass="btn btn-primary btn-sm" 
             CausesValidation="false" onclick="btnEditSelected_Click"></asp:Button>
         <asp:Button id="btnDeleteSelected" runat="server" Text="Delete Selected"
-            meta:resourcekey="btnDeleteSelected" CssClass="SmallButton" 
+            meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary btn-sm" 
             CausesValidation="false" onclick="btnDeleteSelected_Click"></asp:Button>
     </div>
     <div class="col-md-3">
-         <div class="form-group">
+         <div class="mb-3">
         <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4"></asp:Label>
              <div class="col-sm-8">
         <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control" 
@@ -108,3 +98,4 @@
     </div>
         </div>
 </div>
+

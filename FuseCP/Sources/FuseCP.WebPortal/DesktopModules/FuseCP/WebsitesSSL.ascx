@@ -17,7 +17,7 @@
 				<h2><asp:Localize runat="server" meta:resourcekey="headerInstalledCertificate"/></h2>
 				<table>
 					<tr>
-						<td class="SubHead" style="width: 200px;">
+						<td class="SubHead" >
 							<asp:Localize runat="server" meta:resourcekey="sslDomain" /></td>
 						<td class="Normal">
 							<asp:Literal ID="lblInstalledDomain" runat="server" /></td>
@@ -67,16 +67,16 @@
 				</table>
 			</div>
 			<br />
-			<asp:Button ID="btnRenew" runat="server" UseSubmitBehavior="true" meta:resourcekey="btnRenew"
+			<asp:Button ID="btnRenew" runat="server" meta:resourcekey="btnRenew"
 				CssClass="btn btn-primary" Text="Renew" OnClick="btnRenew_Click" />&nbsp;&nbsp;
 			<asp:Button ID="btnExportModal" runat="server" meta:resourcekey="btnExportModal"
 				CssClass="btn btn-warning" Text="Export" />&nbsp;&nbsp;
 			<asp:Button ID="btnDelete" runat="server" Text="Delete" meta:resourcekey="btnDelete"
 				CssClass="btn btn-danger" OnClick="btnDelete_Click" />&nbsp;&nbsp;
 			<asp:Panel ID="pnlPFXPassword" Style="display: none" runat="server">
-                <div class="widget" style="max-width:100%;">
+                <div class="widget">
                 <div class="widget-header clearfix">
-								<h3><i class="fa fa-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
+								<h3><i class="bi bi-server"></i> <span><asp:Localize runat="server" meta:resourcekey="headerPFXPassword" /></span></h3>
                 </div>
                                 <div class="widget-content">
 						<div class="FormFieldDescription">
@@ -92,9 +92,9 @@
 							<asp:CompareValidator ID="valtxtPFXPassConfirm" runat="server" ValidationGroup="pfxExport" 
 								ControlToCompare="txtPFXPass" ControlToValidate="txtPFXPassConfirm" meta:resourcekey="valtxtPFXPassConfirm" /></div>
 					</div>
-					<div class="popup-buttons text-right">
+					<div class="popup-buttons text-end">
 						<asp:Button ID="btnExport" meta:resourcekey="btnExport" ValidationGroup="pfxExport"
-							runat="server" OnClick="btnExport_Click" CssClass="btn btn-warning" UseSubmitBehavior="false"
+							runat="server" OnClick="btnExport_Click" CssClass="btn btn-warning"
 							Text="Export" />&nbsp;&nbsp;
 						<asp:Button ID="btnPFXExportCancel" meta:resourcekey="btnPFXExportCancel" runat="server"
 							Text="Cancel" CssClass="btn btn-danger" />
@@ -114,8 +114,8 @@
 						<asp:Literal ID="LENotInstalledHeading" runat="server" meta:resourcekey="LENotInstalledHeading" /></h3>
                     <p class="Normal">
 						<asp:Literal ID="LENotInstalledDescription" runat="server" meta:resourcekey="LENotInstalledDescription" /></p>
-                    <div class="form-group text-center">
-                        <CPCC:StyleButton ID="LEInstall" CssClass="btn btn-primary" runat="server" OnClick="LEInstallCertificate_Click"> <i class="fa fa-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="LEInstallText" /></CPCC:StyleButton>
+                    <div class="mb-3 text-center">
+                        <asp:LinkButton ID="LEInstall" CssClass="btn btn-primary" runat="server" OnClick="LEInstallCertificate_Click"> <i class="bi bi-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="LEInstallText" /></asp:LinkButton>
                     </div>
                 </div>
 				<div id="NoSSL" class="col-sm-6">
@@ -124,7 +124,7 @@
 					<p class="Normal">
 						<asp:Literal ID="SSLNotInstalledDescription" runat="server" meta:resourcekey="SSLNotInstalledDescription" /></p>
 				</div>
-				<div class="form-group text-center">
+				<div class="mb-3 text-center">
 					<asp:Button ID="btnShowpnlCSR" runat="server" meta:resourcekey="btnShowpnlCSR" CssClass="btn btn-primary"
 						Text="Generate CSR" OnClick="btnShowpnlCSR_click" />
 					<asp:Button ID="btnShowUpload" meta:resourcekey="btnShowUpload" CssClass="btn btn-primary"
@@ -137,15 +137,15 @@
 						<asp:Localize ID="SSLImportHeading" runat="server" meta:resourcekey="SSLImportHeading" /></h2>
 					<p class="Normal">
 						<asp:Localize ID="SSLImportDescription" runat="server" meta:resourcekey="SSLImportDescription" /></p>
-					<asp:Button ID="btnImport" meta:resourcekey="btnImport" CssClass="Button1" runat="server" OnClick="btnImport_click" />
+					<asp:Button ID="btnImport" meta:resourcekey="btnImport" CssClass="btn btn-primary" runat="server" OnClick="btnImport_click" />
 			        <asp:Button ID="btnDeleteAll" runat="server" Text="Delete" meta:resourcekey="btnDelete"
-				        CssClass="Button1" OnClick="btnDeleteAll_Click" />
+				        CssClass="btn btn-primary" OnClick="btnDeleteAll_Click" />
 				</div>
 			</asp:Panel>
 			<asp:Panel ID="pnlCSR" runat="server" Visible="false">
 				<h2>
 					<asp:Localize runat="server" meta:resourcekey="GenerateCSR" /></h2>
-				<table style="width: 100%;">
+				<table >
 	                <tr>
 						<td class="SubHead">
 							<asp:Localize ID="SelectCertType" runat="server" meta:resourcekey="SelectCertType" /></td>
@@ -178,7 +178,7 @@
 							<asp:Localize ID="sslCountry" runat="server" meta:resourcekey="sslCountry" /></td>
 						<td class="Normal">
 							<asp:dropdownlist runat="server" id="lstCountries" cssclass="form-control" AutoPostBack="true" 
-								OnSelectedIndexChanged="lstCountries_SelectedIndexChanged" width="200px" /></td>
+								OnSelectedIndexChanged="lstCountries_SelectedIndexChanged" /></td>
 					</tr>
 					<tr>
 						<td class="SubHead">

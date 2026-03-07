@@ -3,9 +3,9 @@
 <%@ Register Src="../UserControls/QuotaEditor.ascx" TagName="QuotaEditor" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<table width="100%">
+<table>
     <tr>
-        <td width="200px"><asp:Label ID="lblAuthType" meta:resourcekey="lblAuthType" Text="Countries To Block:" runat="server" /></td>
+        <td><asp:Label ID="lblAuthType" meta:resourcekey="lblAuthType" Text="Countries To Block:" runat="server" /></td>
         <td>
             <asp:DropDownList ID="ddlAuthType" runat="server">
                 <asp:ListItem Value="1" meta:resourcekey="ddlAuthType1">Specified Countries</asp:ListItem>
@@ -14,16 +14,16 @@
         </td>
     </tr>
     <tr>
-        <td width="200px" valign="top">
+        <td class="align-top">
             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="lblCountry" Text="Add Country:" />
         </td>
         <td class="Normal">
             <asp:DropDownList ID="ddlAddCountry" runat="server"> </asp:DropDownList>
-            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="Button2" />
+            <asp:Button ID="btnAddCountry" runat="server" Text="Add Country" OnClick="btnAddCountry_Click" meta:resourcekey="btnAddCountry" CssClass="btn btn-success" />
         </td>
     </tr>
     <tr>
-        <td width="200px" valign="top">
+        <td class="align-top">
             <asp:Localize ID="Localize2" runat="server" meta:resourcekey="lblSelectedCountries" Text="Selected Countries:" />
         </td>
         <td class="Normal">
@@ -32,9 +32,9 @@
                     <asp:BoundField DataField="Name" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            &nbsp&nbsp<CPCC:StyleButton ID="btnRemove" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Code") %>' OnClick="btnRemove_Click" >
-                                &nbsp<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            &nbsp&nbsp<asp:LinkButton ID="btnRemove" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Code") %>' OnClick="btnRemove_Click" >
+                                &nbsp<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

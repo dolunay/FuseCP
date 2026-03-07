@@ -4,20 +4,20 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="imgESS" SkinID="EnterpriseStorageSpace48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create New Folder"></asp:Localize>
     </h3>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolderName" runat="server" meta:resourcekey="locFolderName" Text="Folder Name: *"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtFolderName" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireFolderName" runat="server" 
@@ -29,11 +29,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolderSize" runat="server" meta:resourcekey="locFolderSize" Text="Folder Limit Size (Gb):"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtFolderSize" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valRequireFolderSize" runat="server" meta:resourcekey="valRequireFolderSize"
@@ -56,11 +56,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locQuotaType" runat="server" meta:resourcekey="locQuotaType" Text="Quota Type:"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group" style="padding-top:6px;">
                     <asp:RadioButton ID="rbtnQuotaSoft" runat="server" meta:resourcekey="rbtnQuotaSoft" Text="Soft" GroupName="QuotaType" />
                     <asp:RadioButton ID="rbtnQuotaHard" runat="server" meta:resourcekey="rbtnQuotaHard" Text="Hard" GroupName="QuotaType" Checked="true" />
@@ -69,11 +69,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locAddDefaultGroup" runat="server" meta:resourcekey="locAddDefaultGroup" Text="Add Default Group:"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group" style="padding-top:6px;">
                     <asp:CheckBox ID="chkAddDefaultGroup" runat="server" Checked="false"></asp:CheckBox>
                 </div>
@@ -81,10 +81,10 @@
         </div>
     </div>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateFolder">
-        <i class="fa fa-check">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateFolder">
+        <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateText"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateFolder" />
 </div>

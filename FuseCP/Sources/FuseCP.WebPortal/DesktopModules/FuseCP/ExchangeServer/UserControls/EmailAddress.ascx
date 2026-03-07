@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EmailAddress.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.UserControls.EmailAddress" %>
 <%@ Register Src="DomainSelector.ascx" TagName="DomainSelector" TagPrefix="fcp" %>
 <div class="input-group">
-    <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+    <span class="input-group-text"><i class="bi bi-envelope" aria-hidden="true"></i></span>
     <asp:TextBox ID="txtAccount" runat="server" CssClass="form-control" MaxLength="64" onkeyup="this.value = this.value.toLowerCase();" Style="text-transform: lowercase;"></asp:TextBox>
     <fcp:DomainSelector id="domain" runat="server"></fcp:DomainSelector>
 </div>

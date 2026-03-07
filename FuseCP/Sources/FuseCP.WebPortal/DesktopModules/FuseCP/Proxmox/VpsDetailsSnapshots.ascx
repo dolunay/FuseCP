@@ -16,13 +16,13 @@
                     <wsp:SimpleMessageBox id="messageBox" runat="server" />
                     
 				    
-				    <table style="width:100%;">
+				    <table >
 				        <tr>
-				            <td valign="top">
+				            <td class="align-top">
 				            
                                 <div class="FormButtonsBarClean">
                                     <asp:Button ID="btnTakeSnapshot" runat="server" meta:resourcekey="btnTakeSnapshot"
-                                    Text="Take Snapshot" CssClass="Button1" onclick="btnTakeSnapshot_Click" />
+                                    Text="Take Snapshot" CssClass="btn btn-primary" onclick="btnTakeSnapshot_Click" />
                                 </div>
                                 <br />
                                 
@@ -34,7 +34,7 @@
                                     <NodeStyle CssClass="TreeNode" />
 				                </asp:TreeView>
 				                
-				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px;">
+				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px">
 				                    <asp:Localize ID="locNoSnapshots" runat="server" meta:resourcekey="locNoSnapshots" Text="No snapshots"></asp:Localize>
 				                </div>
                                 
@@ -46,7 +46,7 @@
 				                <wsp:QuotaViewer ID="snapshotsQuota" runat="server" QuotaTypeId="2" />
 				    
 				            </td>
-				            <td valign="top" id="SnapshotDetailsPanel" runat="server">
+				            <td class="align-top" id="SnapshotDetailsPanel" runat="server">
 				                <p>
 				                    <asp:Localize ID="locCreated" runat="server" meta:resourcekey="locCreated"
 				                        Text="Created:"></asp:Localize>
@@ -75,8 +75,8 @@
 		    </div>
 	    </div>
 
-<asp:Panel ID="RenamePanel" runat="server" CssClass="Popup" style="display:none;">
-	<table class="Popup-Header" cellpadding="0" cellspacing="0">
+<asp:Panel ID="RenamePanel" runat="server" CssClass="Popup" style="display:none">
+	<table class="Popup-Header table table-borderless align-middle mb-0">
 		<tr>
 			<td class="Popup-HeaderLeft"></td>
 			<td class="Popup-HeaderTitle">
@@ -90,10 +90,10 @@
 		<div class="Popup-Body">
 			<br />
 			
-			<table cellspacing="10">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td>
-			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="SnapshotNameValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtSnapshotName" meta:resourcekey="SnapshotNameValidator" SetFocusOnError="true"
@@ -107,11 +107,11 @@
 		</div>
 		
 		<div class="FormFooter">
-		    <asp:Button ID="btnRenameSnapshot" runat="server" CssClass="Button1"
+		    <asp:Button ID="btnRenameSnapshot" runat="server" CssClass="btn btn-primary"
 		        meta:resourcekey="btnRenameSnapshot" Text="Rename" onclick="btnRenameSnapshot_Click"
                 ValidationGroup="RenameSnapshot" />
 		        
-			<asp:Button ID="btnCancelRename" runat="server" CssClass="Button1"
+			<asp:Button ID="btnCancelRename" runat="server" CssClass="btn btn-primary"
 			    meta:resourcekey="btnCancelRename" Text="Cancel" CausesValidation="false" />
 		</div>
 	</div>

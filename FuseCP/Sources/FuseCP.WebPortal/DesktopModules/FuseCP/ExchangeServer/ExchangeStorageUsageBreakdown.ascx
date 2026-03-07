@@ -2,22 +2,22 @@
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeStorage48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Storage Usage Breakdown"></asp:Localize>
                     </h3>
 				</div>
 				
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 				    <fcp:CollapsiblePanel id="secMailboxesReport" runat="server"
                         TargetControlID="MailboxesReport" meta:resourcekey="secMailboxesReport" Text="Mailboxes">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="MailboxesReport" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="MailboxesReport" runat="server" Height="0" style="overflow:hidden">
 				        <asp:GridView ID="gvMailboxes" runat="server" AutoGenerateColumns="False"
-					        Width="100%" EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView">
+					        EmptyDataText="gvMailboxes" CssSelectorClass="NormalGridView">
 					        <Columns>
 						        <asp:BoundField HeaderText="gvMailboxesEmail" DataField="ItemName" />
 						        <asp:BoundField HeaderText="gvMailboxesItems" DataField="TotalItems" />
@@ -31,7 +31,7 @@
 					        </Columns>
 				        </asp:GridView>
 				        <br />
-			            <table cellpadding="2">
+			            <table class="table table-borderless align-middle mb-0">
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="locTotalMailboxes" runat="server" meta:resourcekey="locTotalMailboxes" Text="Total Mailboxes:"></asp:Localize></td>
 					            <td><asp:Label ID="lblTotalMailboxes" runat="server" CssClass="NormalBold">177</asp:Label></td>

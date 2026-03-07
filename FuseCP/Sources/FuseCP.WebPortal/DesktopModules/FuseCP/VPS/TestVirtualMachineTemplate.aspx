@@ -26,11 +26,11 @@
         
         <p>
             Item ID: <br />
-            <asp:TextBox ID="txtItemId" runat="server" Width="50"></asp:TextBox>
+            <asp:TextBox ID="txtItemId" runat="server"></asp:TextBox>
         </p>
         <p>
             Template:<br />
-            <asp:TextBox ID="txtTemplate" runat="server" Width="100%" Rows="20" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="txtTemplate" runat="server" Rows="20" TextMode="MultiLine"></asp:TextBox>
             <br />
             <asp:Button ID="btnEvaluate" runat="server" onclick="btnEvaluate_Click" 
                 Text="Evaluate" />

@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MailCleaner_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MailCleaner_Settings" %>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locServerName" meta:resourcekey="locServerName"/>
         </td>
         <td >
@@ -10,7 +10,7 @@
         </td>
     </tr>
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locSimpleUrlBase" meta:resourcekey="locSimpleUrlBase"/>
         </td>
         <td >
@@ -29,3 +29,4 @@
      
 
 </table>
+

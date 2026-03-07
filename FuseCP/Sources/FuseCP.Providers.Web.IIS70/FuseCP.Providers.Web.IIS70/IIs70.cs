@@ -2934,7 +2934,7 @@ namespace FuseCP.Providers.Web
 
         #region Helicon Zoo
 
-        public override WebAppVirtualDirectory[] GetZooApplications(string siteId)
+		public WebAppVirtualDirectory[] GetZooApplications(string siteId)
         {
             using (ServerManager srvman = webObjectsSvc.GetServerManager())
             {
@@ -2942,7 +2942,7 @@ namespace FuseCP.Providers.Web
             }
         }
 
-        public override StringResultObject SetZooEnvironmentVariable(string siteId, string appName, string envName, string envValue)
+		public StringResultObject SetZooEnvironmentVariable(string siteId, string appName, string envName, string envValue)
         {
             StringResultObject result = new StringResultObject();
 
@@ -2964,7 +2964,7 @@ namespace FuseCP.Providers.Web
         }
 
 
-        public override StringResultObject SetZooConsoleEnabled(string siteId, string appName)
+		public StringResultObject SetZooConsoleEnabled(string siteId, string appName)
         {
             StringResultObject result = new StringResultObject();
 
@@ -2985,7 +2985,7 @@ namespace FuseCP.Providers.Web
             return result;
         }
 
-        public override StringResultObject SetZooConsoleDisabled(string siteId, string appName)
+		public StringResultObject SetZooConsoleDisabled(string siteId, string appName)
         {
             StringResultObject result = new StringResultObject();
 
@@ -4731,7 +4731,7 @@ namespace FuseCP.Providers.Web
 		#endregion
 
 		#region SSL
-		public override SSLCertificate generateCSR(SSLCertificate certificate)
+		public SSLCertificate generateCSR(SSLCertificate certificate)
 		{
 			var sslObjectService = new SSLModuleService();
 			//
@@ -4741,35 +4741,35 @@ namespace FuseCP.Providers.Web
 
 		}
 
-		public override SSLCertificate installCertificate(SSLCertificate certificate, WebSite website)
+		public SSLCertificate installCertificate(SSLCertificate certificate, WebSite website)
 		{
 			var sslObjectService = new SSLModuleService();
 			//
 			return sslObjectService.InstallCertificate(certificate, website);
 		}
 
-        public override SSLCertificate LEinstallCertificate(WebSite website, string email)
+		public SSLCertificate LEinstallCertificate(WebSite website, string email)
         {
             var sslObjectService = new SSLModuleService();
             //
             return sslObjectService.LEInstallCertificate(website, email);
         }
 
-        public override List<SSLCertificate> getServerCertificates()
+		public List<SSLCertificate> getServerCertificates()
 		{
 			var sslObjectService = new SSLModuleService();
 			//
 			return sslObjectService.GetServerCertificates();
 		}
 
-        public override SSLCertificate installPFX(byte[] certificate, string password, WebSite website)
+		public SSLCertificate installPFX(byte[] certificate, string password, WebSite website)
         {
             var sslObjectService = new SSLModuleService();
             //
             return sslObjectService.InstallPfx(certificate, password, website);
         }
 
-        public override byte[] exportCertificate(string serialNumber, string password)
+		public byte[] exportCertificate(string serialNumber, string password)
 		{
 			var sslObjectService = new SSLModuleService();
 			//

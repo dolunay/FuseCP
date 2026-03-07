@@ -7,15 +7,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/> 	
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Network48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Network" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_network" />	
 			        
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
@@ -28,12 +28,12 @@
 		                    Text="Add External IP Addresses" />
 		            </p>
 		            
-                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px;" visible="false">
+                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
                         <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                      </div>
                     
-                    <table id="ExternalAddressesTable" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="ExternalAddressesTable" runat="server" >
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"
@@ -42,11 +42,11 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Width="50" Text="1"></asp:TextBox>
+                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Text="1"></asp:TextBox>
                                 
                                 <asp:RequiredFieldValidator ID="ExternalAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtExternalAddressesNumber" meta:resourcekey="ExternalAddressesValidator" SetFocusOnError="true"
@@ -63,9 +63,9 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesListRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
-                                    CssClass="form-control" Width="220" ></asp:ListBox>
+                                    CssClass="form-control" ></asp:ListBox>
                                 <br />
                                 <asp:Localize ID="locHoldCtrl" runat="server"
                                         meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses"></asp:Localize>
@@ -74,8 +74,8 @@
                     </table>
                     
                     <p>
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddAddress"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddAddress"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
                     </p>
 			    </div>
 		    </div>

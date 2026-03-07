@@ -6,17 +6,17 @@
 <%@ Register Src="../UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="fcp" %>
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="PCServers48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Virtual Private Servers"></asp:Localize>
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <div class="FormButtonsBar right">
-                            <CPCC:StyleButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click" CausesValidation="False"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click" CausesValidation="False"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
                     </div>
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarCleanRight">
@@ -24,12 +24,12 @@
                         </div>
                     </div>
                 </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
             <fcp:Menu id="menu" runat="server" SelectedItem="" />
-             <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+             <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <asp:GridView ID="gvServers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-				        Width="100%" EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataSourceID="odsServersPaged" 
                         onrowcommand="gvServers_RowCommand">
 				        <Columns>
@@ -63,20 +63,20 @@
 					        </asp:TemplateField>
 						    <asp:TemplateField>
 							    <ItemTemplate>
-								    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='DeleteItem' CommandArgument='<%# Eval("ItemID") %>'> 
-                                        &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                                    </CPCC:StyleButton>
+								    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='DeleteItem' CommandArgument='<%# Eval("ItemID") %>'> 
+                                        &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                                    </asp:LinkButton>
 							    </ItemTemplate>
 						    </asp:TemplateField>
                             <asp:TemplateField>
 			                    <ItemTemplate>
-				                    <CPCC:StyleButton id="cmdMove" CssClass="btn btn-warning" runat="server" CommandName="Move" CommandArgument='<%# Eval("ItemID") %>' Visible="false"> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdMoveText"/> </CPCC:StyleButton>
+				                    <asp:LinkButton id="cmdMove" CssClass="btn btn-warning" runat="server" CommandName="Move" CommandArgument='<%# Eval("ItemID") %>' Visible="false"> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdMoveText"/> </asp:LinkButton>
 					                &nbsp;
-				                    <CPCC:StyleButton ID="cmdDetach" runat="server" 
+				                    <asp:LinkButton ID="cmdDetach" runat="server" 
  					                    CommandName="Detach" CommandArgument='<%# Eval("ItemID") %>'
-					                    CssClass="btn btn-default btn-sm" OnClientClick="return confirm('Remove this item?');">
-                                        <i class="fa fa-chain-broken">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
-                                    </CPCC:StyleButton>
+					                    CssClass="btn btn-secondary btn-sm" OnClientClick="return confirm('Remove this item?');">
+                                        <i class="bi bi-link-45deg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
+                                    </asp:LinkButton>
 			                    </ItemTemplate>
                             </asp:TemplateField>
 				        </Columns>
@@ -98,9 +98,9 @@
 				    <fcp:CollapsiblePanel id="secQuotas" runat="server"
                         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Quotas">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsQuota" runat="server" meta:resourcekey="locVpsQuota" Text="Number of VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="vpsQuota" runat="server" QuotaName="VPSForPC.ServersNumber" /></td>

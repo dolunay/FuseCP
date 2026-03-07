@@ -8,15 +8,15 @@
 
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="ExchangeRetentionPolicyTag48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Retention policy tag"></asp:Localize>
     </h3>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false" Width="100%" EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
+    <asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false" EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
@@ -24,11 +24,11 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Tag">
-                <ItemStyle Width="70%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
-                    <CPCC:StyleButton ID="linkcmdEdit" runat="server" CommandName="EditItem" AlternateText="Edit record" CommandArgument='<%# Eval("TagId") %>' Enabled='<%# ((int)Eval("ItemID") == PanelRequest.ItemID) %>' >
+                    <asp:LinkButton ID="linkcmdEdit" runat="server" CommandName="EditItem" AlternateText="Edit record" CommandArgument='<%# Eval("TagId") %>' Enabled='<%# ((int)Eval("ItemID") == PanelRequest.ItemID) %>' >
                         <asp:Label id="lnkDisplayPolicy" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("TagName"))%></asp:Label>
-                    </CPCC:StyleButton>
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
@@ -38,22 +38,22 @@
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <CPCC:StyleButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')" Visible='<%# ((int)Eval("ItemID") == PanelRequest.ItemID) %>'>
+                    <asp:LinkButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')" Visible='<%# ((int)Eval("ItemID") == PanelRequest.ItemID) %>'>
                         &nbsp;
-                        <i class="fa fa-trash-o"></i>&nbsp;
-                    </CPCC:StyleButton>
+                        <i class="bi bi-trash"></i>&nbsp;
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
     <br />
     <fcp:CollapsiblePanel id="secPolicy" runat="server" TargetControlID="Policy" meta:resourcekey="secPolicy" Text="Policy"></fcp:CollapsiblePanel>
-    <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden;">
-        <div class="form-group">
-            <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="valRequirePolicy">
+    <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden">
+        <div class="mb-3">
+            <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="valRequirePolicy">
                 <asp:Localize ID="lblPolicyTagName" runat="server" meta:resourcekey="lblPolicyTagName" Text="Tag Name:"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
 		        <asp:TextBox ID="txtPolicy" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequirePolicy" runat="server" meta:resourcekey="valRequirePolicy" ControlToValidate="txtPolicy"
 		            ErrorMessage="Enter policy tag name" ValidationGroup="CreatePolicy" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -61,47 +61,47 @@
         </div>
     </asp:Panel>
     <fcp:CollapsiblePanel id="secPolicyFeatures" runat="server" TargetControlID="PolicyFeatures" meta:resourcekey="secPolicyFeatures" Text="Policy Tag Features"></fcp:CollapsiblePanel>
-    <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden;">
-        <div class="form-group">
-            <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="ddTagType">
+    <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden">
+        <div class="mb-3">
+            <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddTagType">
                 <asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:DropDownList ID="ddTagType" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
-        <div class="form-group">
-            <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="ageLimitForRetention">
+        <div class="mb-3">
+            <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ageLimitForRetention">
                 <asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention (Days):"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                  <uc1:QuotaEditor id="ageLimitForRetention" runat="server" QuotaTypeID="2" QuotaValue="1" QuotaMinValue="1" QuotaMaxValue="24855" ParentQuotaValue="-1"></uc1:QuotaEditor>
             </div>
         </div>
-        <div class="form-group">
-            <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="ddRetentionAction">
+        <div class="mb-3">
+            <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddRetentionAction">
                 <asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize>
             </asp:Label>
-            <div class="form-inline">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
                 <asp:DropDownList ID="ddRetentionAction" runat="server" CssClass="form-contro"></asp:DropDownList>
             </div>
         </div>
     </asp:Panel>
     <div class="FormButtonsBarClean">
-        <CPCC:StyleButton id="btnAddPolicy" CssClass="btn btn-success" runat="server" OnClick="btnAddPolicy_Click">
-            <i class="fa fa-check">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnAddPolicy" CssClass="btn btn-success" runat="server" OnClick="btnAddPolicy_Click">
+            <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnAddPolicy"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton id="btnUpdatePolicy" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePolicy_Click">
-            <i class="fa fa-refresh">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnUpdatePolicy" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePolicy_Click">
+            <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnUpdatePolicy"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton id="btnCancelPolicy" CssClass="btn btn-warning" runat="server" OnClick="btnCancelPolicy_Click">
-            <i class="fa fa-times">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnCancelPolicy" CssClass="btn btn-warning" runat="server" OnClick="btnCancelPolicy_Click">
+            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnCancelPolicy"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
         &nbsp;
     </div>
     <asp:TextBox ID="txtStatus" runat="server" CssClass="TextBox400" MaxLength="128" ReadOnly="true"></asp:TextBox>

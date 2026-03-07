@@ -12,7 +12,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_config" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -26,21 +26,21 @@
                     <fcp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
 
                             <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
                                         meta:resourcekey="lblCpu" Text="CPU:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
-                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control" Width="80">
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control">
                                     </asp:DropDownList>
                                 <asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores"/>
                             </div>
 
                             <asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
                                         meta:resourcekey="lblRam" Text="RAM:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
-                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -49,24 +49,24 @@
 
                             <asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
                                         meta:resourcekey="lblHdd" Text="HDD:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
-                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>                                    
                                 <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
                                 <asp:HiddenField id="hiddenTxtValHdd" runat="server" />
                             </div>
-                            <div style="margin-top:15px; margin-bottom:25px; margin-left:10px;">
-                                <CPCC:StyleButton id="btnAddHdd" CssClass="btn btn-success" runat="server" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </CPCC:StyleButton>
+                            <div style="margin-top:15px; margin-bottom:25px; margin-left:10px">
+                                <asp:LinkButton id="btnAddHdd" CssClass="btn btn-success" runat="server" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </asp:LinkButton>
                             </div>
                             <asp:Repeater ID="repHdd" runat="server">
                                 <HeaderTemplate>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-1" AssociatedControlID="txtAdditionalHdd"></asp:Label>
-                                    <div class="col-sm-11 form-inline">
-                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control form-control" Width="70" Text='<%# Eval("DiskSize") %>'></asp:TextBox>
+                                    <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                        <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Text='<%# Eval("DiskSize") % MaxLength="255">'></asp:TextBox>
                                         <asp:HiddenField id="txtAdditionalHddPath" Value='<%# Eval("DiskPath") %>' runat="server" />
                                         <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                             ControlToValidate="txtAdditionalHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
@@ -76,8 +76,8 @@
 											ControlToValidate="txtAdditionalHdd" Display="Dynamic" SetFocusOnError="true" ValidationGroup="Vps">
 										</asp:RegularExpressionValidator>
                                         <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
-                                        <CPCC:StyleButton id="btnRemoveHdd" style="margin-left: 30px;" meta:resourcekey="btnRemoveHdd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"
-                                            OnClientClick="if(!confirm('Virtual hard drive will be removed.\n\nDo you want to proceed?')) return false;"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locRemoveHdd"/> </CPCC:StyleButton>
+                                        <asp:LinkButton id="btnRemoveHdd" style="margin-left: 30px" meta:resourcekey="btnRemoveHdd" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"
+                                            OnClientClick="if(!confirm('Virtual hard drive will be removed.\n\nDo you want to proceed?')) return false;"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locRemoveHdd"/> </asp:LinkButton>
                                     </div>
                                 </ItemTemplate>
                                 <SeparatorTemplate>
@@ -94,17 +94,17 @@
                     <fcp:CollapsiblePanel id="secHddQOS" runat="server" IsCollapsed="true"
                         TargetControlID="QOSManag" meta:resourcekey="secHddQOS" Text="Virtual Hard Disk Drive Quality of Service management">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <p>
 		                <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
                             Text="Specify Quality of Service management for this virtual hard disk. Minimum and maximum IOPS are measured in 8KB increments. Default value is 0." />
 		                </p>
-                        <div class="form-group">
+                        <div class="mb-3">
 
                             <asp:Label ID="lblHddMinIOPS" runat="server" AssociatedControlID="txtHddMinIOPS"
                                         meta:resourcekey="lblHddMinIOPS" Text="Minimum:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
-                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMinIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMinIOPS" meta:resourcekey="RequireHddMinIOPSValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -113,8 +113,8 @@
 
                             <asp:Label ID="lblHddMaxIOPS" runat="server" AssociatedControlID="txtHddMaxIOPS"
                                         meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" CssClass="col-sm-1" />
-                            <div class="col-sm-11 form-inline">
-                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" Width="70"></asp:TextBox>
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMaxIOPSValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHddMaxIOPS" meta:resourcekey="RequireHddMaxIOPSValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -129,13 +129,13 @@
                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
 
                             <asp:Label ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:" CssClass="col-sm-1"></asp:Label>
-                            <div class="col-sm-11 form-inline">
-                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50"></asp:TextBox>                                    
+                            <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>                                    
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -146,9 +146,9 @@
                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="true"
                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
                             </div>
@@ -158,8 +158,8 @@
                     <fcp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:700px;">
-                        <div class="form-group">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
                             </div>
@@ -175,8 +175,8 @@
                     <fcp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;width:700px;">
-                        <div class="form-group">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
                             </div>
@@ -198,21 +198,21 @@
                     <fcp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group">
-                            <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px; padding-left: 15px;" visible="false">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3">
+                            <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px; padding-left: 15px" visible="false">
                                 <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough external IP Addresses."
                                              meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkExternalNetworkEnabled" runat="server"
                                              meta:resourcekey="chkExternalNetworkEnabled" Text="External network enabled" />
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkPrivateNetworkEnabled" runat="server"
                                                     meta:resourcekey="chkPrivateNetworkEnabled" Text="Private network enabled" />
                             </div>
-                            <div class="col-sm-12 form-inline">
+                            <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDmzNetworkEnabled" runat="server"
                                                     meta:resourcekey="chkDmzNetworkEnabled" Text="DMZ network enabled" />
                             </div>
@@ -220,13 +220,13 @@
                     </asp:Panel>
                     
                     <p>
-                        <asp:CheckBox ID="chkForceReboot" runat="server" CssClass="NormalBold"
+                        <asp:CheckBox ID="chkForceReboot" runat="server" CssClass="form-label"
 				                    meta:resourcekey="chkForceReboot" Text="Force reboot the server (if you have a problem)" />
                     </p>
 
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" meta:resourcekey="btnUpdate" OnClick="btnUpdate_Click" ValidationGroup="Vps" OnClientClick="if(!confirm('Before applying new configuration VPS could be stopped.\n\nAfter the configuration is changed it will be started again automatically.\n\nDo you want to proceed?')) return false; ShowProgressDialog('Updating configuration...');"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" meta:resourcekey="btnUpdate" OnClick="btnUpdate_Click" ValidationGroup="Vps" OnClientClick="if(!confirm('Before applying new configuration VPS could be stopped.\n\nAfter the configuration is changed it will be started again automatically.\n\nDo you want to proceed?')) return false; ShowProgressDialog('Updating configuration...');"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </asp:LinkButton>
                     </div>
 			    </div>
 		    </div>

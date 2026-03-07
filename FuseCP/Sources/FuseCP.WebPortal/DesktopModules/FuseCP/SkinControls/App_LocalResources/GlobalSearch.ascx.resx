@@ -135,4 +135,10 @@
   <data name="Users.Text" xml:space="preserve">
     <value>Users</value>
   </data>
+  <data name="NoResults.Text" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="GoToSearch.Text" xml:space="preserve">
+    <value>Go to search page</value>
+  </data>
 </root>

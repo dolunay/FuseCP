@@ -1,12 +1,12 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SpaceEditAddon.ascx.cs" Inherits="FuseCP.Portal.SpaceEditAddon" %>
 <%@ Register Src="UserControls/CalendarControl.ascx" TagName="CalendarControl" TagPrefix="fcp" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-<table cellspacing="0" cellpadding="3" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" noWrap width="200"><asp:Label ID="lblAddon" runat="server" meta:resourcekey="lblAddon" Text="Add-on:"></asp:Label></td>
-		<td class="Normal" width="100%">
+		<td class="SubHead text-nowrap"><asp:Label ID="lblAddon" runat="server" meta:resourcekey="lblAddon" Text="Add-on:"></asp:Label></td>
+		<td class="Normal">
 			<asp:DropDownList id="ddlPlan" runat="server" CssClass="form-control" DataTextField="PlanName" DataValueField="PlanID"></asp:DropDownList>
 			<asp:RequiredFieldValidator id="planValidator" CssClass="NormalBold" runat="server" ErrorMessage="*"
 				Display="Dynamic" ControlToValidate="ddlPlan" ValidationGroup="EditAddon"></asp:RequiredFieldValidator></td>
@@ -14,7 +14,7 @@
 	<tr>
 		<td class="SubHead"><asp:Label ID="lblQuantity" runat="server" meta:resourcekey="lblQuantity" Text="Quantity:"></asp:Label></td>
 		<td class="Normal">
-			<asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="50px">1</asp:TextBox>
+			<asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="50px" Text="1"></asp:TextBox>
             <asp:RequiredFieldValidator ID="valQuantity" runat="server" ControlToValidate="txtQuantity"
                 CssClass="NormalBold" Display="Dynamic" ErrorMessage="*" ValidationGroup="EditAddon"></asp:RequiredFieldValidator></td>
 	</tr>
@@ -45,8 +45,8 @@
 	</tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete add-on?');"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditAddon"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete add-on?');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditAddon"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
 </div> 

@@ -4,10 +4,10 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
-    <table cellSpacing="0" cellPadding="3">
+<div class="card-body form-horizontal">
+    <table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td class="SubHead" style="width:150px;">
+		    <td class="SubHead" >
 		        <asp:Label ID="lblDomain" runat="server" meta:resourcekey="lblDomain" Text="Domain:"></asp:Label>
 		    </td>
 		    <td class="Normal">
@@ -20,10 +20,10 @@
     		<td>&nbsp;</td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" valign="top">
+		    <td class="SubHead align-top">
 		        <asp:Label ID="lblWebSites" runat="server" meta:resourcekey="lblWebSites" Text="Web Site:"></asp:Label>
 		    </td>
-		    <td class="Normal" valign="top">
+		    <td class="Normal align-top">
                 <asp:DropDownList ID="ddlWebSites" runat="server" CssClass="form-control">
                 </asp:DropDownList>&nbsp;&nbsp;
                 <asp:RequiredFieldValidator ID="valRequireWebSite" runat="server" meta:resourcekey="valRequireWebSite"
@@ -44,17 +44,17 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead" valign="top" style="padding-top: 7px;">
+		    <td class="SubHead align-top" style="padding-top: 7px">
 			    <asp:Label ID="lblFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:"></asp:Label>
 	        </td>
-		    <td class="Normal" valign="top">
-                <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" Width="300" />
+		    <td class="Normal align-top">
+                <uc1:FileLookup ID="fileLookup" runat="server" ValidationEnabled="true" />
     			
 		    </td>
 	    </tr>
     </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnclientClick="ShowProgressDialog('Creating Shared SSL Folder...')"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnclientClick="ShowProgressDialog('Creating Shared SSL Folder...')"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 </div>

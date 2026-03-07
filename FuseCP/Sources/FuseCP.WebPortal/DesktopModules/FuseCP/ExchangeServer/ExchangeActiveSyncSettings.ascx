@@ -9,16 +9,16 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeActiveSyncConfig48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="ActiveSync Mailbox Policy"></asp:Localize>
 				    </h3>
                 </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
-				    <table>
+				    <table class="table table-borderless align-middle mb-0">
 					    <tr>
 						    <td class="Normal" colspan="2">
 						        <asp:CheckBox ID="chkAllowNonProvisionable" runat="server"
@@ -26,7 +26,7 @@
 						    </td>
 						</tr>
 						<tr>
-						    <td nowrap><asp:Label meta:resourcekey="lblRefreshInterval" runat="server" ID="lblRefreshInterval" /></td>
+						    <td class="text-nowrap"><asp:Label meta:resourcekey="lblRefreshInterval" runat="server" ID="lblRefreshInterval" /></td>
 						    <td><fcp:HoursBox id="hoursRefreshInterval" runat="server"  ValidationGroup="EditMailbox">
                                 </fcp:HoursBox>
 				            </td>
@@ -37,7 +37,7 @@
                         TargetControlID="ApplicationPanel" meta:resourcekey="secApplication" Text="Application">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ApplicationPanel" runat="server" Height="0" style="overflow:hidden;">
-                        <table>
+						<table class="table table-borderless align-middle mb-0">
 					        <tr>
 						        <td class="Normal" colspan="2">
 						            <asp:CheckBox ID="chkAllowAttachments" runat="server"
@@ -45,7 +45,7 @@
 						        </td>
 						    </tr>
 						    <tr>
-							    <td class="FormLabel200" align="right">
+							    <td class="FormLabel200 text-end">
 							        <asp:Localize ID="locMaxAttachmentSize" runat="server"
 							            meta:resourcekey="locMaxAttachmentSize" Text="Maximum attachment size:"></asp:Localize></td>
 							    <td>
@@ -182,7 +182,7 @@
 
 				    
 				</div>
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditMailbox" OnClientClick="ShowProgressDialog('Updating settings...');"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditMailbox" OnClientClick="ShowProgressDialog('Updating settings...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
 						<asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditMailbox" />
 				    </div>

@@ -8,17 +8,17 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
+				<div class="card-header">
 					<asp:Image ID="Image1" SkinID="SfBUserPlan48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Domain Names"></asp:Localize>
 				</div>
  <div class="FormButtonsBar right">
-     <CPCC:StyleButton id="btnAddPlan" CssClass="btn btn-primary" runat="server" OnClick="btnAddPlan_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </CPCC:StyleButton>
+     <asp:LinkButton id="btnAddPlan" CssClass="btn btn-primary" runat="server" OnClick="btnAddPlan_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </asp:LinkButton>
      
      </div>
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <asp:GridView ID="gvPlans" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand">
+					    EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand">
 					    <Columns>
 						    <asp:TemplateField>
 							    <ItemTemplate>							        
@@ -26,7 +26,7 @@
 							    </ItemTemplate>
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvPlan">
-							    <ItemStyle Width="70%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>
 								    <asp:hyperlink id="lnkDisplayPlan" runat="server" EnableViewState="false"
 									    NavigateUrl='<%# GetPlanDisplayUrl(Eval("SfBUserPlanId").ToString()) %>'>
@@ -43,21 +43,21 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField>
 							    <ItemTemplate>
-									<CPCC:StyleButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+									<asp:LinkButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 							    </ItemTemplate>
 						    </asp:TemplateField>
 					    </Columns>
 				    </asp:GridView>
 		
-				    <div class="panel-body text-right">
-				        <CPCC:StyleButton id="btnSetDefaultPlan" CssClass="btn btn-success" runat="server" OnClick="btnSetDefaultPlan_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetDefaultPlanText"/> </CPCC:StyleButton>
+				    <div class="card-body text-end">
+				        <asp:LinkButton id="btnSetDefaultPlan" CssClass="btn btn-success" runat="server" OnClick="btnSetDefaultPlan_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetDefaultPlanText"/> </asp:LinkButton>
                     </div>
-				     <div class="panel-body text-right">
+				     <div class="card-body text-end">
                     <fcp:CollapsiblePanel id="secMainTools" runat="server" IsCollapsed="true" TargetControlID="ToolsPanel" meta:resourcekey="secMainTools" Text="SfB user plan maintenance">
 					</fcp:CollapsiblePanel>
-					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;" CssClass="panel panel-default">
-                        <div class="panel-body">
-						<table id="tblMaintenance" runat="server" cellpadding="10" >
+					<asp:Panel ID="ToolsPanel" runat="server" Height="0" Style="overflow: hidden;" CssClass="card">
+                        <div class="card-body">
+						<table class="table table-borderless align-middle mb-0" id="tblMaintenance" runat="server" >
 					        <tr>
 					            <td class="FormLabel150"><asp:Localize ID="lblSourcePlan" runat="server" meta:resourcekey="locSourcePlan" Text="Replace"></asp:Localize></td>
 					            <td>                                
@@ -83,8 +83,8 @@
                             </tr>
 						</table>
                             </div>
-				        <div class="panel-footer text-right">
-					        <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick = "ShowProgressDialog('Stamping mailboxes, this might take a while ...');"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>
+				        <div class="card-footer text-end">
+					        <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick = "ShowProgressDialog('Stamping mailboxes, this might take a while ...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>
 				        </div>
 
 

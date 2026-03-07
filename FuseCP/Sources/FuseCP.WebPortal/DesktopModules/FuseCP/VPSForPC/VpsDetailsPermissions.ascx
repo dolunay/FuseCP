@@ -6,15 +6,15 @@
 <%@ Register Src="UserControls/FormTitle.ascx" TagName="FormTitle" TagPrefix="fcp" %>
 
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Permissions" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_permissions" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -55,7 +55,7 @@
 			            </Columns>
 		            </asp:GridView>
 		            <br />
-						<CPCC:StyleButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false" OnClick="btnUpdateVpsPermissions_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </CPCC:StyleButton>
+						<asp:LinkButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false" OnClick="btnUpdateVpsPermissions_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </asp:LinkButton>
                   <br />
 				   
 			    </div>

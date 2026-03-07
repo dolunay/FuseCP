@@ -11,17 +11,21 @@
 
 <asp:Timer runat="server" Interval="10000" ID="operationTimer" />
 
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/proxmox-vps-general.js"></script>
+<input type="hidden" id="proxmoxRdpPageUrl" value="<%= RdpPageUrl %>" />
+
 <div class="Content">
 	<div class="Center">
 		<div class="FormBody">
 			<wsp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
 			<wsp:SimpleMessageBox ID="messageBox" runat="server" />
 
-			<table id="DetailsTable" runat="server" style="width: 100%;" cellspacing="10">
+			<table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
 				<tr>
-					<td valign="top" style="width: 40%;">
+					<td class="align-top" >
 
-						<table cellspacing="2">
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td>
 									<asp:Localize ID="locHostname" runat="server"
@@ -32,7 +36,7 @@
 										meta:resourcekey="btnChangeHostnamePopup" SkinID="EditSmall" Text="Edit" />
 
 									<%--<asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" Style="display: none;">
-										<div style="padding-bottom: 3px;">
+										<div style="padding-bottom: 3px">
 											<asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                  <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
 										</div>
@@ -51,7 +55,7 @@
 
 									<ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
 										PopupControlID="RdpPanel" Position="Bottom" />
-									<ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />--%>
+									<ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />--%>
 								</td>
 							</tr>
 							<tr>
@@ -70,7 +74,7 @@
 							</Triggers>
 							<ContentTemplate>
 
-								<table cellspacing="2">
+								<table class="table table-borderless align-middle mb-0">
 									<tr>
 										<td>
 											<asp:Localize ID="locStatus" runat="server"
@@ -97,23 +101,9 @@
 								<p />
 
 								<p>
-									<script language="JavaScript" type="text/javascript">
-										function OpenRemoteDesktopWindow(width, height) {
-											var popup = $find("RdpPopup");
-											if (popup != null) popup.hidePopup();
-
-											var rdpUrl = '<%= RdpPageUrl %>';
-
-											var left = (screen.width - width) / 2;
-											var top = (screen.height - height) / 2;
-
-											window.open(rdpUrl, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left).focus(); // window.open + focus
-										};
-									</script>
-
-									<asp:ImageButton ID="btnOpenVNC" runat="server" OnClientClick="OpenRemoteDesktopWindow(800,600);" SkinID="PveRdc32"
+									<asp:ImageButton ID="btnOpenVNC" runat="server" OnClientClick="return FuseCPProxmoxVpsGeneral.openRemoteDesktopWindow(800,600);" SkinID="PveRdc32"
 										meta:resourcekey="btnOpenVNC" />
-									<a href="javascript:OpenRemoteDesktopWindow(800,600);" runat="server" id="lnkOpenVNC">
+									<a href="javascript:FuseCPProxmoxVpsGeneral.openRemoteDesktopWindow(800,600);" runat="server" id="lnkOpenVNC">
 										<asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop" />
 									</a>
 
@@ -122,23 +112,12 @@
 						</asp:UpdatePanel>
 
 					</td>
-					<td valign="top" style="width: 35%;">
+					<td class="align-top" >
 
-						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
-
-						<script>
-							var img = document.getElementById('imgThumbnail');
-							var imgUrl = img.src;
-							img.onload = function () {
-								setTimeout(function () {
-									img.src = imgUrl + '&stamp=' + Math.random();
-								}, 1000)
-							}
-							img.src = imgUrl + '&stamp=' + Math.random();
-						</script>
+						<asp:ImageButton ID="imgThumbnail" ClientIDMode="Static" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
 
 					</td>
-					<td rowspan="2" valign="top">
+					<td class="align-top" rowspan="2">
 						<ul class="ActionButtons">
 							<asp:Repeater ID="repButtons" runat="server"
 								OnItemCommand="repButtons_ItemCommand">
@@ -166,12 +145,12 @@
 							</Triggers>
 							<ContentTemplate>
 
-								<table cellspacing="5">
+								<table class="table table-borderless align-middle mb-0">
 									<tr>
 										<td class="NormalBold">
 											<asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:" />
 										</td>
-										<td class="NormalBold" style="width: 150px;">
+										<td class="NormalBold" >
 											<wsp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
 											<asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
 										</td>
@@ -217,7 +196,7 @@
 
 
 <asp:Panel ID="ChangeHostnamePanel" runat="server" CssClass="Popup" Style="display: none;">
-	<table class="Popup-Header" cellpadding="0" cellspacing="0">
+	<table class="Popup-Header table table-borderless align-middle mb-0">
 		<tr>
 			<td class="Popup-HeaderLeft"></td>
 			<td class="Popup-HeaderTitle">
@@ -231,7 +210,7 @@
 		<div class="Popup-Body">
 			<br />
 
-			<table cellspacing="5">
+			<table class="table table-borderless align-middle mb-0">
 				<tr>
 					<td colspan="2">
 						<asp:ValidationSummary ID="validatorsSummary" runat="server"
@@ -244,7 +223,7 @@
 							meta:resourcekey="locHostname1"></asp:Localize>
 					</td>
 					<td>
-						<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+						<asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
 
 						<asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
 							ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -261,7 +240,7 @@
 							meta:resourcekey="locDomain"></asp:Localize>
 					</td>
 					<td>
-						<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+						<asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
 
 						<asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
 							ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -281,11 +260,11 @@
 		</div>
 
 		<div class="FormFooter">
-			<asp:Button ID="btnChangeHostname" runat="server" CssClass="Button1"
+			<asp:Button ID="btnChangeHostname" runat="server" CssClass="btn btn-primary"
 				meta:resourcekey="btnChangeHostname" Text="Change"
 				ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click" />
 
-			<asp:Button ID="btnCancelHostname" runat="server" CssClass="Button1"
+			<asp:Button ID="btnCancelHostname" runat="server" CssClass="btn btn-primary"
 				meta:resourcekey="btnCancelHostname" Text="Cancel" CausesValidation="false" />
 		</div>
 	</div>

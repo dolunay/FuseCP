@@ -11,7 +11,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -36,7 +36,7 @@
                             <asp:Localize ID="locAdminOptions" runat="server" meta:resourcekey="locAdminOptions" Text="Administrator options"></asp:Localize>
                         </legend>
 
-                            <table style="border-collapse: separate; border-spacing: 5px 1px;">
+                            <table style="border-collapse: separate; border-spacing: 5px 1px">
 				                <tr>
 				                    <td>
 				                        <asp:CheckBox ID="chkSaveFiles" runat="server"
@@ -50,7 +50,7 @@
 				                    </td>
 				                </tr>
 				                <tr>
-				                    <td style="padding-left:20px;">
+				                    <td style="padding-left:20px">
 				                        <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
         				                
 				                        <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"
@@ -61,9 +61,9 @@
 				            </table>
 				     </fieldset>
 				    
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" ValidationGroup="Tools"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" ValidationGroup="Tools"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>
                     </div>
 			    </div>
 		    </div>

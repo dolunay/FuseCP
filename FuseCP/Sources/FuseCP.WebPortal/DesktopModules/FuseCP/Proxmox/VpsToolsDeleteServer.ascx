@@ -36,7 +36,7 @@
                             <asp:Localize ID="locAdminOptions" runat="server" meta:resourcekey="locAdminOptions" Text="Administrator options"></asp:Localize>
                         </legend>
 
-                            <table cellspacing="5">
+                            <table class="table table-borderless align-middle mb-0">
 				                <tr>
 				                    <td>
 				                        <asp:CheckBox ID="chkSaveFiles" runat="server"
@@ -50,7 +50,7 @@
 				                    </td>
 				                </tr>
 				                <tr>
-				                    <td style="padding-left:20px;">
+				                    <td style="padding-left:20px">
 				                        <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
         				                
 				                        <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"
@@ -63,10 +63,10 @@
 				    
                     <p>
                         <asp:Button ID="btnDelete" runat="server" meta:resourcekey="btnDelete"
-                            ValidationGroup="Tools" Text="Delete" CssClass="Button1" 
+                            ValidationGroup="Tools" Text="Delete" CssClass="btn btn-primary" 
                             onclick="btnDelete_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
 			    </div>

@@ -14,13 +14,13 @@
 <asp:ValidationSummary ID="summary" runat="server" ShowMessageBox="true" ShowSummary="false" ValidationGroup="Server" />
 
 <section>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
             <div class="col-md-8">
-                <table width="100%">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
-                        <td class="Normal" width="100%">
-                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                        <td class="Normal">
+                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="VirtualServerNameValidator" runat="server" ControlToValidate="txtName"
                                 ValidationGroup="Server" meta:resourcekey="ServerNameValidator">
                             </asp:RequiredFieldValidator>
@@ -29,7 +29,7 @@
                     <tr>
                         <td class="Normal">
                             <asp:TextBox ID="txtComments" runat="server" CssClass="form-control"
-                                Width="100%" Rows="3" TextMode="MultiLine">
+                                Rows="3" TextMode="MultiLine">
                             </asp:TextBox>
                         </td>
                     </tr>
@@ -37,21 +37,21 @@
                 <fcp:CollapsiblePanel ID="ConnectionHeader" runat="server" IsCollapsed="true"
                     TargetControlID="ConnectionPanel" ResourceKey="ConnectionHeader" Text="Connection Settings"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ConnectionPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
-                            <td class="SubHead" style="width: 150px">
+                            <td class="SubHead" >
                                 <asp:Label ID="lblServerUrl" runat="server" meta:resourcekey="lblServerUrl"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top" style="width: 150px">
+                            <td class="SubHead align-top" >
                                 <asp:Label ID="lblNewPassword" runat="server" meta:resourcekey="lblNewPassword"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <uc1:ServerPasswordControl ID="serverPassword" runat="server" ValidationGroup="ServerPassword" width="100%"></uc1:ServerPasswordControl>
+                                <uc1:ServerPasswordControl ID="serverPassword" runat="server" ValidationGroup="ServerPassword"></uc1:ServerPasswordControl>
                             </td>
                         </tr>
                         <tr>
@@ -65,12 +65,12 @@
                 <fcp:CollapsiblePanel ID="ADHeader" runat="server" IsCollapsed="true"
                     TargetControlID="ADPanel" ResourceKey="ADHeader" Text="Active Directory Settings"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ADPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table>
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
-                            <td class="SubHead" valign="top" width="150px">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblSecurityMode" runat="server" meta:resourcekey="lblSecurityMode"></asp:Label>
                             </td>
-                            <td class="Normal" valign="top">
+                            <td class="Normal align-top">
                                 <asp:RadioButtonList ID="rbUsersCreationMode" runat="server" AutoPostBack="True" resourcekey="rbUsersCreationMode" CssClass="Normal" onchange="AccountChange();">
                                     <asp:ListItem Value="0">LocalAccounts</asp:ListItem>
                                     <asp:ListItem Value="1">ADAccounts</asp:ListItem>
@@ -82,7 +82,7 @@
                                 <asp:Label ID="lblAuthType" runat="server" meta:resourcekey="lblAuthType"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:DropDownList ID="ddlAdAuthType" runat="server" AutoPostBack="True" meta:resourcekey="ddlAdAuthType" CssClass="form-control" Width="100%">
+                                <asp:DropDownList ID="ddlAdAuthType" runat="server" AutoPostBack="True" meta:resourcekey="ddlAdAuthType" CssClass="form-control">
                                     <asp:ListItem Value="None">None</asp:ListItem>
                                     <asp:ListItem Value="Secure">Secure</asp:ListItem>
                                     <asp:ListItem Value="Delegation">Delegation</asp:ListItem>
@@ -106,7 +106,7 @@
                                 <asp:Label ID="lblAdParentDomain" runat="server" meta:resourcekey="lblAdParentDomain"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdParentDomain" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdParentDomain" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
 
@@ -115,7 +115,7 @@
                                 <asp:Label ID="lblAdParentDomainController" runat="server" meta:resourcekey="lblAdParentDomainController"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdParentDomainController" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdParentDomainController" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
 
@@ -124,7 +124,7 @@
                                 <asp:Label ID="lblAdDomain" runat="server" meta:resourcekey="lblAdDomain"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr id="trAdUserName" runat="server">
@@ -132,11 +132,11 @@
                                 <asp:Label ID="lblAdUsername" runat="server" meta:resourcekey="lblAdUsername"></asp:Label>
                             </td>
                             <td class="Normal">
-                                <asp:TextBox ID="txtAdUsername" runat="server" CssClass="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txtAdUsername" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr id="trAdPassword" runat="server">
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblAdPassword" runat="server" meta:resourcekey="lblAdPassword"></asp:Label>
                             </td>
                             <td class="Normal">
@@ -155,10 +155,10 @@
                 <fcp:CollapsiblePanel ID="PreviewDomainHeader" runat="server" IsCollapsed="true"
                     TargetControlID="PreviewDomainPanel" ResourceKey="PreviewDomainHeader" Text="Preview Domain"></fcp:CollapsiblePanel>
                 <asp:Panel ID="PreviewDomainPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="Normal">
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                     customerdomain.com.&nbsp;<asp:TextBox ID="txtPreviewDomain" runat="server" CssClass="form-control" CausesValidation="true"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="DomainFormatValidator" ValidationGroup="Server" runat="server" meta:resourcekey="DomainFormatValidator"
                                         ControlToValidate="txtPreviewDomain" Display="Dynamic" SetFocusOnError="true"
@@ -172,7 +172,7 @@
                 <fcp:CollapsiblePanel ID="IPAddressesHeader" runat="server" IsCollapsed="true"
                     TargetControlID="IPAddressesPanel" ResourceKey="IPAddressesHeader" Text="IP Addresses"></fcp:CollapsiblePanel>
                 <asp:Panel ID="IPAddressesPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc2:ServerIPAddressesControl ID="ServerIPAddressesControl1" runat="server"></uc2:ServerIPAddressesControl>
@@ -183,7 +183,7 @@
                 <fcp:CollapsiblePanel ID="VLANsHeader" runat="server" IsCollapsed="true"
                     TargetControlID="VLANsPanel" ResourceKey="VLANsHeader" Text="Private Network VLANs"></fcp:CollapsiblePanel>
                 <asp:Panel ID="VLANsPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc5:ServerVLANsControl ID="ServerVLANsControl1" runat="server"></uc5:ServerVLANsControl>
@@ -194,7 +194,7 @@
                 <fcp:CollapsiblePanel ID="ServicesHeader" runat="server"
                     TargetControlID="ServicesPanel" ResourceKey="ServicesHeader" Text="Services"></fcp:CollapsiblePanel>
                 <asp:Panel ID="ServicesPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="Normal">
                                 <div>
@@ -213,7 +213,7 @@
                 <fcp:CollapsiblePanel ID="DnsRecordsHeader" runat="server" IsCollapsed="true"
                     TargetControlID="DnsRecordsPanel" ResourceKey="DnsRecordsHeader" Text="DNS Records Template"></fcp:CollapsiblePanel>
                 <asp:Panel ID="DnsRecordsPanel" runat="server" Height="0" Style="overflow: hidden;">
-                    <table width="100%">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td>
                                 <uc3:ServerDnsRecordsControl ID="ServerDnsRecordsControl1" runat="server"></uc3:ServerDnsRecordsControl>
@@ -224,9 +224,9 @@
                 </asp:Panel>
             </div>
             <div class="col-md-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-wrench">&nbsp;</i>&nbsp;<asp:Label ID="lblServerTools" runat="server" meta:resourcekey="lblServerTools" Text="Server Tools"></asp:Label></h3>
+                <div class="card border-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="bi bi-wrench">&nbsp;</i>&nbsp;<asp:Label ID="lblServerTools" runat="server" meta:resourcekey="lblServerTools" Text="Server Tools"></asp:Label></h3>
                     </div>
                     <ul class="list-group">
                         <asp:Panel ID="pnTerminalPanel" runat="server">
@@ -276,9 +276,9 @@
                     </ul>
                 </div>
                 <br />
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-medkit">&nbsp;</i>&nbsp;<asp:Label ID="lblRecoveryTools" runat="server" meta:resourcekey="lblRecoveryTools" Text="Server Recovery"></asp:Label></h3>
+                <div class="card border-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="bi bi-medkit">&nbsp;</i>&nbsp;<asp:Label ID="lblRecoveryTools" runat="server" meta:resourcekey="lblRecoveryTools" Text="Server Recovery"></asp:Label></h3>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -295,7 +295,7 @@
                     </ul>
                 </div>
                 <br />
-                <div class="panel panel-primary">
+                <div class="card border-primary">
 
                     <ul class="list-group">
 
@@ -315,9 +315,9 @@
                     </ul>
                 </div>
                 <br />
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-microchip">&nbsp;</i>&nbsp;<asp:Label ID="lblServerRAM" runat="server" meta:resourcekey="lblServerRAM" Text="Server RAM"></asp:Label></h3>
+                <div class="card border-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="bi bi-microchip">&nbsp;</i>&nbsp;<asp:Label ID="lblServerRAM" runat="server" meta:resourcekey="lblServerRAM" Text="Server RAM"></asp:Label></h3>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -345,8 +345,9 @@
 
     </div>
 </section>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnDelete" runat="server" CausesValidation="false" CssClass="btn btn-danger" OnClick="btnDelete_Click" OnClientClick="return confirm('Are you sure you want to delete server?');"><i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" /></CPCC:StyleButton>
-    <CPCC:StyleButton ID="btnCancel" runat="server" CausesValidation="false" CssClass="btn btn-warning" OnClick="btnCancel_Click"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" /></CPCC:StyleButton>
-    <CPCC:StyleButton ID="btnUpdate" runat="server" ValidationGroup="Server" CssClass="btn btn-success" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Server...');"><span class="fa fa-refresh">&nbsp;</span>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText" /></CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnDelete" runat="server" CausesValidation="false" CssClass="btn btn-danger" OnClick="btnDelete_Click" OnClientClick="return confirm('Are you sure you want to delete server?');"><i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" /></asp:LinkButton>
+    <asp:LinkButton ID="btnCancel" runat="server" CausesValidation="false" CssClass="btn btn-warning" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" /></asp:LinkButton>
+    <asp:LinkButton ID="btnUpdate" runat="server" ValidationGroup="Server" CssClass="btn btn-success" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Server...');"><span class="bi bi-arrow-clockwise">&nbsp;</span>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText" /></asp:LinkButton>
 </div>
+

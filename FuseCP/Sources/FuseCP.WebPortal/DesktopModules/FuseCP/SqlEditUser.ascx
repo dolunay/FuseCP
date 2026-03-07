@@ -5,28 +5,21 @@
 
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
 	TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
-<script type="text/javascript">
-
-function confirmation() 
-{
-	if (!confirm("Are you sure you want to delete this User?")) return false; else ShowProgressDialog('Deleting User...');
-}
-</script>
-
-<div class="panel-body form-horizontal">
-    <table cellSpacing="0" cellPadding="3" width="100%">
+<div class="card-body form-horizontal">
+    <table class="table table-borderless align-middle mb-0 w-100">
         <tr>
-            <td class="SubHead" style="width: 150px;"><asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label></td>
+            <td class="SubHead" ><asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:"></asp:Label></td>
             <td class="NormalBold">
                 <uc2:UsernameControl ID="usernameControl" runat="server" />
             </td>
         </tr>
         <tr>
-            <td colspan="2" valign="top">
+            <td class="align-top" colspan="2">
                 <uc3:PasswordControl ID="passwordControl" runat="server" />
 	        </td>
         </tr>
@@ -37,11 +30,11 @@ function confirmation()
     <fcp:CollapsiblePanel id="secUsers" runat="server"
         TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Databases">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-        <table id="tblDatabases" runat="server" cellSpacing="0" cellPadding="3" width="100%">
+    <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden">
+        <table class="table table-borderless align-middle mb-0 w-100" id="tblDatabases" runat="server">
             <tr>
                 <td colspan="2">
-	                <asp:CheckBoxList id="dlDatabases" runat="server" CellPadding="3" RepeatColumns="2" CssClass="NormalBold"
+	                <asp:CheckBoxList id="dlDatabases" runat="server" RepeatColumns="2" CssClass="NormalBold"
                         DataTextField="Name" DataValueField="Name"></asp:CheckBoxList>
                 </td>
             </tr>
@@ -49,8 +42,8 @@ function confirmation()
     </asp:Panel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving User...');"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this User?', 'Deleting User...');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving User...');"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
 </div>

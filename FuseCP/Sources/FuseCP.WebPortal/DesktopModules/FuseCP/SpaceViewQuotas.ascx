@@ -4,20 +4,20 @@
 <%@ Register Src="SpaceQuotasControl.ascx" TagName="SpaceQuotasControl" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SpaceDetailsHeaderControl id="spaceDetailsHeaderControl" runat="server">
     </fcp:SpaceDetailsHeaderControl>
 
     <fcp:CollapsiblePanel id="secAddons" runat="server"
         TargetControlID="AddonsPanel" meta:resourcekey="secAddons" Text="Space Add-Ons">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="AddonsPanel" runat="server" Height="0" style="overflow:hidden">
         <asp:GridView ID="gvAddons" runat="server" AutoGenerateColumns="False"
                 CssSelectorClass="NormalGridView"
                 EmptyDataText="gvAddons">
             <Columns>
                 <asp:TemplateField SortExpression="PlanName" HeaderText="gvAddonsName">
-	                <ItemStyle Width="100%"></ItemStyle>
+	                <ItemStyle></ItemStyle>
 	                <ItemTemplate>
 		                <b><%# Eval("PlanName") %></b><br />
 		                <%# Eval("PlanDescription") %>
@@ -41,12 +41,12 @@
     <fcp:CollapsiblePanel id="secQuotas" runat="server"
         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Space Quotas">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
         <fcp:SpaceQuotasControl id="packagesQuotas" runat="server">
         </fcp:SpaceQuotasControl>
     </asp:Panel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
 </div>

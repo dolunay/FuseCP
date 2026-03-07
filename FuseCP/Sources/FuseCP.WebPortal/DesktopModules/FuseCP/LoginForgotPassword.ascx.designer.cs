@@ -61,7 +61,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnSend;
+        protected global::System.Web.UI.WebControls.LinkButton btnSend;
         
         /// <summary>
         /// cmdBack control.
@@ -70,6 +70,6 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton cmdBack;
+        protected global::System.Web.UI.WebControls.LinkButton cmdBack;
     }
 }

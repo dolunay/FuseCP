@@ -13,28 +13,28 @@
 	<link href="/App_Themes/Default/Styles/jquery-ui-1.8.9.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<form id="form1" runat="server" style="width: 590px; height: 700px">
+	<form id="form1" runat="server" style="height: 700px">
 	<asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true"
 		EnableScriptGlobalization="true" EnableScriptLocalization="true">
 	</asp:ScriptManager>
 	<asp:Timer runat="server" Interval="10000" ID="operationTimer" OnTick="operationTimer_Tick" />
-	<div id="testClass" style="width: 590px; height: 700px">
-		<table cellpadding="3" width="100%">
+	<div id="testClass" style="height: 700px">
+		<table  class="table table-sm">
 			<tr>
-				<td>
+				<td style="padding:3px">
 					<asp:Label ID="lblStartPeriod" runat="server" AssociatedControlID="txtStartPeriod"
 						meta:resourcekey="lblStartPeriod" Text="Start day" CssClass="MediumBold" />
 				</td>
-				<td>
+				<td style="padding:3px">
 					<asp:TextBox ID="txtStartPeriod" runat="server" CssClass="form-control txtDateTimePeriod"></asp:TextBox>
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td style="padding:3px">
 					<asp:Label ID="lblEndPeriod" runat="server" AssociatedControlID="txtEndPeriod" meta:resourcekey="lblEndPeriod"
 						Text="End day" CssClass="MediumBold" />
 				</td>
-				<td>
+				<td style="padding:3px">
 					<asp:TextBox ID="txtEndPeriod" runat="server" CssClass="form-control txtDateTimePeriod"></asp:TextBox>
 				</td>
 			</tr>
@@ -75,10 +75,6 @@
 		</asp:UpdatePanel>
 	</div>
 	</form>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".txtDateTimePeriod").datepicker();
-		});
-	</script>
+	<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-monitoring.js"></script>
 </body>
 </html>

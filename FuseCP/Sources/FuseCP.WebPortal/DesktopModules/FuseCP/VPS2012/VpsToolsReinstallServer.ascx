@@ -13,7 +13,7 @@
     	
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_tools" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -33,11 +33,11 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineSetttings" runat="server"
                                 TargetControlID="VirtualMachineSettingsPanel" meta:resourcekey="secVirtualMachineSetttings" Text="Virtual Machine Settings">
                             </fcp:CollapsiblePanel>
-                        <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <div class="form-group" id="hostnameSetting" runat="server">
+                        <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <div class="mb-3" id="hostnameSetting" runat="server">
                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
-                                <div class="col-sm-10 form-inline">
-                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
+                                <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
                                 <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -48,7 +48,7 @@
 			                    </asp:RegularExpressionValidator>
                                                 
                                 . 
-                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control form-control" Width="40%"></asp:TextBox>
+                                <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
                                                     
                                 <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -60,9 +60,9 @@
                                 </div>
                         </div>
 				    
-                        <div class="form-group">
+                        <div class="mb-3">
                             <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2"  AssociatedControlID="listOperatingSystems"></asp:Label>
-                                <div class="col-sm-10 form-inline">
+                                <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:DropDownList ID="listOperatingSystems" runat="server"
                                         DataValueField="Path" DataTextField="Name">
                                     </asp:DropDownList>
@@ -78,7 +78,7 @@
                             <fcp:PasswordControl id="password" runat="server" ValidationGroup="Vps" AllowGeneratePassword="true">
                             </fcp:PasswordControl>
                         </asp:Panel> 
-				        <%--<table cellspacing="5"> Too demanding resources!!!				        
+				        <%--<table class="table table-borderless align-middle mb-0"> Too demanding resources!!!				        
 				            <tr> 
 				                <td colspan="2">
 				                    <asp:CheckBox ID="chkPreserveExistingFiles" runat="server" CssClass="NormalBold"
@@ -93,8 +93,8 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineSummary" runat="server"
                                 TargetControlID="VirtualMachineSummaryPanel" meta:resourcekey="secVirtualMachineSummary" Text="Virtual Machine Summary">
                             </fcp:CollapsiblePanel>
-                            <asp:Panel ID="VirtualMachineSummaryPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                <table style="border-collapse: separate; border-spacing: 6px 1px;">                                
+                            <asp:Panel ID="VirtualMachineSummaryPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                <table style="border-collapse: separate; border-spacing: 6px 1px">                                
                                     <tr>
                                         <td><asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU cores:" /></td>
                                         <td><asp:Literal ID="litCpu" runat="server"></asp:Literal></td>
@@ -137,8 +137,8 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineNetwork" runat="server"
                                 TargetControlID="VirtualMachineNetworkPanel" meta:resourcekey="secVirtualMachineNetwork" Text="Virtual Machine Networks">
                             </fcp:CollapsiblePanel>
-                            <asp:Panel ID="VirtualMachineNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                                <table style="border-collapse: separate; border-spacing: 6px;">                                
+                            <asp:Panel ID="VirtualMachineNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                <table style="border-collapse: separate; border-spacing: 6px">                                
                                     <tr id="ExternalAddressesRow" runat="server">
                                         <td><asp:Localize ID="locExternalAddressesList" runat="server"
                                                     meta:resourcekey="locExternalAddressesList" Text="External IP addresses list:" /></td>
@@ -164,7 +164,7 @@
                             </asp:Panel>                        
 
 				        <br />
-                        <%--<table cellspacing="5" id="AdminOptionsPanel" runat="server">
+                        <%--<table class="table table-borderless align-middle mb-0" id="AdminOptionsPanel" runat="server">
 				            <tr>
 				                <td>
 				                    <asp:CheckBox ID="chkSaveVhd" runat="server"
@@ -178,7 +178,7 @@
 				                </td>
 				            </tr>
 				            <tr>
-				                <td style="padding-left:20px;">
+				                <td style="padding-left:20px">
 				                    <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
 				                
 				                    <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"
@@ -192,9 +192,9 @@
 				                        meta:resourcekey="chkConfirmReinstall" Text="Yes, I confirm re-installation of this VPS" />
                         </p>
                     </div>		            
-                    <div class="text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </CPCC:StyleButton>
+                    <div class="text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </asp:LinkButton>
                     </div>
 			    </div>
 		    </div>

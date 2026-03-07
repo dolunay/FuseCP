@@ -7,7 +7,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvServiceLevels" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvServiceLevels" CssSelectorClass="NormalGridView" OnRowCommand="gvServiceLevels_RowCommand">
+	 EmptyDataText="gvServiceLevels" CssSelectorClass="NormalGridView" OnRowCommand="gvServiceLevels_RowCommand">
 		<Columns>
             <asp:TemplateField HeaderText="Edit">
                 <ItemTemplate>
@@ -15,20 +15,20 @@
                 </ItemTemplate>
              </asp:TemplateField>
 			<asp:TemplateField HeaderText="Service Level">
-				<ItemStyle Width="30%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkServiceLevel" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("LevelName"))%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
             <asp:TemplateField HeaderText="Description">
-				<ItemStyle Width="60%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkServiceLevelDescription" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("LevelDescription"))%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-					<CPCC:StyleButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("LevelId") %>' OnClientClick="return confirm('Are you sure you want to delete selected service level?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					<asp:LinkButton id="imgDelMailboxPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("LevelId") %>' OnClientClick="return confirm('Are you sure you want to delete selected service level?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -38,10 +38,10 @@
 	<fcp:CollapsiblePanel id="secServiceLevel" runat="server"
         TargetControlID="ServiceLevel" meta:resourcekey="secServiceLevel" Text="Service Level">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="ServiceLevel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="ServiceLevel" runat="server" Height="0" style="overflow:hidden">
 		<table>
             <tr>
-                <td class="FormLabel200" align="right">
+                <td class="FormLabel200 text-end">
                     <asp:Label ID="lblServiceLevelName" runat="server" meta:resourcekey="lblServiceLevelName" Text="Name:"></asp:Label>
                 </td>
                 <td>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="FormLabel200" align="right">
+                <td class="FormLabel200 text-end">
                     <asp:Label ID="lblServiceLevelDescr" runat="server" meta:resourcekey="lblServiceLevelDescr" Text="Description:"></asp:Label>
                 </td>
                 <td>
@@ -66,12 +66,12 @@
         <tr>
             <td>
                 <div class="FormButtonsBarClean">
-                    <CPCC:StyleButton id="btnAddServiceLevel" CssClass="btn btn-success" runat="server" OnClick="btnAddServiceLevel_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddServiceLevelText"/> </CPCC:StyleButton>
+                    <asp:LinkButton id="btnAddServiceLevel" CssClass="btn btn-success" runat="server" OnClick="btnAddServiceLevel_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddServiceLevelText"/> </asp:LinkButton>
                 </div>
             </td>
             <td>
                 <div class="FormButtonsBarClean">
-                        <CPCC:StyleButton id="btnUpdateServiceLevel" CssClass="btn btn-success" runat="server" OnClick="btnUpdateServiceLevel_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateServiceLevelText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdateServiceLevel" CssClass="btn btn-success" runat="server" OnClick="btnUpdateServiceLevel_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateServiceLevelText"/> </asp:LinkButton>
             </td>
         </tr>
     </table>

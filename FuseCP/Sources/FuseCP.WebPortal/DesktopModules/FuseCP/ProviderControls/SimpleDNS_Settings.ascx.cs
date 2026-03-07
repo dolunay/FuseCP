@@ -44,7 +44,7 @@ namespace FuseCP.Portal.ProviderControls
 			//
 			ServerInfo serverInfo = ES.Services.Servers.GetServerById(PanelRequest.ServerId);
 			//
-			lblFirsttimeUserNote.InnerHtml = String.Format(ftuNote, serverInfo.ServerName);
+            lblFirsttimeUserNote.InnerHtml = String.Format(ftuNote, HttpUtility.HtmlEncode(serverInfo.ServerName));
 		}
 
         public void BindSettings(StringDictionary settings)

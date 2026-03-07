@@ -4,24 +4,24 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-    <div class="panel-heading">
-        <h3 class="panel-title">
+    <div class="card-header">
+        <h3 class="card-title">
             <asp:Image ID="Image1" SkinID="ExchangeContact48" runat="server" />
             <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Contact"></asp:Localize>
         </h3>
     </div>
     <div class="FormButtonsBar right">
-        <CPCC:StyleButton id="btnCreateContact" CssClass="btn btn-primary" runat="server" OnClick="btnCreateContact_Click">
-            <i class="fa fa-user-plus">&nbsp;</i>&nbsp;
+        <asp:LinkButton id="btnCreateContact" CssClass="btn btn-primary" runat="server" OnClick="btnCreateContact_Click">
+            <i class="bi bi-person-plus">&nbsp;</i>&nbsp;
             <asp:Localize runat="server" meta:resourcekey="btnCreateContact"/>
-        </CPCC:StyleButton>
+        </asp:LinkButton>
     </div>
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
         <fcp:SimpleMessageBox id="messageBox" runat="server" />
         <div class="row">
-            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-right form-inline">
+            <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 offset-md-5 text-end d-flex flex-wrap gap-2 align-items-center exchange-search-inline">
                 <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-                <div class="form-group">
+                <div class="mb-0">
                     <div class="input-group">
                         <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">
                             <asp:ListItem>10</asp:ListItem>
@@ -31,7 +31,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="mb-0">
                     <div class="input-group">
                         <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                             <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -39,39 +39,39 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="mb-0">
                     <div class="input-group">
                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                        <div class="input-group-btn">
-                            <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </CPCC:StyleButton>
-                        </div>
+                        <span class="input-group-btn">
+                            <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                            </asp:LinkButton>
+                        </span>
                     </div>
                 </div>
             </asp:Panel>
         </div>
     </div>
     <asp:GridView ID="gvContacts" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-        Width="100%" EmptyDataText="gvContacts" CssSelectorClass="NormalGridView"
+        EmptyDataText="gvContacts" CssSelectorClass="NormalGridView"
         OnRowCommand="gvContacts_RowCommand" AllowPaging="True" AllowSorting="True"
         DataSourceID="odsAccountsPaged" PageSize="20">
         <Columns>
             <asp:TemplateField HeaderText="gvContactsDisplayName" SortExpression="DisplayName">
-                <ItemStyle Width="50%"></ItemStyle>
+                <ItemStyle></ItemStyle>
                 <ItemTemplate>
                     <asp:hyperlink id="lnk1" runat="server" NavigateUrl='<%# GetContactEditUrl(Eval("AccountId").ToString()) %>'>
                         <%# Eval("DisplayName") %>
                     </asp:hyperlink>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="gvContactsEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="50%" />
+            <asp:BoundField HeaderText="gvContactsEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');">
+                    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');">
                         &nbsp;
-                        <i class="fa fa-trash-o"></i>&nbsp;
-                    </CPCC:StyleButton>
+                        <i class="bi bi-trash"></i>&nbsp;
+                    </asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -89,7 +89,7 @@
             <asp:ControlParameter Name="filterValue" ControlID="txtSearchValue" PropertyName="Text" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <div class="panel-footer">
+    <div class="card-footer">
         <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Contacts Created:"></asp:Localize>
         &nbsp;&nbsp;&nbsp;
         <fcp:QuotaViewer ID="contactsQuota" runat="server" QuotaTypeId="2" />

@@ -1,11 +1,11 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterStats_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterStats_Settings" %>
 <%@ Register Src="../UserControls/TimeZones.ascx" TagName="TimeZones" TagPrefix="uc1" %>
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" nowrap width="200">
+		<td class="SubHead text-nowrap">
 		    <asp:Label ID="lblSmarterUrl" runat="server" meta:resourcekey="lblSmarterUrl" Text="SmarterStats Web Services URL:"></asp:Label>
 		</td>
-		<td width="100%"><asp:TextBox Runat="server" ID="txtSmarterUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtSmarterUrl" CssClass="form-control" Width="200px"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead">
@@ -55,7 +55,7 @@
 		    <asp:Label ID="lblLogAutoDeletion" runat="server" meta:resourcekey="lblLogAutoDeletion" Text="Web Site Logs Auto-Deletion:"></asp:Label>
 		</td>
 		<td class="Normal">
-		    <asp:TextBox Runat="server" ID="txtLogDeleteDays" CssClass="form-control" Width="40"></asp:TextBox>
+		    <asp:TextBox Runat="server" ID="txtLogDeleteDays" CssClass="form-control"></asp:TextBox>
 		    <asp:Label ID="lblDontDelete" runat="server" meta:resourcekey="lblDontDelete" Text="(0 - never delete)"></asp:Label>
 		</td>
 	</tr>
@@ -72,7 +72,7 @@
 		    <asp:Label ID="lblSmarterLogAutoDeletion" runat="server" meta:resourcekey="lblSmarterLogAutoDeletion" Text="Smarter Logs Auto-Deletion:"></asp:Label>
 		</td>
 		<td class="Normal">
-		    <asp:TextBox Runat="server" ID="txtSmarterLogDeleteMonths" CssClass="form-control" Width="40"></asp:TextBox>
+		    <asp:TextBox Runat="server" ID="txtSmarterLogDeleteMonths" CssClass="form-control"></asp:TextBox>
 		    <asp:Label ID="Label1" runat="server" meta:resourcekey="lblDontDelete" Text="(0 - never delete)"></asp:Label>
 		</td>
 	</tr>
@@ -96,6 +96,6 @@
 		<td class="SubHead">
 		    <asp:Label ID="lblStatsUrl" runat="server" meta:resourcekey="lblStatsUrl" Text="Statistics Help URL:"></asp:Label>
 		</td>
-		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control" Width="100%"></asp:TextBox></td>
+		<td><asp:TextBox Runat="server" ID="txtStatsUrl" CssClass="form-control"></asp:TextBox></td>
 	</tr>
 </table>

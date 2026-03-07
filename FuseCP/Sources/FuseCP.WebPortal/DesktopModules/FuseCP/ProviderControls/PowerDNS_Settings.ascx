@@ -15,11 +15,11 @@
     <legend>
         <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="lblServiceConfig" />
     </legend>
-	<table cellspacing="0" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 
 		<!-- Connection Strign parameters: server, port, database, user, password -->
 		<tr>
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblServerAddress" meta:resourcekey="lblServerAddress" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtServerAddress" MaxLength="1000" CssClass="form-control"/>
@@ -29,7 +29,7 @@
 		</tr>
 	    
 		<tr>
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblServerPort" meta:resourcekey="lblServerPort" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtServerPort" MaxLength="1000" CssClass="form-control"/>
@@ -38,7 +38,7 @@
 		</tr>
 	    
 		<tr>
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblDatabase" meta:resourcekey="lblDatabase" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtDatabase" MaxLength="1000" CssClass="form-control"/>
@@ -48,7 +48,7 @@
 		</tr>    
 	    
 		<tr>
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblUsername" meta:resourcekey="lblUsername" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtUsername" MaxLength="1000" CssClass="form-control"/>
@@ -58,7 +58,7 @@
 		</tr>        
 	    
 		<tr id="trCurrentPassword" runat="server">
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblCurrentPassword" meta:resourcekey="lblCurrentPassword" />
 			</td>
 			<td class="Normal">
@@ -67,7 +67,7 @@
 		</tr>
 	    
 		<tr id="trPassword" runat="server">
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblPassword" meta:resourcekey="lblPassword" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtPassword" MaxLength="1000" TextMode="Password" CssClass="form-control"/>
@@ -77,7 +77,7 @@
 		</tr>            
 	    
 		<tr id="trPasswordConfirm" runat="server">
-			<td class="SubHead" width="200" nowrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label runat="server" ID="lblConfirmPassword" meta:resourcekey="lblConfirmPassword" /></td>
 			<td class="Normal">
 				<asp:TextBox runat="server" ID="txtConfirmPassword" MaxLength="1000" TextMode="Password" CssClass="form-control"/>                   
@@ -130,7 +130,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="SubHead" noWrap>
+			<td class="SubHead text-nowrap">
 				<asp:Label ID="lblMinimumTtl" runat="server" meta:resourcekey="lblMinimumTtl" Text="SOA TTL:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -161,10 +161,10 @@
 	    
 		<!-- IP Adresses -->
 		<tr>
-			<td class="SubHead" width="200" nowrap valign="top">
+			<td class="SubHead text-nowrap align-top">
 				<asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 			</td>
-			<td width="100%" valign="top">
+			<td class="align-top">
 				<common:IPAddressesList id="iPAddressesList" runat="server">
 				</common:IPAddressesList>
 			</td>
@@ -174,10 +174,10 @@
 		</tr>
 	    
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblSecondaryDNS" runat="server" meta:resourcekey="lblSecondaryDNS" Text="Secondary DNS Services:"></asp:Label>
 			</td>
-			<td class="Normal" valign="top">
+			<td class="Normal align-top">
 				<common:SecondaryDNSServers ID="secondaryDNSServers" runat="server" />
 			</td>
 		</tr>		        
@@ -188,10 +188,10 @@
 			
 		<!-- Name Servers -->	
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblNameServers" runat="server" meta:resourcekey="lblNameServers" Text="Name Servers:"></asp:Label>
 			</td>
-			<td class="Normal" valign="top">
+			<td class="Normal align-top">
 				<common:EditDomainsList id="nameServers" runat="server">
 				</common:EditDomainsList>
 			</td>
@@ -199,3 +199,4 @@
 			
 	</table>
 </fieldset>
+

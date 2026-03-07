@@ -1,27 +1,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PackageVLANs.ascx.cs" Inherits="FuseCP.Portal.UserControls.PackageVLANs" %>
 <%@ Register Src="SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 
-
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
 <div class="FormButtonsBarClean">
     <div class="FormButtonsBarCleanLeft">
-        <CPCC:StyleButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
-		<div style="float: right;">
+		<div style="float: right">
 			<asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 			<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"
 				onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
@@ -35,7 +24,7 @@
 </div>
 
 <asp:GridView ID="gvVLANs" runat="server" AutoGenerateColumns="False"
-    Width="100%" EmptyDataText="gvVLANs" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvVLANs" CssSelectorClass="NormalGridView"
     AllowPaging="True" AllowSorting="True" DataSourceID="odsVLANsPaged" PageSize="20"
     onrowdatabound="gvVLANs_RowDataBound" DataKeyNames="PackageVlanID" >
     <Columns>
@@ -79,8 +68,8 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div style="margin-top:4px;">
+<div style="margin-top:4px">
     <asp:Button ID="btnDeallocateVLANs" runat="server" meta:resourcekey="btnDeallocateVLANs"
-            Text="Deallocate selected" CssClass="SmallButton" CausesValidation="False" 
+            Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
         onclick="btnDeallocateVLANs_Click" />
 </div>

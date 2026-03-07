@@ -9,22 +9,22 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeList48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Distribution List"></asp:Localize>
 					-
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                     <div class="nav nav-tabs" style="padding-bottom:7px !important;">
                     <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_settings" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-					<div class="form-group">
-                        <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+					<div class="mb-3">
+                        <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
                         </asp:Label>
                         <div class="col-sm-10">
@@ -35,13 +35,13 @@
                         </div>
                         </div>
                         </div>
-                        <div class="form-group">
-                        <div class="col-sm-10 col-sm-offset-2">
+                        <div class="mb-3">
+                        <div class="col-sm-10 offset-sm-2">
 						        <asp:CheckBox ID="chkHideAddressBook" runat="server" meta:resourcekey="chkHideAddressBook" Text="Hide from Address Book" />
 						</div>
                         </div>
-                         <div class="form-group">
-                        <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="control-label col-sm-2">
+                         <div class="mb-3">
+                        <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="form-label col-sm-2">
 						   <asp:Localize ID="locManager" runat="server" meta:resourcekey="locManager" Text="Manager:"></asp:Localize>
                         </asp:label>
                         <div class="col-sm-6">
@@ -56,8 +56,8 @@
                          </div>
                         </div>
 					    <br /><br />
-					    <div class="form-group">
-                        <asp:label runat="server" AssociatedControlID="members" CssClass="control-label col-sm-2">
+					    <div class="mb-3">
+                        <asp:label runat="server" AssociatedControlID="members" CssClass="form-label col-sm-2">
                             <asp:Localize ID="locMembers" runat="server" meta:resourcekey="locMembers" Text="Members:"></asp:Localize>
                         </asp:label>
 						<div class="col-sm-10">
@@ -66,14 +66,14 @@
                                 </div>
 						</div>
                         </div>
-						<div class="form-group">
-                        <div class="col-sm-10 col-sm-offset-2">
+						<div class="mb-3">
+                        <div class="col-sm-10 offset-sm-2">
 							    <asp:TextBox ID="txtNotes" runat="server" CssClass="form-control" Rows="4" TextMode="MultiLine"></asp:TextBox>
 						</div>
                         </div>
                         </div>
                     </div>
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditList"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditList"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditList" />
 				    </div>

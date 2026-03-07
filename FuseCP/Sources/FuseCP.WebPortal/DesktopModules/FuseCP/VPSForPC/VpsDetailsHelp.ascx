@@ -8,25 +8,25 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Help48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Help" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_help" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send instructions by E-Mail">
                     </fcp:CollapsiblePanel>
-	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
-                        <table id="tblEmail" runat="server" cellpadding="2">
+	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden">
+                        <table class="table table-borderless align-middle mb-0" id="tblEmail" runat="server">
                             <tr>
-                                <td class="SubHead" width="30" nowrap>
+                                <td class="SubHead text-nowrap">
                                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                                 </td>
                                 <td class="Normal">
@@ -45,7 +45,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <asp:Button ID="btnSend" runat="server" CssClass="Button2"
+                                    <asp:Button ID="btnSend" runat="server" CssClass="btn btn-success"
                                         meta:resourcekey="btnSend" Text="Send" ValidationGroup="SendEmail" 
                                         onclick="btnSend_Click" /></td>
                             </tr>

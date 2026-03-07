@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Solid CP</title>
     <link runat="server" rel="stylesheet" href="~/Styles/Import.css" type="text/css" id="AdaptersInvariantImportCSS" />
+    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/bootstrap5.min.css" />
+    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/main.css" />
+    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Fav and touch icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -37,5 +41,112 @@
     <form id="form1" runat="server"  autocomplete="off">
         <asp:PlaceHolder ID="skinPlaceHolder" runat="server"></asp:PlaceHolder>
     </form>
+    <script type="text/javascript">
+        (function () {
+            document.addEventListener('submit', function (event) {
+                var form = event.target;
+                if (form && form.tagName === 'FORM') {
+                    if (form.getAttribute('data-submitting') === 'true') {
+                        event.preventDefault();
+                    } else {
+                        form.setAttribute('data-submitting', 'true');
+
+                        var submitControls = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+                        for (var i = 0; i < submitControls.length; i++) {
+                            if (submitControls[i].getAttribute('data-allow-multi-submit') !== 'true') {
+                                submitControls[i].setAttribute('disabled', 'disabled');
+                            }
+                        }
+
+                        window.setTimeout(function () {
+                            form.removeAttribute('data-submitting');
+                            for (var j = 0; j < submitControls.length; j++) {
+                                submitControls[j].removeAttribute('disabled');
+                            }
+                        }, 15000);
+                    }
+                }
+            }, true);
+        })();
+    </script>
+    <script type="text/javascript">
+        (function () {
+            function byIdOrSuffix(id) {
+                if (!id) return null;
+                return document.getElementById(id) || document.querySelector('[id$="' + id + '"]');
+            }
+
+            function getValidators() {
+                if (window.Page_Validators && window.Page_Validators.length) {
+                    return window.Page_Validators;
+                }
+                return document.querySelectorAll('[data-val-controltovalidate], [controltovalidate]');
+            }
+
+            function getTargetId(validator) {
+                return validator.controltovalidate ||
+                    validator.getAttribute('controltovalidate') ||
+                    validator.getAttribute('data-val-controltovalidate');
+            }
+
+            function isStarMarker(validator) {
+                var text = (validator.textContent || validator.innerText || '').trim();
+                var errorMessage = (validator.errormessage || validator.getAttribute('errormessage') || validator.getAttribute('data-val-errormessage') || '').trim();
+                return text === '*' || errorMessage === '*';
+            }
+
+            function refreshValidationUi() {
+                var validators = getValidators();
+
+                for (var i = 0; i < validators.length; i++) {
+                    var validator = validators[i];
+                    var target = byIdOrSuffix(getTargetId(validator));
+                    if (!target) continue;
+
+                    var invalid = validator.isvalid === false;
+
+                    target.classList.toggle('is-invalid', invalid);
+                    target.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+
+                    var inputGroup = target.closest ? target.closest('.input-group') : null;
+                    var icon = inputGroup ? inputGroup.querySelector('.input-group-text') : null;
+                    if (icon) {
+                        icon.classList.toggle('is-invalid', invalid);
+                    }
+
+                    if (isStarMarker(validator)) {
+                        validator.classList.add('fcp-validator-marker');
+                    }
+                }
+            }
+
+            var originalPageClientValidate = window.Page_ClientValidate;
+            if (typeof originalPageClientValidate === 'function') {
+                window.Page_ClientValidate = function (validationGroup) {
+                    var result = originalPageClientValidate(validationGroup);
+                    window.setTimeout(refreshValidationUi, 0);
+                    return result;
+                };
+            }
+
+            document.addEventListener('submit', function () {
+                window.setTimeout(refreshValidationUi, 0);
+            }, true);
+
+            document.addEventListener('change', function (event) {
+                var target = event.target;
+                if (!target || !target.id) return;
+                if (target.matches('input,select,textarea')) {
+                    window.setTimeout(refreshValidationUi, 0);
+                }
+            }, true);
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', refreshValidationUi);
+            } else {
+                refreshValidationUi();
+            }
+        })();
+    </script>
 </body>
 </html>

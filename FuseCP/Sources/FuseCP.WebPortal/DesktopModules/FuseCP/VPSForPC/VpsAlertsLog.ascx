@@ -6,15 +6,15 @@
 <%@ Register Src="UserControls/Breadcrumb.ascx" TagName="Breadcrumb" TagPrefix="fcp" %>
 
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="AlertLog48" runat="server" />
                     <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Alerts Log" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_alerts_log" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 

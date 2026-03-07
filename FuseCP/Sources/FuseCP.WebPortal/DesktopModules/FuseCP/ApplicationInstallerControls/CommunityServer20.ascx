@@ -41,7 +41,7 @@
 			return sb.ToString();
 		}
 </script>
-<table cellPadding="2" width="100%">
+<table class="table table-borderless align-middle mb-0">
 	<tr>
 		<td class=SubHead colspan=2>
 			Select the installation options below to control how your database is created.
@@ -70,33 +70,33 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="left" width=200 nowrap class=SubHead>Username:</TD>
-		<td align="left" width=100% class=Normal>
+		<td class="SubHead text-nowrap" >Username:</td>
+		<td class="Normal">
 			<asp:textbox id="txtUsername" runat="server" CssClass=form-control>admin</asp:textbox>
 		</td>
 	</tr>
 	<tr>
-		<td align="left" class=SubHead>Password:</TD>
-		<td align="left" class=Normal>
+		<td class="SubHead">Password:</td>
+		<td class="Normal">
 			<asp:textbox id="txtPassword" runat="server" TextMode="Password" CssClass=form-control></asp:textbox>
 		</td>
 	</tr>
 	<tr>
-		<td align="left" class=SubHead>Confirm Password:</td>
-		<td align="left" class=Normal>
+		<td class="SubHead">Confirm Password:</td>
+		<td class="Normal">
 			<asp:textbox id="txtConfirmPassword" runat="server" TextMode="Password" CssClass=form-control></asp:textbox>
 			<asp:comparevalidator EnableClientScript=True Enabled=True id="ComparePassword" runat="server" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Cssclass="color:red">*</asp:comparevalidator>
 		</td>
 	</tr>
 	<tr>
-		<td align="left" width=200 nowrap class=SubHead>E-Mail:</TD>
-		<td align="left" width=100% class=Normal>
+		<td class="SubHead text-nowrap" >E-Mail:</td>
+		<td class="Normal">
 			<asp:textbox id="txtEmail" runat="server" CssClass=form-control>admin@site.com</asp:textbox>
 		</td>
 	</tr>
 	<tr>
-		<td align=left class=SubHead>&nbsp;</td>
-		<td align=left class=NormalBold>
+		<td class="SubHead">&nbsp;</td>
+		<td class="NormalBold">
 			<asp:Checkbox id="chkCreateSample" runat=server Text="Create Sample Data" Checked=false />
 		</td>
 	</tr>

@@ -3,9 +3,9 @@
 <%@ Register Src="Common_IPAddressesList.ascx" TagName="IPAddressesList" TagPrefix="uc2" %>
 <%@ Register Src="Common_SecondaryDNSServers.ascx" TagName="SecondaryDNSServers"
     TagPrefix="uc1" %>
-<table cellspacing="7" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblUserName" meta:resourcekey="lblUserName" /></td>
         <td class="Normal">
             <asp:TextBox runat="server" ID="txtUserName" MaxLength="1000" />
@@ -20,7 +20,7 @@
 		</td>
 	</tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblPassword" meta:resourcekey="lblPassword" /></td>
         <td class="Normal">
             <asp:TextBox runat="server" ID="txtPassword"  TextMode="Password" 
@@ -29,18 +29,18 @@
             </td>
     </tr>
     <tr>
-			<td class="SubHead" width="200" nowrap valign="top">
+            <td class="SubHead text-nowrap align-top">
 			    <asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 			</td>
-			<td width="100%" valign="top">
+            <td class="align-top">
                 <uc2:IPAddressesList id="iPAddressesList" runat="server">
                 </uc2:IPAddressesList></td>
 		</tr>
     <tr>
-		    <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
 		        <asp:Label ID="lblSecondaryDNS" runat="server" meta:resourcekey="lblSecondaryDNS" Text="Secondary DNS Services:"></asp:Label>
 		    </td>
-		    <td class="Normal" valign="top">
+            <td class="Normal align-top">
                 <uc1:SecondaryDNSServers ID="secondaryDNSServers" runat="server" />
             </td>
 		</tr>
@@ -49,3 +49,4 @@
 	    <td><asp:CheckBox runat="server" ID="cbApplyDefaultTemplate" meta:resourcekey="cbApplyDefaultTemplate"/></td>
 	</tr>		        
 </table>
+

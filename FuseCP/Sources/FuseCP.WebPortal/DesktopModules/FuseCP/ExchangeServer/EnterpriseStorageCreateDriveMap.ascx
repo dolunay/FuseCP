@@ -2,23 +2,24 @@
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/EmailAddress.ascx" TagName="EmailAddress" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/enterprise-storage-drive-map.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="imgESDM" SkinID="EnterpriseStorageDriveMaps48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Create New Drive Map"></asp:Localize>
     </h3>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLetter" runat="server" meta:resourcekey="locDriveLetter" Text="Select Drive Letter:"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlLetters" runat="server" CssClass="form-control" />
                 </div>
@@ -26,11 +27,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolder" runat="server" meta:resourcekey="locFolder" Text="Storage Folder:"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <div class="Folders" style="display:inline;">
                         <asp:DropDownList ID="ddlFolders" runat="server" CssClass="form-control" />  
@@ -38,10 +39,10 @@
                     </div>
                     <div class="Url" style="display:inline;">
                         &nbsp;&nbsp;
-                        <span class="input-group-addon">
-                            <i class="fa fa-hdd-o" aria-hidden="true"></i>
+                        <span class="input-group-text">
+                            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
                         </span>
-                        <span class="input-group-addon" style="background-color:#ffffff;">
+                        <span class="input-group-text" style="background-color:#ffffff;">
                             <asp:Literal ID="lbFolderUrl" runat="server"></asp:Literal>
                         </span>
                     </div>
@@ -50,11 +51,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-inline">
-            <label class="col-sm-2 control-label">
+        <div class="col d-flex flex-wrap gap-2 align-items-center">
+            <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLabel" runat="server" meta:resourcekey="locDriveLabel" Text="Label As:"></asp:Localize>
             </label>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtLabelAs" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
@@ -62,27 +63,10 @@
         </div>
     </div>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateDriveMap">
-        <i class="fa fa-check">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" ValidationGroup="CreateDriveMap">
+        <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateText"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreateDriveMap" />
 </div>	
-<script type="text/javascript" >
-    $('document').ready(function () {
-        $('.LabelAs input').bind('click', function () { $('.LabelAs input').val(""); });
-
-        $('.LabelAs input').bind('focusout', function () {
-            if ($('.LabelAs input').val() == "") {
-                $('.LabelAs input').val($('.Folders select option:selected').text());
-            }
-        });
-
-        $('.Folders select').bind('change', function () {
-            $('.LabelAs input').val($('.Folders select option:selected').text());
-            $('.Url').text($('.Folders select option:selected').val());
-            $('.Folders input').val($('.Folders select option:selected').text());
-        });
-    });
-</script>

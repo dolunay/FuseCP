@@ -13,7 +13,7 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
 
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
             <fcp:CollapsiblePanel ID="colStorageSpaceGeneralSettings" runat="server"
@@ -23,31 +23,31 @@
             <asp:Panel runat="server" ID="panelStorageSpaceGeneralSettings">
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px">
                             <table>
                                 <tr>
-                                    <td class="Label" style="width: 260px;">
+                                    <td class="Label" >
                                         <asp:Localize ID="locName" runat="server" meta:resourcekey="locName"></asp:Localize>
                                     </td>
-                                    <td style="width: 250px;">
+                                    <td >
                                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control" />
                                         <asp:RequiredFieldValidator runat="server" ID="valReqTxtName" ControlToValidate="txtName" meta:resourcekey="valReqTxtName" ErrorMessage="*" ValidationGroup="SaveSpaceStorage" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="SubHead" style="width: 200px;">
+                                    <td class="SubHead" >
                                         <asp:Localize ID="lblStorageService" runat="server" meta:resourcekey="lblStorageService" />
-                                    <td style="width: 200px;">
+                                    <td >
                                         <asp:DropDownList ID="ddlStorageService" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlStorageService_OnSelectedIndexChanged" AutoPostBack="True" />
                                         <asp:RequiredFieldValidator ID="valReqStorageService" runat="server" meta:resourcekey="valReqStorageService" ControlToValidate="ddlStorageService"
                                             ErrorMessage="Please select storage space service" ValidationGroup="SaveSpaceStorage" Display="Dynamic" Text="*" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="Label" style="width: 260px;">
+                                    <td class="Label" >
                                         <asp:Localize ID="locPath" runat="server" meta:resourcekey="locPath"></asp:Localize>
                                     </td>
-                                    <td style="width: 250px;">
+                                    <td >
                                         <asp:TreeView ID="FoldersTree" runat="server" OnTreeNodePopulate="FoldersTree_OnTreeNodePopulate" />
                                         <asp:CustomValidator ID="valRequireFolder" runat="server" meta:resourcekey="valRequireFolder"
                                             ErrorMessage="sym" Text="Please select a folder" Display="Dynamic" ValidationGroup="SaveSpaceStorage"
@@ -58,9 +58,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="SubHead" style="width: 200px;">
+                                    <td class="SubHead" >
                                         <asp:Localize ID="lblSsLevel" runat="server" meta:resourcekey="lblSsLevel" />
-                                    <td style="width: 200px;">
+                                    <td >
                                         <asp:DropDownList ID="ddlSsLevel" runat="server" CssClass="form-control" />
                                         <asp:RequiredFieldValidator ID="valReqSsLevel" runat="server" meta:resourcekey="valReqSsLevel" ControlToValidate="ddlSsLevel"
                                             ErrorMessage="Please select storage space level" ValidationGroup="SaveSpaceStorage" Display="Dynamic" Text="*" />
@@ -111,19 +111,9 @@
 
 
         </div>
-            <div class="panel-footer text-right">
+            <div class="card-footer text-end">
                 <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SaveSpaceStorage"
                     OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
             </div>
-<script type="text/javascript">
-    // if you use jQuery, you can load them when dom is read.
-    $(document).ready(function () {
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-        prm.add_endRequest(EndRequest);
-    });
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/updatepanel-endrequest-close-progress.js"></script>
 
-
-    function EndRequest(sender, args) {
-        CloseProgressDialog();
-    }
-</script>

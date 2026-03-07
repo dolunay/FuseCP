@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserAccountPolicySettings.ascx.cs" Inherits="FuseCP.Portal.UserAccountPolicySettings" %>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <ul class="LinksList">
         <li>
             <asp:HyperLink ID="lnkFuseCPPolicy" runat="server" meta:resourcekey="lnkFuseCPPolicy"
@@ -77,6 +77,6 @@
         </li>
     </ul>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>
 </div>

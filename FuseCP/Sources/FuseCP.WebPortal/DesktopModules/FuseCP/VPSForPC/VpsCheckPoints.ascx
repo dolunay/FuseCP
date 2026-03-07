@@ -5,22 +5,22 @@
 <%@ Register Src="UserControls/Menu.ascx" TagName="Menu" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/Breadcrumb.ascx" TagName="Breadcrumb" TagPrefix="fcp" %>
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Monitoring48" runat="server" />
                     <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Snapshots" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_checkpoints" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <asp:TreeView runat="server" ID="treeCheckPoints"></asp:TreeView>
                 <div class="FormButtonsBar" >
-                    <CPCC:StyleButton id="btnRestoreCheckPoint" CssClass="btn btn-warning" runat="server" OnClick="btnRestoreCheckPoint_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </CPCC:StyleButton>&nbsp;        
-                    <CPCC:StyleButton id="btnCreateCheckPoint" CssClass="btn btn-success" runat="server" OnClick="btnCreateCheckPoint_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>
+                    <asp:LinkButton id="btnRestoreCheckPoint" CssClass="btn btn-warning" runat="server" OnClick="btnRestoreCheckPoint_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </asp:LinkButton>&nbsp;        
+                    <asp:LinkButton id="btnCreateCheckPoint" CssClass="btn btn-success" runat="server" OnClick="btnCreateCheckPoint_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>
                 </div> 
             </div>
                     </div>

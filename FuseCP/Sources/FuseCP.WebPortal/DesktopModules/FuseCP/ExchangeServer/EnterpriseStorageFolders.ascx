@@ -4,33 +4,26 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/enterprise-storage-folders.js"></script>
 
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        setTimeout(getFolderData, 3000);
-    });
-    //]]>
-</script>
-
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="imgESS" SkinID="EnterpriseStorageSpace48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Shared Folders"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton id="btnAddFolder" CssClass="btn btn-success" runat="server" OnClick="btnAddFolder_Click">
-        <i class="fa fa-folder-o">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnAddFolder" CssClass="btn btn-success" runat="server" OnClick="btnAddFolder_Click">
+        <i class="bi bi-folder">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddFolderText"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 col-md-offset-6 text-right form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 offset-md-6 text-end d-flex flex-wrap gap-2 align-items-center">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -40,14 +33,14 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
-                    </div>
+                    <span class="input-group-btn">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
+                    </span>
                 </div>
             </div>
         </asp:Panel>
@@ -55,18 +48,18 @@
 </div>
 <asp:HiddenField runat="server" ID="hdnGridState" Value="false" />
 <asp:HiddenField runat="server" ID="hdnItemId"  />
-<asp:GridView ID="gvFolders" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%"
+<asp:GridView ID="gvFolders" runat="server" AutoGenerateColumns="False" EnableViewState="true"
     EmptyDataText="gvFolders" CssSelectorClass="NormalGridView" OnRowCommand="gvFolders_RowCommand" AllowPaging="True"
     AllowSorting="True" DataSourceID="odsEnterpriseFoldersPaged" PageSize="20">
     <Columns>
         <asp:TemplateField>
-            <ItemStyle Width="0%" />
+            <ItemStyle />
             <ItemTemplate>                        
                 <asp:HiddenField ID="hdnFolderName" runat="server" Value='<%# Eval("Name") %>' />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderName" SortExpression="FolderName">
-            <ItemStyle Width="20%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:hyperlink id="lnkFolderName" runat="server" NavigateUrl='<%# GetFolderEditUrl(Eval("Name").ToString()) %>'>
                     <%# Eval("Name") %>
@@ -74,25 +67,25 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderQuota" SortExpression="FolderQuota">
-            <ItemStyle Width="15%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderQuota" runat="server" Text='<%# ConvertMBytesToGB(Eval("FRSMQuotaMB")).ToString() + " Gb" %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderSize">
-            <ItemStyle Width="15%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderSize" runat="server" Text='...'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderUrl">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderUrl" runat="server" Text='<%# (Eval("UncPath") ?? Eval("Url")).ToString() %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvMappedDrive">
-            <ItemStyle Width="10%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Image ID="img1" runat="server" ImageUrl='<%# GetDriveImage() %>' ImageAlign="AbsMiddle"  style="display:none"/>
                 <asp:Literal id="litMappedDrive" runat="server" Text='...'></asp:Literal>
@@ -100,10 +93,10 @@
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <CPCC:StyleButton id="imgDelFolder" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Name") %>' OnClientClick="return confirm('Confirming Deletion will result in the deletion of all files on this share.')">
-                    &nbsp;<i class="fa fa-trash-o"></i>
+                <asp:LinkButton id="imgDelFolder" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Name") %>' OnClientClick="return confirm('Confirming Deletion will result in the deletion of all files on this share.')">
+                    &nbsp;<i class="bi bi-trash"></i>
                     &nbsp;
-                </CPCC:StyleButton>
+                </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -115,7 +108,7 @@
         <asp:ControlParameter Name="filterValue" ControlID="txtSearchValue" PropertyName="Text" />
     </SelectParameters>
 </asp:ObjectDataSource>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuotaFolders" runat="server" meta:resourcekey="locQuotaFolders" Text="Total Folders Allocated:"></asp:Localize>
     &nbsp;&nbsp;&nbsp;
     <fcp:QuotaViewer ID="foldersQuota" runat="server" QuotaTypeId="2" />

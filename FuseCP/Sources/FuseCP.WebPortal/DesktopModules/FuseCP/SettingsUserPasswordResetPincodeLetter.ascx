@@ -5,8 +5,8 @@
 
 <table>
     <tr>
-        <td class="SubHead" width="150" nowrap><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
-        <td class="Normal" width="100%">
+        <td class="SubHead text-nowrap"><asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:"></asp:Label></td>
+        <td class="Normal">
             <asp:TextBox ID="txtFrom" runat="server" Width="500px" CssClass="form-control"></asp:TextBox></td>
     </tr>
     <tr>
@@ -34,14 +34,14 @@
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtHtmlBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtHtmlBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 	<tr>
 		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="lblTextBody" runat="server" meta:resourcekey="lblTextBody" Text="Text Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtTextBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtTextBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 
     <tr>
@@ -49,7 +49,7 @@
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
-			<asp:TextBox ID="txtPasswordResetPincodeSmsBody" runat="server" Rows="15" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="false"></asp:TextBox></td>
+			<asp:TextBox ID="txtPasswordResetPincodeSmsBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
     
 </table>

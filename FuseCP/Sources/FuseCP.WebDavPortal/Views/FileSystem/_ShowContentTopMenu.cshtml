@@ -68,7 +68,7 @@
             if (Model.Permissions.HasFlag(WebDavPermissions.OwaEdit))
             {
                 <div class="dropdown create-new-item navbar-left">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                         @UI.Create
                         <span class="caret"></span>
                     </button>
@@ -86,8 +86,8 @@
             {
                 <div class="btn-toolbar change-view-block" role="toolbar">
                     <div class="btn-group">
-                        <a class="btn btn-default" title="@UI.Details" href="@Url.RouteUrl(FileSystemRouteNames.ChangeWebDavViewType, new {viewType = FolderViewTypes.BigIcons, org = ScpContext.User.OrganizationId, pathPart = Model.UrlSuffix})"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
-                        <a class="btn btn-default" title="@UI.Table" href="@Url.RouteUrl(FileSystemRouteNames.ChangeWebDavViewType, new {viewType = FolderViewTypes.Table, org = ScpContext.User.OrganizationId, pathPart = Model.UrlSuffix})"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                        <a class="btn btn-secondary" title="@UI.Details" href="@Url.RouteUrl(FileSystemRouteNames.ChangeWebDavViewType, new {viewType = FolderViewTypes.BigIcons, org = ScpContext.User.OrganizationId, pathPart = Model.UrlSuffix})"><span class="bi bi-th-large" aria-hidden="true"></span></a>
+                        <a class="btn btn-secondary" title="@UI.Table" href="@Url.RouteUrl(FileSystemRouteNames.ChangeWebDavViewType, new {viewType = FolderViewTypes.Table, org = ScpContext.User.OrganizationId, pathPart = Model.UrlSuffix})"><span class="bi bi-th-list" aria-hidden="true"></span></a>
                     </div>
                 </div>
             }

@@ -5,14 +5,14 @@
 <%@ Register Src="../UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/PackageIPAddresses.ascx" TagName="PackageIPAddresses" TagPrefix="fcp" %>
 
-	    <div class="panel panel-default">
-                <div class="panel-heading">
+	    <div class="card">
+                <div class="card-header">
 				    <asp:Image ID="Image1" SkinID="Network48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="External Network"></asp:Localize>
 			    </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
              <fcp:Menu id="menu" runat="server" SelectedItem="vdc_external_network" />
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:PackageIPAddresses id="packageAddresses" runat="server"
                             Pool="VpsExternalNetwork"
                             EditItemControl="vps_general"
@@ -26,7 +26,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locIPQuota" runat="server" meta:resourcekey="locIPQuota" Text="Number of IP Addresses:"></asp:Localize></td>
                                 <td><fcp:Quota ID="addressesQuota" runat="server" QuotaName="VPS.ExternalIPAddressesNumber" /></td>

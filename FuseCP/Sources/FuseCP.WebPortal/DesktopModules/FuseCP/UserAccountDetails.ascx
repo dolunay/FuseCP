@@ -1,10 +1,10 @@
 <%@ Control Language="C#" EnableViewState="false" AutoEventWireup="true" CodeBehind="UserAccountDetails.ascx.cs" Inherits="FuseCP.Portal.UserAccountDetails" %>
 <div class="widget">
 							<div class="widget-header clearfix">
-								<h3><i class="fa fa-user"></i> <span><asp:Literal ID="litUsername" runat="server"></asp:Literal></span></h3>
+								<h3><i class="bi bi-person"></i> <span><asp:Literal ID="litUsername" runat="server"></asp:Literal></span></h3>
 								<div class="btn-group widget-header-toolbar">
-									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
-									<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="icon ion-ios-close-empty"></i></a>
+									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="bi bi-chevron-up"></i></a>
+									<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="bi bi-x-lg"></i></a>
 								</div>
 							</div>
 							<div class="widget-content">
@@ -58,21 +58,21 @@
 <br />
 <div class="widget">
 							<div class="widget-header clearfix">
-								<h3><i class="fa fa-heartbeat"></i> <span><asp:Localize id="StatusHeader" runat="server" meta:resourcekey="StatusHeader" Text="Account Status"></asp:Localize></span></h3>
+								<h3><i class="bi bi-heartbeat"></i> <span><asp:Localize id="StatusHeader" runat="server" meta:resourcekey="StatusHeader" Text="Account Status"></asp:Localize></span></h3>
 								<div class="btn-group widget-header-toolbar">
-									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
-									<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="icon ion-ios-close-empty"></i></a>
+									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="bi bi-chevron-up"></i></a>
+									<a href="#" title="Remove" class="btn btn-link btn-remove"><i class="bi bi-x-lg"></i></a>
 								</div>
 							</div>
 							<div class="widget-content">
 <asp:Panel ID="StatusPanel" runat="server">
-	<table cellpadding="5" style="width:100%; display:normal;">
+	<table class="table table-borderless align-middle mb-0" style="display:normal">
 		<tr>
-			<td align="center">
-				<div class="MediumBold" style="padding:5px;">
+			<td class="text-center">
+				<div class="MediumBold" style="padding:5px">
 					<asp:Literal ID="litStatus" runat="server"></asp:Literal>
 				</div>
-				<div id="StatusBlock" runat="server" style="padding:5px;text-align:center;">
+				<div id="StatusBlock" runat="server" style="padding:5px; text-align:center">
 					<asp:ImageButton ID="cmdActive" runat="server" SkinID="Start" meta:resourcekey="cmdActive" CommandName="Active" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdSuspend" runat="server" SkinID="Pause" meta:resourcekey="cmdSuspend" CommandName="Suspended" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdCancel" runat="server" SkinID="Stop" meta:resourcekey="cmdCancel" CommandName="Cancelled" OnClick="statusButton_Click" />

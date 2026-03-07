@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -157,7 +157,7 @@
     <value>Web Platform Installation-Einstellungen</value>
   </data>
   <data name="SettingbtnSaveSettings.Text" xml:space="preserve">
-    <value>&amp;lt;span class='fa fa-floppy-o' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Einstellungen speichern</value>
+    <value>&amp;lt;span class='bi bi-floppy' aria-hidden='true'&amp;gt;&amp;nbsp;&amp;lt;/span&amp;gt;&amp;nbsp;Einstellungen speichern</value>
   </data>
   <data name="SettinglblWpiAddCustomFeeds.Text" xml:space="preserve">
     <value>Benutzerspezifischen Feed hinzufügen</value>

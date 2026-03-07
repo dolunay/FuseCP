@@ -4,9 +4,9 @@
     <legend>
         <asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
 	    <tr>
-		    <td class="SubHead" style="width:200px;">
+		    <td class="SubHead" >
 		        <asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern" Text="VPS host name pattern:"></asp:Localize>
 		    </td>
 		    <td>
@@ -16,7 +16,7 @@
             </td>
 	    </tr>
 	</table>
-	<p style="margin: 10px;">
+	<p style="margin: 10px">
 	    <asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>

@@ -9,9 +9,9 @@
             Text="Host name"></asp:Localize>
     </legend>
     <fcp:SimpleMessageBox id="messageBoxError" runat="server" />
-    <table cellpadding="2" cellspacing="0" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0" style="margin: 10px">
             <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locConnectTypeName" runat="server" meta:resourcekey="locConnectTypeName"
                     Text="Select Server type:"></asp:Localize>
             </td>
@@ -29,7 +29,7 @@
             </td>
             <td>
                 <asp:DropDownList ID="listHosts" runat="server" DataValueField="Path" DataTextField="Name" CssClass="form-control"
-                    Width="500" AutoPostBack="true" OnSelectedIndexChanged="listHosts_OnSelectedIndexChanged">
+                    AutoPostBack="true" OnSelectedIndexChanged="listHosts_OnSelectedIndexChanged">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="HostsValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="listHosts" meta:resourcekey="HostsValidator" SetFocusOnError="true"
@@ -183,9 +183,9 @@
         <asp:Localize ID="locGeneralSettings" runat="server" meta:resourcekey="locGeneralSettings"
             Text="General Settings"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locVpsRootFolder" runat="server" meta:resourcekey="locVpsRootFolder"
                     Text="VPS root folder:"></asp:Localize>
             </td>
@@ -236,9 +236,9 @@
         <asp:Localize ID="locProcessorSettings" runat="server" meta:resourcekey="locProcessorSettings"
             Text="Processor Resource Settings"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locCpuReserve" runat="server" meta:resourcekey="locCpuReserve"
                     Text="Virtual machine reserve:"></asp:Localize>
             </td>
@@ -250,7 +250,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locCpuLimit" runat="server" meta:resourcekey="locCpuLimit" Text="Virtual machine limit:"></asp:Localize>
             </td>
             <td>
@@ -261,7 +261,7 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locCpuWeight" runat="server" meta:resourcekey="locCpuWeight" Text="Relative weight:"></asp:Localize>
             </td>
             <td>
@@ -278,9 +278,9 @@
         <asp:Localize ID="locMediaLibrary" runat="server" meta:resourcekey="locMediaLibrary"
             Text="DVD Media Library"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locDvdIsoPath" runat="server" meta:resourcekey="locDvdIsoPath"
                     Text="Path to DVD ISO files:"></asp:Localize>
             </td>
@@ -297,9 +297,9 @@
     <legend>
         <asp:Localize ID="locVhd" runat="server" meta:resourcekey="locVhd" Text="Virtual Hard Drive"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Localize ID="locDiskType" runat="server" meta:resourcekey="locDiskType" Text="Disk Type:"></asp:Localize>
             </td>
             <td>
@@ -317,15 +317,15 @@
         <asp:Localize ID="locExternalNetwork" runat="server" meta:resourcekey="locExternalNetwork"
             Text="External Network"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locExternalNetworkName" runat="server" meta:resourcekey="locExternalNetworkName"
                     Text="Connect to Network:"></asp:Localize>
             </td>
             <td>
                 <asp:DropDownList ID="ddlExternalNetworks" runat="server" CssClass="form-control"
-                    Width="450" DataValueField="Name" DataTextField="Name" />
+                    DataValueField="Name" DataTextField="Name" />
                 <asp:RequiredFieldValidator ID="ExternalNetworkValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="ddlExternalNetworks" meta:resourcekey="ExternalNetworkValidator" 
                     SetFocusOnError="true" ValidationGroup="ValidationSummary">*</asp:RequiredFieldValidator>
@@ -339,15 +339,15 @@
         <asp:Localize ID="locPrivateNetwork" runat="server" meta:resourcekey="locPrivateNetwork"
             Text="Private Network"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locPrivateNetworkName" runat="server" meta:resourcekey="locPrivateNetworkName"
                     Text="Connect to Network:"></asp:Localize>
             </td>
             <td>
                 <asp:DropDownList ID="ddlPrivateNetworks" runat="server" CssClass="form-control"
-                    Width="450" DataValueField="Name" DataTextField="Name" />
+                    DataValueField="Name" DataTextField="Name" />
                 <asp:RequiredFieldValidator ID="PrivateNetworkValidator" runat="server" Text="*" Display="Dynamic"
                     ControlToValidate="ddlPrivateNetworks" meta:resourcekey="PrivateNetworkValidator" 
                     SetFocusOnError="true" ValidationGroup="ValidationSummary">*</asp:RequiredFieldValidator>
@@ -360,9 +360,9 @@
     <legend>
         <asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
-            <td class="SubHead" style="width: 200px;">
+            <td class="SubHead" >
                 <asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern"
                     Text="VPS host name pattern:"></asp:Localize>
             </td>
@@ -373,7 +373,7 @@
             </td>
         </tr>
     </table>
-    <p style="margin: 10px;">
+    <p style="margin: 10px">
         <asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText"
             Text="Help text goes here..."></asp:Localize>
     </p>
@@ -384,7 +384,7 @@
         <asp:Localize ID="locStartAction" runat="server" meta:resourcekey="locStartAction"
             Text="Automatic Start Action"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
             <td>
                 <asp:Localize ID="locStartOptionsText" runat="server" meta:resourcekey="locStartOptionsText"
@@ -424,7 +424,7 @@
         <asp:Localize ID="locStopAction" runat="server" meta:resourcekey="locStopAction"
             Text="Automatic Stop Action"></asp:Localize>
     </legend>
-    <table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
         <tr>
             <td>
                 <asp:Localize ID="locStopActionText" runat="server" meta:resourcekey="locStopActionText"
@@ -443,3 +443,4 @@
     </table>
 </fieldset>
 <br />
+

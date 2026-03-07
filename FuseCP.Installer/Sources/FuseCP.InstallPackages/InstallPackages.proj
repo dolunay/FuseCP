@@ -18,7 +18,9 @@
 		<DeployFolder>$(TrunkFolder)\Deploy\$(BuildConfiguration)</DeployFolder>
         <PackagesFolder>$(SetupTrunkFolder)\Sources\FuseCP.InstallPackages</PackagesFolder>
 
-		<GZipCmd Condition=" '$(OS)' == 'Windows_NT' ">"$(RootFolder)\tools\gzip\bin\gzip.exe"</GZipCmd>
+        <GZipCmd Condition=" '$(OS)' == 'Windows_NT' and Exists('$(RootFolder)\tools\gzip\bin\gzip.exe') ">"$(RootFolder)\tools\gzip\bin\gzip.exe"</GZipCmd>
+        <GZipCmd Condition=" '$(OS)' == 'Windows_NT' and '$(GZipCmd)' == '' and Exists('$(ProgramFiles)\Git\usr\bin\gzip.exe') ">"$(ProgramFiles)\Git\usr\bin\gzip.exe"</GZipCmd>
+        <GZipCmd Condition=" '$(OS)' == 'Windows_NT' and '$(GZipCmd)' == '' ">gzip</GZipCmd>
 		<GZipCmd Condition=" '$(OS)' == 'Unix' ">gzip</GZipCmd>
         <NuGetCmd Condition=" '$(OS)' == 'Windows_NT' ">dotnet</NuGetCmd>
         <NuGetCmd Condition=" '$(OS)' == 'Unix' ">dotnet</NuGetCmd>

@@ -134,7 +134,7 @@ namespace FuseCP.Portal.VPSForPC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnShowProcessorAsPanel;
+        protected global::System.Web.UI.WebControls.LinkButton btnShowProcessorAsPanel;
         
         /// <summary>
         /// ChartNetwork control.
@@ -152,7 +152,7 @@ namespace FuseCP.Portal.VPSForPC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnShowNetworkAsPanel;
+        protected global::System.Web.UI.WebControls.LinkButton btnShowNetworkAsPanel;
         
         /// <summary>
         /// ChartMemory control.
@@ -170,7 +170,7 @@ namespace FuseCP.Portal.VPSForPC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CPCC.StyleButton btnShowMemoryAsPanel;
+        protected global::System.Web.UI.WebControls.LinkButton btnShowMemoryAsPanel;
         
         /// <summary>
         /// FormComments control.

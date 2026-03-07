@@ -17,7 +17,7 @@
 					<asp:Image ID="Image1" SkinID="SfBUserPlanAdd48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Add Mailboxplan"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
 					<fcp:CollapsiblePanel id="secPlan" runat="server"
@@ -26,7 +26,7 @@
                     <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden;">
 					    <table>
 						    <tr>
-							    <td class="FormLabel200" align="right">
+							    <td class="FormLabel200 text-end">
 									
 								</td>
 							    <td>
@@ -149,7 +149,7 @@
                                 <td>
                                     <div class="input-group col-sm-6">
                                     <asp:TextBox ID="tbTelephoneProvider" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <span class="input-group-btn">
+                                    <span class="d-flex">
                                     <asp:Button runat="server" ID="btnAccept" Text="Accept" CssClass="btn btn-primary" OnClick="btnAccept_Click" OnClientClick="ShowProgressDialog('Loading...');" ValidationGroup="Accept"/>
                                     </span>
                                     </div>
@@ -234,8 +234,8 @@
 					--%>
 					
 					<br />
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" ValidationGroup="CreatePlan" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Creating Plan...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" ValidationGroup="CreatePlan" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Creating Plan...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
 					    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="CreatePlan" />
 				    </div>
 				</div>

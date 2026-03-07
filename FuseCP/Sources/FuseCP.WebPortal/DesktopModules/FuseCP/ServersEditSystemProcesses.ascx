@@ -6,8 +6,8 @@
 </uc1:ServerHeaderControl>
 
 <div class="FormButtonsBar">
-    <div class="Left" style="padding: 5px;">
-        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+    <div class="Left" style="padding: 5px">
+        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
     </div>
     <div class="Right">
         <asp:UpdateProgress ID="updatePanelProgress" runat="server"
@@ -31,7 +31,7 @@
                 <asp:BoundField DataField="Pid" HeaderText="gvProcessesPID" />
                 <asp:BoundField DataField="Username" HeaderText="gvProcessesUserName" HeaderStyle-Wrap="false" />
                 <asp:BoundField DataField="Name" HeaderText="gvProcessesImageName" ItemStyle-Wrap="false" />
-                <asp:TemplateField HeaderText="gvProcessesArguments" HeaderStyle-Wrap="false" ItemStyle-Wrap="false" ItemStyle-Width="100%">
+                <asp:TemplateField HeaderText="gvProcessesArguments" HeaderStyle-Wrap="false" ItemStyle-Wrap="false">
                     <ItemTemplate>
                         <%# Regex.Replace((string)Eval("Arguments") ?? "", "(?<=^.{48}).+$", "...") %>
                     </ItemTemplate>

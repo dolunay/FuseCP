@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/EditVLANControl.ascx" TagName="EditVLANControl" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <asp:ValidationSummary ID="validatorsSummary" runat="server" ValidationGroup="EditVLAN" ShowMessageBox="True" ShowSummary="False" />
     <asp:CustomValidator ID="consistentVLAN" runat="server" ErrorMessage="Wrong VLAN." ValidationGroup="EditVLAN" Display="dynamic" ServerValidate="CheckVLAN" />
@@ -33,14 +33,14 @@
 	    </tr>
     </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" useSubmitBehavior="false" ValidationGroup="EditVLAN">
-        <i class="fa fa-refresh">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" ValidationGroup="EditVLAN">
+        <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnUpdate"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>

@@ -18,16 +18,16 @@
                     <asp:Image ID="Image1" SkinID="BlackBerryUsersLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarClean">
                             <div class="FormButtonsBarCleanLeft">
-                                <CPCC:StyleButton id="btnCreateNewBlackBerryUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateNewBlackBerryUser_Click"> <i class="fa fa-user-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateNewBlackBerryUser"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnCreateNewBlackBerryUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateNewBlackBerryUser_Click"> <i class="bi bi-person-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateNewBlackBerryUser"/> </asp:LinkButton>
                             </div>
                             <div class="FormButtonsBarCleanRight">
                                 <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                    <div class="form-inline">
+                                    <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                     <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" CssClass="form-control" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">
                                         <asp:ListItem>10</asp:ListItem>
@@ -43,20 +43,20 @@
                                     </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                            <div class="d-flex">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div></div></div>
                                 </asp:Panel>
                             </div>
                         </div>
                         <div class="FormButtonsBarCleanRight">
                             <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                                Width="100%" CssSelectorClass="NormalGridView" 
+                                CssSelectorClass="NormalGridView" 
                                 DataSourceID="odsAccountsPaged" meta:resourcekey="gvUsers"
                                 AllowPaging="true" AllowSorting="true" PageSize="20">
                                 <Columns>
                                     <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-                                        <ItemStyle Width="50%"></ItemStyle>
+                                        <ItemStyle></ItemStyle>
                                         <ItemTemplate>
                                             <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>'
                                                 ImageAlign="AbsMiddle" />
@@ -66,7 +66,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress"
-                                        ItemStyle-Width="50%" />
+                                        />
                                 </Columns>
                             </asp:GridView>
                             <asp:ObjectDataSource ID="odsAccountsPaged" runat="server" EnablePaging="True" SelectCountMethod="GetBlackBerryUsersPagedCount"

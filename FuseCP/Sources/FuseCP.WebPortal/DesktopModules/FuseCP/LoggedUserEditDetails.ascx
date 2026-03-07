@@ -4,12 +4,12 @@
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/EmailControl.ascx" TagName="EmailControl" TagPrefix="uc2" %>
 <asp:Panel ID="pnlEdit" runat="server" DefaultButton="btnUpdate">
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
         <asp:Panel ID="pnlAccount" runat="server" DefaultButton="cmdChangePassword">
-		<table cellSpacing="0" cellPadding="2" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr id="rowUsernameReadonly" runat="server" height="25">
-				<td class="SubHead" style="width:200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Label ID="lblUserNameText" runat="server" meta:resourcekey="lblUserNameText" Text="User name:"></asp:Label>
 				</td>
 				<td class="Huge">
@@ -35,9 +35,9 @@
 		</table>
 		</asp:Panel>
 		
-		<table cellSpacing="0" cellPadding="2" width="100%">
+		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
-				<td class="SubHead" style="width:200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First name:"></asp:Label>
 				</td>
 				<td class="NormalBold">
@@ -114,16 +114,16 @@
         <fcp:CollapsiblePanel id="headContact" runat="server" IsCollapsed="true"
             TargetControlID="pnlContact" meta:resourcekey="secContact" Text="Contact">
         </fcp:CollapsiblePanel>
-		<asp:Panel ID="pnlContact" runat="server" Height="0" style="overflow:hidden;">
+		<asp:Panel ID="pnlContact" runat="server" Height="0" style="overflow:hidden">
 		    <dnc:usercontact id="contact" runat="server"></dnc:usercontact>
 		</asp:Panel>		
         <fcp:CollapsiblePanel id="secDisplay" runat="server" IsCollapsed="true"
             TargetControlID="DisplayPanel" meta:resourcekey="secDisplay" Text="Display Preferences">
         </fcp:CollapsiblePanel>
-		<asp:Panel ID="DisplayPanel" runat="server" Height="0" style="overflow:hidden;">
-		    <table id="tblDisplay" cellSpacing="0" cellPadding="5" runat="server">
+		<asp:Panel ID="DisplayPanel" runat="server" Height="0" style="overflow:hidden">
+		    <table class="table table-borderless align-middle mb-0" id="tblDisplay" runat="server">
 			    <tr>
-				    <td class="SubHead"  style="width:200px;">
+				    <td class="SubHead FormLabel200">
 					    <asp:Label ID="lblLanguage" runat="server" meta:resourcekey="lblLanguage" Text="Interface Language:"></asp:Label>
 				    </td>
 				    <td class="NormalBold">
@@ -131,11 +131,11 @@
 				    </td>
 			    </tr>
 			    <tr>
-				    <td class="SubHead" style="width:200px;">
+				    <td class="SubHead FormLabel200">
 					    <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Items Per Page:"></asp:Label>
 				    </td>
 				    <td class="NormalBold">
-                        <asp:TextBox ID="txtItemsPerPage" runat="server" CssClass="form-control" Width="100"></asp:TextBox>
+						<asp:TextBox ID="txtItemsPerPage" runat="server" CssClass="form-control w-auto d-inline-block"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="valRequireGridItems" runat="server" ControlToValidate="txtItemsPerPage" meta:resourcekey="valRequireGridItems"
                             Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="valCorrectGridItems" runat="server" ControlToValidate="txtItemsPerPage" meta:resourcekey="valCorrectGridItems"
@@ -143,7 +143,7 @@
 				    </td>
 			    </tr>
 			    <tr>
-				    <td class="SubHead"  style="width:200px;">
+				    <td class="SubHead FormLabel200">
 					    <asp:Label ID="lblTheme" runat="server" meta:resourcekey="lblTheme" Text="Theme:"></asp:Label>
 				    </td>
 				    <td class="NormalBold">
@@ -151,7 +151,7 @@
 				    </td>
 			    </tr>
 				<tr>
-				    <td class="SubHead"  style="width:200px;">
+					<td class="SubHead FormLabel200">
 					    <asp:Label ID="lblThemeStyle" runat="server" meta:resourcekey="lblThemeStyle" Text="Style:"></asp:Label>
 				    </td>
 				    <td class="NormalBold">
@@ -159,15 +159,15 @@
 				    </td>
 			    </tr>
 			   <tr>
-				    <td class="SubHead"  style="width:200px;">
+					<td class="SubHead FormLabel200">
 					    <asp:Label ID="lblThemecolorHeader" runat="server" meta:resourcekey="lblThemecolorHeader" Text="Header Color:"></asp:Label>
 				    </td>
 					<td class="NormalBold">
 						<asp:panel runat="server" CssClass="row row-cols-auto g-3">
 							<asp:Repeater ID="ThemecolorHeaderRepeater1" runat="server">
 								<ItemTemplate>
-									<asp:panel ID="ThemecolorHeaderPanel" runat="server" Height="45" width="45" BorderWidth="10" BorderColor="Transparent" CssClass="col" >
-										<asp:button ID="ThemecolorHeaderButton" runat="server" BorderWidth="0" Height="40" width="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorHeader_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
+									<asp:panel ID="ThemecolorHeaderPanel" runat="server" Height="45" BorderWidth="10" BorderColor="Transparent" CssClass="col" >
+										<asp:button ID="ThemecolorHeaderButton" runat="server" BorderWidth="0" Height="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorHeader_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
 									</asp:panel>
 								</ItemTemplate>	
 							</asp:Repeater>
@@ -175,15 +175,15 @@
 					</td>
 				   </tr>
 			   <tr>
-				    <td class="SubHead"  style="width:200px;">
+				    <td class="SubHead"  >
 					    <asp:Label ID="lblThemecolorSidebar" runat="server" meta:resourcekey="lblThemecolorSidebar" Text="Sidebar Color:"></asp:Label>
 				    </td>
 				    <td class="NormalBold">
 		                <asp:panel runat="server" CssClass="row row-cols-auto g-3">
 							<asp:Repeater ID="ThemecolorSidebarRepeater1" runat="server">
 								<ItemTemplate>
-									<asp:panel ID="ThemecolorSidebarPanel" runat="server" Height="45" width="45" BorderWidth="10" BorderColor="Transparent" CssClass="col" >
-										<asp:button ID="ThemecolorSidebarButton" runat="server" BorderWidth="0" Height="40" width="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorSidebar_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
+									<asp:panel ID="ThemecolorSidebarPanel" runat="server" Height="45" BorderWidth="10" BorderColor="Transparent" CssClass="col" >
+										<asp:button ID="ThemecolorSidebarButton" runat="server" BorderWidth="0" Height="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorSidebar_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
 									</asp:panel>  
 								</ItemTemplate>	
 							</asp:Repeater>
@@ -200,7 +200,8 @@
 		    </table>
 		</asp:Panel>	
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/>  </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/>  </asp:LinkButton>
 </div>
 </asp:Panel>
+

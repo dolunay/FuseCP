@@ -7,21 +7,21 @@
     TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/QuotaViewer.ascx" TagName="QuotaViewer" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-			<div class="panel-heading">
-                    <h3 class="panel-title">
+			<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="CRMLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" Text="CRM Users"></asp:Localize>
                 </h3>
                         </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarCleanLeft">
-                            <CPCC:StyleButton id="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click"> <i class="fa fa-user-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUser"/> </CPCC:StyleButton>
+                            <asp:LinkButton id="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click"> <i class="bi bi-person-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateUser"/> </asp:LinkButton>
                         </div>
                         <div class="FormButtonsBarCleanRight">
                             <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                 <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged" CssClass="form-control">
                                     <asp:ListItem>10</asp:ListItem>
@@ -37,19 +37,19 @@
                                   </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                            <div class="d-flex">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div></div></div>
                             </asp:Panel>
                         </div>
                     </div>
 
 				    <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvUsers"  meta:resourcekey="gvUsers" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvUsers"  meta:resourcekey="gvUsers" CssSelectorClass="NormalGridView"
 					     AllowPaging="True" AllowSorting="True" DataSourceID="odsAccountsPaged" PageSize="20">
 					    <Columns>						     						   						    
 						    <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-							    <ItemStyle Width="50%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
 								    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType")) %>' ImageAlign="AbsMiddle" />
 								    <asp:hyperlink id="lnk1" runat="server"
@@ -58,7 +58,7 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-						    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="50%" />						   
+						    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />						   
 					    </Columns>
 				    </asp:GridView>
 					<asp:ObjectDataSource ID="odsAccountsPaged" runat="server" EnablePaging="True"
@@ -78,7 +78,7 @@
                     <asp:Panel ID="CRM2011Panel" runat="server">
                         <table>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
 				                    <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Full licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -86,7 +86,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locLimitedQuota" runat="server" meta:resourcekey="locLimitedQuota" Text="Limited licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -94,7 +94,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locESSQuota" runat="server" meta:resourcekey="locESSQuota" Text="ESS licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -107,7 +107,7 @@
                     <asp:Panel ID="CRM2013Panel" runat="server">
                         <table>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
 				                    <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locQuota" Text="Professional licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -115,7 +115,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locBasicQuota" runat="server" meta:resourcekey="locBasicQuota" Text="Basic licenses :"></asp:Localize>
                                 </td>
                                 <td>
@@ -123,7 +123,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td align="right" nowrap>
+                                <td class="text-nowrap text-end">
             				        <asp:Localize ID="locEssentialQuota" runat="server" meta:resourcekey="locEssentialQuota" Text="Essential licenses :"></asp:Localize>
                                 </td>
                                 <td>

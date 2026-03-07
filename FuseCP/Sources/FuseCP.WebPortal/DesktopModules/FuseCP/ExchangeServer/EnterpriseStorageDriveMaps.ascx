@@ -3,24 +3,24 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="imgESDM" SkinID="EnterpriseStorageDriveMaps48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Drive Maps"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton id="btnAddDriveMap" CssClass="btn btn-success" runat="server" OnClick="btnAddDriveMap_Click">
-        <i class="fa fa-check">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnAddDriveMap" CssClass="btn btn-success" runat="server" OnClick="btnAddDriveMap_Click">
+        <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddDriveMap"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-5 col-md-offset-7 text-right form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-5 offset-md-7 text-end d-flex flex-wrap gap-2 align-items-center">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
                         <asp:ListItem>10</asp:ListItem>
@@ -30,49 +30,49 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
-                    </div>
+                    <span class="input-group-btn">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
+                    </span>
                 </div>
             </div>
         </asp:Panel>
     </div>
 </div>
 <asp:GridView ID="gvDriveMaps" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-    Width="100%" EmptyDataText="gvDriveMaps" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvDriveMaps" CssSelectorClass="NormalGridView"
     OnRowCommand="gvDriveMaps_RowCommand" AllowPaging="True" AllowSorting="True"
     DataSourceID="odsEnterpriseDriveMapsPaged" PageSize="20">
     <Columns>
         <asp:TemplateField HeaderText="gvDrive">
-            <ItemStyle Width="25%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Image ID="img1" runat="server" ImageUrl='<%# GetDriveImage() %>' ImageAlign="AbsMiddle" />
                 <asp:Literal id="litDrive" runat="server" Text='<%# string.Format("{0}:", Eval("DriveLetter")) %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvLabelAs">
-            <ItemStyle Width="25%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litLabelAs" runat="server" Text='<%# Eval("LabelAs") %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="gvFolderUrl">
-            <ItemStyle Width="50%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Literal id="litFolderUrl" runat="server" Text='<%# (Eval("Folder.UncPath") ?? Eval("Folder.Url")).ToString()  %>'></asp:Literal>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <CPCC:StyleButton id="imgDelDriveMap" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Folder.Name") %>' OnClientClick="return confirm('Are you sure you want to delete selected map drive?')">
+                <asp:LinkButton id="imgDelDriveMap" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Folder.Name") %>' OnClientClick="return confirm('Are you sure you want to delete selected map drive?')">
                     &nbsp;
-                    <i class="fa fa-trash-o"></i>&nbsp;
-                </CPCC:StyleButton>
+                    <i class="bi bi-trash"></i>&nbsp;
+                </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

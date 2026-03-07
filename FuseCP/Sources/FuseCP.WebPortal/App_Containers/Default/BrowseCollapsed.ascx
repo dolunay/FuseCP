@@ -9,7 +9,7 @@
 <div class="BrowseContainer">
     <div class="Top"><div class="Left"></div></div>
     <asp:Panel ID="HeaderPanel" runat="server" CssClass="Title" style="cursor:pointer;">
-		<table cellpadding="0" cellspacing="0" style="width:100%;">
+    <table class="w-100 mb-0" style="border-collapse:separate;border-spacing:0;">
 			<tr>
 				<td style="width:100%;">
 					<asp:Image ID="imgModuleIcon" runat="server" ImageAlign="AbsMiddle" Width="48px" Height="48px" />

@@ -23,12 +23,12 @@
 		                    Text="Add External IP Addresses" />
 		            </p>
 		            
-                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px;" visible="false">
+                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
                         <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                      </div>
                     
-                    <table id="ExternalAddressesTable" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="ExternalAddressesTable" runat="server" >
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioExternalRandom" runat="server" AutoPostBack="true"
@@ -37,11 +37,11 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Width="50" Text="1"></asp:TextBox>
+                                <asp:TextBox ID="txtExternalAddressesNumber" runat="server" CssClass="form-control" Text="1"></asp:TextBox>
                                 
                                 <asp:RequiredFieldValidator ID="ExternalAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtExternalAddressesNumber" meta:resourcekey="ExternalAddressesValidator" SetFocusOnError="true"
@@ -58,9 +58,9 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesListRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
-                                    CssClass="_form-control" Width="300" ></asp:ListBox>
+                                    CssClass="_form-control" ></asp:ListBox>
                                 <br />
                                 <asp:Localize ID="locHoldCtrl" runat="server"
                                         meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses"></asp:Localize>
@@ -70,10 +70,10 @@
                     
                     <p>
                         <asp:Button ID="btnAdd" runat="server" meta:resourcekey="btnAdd"
-                            ValidationGroup="AddAddress" Text="Add" CssClass="Button1" 
+                            ValidationGroup="AddAddress" Text="Add" CssClass="btn btn-primary" 
                             onclick="btnAdd_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
 

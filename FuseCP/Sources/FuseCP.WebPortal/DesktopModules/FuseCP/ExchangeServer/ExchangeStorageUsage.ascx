@@ -6,18 +6,18 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeStorage48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Storage Usage"></asp:Localize>
 				</h3>
                         </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 				    <div style="margin-left: 30px;margin-top: 30px;">
 				       
-			            <table cellpadding="2">					        
+			            <table class="table table-borderless align-middle mb-0">					        
 					        <tr>
 					            <td class="FormLabel150" style="white-space:nowrap;"><asp:Localize ID="locUsedSize" runat="server" meta:resourcekey="locUsedSize" Text="Allocated Disk Space:"></asp:Localize></td>
 					            <td style="white-space:nowrap;">
@@ -27,6 +27,6 @@
 				        </table>			    						
 				        <br />
 				        <br />
-				        <CPCC:StyleButton id="btnRecalculate" CausesValidation="false" CssClass="btn btn-success" runat="server" onclick="btnRecalculate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateText"/> </CPCC:StyleButton>&nbsp;						
+				        <asp:LinkButton id="btnRecalculate" CausesValidation="false" CssClass="btn btn-success" runat="server" onclick="btnRecalculate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRecalculateText"/> </asp:LinkButton>&nbsp;						
 				    </div>
 				</div>

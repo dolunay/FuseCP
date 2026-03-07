@@ -1,13 +1,13 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServerServicesControl.ascx.cs" Inherits="FuseCP.Portal.ServerServicesControl" %>
 <asp:Repeater id="dlServiceGroups" Runat="server" >
 	<ItemTemplate>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title"><%# GetSharedLocalizedString("ResourceGroup." + (string)Eval("GroupName")) %>
+        <div class="card border-info">
+            <div class="card-header">
+                <h3 class="card-title"><%# GetSharedLocalizedString("ResourceGroup." + (string)Eval("GroupName")) %>
                     <asp:hyperlink id="lnkAddService" runat="server"
 				        NavigateUrl='<%# EditServiceUrl("GroupID", Eval("GroupID").ToString(), "add_service") %>'
-				        CssClass="btn btn-default btn-sm pull-right">
-                        <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server"  meta:resourcekey="lnkAddService"/>
+				        CssClass="btn btn-secondary btn-sm float-end">
+                        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server"  meta:resourcekey="lnkAddService"/>
 					</asp:hyperlink>
                 </h3>
             </div>

@@ -11,33 +11,16 @@
 
 <asp:Timer runat="server" Interval="30000" ID="operationTimer" />
 
-<script language="JavaScript" type="text/javascript">
-    function OpenRemoteDesktopWindow(resolution, width, height) {
-        $find("RdpPopup").hidePopup();
-        var rdpUrl = document.getElementById("litRdpPageUrl").innerText;
-        var left = (screen.width - width) / 2;
-        var top = (screen.height - height) / 2;
-        my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
-    }
-</script>
-<script type="text/javascript"> 
-    function updateNameChanged(chk) {
-        var warning = document.getElementById('divReboot');
-        if (chk.checked) {
-            warning.classList.remove("hidden");
-        } else {
-            warning.classList.add("hidden");
-        }
-    }
-</script> 
-<div class="panel-body form-horizontal">
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps2012-general.js"></script>
+<div class="card-body form-horizontal">
     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_general" />
     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-    <table id="DetailsTable" runat="server" style="width: 100%;" cellspacing="10">
+    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
         <tr>
-            <td valign="top" style="width: 40%;">
+            <td class="align-top" >
 
-                <table cellspacing="2">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td>
                             <asp:Localize ID="locHostname" runat="server"
@@ -45,12 +28,12 @@
                         <td>
                             <b>
                                 <asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]"></asp:HyperLink><asp:Literal ID="litHostname" runat="server" Text="[hostname]"></asp:Literal></b>
-                            <CPCC:StyleButton ID="btnChangeHostnamePopup" runat="server"
+                            <asp:LinkButton ID="btnChangeHostnamePopup" runat="server"
                                 meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit">
-                            </CPCC:StyleButton>
+                            </asp:LinkButton>
 
                             <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" Style="display: none;">
-                                <div style="padding-bottom: 3px;">
+                                <div style="padding-bottom: 3px">
                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                 </div>
@@ -66,7 +49,7 @@
 
                             <ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
                                 PopupControlID="RdpPanel" Position="Bottom" />
-                            <ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />
+                            <ajaxToolkit:DropShadowExtender ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +70,7 @@
                         <asp:Panel ID="pRDPLink" runat="server" Style="display: none;">
                             <asp:Label ID="litRdpPageUrl" ClientIDMode="Static" Text="" runat="server" />
                         </asp:Panel>
-                        <table cellspacing="2">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <asp:Localize ID="locStatus" runat="server"
@@ -128,18 +111,18 @@
                 </asp:UpdatePanel>
 
             </td>
-            <td valign="top" style="width: 35%;">
+            <td class="align-top" >
                 <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                     </Triggers>
                     <ContentTemplate>
-                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
+                        <asp:Image ID="imgThumbnail" runat="server" Height="120" Style="border-style: ridge; border-width: 3px; border-color: #ffffff;" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" Width="160" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="fa fa-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
+                <asp:HyperLink ID="lnkRDP" CssClass="btn btn-primary" runat="server" NavigateUrl="javascript:OpenRemoteDesktopWindow(4, 1280, 1024);"> <i class="bi bi-desktop">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="lnkRDP" Text="Open Console"/> </asp:HyperLink>
             </td>
-            <td rowspan="2" valign="top">
+            <td class="align-top" rowspan="2">
                 <ul class="ActionButtons">
                     <asp:Repeater ID="repButtons" runat="server"
                         OnItemCommand="repButtons_ItemCommand">
@@ -167,12 +150,12 @@
                     </Triggers>
                     <ContentTemplate>
 
-                        <table cellspacing="5">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="NormalBold">
                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:" />
                                 </td>
-                                <td class="NormalBold" style="width: 150px;">
+                                <td class="NormalBold" >
                                     <fcp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
                                     <asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
                                 </td>
@@ -216,11 +199,11 @@
 <asp:Panel ID="ChangeHostnamePanel" runat="server" Style="display: none;">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-i-cursor"></i>
+            <h3><i class="bi bi-i-cursor"></i>
                 <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
         </div>
         <div class="widget-content Popup">
-            <table cellspacing="5">
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
                     <td colspan="2">
                         <asp:ValidationSummary ID="validatorsSummary" runat="server"
@@ -233,7 +216,7 @@
                             meta:resourcekey="locHostname1"></asp:Localize>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                        <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -250,7 +233,7 @@
                             meta:resourcekey="locDomain"></asp:Localize>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                        <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                             ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -270,15 +253,15 @@
                 </tr>
             </table>
         </div>
-        <div style="color:red; text-align:center;" id="divReboot" class="hidden">
+        <div style="color:red; text-align:center" id="divReboot" class="hidden">
             <asp:Localize ID="locReboot" runat="server" Text="Restart required" meta:resourcekey="locReboot"></asp:Localize>
         </div>
-        <div class="popup-buttons text-right">
-            <CPCC:StyleButton ID="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText" />
-            </CPCC:StyleButton>
+        <div class="popup-buttons text-end">
+            <asp:LinkButton ID="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText" />
+            </asp:LinkButton>
             &nbsp;
-            <CPCC:StyleButton ID="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click"><i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText" />
-            </CPCC:StyleButton>
+            <asp:LinkButton ID="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" OnClick="btnChangeHostname_Click"><i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText" />
+            </asp:LinkButton>
         </div>
     </div>
 </asp:Panel>

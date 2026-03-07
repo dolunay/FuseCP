@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterMail100x_EditDomain_Throttling.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterMail100x_EditDomain_Throttling" %>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lbMessagesPerHour" runat="server" meta:resourcekey="lbMessagesPerHour" /></td>
-        <td width = "100">
+        <td class="text-end"><asp:Label ID="lbMessagesPerHour" runat="server" meta:resourcekey="lbMessagesPerHour" /></td>
+        <td>
                 <asp:TextBox runat="server"  ID="txtMessagesPerHour" Text="0" Width="80px" CssClass="form-control" />
                 <asp:RangeValidator Type="Integer" runat="server" ID="valMessagesPerHour" ControlToValidate="txtMessagesPerHour"
                     MinimumValue="0" Display="Dynamic" />
@@ -11,7 +11,7 @@
          </td>
     </tr>
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lblmessagesAction" meta:resourcekey="lblmessagesAction" Text="Message Throttling Action:" runat="server" /></td>
+        <td class="text-end"><asp:Label ID="lblmessagesAction" meta:resourcekey="lblmessagesAction" Text="Message Throttling Action:" runat="server" /></td>
         <td>
             <asp:DropDownList ID="ddlMessagesAction" runat="server">
                 <asp:ListItem Value="0" meta:resourcekey="ddlMessagesAction0">Reject</asp:ListItem>
@@ -21,8 +21,8 @@
         </td>
     </tr>
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lbBandwidthPerHour" runat="server" meta:resourcekey="lbBandwidthPerHour" /></td>
-        <td width = "100">
+        <td class="text-end"><asp:Label ID="lbBandwidthPerHour" runat="server" meta:resourcekey="lbBandwidthPerHour" /></td>
+        <td>
                 <asp:TextBox runat="server"  ID="txtBandwidthPerHour" Text="0" Width="80px" CssClass="form-control" />
                 <asp:RangeValidator Type="Integer" runat="server" ID="valBandwidthPerHour" ControlToValidate="txtBandwidthPerHour"
                     MinimumValue="0" Display="Dynamic" />
@@ -31,7 +31,7 @@
          </td>
     </tr>
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lblBandwidthAction" meta:resourcekey="lblBandwidthAction" Text="Bandwidth Throttling Action:" runat="server" /></td>
+        <td class="text-end"><asp:Label ID="lblBandwidthAction" meta:resourcekey="lblBandwidthAction" Text="Bandwidth Throttling Action:" runat="server" /></td>
         <td>
             <asp:DropDownList ID="ddlBandwidthAction" runat="server">
                 <asp:ListItem Value="0" meta:resourcekey="ddlBandwidthAction0">Reject</asp:ListItem>
@@ -41,8 +41,8 @@
         </td>
     </tr>
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lbBouncesPerHour" runat="server" meta:resourcekey="lbBouncesPerHour" /></td>
-        <td width = "100">
+        <td class="text-end"><asp:Label ID="lbBouncesPerHour" runat="server" meta:resourcekey="lbBouncesPerHour" /></td>
+        <td>
                 <asp:TextBox runat="server"  ID="txtBouncesPerHour" Text="0" Width="80px" CssClass="form-control" />
                 <asp:RangeValidator Type="Integer" runat="server" ID="valBouncesPerHour" ControlToValidate="txtBouncesPerHour"
                     MinimumValue="0" Display="None" />
@@ -51,7 +51,7 @@
          </td>
     </tr>
     <tr>
-        <td align="right" width = "200"><asp:Label ID="lblBouncesPerHourAction" meta:resourcekey="lblBouncesPerHourAction" Text="Bounces Throttling Action:" runat="server" /></td>
+        <td class="text-end"><asp:Label ID="lblBouncesPerHourAction" meta:resourcekey="lblBouncesPerHourAction" Text="Bounces Throttling Action:" runat="server" /></td>
         <td>
             <asp:DropDownList ID="ddlBouncesPerHourAction" runat="server">
                 <asp:ListItem Value="0" meta:resourcekey="ddlBouncesPerHourAction0">Reject</asp:ListItem>
@@ -61,3 +61,4 @@
         </td>
     </tr>
 </table>
+

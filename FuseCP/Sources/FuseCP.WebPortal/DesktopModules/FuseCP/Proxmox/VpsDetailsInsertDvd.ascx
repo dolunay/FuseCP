@@ -20,16 +20,16 @@
 			            </p>
 			            
 			            <asp:GridView ID="gvDisks" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-				            Width="100%" EmptyDataText="gvDisks" CssSelectorClass="NormalGridView"
+				            EmptyDataText="gvDisks" CssSelectorClass="NormalGridView"
                             onrowcommand="gvDisks_RowCommand">
 				            <Columns>
 					            <asp:TemplateField HeaderText="gvTitle" meta:resourcekey="gvTitle">
 						            <ItemTemplate>
-						                <asp:Image ID="Image2" SkinID="Dvd48" runat="server" style="float: left;" />
-						                <div style="font-weight: bold;padding: 3px; margin-left: 50px;">
+						                <asp:Image ID="Image2" SkinID="Dvd48" runat="server" style="float: left" />
+						                <div style="font-weight: bold; padding: 3px; margin-left: 50px">
 						                    <%# Eval("Name") %>
 						                </div>
-						                <div style="padding: 3px; margin-left: 50px;">
+						                <div style="padding: 3px; margin-left: 50px">
 							                <%# Eval("Description") %>
 							            </div>
 						            </ItemTemplate>
@@ -37,7 +37,7 @@
 					            <asp:TemplateField>
 						            <ItemTemplate>
 							            <asp:Button ID="btnInsert" runat="server" Text="Insert" meta:resourcekey="btnInsert"
-							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="SmallButton">
+							                CommandName="insert" CommandArgument='<%# Eval("Path") %>' CssClass="btn btn-primary btn-sm">
 							            </asp:Button>
 						            </ItemTemplate>
 					            </asp:TemplateField>
@@ -45,7 +45,7 @@
 			            </asp:GridView>
 			            <br />
 			            <asp:Button ID="btnCancel" runat="server" CausesValidation="false"
-			                      Text="Cancel" meta:resourcekey="btnCancel" CssClass="Button1" 
+			                      Text="Cancel" meta:resourcekey="btnCancel" CssClass="btn btn-primary" 
                         onclick="btnCancel_Click" Width="60px" />
      
 			    </div>

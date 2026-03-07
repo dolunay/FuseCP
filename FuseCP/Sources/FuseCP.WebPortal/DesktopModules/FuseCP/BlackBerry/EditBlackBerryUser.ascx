@@ -19,7 +19,7 @@
                     <asp:Image ID="Image1" SkinID="BlackBerryUsersLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
@@ -30,7 +30,7 @@
                     <asp:Panel runat="server" ID="pnlSetPassword">
                     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                         <tr>
                             <td><asp:RadioButton runat="server" ID="rbSpecifyPassword" OnCheckedChanged="rbSpecifyPassword_OnCheckedChanged" Checked="true" AutoPostBack="true" meta:resourcekey="rbSpecifyPassword" GroupName="Password"/></td>
                         </tr>
@@ -58,24 +58,24 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>                    
                     <br />
-                    <CPCC:StyleButton id="btnSetPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetPassword_Click"> <i class="fa fa-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetPassword"/> </CPCC:StyleButton>              
+                    <asp:LinkButton id="btnSetPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetPassword_Click"> <i class="bi bi-lock">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetPassword"/> </asp:LinkButton>              
                     </asp:Panel>
                     <br />                    
                    
                     
                     
                     <asp:GridView runat="server" ID="dvStats" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%"  CssSelectorClass="NormalGridView" ShowHeader="true" ShowFooter="false">
+					     CssSelectorClass="NormalGridView" ShowHeader="true" ShowFooter="false">
                         <Columns>
                             <asp:BoundField DataField="Name" ItemStyle-Wrap="false" />
                             <asp:BoundField DataField="Value" />
                         </Columns>
                     </asp:GridView>
                         
-					<div class="panel-footer text-right">
-					<CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" CausesValidation="false"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp; 
-                    <CPCC:StyleButton id="btnDeleteData" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteData_Click" CausesValidation="false"> <i class="fa fa-database">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteDataText"/> </CPCC:StyleButton>&nbsp; 
-                    <CPCC:StyleButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </CPCC:StyleButton>
+					<div class="card-footer text-end">
+					<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp; 
+                    <asp:LinkButton id="btnDeleteData" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteData_Click" CausesValidation="false"> <i class="bi bi-database">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteDataText"/> </asp:LinkButton>&nbsp; 
+                    <asp:LinkButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExitText"/> </asp:LinkButton>
 				    </div>	
                 </div>
             </div>

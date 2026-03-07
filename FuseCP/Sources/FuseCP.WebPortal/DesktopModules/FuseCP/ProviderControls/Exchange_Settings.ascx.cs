@@ -276,8 +276,8 @@ namespace FuseCP.Portal.ProviderControls
 
             }
 		    ddl.Visible = ddl.Items.Count != 0;
-            btnAdd.Visible = ddl.Items.Count != 0;
-            Button1.Visible = ddl.Items.Count != 0;
+            btnAdd.Visible = isHubservice && ddl.Items.Count != 0;
+            btnAddClientAccess.Visible = !isHubservice && ddl.Items.Count != 0;
 
         }
 

@@ -11,17 +11,17 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_help" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <fcp:CollapsiblePanel id="secEmail" runat="server" IsCollapsed="true"
                         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send instructions by E-Mail">
                     </fcp:CollapsiblePanel>
-	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
-                        <table id="tblEmail" runat="server" cellpadding="2">
+	                <asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden">
+                        <table class="table table-borderless align-middle mb-0" id="tblEmail" runat="server">
                             <tr>
-                                <td class="SubHead" width="30" nowrap>
+                                <td class="SubHead text-nowrap">
                                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                                 </td>
                                 <td class="Normal">

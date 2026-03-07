@@ -26,10 +26,10 @@
                     <wsp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px;width:400px;">
-                        <table cellpadding="3">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:10px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:60px;"><asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
+                                <td ><asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
                                         meta:resourcekey="lblCpu" Text="CPU:" CssClass="Medium" /></td>
                                 <td>
                                     <asp:DropDownList ID="ddlCpu" runat="server" CssClass="HugeTextBox">
@@ -38,12 +38,12 @@
                                 <td><asp:Localize ID="locCores" runat="server" meta:resourcekey="locCores" Text="cores"/></td>
                             </tr>
                         </table>
-                        <table cellpadding="3">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:60px;"><asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
+                                <td ><asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
                                         meta:resourcekey="lblRam" Text="RAM:" CssClass="Medium" /></td>
                                 <td>
-                                    <asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox" Width="70"></asp:TextBox>
+                                    <asp:TextBox ID="txtRam" runat="server" CssClass="HugeTextBox"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtRam" meta:resourcekey="RequireRamValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -51,12 +51,12 @@
                                 <td><asp:Localize ID="locMB" runat="server" meta:resourcekey="locMB" Text="MB"/></td>
                             </tr>
                         </table>
-                        <table cellpadding="3">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:60px;"><asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
+                                <td ><asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
                                         meta:resourcekey="lblHdd" Text="HDD:" CssClass="Medium" /></td>
                                 <td>
-                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox" Width="70"></asp:TextBox>
+                                    <asp:TextBox ID="txtHdd" runat="server" CssClass="HugeTextBox"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtHdd" meta:resourcekey="RequireHddValidator" SetFocusOnError="true"
                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -71,13 +71,13 @@
                     <wsp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table>
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="FormLabel150"><asp:Localize ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
                                 <td>
-                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Width="50"></asp:TextBox>
+                                    <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control"></asp:TextBox>
                                     
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtSnapshots" meta:resourcekey="SnapshotsValidator" SetFocusOnError="true"
@@ -90,8 +90,8 @@
                     <wsp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table>
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="true"
@@ -104,10 +104,10 @@
                     <wsp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table>
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:200px;">
+                                <td >
                                     <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
                                 </td>
                             </tr>
@@ -117,10 +117,10 @@
                     <wsp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table style="width:400px;">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td style="width:200px;">
+                                <td >
                                     <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
                                 </td>
                                 <td>
@@ -149,8 +149,8 @@
                     <wsp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                        <table cellspacing="5">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
                                     <asp:CheckBox ID="chkExternalNetworkEnabled" runat="server"
@@ -168,13 +168,14 @@
                     
                     <p>
                         <asp:Button ID="btnUpdate" runat="server" meta:resourcekey="btnUpdate"
-                            ValidationGroup="Vps" Text="Update" CssClass="Button1" 
+                            ValidationGroup="Vps" Text="Update" CssClass="btn btn-primary" 
                             onclick="btnUpdate_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>       
 
 			    </div>
 		    </div>
 	    </div>
+

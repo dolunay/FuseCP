@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HoursBox.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.UserControls.HoursBox" %>
-<div class="form-inline">
+<div class="d-flex flex-wrap gap-2 align-items-center">
 <asp:TextBox ID="txtValue" runat="server" CssClass="form-control" MaxLength="15"></asp:TextBox>
 <asp:Localize ID="locHours" runat="server" meta:resourcekey="locHours" Text="Hours"></asp:Localize>
 <asp:RangeValidator  ErrorMessage="*"  ID="valRangeHours" runat="server"  Display="Dynamic"

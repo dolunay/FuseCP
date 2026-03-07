@@ -4,47 +4,13 @@
 <%@ Register Src="UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="uc1" %>
 <%@ Register Src="UserControls/UserDetails.ascx" TagName="UserDetails" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
-
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        $("#tbSearch").autocomplete({
-            zIndex: 100,
-            source: function (request, response) {
-                $.ajax({
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        term: request.term,
-                        fullType: 'Users',
-                        columnType: "'" + $("#ddlFilterColumn").val() + "'"
-                    },
-                    url: "AjaxHandler.ashx",
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return {
-                                label: item.TextSearch,
-                                code: item
-                            };
-                        }));
-                    }
-                })
-            },
-            select: function (event, ui) {
-                var item = ui.item;
-                $("#ddlFilterColumn").val(item.code.ColumnType);
-                $("#tbSearchFullType").val(item.code.FullType);
-                $("#tbSearchText").val(item.code.TextSearch);
-            }
-        });
-    });//]]>
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/search-users.js"></script>
 
 <div class="FormButtonsBar">
     <asp:Panel ID="tblSearch" runat="server" CssClass="NormalBold" DefaultButton="cmdSearch">
     <asp:Label ID="lblSearch" runat="server" meta:resourcekey="lblSearch"></asp:Label>
-    <div align="center">
-                <div class="form-inline">
+    <div class="text-center">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                 <asp:DropDownList ClientIDMode="Static" ID="ddlFilterColumn" runat="server" CssClass="form-control" resourcekey="ddlFilterColumn">
                     <asp:ListItem Value="Username">Username</asp:ListItem>
@@ -56,8 +22,8 @@
                                 <asp:TextBox ID="tbSearch" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:TextBox ID="tbSearchFullType" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
                                 <asp:TextBox ID="tbSearchText" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
-                                <div class="input-group-btn">
-                                 <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                                <div class="d-flex">
+                                 <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div>
                             </div>
                                     </div>
@@ -106,7 +72,7 @@
 				<%# PanelFormatter.GetAccountStatusName((int)Eval("StatusID"))%>
 			</ItemTemplate>
 		</asp:TemplateField>
-		<asp:TemplateField ItemStyle-Width="20px" ItemStyle-Wrap="false">
+		<asp:TemplateField ItemStyle-Wrap="false">
 			<ItemTemplate><uc4:Comments id="Comments1" runat="server"
 				    Comments='<%# Eval("Comments") %>'>
                 </uc4:Comments></ItemTemplate>

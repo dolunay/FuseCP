@@ -23,6 +23,8 @@ namespace FuseCP.Portal.VPS
 {
     public partial class VpsDetailsGeneral : FuseCPModuleBase
     {
+        protected global::System.Web.UI.WebControls.Literal litRdpPageUrl;
+
         private class ActionButton
         {
             public string Text { get; set; }

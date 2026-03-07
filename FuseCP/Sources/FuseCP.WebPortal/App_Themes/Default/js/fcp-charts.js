@@ -1,5 +1,32 @@
 $(document).ready(function(){
 
+	function showTab(selector) {
+		if (!window.bootstrap || !window.bootstrap.Tab) {
+			return;
+		}
+
+		var element = null;
+
+		if (window.jQuery) {
+			var $element = window.jQuery(selector).first();
+			if ($element.length) {
+				element = $element.get(0);
+			}
+		}
+
+		if (!element) {
+			try {
+				element = document.querySelector(selector);
+			} catch (e) {
+				element = null;
+			}
+		}
+
+		if (element) {
+			window.bootstrap.Tab.getOrCreateInstance(element).show();
+		}
+	}
+
 	/* general chart parameters for headline on index page */
 	var headlineChart = {
 		pointsFillColor: '#fff',
@@ -18,7 +45,7 @@ $(document).ready(function(){
 	if( $('.headline').length > 0 ) {
 
 		/* init chart */
-		$('.headline a:first').tab('show');
+		showTab('.headline a:first');
 		headlineSummaryChart('#headline-summary-chart');
 
 		$('.headline a').click( function(e) {
@@ -66,7 +93,7 @@ $(document).ready(function(){
 	/*	DASHBOARD CHARTS
 	/********************************************/
 
-	$('#dashboard-stat-tab a:first').tab('show');
+	showTab('#dashboard-stat-tab a:first');
 	if( $('#dashboard-sales-chart').length > 0 )
 		chartBarVertical( $('#dashboard-sales-chart') );
 

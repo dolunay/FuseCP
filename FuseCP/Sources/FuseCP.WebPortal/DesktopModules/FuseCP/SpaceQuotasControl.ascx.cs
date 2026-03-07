@@ -49,7 +49,7 @@ namespace FuseCP.Portal
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                Response.Write(HttpUtility.HtmlEncode(ex.ToString()));
             }
         }
 

@@ -49,7 +49,7 @@
 		            </asp:GridView>
 		            <br />
                     <asp:Button ID="btnUpdateVpsPermissions" runat="server" meta:resourcekey="btnUpdateVdcPermissions"
-                            CssClass="Button1" Text="Update" CausesValidation="false" />
+                            CssClass="btn btn-primary" Text="Update" CausesValidation="false" />
                     <br />
 				    
 			    </div>

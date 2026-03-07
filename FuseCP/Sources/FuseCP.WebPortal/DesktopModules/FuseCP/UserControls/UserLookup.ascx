@@ -26,7 +26,7 @@
 <asp:Panel ID="SelectPanel" runat="server">
     <div class="FormButtonsBar">
         <div class="Left">
-            <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
         </div>
         <div class="Right">
             <uc1:SearchBox ID="searchBox" runat="server" />
@@ -40,9 +40,9 @@
         <Columns>
             <asp:TemplateField SortExpression="Username" HeaderText="gvUsersUsername">
 	            <ItemTemplate>
-		            <CPCC:StyleButton id=cmdSelect runat="server" CommandName="select" CommandArgument='<%# Eval("UserID")%>' CausesValidation="false">
+		            <asp:LinkButton id=cmdSelect runat="server" CommandName="select" CommandArgument='<%# Eval("UserID")%>' CausesValidation="false">
 			            <%# Eval("Username") %>
-		            </CPCC:StyleButton>
+		            </asp:LinkButton>
 	            </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="FullName" SortExpression="FullName" HeaderText="gvUsersName">

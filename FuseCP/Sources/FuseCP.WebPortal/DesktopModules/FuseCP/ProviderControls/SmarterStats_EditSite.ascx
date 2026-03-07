@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SmarterStats_EditSite.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.SmarterStats_EditSite" %>
-<table width="100%" cellpadding="3" border="0">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap height="25px">
+        <td class="SubHead text-nowrap" height="25px">
             <asp:Label ID="lblSiteID" runat="server" meta:resourcekey="lblSiteID" Text="Site ID:"></asp:Label>
         </td>
-        <td class="NormalBold" width="100%">
+        <td class="NormalBold">
             <asp:TextBox id="txtSiteId" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
         </td>
     </tr>
@@ -20,14 +20,14 @@
         <td class="Normal">&nbsp;</td>
     </tr>
     <tr>
-        <td class="SubHead" valign="top" colspan="2">
+        <td class="SubHead align-top" colspan="2">
             <asp:Label ID="lblSiteUsers" runat="server" meta:resourcekey="lblSiteUsers" Text="Site Users:"></asp:Label>
         </td>
     </tr>
 </table>
 
 <div class="FormButtonsBar">
-    <asp:Button id="btnAdd" runat="server" meta:resourcekey="btnAdd" Text="Add User" CssClass="Button2" CausesValidation="false" OnClick="btnAdd_Click"/>
+    <asp:Button id="btnAdd" runat="server" meta:resourcekey="btnAdd" Text="Add User" CssClass="btn btn-success" CausesValidation="false" OnClick="btnAdd_Click"/>
 </div>
 
 <asp:GridView id="gvUsers" Runat="server" AutoGenerateColumns="False"
@@ -73,9 +73,9 @@
         </asp:TemplateField>
         <asp:TemplateField ItemStyle-HorizontalAlign="Center">
             <itemtemplate>
-                <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                </CPCC:StyleButton>
+                <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                </asp:LinkButton>
             </itemtemplate>
         </asp:TemplateField>
     </columns>

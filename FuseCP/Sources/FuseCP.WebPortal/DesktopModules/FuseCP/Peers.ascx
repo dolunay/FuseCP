@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Peers.ascx.cs" Inherits="FuseCP.Portal.Peers" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 <div class="FormButtonsBar right">
-	<CPCC:StyleButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
-         <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
-	</CPCC:StyleButton>
+	<asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click" >
+         <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/>
+	</asp:LinkButton>
 </div>
 <asp:GridView id="usersList" runat="server" AutoGenerateColumns="False"
 	AllowPaging="True" AllowSorting="True" DataSourceID="odsUserPeers"
@@ -28,14 +28,15 @@
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:BoundField DataField="FullName" SortExpression="FullName" HeaderText="usersListName">
-            <ItemStyle Wrap="False" Width="50%" />
+            <ItemStyle Wrap="False" />
         </asp:BoundField>
 		<asp:BoundField DataField="Email" SortExpression="Email" HeaderText="usersListEmail">
 		    <HeaderStyle Wrap="False" />
-		     <ItemStyle Wrap="False" Width="50%" />
+		     <ItemStyle Wrap="False" />
 		</asp:BoundField>
 	</Columns>
 </asp:GridView>
 <asp:ObjectDataSource ID="odsUserPeers" runat="server"
     SelectMethod="GetUserPeers" TypeName="FuseCP.Portal.UsersHelper" OnSelected="odsUserPeers_Selected" MaximumRowsParameterName="" StartRowIndexParameterName="">
 </asp:ObjectDataSource>
+

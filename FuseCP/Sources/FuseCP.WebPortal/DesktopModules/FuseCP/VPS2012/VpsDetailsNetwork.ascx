@@ -6,30 +6,21 @@
 <%@ Register Src="UserControls/FormTitle.ascx" TagName="FormTitle" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/CollapsiblePanel.ascx" TagName="CollapsiblePanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-network-selection.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-    function SelectAllCheckboxes(box) {
-        var state = box.checked;
-        var elm = box.parentElement.parentElement.parentElement.parentElement.getElementsByTagName("INPUT");
-        for (i = 0; i < elm.length; i++)
-            if (elm[i].type == "checkbox" && elm[i].id != box.id && elm[i].checked != state && !elm[i].disabled)
-                elm[i].checked = state;
-    }
-</script>
 
 
 <div class="Content">
     <div class="Center">
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_network" />
             <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
             <fcp:CollapsiblePanel ID="secRealNetwork" runat="server"
                 TargetControlID="RealNetworkPanel" meta:ResourceKey="secRealNetwork" Text="Virtual Machine Networks details"></fcp:CollapsiblePanel>
             <asp:Panel ID="RealNetworkPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
-                <div style="margin-top: 4px; margin-bottom: 10px;">
+                <div style="margin-top: 4px; margin-bottom: 10px">
                     <asp:Button ID="btnRestoreExternalAddress" runat="server" meta:resourcekey="btnRestoreExternalAddress"
                         Text="Restore External IPs" CssClass="btn btn-primary" OnClick="btnRestoreExternalAddress_Click" />
                     <asp:Button ID="btnRestorePrivateAddress" runat="server" meta:resourcekey="btnRestorePrivateAddress"
@@ -39,8 +30,8 @@
                 </div>
                 <asp:Repeater ID="repVMNetwork" runat="server">
                     <ItemTemplate>
-                        <div class="form-group">
-                            <table style="border-collapse: separate; border-spacing: 15px 5px; padding-left: 5px;">
+                        <div class="mb-3">
+                            <table style="border-collapse: separate; border-spacing: 15px 5px; padding-left: 5px">
                                 <tr>
                                     <td>
                                         <asp:Label ID="locAdapterName" meta:resourcekey="locAdapterName" runat="server" Text="Adapter Name:" CssClass="col-sm-20" AssociatedControlID="litAdapterName"></asp:Label>
@@ -55,8 +46,8 @@
                                         <asp:Label ID="locAdapterVLAN" meta:resourcekey="locAdapterVLAN" runat="server" Visible='<%# IsVlanEnabled(Eval("vlan")) %>' Text="VLAN:" CssClass="col-sm-20" AssociatedControlID="litAdapterVLAN"></asp:Label>
                                     </td>
                                 </tr>
-                                <tr style="vertical-align: top;">
-                                    <td style="width: 140px;">
+                                <tr style="vertical-align: top">
+                                    <td >
                                         <asp:Literal ID="litAdapterName" runat="server" meta:resourcekey="litAdaperName" Text='<%# Eval("Name") %>'></asp:Literal>
                                     </td>
                                     <td>
@@ -91,7 +82,7 @@
                 TargetControlID="ExternalNetworkPanel" meta:ResourceKey="secExternalNetwork" Text="External Network"></fcp:CollapsiblePanel>
             <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" Style="overflow: hidden;">
 
-                <table style="border-collapse: separate; border-spacing: 3px 1px;">
+                <table style="border-collapse: separate; border-spacing: 3px 1px">
                     <tr>
                         <td>
                             <asp:Localize ID="locExtAddress" runat="server"
@@ -122,7 +113,7 @@
                     </tr>
                 </table>
 
-                <div style="width: 400px;">
+                <div >
                     <asp:GridView ID="gvExternalAddresses" runat="server" AutoGenerateColumns="False"
                         EmptyDataText="gvExternalAddresses" CssSelectorClass="NormalGridView"
                         DataKeyNames="AddressID">
@@ -139,7 +130,7 @@
                             <asp:BoundField DataField="IPAddress" HeaderText="gvIpAddress" meta:resourcekey="gvIpAddress" />
                             <asp:BoundField DataField="SubnetMask" HeaderText="gvSubnetMask" meta:resourcekey="gvSubnetMask" />
                             <asp:BoundField DataField="DefaultGateway" HeaderText="gvDefaultGateway" meta:resourcekey="gvDefaultGateway" />
-                            <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary" ItemStyle-Width="50">
+                            <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
                                 <ItemTemplate>
                                     <div style="text-align: center">
                                         &nbsp;
@@ -151,7 +142,7 @@
                     </asp:GridView>
                 </div>
 
-                <div style="margin-top: 4px;">
+                <div style="margin-top: 4px">
                     <asp:Button ID="btnAddExternalAddress" runat="server" meta:resourcekey="btnAddExternalAddress"
                         Text="Add" CssClass="btn btn-primary" OnClick="btnAddExternalAddress_Click" />
                     <asp:Button ID="btnSetPrimaryExternal" runat="server" Text="Set As Primary"
@@ -179,7 +170,7 @@
                 TargetControlID="PrivateNetworkPanel" meta:ResourceKey="secPrivateNetwork" Text="Private Network"></fcp:CollapsiblePanel>
             <asp:Panel ID="PrivateNetworkPanel" runat="server" Height="0" Style="overflow: hidden;">
 
-                <table style="border-collapse: separate; border-spacing: 3px 1px;">
+                <table style="border-collapse: separate; border-spacing: 3px 1px">
                     <tr>
                         <td>
                             <asp:Localize ID="locPrivAddress" runat="server"
@@ -212,7 +203,7 @@
 
                 <asp:Panel ID="PrivateAddressesPanel" runat="server">
 
-                    <div style="width: 400px;">
+                    <div >
                         <asp:GridView ID="gvPrivateAddresses" runat="server" AutoGenerateColumns="False"
                             EmptyDataText="gvPrivateAddresses" CssSelectorClass="NormalGridView"
                             DataKeyNames="AddressID">
@@ -233,7 +224,7 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="SubnetMask" HeaderText="gvSubnetMask" meta:resourcekey="gvSubnetMask" />
                                 <asp:BoundField DataField="DefaultGateway" HeaderText="gvDefaultGateway" meta:resourcekey="gvDefaultGateway" />
-                                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary" ItemStyle-Width="50">
+                                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
                                     <ItemTemplate>
                                         <div style="text-align: center">
                                             &nbsp;
@@ -245,7 +236,7 @@
                         </asp:GridView>
                     </div>
 
-                    <div style="margin-top: 4px;">
+                    <div style="margin-top: 4px">
                         <asp:Button ID="btnAddPrivateAddress" runat="server" meta:resourcekey="btnAddPrivateAddress"
                             Text="Add" CssClass="btn btn-primary" OnClick="btnAddPrivateAddress_Click" />
                         <asp:Button ID="btnSetPrimaryPrivate" runat="server" Text="Set As Primary"
@@ -273,7 +264,7 @@
                 TargetControlID="DmzNetworkPanel" meta:ResourceKey="secDmzNetwork" Text="DMZ Network"></fcp:CollapsiblePanel>
             <asp:Panel ID="DmzNetworkPanel" runat="server" Height="0" Style="overflow: hidden;">
 
-                <table style="border-collapse: separate; border-spacing: 3px 1px;">
+                <table style="border-collapse: separate; border-spacing: 3px 1px">
                     <tr>
                         <td>
                             <asp:Localize ID="locDmzAddress" runat="server"
@@ -306,7 +297,7 @@
 
                 <asp:Panel ID="DmzAddressesPanel" runat="server">
 
-                    <div style="width: 400px;">
+                    <div >
                         <asp:GridView ID="gvDmzAddresses" runat="server" AutoGenerateColumns="False"
                             EmptyDataText="gvDmzAddresses" CssSelectorClass="NormalGridView"
                             DataKeyNames="AddressID">
@@ -327,7 +318,7 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="SubnetMask" HeaderText="gvSubnetMask" meta:resourcekey="gvSubnetMask" />
                                 <asp:BoundField DataField="DefaultGateway" HeaderText="gvDefaultGateway" meta:resourcekey="gvDefaultGateway" />
-                                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary" ItemStyle-Width="50">
+                                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
                                     <ItemTemplate>
                                         <div style="text-align: center">
                                             &nbsp;
@@ -339,7 +330,7 @@
                         </asp:GridView>
                     </div>
 
-                    <div style="margin-top: 4px;">
+                    <div style="margin-top: 4px">
                         <asp:Button ID="btnAddDmzAddress" runat="server" meta:resourcekey="btnAddDmzAddress"
                             Text="Add" CssClass="btn btn-primary" OnClick="btnAddDmzAddress_Click" />
                         <asp:Button ID="btnSetPrimaryDmz" runat="server" Text="Set As Primary"
@@ -365,4 +356,5 @@
         </div>
     </div>
 </div>
+
 

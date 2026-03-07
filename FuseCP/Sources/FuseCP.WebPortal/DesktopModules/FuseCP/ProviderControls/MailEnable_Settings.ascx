@@ -1,12 +1,12 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MailEnable_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MailEnable_Settings" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 <%@ Import Namespace="FuseCP.Portal" %>
-<table cellpadding="7" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
 		    <asp:Label ID="lblPublicIP" runat="server" meta:resourcekey="lblPublicIP" Text="Public IP Address:"></asp:Label>
 		</td>
-		<td width="100%">
+		<td>
             <uc1:SelectIPAddress ID="ipAddress" runat="server" ServerIdParam="ServerID" />
         </td>
 	</tr>
@@ -22,10 +22,10 @@
     <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
         <ContentTemplate>
             <asp:GridView id="gvSEDestinations" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-	        Width="100%" EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvSEDestinations_RowCommand" >
+	        EmptyDataText="" CssSelectorClass="NormalGridView" OnRowCommand="gvSEDestinations_RowCommand" >
 	        <Columns>
 		        <asp:TemplateField HeaderText="Destinations">
-			        <ItemStyle Width="100%"></ItemStyle>
+			        <ItemStyle></ItemStyle>
 			        <ItemTemplate>
 				        <asp:Label id="lblSEDestination" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Container.DataItem)%></asp:Label>
                     </ItemTemplate>
@@ -33,20 +33,20 @@
                 <asp:TemplateField>
                     <ItemStyle Width="65px" HorizontalAlign="Center" />
                     <ItemTemplate>
-                        <CPCC:StyleButton id="imgDelRouteFromSE" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# (string)Container.DataItem %>' OnClientClick="return confirm('Are you sure you want to delete selected route?')"> 
-                            &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                        </CPCC:StyleButton>
+                        <asp:LinkButton id="imgDelRouteFromSE" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# (string)Container.DataItem %>' OnClientClick="return confirm('Are you sure you want to delete selected route?')"> 
+                            &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                        </asp:LinkButton>
                     </ItemTemplate>
 		        </asp:TemplateField>
 	        </Columns>
 	        </asp:GridView>
             <br />
             <div class="input-group col-sm-6">
-             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
-                <span class="input-group-btn">
-                <CPCC:StyleButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
-                <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />
-                </CPCC:StyleButton>
+             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle" runat="server"></asp:TextBox>
+                <span class="d-flex">
+                <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
+                <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />
+                </asp:LinkButton>
                 </span>
             </div>
             <br />

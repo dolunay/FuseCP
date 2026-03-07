@@ -1,58 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchBox.ascx.cs" Inherits="FuseCP.Portal.SearchBox" %>
 
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function () {
-        $("#tbSearch").keypress(function (e) {
-            if (e.keyCode != 13) { // VK_RETURN
-                $("#tbSearchText").val('');
-                $("#tbObjectId").val('');
-                $("#tbPackageId").val('');
-                $("#tbAccountId").val('');
-            }
-        });
-
-        $("#tbSearch").autocomplete({
-            zIndex: 0,
-            source: function (request, response) {
-                $.ajax({
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        fullType: "TableSearch",
-                        FilterValue: request.term,
-                        FilterColumns: "<%= GetCriterias() %>",
-                        <%= AjaxData %>
-                    },
-                    url: "AjaxHandler.ashx",
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            var type = $('#<%= ddlFilterColumn.ClientID %> option[value="' + item.ColumnType + '"]').text();
-                            if (type == null) {
-                                type = item.ColumnType;
-                            }
-                            $('#<%= ddlFilterColumn.ClientID %> :selected').removeAttr('selected')
-                            return {
-                                label: item.TextSearch + " [" + type + "]",
-                                code: item
-                            };
-                        }));
-                    }
-                })
-            },
-            select: function (event, ui) {
-                var item = ui.item;
-                if (item.code.url != null)
-                    window.location.href = item.code.url;
-                else {
-                    $("#ddlFilterColumn").val(item.code.ColumnType);
-                    $("#tbSearchText").val(item.code.TextSearch);
-                    $("#<%= cmdSearch.ClientID %>").trigger("click");
-                }
-            }
-        });
-    });//]]>
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/search-box.js"></script>
+<input type="hidden" id="searchBoxConfig"
+    data-filter-columns="<%= Server.HtmlEncode(GetCriterias()) %>"
+    data-ajax-data="<%= Server.HtmlEncode(AjaxData ?? String.Empty) %>"
+    data-submit-id="<%= cmdSearch.ClientID %>" />
 
 <asp:Panel ID="tblSearch" runat="server" DefaultButton="cmdSearch" CssClass="NormalBold">
 <asp:Label ID="lblSearch" runat="server" meta:resourcekey="lblSearch" Visible="false"></asp:Label>
@@ -103,8 +55,8 @@
                                     type="hidden"
                                 >
                                 </asp:TextBox>
-                                <div class="input-group-btn">
-                                <CPCC:StyleButton
+                                <div class="d-flex">
+                                <asp:LinkButton
                                     ID="cmdSearch"
                                     runat="server"
                                     SkinID="SearchButton"
@@ -112,8 +64,8 @@
                                     style="vertical-align: middle;"
                                     CssClass="btn btn-primary"
                                 >
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </CPCC:StyleButton>      
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                </asp:LinkButton>      
                                     </div>                
                             </div>
 

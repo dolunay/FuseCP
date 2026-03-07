@@ -4,15 +4,15 @@
 <%@ Register Src="../UserControls/PackageIPAddresses.ascx" TagName="PackageIPAddresses" TagPrefix="fcp" %>
 
 
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Network48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Management Network"></asp:Localize>
 			    </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="vdc_management_network" />
-            <div class="panel panel-default tab-content">
-            <div class="panel-body form-horizontal">  
+            <div class="card tab-content">
+            <div class="card-body form-horizontal">  
                     <fcp:PackageIPAddresses id="packageAddresses" runat="server"
                             Pool="VpsManagementNetwork"
                             EditItemControl="vps_general"

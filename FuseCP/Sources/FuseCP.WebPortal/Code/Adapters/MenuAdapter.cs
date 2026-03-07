@@ -226,54 +226,54 @@ namespace CSSFriendly
                      
                     switch (item.Value.Trim().ToUpper())
                     {   case "ACCOUNT MENU":
-                            writer.WriteAttribute("class", "fa fa-user");
+                            writer.WriteAttribute("class", "bi bi-person");
                             break;
                         case "REPORTING":
-                            writer.WriteAttribute("class", "fa fa-bar-chart");
+                            writer.WriteAttribute("class", "bi bi-bar-chart");
                             break;
                         case "CONFIGURATION":
-                            writer.WriteAttribute("class", "fa fa-cogs");
+                            writer.WriteAttribute("class", "bi bi-gear-wide-connected");
                             break;
                         case "HOSTING SPACE MENU":
-                            writer.WriteAttribute("class", "fa fa-server");
+                            writer.WriteAttribute("class", "bi bi-hdd-rack");
                             break;
                         case "ORGANIZATION MENU":
-                            writer.WriteAttribute("class", "fa fa-users");
+                            writer.WriteAttribute("class", "bi bi-people");
                             break;
                         case "HOME":
-                            writer.WriteAttribute("class", "fa fa-home");
+                            writer.WriteAttribute("class", "bi bi-house-door");
                             break;
                         case "VPS MENU":
-                            writer.WriteAttribute("class", "fa fa-desktop");
+                            writer.WriteAttribute("class", "bi bi-display");
                             break;
                         //    case "VPS-MEN�":
-                        //        writer.WriteAttribute("class", "fa fa-desktop");
+                        //        writer.WriteAttribute("class", "bi bi-display");
                         //        break;
                         //    case "KONTOMEN�":
-                        //        writer.WriteAttribute("class", "fa fa-user");
+                        //        writer.WriteAttribute("class", "bi bi-person");
                         //break;
                         //    case "HOSTING-BEREICH MEN�":
-                        //        writer.WriteAttribute("class", "fa fa-server");
+                        //        writer.WriteAttribute("class", "bi bi-hdd-rack");
                         //break;
                         //case "ORGANISATIONSMEN�":
-                        //        writer.WriteAttribute("class", "fa fa-users");
+                        //        writer.WriteAttribute("class", "bi bi-people");
                         //break;
                         //    case "KONTO�BERSICHT":
-                        //        writer.WriteAttribute("class", "fa fa-home");
+                        //        writer.WriteAttribute("class", "bi bi-house-door");
                         //break;
                         //    case "BERICHTE":
-                        //        writer.WriteAttribute("class", "fa fa-bar-chart");
+                        //        writer.WriteAttribute("class", "bi bi-bar-chart");
                         //        break;
                         //    case "KONFIGURATION":
-                        //        writer.WriteAttribute("class", "fa fa-cogs");
+                        //        writer.WriteAttribute("class", "bi bi-gear-wide-connected");
                         //        break;
                         //    case "AUFGABENPLANUNG":
                         //        if (item.Parent == null)
-                        //            writer.WriteAttribute("class", "fa fa-clock-o");
+                        //            writer.WriteAttribute("class", "bi bi-clock");
                         //        break;
                         case "SPACESCHEDULEDTASKS":
                             if (item.Parent == null)
-                                writer.WriteAttribute("class", "fa fa-clock-o");
+                                writer.WriteAttribute("class", "bi bi-clock");
                             break;
 
 

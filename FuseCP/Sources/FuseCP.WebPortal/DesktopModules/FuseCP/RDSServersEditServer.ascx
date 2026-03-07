@@ -2,22 +2,22 @@
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div class="form-group">
-        <asp:Label runat="server" CssClass="control-label col-sm-4" AssociatedControlID="lblServerName">
+    <div class="mb-3">
+        <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="lblServerName">
             <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server Fully Qualified Domain Name:"></asp:Localize>
         </asp:Label>
         <div class="col-sm-8">
             <asp:TextBox ID="lblServerName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
-    <div class="form-group">
-        <asp:Label runat="server" CssClass="control-label col-sm-4" AssociatedControlID="txtServerComments">
+    <div class="mb-3">
+        <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="txtServerComments">
             <asp:Localize ID="locServerComments" runat="server" meta:resourcekey="locServerComments" Text="Server Comments:"></asp:Localize>
         </asp:Label>
         <div class="col-sm-8">
@@ -28,40 +28,40 @@
     <asp:Panel runat="server" ID="panelHardwareInfo">
         <table>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locStatus" runat="server" Text="Status:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litStatus" runat="server"/>
                 </td>
                 <td/>
                 <td/>
             </tr>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locProcessor" runat="server" Text="Processor:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litProcessor" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locLoadPercentage" Text="Load Percentage:" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litLoadPercentage" runat="server"/>
                 </td>
             </tr>
             <tr>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locMemoryAllocated" runat="server" Text="Allocated Memory:"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litMemoryAllocated" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="locFreeMemory" Text="Free Memory:" runat="server"/>
                 </td>
-                <td class="FormLabel150" style="width: 150px;">
+                <td class="FormLabel150">
                     <asp:Literal ID="litFreeMemory" runat="server"/>
                 </td>
             </tr>
@@ -70,30 +70,30 @@
             <asp:Repeater ID="rpServerDrives" runat="server" EnableViewState="false">
                 <ItemTemplate>
                     <tr>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Localize ID="locDeviceID" runat="server" meta:resourcekey="locDeviceID" />
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litDeviceId" runat="server" Text='<%# Eval("DeviceId") %>'/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locVolumeName" Text="Volume Name:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litVolumeName" Text='<%# Eval("VolumeName") %>' runat="server"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locSize" Text="Size:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litSize" Text='<%# Eval("SizeMb") + " MB" %>' runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="locFreeSpace" Text="Free Space:" runat="server"/>
                         </td>
-                        <td class="FormLabel150" style="width: 150px;">
+                        <td class="FormLabel150">
                             <asp:Literal ID="litFreeSpace" Text='<%# Eval("FreeSpaceMb") + " MB" %>' runat="server"/>
                         </td>
                     </tr>
@@ -102,14 +102,15 @@
         </table>
     </asp:Panel>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-	<CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating server...');" useSubmitBehavior="false">
-        <i class="fa fa-refresh">&nbsp;
+	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating server...');">
+        <i class="bi bi-arrow-clockwise">&nbsp;
         </i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/>
-	</CPCC:StyleButton>
+	</asp:LinkButton>
 </div>
+

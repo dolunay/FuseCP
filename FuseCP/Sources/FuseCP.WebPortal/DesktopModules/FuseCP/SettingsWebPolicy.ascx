@@ -5,24 +5,24 @@
 
 <fcp:CollapsiblePanel id="secParkingPage" runat="server"
     TargetControlID="ParkingPagePanel" meta:resourcekey="secParkingPage" Text="Parking Page"/>
-<asp:Panel ID="ParkingPagePanel" runat="server" Height="0" style="overflow:hidden;">
-    <table width="100%">
+<asp:Panel ID="ParkingPagePanel" runat="server" Height="0" style="overflow:hidden">
+    <table>
         <tr>
             <td class="Normal" colspan="2">
                 <asp:CheckBox ID="chkAddParkingPage" runat="server" meta:resourcekey="chkAddParkingPage" Text="Add Parking Page" /></td>
         </tr>
         <tr>
-            <td class="SubHead" style="width:150px;"><asp:Label ID="lblParkingPageName" runat="server" meta:resourcekey="lblParkingPageName" Text="Page Name:"></asp:Label></td>
+            <td class="SubHead" ><asp:Label ID="lblParkingPageName" runat="server" meta:resourcekey="lblParkingPageName" Text="Page Name:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtPageName" runat="server" Width="200" CssClass="form-control"></asp:TextBox></td>
+                <asp:TextBox ID="txtPageName" runat="server" CssClass="form-control"></asp:TextBox></td>
         </tr>
         <tr>
-            <td class="SubHead" valign=top><asp:Label ID="lblParkingPageContent" runat="server" meta:resourcekey="lblParkingPageContent" Text="Page Content:"></asp:Label></td>
-            <td class="Normal" valign=top>
-                <asp:TextBox ID="txtPageContent" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False"></asp:TextBox></td>
+            <td class="SubHead align-top"><asp:Label ID="lblParkingPageContent" runat="server" meta:resourcekey="lblParkingPageContent" Text="Page Content:"></asp:Label></td>
+            <td class="Normal align-top">
+                <asp:TextBox ID="txtPageContent" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False"></asp:TextBox></td>
         </tr>
         <tr>
-            <td class="SubHead" valign=top></td>
+            <td class="SubHead align-top"></td>
             <td><asp:checkbox id="chkEnableParkingPageTokens" meta:resourcekey="chkEnableParkingPageTokens" Text="Allow tokens" Runat="server"></asp:checkbox></td>
         </tr>
     </table>
@@ -30,12 +30,12 @@
 
 <fcp:CollapsiblePanel id="secHostNamePanel" runat="server"
     TargetControlID="HostNamePanel" meta:resourcekey="secHostNamePanel" Text="Parking Page"/>
-<asp:Panel ID="HostNamePanel" runat="server" Height="0" style="overflow:hidden;">
-    <table width="100%">
+<asp:Panel ID="HostNamePanel" runat="server" Height="0" style="overflow:hidden">
+    <table>
         <tr>
-            <td class="SubHead" style="width:150px;"><asp:Label ID="lblHostName" runat="server" meta:resourcekey="lblHostName" Text="Page Name:"></asp:Label></td>
+            <td class="SubHead" ><asp:Label ID="lblHostName" runat="server" meta:resourcekey="lblHostName" Text="Page Name:"></asp:Label></td>
             <td class="Normal">
-                <asp:TextBox ID="txtHostName" runat="server" Width="200" CssClass="form-control"></asp:TextBox></td>
+                <asp:TextBox ID="txtHostName" runat="server" CssClass="form-control"></asp:TextBox></td>
         </tr>
     </table>
 </asp:Panel>
@@ -43,25 +43,25 @@
 
 <fcp:CollapsiblePanel runat="server" ID="WebPublishingProfile" 
 	meta:resourcekey="WebPublishingProfile" Text="Web Publishing Profile" TargetControlID="WebPublishingProfilePanel" />
-<asp:Panel runat="server" ID="WebPublishingProfilePanel" Height="0" style="overflow:hidden;">
-	<table width="100%">
+<asp:Panel runat="server" ID="WebPublishingProfilePanel" Height="0" style="overflow:hidden">
+	<table>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 		</tr>
         <tr>
-            <td class="SubHead" valign=top style="width:150px;"><asp:Label ID="PublishingProfileLabel" runat="server" meta:resourcekey="PublishingProfileLabel" Text="Publishing Profile:"></asp:Label></td>
-            <td class="Normal" valign=top>
-                <asp:TextBox ID="PublishingProfileTextBox" runat="server" Rows="10" TextMode="MultiLine" Width="100%" CssClass="form-control" Wrap="False"></asp:TextBox></td>
+            <td class="SubHead align-top" ><asp:Label ID="PublishingProfileLabel" runat="server" meta:resourcekey="PublishingProfileLabel" Text="Publishing Profile:"></asp:Label></td>
+            <td class="Normal align-top">
+                <asp:TextBox ID="PublishingProfileTextBox" runat="server" Rows="10" TextMode="MultiLine" CssClass="form-control" Wrap="False"></asp:TextBox></td>
         </tr>
     </table>
 </asp:Panel>
 
 <fcp:CollapsiblePanel id="secDefaultDocs" runat="server"
     TargetControlID="DefaultDocsPanel" meta:resourcekey="secDefaultDocs" Text="Default Documents"/>
-<asp:Panel ID="DefaultDocsPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="DefaultDocsPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblDefaultDocs" runat="server" meta:resourcekey="lblDefaultDocs" Text="Default Documents:"></asp:Label></td>
             <td class="Normal">
                 <asp:TextBox ID="txtDefaultDocs" runat="server" TextMode="MultiLine"
@@ -74,13 +74,13 @@
 
 <fcp:CollapsiblePanel id="secGeneralSettings" runat="server"
     TargetControlID="GeneralSettingsPanel" meta:resourcekey="secGeneralSettings" Text="General Settings"/>
-<asp:Panel ID="GeneralSettingsPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="GeneralSettingsPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblGeneralSettings" runat="server" meta:resourcekey="lblGeneralSettings" Text="Web Site Settings:"></asp:Label></td>
             <td class="Normal">
-                <table class="Normal" cellSpacing="0" cellPadding="3">
+                <table class="Normal table table-borderless align-middle mb-0">
                     <tr>
                         <td class="NormalBold">
                             <asp:Label ID="lblSecuritySettings" runat="server" meta:resourcekey="lblSecuritySettings" Text="Security Settings:"></asp:Label>
@@ -100,20 +100,20 @@
 	                </tr>
                 </table>
                 <br />
-                <table class="Normal" cellSpacing="0" cellPadding="3">
+                <table class="Normal table table-borderless align-middle mb-0">
                     <tr>
                         <td class="NormalBold">
                             <asp:Label ID="lblAuthentication" runat="server" meta:resourcekey="lblAuthentication" Text="Authentication:"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td nowrap><asp:checkbox id="chkAuthAnonymous" meta:resourcekey="chkAuthAnonymous" Text="Enable anonymous access" Runat="server"></asp:checkbox></td>
+                        <td class="text-nowrap"><asp:checkbox id="chkAuthAnonymous" meta:resourcekey="chkAuthAnonymous" Text="Enable anonymous access" Runat="server"></asp:checkbox></td>
                     </tr>
                     <tr>
-                        <td nowrap><asp:checkbox id="chkAuthWindows" meta:resourcekey="chkAuthWindows" Text="Integrated Windows authentication" Runat="server"></asp:checkbox></td>
+                        <td class="text-nowrap"><asp:checkbox id="chkAuthWindows" meta:resourcekey="chkAuthWindows" Text="Integrated Windows authentication" Runat="server"></asp:checkbox></td>
                     </tr>
                     <tr>
-                        <td nowrap><asp:checkbox id="chkAuthBasic" meta:resourcekey="chkAuthBasic" Text="Basic authentication" Runat="server"></asp:checkbox></td>
+                        <td class="text-nowrap"><asp:checkbox id="chkAuthBasic" meta:resourcekey="chkAuthBasic" Text="Basic authentication" Runat="server"></asp:checkbox></td>
                     </tr>
                 </table>
             </td>
@@ -124,10 +124,10 @@
 
 <fcp:CollapsiblePanel id="secExtensions" runat="server"
     TargetControlID="ExtensionsPanel" meta:resourcekey="secExtensions" Text="Extensions"/>
-<asp:Panel ID="ExtensionsPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table cellpadding="4">
+<asp:Panel ID="ExtensionsPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
-            <td class="SubHead" style="width:150px;">
+            <td class="SubHead" >
                 <asp:Label ID="lblAsp" runat="server" meta:resourcekey="lblAsp" Text="ASP:"></asp:Label>
             </td>
             <td class="Normal">
@@ -222,10 +222,10 @@
 
 <fcp:CollapsiblePanel id="secAnonymousAccount" runat="server"
     TargetControlID="AnonymousAccountPanel" meta:resourcekey="secAnonymousAccount" Text="Anonymous Account Policy"/>
-<asp:Panel ID="AnonymousAccountPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AnonymousAccountPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblAnonymuousUsername" runat="server" meta:resourcekey="lblAnonymuousUsername" Text="Username Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -238,10 +238,10 @@
 
 <fcp:CollapsiblePanel id="secAppVirtualDirectories" runat="server"
     TargetControlID="AppVirtualDirectoriesPanel" meta:resourcekey="secAppVirtualDirectories" Text="Virtual Directories"/>
-<asp:Panel ID="AppVirtualDirectoriesPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AppVirtualDirectoriesPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblVirtDirName" runat="server" meta:resourcekey="lblVirtDirName" Text="Virtual Directory Name:"></asp:Label>
             </td>
             <td class="Normal">
@@ -253,10 +253,10 @@
 
 <fcp:CollapsiblePanel id="secFrontPage" runat="server"
     TargetControlID="FrontPagePanel" meta:resourcekey="secFrontPage" Text="FrontPage Account Policy"/>
-<asp:Panel ID="FrontPagePanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="FrontPagePanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblFrontPageUsername" runat="server" meta:resourcekey="lblFrontPageUsername" Text="Username Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -264,7 +264,7 @@
                 </uc2:UsernamePolicyEditor></td>
         </tr>
         <tr>
-            <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
                 <asp:Label ID="lblFrontPagePassword" runat="server" meta:resourcekey="lblFrontPagePassword" Text="Password Policy:"></asp:Label>
             </td>
             <td class="Normal">
@@ -276,10 +276,10 @@
 
 <fcp:CollapsiblePanel id="secSecuredFolders" runat="server"
     TargetControlID="SecuredFoldersPanel" meta:resourcekey="secSecuredFolders" Text="Secured Web Folders"/>
-<asp:Panel ID="SecuredFoldersPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="SecuredFoldersPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" style="width:150px;" valign="top">
+            <td class="SubHead align-top" >
                 <asp:Label ID="lblUsername" runat="server" meta:resourcekey="lblUsername" Text="User Name:"></asp:Label>
             </td>
             <td class="Normal">
@@ -287,7 +287,7 @@
                 </uc2:UsernamePolicyEditor></td>
         </tr>
         <tr>
-            <td class="SubHead" valign="top">
+            <td class="SubHead align-top">
                 <asp:Label ID="lblPassword" runat="server" meta:resourcekey="lblPassword" Text="User Password:"></asp:Label>
             </td>
             <td class="Normal">
@@ -308,8 +308,8 @@
 
 <fcp:CollapsiblePanel id="secFolders" runat="server"
     TargetControlID="FoldersPanel" meta:resourcekey="secFolders" Text="Web Site Folders"/>
-<asp:Panel ID="FoldersPanel" runat="server" Height="0" style="overflow:hidden;">
-    <table cellpadding="4">
+<asp:Panel ID="FoldersPanel" runat="server" Height="0" style="overflow:hidden">
+    <table class="table table-borderless align-middle mb-0">
         <tr>
             <td class="Normal"></td>
             <td class="Normal">
@@ -317,11 +317,11 @@
             </td>
         </tr>
         <tr>
-            <td class="SubHead" style="width:150px;">
+            <td class="SubHead" >
                 <asp:Label ID="lblWebSiteRootFolder" runat="server" meta:resourcekey="lblWebSiteRootFolder" Text="Root Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteRootFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteRootFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireRootFolder" runat="server" ControlToValidate="txtSiteRootFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>
@@ -330,7 +330,7 @@
                 <asp:Label ID="lblWebSiteLogsFolder" runat="server" meta:resourcekey="lblWebSiteLogsFolder" Text="Logs Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteLogsFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteLogsFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireLogsFolder" runat="server" ControlToValidate="txtSiteLogsFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>
@@ -339,7 +339,7 @@
                 <asp:Label ID="lblWebSiteDataFolder" runat="server" meta:resourcekey="lblWebSiteDataFolder" Text="Data Folder:"></asp:Label>
             </td>
             <td class="Normal">
-                <asp:TextBox ID="txtSiteDataFolder" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+                <asp:TextBox ID="txtSiteDataFolder" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valRequireDataFolder" runat="server" ControlToValidate="txtSiteDataFolder"
                     Display="Dynamic" ErrorMessage="*" ValidationGroup="SettingsEditor"></asp:RequiredFieldValidator></td>
         </tr>
@@ -352,3 +352,4 @@
         </tr>
     </table>
 </asp:Panel>
+

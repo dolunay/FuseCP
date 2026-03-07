@@ -6,9 +6,20 @@
       "type": "shell",
       "command": "pwsh",
       "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
         "-File",
         "${workspaceFolder}/FuseCP/Tools/Start-Of-Day.ps1"
       ],
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "clear": false
+      },
       "problemMatcher": []
     },
     {

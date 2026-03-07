@@ -16,8 +16,8 @@ Default skin template. The following skins are provided as examples only.
 
 <asp:HyperLink runat="server" SkinID="CommandButton" CssClass="CommandButton"></asp:HyperLink>
 
-<CPCC:StyleButton runat="server" SkinID="CommandButton" CssClass="CommandButton"></CPCC:StyleButton>
-<CPCC:StyleButton runat="server" SkinID="SmallCommandButton" CssClass="SmallCommandButton"></CPCC:StyleButton>
+<asp:LinkButton runat="server" SkinID="CommandButton" CssClass="CommandButton"></asp:LinkButton>
+<asp:LinkButton runat="server" SkinID="SmallCommandButton" CssClass="SmallCommandButton"></asp:LinkButton>
 
 
 <asp:Calendar runat="server" CssClass="Calendar"

@@ -127,7 +127,7 @@ $(document).ready(function(){
 
 	if( $('body.search-results-page').length > 0 ) {
 		$('.multiselect-single-lg').multiselect({
-			buttonClass: 'btn btn-default btn-lg',
+			buttonClass: 'btn btn-secondary btn-lg',
 			templates: {
 				li: '<li><a href="javascript:void(0);"><label><i></i></label></a></li>' // mandatory for single selection
 			}

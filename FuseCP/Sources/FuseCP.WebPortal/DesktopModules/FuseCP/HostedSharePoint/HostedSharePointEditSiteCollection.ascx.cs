@@ -30,6 +30,7 @@ namespace FuseCP.Portal
     public partial class HostedSharePointEditSiteCollection : FuseCPModuleBase
     {
         SharePointSiteCollection item = null;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow rowUrl;
 
         private int OrganizationId
         {

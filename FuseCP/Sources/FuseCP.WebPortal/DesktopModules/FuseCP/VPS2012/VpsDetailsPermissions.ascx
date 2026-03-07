@@ -7,7 +7,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_permissions" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -48,7 +48,7 @@
 			            </Columns>
 		            </asp:GridView>
 		            <br />
-                    <CPCC:StyleButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </CPCC:StyleButton>
+                    <asp:LinkButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </asp:LinkButton>
                     <br />
 				    
 			    </div>

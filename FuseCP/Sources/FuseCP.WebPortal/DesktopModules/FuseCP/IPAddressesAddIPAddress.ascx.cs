@@ -68,7 +68,7 @@ namespace FuseCP.Portal
             }
             catch (Exception ex)
             {
-                Response.Write(ex);
+                Response.Write(HttpUtility.HtmlEncode(ex.ToString()));
             }
 
             // add "select" item

@@ -11,10 +11,10 @@
 			        <wsp:ServerTabs id="tabs" runat="server" SelectedTab="vps_tools" />	
                     <wsp:SimpleMessageBox id="messageBox" runat="server" />
                     
-				    <table cellspacing="15">
+				    <table class="table table-borderless align-middle mb-0">
 				        <%-- <tr>
 				            <td>
-				                <asp:Button ID="btnReinstall" runat="server" CssClass="Button1" Width="100"
+				                <asp:Button ID="btnReinstall" runat="server" CssClass="btn btn-primary"
 				                    Text="Re-install" meta:resourcekey="btnReinstall" CausesValidation="false" 
                                     onclick="btnReinstall_Click" />
 				            </td>
@@ -24,7 +24,7 @@
 				        </tr>--%>
 				        <tr>
 				            <td>
-				                <asp:Button ID="btnDelete" runat="server" CssClass="Button1" Width="100"
+				                <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-primary"
 				                    Text="Delete" meta:resourcekey="btnDelete" CausesValidation="false" 
                                     onclick="btnDelete_Click" />
 				            </td>

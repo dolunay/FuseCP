@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebSitesCustomErrorsControl.ascx.cs" Inherits="FuseCP.Portal.WebSitesCustomErrorsControl" %>
 
 
-<div style="padding: 20; margin-bottom: 10px;">
-<table cellpadding="4">
+<div style="padding: 20; margin-bottom: 10px">
+<table class="table table-borderless align-middle mb-0">
   <tr id="rowAspNet" runat="server">
     <td class="SubHead">
         <asp:Label ID="lblErrorMode" runat="server" meta:resourcekey="lblErrorMode"></asp:Label>:
@@ -22,40 +22,40 @@
     OnRowCommand="gvErrorPages_RowCommand" OnRowDataBound="gvErrorPages_RowDataBound"
     EmptyDataText="gvErrorPages">
     <columns>
-	    <asp:TemplateField HeaderText="gvErrorPagesCode" ItemStyle-Width="60px">
+	    <asp:TemplateField HeaderText="gvErrorPagesCode">
 		    <itemtemplate>
 			    <asp:TextBox id="txtErrorCode" Runat="server" Width="55px" CssClass="form-control" Text='<%# Eval("ErrorCode") %>'></asp:TextBox>
             </itemtemplate>
         </asp:TemplateField>
-        <asp:TemplateField ItemStyle-Width="5px">
+        <asp:TemplateField>
             <itemtemplate>
 			    . 
             </itemtemplate>
         </asp:TemplateField>
-        <asp:TemplateField ItemStyle-Width="60px">
+        <asp:TemplateField>
             <itemtemplate>
             <asp:TextBox id="txtErrorSubcode" Runat="server" Width="55px" CssClass="form-control" Text='<%# GetSubCode(Eval("ErrorSubcode")) %>'>
 			    </asp:TextBox>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField HeaderText="gvErrorPagesHandlerType" ItemStyle-Width="100px">
+	    <asp:TemplateField HeaderText="gvErrorPagesHandlerType">
 		    <itemtemplate>
 			    <asp:dropdownlist id="ddlHandlerType" Width="100px" Runat="server"
 			        CssClass="form-control">
 			    </asp:dropdownlist>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField HeaderText="gvErrorPagesErrorContent" ItemStyle-Width="100%">
+	    <asp:TemplateField HeaderText="gvErrorPagesErrorContent">
 		    <itemtemplate>
-			    <asp:TextBox id="txtErrorContent" Runat="server" Width="100%" CssClass="form-control" Text='<%# Eval("ErrorContent") %>'>
+			    <asp:TextBox id="txtErrorContent" Runat="server" CssClass="form-control" Text='<%# Eval("ErrorContent") %>'>
 			    </asp:TextBox>
 		    </itemtemplate>
 	    </asp:TemplateField>
-	    <asp:TemplateField ItemStyle-HorizontalAlign="Center" ItemStyle-Width="65px">
+	    <asp:TemplateField ItemStyle-HorizontalAlign="Center">
 		    <itemtemplate>
-			    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                </CPCC:StyleButton>
+			    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false"> 
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                </asp:LinkButton>
 		    </itemtemplate>
 	    </asp:TemplateField>
     </columns>

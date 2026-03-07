@@ -5,22 +5,22 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<div class="panel-heading">
+<div class="card-header">
     <asp:Image ID="imgRDSServers" SkinID="EnterpriseRDSServers48" runat="server" />
     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Assigned RDS Servers"></asp:Localize>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddServerToOrg" runat="server" CssClass="btn btn-primary" OnClick="btnAddServerToOrg_Click">
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnAddServerToOrg" runat="server" CssClass="btn btn-primary" OnClick="btnAddServerToOrg_Click">
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddServerToOrg" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body">
+<div class="card-body">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 col-md-offset-5 text-right form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-7 offset-md-5 text-end d-flex flex-wrap gap-2 align-items-center">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
                         <asp:ListItem>10</asp:ListItem>
@@ -30,23 +30,23 @@
                     </asp:DropDownList>  
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
         </asp:Panel>
     </div>
 </div>
-<asp:GridView ID="gvRDSAssignedServers" runat="server" AutoGenerateColumns="False" EnableViewState="true" Width="100%" EmptyDataText="gvRDSAssignedServers" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSAssignedServers_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsRDSAssignedServersPaged" PageSize="20">
+<asp:GridView ID="gvRDSAssignedServers" runat="server" AutoGenerateColumns="False" EnableViewState="true" EmptyDataText="gvRDSAssignedServers" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSAssignedServers_RowCommand" AllowPaging="True" AllowSorting="True" DataSourceID="odsRDSAssignedServersPaged" PageSize="20">
     <Columns>
         <asp:TemplateField HeaderText="gvRDSServerName" SortExpression="Name">
-            <ItemStyle Width="80%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:Label id="litRDSServerName" runat="server">
                     <%# Eval("Name") %>
@@ -54,7 +54,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
-            <ItemStyle Width="10%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
                 <asp:LinkButton ID="EnableLinkButton" CssClass="btn btn-success" runat="server" Visible='<%# Eval("RdsCollectionId") != null && !Convert.ToBoolean(Eval("ConnectionEnabled")) %>' CommandName="EnableItem" CommandArgument='<%# Eval("Id") %>' meta:resourcekey="cmdEnable"></asp:LinkButton>
                 <asp:LinkButton ID="DisableLinkButton" CssClass="btn btn-danger" runat="server" Visible='<%# Eval("RdsCollectionId") != null && Convert.ToBoolean(Eval("ConnectionEnabled")) %>' CommandName="DisableItem" CommandArgument='<%# Eval("Id") %>' meta:resourcekey="cmdDisable"></asp:LinkButton>                                    
@@ -63,13 +63,13 @@
         <asp:TemplateField>
             <ItemTemplate>
                 <asp:LinkButton ID="imgRemove1" CssClass="btn btn-sm btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' Visible='<%# Eval("RdsCollectionId") == null %>' OnClientClick="return confirm('Are you sure you want to remove selected server?')"> 
-                    &nbsp;<i class="fa fa-trash-o"></i>&nbsp;
+                    &nbsp;<i class="bi bi-trash"></i>&nbsp;
                 </asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="RDS Servers:"></asp:Localize>
     &nbsp;&nbsp;&nbsp;
     <fcp:QuotaViewer ID="rdsServersQuota" runat="server" QuotaTypeId="2" DisplayGauge="true"/>

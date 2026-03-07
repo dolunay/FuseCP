@@ -5,9 +5,9 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
-    <div class="Huge" style="padding: 10px;border: solid 1px #e5e5e5;background-color: #f5f5f5;">
+    <div class="Huge p-2 border bg-light">
         <asp:Literal ID="DomainName" runat="server"></asp:Literal>
     </div>
     
@@ -49,33 +49,33 @@
         
         <div id="DnsEnabledPanel" runat="server" class="FormRow">
             <ul class="VerticalButtons">
-                <li><CPCC:StyleButton ID="EditDnsRecords" runat="server" CssClass="btn btn-primary" 
+                <li><asp:LinkButton ID="EditDnsRecords" runat="server" CssClass="btn btn-primary" 
                         meta:resourcekey="EditDnsRecords" Text="Edit DNS records" 
                         OnClientClick="ShowProgressDialog('Opening DNS Zone Editor...');" 
-                        onclick="EditDnsRecords_Click"></CPCC:StyleButton></li>
+                        onclick="EditDnsRecords_Click"></asp:LinkButton></li>
                 <li>
-                    <CPCC:StyleButton ID="ExportDnsRecords" runat="server" CssClass="btn btn-secondary"
+                    <asp:LinkButton ID="ExportDnsRecords" runat="server" CssClass="btn btn-secondary"
                         Text="Export DNS records"
-                        OnClick="ExportDnsRecords_OnClick"></CPCC:StyleButton>
+                        OnClick="ExportDnsRecords_OnClick"></asp:LinkButton>
                 </li>
                 <li>
-                    <CPCC:StyleButton ID="ImportDnsRecords" runat="server" CssClass="btn btn-secondary"
+                    <asp:LinkButton ID="ImportDnsRecords" runat="server" CssClass="btn btn-secondary"
                         Text="Import DNS records"
                         OnClientClick="ShowProgressDialog('Opening DNS Importer');"
-                        OnClick="ImportDnsRecords_OnClick"></CPCC:StyleButton>
+                        OnClick="ImportDnsRecords_OnClick"></asp:LinkButton>
                 </li>
-                <li><CPCC:StyleButton ID="DisableDns" CssClass="btn btn-danger" runat="server" meta:resourcekey="DisableDns" 
+                <li><asp:LinkButton ID="DisableDns" CssClass="btn btn-danger" runat="server" meta:resourcekey="DisableDns" 
                         Text="Disable DNS" OnClientClick="ShowProgressDialog('Deleting DNS zone...');" 
-                        onclick="DisableDns_Click"></CPCC:StyleButton></li>
+                        onclick="DisableDns_Click"></asp:LinkButton></li>
             </ul>
             <asp:Localize ID="locDnsEnabled" runat="server"
                 meta:resourcekey="locDnsEnabled" Text="DNS is enabled for this domain."></asp:Localize>
         </div>
         <div id="DnsDisabledPanel" runat="server" class="FormRow">
             <ul class="VerticalButtons">
-                <li><CPCC:StyleButton ID="EnableDns" CssClass="btn btn-primary" runat="server" meta:resourcekey="EnableDns" 
+                <li><asp:LinkButton ID="EnableDns" CssClass="btn btn-primary" runat="server" meta:resourcekey="EnableDns" 
                         Text="Enable DNS" OnClientClick="ShowProgressDialog('Creating DNS zone...');" 
-                        onclick="EnableDns_Click"></CPCC:StyleButton></li>
+                        onclick="EnableDns_Click"></asp:LinkButton></li>
             </ul>
             <asp:Localize ID="locDnsDisabled" runat="server"
                 meta:resourcekey="locDnsDisabled" Text="DNS is disabled for this domain."></asp:Localize>
@@ -88,9 +88,9 @@
         
         <div id="PreviewDomainDisabled" runat="server">
             <ul class="VerticalButtons">
-                <li><CPCC:StyleButton ID="CreatePreviewDomain"  CssClass="btn btn-primary" runat="server" 
+                <li><asp:LinkButton ID="CreatePreviewDomain"  CssClass="btn btn-primary" runat="server" 
                     meta:resourcekey="CreatePreviewDomain" Text="Create Preview Domain" 
-                    onclick="CreatePreviewDomain_Click"></CPCC:StyleButton></li>
+                    onclick="CreatePreviewDomain_Click"></asp:LinkButton></li>
             </ul>
             <div class="FormRow">
                 <asp:Localize ID="locPreviewDomainDisabled" runat="server" meta:resourcekey="locPreviewDomainDisabled" Text="Preview Domain ..."></asp:Localize>
@@ -99,9 +99,9 @@
         
         <div id="PreviewDomainEnabled" runat="server">
             <ul class="VerticalButtons">
-                <li><CPCC:StyleButton ID="DeletePreviewDomain" CssClass="btn btn-danger" runat="server" 
+                <li><asp:LinkButton ID="DeletePreviewDomain" CssClass="btn btn-danger" runat="server" 
                     meta:resourcekey="DeletePreviewDomain" Text="Delete Preview Domain" 
-                    onclick="DeletePreviewDomain_Click"></CPCC:StyleButton></li>
+                    onclick="DeletePreviewDomain_Click"></asp:LinkButton></li>
             </ul>
             <div class="FormRow">
                 <asp:Localize ID="locPreviewDomainEnabled" runat="server" meta:resourcekey="locPreviewDomainEnabled" Text="Preview Domain ..."></asp:Localize>
@@ -125,13 +125,13 @@
         <legend><asp:Localize ID="ResellersSection" runat="server" meta:resourcekey="ResellersSection" Text="Resellers"></asp:Localize></legend>
         
         <asp:CheckBox ID="AllowSubDomains" runat="server" meta:resourcekey="AllowSubDomains" Text="Allow sub-domains" CssClass="Checkbox Bold" />
-        <div style="padding-left: 20px;">
+        <div class="ps-3">
             <asp:Localize ID="DescribeAllowSubDomains" runat="server" meta:resourcekey="DescribeAllowSubDomains">Description...</asp:Localize>
         </div>
     </fieldset>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" meta:resourcekey="btnDelete" runat="server" OnClick="btnDelete_Click" CausesValidation="false"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" meta:resourcekey="btnDelete" runat="server" OnClick="btnDelete_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
     <fcp:ItemButtonPanel id="buttonPanel" runat="server" ValidationGroup="EditMailbox" 
         OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" OnSaveClientClick="ShowProgressDialog('Updating Domain...');" />
 </div>

@@ -20,7 +20,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="SubHead" nowrap>
+                    <td class="SubHead text-nowrap">
                         <asp:Label id="lblSeverity" runat="server" meta:resourcekey="lblSeverity" Text="Severity"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
                 <tr id="SourceRow" runat="server">
-                    <td class="SubHead" nowrap>
+                    <td class="SubHead text-nowrap">
                         <asp:Label id="lblSource" runat="server" meta:resourcekey="lblSource" Text="Source"></asp:Label>
                     </td>
                     <td class="Normal">
@@ -42,7 +42,7 @@
                         </asp:DropDownList></td>
                 </tr>
                 <tr>
-                    <td class="SubHead" nowrap style="height: 24px">
+                    <td class="SubHead text-nowrap" style="height: 24px">
                         <asp:Label id="lblTask" runat="server" meta:resourcekey="lblTask" Text="Task"></asp:Label>
                     </td>
                     <td class="Normal" style="height: 24px">
@@ -50,7 +50,7 @@
                         </asp:DropDownList></td>
                 </tr>
                 <tr id="ItemNameRow" runat="server">
-                    <td class="SubHead" nowrap style="height: 24px">
+                    <td class="SubHead text-nowrap" style="height: 24px">
                         <asp:Label id="lblItemName" runat="server" meta:resourcekey="lblItemName" Text="Item Name"></asp:Label>
                     </td>
                     <td>
@@ -81,7 +81,7 @@
 		<asp:UpdateProgress ID="recordsProgress" runat="server"
 			AssociatedUpdatePanelID="updatePanelLog" DynamicLayout="false">
 			<ProgressTemplate>
-				<asp:Image ID="imgSep" runat="server" SkinID="AjaxIndicator" vspace="4" />
+                <asp:Image ID="imgSep" runat="server" SkinID="AjaxIndicator" CssClass="my-1" />
 			</ProgressTemplate>
 		</asp:UpdateProgress>
 	</div>
@@ -100,7 +100,7 @@
         <asp:TemplateField SortExpression="SeverityID" HeaderText="gvLogSeverity">
             <ItemStyle Wrap="False" />
             <ItemTemplate>
-                <asp:Image ID="imgIcon" runat="server" hspace="2" ImageUrl='<%# GetIconUrl((int)Eval("SeverityID")) %>' ImageAlign="AbsMiddle" />
+                <asp:Image ID="imgIcon" runat="server" CssClass="align-middle me-1" ImageUrl='<%# GetIconUrl((int)Eval("SeverityID")) %>' />
 	            <%# GetAuditLogRecordSeverityName((int)Eval("SeverityID")) %>
             </ItemTemplate>
         </asp:TemplateField>
@@ -129,7 +129,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField SortExpression="TaskName" HeaderText="gvLogTask">
-            <ItemStyle Width="100%" />
+            <ItemStyle />
             <ItemTemplate>
                 <asp:LinkButton ID="cmdShowLog" runat="server"
 					CommandName="ViewDetails" CommandArgument='<%# Eval("RecordID") %>'>
@@ -168,10 +168,10 @@
 </asp:ObjectDataSource>
 
 
-<asp:Panel ID="pnlTaskDetails" runat="server" CssClass="PopupContainer" style="display:none;">
+<asp:Panel ID="pnlTaskDetails" runat="server" CssClass="PopupContainer" style="display:none">
     <div class="widget">
         <div class="widget-header clearfix">
-            <h3><i class="fa fa-book"></i> <asp:Localize ID="TaskDetailsHeader" runat="server" Text="Task Details" meta:resourcekey="TaskDetailsHeader"></asp:Localize></h3>
+            <h3><i class="bi bi-book"></i> <asp:Localize ID="TaskDetailsHeader" runat="server" Text="Task Details" meta:resourcekey="TaskDetailsHeader"></asp:Localize></h3>
         </div>
         <div class="widget-content Popup">
         <table class="table">
@@ -257,15 +257,15 @@
             </tr>
             <tr>
                 <td colspan="3" class="Normal">
-                    <asp:Panel ID="pnlExecutionLog" runat="server" style="border: solid 1px #e0e0e0; width:430px; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px;">
+                    <asp:Panel ID="pnlExecutionLog" runat="server" style="border: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px">
                         <asp:Literal ID="litLog" runat="server"></asp:Literal>
                     </asp:Panel>
                 </td>
             </tr>
         </table>
             </div>
-					<div class="popup-buttons text-right">
-	        <CPCC:StyleButton id="btnCloseTaskDetails" CssClass="btn btn-primary" runat="server"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseTaskDetailsText"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+	        <asp:LinkButton id="btnCloseTaskDetails" CssClass="btn btn-primary" runat="server"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCloseTaskDetailsText"/> </asp:LinkButton>
 	    </div>
 	    
     </div>
@@ -275,7 +275,7 @@
     TargetControlID="btnShowTaskDetails"
     PopupControlID="pnlTaskDetails"
     OkControlID="btnCloseTaskDetails" />
-<asp:Button ID="btnShowTaskDetails" runat="server" Text="11" style="display:none;" />
+<asp:Button ID="btnShowTaskDetails" runat="server" Text="11" style="display:none" />
 
 
 </ContentTemplate>

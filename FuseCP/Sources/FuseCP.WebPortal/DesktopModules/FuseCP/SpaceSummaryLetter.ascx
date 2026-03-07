@@ -3,15 +3,15 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
     <fcp:CollapsiblePanel id="secEmail" runat="server"
         TargetControlID="EmailPanel" meta:resourcekey="secEmail" Text="Send via E-Mail">
     </fcp:CollapsiblePanel>
-	<asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden;">
-        <table id="tblEmail" runat="server" cellpadding="2">
+	<asp:Panel ID="EmailPanel" runat="server" Height="0" style="overflow:hidden">
+        <table class="table table-borderless align-middle mb-0" id="tblEmail" runat="server">
             <tr>
-                <td class="SubHead" width="30" nowrap>
+                <td class="SubHead text-nowrap">
                     <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:"></asp:Label>
                 </td>
                 <td class="Normal">
@@ -30,7 +30,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Button ID="btnSend" runat="server" CssClass="Button2" meta:resourcekey="btnSend" Text="Send" OnClick="btnSend_Click" ValidationGroup="SendEmail" OnClientClick="ShowProgressDialog('Sending...');" /></td>
+                    <asp:Button ID="btnSend" runat="server" CssClass="btn btn-success" meta:resourcekey="btnSend" Text="Send" OnClick="btnSend_Click" ValidationGroup="SendEmail" OnClientClick="ShowProgressDialog('Sending...');" /></td>
             </tr>
         </table>
     </asp:Panel>
@@ -39,6 +39,6 @@
         <asp:Literal ID="litContent" runat="server"></asp:Literal>
     </div>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnReturn" CssClass="btn btn-warning" runat="server" OnClick="btnReturn_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReturnText"/> </asp:LinkButton>
 </div>

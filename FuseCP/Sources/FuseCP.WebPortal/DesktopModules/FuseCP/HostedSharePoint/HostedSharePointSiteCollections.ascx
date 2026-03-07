@@ -9,16 +9,9 @@
 	
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
 	TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-
-<script type="text/javascript">
-
-function confirmation() 
-{
-	if (!confirm("Are you sure you want to delete Site Collection?")) return false; else ShowProgressDialog('Deleting SharePoint site collection...');	
-}
-</script>
 	
 <div id="ExchangeContainer">
 	<div class="Module">
@@ -30,15 +23,15 @@ function confirmation()
 					<asp:Image ID="Image1" SkinID="SharePointSiteCollection48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="SharePoint Site Collections"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<div class="FormButtonsBarClean">
 						<div class="FormButtonsBarCleanLeft">
-							<CPCC:StyleButton id="btnCreateSiteCollection" CssClass="btn btn-primary" runat="server" OnClick="btnCreateSiteCollection_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateSiteCollectionText"/> </CPCC:StyleButton>
+							<asp:LinkButton id="btnCreateSiteCollection" CssClass="btn btn-primary" runat="server" OnClick="btnCreateSiteCollection_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateSiteCollectionText"/> </asp:LinkButton>
 						</div>
 						<div class="FormButtonsBarCleanRight">
 							<asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                <div class="form-inline">
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
 								<asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
 								<asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
@@ -47,28 +40,28 @@ function confirmation()
                                               </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
-                    <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
+                <div class="d-flex">
+                    <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                        </div></div></div>
 							</asp:Panel>
 						</div>
 					</div>
 					<asp:GridView ID="gvSiteCollections" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-						Width="100%" EmptyDataText="gvSiteCollection" CssSelectorClass="NormalGridView" OnRowCommand="gvSiteCollections_RowCommand"
+					 EmptyDataText="gvSiteCollection" CssSelectorClass="NormalGridView" OnRowCommand="gvSiteCollections_RowCommand"
 						AllowPaging="True" AllowSorting="True" DataSourceID="odsSiteCollectionsPaged">
 						<Columns>
 							<asp:TemplateField meta:resourcekey="gvSiteCollectionUrl" SortExpression="ItemName">
-								<ItemStyle Width="50%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:HyperLink ID="lnk1" runat="server" NavigateUrl='<%# GetSiteCollectionEditUrl(Eval("Id").ToString()) %>'>
 									    <%# Eval("PhysicalAddress") %>
 									</asp:HyperLink>
 								</ItemTemplate>
 							</asp:TemplateField>
-							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName"	ItemStyle-Width="50%" />
+							<asp:BoundField meta:resourcekey="gvOwnerDisplayName" DataField="OwnerName" />
 							<asp:TemplateField>
 								<ItemTemplate>
-									<CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="confirmation()"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+									<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>' OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete Site Collection?', 'Deleting SharePoint site collection...');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 								</ItemTemplate>
 							</asp:TemplateField>
 						</Columns>
@@ -93,3 +86,4 @@ function confirmation()
 		</div>
 	</div>
 </div>
+

@@ -4,13 +4,14 @@
 <%@ Register Src="VirtualDirectoryHomeFolderControl.ascx" TagName="VirtualDirectoryHomeFolderControl" TagPrefix="uc1" %>
 <%@ Register Src="WebSitesCustomHeadersControl.ascx" TagName="WebSitesCustomHeadersControl" TagPrefix="uc6" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
-<div class="panel-body form-horizontal">
-    <table width="100%">
+<div class="card-body form-horizontal">
+    <table>
         <tr>
-            <td width="100%" valign="top">
+            <td class="align-top">
                 <table>
                     <tr>
                         <td class="Big">
@@ -29,27 +30,21 @@
                                 OnSelectedIndexChanged="dlTabs_SelectedIndexChanged" RepeatLayout="Flow">
                                 <ItemStyle Wrap="False" />
                                 <ItemTemplate>
-                                    <CPCC:StyleButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="Tab">
+                                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="Tab">
                                         <%# Eval("Name") %>
-                                    </CPCC:StyleButton>
+                                    </asp:LinkButton>
                                 </ItemTemplate>
                                 <SelectedItemStyle Wrap="False" />
                                 <SelectedItemTemplate>
-                                    <CPCC:StyleButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="ActiveTab">
+                                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="ActiveTab">
                                         <%# Eval("Name") %>
-                                    </CPCC:StyleButton>
+                                    </asp:LinkButton>
                                 </SelectedItemTemplate>
                             </asp:DataList>
                         </ul>
-                        <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('.nav-tabs li').unwrap();
-                                $('.nav-tabs li').unwrap();
-                            });
-                        </script>
                     </div>
                     <div class="widget-content tab-content">
-                        <div class="panel-body form-horizontal">
+                        <div class="card-body form-horizontal">
                             <asp:MultiView ID="tabs" runat="server" ActiveViewIndex="0">
                                 <asp:View ID="tabHomeFolder" runat="server">
                                     <uc1:VirtualDirectoryHomeFolderControl ID="VirtualDirectoryHomeFolderControl" runat="server" IsVirtualDirectory="true" />
@@ -69,18 +64,18 @@
 
                             </asp:MultiView>
                         </div>
-                        <div class="panel-footer text-right">
-                            <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" CausesValidation="false" OnClientClick="return confirm('Delete this virtual directory?');">
-                                <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-                            </CPCC:StyleButton>
+                        <div class="card-footer text-end">
+                            <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" CausesValidation="false" OnClientClick="return confirm('Delete this virtual directory?');">
+                                <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
+                            </asp:LinkButton>
                             &nbsp;
-                    <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-                        <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
-                    </CPCC:StyleButton>
+                    <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+                        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
+                    </asp:LinkButton>
                             &nbsp;
-                    <CPCC:StyleButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Please Wait! Updating virtual directory...');">
-                        <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText" />
-                    </CPCC:StyleButton>
+                    <asp:LinkButton ID="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Please Wait! Updating virtual directory...');">
+                        <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText" />
+                    </asp:LinkButton>
                         </div>
                     </div>
                 </div>

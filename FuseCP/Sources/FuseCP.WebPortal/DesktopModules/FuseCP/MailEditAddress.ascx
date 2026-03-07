@@ -2,15 +2,15 @@
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc2" %>
 <%@ Register TagPrefix="dnc" TagName="SelectDomain" Src="DomainsSelectDomainControl.ascx" %>
 
-<div class="form-group">
-    <asp:Label ID="lblEmailAddress" runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtName">
+<div class="mb-3">
+    <asp:Label ID="lblEmailAddress" runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtName">
         <asp:Localize ID="locAccount" runat="server" meta:resourcekey="lblEmailAddress" Text="E-mail Address: *" />
     </asp:Label>
     <div id="EditEmailPanel" runat="server" class="col-sm-8">
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+            <span class="input-group-text"><i class="bi bi-envelope" aria-hidden="true"></i></span>
             <uc2:UsernameControl ID="txtName" runat="server" />
-            <span class="input-group-addon">
+            <span class="input-group-text">
                 <asp:Literal ID="litAt" runat="server" Text="@" /></span>
             <dnc:SelectDomain ID="domainsSelectDomainControl" runat="server" HideDomainPointers="true" HidePreviewDomain="false" HideMailDomainPointers="true" HideIdnDomains="True"></dnc:SelectDomain>
         </div>

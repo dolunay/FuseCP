@@ -2,24 +2,13 @@
 <%@ Register Src="SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="SearchBox.ascx" TagName="SearchBox" TagPrefix="fcp" %>
 
-
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
 <div class="FormButtonsBarClean">
     <div class="FormButtonsBarCleanLeft">
-        <CPCC:StyleButton id="btnAllocateAddress" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateAddress_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateAddressText"/> </CPCC:StyleButton>
+        <asp:LinkButton id="btnAllocateAddress" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateAddress_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateAddressText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
         <fcp:SearchBox ID="searchBox" runat="server" />
@@ -27,7 +16,7 @@
 </div>
 
 <asp:GridView ID="gvAddresses" runat="server" AutoGenerateColumns="False"
-    Width="100%" EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
     AllowPaging="True" AllowSorting="True" DataSourceID="odsExternalAddressesPaged" 
     onrowdatabound="gvAddresses_RowDataBound" DataKeyNames="PackageAddressID" >
     <Columns>
@@ -81,8 +70,8 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div style="margin-top:4px;">
+<div style="margin-top:4px">
     <asp:Button ID="btnDeallocateAddresses" runat="server" meta:resourcekey="btnDeallocateAddresses"
-            Text="Deallocate selected" CssClass="SmallButton" CausesValidation="False" 
+            Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
         onclick="btnDeallocateAddresses_Click" />
 </div>

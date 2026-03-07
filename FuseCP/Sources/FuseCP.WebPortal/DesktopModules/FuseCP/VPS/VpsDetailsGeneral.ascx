@@ -11,40 +11,34 @@
 
 <asp:Timer runat="server" Interval="10000" ID="operationTimer" />
 
-<script language="JavaScript" type="text/javascript">
-function OpenRemoteDesktopWindow(resolution, width, height) {
-    $find("RdpPopup").hidePopup();
-    var rdpUrl = "<asp:literal id="litRdpPageUrl" runat="server" />";
-    var left = (screen.width - width) / 2;
-    var top = (screen.height - height) / 2;
-    my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left); 
-}
-</script>
-<div class="panel panel-default">
-			    <div class="panel-heading">
-                    <h3 class="panel-title">
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-rdp-panel.js"></script>
+<input type="hidden" id="vpsRdpPageUrl" value="<asp:literal id='litRdpPageUrl' runat='server' />" />
+<div class="card">
+			    <div class="card-header">
+                    <h3 class="card-title">
                         <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				        <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="General" />
                     </h3>
                 </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
-				    <table id="DetailsTable" runat="server" style="width:100%;" cellspacing="10">
+				    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
 				        <tr>
-				            <td valign="top" style="width:40%;">
+				            <td class="align-top" >
 
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                    <tr>
                                         <td><asp:Localize ID="locHostname" runat="server"
                                             meta:resourcekey="locHostname" Text="Host name:"/></td>
                                         <td>
                                             <b><asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]"></asp:HyperLink><asp:Literal ID="litHostname" runat="server" Text="[hostname]"></asp:Literal></b>
-                                            <CPCC:StyleButton ID="btnChangeHostnamePopup" runat="server"
-                                                meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit"></CPCC:StyleButton>
+                                            <asp:LinkButton ID="btnChangeHostnamePopup" runat="server"
+                                                meta:resourcekey="btnChangeHostnamePopup" CssClass="btn btn-warning" SkinID="EditSmall" Text="Edit"></asp:LinkButton>
                                                 
-                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none;">
-                                                <div style="padding-bottom:3px;">
+                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none">
+                                                <div style="padding-bottom:3px">
                                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                                 </div>
@@ -60,7 +54,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                             
                                             <ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
                                                 PopupControlID="RdpPanel" Position="Bottom" />
-                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />
+                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -79,7 +73,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                     <tr>
                                         <td><asp:Localize ID="locStatus" runat="server"
                                             meta:resourcekey="locStatus" Text="Status:"/></td>
@@ -105,20 +99,20 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				                 </asp:UpdatePanel>
 				                 
 				            </td>
-				            <td valign="top" style="width:35%;">
+				            <td class="align-top" >
 				                
 				                <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                     <Triggers>
                                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                                     </Triggers>
                                     <ContentTemplate>                
-				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge;border-width: 3px;border-color: #ffffff;" />
+				                        <asp:Image ID="imgThumbnail" runat="server" Height="120" style="border-style:ridge; border-; border-color: #ffffff" />
 				                    </ContentTemplate>
 				                 </asp:UpdatePanel>
 
 
 				            </td>
-				            <td rowspan="2" valign="top">
+				            <td class="align-top" rowspan="2">
 				                <ul class="ActionButtons">
 				                    <asp:Repeater ID="repButtons" runat="server" 
                                         onitemcommand="repButtons_ItemCommand">
@@ -146,12 +140,12 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-				                        <table cellspacing="5">
+				                        <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td class="NormalBold">
                                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:"/>
                                                 </td>
-				                                <td class="NormalBold" style="width:150px;">
+				                                <td class="NormalBold">
 				                                    <fcp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
 				                                    <asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
 				                                </td>
@@ -192,13 +186,13 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				    </table>
 			    </div>
     </div>
-<asp:Panel ID="ChangeHostnamePanel" runat="server" style="display:none;">
+<asp:Panel ID="ChangeHostnamePanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
+                           <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locChangeHostname" runat="server" Text="Change VPS host name" meta:resourcekey="locChangeHostname"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="5">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td colspan="2">
 			            <asp:ValidationSummary ID="validatorsSummary" runat="server" 
@@ -211,7 +205,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				            meta:resourcekey="locHostname1"></asp:Localize>
 			        </td>
 			        <td>
-			            <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+			            <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="HostnameValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtHostname" meta:resourcekey="HostnameValidator" SetFocusOnError="true"
@@ -228,7 +222,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				            meta:resourcekey="locDomain"></asp:Localize>
 			        </td>
 			        <td>
-			            <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" Width="200"></asp:TextBox>
+			            <asp:TextBox ID="txtDomain" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="DomainValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtDomain" meta:resourcekey="DomainValidator" SetFocusOnError="true"
@@ -248,9 +242,9 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 			    </tr>
 			</table>                               
 			</div>
-					<div class="popup-buttons text-right">
-		    <CPCC:StyleButton id="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" onclick="btnChangeHostname_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText"/> </CPCC:StyleButton> 
+					<div class="popup-buttons text-end">
+		    <asp:LinkButton id="btnCancelHostname" CssClass="btn btn-warning" runat="server" CausesValidation="false"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelHostnameText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnChangeHostname" CssClass="btn btn-primary" runat="server" ValidationGroup="ChangeHostname" onclick="btnChangeHostname_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnChangeHostnameText"/> </asp:LinkButton> 
 		</div>
 	</div>
 </asp:Panel>

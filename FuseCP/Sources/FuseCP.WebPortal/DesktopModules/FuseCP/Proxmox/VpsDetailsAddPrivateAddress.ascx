@@ -23,7 +23,7 @@
 		                    Text="Add Private IP Addresses" />
 		            </p>
                     
-                    <table id="tablePrivateNetwork" runat="server" cellspacing="5" style="width: 100%;">
+                    <table class="table table-borderless align-middle mb-0" id="tablePrivateNetwork" runat="server" >
                         <tr>
                             <td>
                                 <asp:RadioButton ID="radioPrivateRandom" runat="server" AutoPostBack="true"
@@ -32,11 +32,11 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
-                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Width="50" Text="1"></asp:TextBox>
+                                <asp:TextBox ID="txtPrivateAddressesNumber" runat="server" CssClass="form-control" Text="1"></asp:TextBox>
                                 
                                 <asp:RequiredFieldValidator ID="PrivateAddressesValidator" runat="server" Text="*" Display="Dynamic"
                                         ControlToValidate="txtPrivateAddressesNumber" meta:resourcekey="PrivateAddressesValidator" SetFocusOnError="true"
@@ -53,9 +53,9 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesListRow" runat="server">
-                            <td style="padding-left: 30px;">
+                            <td style="padding-left: 30px">
                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
-                                    CssClass="form-control" Width="170" Rows="5"></asp:TextBox>
+                                    CssClass="form-control" Rows="5"></asp:TextBox>
                                 <br />
                                 <asp:Localize ID="locOnePerLine" runat="server"
                                         meta:resourcekey="locOnePerLine" Text="* Type one IP address per line"></asp:Localize>
@@ -65,10 +65,10 @@
                     
                     <p>
                         <asp:Button ID="btnAdd" runat="server" meta:resourcekey="btnAdd"
-                            ValidationGroup="AddAddress" Text="Add" CssClass="Button1" 
+                            ValidationGroup="AddAddress" Text="Add" CssClass="btn btn-primary" 
                             onclick="btnAdd_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
 

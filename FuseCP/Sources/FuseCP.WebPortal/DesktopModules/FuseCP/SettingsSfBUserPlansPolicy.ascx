@@ -6,7 +6,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvPlans" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand" >
+	 EmptyDataText="gvPlans" CssSelectorClass="NormalGridView" OnRowCommand="gvPlan_RowCommand" >
 		<Columns>
             <asp:TemplateField HeaderText="gvPlanEdit">
                 <ItemTemplate>
@@ -19,19 +19,19 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="gvPlan">
-				<ItemStyle Width="70%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkDisplayPlan" runat="server" EnableViewState="true" ><%# Eval("SfBUserPlanName")%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-					<CPCC:StyleButton id="imgDelPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					<asp:LinkButton id="imgDelPlan" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="return confirm('Are you sure you want to delete selected plan?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-                        <CPCC:StyleButton id="btnStamp" CssClass="btn btn-warning" runat="server" CommandName="RestampItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="if (confirm('Restamp SfB user with this plan.\n\nAre you sure you want to restamp the SfB users ?')) ShowProgressDialog('Stamping SfB users, this might take a while ...'); else return false;"> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStampText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnStamp" CssClass="btn btn-warning" runat="server" CommandName="RestampItem" CommandArgument='<%# Eval("SfBUserPlanId") %>' OnClientClick="if (confirm('Restamp SfB user with this plan.\n\nAre you sure you want to restamp the SfB users ?')) ShowProgressDialog('Stamping SfB users, this might take a while ...'); else return false;"> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStampText"/> </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -41,10 +41,10 @@
 					<fcp:CollapsiblePanel id="secPlan" runat="server"
                         TargetControlID="Plan" meta:resourcekey="secPlan" Text="Plan">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="Plan" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
-							    <td class="FormLabel200" align="right">
+							    <td class="FormLabel200 text-end">
 									
 								</td>
 							    <td>
@@ -60,7 +60,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeatures" runat="server"
                         TargetControlID="PlanFeatures" meta:resourcekey="secPlanFeatures" Text="Plan Features">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeatures" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeatures" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -90,7 +90,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesFederation" runat="server"
                         TargetControlID="PlanFeaturesFederation" meta:resourcekey="secPlanFeaturesFederation" Text="Federation">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesFederation" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesFederation" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -109,7 +109,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesArchiving" runat="server"
                         TargetControlID="PlanFeaturesArchiving" meta:resourcekey="secPlanFeaturesArchiving" Text="Archiving">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesArchiving" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesArchiving" runat="server" Height="0" style="overflow:hidden">
 					    <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -126,7 +126,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesMeeting" runat="server"
                         TargetControlID="PlanFeaturesMeeting" meta:resourcekey="secPlanFeaturesMeeting" Text="Meeting">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesMeeting" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesMeeting" runat="server" Height="0" style="overflow:hidden">
 					    <table>
 						    <tr>
 							    <td>
@@ -140,7 +140,7 @@
 					<fcp:CollapsiblePanel id="secPlanFeaturesTelephony" runat="server"
                         TargetControlID="PlanFeaturesTelephony" meta:resourcekey="secPlanFeaturesTelephony" Text="Telephony">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="PlanFeaturesTelephony" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="PlanFeaturesTelephony" runat="server" Height="0" style="overflow:hidden">
 					    <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -167,7 +167,7 @@
                                 <td>
                                     <div class="input-group col-sm-6">
                                     <asp:TextBox ID="tbTelephoneProvider" CssClass="form-control" runat="server"></asp:TextBox>
-                                        <span class="input-group-btn">
+                                        <span class="d-flex">
                                             <asp:Button runat="server" ID="btnAccept" CssClass="btn btn-primary" Text="Accept" OnClick="btnAccept_Click" OnClientClick="ShowProgressDialog('Loading...');" ValidationGroup="Accept"/>
                                         </span>
                                     </div>
@@ -217,7 +217,7 @@
 	<fcp:CollapsiblePanel id="secEnterpriseVoice" runat="server"
         TargetControlID="EnterpriseVoice" meta:resourcekey="secEnterpriseVoice" Text="Enterprise Voice Policy">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="EnterpriseVoice" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="EnterpriseVoice" runat="server" Height="0" style="overflow:hidden">
 		<table>
 			<tr>
 				<td>
@@ -259,8 +259,8 @@
         <tr>
             <td>
                 <div class="FormButtonsBarClean">
-                    <CPCC:StyleButton id="btnUpdatePlan" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePlan_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePlanText"/> </CPCC:StyleButton>&nbsp;
-                    <CPCC:StyleButton id="btnAddPlan" CssClass="btn btn-success" runat="server" OnClick="btnAddPlan_Click"> <i class="fa fa-file-text-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </CPCC:StyleButton>
+                    <asp:LinkButton id="btnUpdatePlan" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePlan_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePlanText"/> </asp:LinkButton>&nbsp;
+                    <asp:LinkButton id="btnAddPlan" CssClass="btn btn-success" runat="server" OnClick="btnAddPlan_Click"> <i class="bi bi-file-earmark-text">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPlanText"/> </asp:LinkButton>
                 </div>
             </td>
         </tr>

@@ -6,28 +6,17 @@
  <%@ Register Src="UserControls/DomainActions.ascx" TagName="DomainActions" TagPrefix="fcp" %>
  <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
  <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-<script type="text/javascript">
-                var gridViewId = '<%# gvDomains.ClientID %>';
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox', gridViewId).prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox', gridViewId).prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
  <div class="FormButtonsBar right">
      <div class="right">
-        <CPCC:StyleButton ID="btnAddDomain" runat="server" CssClass="btn btn-primary" OnClick="btnAddDomain_Click" >
-            <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDomain"/>
-        </CPCC:StyleButton>
+        <asp:LinkButton ID="btnAddDomain" runat="server" CssClass="btn btn-primary" OnClick="btnAddDomain_Click" >
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDomain"/>
+        </asp:LinkButton>
          &nbsp;<asp:CheckBox ID="chkRecursive" runat="server" Text="Show Nested Spaces Items" meta:resourcekey="chkRecursive" AutoPostBack="true" Checked="True" CssClass="Normal" />
      </div>
       </div>
-     <div class="panel-body ">
+     <div class="card-body">
          <div class="row">
          <div class="col-md-3">
              <fcp:DomainActions ID="websiteActions" runat="server" GridViewID="gvDomains" CheckboxesName="chkSelectedIds" />
@@ -35,14 +24,14 @@
               <div class="col-md-6">
  
               </div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-3 text-end">
                 <fcp:SearchBox ID="searchBox" runat="server" />
              </div>
          </div>
      </div>
  
  
- <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" Width="100%" AllowSorting="True" DataSourceID="odsDomainsPaged"
+ <asp:GridView ID="gvDomains" runat="server" AutoGenerateColumns="False" AllowSorting="True" DataSourceID="odsDomainsPaged"
      EmptyDataText="gvDomains" DataKeyNames="DomainID"
      CssSelectorClass="NormalGridView" AllowPaging="True" OnRowCommand="gvDomains_RowCommand">
      <Columns>
@@ -57,13 +46,13 @@
 
 
          <asp:TemplateField SortExpression="DomainName" HeaderText="gvDomainsName">
-             <ItemStyle Width="45%" Wrap="False"></ItemStyle>
+             <ItemStyle Wrap="False"></ItemStyle>
              <ItemTemplate>
  	            <b><asp:hyperlink id=lnkEdit1 runat="server" CssClass="Medium"
  	                NavigateUrl='<%# GetItemEditUrl(Eval("PackageID"), Eval("DomainID")) %>'>
  		            <%# Eval("DomainName")%></asp:hyperlink>
  	            </b>
- 	            <div runat="server" class="Small" style="margin-top:2px;" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
+ 	            <div runat="server" class="Small" style="margin-top:2px" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
                      <asp:Label ID="lblMailDomain" runat="server" meta:resourcekey="lblMailDomain" Text="Mail:"></asp:Label>
                      <b><%# Eval("MailDomainName")%></b>
  	            </div>
@@ -72,7 +61,7 @@
 
 
          <asp:TemplateField HeaderText="gvDomainsExpirationDate">
-             <ItemStyle Width="11%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <%# GetDomainExpirationDate(Eval("ExpirationDate"), Eval("LastUpdateDate"))%>
              </ItemTemplate>
@@ -80,17 +69,17 @@
 
 
          <asp:TemplateField HeaderText="">
-             <ItemStyle Width="5%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
- 	            <div style="display:inline-block" runat="server" Visible='<%# ShowDomainDnsInfo(Eval("ExpirationDate"), Eval("LastUpdateDate"), !(bool)Eval("IsSubDomain") && !(bool)Eval("IsPreviewDomain") && !(bool)Eval("IsDomainPointer")) && !string.IsNullOrEmpty(GetDomainDnsRecords((int)Eval("DomainId"))) %>'>
-                   <img style="border-width: 0px;" src="App_Themes/Default/Images/information_icon_small.gif" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
+                <div style="display:inline-block" runat="server" Visible='<%# ShowDomainDnsInfo(Eval("ExpirationDate"), Eval("LastUpdateDate"), !(bool)Eval("IsSubDomain") && !(bool)Eval("IsPreviewDomain") && !(bool)Eval("IsDomainPointer")) && !string.IsNullOrEmpty(GetDomainDnsRecords((int)Eval("DomainId"))) %>'>
+                      <img src="App_Themes/Default/Images/information_icon_small.gif" alt="Domain DNS information" title="<%# GetDomainTooltip((int)Eval("DomainId"), Eval("RegistrarName") != DBNull.Value ? (string)Eval("RegistrarName"):string.Empty)  %>">
                  </div>
              </ItemTemplate>
          </asp:TemplateField>
 
 
          <asp:TemplateField HeaderText="gvDomainsType">
-             <ItemStyle Width="30%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <%# GetDomainTypeName((bool)Eval("IsSubDomain"), (bool)Eval("IsPreviewDomain"), (bool)Eval("IsDomainPointer"))%>
              </ItemTemplate>
@@ -98,7 +87,7 @@
 
 
          <asp:TemplateField SortExpression="PackageName" HeaderText="gvDomainsSpace">
-             <ItemStyle Width="30%"></ItemStyle>
+             <ItemStyle></ItemStyle>
              <ItemTemplate>
  	            <asp:hyperlink id="lnkEdit2" runat="server" EnableViewState="false"
  	                NavigateUrl='<%# GetSpaceHomePageUrl((int)Eval("PackageID")) %>'>
@@ -138,11 +127,11 @@
 
          <asp:TemplateField>
  			<ItemTemplate>
- 				<CPCC:StyleButton ID="cmdDetach" runat="server" 
+ 				<asp:LinkButton ID="cmdDetach" runat="server" 
  					CommandName="Detach" CommandArgument='<%# Eval("DomainID") %>'
-					CssClass="btn btn-default btn-sm" OnClientClick="return confirm('Remove this item?');">
-                    <i class="fa fa-chain-broken">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
-				</CPCC:StyleButton>
+					CssClass="btn btn-secondary btn-sm" OnClientClick="return confirm('Remove this item?');">
+                    <i class="bi bi-link-45deg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
+				</asp:LinkButton>
  			</ItemTemplate>
          </asp:TemplateField>
 

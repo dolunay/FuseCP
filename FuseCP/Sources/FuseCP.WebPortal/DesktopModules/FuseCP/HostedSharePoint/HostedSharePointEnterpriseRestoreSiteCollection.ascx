@@ -24,9 +24,9 @@
 					<asp:Image ID="Image1" SkinID="SharePointSiteCollection48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="SharePoint Site Collections"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
-						<table cellspacing="0" cellpadding="5" width="100%">
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td class="Huge" colspan="2">
 									<asp:Literal ID="litSiteCollectionName" runat="server"></asp:Literal></td>
@@ -36,10 +36,10 @@
 									&nbsp;</td>
 							</tr>
 							<tr>
-								<td class="SubHead" valign="top" nowrap width="200">
+								<td class="SubHead align-top text-nowrap" >
 									<asp:Label ID="lblRestoreFrom" runat="server" meta:resourcekey="lblRestoreFrom" Text="Restore From:"></asp:Label></td>
-								<td class="normal" width="100%">
-									<table width="100%">
+								<td class="normal">
+									<table class="table table-borderless mb-0">
 										<tr>
 											<td class="Normal">
 												<asp:RadioButton ID="radioUpload" meta:resourcekey="radioUpload" Checked="True" GroupName="media"
@@ -54,13 +54,13 @@
 										</tr>
 										<tr>
 											<td class="Normal" id="cellUploadFile" runat="server">
-												<table width="100%">
+												<table class="table table-borderless mb-0">
 													<tr>
 														<td>
 															<asp:FileUpload ID="uploadFile" runat="server" Width="300px" /></td>
 													</tr>
 													<tr>
-														<td class="Small" nowrap>
+														<td class="Small text-nowrap">
 															<asp:Label ID="lblAllowedFiles1" runat="server" meta:resourcekey="lblAllowedFiles"
 																Text=".ZIP, .BAK files are allowed"></asp:Label></td>
 													</tr>
@@ -69,14 +69,14 @@
 										</tr>
 										<tr>
 											<td class="Normal" id="cellFile" runat="server">
-												<table width="100%">
+												<table class="table table-borderless mb-0">
 													<tr>
 														<td>
-															<uc1:FileLookup ID="fileLookup" runat="server" Width="300" IncludeFiles="true" />
+															<uc1:FileLookup ID="fileLookup" runat="server" IncludeFiles="true" />
 														</td>
 													</tr>
 													<tr>
-														<td class="Small" nowrap>
+														<td class="Small text-nowrap">
 															<asp:Label ID="lblAllowedFiles2" runat="server" meta:resourcekey="lblAllowedFiles"
 																Text=".ZIP, .BAK files are allowed"></asp:Label></td>
 													</tr>
@@ -88,12 +88,13 @@
 								</td>
 							</tr>
 						</table>
-					<div class="panel-footer text-right">
-						<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnRestore" CssClass="btn btn-success" runat="server" OnClick="btnRestore_Click" OnClientClick="ShowProgressDialog('Restoring site collection...');"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </CPCC:StyleButton>
+					<div class="card-footer text-end">
+						<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnRestore" CssClass="btn btn-success" runat="server" OnClick="btnRestore_Click" OnClientClick="ShowProgressDialog('Restoring site collection...');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestoreText"/> </asp:LinkButton>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

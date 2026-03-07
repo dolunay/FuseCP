@@ -1,14 +1,14 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IPAddressesAddIPAddress.ascx.cs" Inherits="FuseCP.Portal.IPAddressesAddIPAddress" %>
 <%@ Register Src="UserControls/EditIPAddressControl.ascx" TagName="EditIPAddressControl" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <asp:ValidationSummary ID="validatorsSummary" runat="server"  ValidationGroup="EditAddress" ShowMessageBox="True" ShowSummary="False" />
 	<asp:CustomValidator ID="consistentAddresses" runat="server" ErrorMessage="You must not mix IPv4 and IPv6 addresses." ValidationGroup="EditAddress" Display="dynamic" ServerValidate="CheckIPAddresses" /> 
-	<table cellspacing="0" cellpadding="3">
+	<table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td style="width:150px;">
+		    <td class="FormLabel150">
 		        <asp:Localize ID="locPool" runat="server" meta:resourcekey="locPool" Text="Pool:"></asp:Localize>
 		    </td>
 		    <td>
@@ -79,14 +79,15 @@
     </table>
     
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
     &nbsp;
-    <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="EditAddress">
-        <i class="fa fa-check">&nbsp;</i>&nbsp;
+    <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="EditAddress">
+        <i class="bi bi-check-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAdd"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
+

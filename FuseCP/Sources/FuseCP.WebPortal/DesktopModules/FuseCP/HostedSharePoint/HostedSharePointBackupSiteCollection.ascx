@@ -21,9 +21,9 @@
 					<asp:Image ID="Image1" SkinID="SharePointSiteCollection48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="SharePoint Site Collections"></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
-					<table cellspacing="0" cellpadding="5" width="100%">
+					<table class="table table-borderless align-middle mb-0">
 						<tr>
 							<td class="Huge" colspan="2">
 								<asp:Literal ID="litSiteCollectionName" runat="server"></asp:Literal></td>
@@ -33,16 +33,16 @@
 								&nbsp;</td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupFileName" runat="server" meta:resourcekey="lblBackupFileName"
 									Text="Backup File Name:"></asp:Label></td>
 							<td class="normal">
-								<asp:TextBox ID="txtBackupName" runat="server" CssClass="form-control" Width="200"></asp:TextBox><asp:RequiredFieldValidator
+								<asp:TextBox ID="txtBackupName" runat="server" CssClass="form-control"></asp:TextBox><asp:RequiredFieldValidator
 									ID="validatorUserName" runat="server" ControlToValidate="txtBackupName" CssClass="NormalBold"
 									Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator></td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupOptions" runat="server" meta:resourcekey="lblBackupOptions"
 									Text="Backup Options:"></asp:Label></td>
 							<td class="normal">
@@ -53,7 +53,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="SubHead" valign="top">
+							<td class="SubHead align-top">
 								<asp:Label ID="lblBackupDestination" runat="server" meta:resourcekey="lblBackupDestination"
 									Text="Backup Destination:"></asp:Label></td>
 							<td class="normal">
@@ -63,16 +63,17 @@
 								<asp:RadioButton ID="rbCopy" runat="server" meta:resourcekey="rbCopy" Text="Copy to Folder"
 									GroupName="action" AutoPostBack="True" OnCheckedChanged="rbDownload_CheckedChanged">
 								</asp:RadioButton><br />
-								&nbsp;&nbsp;&nbsp;&nbsp;<uc1:FileLookup ID="fileLookup" runat="server" Width="300" />
+								&nbsp;&nbsp;&nbsp;&nbsp;<uc1:FileLookup ID="fileLookup" runat="server" />
 							</td>
 						</tr>
 					</table>
-					<div class="panel-footer text-right">
-						<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnBackup" CssClass="btn btn-success" runat="server" OnClick="btnBackup_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackup"/> </CPCC:StyleButton>
+					<div class="card-footer text-end">
+						<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnBackup" CssClass="btn btn-success" runat="server" OnClick="btnBackup_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackup"/> </asp:LinkButton>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

@@ -114,4 +114,18 @@ namespace FuseCP.Portal.VPSForPC
         }
     }
 }
+#else
+using System;
+using System.Web.UI;
+
+namespace FuseCP.Portal.VPSForPC
+{
+	// Keep a minimal fallback type so the ASPX Inherits target resolves when Reporting is disabled.
+	public partial class MonitoringPage : Page
+	{
+		protected void operationTimer_Tick(object sender, EventArgs e)
+		{
+		}
+	}
+}
 #endif

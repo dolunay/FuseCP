@@ -1,17 +1,17 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Windows2008_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Windows2008_Settings" %>
-<table cellpadding="1" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label ID="lblSpacesFolder" runat="server" meta:resourcekey="lblSpacesFolder" Text="User Packages Folder:"></asp:Label>
         </td>
-        <td width="100%">
+        <td>
             <asp:TextBox runat="server" ID="txtFolder" Width="300px" CssClass="form-control"></asp:TextBox></td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label ID="lblLocationDrive" runat="server" meta:resourcekey="lblLocationDrive" Text="Location Drive:"></asp:Label>
         </td>
-        <td width="100%">
+        <td>
             <asp:TextBox runat="server" ID="txtLocationDrive" Width="50px" MaxLength="1" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="valLocationDrive" runat="server" ControlToValidate="txtLocationDrive"
                 ErrorMessage="*"></asp:RequiredFieldValidator>
@@ -19,9 +19,9 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap></td>
-        <td width="100%">
-            <table>
+        <td class="SubHead text-nowrap"></td>
+        <td>
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
                     <td>
                         <asp:CheckBox runat="server" AutoPostBack="false" ID="chkEnableHardQuota" meta:resourcekey="chkEnableHardQuota" Text="Enable Hard Quota:" /></td>
@@ -34,3 +34,4 @@
         </td>
     </tr>
 </table>
+

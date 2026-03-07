@@ -11,40 +11,34 @@
 
 <asp:Timer runat="server" Interval="90000" ID="operationTimer" />
 
-<script language="JavaScript" type="text/javascript">
-function OpenRemoteDesktopWindow(resolution, width, height) {
-    $find("RdpPopup").hidePopup();
-    var rdpUrl = "<asp:literal id="litRdpPageUrl" runat="server" />";
-    var left = (screen.width - width) / 2;
-    var top = (screen.height - height) / 2;
-    my_window = window.open(rdpUrl + resolution, "RDP", "status=0,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left); 
-}
-</script>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/rdp-popup.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-rdp-panel.js"></script>
+<input type="hidden" id="vpsRdpPageUrl" value="<asp:literal id='litRdpPageUrl' runat='server' />" />
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="General" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_general" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
-				    <table id="DetailsTable" runat="server" style="width:100%;" cellspacing="10">
+				    <table class="table table-borderless align-middle mb-0" id="DetailsTable" runat="server" >
 				        <tr>
-				            <td valign="top" style="width:40%;">
+				            <td class="align-top" >
 
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                    <tr>
                                         <td><asp:Localize ID="locHostname" runat="server"
                                             meta:resourcekey="locHostname" Text="Host name:"/></td>
                                         <td>
                                             <b><asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]" /><asp:Literal ID="litHostname" runat="server" Text="[hostname]" /></b>
                                                 
-                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none;">
-                                                <div style="padding-bottom:3px;">
+                                            <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none">
+                                                <div style="padding-bottom:3px">
                                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                                 </div>
@@ -60,7 +54,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                             
                                             <ajaxToolkit:PopupControlExtender ID="RdpPopup" BehaviorID="RdpPopup" runat="server" TargetControlID="lnkHostname"
                                                 PopupControlID="RdpPanel" Position="Bottom" />
-                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" Width="3" />
+                                            <ajaxToolkit:DropShadowExtender  ID="RdpShadow" runat="server" TargetControlID="RdpPanel" TrackPosition="true" Opacity="0.4" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -79,7 +73,7 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-                                <table cellspacing="2">
+                                <table class="table table-borderless align-middle mb-0">
                                     <tr>
                                         <td><asp:Localize ID="locStatus" runat="server"
                                             meta:resourcekey="locStatus" Text="Status:"/></td>
@@ -95,31 +89,31 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
 				                 </asp:UpdatePanel>
 				                 
 				            </td>
-				            <td valign="top" style="width:35%;">
+				            <td class="align-top" >
 				                
 				                <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                     <Triggers>
                                         <asp:AsyncPostBackTrigger ControlID="operationTimer" EventName="Tick" />
                                     </Triggers>
                                     <ContentTemplate>                
-				                        <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" style="border-style:ridge;border-width: 3px;border-color: #ffffff;" />
+				                        <asp:Image ID="imgThumbnail" runat="server" Height="120" style="border-style:ridge; border-; border-color: #ffffff" />
 				                    </ContentTemplate>
 				                 </asp:UpdatePanel>
 
 
 				            </td>
-				            <td rowspan="2" valign="top">
+				            <td class="align-top" rowspan="2">
 				                <ul class="ActionButtons">
 				                    <asp:Repeater ID="repButtons" runat="server" 
                                         onitemcommand="repButtons_ItemCommand">
 				                        <ItemTemplate>
 				                            <li>
-				                                <CPCC:StyleButton ID="btnAction" runat="server" CausesValidation="false"
+				                                <asp:LinkButton ID="btnAction" runat="server" CausesValidation="false"
 				                                    Text='<%# Eval("Text") %>'
 				                                    CommandName='<%# Eval("Command") %>'
 				                                    style='<%# Eval("Style") %>'
 				                                    OnClientClick='<%# Eval("OnClientClick") %>'
-				                                    CssClass="ActionButton"></CPCC:StyleButton>
+				                                    CssClass="ActionButton"></asp:LinkButton>
 				                            </li>
 				                        </ItemTemplate>
 				                    </asp:Repeater>
@@ -136,12 +130,12 @@ function OpenRemoteDesktopWindow(resolution, width, height) {
                                     </Triggers>
                                     <ContentTemplate>
                                     
-				                        <table cellspacing="5" runat="server" id="vmInfoPerfomence">
+				                        <table class="table table-borderless align-middle mb-0" runat="server" id="vmInfoPerfomence">
                                             <tr>
                                                 <td class="NormalBold">
                                                     <asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU:"/>
                                                 </td>
-				                                <td class="NormalBold" style="width:150px;">
+				                                <td class="NormalBold">
 				                                    <fcp:Gauge ID="cpuGauge" runat="server" Progress="0" Total="100" />
 				                                    <asp:Literal ID="litCpuPercentage" runat="server" Text="0%"></asp:Literal>
 				                                </td>

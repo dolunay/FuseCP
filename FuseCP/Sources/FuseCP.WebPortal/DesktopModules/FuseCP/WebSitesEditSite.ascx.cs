@@ -584,7 +584,7 @@ namespace FuseCP.Portal
 				// Disable user name validation
 				WDeployPublishingAccountRequiredFieldValidator.Enabled = false;
 				// Display plain-text publishing account name
-				WDeployPublishingAccountLiteral.Text = item.WebDeployPublishingAccount;
+				WDeployPublishingAccountLiteral.Text = HttpUtility.HtmlEncode(item.WebDeployPublishingAccount);
 				// Miscellaneous
 				// Enable empty publishing password for stylistic purposes
 				WDeployPublishingPasswordTextBox.Text = PasswordControl.EMPTY_PASSWORD;
@@ -1011,7 +1011,7 @@ namespace FuseCP.Portal
 
 		protected void cmdChangeState_Click(object sender, EventArgs e)
 		{
-			string stateName = ((CPCC.StyleButton)sender).CommandName;
+			string stateName = ((LinkButton)sender).CommandName;
 			ServerState state = (ServerState)Enum.Parse(typeof(ServerState), stateName, true);
 
 			try
@@ -1045,7 +1045,7 @@ namespace FuseCP.Portal
 
 		protected void cmdAppPoolChangeState_Click(object sender, EventArgs e)
 		{
-			string stateName = ((CPCC.StyleButton)sender).CommandName;
+			string stateName = ((LinkButton)sender).CommandName;
 			AppPoolState state = (AppPoolState)Enum.Parse(typeof(AppPoolState), stateName, true);
 
 			try

@@ -21,7 +21,7 @@
                         ValidationGroup="ImportWizard" ShowMessageBox="True" ShowSummary="False" />
                         
                     
-                    <table cellpadding="3">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locHyperVService" runat="server" meta:resourcekey="locHyperVService" Text="Proxmox Service:"></asp:Localize>
@@ -55,7 +55,7 @@
                     <wsp:CollapsiblePanel id="secOsTemplate" runat="server"
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table>
 
                             <tr>
@@ -84,7 +84,7 @@
                             
 
                             <tr id="AdminPasswordPanel" runat="server" visible="false">
-                                <td class="FormLabel150" valign="top">
+                                <td class="FormLabel150 align-top">
                                     <asp:Localize ID="locAdminPassword" runat="server" meta:resourcekey="locAdminPassword" Text="Administrator password:"></asp:Localize>
                                 </td>
                                 <td>
@@ -103,8 +103,8 @@
                         <wsp:CollapsiblePanel id="secConfiguration" runat="server"
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0">
                                 <wsp:Generation runat="server" ID="GenerationSetting" Mode="Summary"/>
                                 <tr>
                                     <td>
@@ -146,10 +146,10 @@
                         <wsp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
-                                    <td style="width:30%;">
+                                    <td >
                                         <wsp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
                                         <asp:Localize ID="locBootFromCd" runat="server" meta:resourcekey="locBootFromCd"></asp:Localize>
                                     </td>
@@ -164,8 +164,8 @@
                         <wsp:CollapsiblePanel id="secDvd" runat="server"
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td>
                                         <wsp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
@@ -178,10 +178,10 @@
                         <wsp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
-                                    <td style="width:30%;">
+                                    <td >
                                         <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
                                     </td>
                                     <td>
@@ -202,8 +202,8 @@
                         <wsp:CollapsiblePanel id="secExternalNetwork" runat="server"
                             TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table width="100%">
+                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table>
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locExternalAdapter" runat="server" meta:resourcekey="locExternalAdapter" Text="Connected NIC:"></asp:Localize>
@@ -214,12 +214,12 @@
                                     </td>
                                 </tr>
                                 <tr id="ExternalAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locExternalAddresses" runat="server" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="10"
-                                            Width="220" height="200" SelectionMode="Multiple"></asp:ListBox>
+                                            height="200" SelectionMode="Multiple"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredExternalAddresses" runat="server"
                                             ControlToValidate="ExternalAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredExternalAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -232,8 +232,8 @@
                         <wsp:CollapsiblePanel id="secManagementNetwork" runat="server"
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </wsp:CollapsiblePanel>
-                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table width="100%">
+                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table>
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locManagementAdapter" runat="server" meta:resourcekey="locManagementAdapter" Text="Connected NIC:"></asp:Localize>
@@ -244,12 +244,12 @@
                                     </td>
                                 </tr>
                                 <tr id="ManagementAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locManagementAddresses" runat="server" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="10"
-                                            Width="220" height="200" SelectionMode="Single"></asp:ListBox>
+                                            height="200" SelectionMode="Single"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredManagementAddresses" runat="server"
                                             ControlToValidate="ManagementAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredManagementAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -262,10 +262,10 @@
                     
                     <p>
                         <asp:Button ID="btnImport" runat="server" meta:resourcekey="btnImport"
-                            ValidationGroup="ImportWizard" Text="Import" CssClass="Button1" 
+                            ValidationGroup="ImportWizard" Text="Import" CssClass="btn btn-primary" 
                             onclick="btnImport_Click" />
                         <asp:Button ID="btnCancel" runat="server" meta:resourcekey="btnCancel"
-                            CausesValidation="false" Text="Cancel" CssClass="Button1" 
+                            CausesValidation="false" Text="Cancel" CssClass="btn btn-primary" 
                             onclick="btnCancel_Click" />
                     </p>
                         

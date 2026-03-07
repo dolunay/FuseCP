@@ -5,16 +5,16 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <asp:Label runat="server" CssClass="control-label col-sm-2" AssociatedControlID="txtDisplayName">
+                    <div class="mb-3">
+                        <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="DisplayNameLabel" runat="server" meta:resourcekey="DisplayNameLabel" Text="First Name:" />
                         </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-btn">
-                                    <CPCC:StyleButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary" />
-                                    <CPCC:StyleButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
+                                <span class="d-flex">
+                                    <asp:LinkButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary" />
+                                    <asp:LinkButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
                                 </span>
                             </div>
                         </div>
@@ -26,20 +26,20 @@
             <div class="widget">
                 <div class="widget-header clearfix">
                     <h3>
-                        <i class="fa fa-user"></i>
+                        <i class="bi bi-person"></i>
                         <asp:Localize ID="headerAddAccounts" runat="server" meta:resourcekey="headerAddAccounts"></asp:Localize>
                     </h3>
                 </div>
                 <div class="widget-content Popup">
                     <asp:UpdatePanel ID="AddAccountsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
-	                        <div style="text-align:right;margin-bottom: 4px;">
+	                        <div style="text-align:right; margin-bottom: 4px">
 			                    <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                             </div>
                             <div class="FormButtonsBarClean">
                                 <div class="FormButtonsBarCleanRight">
                                     <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                        <div class="form-inline">
+                                        <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                         <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                                             <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -48,24 +48,24 @@
                                                 </div>
                                                 <div class="input-group">
                                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <div class="input-group-btn">
-                                        <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
-                                    </div></div></div>
+                                            <span class="input-group-btn">
+                                        <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
+                                    </span></div></div>
                                      </asp:Panel>
                                 </div>
                             </div>
                             <div class="Popup-Scroll">
-			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" Width="100%" CssSelectorClass="NormalGridView" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
+			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" CssSelectorClass="NormalGridView" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
 				                    <Columns>
 					                    <asp:TemplateField meta:resourcekey="gvAccountsDisplayName" SortExpression="DisplayName">
-						                    <ItemStyle Width="50%"></ItemStyle>
+						                    <ItemStyle></ItemStyle>
 						                    <ItemTemplate>
 							                    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage() %>' ImageAlign="AbsMiddle" />
 							                    <asp:LinkButton ID="cmdSelectAccount" CommandName="SelectAccount" CommandArgument='<%# Eval("AccountId")%>' runat="server" Text='<%# Eval("DisplayName") %>'></asp:LinkButton>
 						                    </ItemTemplate>
 					                    </asp:TemplateField>
 					                    <asp:TemplateField meta:resourcekey="gvAccountsEmail" >
-						                    <ItemStyle Width="50%"></ItemStyle>
+						                    <ItemStyle></ItemStyle>
 						                    <ItemTemplate>
 							                    <asp:Literal ID="litPrimaryEmailAddress" runat="server" Text='<%# Eval("PrimaryEmailAddress") %>'></asp:Literal>
 						                    </ItemTemplate>
@@ -76,15 +76,15 @@
 	                    </ContentTemplate>
                     </asp:UpdatePanel>
                     <br /><br />
-                    <CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False">
-                        <i class="fa fa-times">&nbsp;</i>&nbsp;
+                    <asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False">
+                        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                         <asp:Localize runat="server" meta:resourcekey="btnCancelText"/>
-                    </CPCC:StyleButton>
+                    </asp:LinkButton>
                     &nbsp;
                 </div>
             </div>
         </asp:Panel>
-        <asp:Button ID="btnSelectAccountFake" runat="server" style="display:none;" />
+        <asp:Button ID="btnSelectAccountFake" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="SelectAccountsModal" runat="server" TargetControlID="btnSelectAccountFake" PopupControlID="AddAccountsPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelAdd" />
 	</ContentTemplate>
 </asp:UpdatePanel>

@@ -3,13 +3,13 @@
 
 <fcp:CollapsiblePanel id="tblSpacesFolder" runat="server"
     TargetControlID="SpacesFolderPanel" meta:resourcekey="tblSpacesFolder" Text="Child Spaces Location Folder"/>
-<asp:Panel ID="SpacesFolderPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="SpacesFolderPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblChildSpacesFolder" runat="server" meta:resourcekey="lblChildSpacesFolder" Text="Child Spaces Folder:"></asp:Label>
             </td>
-            <td class="Normal" width="100%" valign="top">
+            <td class="Normal align-top">
                 <asp:TextBox ID="txtSpacesFolder" runat="server" CssClass="form-control" Width="250px"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblRelative" runat="server" meta:resourcekey="lblRelative" Text="* relative to this space root"></asp:Label>

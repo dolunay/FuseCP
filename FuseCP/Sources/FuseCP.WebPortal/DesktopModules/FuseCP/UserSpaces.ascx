@@ -8,12 +8,12 @@
 <script src="/JavaScript/chosen.min.js" type="text/javascript"></script>
 
 <asp:Panel id="ButtonsPanel" runat="server" class="FormButtonsBar UserSpaces right">
-    <CPCC:StyleButton id="btnAddItem" CssClass="btn btn-primary" runat="server" OnClick="btnAddItem_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/> </CPCC:StyleButton>
+    <asp:LinkButton id="btnAddItem" CssClass="btn btn-primary" runat="server" OnClick="btnAddItem_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/> </asp:LinkButton>
 </asp:Panel>
 
 
 <asp:Panel ID="UserPackagesPanel" runat="server" Visible="false">
-    <div class="panel-body">
+    <div class="card-body">
         <div class="space-select">
             <asp:DropDownList ID="ddlPackageSelect" OnSelectedIndexChanged="openSelectedPackage" AutoPostBack="true" CssClass="form-control" runat="server" Visible="false" />
         </div>
@@ -26,10 +26,10 @@
                                 <asp:Label ID="lblGroup" runat="server" CssClass="LinkText" Text='<%# Eval("Text") %>' />
                                 </h4>
                                 <asp:DataList ID="PackageIcons" runat="server" DataSource='<%# GetIconMenuItems(Eval("ChildItems")) %>'
-                                    CellSpacing="1" RepeatColumns="5" RepeatDirection="Horizontal">
+                                    RepeatColumns="5" RepeatDirection="Horizontal">
                                     <ItemTemplate>
                                         <asp:Panel ID="IconPanel" runat="server" CssClass="Icon">
-                                            <asp:HyperLink ID="imgLink" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><asp:Image ID="imgIcon" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' /></asp:HyperLink>
+                                            <asp:HyperLink ID="imgLink" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><asp:Image ID="imgIcon" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText='<%# Eval("Text") %>' ToolTip='<%# Eval("Text") %>' /></asp:HyperLink>
                                             <br />
                                             <asp:HyperLink ID="lnkIcon" runat="server" NavigateUrl='<%# Eval("NavigateURL") %>'><%# Eval("Text") %></asp:HyperLink>
                                         </asp:Panel>
@@ -58,7 +58,7 @@
         </asp:Repeater>
     </div>
     
-    <asp:Panel ID="EmptyPackagesList" runat="server" Visible="false" CssClass="panel-body form-horizontal">
+    <asp:Panel ID="EmptyPackagesList" runat="server" Visible="false" CssClass="card-body form-horizontal">
         <asp:Literal ID="litEmptyList" runat="server" EnableViewState="false"></asp:Literal>
     </asp:Panel>
 </asp:Panel>
@@ -68,11 +68,11 @@
 <asp:UpdatePanel runat="server" ID="ResellerPackagesPanel" Visible="false">
     <ContentTemplate>
 <asp:GridView ID="gvPackages" runat="server" AutoGenerateColumns="False"
-    EmptyDataText="gvPackages" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvPackages" CssSelectorClass="NormalGridView fcp-home-hosting-spaces-grid"
     AllowSorting="True" DataSourceID="odsPackages">
     <Columns>
         <asp:TemplateField SortExpression="PackageName" HeaderText="gvPackagesName">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id=lnkEdit runat="server" CssClass="Medium" NavigateUrl='<%# GetSpaceHomePageUrl((int)Eval("PackageID")) %>'>
 		            <%# PortalAntiXSS.EncodeOld((string) Eval("PackageName")) %>
@@ -80,7 +80,7 @@
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField SortExpression="ServerName" HeaderText="gvPackagesServer">
-            <ItemStyle Width="30%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 		         <uc3:ServerDetails ID="serverDetails" runat="server"
 		            ServerID='<%# Eval("ServerID") %>'
@@ -96,7 +96,7 @@
 		         <%# PanelFormatter.GetPackageStatusName((int)Eval("StatusID"))%>
             </ItemTemplate>
         </asp:TemplateField>
-		<asp:TemplateField ItemStyle-Width="20px" ItemStyle-Wrap="false">
+		<asp:TemplateField ItemStyle-Wrap="false">
 			<ItemTemplate><uc4:Comments id="Comments1" runat="server"
 				    Comments='<%# Eval("Comments") %>'>
                 </uc4:Comments></ItemTemplate>

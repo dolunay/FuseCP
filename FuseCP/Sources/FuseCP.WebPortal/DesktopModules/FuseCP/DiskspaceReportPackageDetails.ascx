@@ -3,18 +3,18 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="UserControls/Gauge.ascx" TagName="Gauge" TagPrefix="uc1" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SpaceDetailsHeaderControl ID="spaceDetails" runat="server" />
 
     <fcp:CollapsiblePanel id="secSummary" runat="server"
         TargetControlID="SummaryPanel" meta:resourcekey="secSummary" Text="Disk Space by Resources">
     </fcp:CollapsiblePanel>
-    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden;">
+    <asp:Panel ID="SummaryPanel" runat="server" Height="0" style="overflow:hidden">
 
         <asp:GridView ID="gvSummary" runat="server" AutoGenerateColumns="False"
             EmptyDataText="gvSummary" CssSelectorClass="NormalGridView">
             <Columns>
-	            <asp:TemplateField HeaderText="gvSummaryGroupName" ItemStyle-Width="150">
+	            <asp:TemplateField HeaderText="gvSummaryGroupName">
 		            <ItemTemplate>
 			            <span class="Big"><%# GetSharedLocalizedString("ReportResourceGroup." + Eval("GroupName")) %></span>
 		            </ItemTemplate>
@@ -39,6 +39,6 @@
     </asp:Panel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
 </div>

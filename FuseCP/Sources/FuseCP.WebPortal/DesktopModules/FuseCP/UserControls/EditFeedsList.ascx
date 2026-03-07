@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditFeedsList.ascx.cs" Inherits="FuseCP.Portal.UserControls.EditFeedsList" %>
-<div style="width:100%;">
+<div >
 	<div class="FormButtonsBar">
-		<CPCC:StyleButton id="btnAddFeed" runat="server" meta:resourcekey="btnAddFeed" Text="Add" CssClass="btn btn-primary" CausesValidation="false" OnClick="BtnAddClick"/>
+		<asp:Button id="btnAddFeed" runat="server" meta:resourcekey="btnAddFeed" Text="Add" CssClass="btn btn-primary" CausesValidation="false" OnClick="BtnAddClick"/>
 	</div>
 
 	<asp:GridView id="gvFeeds" Runat="server" AutoGenerateColumns="False"
@@ -14,9 +14,9 @@
 					<asp:Label id="lblFeedName" Runat="server"></asp:Label>
 				</itemtemplate>
 			</asp:TemplateField>
-			<asp:TemplateField HeaderText="gvFeedsName" ItemStyle-Width="100%">
+			<asp:TemplateField HeaderText="gvFeedsName">
 				<itemtemplate>
-					<asp:TextBox id="txtFeedName" Runat="server" Width="95%" CssClass="form-control">
+					<asp:TextBox id="txtFeedName" Runat="server" CssClass="form-control">
 					</asp:TextBox>
 					<asp:RegularExpressionValidator id="valCorrectFeedName" runat="server" CssClass="NormalBold"
 						ValidationExpression="^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?$"
@@ -25,7 +25,7 @@
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<itemtemplate>
-					<CPCC:StyleButton id="cmdDeleteFeed" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false" meta:resourcekey="cmdDeleteFeed"/> 
+					<asp:LinkButton id="cmdDeleteFeed" CssClass="btn btn-danger" runat="server" CommandName='delete_item' CausesValidation="false" meta:resourcekey="cmdDeleteFeed"/> 
 
 				</itemtemplate>
 				<ItemStyle HorizontalAlign="Center" />

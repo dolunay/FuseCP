@@ -5,8 +5,8 @@
 <asp:UpdatePanel ID="RDAppsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
 	<div class="FormButtonsBarClean">
-		<asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('loading applications...');"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>&nbsp;
-		<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>      
+		<asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('loading applications...');"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>&nbsp;
+		<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>      
 	</div>
 	<asp:GridView ID="gvApps" runat="server" meta:resourcekey="gvApps" AutoGenerateColumns="False"
 		Width="600px" CssSelectorClass="NormalGridView" OnRowCommand="gvApps_RowCommand"
@@ -22,7 +22,7 @@
 				<ItemStyle Width="10px" />
 			</asp:TemplateField>
 			<asp:TemplateField meta:resourcekey="gvAppName" HeaderText="gvAppName">
-				<ItemStyle Width="90%" Wrap="false">
+				<ItemStyle Wrap="false">
 				</ItemStyle>
 				<ItemTemplate>                    
                     <asp:LinkButton id="lnkDisplayName" meta:resourcekey="lnkDisplayName" runat="server" Text='<%# Eval("DisplayName")%>' CommandName="EditApplication" CommandArgument='<%# Eval("Alias") %>' OnClientClick="ShowProgressDialog('Loading ...');return true;"/>
@@ -45,7 +45,7 @@
 <asp:Panel ID="AddAppsPanel" runat="server" CssClass="Popup" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-list"></i>  <asp:Localize ID="headerAddApps" runat="server" meta:resourcekey="headerAddApps"></asp:Localize></h3>
+                           <h3><i class="bi bi-list"></i>  <asp:Localize ID="headerAddApps" runat="server" meta:resourcekey="headerAddApps"></asp:Localize></h3>
 			</div>
                     <div class="widget-content">
 <asp:UpdatePanel ID="AddAppsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupApps" runat="server" meta:resourcekey="gvPopupApps" AutoGenerateColumns="False"
-						Width="100%" CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView"
 						DataKeyNames="DisplayName">
 						<Columns>
 							<asp:TemplateField>
@@ -67,7 +67,7 @@
 								<ItemStyle Width="10px" />
 							</asp:TemplateField>
 							<asp:TemplateField meta:resourcekey="gvPopupAppName">
-								<ItemStyle Width="70%"></ItemStyle>
+								<ItemStyle></ItemStyle>
 								<ItemTemplate>
 									<asp:Literal ID="litName" runat="server" Text='<%# Eval("DisplayName") %>'></asp:Literal>
                                     <asp:HiddenField ID="hfFilePathPopup" runat="server" Value='<%# Eval("FilePath") %>'/>
@@ -79,14 +79,14 @@
 				</div>
 	</ContentTemplate>
 </asp:UpdatePanel>
-		<div class="popup-buttons text-right">
-			<CPCC:StyleButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click" OnClientClick="CloseProgressDialog();"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </CPCC:StyleButton>
+		<div class="popup-buttons text-end">
+			<asp:LinkButton id="btnCancelAdd" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnAddSelected" CssClass="btn btn-success" runat="server" OnClick="btnAddSelected_Click" OnClientClick="CloseProgressDialog();"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddSelectedText"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
 
-<asp:Button ID="btnAddAppsFake" runat="server" style="display:none;" />
+<asp:Button ID="btnAddAppsFake" runat="server" style="display:none" />
 <ajaxToolkit:ModalPopupExtender ID="AddAppsModal" runat="server"
 	TargetControlID="btnAddAppsFake" PopupControlID="AddAppsPanel"
 	BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelAdd" />

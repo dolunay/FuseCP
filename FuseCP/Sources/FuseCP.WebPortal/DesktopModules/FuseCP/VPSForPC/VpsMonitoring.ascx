@@ -15,33 +15,17 @@
 <link type="text/css" href="/App_Themes/Default/Styles/jquery.window.css" rel="stylesheet" />	
 
 <script src="JavaScript/jquery.window.js" type="text/javascript"></script>
-
-<div runat="server" id="divWrapper">
-<script type="text/javascript">
-    function ShowASPanel(chartType) {
-        var sUrl = "/DesktopModules/FuseCP/VPSForPC/MonitoringPage.aspx" + "?ItemID=" + $("#<%=hItemId.ClientID%>").val() + '&chartType=' + chartType;
-        var win = $.window({
-            title: "Performance Counter: " + chartType,
-            url: sUrl,
-            width: "590px"
-        });
-
-        win.getFrame().height(500);
-        win.resize(600, 500);
-        return false;
-    };
-</script>
-</div>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-monitoring.js"></script>
         <asp:HiddenField ID="hItemId" runat="server"  />
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Monitoring48" runat="server" />
                     <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Monitoring" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                 <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                 <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_monitoring" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
@@ -75,7 +59,7 @@
                                 </ChartAreas>
                             </asp:Chart>
                             <div>
-                                <CPCC:StyleButton id="btnShowProcessorAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return ShowASPanel('Processor')"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowProcessorAsPanelText"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnShowProcessorAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return FuseCPVpsMonitoring.showAsPanel('Processor','<%=hItemId.ClientID%>');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowProcessorAsPanelText"/> </asp:LinkButton>
 			                </div>
                             <asp:Chart ID="ChartNetwork" runat="server" ImageLocation="TempImages/ChartPic_#SEQ(300,3)" 
                                 Width="584px" Height="296px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" 
@@ -101,7 +85,7 @@
                                 </ChartAreas>
                             </asp:Chart>
                             <div>
-                                <CPCC:StyleButton id="btnShowNetworkAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return ShowASPanel('Network')"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowNetworkAsPanelText"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnShowNetworkAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return FuseCPVpsMonitoring.showAsPanel('Network','<%=hItemId.ClientID%>');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowNetworkAsPanelText"/> </asp:LinkButton>
 			                </div>
                             <asp:Chart ID="ChartMemory" runat="server" ImageLocation="TempImages/ChartPic_#SEQ(300,3)" 
                                 Width="584px" Height="296px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" 
@@ -127,7 +111,7 @@
                                 </ChartAreas>
                             </asp:Chart>
                             <div>
-                                <CPCC:StyleButton id="btnShowMemoryAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return ShowASPanel('Memory')"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowMemoryAsPanelText"/> </CPCC:StyleButton>
+                                <asp:LinkButton id="btnShowMemoryAsPanel" CssClass="btn btn-success" runat="server" OnClientClick="return FuseCPVpsMonitoring.showAsPanel('Memory','<%=hItemId.ClientID%>');"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnShowMemoryAsPanelText"/> </asp:LinkButton>
 			                </div>
 
                         </ContentTemplate>
@@ -141,8 +125,3 @@
             </div>
                     </div>
             </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".txtDateTimePeriod").datepicker();
-    });
-</script>

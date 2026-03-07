@@ -5,32 +5,32 @@
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
-<script type="text/javascript" src="/JavaScript/jquery.min.js?v=1.4.4"></script>
+<script type="text/javascript" src="/JavaScript/jquery-1.4.4.min.js"></script>
 
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationPasswordPolicy48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Settings"></asp:Localize>
 
                     <asp:Literal ID="litOrganizationName" runat="server" Text="Organization" />
                         </h3>
                 </div>
-                <div class="panel-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                <div class="card-body form-horizontal">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_password_settings" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                     <asp:UpdatePanel runat="server" ID="PasswordPolicyPanel" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
                             <fcp:CollapsiblePanel ID="colPasswordSettings" runat="server" TargetControlID="panelPasswordSettings" meta:ResourceKey="colPasswordSettings" Text="Password settings"></fcp:CollapsiblePanel>
 
                             <asp:Panel runat="server" ID="panelPasswordSettings">
-                                <table id="PolicyTable" runat="server" cellpadding="2">
+                                <table id="PolicyTable" runat="server" class="table table-borderless align-middle mb-0">
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblMinimumLength" runat="server"
                                                 meta:resourcekey="lblMinimumLength" Text="Minimum length:"></asp:Label></td>
                                         <td class="Normal">
@@ -53,7 +53,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblEnforcePasswordHistory" runat="server"
                                                 meta:resourcekey="lblEnforcePasswordHistory" Text="Enforce Password History:"></asp:Label></td>
                                         <td class="Normal">
@@ -64,7 +64,7 @@
                                                 Display="Dynamic" ErrorMessage="*" ValidationExpression="\d{1,3}" ValidationGroup="SettingsEditor"></asp:RegularExpressionValidator></td>
                                     </tr>
                                     <tr>
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblMaxPasswordAge" runat="server"
                                                 meta:resourcekey="lblMaxPasswordAge" Text="Max Password Age  (days):"></asp:Label></td>
                                         <td class="Normal">
@@ -81,7 +81,7 @@
                                         </td>
                                     </tr>
                                     <tr id="RowAccountLockoutDuration" runat="server">
-                                        <td class="Normal" style="width: 150px;">
+                                        <td class="Normal" >
                                             <asp:Label ID="lblAccountLockoutDuration" runat="server"
                                                 meta:resourcekey="lblAccountLockoutDuration" Text="Account Lockout Duration (minutes):"></asp:Label></td>
                                         <td class="Normal">
@@ -176,7 +176,8 @@
 
                 </div>
                 </div>
-                    <div class="panel-footer text-right">
+                    <div class="card-footer text-end">
                         <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SettingsEditor"
                             OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
                     </div>
+

@@ -37,13 +37,13 @@
     
     <ItemGroup Condition="$(TargetFramework) != 'net48'">
 		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.2" />
-                <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.30" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Configuration" Version="1.4.2" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Build" Version="1.4.2" ExcludeAssets="runtime" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Mobile" Version="1.4.2" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Extensions" Version="1.4.2" />
-        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.AjaxControlToolkit" Version="1.4.2" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.6" />
+        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.30" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Configuration" Version="1.4.6" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Build" Version="1.4.6" ExcludeAssets="runtime" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Mobile" Version="1.4.6" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Extensions" Version="1.4.6" />
+        <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.AjaxControlToolkit" Version="1.4.6" />
         <PackageReference Include="System.Web.Services.Description" Version="10.0.652802" Aliases="SD" ExcludeAssets="runtime" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
     </ItemGroup>
@@ -51,6 +51,13 @@
     <ItemGroup Condition="'$(TargetFramework)' != 'net48'">
         <AspNetControls Remove="MailAccess.ascx" />
         <AspNetControls Remove="RDS\RdsLocalAdmins.ascx" />
+        <AspNetControls Remove="OverusageReport.ascx" />
+        <AspNetControls Remove="VPS\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPS2012\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPSForPC\VdcCreateServer.ascx" />
+        <AspNetControls Remove="Proxmox\VdcCreateServer.ascx" />
+        <AspNetControls Remove="VPSForPC\VpsMonitoring.ascx" />
+        <AspNetControls Remove="VPSForPC\MonitoringPage.aspx" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework) == 'net48'">
@@ -302,6 +309,13 @@
         </Compile>
         <Compile Include="ProviderControls\SmarterMail100x_EditAccount.ascx.designer.cs">
             <DependentUpon>SmarterMail100x_EditAccount.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="ProviderControls\SmarterMail100x_EditAccess.ascx.cs">
+            <DependentUpon>SmarterMail100x_EditAccess.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="ProviderControls\SmarterMail100x_EditAccess.ascx.designer.cs">
+            <DependentUpon>SmarterMail100x_EditAccess.ascx</DependentUpon>
         </Compile>
         <Compile Include="ProviderControls\SmarterMail100x_EditDomain.ascx.cs">
             <DependentUpon>SmarterMail100x_EditDomain.ascx</DependentUpon>
@@ -3833,6 +3847,13 @@
         </Compile>
         <Compile Include="MailAccountsEditAccount.ascx.designer.cs">
             <DependentUpon>MailAccountsEditAccount.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="MailAccessEditAccess.ascx.cs">
+            <DependentUpon>MailAccessEditAccess.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="MailAccessEditAccess.ascx.designer.cs">
+            <DependentUpon>MailAccessEditAccess.ascx</DependentUpon>
         </Compile>
         <Compile Include="MailDomains.ascx.cs">
             <DependentUpon>MailDomains.ascx</DependentUpon>

@@ -3,14 +3,14 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<div class="panel-body form-horizontal">
-<table width="400">
+<div class="card-body form-horizontal">
+<table>
 	<tr>
 		<td class="Normal">
 			<asp:Label ID="lblAccountContains" runat="server" meta:resourcekey="lblAccountContains" Text="The account contains ..."></asp:Label>
 			<br/>
 			<br/>
-			<asp:GridView ID="gvPackages" Runat="server" Width="100%" AutoGenerateColumns="False"
+			<asp:GridView ID="gvPackages" Runat="server" AutoGenerateColumns="False"
 			    EmptyDataText="gvPackages"
 			    CssSelectorClass="NormalGridView">
 				<columns>
@@ -35,7 +35,7 @@
 	</tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="ShowProgressDialog('Deleting...');"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="ShowProgressDialog('Deleting...');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>
 </div>

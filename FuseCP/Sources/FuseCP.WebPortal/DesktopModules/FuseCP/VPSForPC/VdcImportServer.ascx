@@ -8,22 +8,22 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="AddServer48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Import VPS"></asp:Localize>
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
     			    	<fcp:Menu id="menu" runat="server" SelectedItem="" />
-                    <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                    <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <asp:ValidationSummary ID="validatorsSummary" runat="server" 
                         ValidationGroup="ImportWizard" ShowMessageBox="True" ShowSummary="False" />
                         
                     
-                    <table cellpadding="3">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locHyperVService" runat="server" meta:resourcekey="locHyperVService" Text="Hyper-V Service:"></asp:Localize>
@@ -57,7 +57,7 @@
                     <fcp:CollapsiblePanel id="secOsTemplate" runat="server"
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
+                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
                         <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -83,7 +83,7 @@
                                 </td>
                             </tr>
                             <tr id="AdminPasswordPanel" runat="server" visible="false">
-                                <td class="FormLabel150" valign="top">
+                                <td class="FormLabel150 align-top">
                                     <asp:Localize ID="locAdminPassword" runat="server" meta:resourcekey="locAdminPassword" Text="Administrator password:"></asp:Localize>
                                 </td>
                                 <td>
@@ -101,8 +101,8 @@
                         <fcp:CollapsiblePanel id="secConfiguration" runat="server"
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locCPU" runat="server" meta:resourcekey="locCPU" Text="CPU:"></asp:Localize>
@@ -141,10 +141,10 @@
                         <fcp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
-                                    <td style="width:30%;">
+                                    <td >
                                         <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
                                         <asp:Localize ID="locBootFromCd" runat="server" meta:resourcekey="locBootFromCd"></asp:Localize>
                                     </td>
@@ -159,8 +159,8 @@
                         <fcp:CollapsiblePanel id="secDvd" runat="server"
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4">
+                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td>
                                         <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
@@ -173,10 +173,10 @@
                         <fcp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table cellpadding="4" width="100%">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
-                                    <td style="width:30%;">
+                                    <td >
                                         <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
                                     </td>
                                     <td>
@@ -197,8 +197,8 @@
                         <fcp:CollapsiblePanel id="secExternalNetwork" runat="server"
                             TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table width="100%">
+                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table>
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locExternalAdapter" runat="server" meta:resourcekey="locExternalAdapter" Text="Connected NIC:"></asp:Localize>
@@ -209,12 +209,12 @@
                                     </td>
                                 </tr>
                                 <tr id="ExternalAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locExternalAddresses" runat="server" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Multiple"></asp:ListBox>
+                                            SelectionMode="Multiple"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredExternalAddresses" runat="server"
                                             ControlToValidate="ExternalAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredExternalAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -227,8 +227,8 @@
                         <fcp:CollapsiblePanel id="secManagementNetwork" runat="server"
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px;">
-                            <table width="100%">
+                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                            <table>
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locManagementAdapter" runat="server" meta:resourcekey="locManagementAdapter" Text="Connected NIC:"></asp:Localize>
@@ -239,12 +239,12 @@
                                     </td>
                                 </tr>
                                 <tr id="ManagementAddressesRow" runat="server">
-                                    <td valign="top">
+                                    <td class="align-top">
                                         <asp:Localize ID="locManagementAddresses" runat="server" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Localize>
                                     </td>
                                     <td>
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="5"
-                                            Width="220" SelectionMode="Single"></asp:ListBox>
+                                            SelectionMode="Single"></asp:ListBox>
                                         <asp:RequiredFieldValidator ID="RequiredManagementAddresses" runat="server"
                                             ControlToValidate="ManagementAddresses" ValidationGroup="ImportWizard" meta:resourcekey="RequiredManagementAddresses"
                                             Display="Dynamic" SetFocusOnError="true" Text="*">
@@ -256,8 +256,8 @@
                     </asp:Panel>
                     
                     <p>
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click" meta:resourcekey="btnCancel"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnImport" CssClass="btn btn-success" runat="server" OnClick="btnImport_Click" ValidationGroup="ImportWizard" meta:resourcekey="btnImport"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click" meta:resourcekey="btnCancel"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnImport" CssClass="btn btn-success" runat="server" OnClick="btnImport_Click" ValidationGroup="ImportWizard" meta:resourcekey="btnImport"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </asp:LinkButton>
                     </p>
                         
 			    </div>

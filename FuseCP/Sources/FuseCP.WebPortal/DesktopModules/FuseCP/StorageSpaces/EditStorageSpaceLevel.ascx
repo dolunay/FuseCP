@@ -11,29 +11,29 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 
 
-        <div class="panel-body form-horizontal">
+        <div class="card-body form-horizontal">
             <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
             <fcp:CollapsiblePanel ID="colSsLevelGeneralSettings" runat="server"
                 TargetControlID="panelSsLevelGeneralSettings" meta:ResourceKey="colSsLevelGeneralSettings"></fcp:CollapsiblePanel>
 
             <asp:Panel runat="server" ID="panelSsLevelGeneralSettings">
-                <div style="padding: 10px;">
-                    <table>
+                <div style="padding: 10px">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
-                            <td class="Label" style="width: 260px;">
+                            <td class="Label" >
                                 <asp:Localize ID="locName" runat="server" meta:resourcekey="locName"></asp:Localize>
                             </td>
-                            <td style="width: 250px;">
+                            <td >
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ID="valReqTxtName" ControlToValidate="txtName" meta:resourcekey="valReqTxtName" ErrorMessage="*" ValidationGroup="SaveSsLevel" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="Label" style="width: 260px;">
+                            <td class="Label" >
                                 <asp:Localize ID="locDescription" runat="server" meta:resourcekey="locDescription"></asp:Localize>
                             </td>
-                            <td style="width: 250px;">
+                            <td >
                                 <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" />
                                 <asp:RequiredFieldValidator runat="server" ID="valReqTxtDescription" ControlToValidate="txtDescription" meta:resourcekey="valReqTxtDescription" ErrorMessage="*" ValidationGroup="SaveSsLevel" />
                             </td>
@@ -47,7 +47,7 @@
                 TargetControlID="panelSsLevelServices" meta:ResourceKey="colSsLevelServices"></fcp:CollapsiblePanel>
 
             <asp:Panel runat="server" ID="panelSsLevelServices">
-                <table>
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td colspan="2">
                             <fieldset id="Fieldset1" runat="server">
@@ -64,7 +64,8 @@
             </asp:Panel>
 
         </div>
-            <div class="panel-footer text-right">
+            <div class="card-footer text-end">
                 <fcp:ItemButtonPanel ID="buttonPanel" runat="server" ValidationGroup="SaveSsLevel"
                     OnSaveClick="btnSave_Click" OnSaveExitClick="btnSaveExit_Click" />
             </div>
+

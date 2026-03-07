@@ -1,11 +1,11 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ItemButtonPanel.ascx.cs" Inherits="FuseCP.Portal.ItemButtonPanel" %>
-<CPCC:StyleButton id="btnSaveExit" runat="server"  CssClass="btn btn-success" 
+<asp:LinkButton id="btnSaveExit" runat="server"  CssClass="btn btn-success" 
     OnClick="btnSaveExit_Click" OnClientClick="ShowProgressDialog('Updating ...');">
-    <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" id="btnSaveExitText" meta:resourcekey="btnSaveExit"/>
-</CPCC:StyleButton>
-<span class="pull-right">&nbsp;</span>
-<CPCC:StyleButton id="btnSave" runat="server"  CssClass="btn btn-success" 
+    <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" id="btnSaveExitText" meta:resourcekey="btnSaveExit"/>
+</asp:LinkButton>
+<span class="float-end">&nbsp;</span>
+<asp:LinkButton id="btnSave" runat="server"  CssClass="btn btn-success" 
     OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Updating ...');">
-    <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server"  id="btnSaveText" meta:resourcekey="btnSave"/>
-</CPCC:StyleButton>
+    <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server"  id="btnSaveText" meta:resourcekey="btnSave"/>
+</asp:LinkButton>
 

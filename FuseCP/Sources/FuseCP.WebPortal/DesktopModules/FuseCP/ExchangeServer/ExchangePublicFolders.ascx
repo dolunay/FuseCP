@@ -5,29 +5,29 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangePublicFolder48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Public Folders"></asp:Localize>
                     </h3>
 				</div>
 			     <div class="FormButtonsBar right">
-                        <CPCC:StyleButton id="btnCreatePublicFolder" CssClass="btn btn-primary" runat="server" OnClick="btnCreatePublicFolder_Click"> <i class="fa fa-folder-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreatePublicFolderText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnCreatePublicFolder" CssClass="btn btn-primary" runat="server" OnClick="btnCreatePublicFolder_Click"> <i class="bi bi-folder">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreatePublicFolderText"/> </asp:LinkButton>
                     </div>	
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    <asp:TreeView ID="FoldersTree" runat="server">
 				    </asp:TreeView>			    
 				</div>
-                <div class="panel-footer">
+                <div class="card-footer">
                     <div class="row">
                         <div class="col-md-6">
 				    <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Public Folders Created:"></asp:Localize>
 				    &nbsp;&nbsp;&nbsp;
 				    <fcp:QuotaViewer ID="foldersQuota" runat="server" QuotaTypeId="2" />
                             </div>
-                        <div class="col-md-6 text-right">
-                                <CPCC:StyleButton id="btnDeleteFolders" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteFolders_Click"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteFoldersText"/> </CPCC:StyleButton>
+                        <div class="col-md-6 text-end">
+                                <asp:LinkButton id="btnDeleteFolders" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteFolders_Click"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteFoldersText"/> </asp:LinkButton>
                             </div>
                         </div>
 				</div>

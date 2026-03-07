@@ -7,18 +7,18 @@
 <asp:BulletedList ID="blLog" runat="server" CssClass="ErrorText">
 </asp:BulletedList>
 <asp:Panel ID="UserCreatUserAccountPanel" runat="server" DefaultButton="btnCreate">
-    <div class="panel-body form-horizontal">
+    <div class="card-body form-horizontal">
 
         <fieldset class="form-horizontal">
 
-            <div class="form-group">
-                <label id="lblUsername1" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblUsername1" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="locFirstName" runat="server" meta:resourcekey="lblUsername" Text="Username:" />
                 </label>
                 <div class="col-sm-10">
                     <div class="input-group">
                         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
-                        <span class="input-group-addon" title="Required"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                        <span class="input-group-text" title="Required"><i class="bi bi-asterisk" aria-hidden="true"></i></span>
                         <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="*"
                             ControlToValidate="txtUsername" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
@@ -29,8 +29,8 @@
         <uc2:PasswordControl ID="userPassword" runat="server" AllowGeneratePassword="true" />
         <fieldset class="form-horizontal">
 
-            <div class="form-group">
-                <label id="lblFirstName" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblFirstName" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocalFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" />
                 </label>
                 <div class="col-sm-10">
@@ -43,8 +43,8 @@
         </fieldset>
         <fieldset class="form-horizontal">
 
-            <div class="form-group">
-                <label id="lblLastName" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblLastName" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" />
                 </label>
                 <div class="col-sm-10">
@@ -56,8 +56,8 @@
 
 
 
-            <div class="form-group">
-                <label id="lblSubscriberNumber" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblSubscriberNumber" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocSubscriberNumber" runat="server" meta:resourcekey="lblSubscriberNumber" Text="Account Number:" />
                 </label>
                 <div class="col-sm-10">
@@ -67,8 +67,8 @@
 
 
 
-            <div class="form-group">
-                <label id="lblEmail" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblEmail" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="Localize4" runat="server" meta:resourcekey="lblEmail" Text="E-mail:" />
                 </label>
                 <div class="col-sm-10">
@@ -78,8 +78,8 @@
 
 
 
-            <div class="form-group">
-                <label id="lblSecondaryEmail" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblSecondaryEmail" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="Localize5" runat="server" meta:resourcekey="lblSecondaryEmail" Text="Secondary e-mail:" />
                 </label>
                 <div class="col-sm-10">
@@ -89,8 +89,8 @@
 
 
 
-            <div class="form-group">
-                <label id="lblMailFormat" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblMailFormat" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocMailFormat" runat="server" meta:resourcekey="lblMailFormat" Text="Mail Format:" />
                 </label>
                 <div class="col-sm-10">
@@ -103,8 +103,8 @@
 
 
 
-            <div class="form-group">
-                <label id="lblRole" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblRole" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocRole" runat="server" meta:resourcekey="lblRole" Text="Role:" />
                 </label>
                 <div class="col-sm-10">
@@ -115,8 +115,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label id="lblStatus" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblStatus" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocStatus" runat="server" meta:resourcekey="lblStatus" Text="Status:" />
                 </label>
                 <div class="col-sm-10">
@@ -129,8 +129,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label id="lblDemoAccount" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblDemoAccount" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocDemoAccount" runat="server" meta:resourcekey="lblDemoAccount" Text="Demo Account:" />
                 </label>
                 <div class="col-sm-10">
@@ -138,15 +138,15 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label id="lblAccountLetter" runat="server" class="control-label col-sm-2">
+            <div class="row mb-3">
+                <label id="lblAccountLetter" runat="server" class="form-label col-sm-2">
                     <asp:Localize ID="LocAccountLetter" runat="server" meta:resourcekey="lblAccountLetter" Text="Send Account Summary Letter" />
                 </label>
                 <div class="col-sm-10">
                     <asp:CheckBox ID="chkAccountLetter" runat="server" Text="Yes" Checked="False" meta:resourcekey="chkAccountLetter" />
                 </div>
                 <%--<asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" class="alert alert-info">--%>
-                <asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" class="control-label col-sm-10">
+                <asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" class="form-label col-sm-10">
                     <label id="lblDisabledSummaryLetterHint" runat="server">
                         <asp:Localize ID="LocDisabledSummaryLetterHint" runat="server" meta:resourcekey="lblDisabledSummaryLetterHint"
                             Text="To enable account summary letter please go to Mail Templates\User Account Summary Letter." />
@@ -163,11 +163,11 @@
             <dnc:usercontact id="contact" runat="server"></dnc:usercontact>
         </asp:Panel>
     </div>
-    <div class="panel-footer text-right">
-        <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
-        </CPCC:StyleButton>
+    <div class="card-footer text-end">
+        <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
+        </asp:LinkButton>
         &nbsp;
-        <CPCC:StyleButton ID="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click"><i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreate" />
-        </CPCC:StyleButton>
+        <asp:LinkButton ID="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click"><i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreate" />
+        </asp:LinkButton>
     </div>
 </asp:Panel>

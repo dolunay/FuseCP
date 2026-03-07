@@ -1,11 +1,11 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AbilityMailServer_EditGroup.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.AbilityMailServer_EditGroup" %>
 <%@ Register TagPrefix="dnc" TagName="EditItemsList" Src="../MailEditItems.ascx" %>
-<table cellSpacing="0" cellPadding="3" width="100%">
+<table class="table table-borderless align-top mb-0 w-100">
 	<tr>
-		<td class="SubHead" width="200" nowrap valign="top">
+		<td class="SubHead text-nowrap align-top" >
 		    <asp:Label ID="lblGroupMembers" runat="server" meta:resourcekey="lblGroupMembers" Text="Group e-mails:"></asp:Label>
 		</td>
-		<td class="normal" width="100%" valign="top">
+		<td class="normal align-top">
 			<dnc:EditItemsList id="mailEditItems" runat="server"></dnc:EditItemsList>
 		</td>
 	</tr>

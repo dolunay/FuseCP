@@ -9,20 +9,7 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-<script type="text/javascript">
-    function ValidateCheckBoxList(sender, args) {
-        var checkBoxList = document.getElementsByClassName("vhdContainer");
-        var checkboxes = checkBoxList.getElementsByTagName("input");
-        var isValid = false;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                isValid = true;
-                break;
-            }
-        }
-        args.IsValid = isValid;
-    }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/vps-replication-validator.js"></script>
 <style>
     .ReplicaTable td {
         padding-bottom: 10px;
@@ -34,7 +21,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:ServerTabs ID="tabs" runat="server" SelectedTab="vps_replication" />
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                     
@@ -61,9 +48,9 @@
                         <div class="FormButtonsBarClean" onclick="ShowProgressDialog('Prepare UI...');">
                             <asp:CheckBox ID="chbEnable" runat="server" meta:resourcekey="chbEnable" Text="Enable replication" AutoPostBack="True"  />
                         </div>
-                        <table runat="server" id="ReplicaTable" class="ReplicaTable" style="margin: 10px; width: 100%;">
+                        <table runat="server" id="ReplicaTable" class="ReplicaTable" style="margin: 10px">
 				            <tr>
-				                <td style="width: 200px;">
+				                <td >
 				                   <asp:Localize ID="locPrimaryServer" runat="server" meta:resourcekey="locPrimaryServer" Text="Primary Server:"></asp:Localize>
 				                </td>
 				                <td>
@@ -136,16 +123,16 @@
                             <tr class="AdditionalPoints">
                                 <td colspan="2">
                                     <asp:Label ID="locRecoveryPoints" runat="server" meta:resourcekey="locRecoveryPoints" 
-                                        Text="Additional Recovery Points:" style="margin-bottom: 10px;"></asp:Label>
+                                        Text="Additional Recovery Points:" style="margin-bottom: 10px"></asp:Label>
 
                                     <asp:RadioButtonList ID="radRecoveryPoints" runat="server" AutoPostBack="true">
                                         <asp:ListItem Value="OnlyLast" meta:resourcekey="radRecoveryPointsLast" Selected="True">Maintain only the latest recovery point</asp:ListItem>
                                         <asp:ListItem Value="Additional" meta:resourcekey="radRecoveryPointsAdditional">Create additional hourly recovery points</asp:ListItem>
                                     </asp:RadioButtonList>
 
-                                    <table runat="server" ID="tabAdditionalRecoveryPoints" class="AdditionalPoints" style="margin: 10px; width: 100%;">
+                                    <table runat="server" ID="tabAdditionalRecoveryPoints" class="AdditionalPoints" style="margin: 10px">
                                         <tr>
-                                            <td style="width: 480px;">
+                                            <td >
                                                 <asp:Localize ID="locRecoveryPointsAdditional" runat="server" meta:resourcekey="locRecoveryPointsAdditional"
                                                     Text="Coverage provided by additional recovery points (in hours):"></asp:Localize>
                                             </td>
@@ -191,15 +178,15 @@
 
         </div>
 
-<asp:Panel ID="DetailsPanel" runat="server" style="display:none;">
+<asp:Panel ID="DetailsPanel" runat="server" style="display:none">
 	<div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-refresh"></i>  <asp:Localize ID="locDetails" runat="server" Text="Replication details" meta:resourcekey="locDetails"></asp:Localize></h3>
+                           <h3><i class="bi bi-arrow-clockwise"></i>  <asp:Localize ID="locDetails" runat="server" Text="Replication details" meta:resourcekey="locDetails"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="10">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
-                    <td style="width: 180px">
+                    <td >
 				        <asp:Localize ID="locDetailsState" runat="server" Text="Replication State:" meta:resourcekey="locDetailsState"></asp:Localize>
                     </td>
                     <td>
@@ -245,9 +232,9 @@
             <fcp:CollapsiblePanel ID="StatisticCollapsiblePanel" runat="server" Visible="True"
                 TargetControlID="StatisticPanel" meta:ResourceKey="secStatisticPanel" Text="Statistic for past "></fcp:CollapsiblePanel>
             <asp:Panel ID="StatisticPanel" runat="server" Height="0" Style="overflow: hidden; padding: 10px; width: 400px;">
-                <table cellspacing="10">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
-                        <td style="width: 180px">
+                        <td >
                             <asp:Localize ID="locFromTime" runat="server" Text="From time:" meta:resourcekey="locFromTime"></asp:Localize>
                         </td>
                         <td>
@@ -309,9 +296,9 @@
             <fcp:CollapsiblePanel ID="PendingReplicationCollapsiblePanel" runat="server" Visible="True"
                 TargetControlID="PendingReplicationPanel" meta:ResourceKey="secPendingReplication" Text="Pending replication"></fcp:CollapsiblePanel>
             <asp:Panel ID="PendingReplicationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 10px; width: 400px;">
-                <table cellspacing="10">
+                <table class="table table-borderless align-middle mb-0">
                     <tr>
-                        <td style="width: 180px">
+                        <td >
                             <asp:Localize ID="locSizeData" runat="server" Text="Size of data yet to be replicated:" meta:resourcekey="locSizeData"></asp:Localize>
                         </td>
                         <td>
@@ -330,10 +317,11 @@
             </asp:Panel>
 
 			</div>
-					<div class="popup-buttons text-right">
-			<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+			<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
 		</div>
 	</div>
 </asp:Panel>
 
 <ajaxToolkit:ModalPopupExtender ID="DetailModal" runat="server" BehaviorID="DetailModal" TargetControlID="btnDetailInfo" PopupControlID="DetailsPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancel" />
+

@@ -3,18 +3,18 @@
 <%@ Register Src="UserControls/Menu.ascx" TagName="Menu" TagPrefix="fcp" %>
 <%@ Register Src="UserControls/Breadcrumb.ascx" TagName="Breadcrumb" TagPrefix="fcp" %>
  
-        <div class="panel panel-default">
-                <div class="panel-heading">
+        <div class="card">
+                <div class="card-header">
                     <asp:Image ID="imgIcon" SkinID="VLanNetwork" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Add VLan to user"></asp:Localize>
                 </div>
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
             <fcp:menu id="menu" runat="server" selecteditem="vdc_account_vlan_network" />
-            <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
-                    <table cellspacing="0" cellpadding="2" width="100%">
+            <div class="card tab-content">
+                <div class="card-body form-horizontal">
+                    <table class="table table-borderless align-middle mb-0 w-100">
                         <tr>
-                            <td class="SubHead" style="width: 150px;">
+                            <td class="SubHead" >
                                 <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:"></asp:Label>
                             </td>
                             <td class="Huge">
@@ -22,7 +22,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblVLanID" runat="server" meta:resourcekey="lblVLanID" Text="VLan:" />
                             </td>
                             <td>
@@ -34,7 +34,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="SubHead" valign="top">
+                            <td class="SubHead align-top">
                                 <asp:Label ID="lblComment" runat="server" meta:resourcekey="lblComment" Text="Comment:" />
                             </td>
                             <td class="NormalBold">
@@ -44,9 +44,9 @@
                     </table>
      
                 </div>
-               <div class="panel-footer text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btAddVLan" CssClass="btn btn-success" runat="server" OnClick="btAddVLan_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddVLan"/> </CPCC:StyleButton>
+               <div class="card-footer text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btAddVLan" CssClass="btn btn-success" runat="server" OnClick="btAddVLan_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddVLan"/> </asp:LinkButton>
                     </div>
             </div>
             </div>

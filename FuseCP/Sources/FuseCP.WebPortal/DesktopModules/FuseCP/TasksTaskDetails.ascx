@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TasksTaskDetails.ascx.cs" Inherits="FuseCP.Portal.TasksTaskDetails" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 <asp:Timer runat="server" Interval="4000" ID="tasksTimer" />
 <asp:UpdatePanel runat="server" ID="tasksUpdatePanel" UpdateMode="Conditional">
   <Triggers>
@@ -9,7 +9,7 @@
   </Triggers>
   <ContentTemplate>
   
-<table width="400">
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td class="MediumBold">
             <asp:Literal id="litTitle" runat="server"></asp:Literal>
@@ -18,7 +18,7 @@
     <tr>
         <td>
             <fieldset>
-                <table width="100%" cellpadding="3">
+                <table class="table table-borderless align-middle mb-0 w-100">
                     <tr>
                         <td class="NormalBold" colspan="2">
                             <asp:Literal id="litStep" runat="server"></asp:Literal>
@@ -32,10 +32,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="NormalBold" width="100" nowrap>
+                        <td class="NormalBold text-nowrap">
                             <asp:Localize ID="locStarted" runat="server" meta:resourcekey="locStarted" Text="Started:"/>
                         </td>
-                        <td class="Normal" width="100%">
+                        <td class="Normal">
                             <asp:Literal id="litStartTime" runat="server"></asp:Literal>
                         </td>
                     </tr>
@@ -52,13 +52,13 @@
         </td>
     </tr>
     <tr>
-        <td align="center">
-            <CPCC:StyleButton id="btnStop" CssClass="btn btn-danger" runat="server" OnClick="btnStop_Click" OnClientClick="return confirm('Do you really want to terminate this task?');"> <i class="fa fa-hand-paper-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStopText"/> </CPCC:StyleButton>
+        <td class="text-center">
+            <asp:LinkButton id="btnStop" CssClass="btn btn-danger" runat="server" OnClick="btnStop_Click" OnClientClick="return confirm('Do you really want to terminate this task?');"> <i class="bi bi-hand-index-thumb">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnStopText"/> </asp:LinkButton>
         </td>
     </tr>
 </table>
 
-<table width="400">
+<table class="table table-borderless align-middle mb-0">
     <tr>
         <td>&nbsp;</td>
     </tr>
@@ -69,7 +69,7 @@
     </tr>
     <tr>
         <td class="Normal">
-            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; width: auto; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff;padding:3px;">
+            <asp:Panel ID="pnlLog" runat="server" style="border: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px">
                 <asp:Literal ID="litLog" runat="server"></asp:Literal>
             </asp:Panel>
         </td>
@@ -80,6 +80,7 @@
 </asp:UpdatePanel>
 </div>
 
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click" CausesValidation="false"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click" CausesValidation="false"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBackText"/> </asp:LinkButton>
 </div>
+

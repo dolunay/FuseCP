@@ -16,11 +16,17 @@
 using System;
 using FuseCP.Providers.Virtualization;
 using FuseCP.EnterpriseServer;
+using System.Web.UI.WebControls;
 
 namespace FuseCP.Portal.Proxmox.RemoteDesktop
 {
     public partial class Connect : System.Web.UI.Page
     {
+        protected Literal resolution;
+        protected Literal username;
+        protected Literal password;
+        protected Literal serverName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             resolution.Text = Request["Resolution"];

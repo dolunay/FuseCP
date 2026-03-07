@@ -11,11 +11,11 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
-                <div class="panel-heading">
+                <div class="card-header">
                     <asp:Image ID="Image1" SkinID="SfBLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:PackagePhoneNumbers id="phoneNumbers" runat="server"
                             Pool="PhoneNumbers"
                             EditItemControl=""
@@ -29,7 +29,7 @@
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
     
-                    <table cellspacing="6">
+                    <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td><asp:Localize ID="locIPQuota" runat="server" meta:resourcekey="locIPQuota" Text="Number of Phone Numbes:"></asp:Localize></td>
                             <td><fcp:Quota ID="phoneQuota" runat="server" QuotaName="SfB.PhoneNumbers" /></td>

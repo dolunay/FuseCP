@@ -366,9 +366,27 @@ namespace FuseCP.Portal
                 } // if(enabled)
             } // if (PolicyValue != null)
 
-            // set min password generator
-            lnkGenerate.NavigateUrl = String.Format("javascript:GeneratePassword('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');",
-              MaximumLength, MinimumUppercase, MinimumNumbers, MinimumSymbols, txtPassword.ClientID, txtConfirmPassword.ClientID);
+                        // Use recommended defaults when policy values are not available.
+                        int generatorMaxLength = MaximumLength;
+                        int generatorMinUpper = MinimumUppercase;
+                        int generatorMinNumbers = MinimumNumbers;
+                        int generatorMinSymbols = MinimumSymbols;
+
+                        if (generatorMaxLength < MIN_PASSWORD_LENGTH)
+                        {
+                                generatorMaxLength = 14;
+                                if (generatorMinUpper < 1) generatorMinUpper = 2;
+                                if (generatorMinNumbers < 1) generatorMinNumbers = 2;
+                                if (generatorMinSymbols < 1) generatorMinSymbols = 2;
+                        }
+
+                        int generatorRequiredChars = generatorMinUpper + generatorMinNumbers + generatorMinSymbols;
+                        if (generatorRequiredChars >= generatorMaxLength)
+                                generatorMaxLength = generatorRequiredChars + 4;
+
+                        // set min password generator
+                        lnkGenerate.NavigateUrl = String.Format("javascript:GeneratePassword({0}, {1}, {2}, {3}, '{4}', '{5}');",
+                            generatorMaxLength, generatorMinUpper, generatorMinNumbers, generatorMinSymbols, txtPassword.ClientID, txtConfirmPassword.ClientID);
             
         }
 

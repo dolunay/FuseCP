@@ -5,10 +5,10 @@
 
 <fcp:CollapsiblePanel id="secOdbc" runat="server"
     TargetControlID="OdbcPanel" meta:resourcekey="secOdbc" Text="ODBC DSN Policy"/>
-<asp:Panel ID="OdbcPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="OdbcPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblDsnName" runat="server" meta:resourcekey="lblDsnName" Text="ODBC DSN Name:"></asp:Label>
             </td>
             <td class="Normal">

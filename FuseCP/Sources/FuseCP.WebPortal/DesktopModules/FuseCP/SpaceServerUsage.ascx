@@ -18,7 +18,7 @@
         </asp:UpdateProgress>
 
         <div id="gaugeUsage" runat="server">
-            <div class="panel-body form-horizontal">
+            <div class="card-body form-horizontal">
                 <ul class="list-group">
                 <li>
                     <asp:Localize ID="locUsageCpu" runat="server" meta:resourcekey="locUsageCpu" Text="CPU load:" /> 

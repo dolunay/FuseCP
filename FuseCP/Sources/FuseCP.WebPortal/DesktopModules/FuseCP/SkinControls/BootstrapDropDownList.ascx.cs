@@ -40,16 +40,6 @@ namespace FuseCP.Portal.SkinControls
 
         private bool initialized;
 
-        protected HtmlGenericControl ddl;
-
-        protected HtmlInputHidden hdSelectedIndex;
-
-        protected HtmlButton btn;
-
-        protected HtmlGenericControl lit;
-
-        protected HtmlInputHidden hdSelectedValue;
-
         public bool AutoPostBack
         {
             get;
@@ -213,7 +203,7 @@ namespace FuseCP.Portal.SkinControls
                 this.lit.InnerText = this.SelectedItem.Text;
             }
             this.ddl.Attributes.Add("class", string.Concat("dropdown", (string.IsNullOrEmpty(this.CssClass) ? "" : string.Concat(" ", this.CssClass))));
-            this.btn.Attributes.Add("class", string.Concat("btn btn-default", (this.Enabled ? " dropdown-toggle" : "")));
+            this.btn.Attributes.Add("class", string.Concat("btn btn-secondary", (this.Enabled ? " dropdown-toggle" : "")));
             if (this.Enabled)
             {
                 this.btn.Attributes.Remove("disabled");

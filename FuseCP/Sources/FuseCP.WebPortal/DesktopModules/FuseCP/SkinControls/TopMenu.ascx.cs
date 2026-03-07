@@ -30,17 +30,17 @@ namespace FuseCP.Portal.SkinControls
 {
     public partial class TopMenu : System.Web.UI.UserControl
     {
-        public string Align
+        public string MenuAlignment
         {
             get
             {
-                if (ViewState["Align"] == null)
+                if (ViewState["MenuAlignment"] == null)
                 {
                     return "top"; 
                 }
-                return ViewState["Align"].ToString(); 
+                return ViewState["MenuAlignment"].ToString(); 
             }
-            set { ViewState["Align"] = value; }
+            set { ViewState["MenuAlignment"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace FuseCP.Portal.SkinControls
         {
             var node = ((SiteMapNode)e.Item.DataItem);
             e.Item.Value = node.Key; 
-            if (node["align"] == Align)
+            if (node["align"] == MenuAlignment)
             {
                 topMenu.Items.Remove(e.Item);
                 return;
@@ -64,7 +64,7 @@ namespace FuseCP.Portal.SkinControls
                 e.Item.Parent.ChildItems.Remove(e.Item);
             }
 
-            //if (Align.Equals("left") && node.Title.ToLower().Equals("account home"))
+            //if (MenuAlignment.Equals("left") && node.Title.ToLower().Equals("account home"))
             //{
             //    e.Item.Text = string.Empty;
 

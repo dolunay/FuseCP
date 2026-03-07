@@ -5,16 +5,16 @@
     <legend>
         <asp:Label ID="secCertificateSettings" runat="server" meta:resourcekey="secServiceSettings" Text="SSL Certificate" CssClass="NormalBold"></asp:Label>&nbsp;
     </legend>    
-    <table>  
+    <table class="table table-borderless align-middle mb-0">  
         <tr>
-            <td class="SubHead" style="width:200px" nowrap>
+            <td class="SubHead text-nowrap" >
                 <asp:Localize runat="server" meta:resourcekey="lblSelectFile" />
             </td>
-            <td style="padding: 10px 0 10px 0;"><asp:FileUpload ID="upPFX" runat="server"/></td>            
+            <td style="padding: 10px 0 10px 0"><asp:FileUpload ID="upPFX" runat="server"/></td>            
         </tr>        
         <tr><td></td></tr>
         <tr>
-            <td class="SubHead" style="width:200px" nowrap>
+            <td class="SubHead text-nowrap" >
                 <asp:Localize runat="server" meta:resourcekey="lblPFXInstallPassword" />
             </td>
             <td>                        
@@ -29,9 +29,9 @@
         <asp:Label ID="currentCertificate" runat="server" meta:resourcekey="currentCertificate" Text="Current Certificate" CssClass="NormalBold"></asp:Label>&nbsp;
     </legend>
             <asp:Panel ID="plCertificateInfo" Visible="false" runat="server">
-            <table>
+            <table class="table table-borderless align-middle mb-0">
                 <tr>
-                    <td class="SubHead" style="width:200px" nowrap>
+                    <td class="SubHead text-nowrap" >
                         <asp:Localize runat="server" meta:resourcekey="lblIssuedBy" />
                     </td>
                     <td class="SubHead">                        
@@ -39,7 +39,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="SubHead" style="width:200px" nowrap>
+                    <td class="SubHead text-nowrap" >
                         <asp:Localize runat="server" meta:resourcekey="lblSanName" />
                     </td>
                     <td class="SubHead">                        
@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="SubHead" style="width:200px" nowrap>
+                    <td class="SubHead text-nowrap" >
                         <asp:Localize runat="server" meta:resourcekey="lblExpiryDate" />
                     </td>
                     <td class="SubHead">                        
@@ -62,9 +62,9 @@
     <legend>
         <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>&nbsp;
     </legend>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblCollectionsImport" meta:resourcekey="lblCollectionsImport" Text="Allow Collections Import:"/>
         </td>
         <td class="Normal">
@@ -72,7 +72,7 @@
         </td>
     </tr> 
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblConnectionBroker" meta:resourcekey="lblConnectionBroker" Text="Connection Broker:"/>
         </td>
         <td>                        
@@ -81,7 +81,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblRootOU" meta:resourcekey="lblRootOU" Text="Root OU:"/>
         </td>
         <td class="Normal">
@@ -90,7 +90,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblComputersRootOU" meta:resourcekey="lblComputersRootOU" Text="Computers Root OU:"/>
         </td>
         <td class="Normal">
@@ -99,7 +99,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblPrimaryDomainController" meta:resourcekey="lblPrimaryDomainController" Text="Primary Domain Controller:"/>
         </td>
         <td class="Normal">
@@ -108,7 +108,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblUseCentralNPS" meta:resourcekey="lblUseCentralNPS" Text="Use Central NPS:"/>
         </td>
         <td class="Normal">
@@ -116,7 +116,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblCentralNPS" meta:resourcekey="lblCentralNPS" MaxLength="1000" Text="Central NPS:"/>
         </td>
         <td class="Normal">
@@ -124,18 +124,18 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap valign="top">
+        <td class="SubHead text-nowrap align-top">
             <asp:Localize ID="locGWServers" runat="server" meta:resourcekey="locGWServers"
                 Text="Gateway Servers:"></asp:Localize>
         </td>
         <td>
             <asp:TextBox runat="server" ID="txtAddGWServer" MaxLength="1000" Width="200px"  />  
-            <CPCC:StyleButton id="btnAddGWServer" CssClass="btn btn-success" runat="server" OnClick="btnAddGWServer_Click"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnAddGWServer" CssClass="btn btn-success" runat="server" OnClick="btnAddGWServer_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
             <br />
             <asp:GridView ID="gvGWServers" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvGWServers_RowCommand" meta:resourcekey="gvGWServers">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="ServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="ServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServerName" Text='<%#Eval("ServerName")%>' />
                         </ItemTemplate>
@@ -143,9 +143,9 @@
                     
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServerName") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServerName") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -155,3 +155,4 @@
 </table>    
 </fieldset>
 <br />
+

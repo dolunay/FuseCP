@@ -8,13 +8,13 @@
     TagPrefix="fcp" %>
 <%@ Register Src="../UserControls/QuotaViewer.ascx" TagName="QuotaViewer" TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="CRMLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
                 </h3>
                         </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <div>
@@ -36,8 +36,8 @@
                                 <tr>
                                     <td><asp:Localize runat="server" ID="locState" meta:resourcekey="locState" /></td>
                                     <td><asp:Localize runat="server" ID="locEnabled" meta:resourcekey="locEnabled" /><asp:Localize runat="server" ID="locDisabled" meta:resourcekey="locDisabled" />&nbsp;
-                                        <CPCC:StyleButton id="btnActive" CssClass="btn btn-success" runat="server" OnClick="btnActive_Click" meta:resourcekey="btnActivate"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locBtnActivate" /> </CPCC:StyleButton>&nbsp;
-                                        <CPCC:StyleButton id="btnDeactivate" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnDeactivate_Click" meta:resourcekey="btnDeactivate"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locBtnDeactivate" /> </CPCC:StyleButton>
+                                        <asp:LinkButton id="btnActive" CssClass="btn btn-success" runat="server" OnClick="btnActive_Click" meta:resourcekey="btnActivate"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locBtnActivate" /> </asp:LinkButton>&nbsp;
+                                        <asp:LinkButton id="btnDeactivate" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnDeactivate_Click" meta:resourcekey="btnDeactivate"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="locBtnDeactivate" /> </asp:LinkButton>
 
                                     </td>
                                 </tr>
@@ -56,7 +56,7 @@
                         
                         <div>
                             <asp:GridView ID="gvRoles" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                                Width="100%"  CssSelectorClass="NormalGridView" 
+                                 CssSelectorClass="NormalGridView" 
                                 AllowPaging="False" AllowSorting="False" DataKeyNames="RoleID" >
                                 <Columns>
                                     <asp:TemplateField >
@@ -66,14 +66,14 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="gvRole" DataField="RoleName" 
-                                        ItemStyle-Width="100%" />
+                                        />
                                     
                                 </Columns>
                             </asp:GridView>
                         </div>
                    </div>
                 </div>
-  <div class="panel-footer text-right">
-        <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-warning" runat="server" OnClick="btnUpdate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </CPCC:StyleButton>&nbsp;
-        <CPCC:StyleButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExit"/> </CPCC:StyleButton>
+  <div class="card-footer text-end">
+        <asp:LinkButton id="btnUpdate" CssClass="btn btn-warning" runat="server" OnClick="btnUpdate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </asp:LinkButton>&nbsp;
+        <asp:LinkButton id="btnSaveExit" CssClass="btn btn-success" runat="server" OnClick="btnSaveExit_Click"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveExit"/> </asp:LinkButton>
   </div>

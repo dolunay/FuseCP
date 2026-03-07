@@ -6,18 +6,13 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
 	TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-<script type="text/javascript">
-
-	function confirmation() {
-		if (!confirm("Are you sure you want to delete this Service?")) return false; else ShowProgressDialog('Deleting Service...');
-	}
-</script>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
 	<fcp:ServerHeaderControl ID="ServerHeaderControl" runat="server" />
-	<table cellspacing="0" cellpadding="2" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead" >
 				<asp:Label ID="lblGroup" runat="server" meta:resourcekey="lblGroup" Text="Group:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -33,9 +28,9 @@
 			</td>
 		</tr>
         <tr id="selectProvider" runat="server">
-		    <td class="SubHead" valign="top">
+		    <td class="SubHead align-top">
 			    <asp:Label ID="lblServiceProvider" runat="server" meta:resourcekey="lblServiceProvider" Text="Service provider:"></asp:Label></td>
-		    <td class="NormalBold" valign="top">
+		    <td class="NormalBold align-top">
 			    <asp:DropDownList id="ddlProviders" CssClass="form-control" runat="server" DataTextField="DisplayName"
 				    DataValueField="ProviderID"></asp:DropDownList>
 			    </td>
@@ -52,7 +47,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="SubHead" valign="top">
+			<td class="SubHead align-top">
 				<asp:Label ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Comments:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -80,29 +75,29 @@
 					<fcp:GlobalDnsRecordsControl ID="GlobalDnsRecordsControl" runat="server" IPServerIDParam="ServerID" ServiceIdParam="ServiceID" />
 	</asp:Panel>
 	<asp:Panel ID="pnlQuota" runat="server" Visible="false">
-		<table id="tblQuota" runat="server" width="100%" visible="false">
+		<table id="tblQuota" runat="server" visible="false">
 			<tr>
-				<td width="200" nowrap class="SubHead">
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblQuotaName" runat="server"></asp:Label>
 				</td>
-				<td width="100%" class="Normal">
-					<asp:TextBox ID="txtQuotaValue" runat="server" CssClass="form-control" Width="100px">0</asp:TextBox>
+				<td class="Normal">
+					<asp:TextBox ID="txtQuotaValue" runat="server" CssClass="form-control" Width="100px" Text="0"></asp:TextBox>
 				</td>
 			</tr>
 		</table>
-		<table id="tblCluster" runat="server" visible="false" width="100%">
+		<table id="tblCluster" runat="server" visible="false">
 			<tr>
-				<td width="200" nowrap class="SubHead">
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblClusters" runat="server" meta:resourcekey="lblClusters"></asp:Label>
 				</td>
-				<td width="100%" class="Normal">
+				<td class="Normal">
 					<asp:DropDownList ID="ddlClusters" runat="server" Width="200px" CssClass="form-control"
 						DataTextField="ClusterName" DataValueField="ClusterID">
 					</asp:DropDownList>
 					<asp:RequiredFieldValidator ID="valCluster" runat="server" ControlToValidate="ddlClusters"
 						ErrorMessage="*" ValidationGroup="SelectCluster"></asp:RequiredFieldValidator>
-					<CPCC:StyleButton ID="cmdDeleteCluster" runat="server" ValidationGroup="SelectCluster"
-						OnClick="cmdDeleteCluster_Click">Delete Cluster</CPCC:StyleButton>
+					<asp:LinkButton ID="cmdDeleteCluster" runat="server" ValidationGroup="SelectCluster"
+						OnClick="cmdDeleteCluster_Click">Delete Cluster</asp:LinkButton>
 				</td>
 			</tr>
 			<tr>
@@ -113,14 +108,15 @@
 					<asp:TextBox ID="txtClusterName" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="valNewCluster" runat="server" ControlToValidate="txtClusterName"
 						ErrorMessage="*" ValidationGroup="NewCluster"></asp:RequiredFieldValidator>
-					<CPCC:StyleButton ID="cmdAddCluster" runat="server" ValidationGroup="NewCluster" OnClick="cmdAddCluster_Click">Add Cluster</CPCC:StyleButton>
+					<asp:LinkButton ID="cmdAddCluster" runat="server" ValidationGroup="NewCluster" OnClick="cmdAddCluster_Click">Add Cluster</asp:LinkButton>
 				</td>
 			</tr>
 		</table>
 	</asp:Panel>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Service...');"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+	<asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this Service?', 'Deleting Service...');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click" OnClientClick="ShowProgressDialog('Updating Service...');"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateText"/> </asp:LinkButton>
 </div>
+

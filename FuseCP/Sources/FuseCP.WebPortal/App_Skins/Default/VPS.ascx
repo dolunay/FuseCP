@@ -5,6 +5,7 @@
 <%@ Register TagPrefix="fcp" TagName="SignedInUser" Src="~/DesktopModules/FuseCP/SkinControls/SignedInUser.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="GlobalSearch" Src="~/DesktopModules/FuseCP/SkinControls/GlobalSearch.ascx" %>
 <%@ Register TagPrefix="fcp" TagName="UserSpaceBreadcrumb" Src="~/DesktopModules/FuseCP/SkinControls/UserSpaceBreadcrumb.ascx" %>
+<%@ Register TagPrefix="fcp" TagName="ThemeScripts" Src="~/DesktopModules/FuseCP/SkinControls/ThemeScripts.ascx" %>
 
 <asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true" EnableScriptLocalization="true">
 	<Services>
@@ -15,9 +16,9 @@
 <div class="wrapper" id="SkinOutline">
 	<nav class="top-bar navbar-fixed-top" role="navigation">
 		<div class="logo-area">
-			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified pull-left"><i class="icon ion-arrow-swap"></i></a>
-			<a class="btn btn-link btn-off-canvas pull-left"><i class="icon ion-navicon"></i></a>
-			<div class="logo pull-left">
+			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified float-start" title="Collapse menu" aria-label="Toggle menu compact mode"><i class="bi bi-chevron-bar-left"></i></a>
+			<a class="btn btn-link btn-off-canvas float-start"><i class="bi bi-list"></i></a>
+			<div class="logo float-start">
 				<fcp:Logo ID="logo" runat="server" />
 			</div>
 		</div>
@@ -30,15 +31,15 @@
 		<div class="main-nav-wrapper">
 			<nav id="main-nav" class="main-nav">
 				<h3>MAIN</h3>
-				<fcp:TopMenu ID="leftMenu" runat="server" Align="left" />
+				<fcp:TopMenu ID="leftMenu" runat="server" MenuAlignment="left" />
 				<asp:PlaceHolder ID="LeftPane" runat="server"></asp:PlaceHolder>
-				<fcp:TopMenu ID="rightMenu" runat="server" Align="right" />
+				<fcp:TopMenu ID="rightMenu" runat="server" MenuAlignment="right" />
 			</nav>
 		</div>
 	</div>
 	<!-- END COLUMN LEFT -->
 	<!-- COLUMN RIGHT -->
-	<div id="col-right" class="col-right ">
+	<div id="col-right" class="col-right">
 		<div class="container-fluid primary-content" id="SkinContent">
 			<!-- PRIMARY CONTENT HEADING -->
 			<div class="primary-content-heading clearfix">
@@ -59,11 +60,4 @@
 	</div>
 </div>
 <!-- Javascript -->
-<script src="/JavaScript/jquery-2.1.0.min.js"></script>
-<script src="/JavaScript/bootstrap/bootstrap.js"></script>
-<script src="/JavaScript/fcp-common.js"></script>
-<script src="/JavaScript/fcp-charts.js"></script>
-<script src="/JavaScript/fcp-elements.js"></script>
-<script src="/JavaScript/plugins/plugins.js"></script>
-<script src="/JavaScript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
-<script src="/JavaScript/jquery.matchHeight.js"></script>
+<fcp:ThemeScripts ID="themeScripts" runat="server" />

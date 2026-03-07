@@ -20,17 +20,17 @@
     <legend>
         <asp:Label runat="server" CssClass="NormalBold" meta:resourcekey="lblServiceConfig" />
     </legend>
-	<table cellpadding="1" cellspacing="0" width="100%">
+	<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
-				<td class="SubHead" width="200" nowrap valign="top">
+				<td class="SubHead text-nowrap align-top">
 					<asp:Label ID="lblIPAddresses" runat="server" meta:resourcekey="lblIPAddresses" Text="Listening IP Addresses:"></asp:Label>
 				</td>
-				<td width="100%" valign="top">
+				<td class="align-top">
 					<uc1:IPAddressesList id="iPAddressesList" runat="server">
 					</uc1:IPAddressesList></td>
 			</tr>
 			<tr>
-				<td class="SubHead" valign="top">
+				<td class="SubHead align-top">
 					<asp:Label ID="lblAllowZoneTransfers" runat="server" meta:resourcekey="lblAllowZoneTransfers" Text="Allow Zone Transfers:"></asp:Label>
 				</td>
 				<td>
@@ -49,13 +49,13 @@
 				<td class="SubHead">
 					<asp:Label ID="lblAdminUrl" runat="server" meta:resourcekey="lblAdminUrl" Text="Admin Console URL:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtUrl" Width="200" CssClass="form-control" Runat="server"></asp:textbox></td>
+				<td class="Normal"><asp:textbox id="txtUrl" CssClass="form-control" Runat="server"></asp:textbox></td>
 			</tr>
 			<tr>
 				<td class="SubHead">
 					<asp:Label ID="lblLogin" runat="server" meta:resourcekey="lblLogin" Text="Admin Login:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtLogin" Width="200" CssClass="form-control" 
+				<td class="Normal"><asp:textbox id="txtLogin" CssClass="form-control" 
 						Runat="server" Text="Admin"></asp:textbox></td>
 			</tr>
 			<tr id = "curPassword" runat ="server">
@@ -69,7 +69,7 @@
 				<td class="SubHead">
 					<asp:Label ID="lblPassword" runat="server" meta:resourcekey="lblPassword" Text="Password:"></asp:Label>
 				</td>
-				<td class="Normal"><asp:textbox id="txtPassword" Width="200" CssClass="form-control" Runat="server" TextMode="Password"></asp:textbox></td>
+				<td class="Normal"><asp:textbox id="txtPassword" CssClass="form-control" Runat="server" TextMode="Password"></asp:textbox></td>
 			</tr>
 			<tr>
 				<td class="SubHead">
@@ -96,7 +96,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" noWrap>
+				<td class="SubHead text-nowrap">
 					<asp:Label ID="lblMinimumTtl" runat="server" meta:resourcekey="lblMinimumTtl" Text="SOA TTL:"></asp:Label>
 				</td>
 				<td class="Normal">
@@ -122,18 +122,18 @@
 		</tr>
 		<!-- IP Adresses -->
 			<tr>
-				<td class="SubHead" valign="top">
+				<td class="SubHead align-top">
 					<asp:Label ID="lblSecondaryDNS" runat="server" meta:resourcekey="lblSecondaryDNS" Text="Secondary DNS Services:"></asp:Label>
 				</td>
-				<td class="Normal" valign="top">
+				<td class="Normal align-top">
 					<uc2:SecondaryDNSServers ID="secondaryDNSServers" runat="server" />
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" valign="top">
+				<td class="SubHead align-top">
 					<asp:Label ID="lblNameServers" runat="server" meta:resourcekey="lblNameServers" Text="Name Servers:"></asp:Label>
 				</td>
-				<td class="Normal" valign="top">
+				<td class="Normal align-top">
 					<uc5:EditDomainsList id="nameServers" runat="server">
 					</uc5:EditDomainsList>
 				</td>

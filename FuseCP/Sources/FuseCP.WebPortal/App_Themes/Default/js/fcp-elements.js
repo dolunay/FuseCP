@@ -65,7 +65,7 @@ $(document).ready(function(){
 		});
 
 		$('.multiselect-single-sm').multiselect({
-			buttonClass: 'btn btn-default btn-sm',
+			buttonClass: 'btn btn-secondary btn-sm',
 			templates: {
 				li: '<li><a href="javascript:void(0);"><label><i></i></label></a></li>' // mandatory for single selection
 			}
@@ -282,7 +282,7 @@ $(document).ready(function(){
 
 		$("#touchspin4").TouchSpin({
 			postfix: "Submit",
-			postfix_extraclass: "btn btn-default"
+			postfix_extraclass: "btn btn-secondary"
 		});
 
 
@@ -742,7 +742,7 @@ $(document).ready(function(){
 						"<div class='popover-content'></div>" +
 						"<div class='popover-navigation'>" +
 							"<div class='btn-group'>" +
-								"<button class='btn btn-default' data-role='prev'>« Prev</button>" +
+								"<button class='btn btn-secondary' data-role='prev'>« Prev</button>" +
 								"<button class='btn btn-primary' data-role='next'>Next »</button>" +
 								"<button class='btn btn-warning' data-role='end'>End tour</button>" +
 							"</div>" +

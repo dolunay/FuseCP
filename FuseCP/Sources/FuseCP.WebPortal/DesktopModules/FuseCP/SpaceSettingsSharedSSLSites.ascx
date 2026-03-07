@@ -4,10 +4,10 @@
 
 <fcp:CollapsiblePanel id="tblSharedSslSites" runat="server"
     TargetControlID="SharedSslSitesPanel" meta:resourcekey="secSharedSslSites" Text="Shared SSL Web Sites"/>
-<asp:Panel ID="SharedSslSitesPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="SharedSslSitesPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" width="150" valign="top" nowrap>
+            <td class="SubHead text-nowrap align-top">
                 <asp:Label ID="lblSharedSslSites" runat="server" meta:resourcekey="lblSharedSslSites" Text="Shared SSL Sites:"></asp:Label>
             </td>
             <td class="Normal">

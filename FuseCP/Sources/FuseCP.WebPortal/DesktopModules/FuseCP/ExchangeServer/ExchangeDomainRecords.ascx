@@ -1,19 +1,19 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExchangeDomainRecords.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.ExchangeDomainRecords" %>
 <%@ Register Src="../UserControls/SimpleMessageBox.ascx" TagName="SimpleMessageBox" TagPrefix="fcp" %>
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeDomainName48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Domain Names"></asp:Localize>
 					-
 					<asp:Literal ID="litDomainName" runat="server"></asp:Literal>
                         </h3>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				
 <asp:UpdatePanel ID="RecordsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
-    <div class="FormButtonsBar right" style="margin: -68px 0px 20px !important;">
-						<CPCC:StyleButton ID="btnAdd" runat="server" CssClass="btn btn-primary" CausesValidation="False"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </CPCC:StyleButton>
+    <div class="FormButtonsBar right" style="margin: -68px 0px 20px !important">
+						<asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" CausesValidation="False"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 	</div>
 				<fcp:SimpleMessageBox id="messageBox" runat="server" />
 		    
@@ -43,19 +43,19 @@
                                 <asp:Literal ID="litSrvWeight" runat="server" Text='<%# Eval("SrvWeight") %>' Visible="false"></asp:Literal>
                                 <asp:Literal ID="litSrvPort" runat="server" Text='<%# Eval("SrvPort") %>' Visible="false"></asp:Literal>
 							</ItemTemplate>
-							<ItemStyle CssClass="NormalBold" Wrap="False" />
+							<ItemStyle CssClass="form-label" Wrap="False" />
 						</asp:TemplateField>
 						<asp:BoundField DataField="RecordName" SortExpression="RecordName" HeaderText="gvRecordsName" />
 						<asp:BoundField DataField="RecordType" SortExpression="RecordType" HeaderText="gvRecordsType" />
 						<asp:TemplateField SortExpression="RecordData" HeaderText="gvRecordsData" >
-							<ItemStyle Width="100%" />
+							<ItemStyle />
 							<ItemTemplate>
                                 <%# GetRecordFullData((string)Eval("RecordType"), (string)Eval("RecordData"), (int)Eval("MxPriority"), (int)Eval("SrvPort"))%>
 							</ItemTemplate>
 						</asp:TemplateField>
 						<asp:TemplateField>
 							<ItemTemplate>
-								<CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirm('Delete record?');"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+								<asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="delete" OnClientClick="return confirm('Delete record?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 							</ItemTemplate>
 						</asp:TemplateField>
 					</Columns>
@@ -63,7 +63,7 @@
 
 				<br />
 				<div style="text-align: center">
-					<CPCC:StyleButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="fa fa-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </CPCC:StyleButton>&nbsp;
+					<asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </asp:LinkButton>&nbsp;
 				</div>
 
 
@@ -80,15 +80,15 @@
 		<asp:Panel ID="EditRecordPanel" runat="server" style="display:none">
             <div class="widget">
             <div class="widget-header clearfix">
-								<h3><i class="fa fa-server"></i> <span><asp:Localize ID="headerEditRecord" runat="server" meta:resourcekey="headerEditRecord"></asp:Localize></span></h3>
+								<h3><i class="bi bi-server"></i> <span><asp:Localize ID="headerEditRecord" runat="server" meta:resourcekey="headerEditRecord"></asp:Localize></span></h3>
                            </div>
                                 <div class="widget-content Popup">
 			<asp:UpdatePanel ID="EditRecordUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
 				<ContentTemplate>
-					<table width="450">
+					<table class="table table-borderless align-middle mb-0" style="max-">
 						<tr>
-							<td class="SubHead" width="150" nowrap><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
-							<td class="NormalBold" width="100%">
+							<td class="SubHead text-nowrap"><asp:Label ID="lblRecordType" runat="server" meta:resourcekey="lblRecordType" Text="Record Type:"></asp:Label></td>
+							<td class="NormalBold">
 								<asp:DropDownList ID="ddlRecordType" runat="server" Width="120px" SelectedValue='<%# Bind("RecordType") %>' CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlRecordType_SelectedIndexChanged">
                                     <asp:ListItem>A</asp:ListItem>
 									<asp:ListItem>AAAA</asp:ListItem>
@@ -103,13 +103,13 @@
 						<tr>
 							<td class="SubHead"><asp:Label ID="lblRecordName" runat="server" meta:resourcekey="lblRecordName" Text="Record Name:"></asp:Label></td>
 							<td class="NormalBold">
-								<asp:TextBox ID="txtRecordName" runat="server" Width="100px" CssClass="form-control"></asp:TextBox>
+								<asp:TextBox ID="txtRecordName" runat="server" Width="100px" CssClass="form-control" MaxLength="255"></asp:TextBox>
 							</td>
 						</tr>
-                        <tr id="rowData" runat="server">
+						<tr id="rowData" runat="server">
                             <td class="SubHead"><asp:Label ID="lblRecordData" runat="server" meta:resourcekey="lblRecordData" Text="Record Data:"></asp:Label></td>
-                            <td class="NormalBold" nowrap>
-				                <asp:TextBox ID="txtRecordData" runat="server" Width="260px" CssClass="form-control"></asp:TextBox>
+							<td class="NormalBold text-nowrap">
+				                <asp:TextBox ID="txtRecordData" runat="server" Width="260px" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireData" runat="server" ControlToValidate="txtRecordData"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                              </td>
@@ -122,7 +122,7 @@
                         <tr id="rowMXPriority" runat="server">
                             <td class="SubHead"><asp:Label ID="lblMXPriority" runat="server" meta:resourcekey="lblMXPriority" Text="MX Priority:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtMXPriority" runat="server" Width="30" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtMXPriority" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireMxPriority" runat="server" ControlToValidate="txtMXPriority"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectPriority" runat="server" ControlToValidate="txtMXPriority"
@@ -132,7 +132,7 @@
                         <tr id="rowSRVPriority" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVPriority" runat="server" meta:resourcekey="lblSRVPriority" Text="Priority:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVPriority" runat="server" Width="30" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVPriority" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvPriority" runat="server" ControlToValidate="txtSRVPriority"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvPriority" runat="server" ControlToValidate="txtSRVPriority"
@@ -142,7 +142,7 @@
                         <tr id="rowSRVWeight" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVWeight" runat="server" meta:resourcekey="lblSRVWeight" Text="Weight:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVWeight" runat="server" Width="30" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVWeight" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvWeight" runat="server" ControlToValidate="txtSRVWeight"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvWeight" runat="server" ControlToValidate="txtSRVWeight"
@@ -152,7 +152,7 @@
                         <tr id="rowSRVPort" runat="server">
                             <td class="SubHead"><asp:Label ID="lblSRVPort" runat="server" meta:resourcekey="lblSRVPort" Text="Port Number:"></asp:Label></td>
                             <td class="NormalBold">
-                                <asp:TextBox ID="txtSRVPort" runat="server" Width="30" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtSRVPort" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireSrvPort" runat="server" ControlToValidate="txtSRVPort"
                                     ErrorMessage="*" ValidationGroup="DnsZoneRecord" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="valRequireCorrectSrvPort" runat="server" ControlToValidate="txtSRVPort"
@@ -163,9 +163,9 @@
 					</ContentTemplate>
 				</asp:UpdatePanel>
 					</div>
-					<div class="popup-buttons text-right">
-                    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="DnsZoneRecord"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </CPCC:StyleButton>
+					<div class="popup-buttons text-end">
+                    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="DnsZoneRecord"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
                     </div>
             </div>
        </asp:Panel>

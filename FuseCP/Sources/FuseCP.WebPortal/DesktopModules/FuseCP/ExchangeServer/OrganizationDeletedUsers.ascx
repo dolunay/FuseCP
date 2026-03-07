@@ -6,20 +6,20 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Users"></asp:Localize>
                         </h3>
 				</div>
 
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
                     <div class="FormButtonsBarClean">
                         <div class="FormButtonsBarCleanRight">
                             <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
-                                 <div class="form-inline">
+                                 <div class="d-flex flex-wrap gap-2 align-items-center">
                                             <div class="input-group">
                                 <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"    
                                 onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
@@ -40,20 +40,20 @@
                                     </div>
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                <div class="input-group-btn">
-                    <CPCC:StyleButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="fa fa-search" aria-hidden="true"></i></CPCC:StyleButton>
-                       </div></div></div>
+                <span class="input-group-btn">
+                    <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
+                       </span></div></div>
                             </asp:Panel>
                         </div>
                     </div>
 
 				    <asp:GridView ID="gvDeletedUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-					    Width="100%" EmptyDataText="gvDeletedUsers" CssSelectorClass="NormalGridView"
+					    EmptyDataText="gvDeletedUsers" CssSelectorClass="NormalGridView"
 					    OnRowCommand="gvDeletedUsers_RowCommand" AllowPaging="True" AllowSorting="True"
 					    DataSourceID="odsAccountsPaged" PageSize="20">
 					    <Columns>
 						    <asp:TemplateField HeaderText="gvDeletedUsersDisplayName" SortExpression="DisplayName">
-							    <ItemStyle Width="25%"></ItemStyle>
+							    <ItemStyle></ItemStyle>
 							    <ItemTemplate>							        
 								    <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("OriginAT"),(bool)Eval("User.IsVIP")) %>' ImageAlign="AbsMiddle"/>
 								    <asp:hyperlink id="lnk1" runat="server"
@@ -62,17 +62,17 @@
 								    </asp:hyperlink>
 							    </ItemTemplate>
 						    </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvDeletedUsersLogin" DataField="User.UserPrincipalName" SortExpression="UserPrincipalName" ItemStyle-Width="25%" />
+                            <asp:BoundField HeaderText="gvDeletedUsersLogin" DataField="User.UserPrincipalName" SortExpression="UserPrincipalName" />
                             <asp:TemplateField HeaderText="gvServiceLevel">
-                                <ItemStyle Width="25%"></ItemStyle>
+                                <ItemStyle></ItemStyle>
                                 <ItemTemplate>
                                     <asp:Label id="lbServLevel" runat="server" ToolTip = '<%# GetServiceLevel((int)Eval("User.LevelId")).LevelDescription%>'>
                                         <%# GetServiceLevel((int)Eval("User.LevelId")).LevelName%>
                                     </asp:Label>
 							    </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="gvDeletedUsersEmail" DataField="User.PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="25%" />                            
-                            <asp:BoundField HeaderText="gvSubscriberNumber" DataField="User.SubscriberNumber" ItemStyle-Width="20%" />						    
+                            <asp:BoundField HeaderText="gvDeletedUsersEmail" DataField="User.PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />                            
+                            <asp:BoundField HeaderText="gvSubscriberNumber" DataField="User.SubscriberNumber" />						    
 						    <asp:TemplateField ItemStyle-Wrap="False">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="Image2" runat="server" Width="16px" Height="16px" ToolTip="Mail" ImageUrl='<%# GetMailImage((int)Eval("OriginAT")) %>' CommandName="OpenMailProperties" CommandArgument='<%# Eval("AccountId") %>' Enabled=<%# EnableMailImageButton((int)Eval("OriginAT")) %>/>
@@ -91,7 +91,7 @@
                             </asp:TemplateField>
 						    <asp:TemplateField>
 							    <ItemTemplate>
-								    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+								    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("AccountId") %>' OnClientClick="return confirm('Remove this item?');"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 							    </ItemTemplate>
                             </asp:TemplateField>
 					    </Columns>
@@ -115,3 +115,4 @@
 				        <fcp:QuotaViewer ID="deletedUsersQuota" runat="server" QuotaTypeId="2" />
                     </div>
 				</div>
+

@@ -11,7 +11,7 @@
     DataSourceID="odsTasks" OnRowDataBound="gvTasks_RowDataBound" OnRowCommand="gvTasks_RowCommand">
     <Columns>
         <asp:TemplateField HeaderText="gvTasksName">
-            <ItemStyle Width="40%"></ItemStyle>
+            <ItemStyle></ItemStyle>
             <ItemTemplate>
 	            <asp:hyperlink id="lnkTaskName" runat="server">
 	            </asp:hyperlink>
@@ -33,8 +33,8 @@
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="gvTasksActions">
 			<ItemTemplate>
-			    <CPCC:StyleButton ID="cmdStop" runat="server" CommandName="stop"
-			        CausesValidation="false" Text="Stop" OnClientClick="return confirm('Do you really want to terminate this task?');"></CPCC:StyleButton>
+			    <asp:LinkButton ID="cmdStop" runat="server" CommandName="stop"
+			        CausesValidation="false" Text="Stop" OnClientClick="return confirm('Do you really want to terminate this task?');"></asp:LinkButton>
 			</ItemTemplate>
 		</asp:TemplateField>
     </Columns>

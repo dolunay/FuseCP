@@ -4,21 +4,21 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 
-			<div class="panel-heading">
-                    <h3 class="panel-title">
+			<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="LyncLogo" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle"></asp:Localize>
               </h3>
                           </div>
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-                    <table id="AddFederationDomain"   runat="server" width="100%"> 					    
+                    <table id="AddFederationDomain"   runat="server"> 					    
                         <tr>
                             <td class="FormLabel150">
                                 <asp:Localize ID="locDomainName" runat="server" meta:resourcekey="locDomainName" Text="Domain Name: *"></asp:Localize>
                             </td>
                             <td>                                
-                                <asp:TextBox ID="DomainName" runat="server" Width="300" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="DomainName" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator id="DomainRequiredValidator" runat="server" meta:resourcekey="DomainRequiredValidator"
                                     ControlToValidate="DomainName" Display="Dynamic" ValidationGroup="Domain" SetFocusOnError="true"></asp:RequiredFieldValidator>
 		                        <asp:RegularExpressionValidator id="DomainFormatValidator" runat="server" meta:resourcekey="DomainFormatValidator"
@@ -31,7 +31,7 @@
                                 <asp:Localize ID="locProxyFQDN" runat="server" meta:resourcekey="locProxyFQDN" Text="Proxy FQDN: "></asp:Localize>
                             </td>
                             <td>                                
-                                <asp:TextBox ID="ProxyFQDN" runat="server" Width="300" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="ProxyFQDN" runat="server" CssClass="form-control"></asp:TextBox>
 		                        <asp:RegularExpressionValidator id="ProxyFqdnFormatValidator" runat="server" meta:resourcekey="ProxyFqdnFormatValidator"
 		                            ControlToValidate="ProxyFQDN" Display="Dynamic" ValidationGroup="Domain" SetFocusOnError="true"
 		                            ValidationExpression="^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.){1,10}[a-zA-Z]{2,15}$"></asp:RegularExpressionValidator>
@@ -41,8 +41,8 @@
                     <br />
 
                 </div>
-                    <div class="panel-footer text-right">
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding Domain...');" ValidationGroup="Domain"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>&nbsp;
+                    <div class="card-footer text-end">
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" OnClientClick="ShowProgressDialog('Adding Domain...');" ValidationGroup="Domain"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>&nbsp;
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="Domain" />
                     </div>

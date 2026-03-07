@@ -22,7 +22,7 @@
                     </div>
 
 			        <asp:GridView ID="gvAddresses" runat="server" AutoGenerateColumns="False" EnableViewState="false"
-				        Width="100%" EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataKeyNames="PrivateAddressId" DataSourceID="odsPrivateAddressesPaged">
 				        <Columns>
 					        <asp:BoundField HeaderText="gvAddressesIPAddress" meta:resourcekey="gvAddressesIPAddress"
@@ -61,9 +61,9 @@
 				    <wsp:CollapsiblePanel id="secQuotas" runat="server"
                         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Quotas">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsAddressesQuota" runat="server" meta:resourcekey="locVpsAddressesQuota" Text="IP addresses per VPS:"></asp:Localize></td>
                                 <td><wsp:Quota ID="addressesPerVps" runat="server" QuotaName="Proxmox.PrivateIPAddressesNumber" /></td>

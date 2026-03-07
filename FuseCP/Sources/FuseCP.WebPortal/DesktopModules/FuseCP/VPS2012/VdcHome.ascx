@@ -7,16 +7,16 @@
 <%@ Register Src="../UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="fcp" %>
 
 <div class="FormButtonsBar right">
-			                <CPCC:StyleButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" CausesValidation="False"> <i class="fa fa-plus">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </CPCC:StyleButton>&nbsp;
-                            <CPCC:StyleButton id="btnImport" CssClass="btn btn-warning" runat="server" OnClick="btnImport_Click" CausesValidation="False"> <i class="fa fa-download">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </CPCC:StyleButton>
+			                <asp:LinkButton id="btnCreate" CssClass="btn btn-success" runat="server" OnClick="btnCreate_Click" CausesValidation="False"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreateText"/> </asp:LinkButton>&nbsp;
+                            <asp:LinkButton id="btnImport" CssClass="btn btn-warning" runat="server" OnClick="btnImport_Click" CausesValidation="False"> <i class="bi bi-download">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnImportText"/> </asp:LinkButton>
                   </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
-                            <CPCC:StyleButton id="btnReplicaStates" CssClass="btn btn-success" runat="server" OnClick="btnReplicaStates_Click" CausesValidation="False"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReplicaStatesText"/> </CPCC:StyleButton>
+                        <div class="col-md-4 offset-md-4">
+                            <asp:LinkButton id="btnReplicaStates" CssClass="btn btn-success" runat="server" OnClick="btnReplicaStates_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReplicaStatesText"/> </asp:LinkButton>
                             <asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 							<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"   
                                 onselectedindexchanged="ddlPageSize_SelectedIndexChanged"> 
@@ -32,7 +32,7 @@
                     </div>
                     </div>
 			        <asp:GridView ID="gvServers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-				        Width="100%" EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvServers" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataSourceID="odsServersPaged" PageSize="20"
                         onrowcommand="gvServers_RowCommand">
 				        <Columns>
@@ -73,23 +73,23 @@
 					        </asp:TemplateField>
 						    <asp:TemplateField>
 							    <ItemTemplate>
-								    <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+								    <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
                                     </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <CPCC:StyleButton id="cmdReinstall" CssClass="btn btn-success" runat="server" CommandName="ReinstallItem" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> &nbsp;<i class="fa fa-refresh"></i>&nbsp; </CPCC:StyleButton>							    
+                                    <asp:LinkButton id="cmdReinstall" CssClass="btn btn-success" runat="server" CommandName="ReinstallItem" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> &nbsp;<i class="bi bi-arrow-clockwise"></i>&nbsp; </asp:LinkButton>							    
                                 </ItemTemplate>
 						    </asp:TemplateField>
                             <asp:TemplateField>
 			                    <ItemTemplate>
-				                    <CPCC:StyleButton id="cmdMove" CssClass="btn btn-warning" runat="server" CommandName="Move" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdMoveText"/> </CPCC:StyleButton>
+				                    <asp:LinkButton id="cmdMove" CssClass="btn btn-warning" runat="server" CommandName="Move" CommandArgument='<%# Eval("ItemID") %>' Enabled='<%# !IsServerDeleting(Eval("ItemID").ToString())%>'> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdMoveText"/> </asp:LinkButton>
 					                &nbsp;
-				                    <CPCC:StyleButton ID="cmdDetach" runat="server" 
+				                    <asp:LinkButton ID="cmdDetach" runat="server" 
  					                    CommandName="Detach" CommandArgument='<%# Eval("ItemID") %>'
-					                    CssClass="btn btn-default btn-sm" OnClientClick="return confirm('Remove this item?');">
-                                        <i class="fa fa-chain-broken">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
-                                    </CPCC:StyleButton>
+					                    CssClass="btn btn-secondary btn-sm" OnClientClick="return confirm('Remove this item?');">
+                                        <i class="bi bi-link-45deg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="cmdDetachText"/>
+                                    </asp:LinkButton>
 			                    </ItemTemplate>
                             </asp:TemplateField>
 				        </Columns>
@@ -108,9 +108,9 @@
 				    </asp:ObjectDataSource>
 	
     	
-                    <asp:Panel ID="QuotasPanel" runat="server" class="panel-footer">
+                    <asp:Panel ID="QuotasPanel" runat="server" class="card-footer">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsQuota" runat="server" meta:resourcekey="locVpsQuota" Text="Number of VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="vpsQuota" runat="server" QuotaName="VPS2012.ServersNumber" /></td>

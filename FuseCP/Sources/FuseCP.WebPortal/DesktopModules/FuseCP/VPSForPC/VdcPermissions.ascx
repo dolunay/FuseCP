@@ -6,15 +6,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				    <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="User Permissions"></asp:Localize>
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
     			    <fcp:Menu id="menu" runat="server" SelectedItem="vdc_permissions" />
-                    <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                    <div class="card tab-content">
+                <div class="card-body form-horizontal">
 			        <fcp:SimpleMessageBox id="messageBox" runat="server" />
     			
 			        <fcp:CollapsiblePanel id="secVdcPermissions" runat="server"
@@ -49,7 +49,7 @@
 				            </Columns>
 			            </asp:GridView>
 			            <br />
-                        <CPCC:StyleButton id="btnUpdateVdcPermissions" CssClass="btn btn-success" runat="server" OnClick="btnUpdateVdcPermissions_Click" CausesValidation="false"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVdcPermissionsText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdateVdcPermissions" CssClass="btn btn-success" runat="server" OnClick="btnUpdateVdcPermissions_Click" CausesValidation="false"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVdcPermissionsText"/> </asp:LinkButton>
                         <br />
                         <br />
                     </asp:Panel>
@@ -92,7 +92,7 @@
 				            </Columns>
 			            </asp:GridView>
 			            <br />
-                        <CPCC:StyleButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false" onclick="btnUpdateVpsPermissions_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnUpdateVpsPermissions" CssClass="btn btn-success" runat="server" CausesValidation="false" onclick="btnUpdateVpsPermissions_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdateVpsPermissionsText"/> </asp:LinkButton>
                         <br />
                         
                     </asp:Panel>

@@ -5,18 +5,13 @@
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport"
     TagPrefix="fcp" %>
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
-<script type="text/javascript">
-
-    function confirmation() {
-        if (!confirm("Are you sure you want to delete this Mail Account?")) return false; else ShowProgressDialog('Deleting Mail Account...');
-    }
-</script>
-<div class="panel-body form-horizontal">
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
+<div class="card-body form-horizontal">
     <dnc:MailEditAddress ID="mailEditAddress" runat="server"></dnc:MailEditAddress>
     <uc1:PasswordControl ID="passwordControl" runat="server" ValidationGroup="ValidatePassword" />
     <br>
-    <div class="form-group inline-form">
-        <asp:Label runat="server" ID="lblMailboxSizeLimit" meta:resourcekey="lblMailboxSizeLimit" CssClass="control-label col-sm-2">
+    <div class="mb-3 inline-form">
+        <asp:Label runat="server" ID="lblMailboxSizeLimit" meta:resourcekey="lblMailboxSizeLimit" CssClass="form-label col-sm-2">
             <asp:Localize ID="locMailboxSizeLimit" runat="server" meta:resourcekey="lblMailboxSizeLimit" />
         </asp:Label>
         <div class="col-sm-8">
@@ -30,15 +25,16 @@
     <br />
     <asp:PlaceHolder ID="providerControl" runat="server"></asp:PlaceHolder>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirmation();"><i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-    </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton ID="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return fuseCpConfirmWithProgress('Are you sure you want to delete this Mail Account?', 'Deleting Mail Account...');"><i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
+    </asp:LinkButton>
     &nbsp;
 
-    <CPCC:StyleButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel" />
+    </asp:LinkButton>
     &nbsp;
 
-    <CPCC:StyleButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving Mail Account...');"><i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText" />
-    </CPCC:StyleButton>
+    <asp:LinkButton ID="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" OnClientClick="ShowProgressDialog('Saving Mail Account...');"><i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText" />
+    </asp:LinkButton>
 </div>
+

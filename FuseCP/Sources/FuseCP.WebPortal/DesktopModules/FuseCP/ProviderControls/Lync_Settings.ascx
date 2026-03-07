@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Lync_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Lync_Settings" %>
-<table>
+<table class="table table-borderless align-middle mb-0">
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locServerName" meta:resourcekey="locServerName"/>
         </td>
         <td >
@@ -10,7 +10,7 @@
         </td>
     </tr>
     <tr>
-        <td class="Normal" width="200" >
+        <td class="Normal" >
             <asp:Localize runat="server" ID="locSimpleUrlBase" meta:resourcekey="locSimpleUrlBase"/>
         </td>
         <td >
@@ -19,19 +19,19 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" width="200" nowrap valign="top">
+        <td class="SubHead text-nowrap align-top">
             <asp:Localize ID="locLynServers" runat="server" meta:resourcekey="locLynServers"
                 Text="Lync Servers:"></asp:Localize>
         </td>
         <td>
             <asp:DropDownList ID="ddlLyncServers" runat="server" CssClass="form-control">
             </asp:DropDownList>
-            <CPCC:StyleButton id="btnAddLyncServer" CssClass="btn btn-success" runat="server" OnClick="btnAddLyncServer_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </CPCC:StyleButton>
+            <asp:LinkButton id="btnAddLyncServer" CssClass="btn btn-success" runat="server" OnClick="btnAddLyncServer_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddText"/> </asp:LinkButton>
             <br />
             <asp:GridView ID="gvLyncServers" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
                 CssSelectorClass="NormalGridView" OnRowCommand="gvLyncServers_RowCommand" meta:resourcekey="gvLyncServers">
                 <Columns>
-                    <asp:TemplateField meta:resourcekey="locServerNameColumn" ItemStyle-Width="100%" >
+                    <asp:TemplateField meta:resourcekey="locServerNameColumn" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblServiceName" Text='<%#Eval("ServiceName") + "(" + Eval("ServerName") +")"%>' />
                         </ItemTemplate>
@@ -39,9 +39,9 @@
                     
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <CPCC:StyleButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
-                                &nbsp;<i class="fa fa-trash-o"></i>&nbsp; 
-                            </CPCC:StyleButton>
+                            <asp:LinkButton id="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName='RemoveServer' CommandArgument='<%#Eval("ServiceId") %>' OnClientClick="return confirm('Delete?');"> 
+                                &nbsp;<i class="bi bi-trash"></i>&nbsp; 
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -52,3 +52,4 @@
 
 
 </table>
+

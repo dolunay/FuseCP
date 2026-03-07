@@ -90,3 +90,5 @@ packages/
 /FuseCP/CleanDebug.ps1
 /FuseCP.Installer/Sources/VersionInfo.cs
 /FuseCP/buildandupload.bat
+
+.fake

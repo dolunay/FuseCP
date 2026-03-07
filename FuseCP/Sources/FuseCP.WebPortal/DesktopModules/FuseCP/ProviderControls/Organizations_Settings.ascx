@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Organizations_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.Organizations_Settings" %>
-<table width="100%"  cellspacing="0">
+<table class="table table-borderless align-middle mb-0 w-100">
     <tr>
-        <td class="SubHead" width="200" nowrap>
+        <td class="SubHead text-nowrap">
             <asp:Label runat="server" ID="lblRootOU" meta:resourcekey="lblRootOU" />
         </td>
         <td class="Normal">
@@ -11,20 +11,20 @@
     </tr>
     
     <tr>
-        <td class="SubHead" nowrap="true"><asp:Label runat="server" ID="lblPrimaryDomainController" meta:resourcekey="lblPrimaryDomainController" /></td>
+        <td class="SubHead text-nowrap"><asp:Label runat="server" ID="lblPrimaryDomainController" meta:resourcekey="lblPrimaryDomainController" /></td>
         <td class="Normal">
             <asp:TextBox runat="server" ID="txtPrimaryDomainController" Width="200px"/>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPrimaryDomainController" ErrorMessage="*" Display="Dynamic" />
         </td>
     </tr>
     <tr>
-        <td class="SubHead" nowrap="true"><asp:Label runat="server" ID="Label1" meta:resourcekey="lblTemporyDomainName" /></td>
+        <td class="SubHead text-nowrap"><asp:Label runat="server" ID="Label1" meta:resourcekey="lblTemporyDomainName" /></td>
         <td><asp:TextBox  runat="server" ID="txtTemporyDomainName" MaxLength="100" Width="200px" />
         <asp:RequiredFieldValidator  ControlToValidate="txtTemporyDomainName" ErrorMessage="*" />
         </td>
     </tr>
     <tr>
-        <td class="SubHead" nowrap="nowrap"><asp:Label runat="server" ID="UserNameFormatLabel" meta:resourcekey="lblUserNameFormat"/></td>
+        <td class="SubHead text-nowrap"><asp:Label runat="server" ID="UserNameFormatLabel" meta:resourcekey="lblUserNameFormat"/></td>
         <td>
             <asp:DropDownList runat="server" ID="UserNameFormatDropDown">
                 <asp:ListItem Value="1" meta:resourcekey="listItemStandard"/>
@@ -34,7 +34,7 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead" nowrap="true"><asp:Label runat="server" ID="Label2" meta:resourcekey="lblArchiveStorageSpace" /></td>
+        <td class="SubHead text-nowrap"><asp:Label runat="server" ID="Label2" meta:resourcekey="lblArchiveStorageSpace" /></td>
         <td>
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>

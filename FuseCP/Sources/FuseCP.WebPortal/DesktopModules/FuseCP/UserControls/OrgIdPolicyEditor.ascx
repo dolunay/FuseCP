@@ -2,9 +2,9 @@
 <asp:UpdatePanel runat="server" ID="OrgIdPolicyPanel" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
         <asp:CheckBox id="enablePolicyCheckBox" runat="server" meta:resourcekey="enablePolicyCheckBox" Text="Enable Policy" CssClass="NormalBold" AutoPostBack="true" OnCheckedChanged="EnablePolicy_CheckedChanged"/>
-        <table id="PolicyTable" runat="server" cellpadding="2">
+        <table class="table table-borderless align-middle mb-0" id="PolicyTable" runat="server">
             <tr>
-                <td class="Normal" style="width:150px;">
+                <td class="Normal" >
                     <asp:Label ID="lblMaximumLength" runat="server" meta:resourcekey="lblMaximumLength" Text="Maximum OrgId length:"/>
                 </td>
                 <td class="Normal">

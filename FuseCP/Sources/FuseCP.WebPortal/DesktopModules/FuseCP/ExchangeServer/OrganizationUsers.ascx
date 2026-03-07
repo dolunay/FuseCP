@@ -6,39 +6,30 @@
 <%@ Register Src="../UserControls/UserActions.ascx" TagName="UserActions" TagPrefix="fcp" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/organization-users.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
-<div class="panel-heading">
-    <h3 class="panel-title">
+<div class="card-header">
+    <h3 class="card-title">
         <asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
         <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Users"></asp:Localize>
     </h3>
 </div>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click">
-        <i class="fa fa-user-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnCreateUser" CssClass="btn btn-primary" runat="server" OnClick="btnCreateUser_Click">
+        <i class="bi bi-person-plus">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCreateUserText" />
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <div class="row">
         <div class="col-md-3">
             <fcp:UserActions ID="userActions" runat="server" GridViewID="gvUsers" CheckboxesName="chkSelectedUsersIds" />
         </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-right form-inline">
-            <div class="form-group">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-9 text-end d-flex flex-wrap gap-2 align-items-center exchange-search-inline">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -48,7 +39,7 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
@@ -59,14 +50,14 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-0">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
-                    </div>
+                    <span class="input-group-btn">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
+                    </span>
                 </div>
             </div>
         </asp:Panel>
@@ -77,7 +68,7 @@
     <asp:UpdatePanel ID="UsersUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
         <ContentTemplate>
             <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" EnableViewState="true"
-                Width="100%" EmptyDataText="gvUsers" CssSelectorClass="NormalGridView" DataKeyNames="AccountId,AccountType"
+                EmptyDataText="gvUsers" CssSelectorClass="NormalGridView" DataKeyNames="AccountId,AccountType"
                 OnRowCommand="gvUsers_RowCommand" AllowPaging="True" AllowSorting="True"
                 DataSourceID="odsAccountsPaged" PageSize="20">
                 <Columns>
@@ -95,7 +86,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="gvUsersDisplayName" SortExpression="DisplayName">
-                        <ItemStyle Width="25%"></ItemStyle>
+                        <ItemStyle></ItemStyle>
                         <ItemTemplate>
                             <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType"),(bool)Eval("IsVIP")) %>' ImageAlign="AbsMiddle" />
                             <asp:Hyperlink ID="lnk1" runat="server" NavigateUrl='<%# GetUserEditUrl(Eval("AccountId").ToString()) %>'>
@@ -103,17 +94,17 @@
                             </asp:Hyperlink>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="gvUsersLogin" DataField="UserPrincipalName" SortExpression="UserPrincipalName" ItemStyle-Width="25%" />
+                    <asp:BoundField HeaderText="gvUsersLogin" DataField="UserPrincipalName" SortExpression="UserPrincipalName" />
                     <asp:TemplateField HeaderText="gvServiceLevel">
-                        <ItemStyle Width="25%"></ItemStyle>
+                        <ItemStyle></ItemStyle>
                         <ItemTemplate>
                             <asp:Label ID="lbServLevel" runat="server" ToolTip='<%# GetServiceLevel((int)Eval("LevelId")).LevelDescription%>'>
                                 <%# GetServiceLevel((int)Eval("LevelId")).LevelName%>
                             </asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" ItemStyle-Width="25%" />
-                    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" ItemStyle-Width="20%" />
+                    <asp:BoundField HeaderText="gvUsersEmail" DataField="PrimaryEmailAddress" SortExpression="PrimaryEmailAddress" />
+                    <asp:BoundField HeaderText="gvSubscriberNumber" DataField="SubscriberNumber" />
                     <asp:TemplateField ItemStyle-Wrap="False">
                         <ItemTemplate>
                             <asp:ImageButton ID="Image2" runat="server" Width="16px" Height="16px" ToolTip="Mail" ImageUrl='<%# GetMailImage((int)Eval("AccountType")) %>' CommandName="OpenMailProperties" CommandArgument='<%# Eval("AccountId") %>' Enabled='<%# EnableMailImageButton((int)Eval("AccountType")) %>' />
@@ -126,7 +117,7 @@
                         <ItemTemplate>
                             <asp:Linkbutton ID="cmdDelete" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Container.DataItemIndex %>' OnClientClick="return ShowProgressDialog('Please wait...');">
                                 &nbsp;
-                                <i class="fa fa-trash-o"></i>&nbsp;
+                                <i class="bi bi-trash"></i>&nbsp;
                             </asp:Linkbutton>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -147,7 +138,7 @@
             <asp:Panel ID="DeleteUserPanel" runat="server" Style="display: none">
                 <div class="widget">
                     <div class="widget-header clearfix">
-                        <h3><i class="fa fa-user"></i>  <asp:Localize ID="headerDeleteUser" runat="server" meta:resourcekey="headerDeleteUser"></asp:Localize></h3>
+                        <h3><i class="bi bi-person"></i>  <asp:Localize ID="headerDeleteUser" runat="server" meta:resourcekey="headerDeleteUser"></asp:Localize></h3>
                     </div>
                     <div class="widget-content Popup">
                         <asp:UpdatePanel ID="DeleteUserUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -158,33 +149,28 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-					<div class="popup-buttons text-right">
-                        <CPCC:StyleButton ID="btnCancelDelete" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
-                            <i class="fa fa-times">&nbsp;</i>&nbsp;
+					<div class="popup-buttons text-end">
+                        <asp:LinkButton ID="btnCancelDelete" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClientClick="CloseProgressDialog();">
+                            <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
                             <asp:Localize runat="server" meta:resourcekey="btnCancelText" />
-                        </CPCC:StyleButton>&nbsp;
-			            <CPCC:StyleButton ID="btnDeleteUser" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="closePopup(); return ShowProgressDialog('Deleting user...');">
-                            <i class="fa fa-trash-o">&nbsp;</i>&nbsp;
+                        </asp:LinkButton>&nbsp;
+			            <asp:LinkButton ID="btnDeleteUser" CssClass="btn btn-danger" runat="server" OnClick="btnDelete_Click" OnClientClick="closePopup(); return ShowProgressDialog('Deleting user...');">
+                            <i class="bi bi-trash">&nbsp;</i>&nbsp;
                             <asp:Localize runat="server" meta:resourcekey="btnDeleteText" />
-			            </CPCC:StyleButton>
+			            </asp:LinkButton>
                     </div>
                 </div>
             </asp:Panel>
             <asp:Button ID="btnDeleteUserFake" runat="server" Style="display: none;" />
             <ajaxToolkit:ModalPopupExtender ID="DeleteUserModal" BehaviorID="DeleteUserModal" runat="server" TargetControlID="btnDeleteUserFake" EnableViewState="true"
                 PopupControlID="DeleteUserPanel" BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="btnCancelDelete" />
-            <script type="text/javascript">
-                function closePopup() {
-                    $find('DeleteUserModal').hide();
-                }
-            </script>
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="btnDeleteUser" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Panel>
-<div class="panel-footer">
+<div class="card-footer">
     <asp:Localize ID="locQuota" runat="server" meta:resourcekey="locQuota" Text="Total Users Created:"></asp:Localize>
     &nbsp;&nbsp;&nbsp;
     <fcp:QuotaViewer ID="usersQuota" runat="server" QuotaTypeId="2" />
@@ -203,3 +189,4 @@
         </div>
     </ItemTemplate>
 </asp:Repeater>
+

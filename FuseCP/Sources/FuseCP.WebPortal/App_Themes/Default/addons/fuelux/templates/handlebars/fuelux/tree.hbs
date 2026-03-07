@@ -1,10 +1,10 @@
 <ul class="tree {{#if folderSelect}}tree-folder-select{{/if}}" id="{{#if id}}{{id}}{{else}}myTree{{/if}}" role="tree">
 	<li class="tree-branch hidden" data-template="treebranch" role="treeitem" aria-expanded="false">
 		<div class="tree-branch-header">
-			{{#if folderSelect}}<button type="button" class="glyphicon icon-caret glyphicon-play"><span class="sr-only">Open</span></button>{{/if}}
+			{{#if folderSelect}}<button type="button" class="bi icon-caret bi-caret-right-fill"><span class="visually-hidden">Open</span></button>{{/if}}
 			<button type="button" class="tree-branch-name">
-				{{#unless folderSelect}}<span class="glyphicon icon-caret glyphicon-play"></span>{{/unless}}
-				<span class="glyphicon icon-folder glyphicon-folder-close"></span>
+				{{#unless folderSelect}}<span class="bi icon-caret bi-caret-right-fill"></span>{{/unless}}
+				<span class="bi icon-folder bi-folder2"></span>
 				<span class="tree-label"></span>
 			</button>
 		</div>
@@ -14,13 +14,13 @@
 	</li>
 	<li class="tree-item hidden" data-template="treeitem" role="treeitem">
 		<button type="button" class="tree-item-name">
-			<span class="glyphicon icon-item fueluxicon-bullet"></span>
+			<span class="bi icon-item fueluxicon-bullet"></span>
 			<span class="tree-label"></span>
 		</button>
 	</li>
 	<li class="tree-overflow hidden" data-template="treeoverflow" role="treeitem">
 		<button type="button" class="tree-overflow-name">
-			<span class="glyphicon"></span>
+			<span class="bi"></span>
 			<span class="tree-label"></span>
 		</button>
 	</li>

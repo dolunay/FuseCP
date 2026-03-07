@@ -8,9 +8,9 @@
 		<asp:Localize ID="locProxmoxServer" runat="server" meta:resourcekey="locProxmoxCluster" Text="Proxmox Cluster"></asp:Localize>
 	</legend>
 
-	<table cellpadding="2" cellspacing="0" style="margin: 10px;">
+	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
 		<tr id="rowServerHost" runat="server">
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterServerHost" runat="server" meta:resourcekey="locProxmoxClusterServerHost" Text="Proxmox Cluster Server Host:"></asp:Localize>
 			</td>
 			<td>
@@ -22,7 +22,7 @@
 		</tr>
 
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterServerPort" runat="server" meta:resourcekey="locProxmoxClusterServerPort" Text="Proxmox Cluster Server Port:"></asp:Localize>
 			</td>
 			<td>
@@ -34,7 +34,7 @@
 		</tr>
 
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterAdminUser" runat="server" meta:resourcekey="locProxmoxClusterAdminUser" Text="Proxmox Admin User:"></asp:Localize>
 			</td>
 			<td>
@@ -46,7 +46,7 @@
 		</tr>
 
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterRealm" runat="server" meta:resourcekey="locProxmoxClusterRealm" Text="Proxmox Admin User Realm:"></asp:Localize>
 			</td>
 			<td>
@@ -69,7 +69,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterAdminPass" runat="server" meta:resourcekey="locProxmoxClusterAdminPass" Text="Proxmox Admin Pass:"></asp:Localize>
 			</td>
 			<td>
@@ -77,16 +77,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxTrustServerCertificate" runat="server" meta:resourcekey="locProxmoxTrustServerCertificate" Text="Always trust Proxomox Server Certificate:"></asp:Localize>
 			</td>
 			<td>
-				<asp:CheckBox Width="250px" CssClass="form-control" runat="server" ID="chkProxmoxTrustServerCertificate" meta:resourcekey="chkProxmoxTrustServerCertificate"></asp:CheckBox>
+				<asp:CheckBox Width="250px" CssClass="fcp-check-inline" runat="server" ID="chkProxmoxTrustServerCertificate" meta:resourcekey="chkProxmoxTrustServerCertificate"></asp:CheckBox>
 			</td>
 		</tr>
 		<%--
 	    <tr>
-		    <td class="SubHead" style="width:200px;">
+		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locProxmoxClusterNode" runat="server" meta:resourcekey="locProxmoxClusterNode" Text="Proxmox Cluster Node:"></asp:Localize>
 		    </td>
 		    <td>
@@ -110,11 +110,11 @@
 	<legend>
 		<asp:Localize ID="locProxmoxSSH" runat="server" meta:resourcekey="locDeploySSH" Text="Proxmox VM deploy SSH"></asp:Localize>
 	</legend>
-	<table cellpadding="2" cellspacing="0" style="margin: 10px;">
+	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
 
 		<asp:PlaceHolder runat="server" ID="pnlSshSettings">
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHServerHost" runat="server" meta:resourcekey="locDeploySSHServerHost" Text="SSH Server Host:"></asp:Localize>
 				</td>
 				<td>
@@ -126,7 +126,7 @@
 			</tr>
 
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHServerPort" runat="server" meta:resourcekey="locDeploySSHServerPort" Text="SSH Server Port:"></asp:Localize>
 				</td>
 				<td>
@@ -138,7 +138,7 @@
 			</tr>
 
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHUser" runat="server" meta:resourcekey="locDeploySSHUser" Text="SSH User:"></asp:Localize>
 				</td>
 				<td>
@@ -159,7 +159,7 @@
 			</tr>
 
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHPass" runat="server" meta:resourcekey="locDeploySSHPass" Text="SSH Password:"></asp:Localize>
 				</td>
 				<td>
@@ -168,7 +168,7 @@
 			</tr>
 
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHKey" runat="server" meta:resourcekey="locDeploySSHKey" Text="SSH Private Key:"></asp:Localize>
 				</td>
 				<td>
@@ -185,7 +185,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" style="width: 200px;">
+				<td class="SubHead FormLabel200">
 					<asp:Localize ID="locDeploySSHKeyPass" runat="server" meta:resourcekey="locDeploySSHKeyPass" Text="SSH Key Passphrase:"></asp:Localize>
 				</td>
 				<td>
@@ -195,7 +195,7 @@
 		</asp:PlaceHolder>
 
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locDeploySSHScript" runat="server" meta:resourcekey="locDeploySSHScript" Text="VM Deploy Script:"></asp:Localize>
 			</td>
 			<td>
@@ -207,7 +207,7 @@
 		</tr>
 
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locDeploySSHScriptParams" runat="server" meta:resourcekey="locDeploySSHScriptParams" Text="VM Deploy Script Parameters:"></asp:Localize>
 			</td>
 			<td>
@@ -219,7 +219,7 @@
 		</tr>
 	</table>
 
-	<p style="margin: 10px;">
+	<p style="margin: 10px">
 		<asp:Localize ID="locvmdeploytext" runat="server" meta:resourcekey="locvmdeploytext" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -231,18 +231,18 @@
 		<asp:Localize ID="locTemplates" runat="server" meta:resourcekey="locTemplates" Text="OS Templates"></asp:Localize>
 	</legend>
 
-	<div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px;">
+	<div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
 		<asp:Button ID="btnAddOsTemplate" runat="server" meta:resourcekey="btnAddOsTemplate"
-			CssClass="Button1" Text="Add OS Template" CausesValidation="false"
+			CssClass="btn btn-primary" Text="Add OS Template" CausesValidation="false"
 			OnClick="btnAddOsTemplate_Click" />
 	</div>
 	<asp:Repeater ID="repOsTemplates" runat="server">
 		<HeaderTemplate>
 		</HeaderTemplate>
 		<ItemTemplate>
-			<table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+			<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
 				<tr>
-					<td class="SubHead" style="width: 200px;">
+					<td class="SubHead FormLabel200">
 						<asp:Localize ID="locTemplateName" runat="server" meta:resourcekey="locTemplateName" Text="Name:"></asp:Localize>
 					</td>
 					<td>
@@ -250,7 +250,7 @@
 						<asp:RequiredFieldValidator ID="TemplateNameValidator" runat="server" ControlToValidate="txtTemplateName"
 							Text="*" meta:resourcekey="TemplateNameValidator" Display="Dynamic" SetFocusOnError="true" />
 					</td>
-					<td rowspan="3" style="padding:8px;">
+					<td rowspan="3" style="padding:8px">
 						<asp:CheckBox ID="chkLegacyNetworkAdapter" runat="server" Checked='<%# Eval("LegacyNetworkAdapter") %>' meta:resourcekey="chkLegacyNetworkAdapter" Text="Use legacy adapter" />
 						<br />
 						<%--<asp:CheckBox ID="chkRemoteDesktop" runat="server" Checked='<%# Eval("RemoteDesktop") %>' meta:resourcekey="chkRemoteDesktop" Text="Remote desktop" /><br/>--%>
@@ -265,7 +265,7 @@
 					</td>
 					<td rowspan="3">
 						<asp:Button ID="btnRemoveOsTemplate" runat="server" meta:resourcekey="btnRemoveOsTemplate"
-							CssClass="Button1" Text="Remove" CausesValidation="false"
+							CssClass="btn btn-primary" Text="Remove" CausesValidation="false"
 							CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveOsTemplate_OnCommand" />
 					</td>
 				</tr>
@@ -311,7 +311,7 @@
 		</ItemTemplate>
 		<SeparatorTemplate>
 			<br />
-			<%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px;"/>--%>
+			<%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>--%>
 		</SeparatorTemplate>
 	</asp:Repeater>
 </fieldset>
@@ -322,9 +322,9 @@
 	<legend>
 		<asp:Localize ID="Localize1" runat="server" meta:resourcekey="locProxmoxISOs" Text="DVD Library"></asp:Localize>
 	</legend>
-	<table cellpadding="2" cellspacing="0" style="margin: 10px;">
+	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxIsosonStorage" runat="server" meta:resourcekey="locProxmoxIsosonStorage" Text="DVD ISO Images on Storage:"></asp:Localize>
 			</td>
 			<td>
@@ -344,9 +344,9 @@
 	<legend>
 		<asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
 	</legend>
-	<table cellpadding="2" cellspacing="0" width="100%" style="margin: 10px;">
+	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
 		<tr>
-			<td class="SubHead" style="width: 200px;">
+			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern" Text="VPS host name pattern:"></asp:Localize>
 			</td>
 			<td>
@@ -356,7 +356,7 @@
 			</td>
 		</tr>
 	</table>
-	<p style="margin: 10px;">
+	<p style="margin: 10px">
 		<asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -364,3 +364,4 @@
 
 
 <br />
+

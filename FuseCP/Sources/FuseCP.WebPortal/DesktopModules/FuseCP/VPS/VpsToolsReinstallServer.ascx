@@ -8,15 +8,15 @@
 <%@ Register Src="../UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
-	    <div class="panel panel-default">
-			    <div class="panel-heading">
+	    <div class="card">
+			    <div class="card-header">
 				    <asp:Image ID="imgIcon" SkinID="Server48" runat="server" />
 				    <fcp:FormTitle ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Re-install Server" />
 			    </div>
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
                     <fcp:Menu id="menu" runat="server" SelectedItem="" />
-                <div class="panel panel-default tab-content">
-                <div class="panel-body form-horizontal">
+                <div class="card tab-content">
+                <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
             <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_tools" />	
                     <asp:ValidationSummary ID="validatorsSummary" runat="server" 
@@ -35,9 +35,9 @@
 				                    meta:resourcekey="chkConfirmReinstall" Text="Yes, I confirm re-installation of this VPS" />
                     </p>
 				    
-				    <table cellspacing="5">
+				    <table class="table table-borderless align-middle mb-0">
 				        <tr>
-				            <td valign="top">
+				            <td class="align-top">
 				                <asp:Localize ID="locPassword" runat="server"
 		                            meta:resourcekey="locPassword" Text="New administrator password:" />
 				            </td>
@@ -57,7 +57,7 @@
 				        </tr>
 				    </table>
 				    <br />
-                    <table cellspacing="5" id="AdminOptionsPanel" runat="server">
+                    <table class="table table-borderless align-middle mb-0" id="AdminOptionsPanel" runat="server">
 				        <tr>
 				            <td>
 				                <asp:CheckBox ID="chkSaveVhd" runat="server"
@@ -71,7 +71,7 @@
 				            </td>
 				        </tr>
 				        <tr>
-				            <td style="padding-left:20px;">
+				            <td style="padding-left:20px">
 				                <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
 				                
 				                <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"
@@ -82,8 +82,8 @@
 				    </table>
 				    
                     <p>
-                        <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-                        <CPCC:StyleButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </CPCC:StyleButton>
+                        <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+                        <asp:LinkButton id="btnReinstall" CssClass="btn btn-success" runat="server" onclick="btnUpdate_Click" ValidationGroup="Reinstall"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnReinstall"/> </asp:LinkButton>
                     </p>
 			    </div>
                 </div>

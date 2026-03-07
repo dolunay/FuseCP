@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ScheduleInterval.ascx.cs" Inherits="FuseCP.Portal.ScheduleInterval" %>
-<div class="form-inline">
+<div class="d-flex flex-wrap gap-2 align-items-center">
     <asp:TextBox ID="txtInterval" runat="server" CssClass="form-control" Width="80px"></asp:TextBox>
     <asp:DropDownList ID="ddlUnits" runat="server" resourcekey="ddlUnits"  CssClass="form-control">
         <asp:ListItem Value="Days">Days</asp:ListItem>

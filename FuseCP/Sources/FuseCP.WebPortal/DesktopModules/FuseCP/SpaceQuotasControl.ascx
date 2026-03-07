@@ -3,20 +3,20 @@
 
 <asp:Repeater ID="dlGroups" runat="server" EnableViewState="false">
     <ItemTemplate>
-        <div class="panel panel-info">
-            <div class="panel-heading">
+        <div class="card border-info">
+            <div class="card-header">
                 <asp:Panel ID="GroupPanel" runat="server" visible='<%# IsGroupVisible((int)Eval("GroupID")) %>'>
                     <strong><%# GetSharedLocalizedString("ResourceGroup." + (string)Eval("GroupName")) %></strong>
                 </asp:Panel>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <asp:Repeater ID="dlQuotas" runat="server" DataSource='<%# GetGroupQuotas((int)Eval("GroupID")) %>' EnableViewState="false">
                     <ItemTemplate>
                         <div class="row">
-                            <div class="col-xs-6 text-right">
+                            <div class="col-6 text-end">
                                 <%# GetQuotaTitle((string)Eval("QuotaName"), (object)Eval("QuotaDescription"))%>:
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-6">
                                 <uc1:QuotaViewer ID="quota" runat="server" QuotaTypeId='<%# Eval("QuotaTypeId") %>' QuotaUsedValue='<%# Eval("QuotaUsedValue") %>' QuotaValue='<%# Eval("QuotaValue") %>' QuotaAvailable='<%# Eval("QuotaAvailable") %>'/>
                             </div>
                         </div>

@@ -2,10 +2,10 @@
 <%@ Register Src="UserControls/PasswordControl.ascx" TagName="PasswordControl" TagPrefix="uc3" %>
 <%@ Register Src="UserControls/UsernameControl.ascx" TagName="UsernameControl" TagPrefix="uc3" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc2" %>
-<div class="panel-body form-horizontal">
-<table cellSpacing="0" cellPadding="4" width="100%">
+<div class="card-body form-horizontal">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width:150px;">
+		<td class="SubHead FormLabel150">
 		    <asp:Label ID="lblSourceName" runat="server" meta:resourcekey="lblSourceName" Text="Data Source Name:"></asp:Label>
 		</td>
 		<td class="NormalBold">
@@ -13,7 +13,7 @@
         </td>
 	</tr>
 	<tr>
-		<td class="SubHead" valign="top"><asp:Label ID="lblDriver" runat="server" meta:resourcekey="lblDriver" Text="ODBC Driver:"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDriver" runat="server" meta:resourcekey="lblDriver" Text="ODBC Driver:"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDriver" runat="server" CssClass="form-control" resourcekey="ddlDriver"
                 AutoPostBack="true" OnSelectedIndexChanged="ddlDriver_SelectedIndexChanged">
@@ -23,7 +23,7 @@
                 ErrorMessage="*"></asp:RequiredFieldValidator></td>
 	</tr>
 	<tr id="rowDatabaseName" runat="server">
-		<td class="SubHead" valign="top"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDatabaseName" runat="server" meta:resourcekey="lblDatabaseName"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDatabaseName" runat="server" CssClass="form-control"
                 DataValueField="Name" DataTextField="Name">
@@ -34,11 +34,11 @@
 	<tr id="rowFile" runat="server">
 		<td class="SubHead" height="30"><asp:Label ID="lblFile" runat="server" meta:resourcekey="lblFile"></asp:Label></td>
 		<td class="Normal" height="30">
-            <uc2:FileLookup ID="fileLookup" runat="server" Width="300" IncludeFiles="true" />
+            <uc2:FileLookup ID="fileLookup" runat="server" IncludeFiles="true" />
 		</td>
 	</tr>
 	<tr id="rowDatabaseUser" runat="server">
-		<td class="SubHead" valign="top"><asp:Label ID="lblDatabaseUser" runat="server" meta:resourcekey="lblDatabaseUser"></asp:Label></td>
+		<td class="SubHead align-top"><asp:Label ID="lblDatabaseUser" runat="server" meta:resourcekey="lblDatabaseUser"></asp:Label></td>
 		<td class="NormalBold">
             <asp:DropDownList ID="ddlDatabaseUser" runat="server" CssClass="form-control"
                 DataValueField="Name" DataTextField="Name">
@@ -59,8 +59,8 @@
 	</tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete this ODBC DSN?');"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnDelete" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="btnDelete_Click" OnClientClick="return confirm('Delete this ODBC DSN?');"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteText"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSave"/> </asp:LinkButton>
 </div>

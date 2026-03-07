@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SizeBox.ascx.cs" Inherits="FuseCP.Portal.ExchangeServer.UserControls.SizeBox" %>
-<div class="form-inline">
+<div class="d-flex flex-wrap gap-2 align-items-center">
 <asp:TextBox ID="txtValue" runat="server" CssClass="form-control" MaxLength="15"></asp:TextBox>
 <asp:Localize ID="locKB" runat="server" meta:resourcekey="locKB" Text="KB"></asp:Localize>
 <asp:Localize ID="locMB" runat="server" meta:resourcekey="locMB" Text="MB"></asp:Localize>

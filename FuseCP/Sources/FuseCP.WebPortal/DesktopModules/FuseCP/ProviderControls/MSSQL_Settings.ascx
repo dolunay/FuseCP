@@ -1,8 +1,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MSSQL_Settings.ascx.cs" Inherits="FuseCP.Portal.ProviderControls.MSSQL_Settings" %>
 <%@ Register Src="../UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
-<table cellpadding="4" cellspacing="0" width="100%">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="width: 150px;">
+		<td class="SubHead" >
 		    <asp:Label ID="lblInternalAddress" runat="server" meta:resourcekey="lblInternalAddress" Text="Internal Address:"></asp:Label>
 		</td>
 		<td><asp:TextBox Width="200px" CssClass="form-control" Runat="server" ID="txtInternalAddress"></asp:TextBox></td>
@@ -19,10 +19,10 @@
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="SubHead" valign="top">
+		<td class="SubHead align-top">
             <asp:Label ID="lblConnection" runat="server" meta:resourcekey="lblConnection" Text="Connection:"></asp:Label>
         </td>
-		<td><table cellpadding="1" cellspacing="0" width="100%">
+		<td><table class="table table-borderless align-middle mb-0 w-100">
 				<tr>
 					<td>
 					    <asp:RadioButtonList Runat="server" id="rblAccountType" meta:resourcekey="rblAccountType" CssClass="Normal" AutoPostBack="True" OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged">
@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<td id="tblAccount" runat="server">
-						<table>
+						<table class="table table-borderless align-middle mb-0">
 							<tr>
 								<td class="SubHead">
 								    <asp:Label ID="lblUsername" runat="server" meta:resourcekey="lblUsername" Text="User name:"></asp:Label>
@@ -56,7 +56,7 @@
 									</td>
 							</tr>
 							<tr>
-								<td class="SubHead" noWrap>
+								<td class="SubHead text-nowrap">
 								    <asp:Label ID="lblConfirmPassword" runat="server" meta:resourcekey="lblConfirmPassword" Text="Confirm password:"></asp:Label>
 								</td>
 								<td class="NormalBold"><asp:TextBox Width="100px" CssClass="form-control" Runat="server" ID="txtConfirmPassword" TextMode="Password"></asp:TextBox>
@@ -74,7 +74,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td valign="top" class="SubHead">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblLocation" runat="server" meta:resourcekey="lblLocation" Text="Databases Location:"></asp:Label>
 		</td>
 		<td>
@@ -82,7 +82,7 @@
 				<asp:ListItem Value="1" Selected="True">Default</asp:ListItem>
 				<asp:ListItem Value="2">Custom</asp:ListItem>
 			</asp:RadioButtonList>
-			<table id="tblLocation" runat="server" width="100%">
+			<table id="tblLocation" runat="server" class="table table-borderless align-middle mb-0 w-100">
 				<tr>
 					<td>
 						<asp:TextBox Runat="server" ID="txtDatabasesLocation" CssClass="form-control" Width="300px"></asp:TextBox>
@@ -97,11 +97,11 @@
 		</td>
 	</tr>
     	<tr>
-		<td valign="top" class="SubHead">
+		<td class="SubHead align-top">
 		    <asp:Label ID="lblBackup" runat="server" meta:resourcekey="lblBackup" Text="Backup Options:"></asp:Label>
 		</td>
 		<td>
-			<table id="tblBackup" runat="server" width="100%">
+			<table id="tblBackup" runat="server" class="table table-borderless align-middle mb-0 w-100">
 				<tr>
                     <td class="SubHead">
 						<asp:Label ID="lblBackupPath" runat="server" meta:resourcekey="lblBackupPath" Text="FuseCP Server backup path:"></asp:Label>

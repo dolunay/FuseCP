@@ -4,10 +4,10 @@
 
 <fcp:CollapsiblePanel id="secAdministratorPassword" runat="server"
     TargetControlID="AdministratorPasswordPanel" meta:resourcekey="secAdministratorPassword" Text="Administrator Account Password Policy"/>
-<asp:Panel ID="AdministratorPasswordPanel" runat="server" Height="0" style="overflow:hidden;">
+<asp:Panel ID="AdministratorPasswordPanel" runat="server" Height="0" style="overflow:hidden">
     <table>
         <tr>
-            <td class="SubHead" width="150" nowrap>
+            <td class="SubHead text-nowrap">
                 <asp:Label ID="lblPasswordPolicy" runat="server" meta:resourcekey="lblPasswordPolicy" Text="Password Policy:"></asp:Label>
             </td>
             <td>

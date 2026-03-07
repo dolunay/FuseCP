@@ -16,7 +16,7 @@ Default skin template. The following skins are provided as examples only.
 
 <asp:DataList runat="server" SkinID="HorizontalTabs" RepeatDirection="Horizontal">
 <ItemTemplate>
-    <CPCC:StyleButton ID="btnSelectTab" runat="server" CommandName="select"></CPCC:StyleButton>
+   <asp:LinkButton ID="btnSelectTab" runat="server" CommandName="select"></asp:LinkButton>
 </ItemTemplate>
 <SelectedItemTemplate>
     <b><i><asp:Label ID="lblTabName" runat="server"></asp:Label></i></b>

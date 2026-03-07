@@ -1,6 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServersEditTerminalConnections.ascx.cs" Inherits="FuseCP.Portal.ServersEditTerminalConnections" %>
 <%@ Register Src="ServerHeaderControl.ascx" TagName="ServerHeaderControl" TagPrefix="uc1" %>
 <%@ Register Src="UserControls/EnableAsyncTasksSupport.ascx" TagName="EnableAsyncTasksSupport" TagPrefix="fcp" %>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/terminal-connections.js"></script>
 <uc1:ServerHeaderControl id="ServerHeaderControl1" runat="server">
 </uc1:ServerHeaderControl>
 
@@ -28,21 +29,9 @@
         </asp:GridView>
     </ContentTemplate>
 </asp:UpdatePanel>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
-        <i class="fa fa-times">&nbsp;</i>&nbsp;
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click">
+        <i class="bi bi-x-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnCancel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-        prm.add_endRequest(EndRequest);
-    });
-
-
-    function EndRequest(sender, args) {
-        CloseProgressDialog();
-    }
-</script>

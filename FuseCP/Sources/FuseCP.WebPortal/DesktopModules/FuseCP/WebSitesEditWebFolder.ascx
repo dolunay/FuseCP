@@ -1,23 +1,23 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebSitesEditWebFolder.ascx.cs" Inherits="FuseCP.Portal.WebSitesEditWebFolder" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc1" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
-<div class="panel-body form-horizontal">
-<table cellSpacing="0" cellPadding="0" width="100%">
+<div class="card-body form-horizontal">
+<table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
 		<td>
-            <table cellSpacing="0" cellPadding="5" width="100%">
+            <table class="table table-borderless align-middle mb-0 w-100">
 	            <tr>
-		            <td class="SubHead" style="width: 150px;">
+		            <td class="SubHead" >
 						<asp:Label ID="lblFolderTitle" runat="server" meta:resourcekey="lblFolderTitle" Text="Folder Title:"></asp:Label>
 					</td>
 		            <td class="NormalBold">
-                        <asp:TextBox ID="txtTitle" runat="server" Width="200" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
                     </td>
 	            </tr>
 	            <tr>
 		            <td class="SubHead"><asp:Label ID="lblFolderName" runat="server" meta:resourcekey="lblFolderName" Text="Folder Path:"></asp:Label></td>
 		            <td class="NormalBold">
-                        <uc1:FileLookup id="folderPath" runat="server" Width="250">
+                        <uc1:FileLookup id="folderPath" runat="server">
                         </uc1:FileLookup></td>
 	            </tr>
             </table>
@@ -25,11 +25,11 @@
             <fcp:CollapsiblePanel id="secUsers" runat="server"
                 TargetControlID="UsersPanel" meta:resourcekey="secUsers" Text="Allowed Users">
             </fcp:CollapsiblePanel>
-	        <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table cellspacing="0" cellpadding="3" width="100%">
+	        <asp:Panel ID="UsersPanel" runat="server" Height="0" style="overflow:hidden">
+                <table class="table table-borderless align-middle mb-0 w-100">
 	                <tr>
 		                <td colspan="2">
-			                <asp:checkboxlist id="dlUsers" CellPadding="3" RepeatColumns="2" CssClass="NormalBold" Runat="server"
+			                <asp:checkboxlist id="dlUsers" RepeatColumns="2" CssClass="NormalBold" Runat="server"
 				                DataValueField="Name" DataTextField="Name"></asp:checkboxlist>
 		                </td>
 	                </tr>
@@ -39,11 +39,11 @@
             <fcp:CollapsiblePanel id="secGroups" runat="server"
                 TargetControlID="GroupsPanel" meta:resourcekey="secGroups" Text="Allowed Groups">
             </fcp:CollapsiblePanel>
-	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden;">
-                <table cellspacing="0" cellpadding="3" width="100%">
+	        <asp:Panel ID="GroupsPanel" runat="server" Height="0" style="overflow:hidden">
+                <table class="table table-borderless align-middle mb-0 w-100">
 	                <tr>
 		                <td colspan="2">
-			                <asp:checkboxlist id="dlGroups" CellPadding="3" RepeatColumns="2" CssClass="NormalBold" Runat="server"
+			                <asp:checkboxlist id="dlGroups" RepeatColumns="2" CssClass="NormalBold" Runat="server"
 				                DataValueField="Name" DataTextField="Name"></asp:checkboxlist>
 		                </td>
 	                </tr>
@@ -53,7 +53,7 @@
     </tr>
 </table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-    <CPCC:StyleButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+    <asp:LinkButton id="btnUpdate" CssClass="btn btn-success" runat="server" OnClick="btnUpdate_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdate"/> </asp:LinkButton>
  </div>

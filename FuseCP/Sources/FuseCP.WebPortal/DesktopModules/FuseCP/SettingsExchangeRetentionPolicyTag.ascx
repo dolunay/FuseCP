@@ -10,7 +10,7 @@
     <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 	<asp:GridView id="gvPolicy" runat="server"  EnableViewState="true" AutoGenerateColumns="false"
-		Width="100%" EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
+	 EmptyDataText="gvPolicy" CssSelectorClass="NormalGridView" OnRowCommand="gvPolicy_RowCommand" >
 		<Columns>
             <asp:TemplateField HeaderText="Edit">
                 <ItemTemplate>
@@ -18,14 +18,14 @@
                 </ItemTemplate>
              </asp:TemplateField>
 			<asp:TemplateField HeaderText="Tag">
-				<ItemStyle Width="70%"></ItemStyle>
+				<ItemStyle></ItemStyle>
 				<ItemTemplate>
 					<asp:Label id="lnkDisplayPolicy" runat="server" EnableViewState="true" ><%# PortalAntiXSS.Encode((string)Eval("TagName"))%></asp:Label>
                  </ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField>
 				<ItemTemplate>
-					<CPCC:StyleButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')"> &nbsp;<i class="fa fa-trash-o"></i>&nbsp; </CPCC:StyleButton>
+					<asp:LinkButton id="imgDelPolicy" CssClass="btn btn-danger" runat="server" CommandName="DeleteItem" CommandArgument='<%# Eval("TagId") %>' OnClientClick="return confirm('Are you sure you want to delete selected policy tag?')"> &nbsp;<i class="bi bi-trash"></i>&nbsp; </asp:LinkButton>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -34,10 +34,10 @@
     	<fcp:CollapsiblePanel id="secPolicy" runat="server"
             TargetControlID="Policy" meta:resourcekey="secPolicy" Text="Policy">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden">
 			<table>
 				<tr>
-					<td class="FormLabel200" align="right">
+					<td class="FormLabel200 text-end">
 									
 					</td>
 					<td>
@@ -53,16 +53,16 @@
 		<fcp:CollapsiblePanel id="secPolicyFeatures" runat="server"
             TargetControlID="PolicyFeatures" meta:resourcekey="secPolicyFeatures" Text="Policy Tag Features">
         </fcp:CollapsiblePanel>
-        <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden;">
+        <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden">
 			<table>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize></td>
 					<td>
                         <asp:DropDownList ID="ddTagType"  CssClass="form-control" runat="server"></asp:DropDownList>
 					</td>
 				</tr>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention :"></asp:Localize></td>
 					<td>
                         <div class="Right">
                             <uc1:QuotaEditor id="ageLimitForRetention" runat="server"
@@ -74,7 +74,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="FormLabel200" align="right"><asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize></td>
+					<td class="FormLabel200 text-end"><asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize></td>
 					<td>
                         <asp:DropDownList ID="ddRetentionAction"  CssClass="form-control" runat="server"></asp:DropDownList>
 					</td>
@@ -88,8 +88,8 @@
         <tr>
             <td>
                 <div class="FormButtonsBarClean">
-                    <CPCC:StyleButton id="btnUpdatePolicy" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePolicy_Click"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePolicyText"/> </CPCC:StyleButton>&nbsp;
-                    <CPCC:StyleButton id="btnAddPolicy" CssClass="btn btn-success" runat="server" OnClick="btnAddPolicy_Click"> <i class="fa fa-file-text-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPolicyText"/> </CPCC:StyleButton>
+                    <asp:LinkButton id="btnUpdatePolicy" CssClass="btn btn-warning" runat="server" OnClick="btnUpdatePolicy_Click"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnUpdatePolicyText"/> </asp:LinkButton>&nbsp;
+                    <asp:LinkButton id="btnAddPolicy" CssClass="btn btn-success" runat="server" OnClick="btnAddPolicy_Click"> <i class="bi bi-file-earmark-text">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPolicyText"/> </asp:LinkButton>
                 </div>
             </td>
         </tr>

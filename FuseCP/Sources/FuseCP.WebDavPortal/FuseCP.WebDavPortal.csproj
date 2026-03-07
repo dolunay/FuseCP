@@ -14,7 +14,6 @@
     <RootNamespace>FuseCP.WebDavPortal</RootNamespace>
     <AssemblyName>FuseCP.WebDavPortal</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <RuntimeIdentifier>win</RuntimeIdentifier>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />

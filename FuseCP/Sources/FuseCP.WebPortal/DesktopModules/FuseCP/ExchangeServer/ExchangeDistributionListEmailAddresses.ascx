@@ -4,45 +4,35 @@
 <%@ Register Src="UserControls/DistributionListTabs.ascx" TagName="DistributionListTabs" TagPrefix="fcp" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../UserControls/CollapsiblePanel.ascx" %>
 
-<script type="text/javascript">
-                function checkAll(selectAllCheckbox) {
-                    //get all checkbox and select it
-                    $('td :checkbox').prop("checked", selectAllCheckbox.checked);
-                }
-                function unCheckSelectAll(selectCheckbox) {
-                    //if any item is unchecked, uncheck header checkbox as also
-                    if (!selectCheckbox.checked)
-                        $('th :checkbox').prop("checked", false);
-                }
-</script>
+<script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeList48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Distribution List"></asp:Localize>
 					-
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="panel-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+				<div class="card-body form-horizontal">
+                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
                     <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_addresses" />
                     </div>
-                    <div class="panel panel-default tab-content">
+                    <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<fieldset>
 					    <legend>
-					        <h3><i class="fa fa-envelope-o"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
+					        <h3><i class="bi bi-envelope"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
                         <br />
-					   <div class="row" style="padding:20px;max-width:1200px">
-                           <div class="col-sm-2" style="line-height: 2.5;">
+					   <div class="row" style="padding:20px">
+                           <div class="col-sm-2" style="line-height: 2.5">
                                <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                            </div>
                            <div class="input-group col-sm-10">
 									<fcp:EmailAddress id="email" runat="server" ValidationGroup="AddEmail"></fcp:EmailAddress>
-                                    <span class="input-group-btn"><CPCC:StyleButton id="btnAddEmail" CssClass="btn btn-success" runat="server" OnClick="btnAddEmail_Click" ValidationGroup="AddEmail"> <i class="fa fa-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddEmail"/> </CPCC:StyleButton></span>
+                                    <span class="d-flex"><asp:LinkButton id="btnAddEmail" CssClass="btn btn-success" runat="server" OnClick="btnAddEmail_Click" ValidationGroup="AddEmail"> <i class="bi bi-envelope">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddEmail"/> </asp:LinkButton></span>
 						       </div>
 					   </div>
 					</fieldset>
@@ -51,10 +41,10 @@
 					<fcp:CollapsiblePanel id="secExistingAddresses" runat="server"
                         TargetControlID="ExistingAddresses" meta:resourcekey="secExistingAddresses" Text="Existing E-mail Addresses">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ExistingAddresses" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="ExistingAddresses" runat="server" Height="0" style="overflow:hidden">
                         <br />
 				        <asp:GridView ID="gvEmails" runat="server" AutoGenerateColumns="False"
-					        Width="100%" EmptyDataText="gvEmails" CssSelectorClass="NormalGridView" DataKeyNames="EmailAddress">
+					        EmptyDataText="gvEmails" CssSelectorClass="NormalGridView" DataKeyNames="EmailAddress">
 					        <Columns>
 					            <asp:TemplateField>
 					                <HeaderTemplate>
@@ -66,7 +56,7 @@
                                     <ItemStyle Width="10px" />
 					            </asp:TemplateField>
 						        <asp:TemplateField HeaderText="gvEmailAddress">
-							        <ItemStyle Width="60%"></ItemStyle>
+							        <ItemStyle></ItemStyle>
 							        <ItemTemplate>
 								        <%# Eval("EmailAddress") %>
 							        </ItemTemplate>
@@ -88,8 +78,8 @@
 				        
 					    <br />
 					    <br />
-				        <CPCC:StyleButton id="btnSetAsPrimary" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetAsPrimary_Click"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetAsPrimary"/> </CPCC:StyleButton>&nbsp;
-				        <CPCC:StyleButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="fa fa-trash-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </CPCC:StyleButton>
+				        <asp:LinkButton id="btnSetAsPrimary" CssClass="btn btn-success" runat="server"  CausesValidation="false" OnClick="btnSetAsPrimary_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetAsPrimary"/> </asp:LinkButton>&nbsp;
+				        <asp:LinkButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </asp:LinkButton>
 					</asp:Panel>					
 					<br />
 					<br />

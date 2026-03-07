@@ -17,16 +17,16 @@
     </ContentTemplate>
 </asp:UpdatePanel>
 <div class="FormButtonsBar right">
-    <CPCC:StyleButton ID="btnAddSsLevel" runat="server" CssClass="btn btn-primary" OnClick="btnAddSsLevel_Click" >
-        <i class="fa fa-plus">&nbsp;</i>&nbsp;
+    <asp:LinkButton ID="btnAddSsLevel" runat="server" CssClass="btn btn-primary" OnClick="btnAddSsLevel_Click" >
+        <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
         <asp:Localize runat="server" meta:resourcekey="btnAddSsLevel"/>
-    </CPCC:StyleButton>
+    </asp:LinkButton>
 </div>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <div class="row">
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 col-md-offset-6 text-right form-inline">
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-6 offset-md-6 text-end d-flex flex-wrap gap-2 align-items-center">
             <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
                         <asp:ListItem>10</asp:ListItem>
@@ -36,13 +36,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="input-group-btn">
-                        <CPCC:StyleButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </CPCC:StyleButton>
+                    <div class="d-flex">
+                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -66,19 +66,19 @@
     <Columns>
         <asp:TemplateField SortExpression="Name" HeaderText="Level name">
             <HeaderStyle Wrap="false" />
-            <ItemStyle Wrap="False" Width="50%" />
+            <ItemStyle Wrap="False" />
             <ItemTemplate>
-                <CPCC:StyleButton OnClientClick="ShowProgressDialog('Loading ...');return true;" CommandName="EditSsLevel" CommandArgument='<%# Eval("Id")%>' ID="lbEditSsLevel" runat="server" Text='<%#Eval("Name") %>' />
+                <asp:LinkButton OnClientClick="ShowProgressDialog('Loading ...');return true;" CommandName="EditSsLevel" CommandArgument='<%# Eval("Id")%>' ID="lbEditSsLevel" runat="server" Text='<%#Eval("Name") %>' />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:BoundField DataField="Description" HeaderText="Description">
-            <ItemStyle Width="35%" />
+            <ItemStyle />
         </asp:BoundField>
         <asp:TemplateField>
             <ItemTemplate>
-                <CPCC:StyleButton ID="lnkRemove" runat="server" Text="Remove" Visible='<%# CheckLevelIsInUse(Utils.ParseInt(Eval("Id"), -1)) == false %>'
+                <asp:LinkButton ID="lnkRemove" runat="server" Text="Remove" Visible='<%# CheckLevelIsInUse(Utils.ParseInt(Eval("Id"), -1)) == false %>'
                     CommandName="DeleteItem" CommandArgument='<%# Eval("Id") %>'
-                    meta:resourcekey="cmdDelete" OnClientClick="return confirm('Are you sure you want to delete selected storage space level?');"></CPCC:StyleButton>
+                    meta:resourcekey="cmdDelete" OnClientClick="return confirm('Are you sure you want to delete selected storage space level?');"></asp:LinkButton>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

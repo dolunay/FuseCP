@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SqlRestoreDatabase.ascx.cs" Inherits="FuseCP.Portal.SqlRestoreDatabase" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc1" %>
-<div class="panel-body form-horizontal">
+<div class="card-body form-horizontal">
     <div class="Huge">
         <asp:Literal id="litDatabaseName" runat="server"></asp:Literal>
     </div>
@@ -26,7 +26,7 @@
                             <asp:FileUpload ID="uploadFile" runat="server" Width="300px" /></td>
 					</tr>
 					<tr>
-						<td class="Small" nowrap><asp:Label ID="lblAllowedFiles1" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
+						<td class="Small text-nowrap"><asp:Label ID="lblAllowedFiles1" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
 					</tr>
 				</table>
 			</td>
@@ -36,18 +36,18 @@
 				<table width=100%>
 					<tr>
 						<td>
-                            <uc1:FileLookup ID="fileLookup" runat="server" Width="300" IncludeFiles="true" />
+                            <uc1:FileLookup ID="fileLookup" runat="server" IncludeFiles="true" />
                         </td>
 					</tr>
 					<tr>
-						<td class="Small" nowrap><asp:Label ID="lblAllowedFiles2" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
+						<td class="Small text-nowrap"><asp:Label ID="lblAllowedFiles2" runat="server" meta:resourcekey="lblAllowedFiles" Text=".ZIP, .BAK and .SQL files are allowed"></asp:Label></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
 </div>
-<div class="panel-footer text-right">
-    <CPCC:StyleButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </CPCC:StyleButton>&nbsp;
-	<CPCC:StyleButton id="btnRestore" CssClass="btn btn-success" runat="server" OnClick="btnRestore_Click" useSubmitBehavior="false"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestore"/> </CPCC:StyleButton>
+<div class="card-footer text-end">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
+	<asp:LinkButton id="btnRestore" CssClass="btn btn-success" runat="server" OnClick="btnRestore_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRestore"/> </asp:LinkButton>
 </div>

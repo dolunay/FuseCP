@@ -3,19 +3,19 @@
 <%@ Register Src="../UserControls/ItemButtonPanel.ascx" TagName="ItemButtonPanel" TagPrefix="fcp" %>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
                     <asp:Image ID="Image1" SkinID="OrganizationUser48" runat="server" />
                     <asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Reset Password"></asp:Localize>
                     -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                 </div>
 
-                <div class="panel-body form-horizontal">
+                <div class="card-body form-horizontal">
                     <asp:UpdatePanel ID="PasswrodResetUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                         <ContentTemplate>
                             
-                            <table>
+                            <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="FormLabel150">
                                         <asp:Localize ID="locSendTo" runat="server" meta:resourcekey="locSendTo" Text="Send to:"></asp:Localize></td>
@@ -27,7 +27,7 @@
                                     </td>
                                 </tr>
                                 <tr id="EmailRow" runat="server">
-                                    <td class="FormLabel150" valign="top">
+                                    <td class="FormLabel150 align-top">
                                         <asp:Localize ID="locEmailAddress" runat="server" meta:resourcekey="locEmailAddress"></asp:Localize></td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtEmailAddress" CssClass="form-control" />
@@ -36,7 +36,7 @@
                                     </td>
                                 </tr>
                                 <tr id="MobileRow" runat="server" visible="False">
-                                    <td class="FormLabel150" valign="top">
+                                    <td class="FormLabel150 align-top">
                                         <asp:Localize ID="locMobile" runat="server" meta:resourcekey="locMobile"></asp:Localize></td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtMobile" CssClass="form-control" />
@@ -60,6 +60,6 @@
 
                 </div>
 
-                    <div class="panel-footer text-right">
-                        <CPCC:StyleButton id="btnResetPassoword" CssClass="btn btn-success" runat="server" OnClick="btnResetPassoword_Click" ValidationGroup="ResetUserPassword"> <i class="fa fa-refresh">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnResetPassowordText"/> </CPCC:StyleButton>
+                    <div class="card-footer text-end">
+                        <asp:LinkButton id="btnResetPassoword" CssClass="btn btn-success" runat="server" OnClick="btnResetPassoword_Click" ValidationGroup="ResetUserPassword"> <i class="bi bi-arrow-clockwise">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnResetPassowordText"/> </asp:LinkButton>
                     </div>

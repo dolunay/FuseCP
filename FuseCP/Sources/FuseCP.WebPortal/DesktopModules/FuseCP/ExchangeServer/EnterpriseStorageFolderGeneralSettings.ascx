@@ -10,19 +10,19 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
 
-				<div class="panel-heading">
-                    <h3 class="panel-title">
+				<div class="card-header">
+                    <h3 class="card-title">
 					<asp:Image ID="Image1" SkinID="ExchangeList48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Folder"></asp:Localize>
 
 					<asp:Literal ID="litFolderName" runat="server" Text="Folder 32" />
                         </h3>
                 </div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
                         <div class="nav nav-tabs" style="padding-bottom:7px !important;">
 				            <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="enterprisestorage_folder_settings" />
                         </div>
-                        <div class="panel panel-default tab-content">
+                        <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
                     <fcp:CollapsiblePanel id="colFolderGeneralSettings" runat="server"
@@ -91,8 +91,8 @@
 				</div>
                         </div>
 
-				    <div class="panel-footer text-right">
-                        <CPCC:StyleButton id="btnMigrate" CssClass="btn btn-warning" runat="server" OnClick="btnMigrate_Click"> <i class="fa fa-clone">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMigrateText"/> </CPCC:StyleButton>&nbsp;
-					    <CPCC:StyleButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditFolder"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
+				    <div class="card-footer text-end">
+                        <asp:LinkButton id="btnMigrate" CssClass="btn btn-warning" runat="server" OnClick="btnMigrate_Click"> <i class="bi bi-copy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnMigrateText"/> </asp:LinkButton>&nbsp;
+					    <asp:LinkButton id="btnSave" CssClass="btn btn-success" runat="server" OnClick="btnSave_Click" ValidationGroup="EditFolder"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
 					    <asp:ValidationSummary ID="valSummary" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="EditFolder" />
 				    </div>

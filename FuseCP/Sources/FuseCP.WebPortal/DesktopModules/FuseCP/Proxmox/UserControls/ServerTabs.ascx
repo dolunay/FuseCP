@@ -35,7 +35,7 @@
                     <asp:Repeater ID="repRecords" runat="server" 
                         onitemdatabound="repRecords_ItemDataBound">
                         <ItemTemplate>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <asp:Literal ID="litRecord" runat="server"></asp:Literal>
                                 <wsp:Gauge id="gauge" runat="server" OneColour="true" />
                             </div>
@@ -45,7 +45,7 @@
             </tr>
         </table>
 
-        <table id="TabsTable" runat="server" width="100%" cellpadding="0" cellspacing="1" visible="false">
+        <table class="table table-borderless align-middle mb-0 w-100" id="TabsTable" runat="server" visible="false">
             <tr>
                 <td class="Tabs">
                     &nbsp;&nbsp;

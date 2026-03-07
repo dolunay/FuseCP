@@ -21,23 +21,23 @@
 					<asp:Image ID="Image1" SkinID="ExchangeStorageConfig48" runat="server" />
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" ></asp:Localize>
 				</div>
-				<div class="panel-body form-horizontal">
+				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
 					<fcp:CollapsiblePanel id="secStorageLimits" runat="server"
                         TargetControlID="StorageLimits" meta:resourcekey="secStorageLimits" >
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="StorageLimits" runat="server" Height="0" style="overflow:hidden;">
-					    <table>
+                    <asp:Panel ID="StorageLimits" runat="server" Height="0" style="overflow:hidden">
+					    <table class="table table-borderless align-middle mb-0" >
 						    
 						    <tr>
-							    <td class="FormLabel200" align="right"><asp:Localize ID="locMaxStorage" runat="server" meta:resourcekey="locMaxStorage" ></asp:Localize></td>
+						    <td class="FormLabel200 text-end"><asp:Localize ID="locMaxStorage" runat="server" meta:resourcekey="locMaxStorage" ></asp:Localize></td>
 							    <td>                                    
 									<uc1:QuotaEditor QuotaTypeId="2" ID="maxStorageSettingsValue" runat="server" />                                    																	    
 								</td>
 						    </tr>
 						    <tr>
-							    <td class="FormLabel200" align="right"><asp:Localize ID="locWarningStorage" runat="server" meta:resourcekey="locWarningStorage" ></asp:Localize></td>
+						    <td class="FormLabel200 text-end"><asp:Localize ID="locWarningStorage" runat="server" meta:resourcekey="locWarningStorage" ></asp:Localize></td>
 							    <td>
 									<uc1:QuotaEditor  QuotaTypeId="2" ID="warningValue" runat="server" />
 									
@@ -47,9 +47,9 @@
 					    <br />
 					</asp:Panel>
                    									                    
-				    <div class="panel-footer text-right">
-					    <CPCC:StyleButton id="btnSave" CssClass="btn btn-warning" runat="server" OnClick="btnSave_Click" ValidationGroup="EditStorageSettings"> <i class="fa fa-floppy-o">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </CPCC:StyleButton>&nbsp;
-						<CPCC:StyleButton id="btnSaveApply" CssClass="btn btn-success" runat="server" OnClick="btnSaveApply_Click" ValidationGroup="EditStorageSettings"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveApplyText"/> </CPCC:StyleButton>
+				    <div class="card-footer text-end">
+					    <asp:LinkButton id="btnSave" CssClass="btn btn-warning" runat="server" OnClick="btnSave_Click" ValidationGroup="EditStorageSettings"> <i class="bi bi-floppy">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveText"/> </asp:LinkButton>&nbsp;
+						<asp:LinkButton id="btnSaveApply" CssClass="btn btn-success" runat="server" OnClick="btnSaveApply_Click" ValidationGroup="EditStorageSettings"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSaveApplyText"/> </asp:LinkButton>
 				    </div>
 				    
 				</div>
@@ -57,3 +57,4 @@
 		</div>
 	</div>
 </div>
+

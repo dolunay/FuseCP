@@ -11,17 +11,17 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_snapshots" />	
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 				    
-				    <table style="width:100%;">
+				    <table >
 				        <tr>
-				            <td valign="top">
+				            <td class="align-top">
 				            
                                 <div class="FormButtonsBarClean">
-                                    <CPCC:StyleButton id="btnTakeSnapshot" CssClass="btn btn-success" runat="server" onclick="btnTakeSnapshot_Click" meta:resourcekey="btnTakeSnapshot"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnTakeSnapshotText"/> </CPCC:StyleButton>
+                                    <asp:LinkButton id="btnTakeSnapshot" CssClass="btn btn-success" runat="server" onclick="btnTakeSnapshot_Click" meta:resourcekey="btnTakeSnapshot"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnTakeSnapshotText"/> </asp:LinkButton>
                                 </div>
                                 <br />
                                 
@@ -33,7 +33,7 @@
                                     <NodeStyle CssClass="TreeNode" />
 				                </asp:TreeView>
 				                
-				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px;">
+				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px">
 				                    <asp:Localize ID="locNoSnapshots" runat="server" meta:resourcekey="locNoSnapshots" Text="No snapshots"></asp:Localize>
 				                </div>
                                 
@@ -45,8 +45,8 @@
 				                <fcp:QuotaViewer ID="snapshotsQuota" runat="server" QuotaTypeId="2" />
 				    
 				            </td>
-				            <td valign="top" id="SnapshotDetailsPanel" runat="server">
-				                <asp:Image ID="imgThumbnail" runat="server" Width="160" Height="120" />
+				            <td class="align-top" id="SnapshotDetailsPanel" runat="server">
+				                <asp:Image ID="imgThumbnail" runat="server" Height="120" />
 				                <p>
 				                    <asp:Localize ID="locCreated" runat="server" meta:resourcekey="locCreated"
 				                        Text="Created:"></asp:Localize>
@@ -54,21 +54,21 @@
 				                </p>
 				                <ul class="ActionButtons">
 				                    <li>
-				                        <CPCC:StyleButton ID="btnApply" runat="server" CausesValidation="false" CssClass="ActionButtonApplySnapshot2012"
-				                            meta:resourcekey="btnApply" Text="Apply" onclick="btnApply_Click"></CPCC:StyleButton>
+				                        <asp:LinkButton ID="btnApply" runat="server" CausesValidation="false" CssClass="ActionButtonApplySnapshot2012"
+				                            meta:resourcekey="btnApply" Text="Apply" onclick="btnApply_Click"></asp:LinkButton>
 				                    </li>
 				                    <li>
-				                        <CPCC:StyleButton ID="btnRename" runat="server" CausesValidation="false" CssClass="ActionButtonRename2012"
-				                            meta:resourcekey="btnRename" Text="Rename"></CPCC:StyleButton>
+				                        <asp:LinkButton ID="btnRename" runat="server" CausesValidation="false" CssClass="ActionButtonRename2012"
+				                            meta:resourcekey="btnRename" Text="Rename"></asp:LinkButton>
 				                    </li>
 				                    <li>
-				                        <CPCC:StyleButton ID="btnDelete" runat="server" CausesValidation="false" CssClass="ActionButtonDeleteSnapshot2012"
-				                            meta:resourcekey="btnDelete" Text="Delete" onclick="btnDelete_Click"></CPCC:StyleButton>
+				                        <asp:LinkButton ID="btnDelete" runat="server" CausesValidation="false" CssClass="ActionButtonDeleteSnapshot2012"
+				                            meta:resourcekey="btnDelete" Text="Delete" onclick="btnDelete_Click"></asp:LinkButton>
 				                    </li>
 				                    <li>
-				                        <CPCC:StyleButton ID="btnDeleteSubtree" runat="server" CausesValidation="false" CssClass="ActionButtonDeleteSnapshotTree2012"
+				                        <asp:LinkButton ID="btnDeleteSubtree" runat="server" CausesValidation="false" CssClass="ActionButtonDeleteSnapshotTree2012"
 				                            meta:resourcekey="btnDeleteSubtree" Text="Delete subtree" 
-                                            onclick="btnDeleteSubtree_Click"></CPCC:StyleButton>
+                                            onclick="btnDeleteSubtree_Click"></asp:LinkButton>
 				                    </li>
 				                </ul>
 				            </td>
@@ -79,16 +79,16 @@
 		    </div>
 	    </div>
 
-<asp:Panel ID="RenamePanel" runat="server" style="display:none;" Width="380">
+<asp:Panel ID="RenamePanel" runat="server" style="display:none">
 	 <div class="widget">
              <div class="widget-header clearfix">
-                           <h3><i class="fa fa-i-cursor"></i>  <asp:Localize ID="locRenameSnapshot" runat="server" Text="Rename snapshot" meta:resourcekey="locRenameSnapshot"></asp:Localize></h3>
+                           <h3><i class="bi bi-i-cursor"></i>  <asp:Localize ID="locRenameSnapshot" runat="server" Text="Rename snapshot" meta:resourcekey="locRenameSnapshot"></asp:Localize></h3>
 			</div>
                     <div class="widget-content Popup">
-			<table cellspacing="10">
+			<table class="table table-borderless align-middle mb-0">
 			    <tr>
 			        <td>
-			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+			            <asp:TextBox ID="txtSnapshotName" runat="server" CssClass="form-control"></asp:TextBox>
 			            
 			            <asp:RequiredFieldValidator ID="SnapshotNameValidator" runat="server" Text="*" Display="Dynamic"
                                 ControlToValidate="txtSnapshotName" meta:resourcekey="SnapshotNameValidator" SetFocusOnError="true"
@@ -97,9 +97,9 @@
 			    </tr>
 			</table>                       
 			</div>
-					<div class="popup-buttons text-right">
-		    <CPCC:StyleButton id="btnCancelRename" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="fa fa-times">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelRenameText"/> </CPCC:StyleButton>&nbsp;
-            <CPCC:StyleButton id="btnRenameSnapshot" CssClass="btn btn-success" runat="server" OnClick="btnRenameSnapshot_Click" ValidationGroup="RenameSnapshot"> <i class="fa fa-check">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRenameSnapshotText"/> </CPCC:StyleButton>    
+					<div class="popup-buttons text-end">
+		    <asp:LinkButton id="btnCancelRename" CssClass="btn btn-warning" runat="server" CausesValidation="False"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelRenameText"/> </asp:LinkButton>&nbsp;
+            <asp:LinkButton id="btnRenameSnapshot" CssClass="btn btn-success" runat="server" OnClick="btnRenameSnapshot_Click" ValidationGroup="RenameSnapshot"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRenameSnapshotText"/> </asp:LinkButton>    
 		</div>
 	</div>
 </asp:Panel>

@@ -10,7 +10,7 @@
 
 	    <div class="Content">
 		    <div class="Center">
-			    <div class="panel-body form-horizontal">
+			    <div class="card-body form-horizontal">
 
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
@@ -23,7 +23,7 @@
                     </div>
 
 			        <asp:GridView ID="gvAddresses" runat="server" AutoGenerateColumns="False" EnableViewState="false"
-				        Width="100%" EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
+				        EmptyDataText="gvAddresses" CssSelectorClass="NormalGridView"
 				        AllowPaging="True" AllowSorting="True" DataKeyNames="PrivateAddressId" DataSourceID="odsPrivateAddressesPaged">
 				        <Columns>
 					        <asp:BoundField HeaderText="gvAddressesIPAddress" meta:resourcekey="gvAddressesIPAddress"
@@ -62,7 +62,7 @@
                     <fcp:CollapsiblePanel id="secVLAN" runat="server"
                         TargetControlID="VLANPanel" meta:resourcekey="secVLAN" Text="VLAN" IsCollapsed="true">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="VLANPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="VLANPanel" runat="server" Height="0" style="overflow:hidden">
                         <fcp:PackageVLANs id="packageVLANs" runat="server"
                             SpaceHomeControl="vdc_private_network"
                             AllocateVLANsControl="vdc_allocate_private_vlan" />
@@ -71,9 +71,9 @@
 				    <fcp:CollapsiblePanel id="secQuotas" runat="server"
                         TargetControlID="QuotasPanel" meta:resourcekey="secQuotas" Text="Quotas">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden;">
+                    <asp:Panel ID="QuotasPanel" runat="server" Height="0" style="overflow:hidden">
                     
-                        <table cellspacing="6">
+                        <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locVpsAddressesQuota" runat="server" meta:resourcekey="locVpsAddressesQuota" Text="IP addresses per VPS:"></asp:Localize></td>
                                 <td><fcp:Quota ID="addressesPerVps" runat="server" QuotaName="VPS2012.PrivateIPAddressesNumber" /></td>
