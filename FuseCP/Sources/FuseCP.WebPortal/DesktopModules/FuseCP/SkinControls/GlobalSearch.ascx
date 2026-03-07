@@ -53,6 +53,16 @@
                             type="hidden"
                         >
                         </asp:TextBox>
+                        <asp:HiddenField
+                            ID="hfNoResultsText"
+                            runat="server"
+                            Value="<%$ Resources:NoResults.Text %>"
+                        />
+                        <asp:HiddenField
+                            ID="hfGoToSearchText"
+                            runat="server"
+                            Value="<%$ Resources:GoToSearch.Text %>"
+                        />
                         <div class="d-flex">
                             <asp:LinkButton
                             ID="ImageButton1"

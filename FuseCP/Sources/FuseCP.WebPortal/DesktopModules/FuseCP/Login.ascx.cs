@@ -173,20 +173,38 @@ namespace FuseCP.Portal
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
+			Page.Validate("LoginForm");
+
 			// validate input
 			if (!Page.IsValid)
 				return;
 
+			string username = txtUsername.Text.Trim();
+			string password = txtPassword.Text;
+			if (String.IsNullOrWhiteSpace(username) || String.IsNullOrWhiteSpace(password))
+			{
+				ShowWarningMessage("WrongLogin");
+				return;
+			}
+
 			// perform login
-			LoginUser(txtUsername.Text.Trim(), txtPassword.Text, chkRemember.Checked,
+			LoginUser(username, password, chkRemember.Checked,
 				 ddlLanguage.SelectedValue, ddlTheme.SelectedValue);
 		}
 
 		protected void btnVerifyPin_Click(object sender, EventArgs e)
 		{
+			Page.Validate("PinForm");
+
 			// validate input
 			if (!Page.IsValid)
 				return;
+
+			if (String.IsNullOrWhiteSpace(txtPin.Text))
+			{
+				ShowErrorMessage("WrongPin");
+				return;
+			}
 
 			var isValid = PortalUtils.ValidatePin(txtUsername.Text, txtPin.Text);
 

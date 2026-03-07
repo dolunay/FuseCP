@@ -1,32 +1,32 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SignedInUser.ascx.cs" Inherits="FuseCP.Portal.SkinControls.SignedInUser" %>
 
-<asp:Panel ID="AnonymousPanel" runat="server">
+<asp:Panel ID="AnonymousPanel" runat="server" CssClass="signedin-anonymous">
 	<asp:HyperLink ID="lnkSignIn" runat="server" meta:resourcekey="lnkSignIn">Sign In</asp:HyperLink>
 </asp:Panel>
 
 
-<asp:Panel ID="LoggedPanel" runat="server">
+<asp:Panel ID="LoggedPanel" runat="server" CssClass="signedin-desktop">
 
     <ul class="nav navbar-nav ms-auto d-none d-sm-block">
     <li>
     <asp:HyperLink ID="lnkEditUserDetails" runat="server">
         <i class="bi bi-person"></i>&nbsp;
-        <span class="d-none d-sm-block d-sm-none d-md-block"><asp:Localize runat="server" meta:resourcekey="lnkEditUserDetails" /></span>
+        <span class="d-none d-md-inline"><asp:Localize runat="server" meta:resourcekey="lnkEditUserDetails" /></span>
     </asp:HyperLink>
     </li>
         </ul>
 </asp:Panel>
 
 
-<asp:Panel ID="LoggedPanelSm" runat="server" CssClass="d-block d-sm-none-block">
+<asp:Panel ID="LoggedPanelSm" runat="server" CssClass="signedin-mobile">
     <ul class="nav navbar-sm ms-auto">
     <li>
      <a href="#" class="show-search">
-        <i class="bi bi-search fs-2">&nbsp;</i>
+        <i class="bi bi-search fs-2"></i>
      </a>
     </li>
     <li>
-    <asp:HyperLink ID="lnkEditUserDetailsSm" runat="server"><span><i class="bi bi-person fs-2">&nbsp;</i></span>
+    <asp:HyperLink ID="lnkEditUserDetailsSm" runat="server"><span><i class="bi bi-person fs-2"></i></span>
     </asp:HyperLink>
     </li>
     <li>

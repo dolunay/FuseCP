@@ -81,7 +81,7 @@
 				<asp:Localize ID="locProxmoxTrustServerCertificate" runat="server" meta:resourcekey="locProxmoxTrustServerCertificate" Text="Always trust Proxomox Server Certificate:"></asp:Localize>
 			</td>
 			<td>
-				<asp:CheckBox Width="250px" CssClass="form-control" runat="server" ID="chkProxmoxTrustServerCertificate" meta:resourcekey="chkProxmoxTrustServerCertificate"></asp:CheckBox>
+				<asp:CheckBox Width="250px" CssClass="fcp-check-inline" runat="server" ID="chkProxmoxTrustServerCertificate" meta:resourcekey="chkProxmoxTrustServerCertificate"></asp:CheckBox>
 			</td>
 		</tr>
 		<%--

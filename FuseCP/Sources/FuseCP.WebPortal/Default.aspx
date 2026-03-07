@@ -69,5 +69,84 @@
             }, true);
         })();
     </script>
+    <script type="text/javascript">
+        (function () {
+            function byIdOrSuffix(id) {
+                if (!id) return null;
+                return document.getElementById(id) || document.querySelector('[id$="' + id + '"]');
+            }
+
+            function getValidators() {
+                if (window.Page_Validators && window.Page_Validators.length) {
+                    return window.Page_Validators;
+                }
+                return document.querySelectorAll('[data-val-controltovalidate], [controltovalidate]');
+            }
+
+            function getTargetId(validator) {
+                return validator.controltovalidate ||
+                    validator.getAttribute('controltovalidate') ||
+                    validator.getAttribute('data-val-controltovalidate');
+            }
+
+            function isStarMarker(validator) {
+                var text = (validator.textContent || validator.innerText || '').trim();
+                var errorMessage = (validator.errormessage || validator.getAttribute('errormessage') || validator.getAttribute('data-val-errormessage') || '').trim();
+                return text === '*' || errorMessage === '*';
+            }
+
+            function refreshValidationUi() {
+                var validators = getValidators();
+
+                for (var i = 0; i < validators.length; i++) {
+                    var validator = validators[i];
+                    var target = byIdOrSuffix(getTargetId(validator));
+                    if (!target) continue;
+
+                    var invalid = validator.isvalid === false;
+
+                    target.classList.toggle('is-invalid', invalid);
+                    target.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+
+                    var inputGroup = target.closest ? target.closest('.input-group') : null;
+                    var icon = inputGroup ? inputGroup.querySelector('.input-group-text') : null;
+                    if (icon) {
+                        icon.classList.toggle('is-invalid', invalid);
+                    }
+
+                    if (isStarMarker(validator)) {
+                        validator.classList.add('fcp-validator-marker');
+                    }
+                }
+            }
+
+            var originalPageClientValidate = window.Page_ClientValidate;
+            if (typeof originalPageClientValidate === 'function') {
+                window.Page_ClientValidate = function (validationGroup) {
+                    var result = originalPageClientValidate(validationGroup);
+                    window.setTimeout(refreshValidationUi, 0);
+                    return result;
+                };
+            }
+
+            document.addEventListener('submit', function () {
+                window.setTimeout(refreshValidationUi, 0);
+            }, true);
+
+            document.addEventListener('change', function (event) {
+                var target = event.target;
+                if (!target || !target.id) return;
+                if (target.matches('input,select,textarea')) {
+                    window.setTimeout(refreshValidationUi, 0);
+                }
+            }, true);
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', refreshValidationUi);
+            } else {
+                refreshValidationUi();
+            }
+        })();
+    </script>
 </body>
 </html>

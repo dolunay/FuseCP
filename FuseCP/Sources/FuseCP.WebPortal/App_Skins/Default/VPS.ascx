@@ -16,7 +16,7 @@
 <div class="wrapper" id="SkinOutline">
 	<nav class="top-bar navbar-fixed-top" role="navigation">
 		<div class="logo-area">
-			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified float-start"><i class="bi bi-arrows-move"></i></a>
+			<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified float-start" title="Collapse menu" aria-label="Toggle menu compact mode"><i class="bi bi-chevron-bar-left"></i></a>
 			<a class="btn btn-link btn-off-canvas float-start"><i class="bi bi-list"></i></a>
 			<div class="logo float-start">
 				<fcp:Logo ID="logo" runat="server" />

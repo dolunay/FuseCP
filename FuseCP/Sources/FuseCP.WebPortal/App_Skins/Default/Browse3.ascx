@@ -35,7 +35,7 @@
 	<div id="col-left" class="col-left">
 		<div class="main-nav-wrapper">
 			<nav id="main-nav" class="main-nav">
-                <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified"><i class="bi bi-arrows-move"></i></a>
+                <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified" title="Collapse menu" aria-label="Toggle menu compact mode"><i class="bi bi-chevron-bar-left"></i></a>
                 <h3>Main Menu</h3>
                 <fcp:TopMenu ID="leftMenu" runat="server" MenuAlignment="left" />
                 <asp:PlaceHolder ID="LeftPane" runat="server"></asp:PlaceHolder>

@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SystemSettings.ascx.cs" Inherits="FuseCP.Portal.SystemSettings" %>
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="UserControls/CollapsiblePanel.ascx" %>
 <%@ Register Src="UserControls/EditFeedsList.ascx" TagName="EditFeedsList" TagPrefix="uc1" %>
-<div class="card-body">
+<div class="card-body fcp-system-settings">
     <div class="container">
         <div class="accordion" id="accordion">
             <div class="card">
@@ -69,7 +69,7 @@
                                                 <asp:Localize ID="SettinglblSmtpEnableSSL" runat="server" meta:resourcekey="SettinglblSmtpEnableSSL" />
                                         </CPCC:H5Label>
                                         <div class="col-sm-6">
-                                            <asp:CheckBox ID="chkEnableSsl" runat="server" CssClass="form-control" Text="Enable" meta:resourcekey="SettingchkSmtpEnableSSL" />
+                                            <asp:CheckBox ID="chkEnableSsl" runat="server" CssClass="fcp-check-inline" Text="Enable" meta:resourcekey="SettingchkSmtpEnableSSL" />
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                                 <asp:Localize ID="SettinglblEnableLegacySSL" runat="server" meta:resourcekey="SettinglblSmtpEnableLegacySSL" Text="Enable Support for unsecure SSL Versions TLS1 and TLS1.1 (Not recommended):" />
                                         </CPCC:H5Label>
                                         <div class="col-sm-6">
-                                            <asp:CheckBox ID="chkEnableLegacySSL" runat="server" CssClass="form-control" Text="Enable" meta:resourcekey="SettingchkSmtpEnableLegacySSL"/>
+                                            <asp:CheckBox ID="chkEnableLegacySSL" runat="server" CssClass="fcp-check-inline" Text="Enable" meta:resourcekey="SettingchkSmtpEnableLegacySSL"/>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <CPCC:H5Label runat="server" for="txtFileManagerEditableExtensions" class="col-sm-2 form-label">
-                                                <asp:Localize ID="SettinglblFileManagerEditableExtensions" runat="server" meta:resourcekey="SettinglblFileManagerEditableExtensions" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
+                                                <asp:Localize ID="SettinglblFileManagerEditableExtensions" runat="server" meta:resourcekey="SettinglblFileManagerEditableExtensions" />
                                     </CPCC:H5Label>
                                     <div class="col-sm-6">
                                         <asp:TextBox TextMode="MultiLine" Rows="10" runat="server" ID="txtFileManagerEditableExtensions" CssClass="form-control" />
@@ -179,7 +179,7 @@
                                                 <asp:Localize ID="SettinglblRdsController" runat="server" meta:resourcekey="SettinglblRdsController" />
                                     </CPCC:H5Label>
                                     <div class="col-sm-6">
-                                        <asp:DropDownList ID="ddlRdsController" runat="server" CssClass="form-control" />
+                                        <asp:DropDownList ID="ddlRdsController" runat="server" CssClass="form-select" />
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                                 <asp:Localize ID="SettinglblEnableOwa" runat="server" meta:resourcekey="SettinglblEnableOwa" />
                                     </CPCC:H5Label>
                                     <div class="col-sm-6">
-                                        <asp:CheckBox ID="chkEnableOwa" runat="server" CssClass="form-control" Text="Yes" meta:resourcekey="SettingchkEnableOwa" />
+                                        <asp:CheckBox ID="chkEnableOwa" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkEnableOwa" />
                                     </div>
                                 </div>
                             </div>
@@ -322,7 +322,7 @@
                                                                 <asp:Localize ID="SettinglblEnablePasswordReset" runat="server" meta:resourcekey="SettinglblEnablePasswordReset" />
                                                     </CPCC:H5Label>
                                                     <div class="col-sm-6">
-                                                        <asp:CheckBox ID="chkEnablePasswordReset" runat="server" CssClass="form-control" Text="Yes" meta:resourcekey="SettingchkEnablePasswordReset" />
+                                                        <asp:CheckBox ID="chkEnablePasswordReset" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkEnablePasswordReset" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -430,7 +430,7 @@
                                         <asp:Localize ID="SettingchkCanPeerChangeMFa" runat="server" meta:resourcekey="SettingchkCanPeerChangeMFa" />
                                     </CPCC:H5Label>
                                 <div class="col-sm-6">
-                                    <asp:CheckBox ID="chkCanPeerChangeMFa" runat="server" CssClass="form-control" Text="Yes" meta:resourcekey="SettingchkCanPeerChangeMFa" />
+                                    <asp:CheckBox ID="chkCanPeerChangeMFa" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkCanPeerChangeMFa" />
                                 </div>
                             </div>
                         </div>
@@ -458,7 +458,7 @@
                                         <asp:Localize ID="SettingchkAlwaysUseEntityFramework" runat="server" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
                                     </CPCC:H5Label>
                                 <div class="col-sm-6">
-                                    <asp:CheckBox ID="chkAlwaysUseEntityFramework" runat="server" CssClass="form-control" Text="Yes" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
+                                    <asp:CheckBox ID="chkAlwaysUseEntityFramework" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
                                 </div>
                             </div>
                         </div>
@@ -471,3 +471,4 @@
         </asp:Panel>
     </div>
 </div>
+

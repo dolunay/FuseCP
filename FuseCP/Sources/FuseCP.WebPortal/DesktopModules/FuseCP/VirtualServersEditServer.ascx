@@ -50,7 +50,7 @@
                         <div class="mb-3" id="rowBound" runat="server">
                             <label class="col-sm-2">Distribution</label>
                             <div class="col-sm-10">
-                                <asp:CheckBox ID="chkBind" runat="server" Text="Bind to primary" CssClass="form-control"
+                                <asp:CheckBox ID="chkBind" runat="server" Text="Bind to primary" CssClass="fcp-check-inline"
                                     AutoPostBack="true" Checked='<%# Eval("BindDistributionToPrimary") %>' />
                             </div>
                         </div>

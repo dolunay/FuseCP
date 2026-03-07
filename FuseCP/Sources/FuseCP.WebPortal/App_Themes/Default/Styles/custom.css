@@ -45,8 +45,8 @@ body .page-login {
 
 /* Keep login input icons inline with textboxes after Bootstrap migration. */
 .page-login .card-body .input-group {
-	display: flex;
-	flex-wrap: nowrap;
+	display: flex !important;
+	flex-wrap: nowrap !important;
 	align-items: stretch;
 }
 
@@ -61,6 +61,50 @@ body .page-login {
 .page-login .card-body .input-group .form-control {
 	flex: 1 1 auto;
 	min-width: 0;
+}
+
+/* Keep login icon/input controls and footer selectors aligned with legacy layout. */
+.page-login .card-body .row {
+	justify-content: normal;
+}
+
+.page-login .card-body .input-group > .input-group-text {
+	display: inline-flex !important;
+	flex: 0 0 auto;
+	min-width: 52px;
+	border-right: 0;
+}
+
+.page-login .card-body .input-group > .form-control {
+	display: block;
+	flex: 1 1 auto;
+	width: auto;
+	min-width: 0;
+}
+
+.page-login .card-body .input-group > .input-group-text .bi {
+	font-size: 14px;
+	line-height: 1;
+}
+
+.page-login .card-footer .row {
+	justify-content: normal;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.page-login .card-footer .row > [class*="col-"] {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.page-login .card-footer .form-label {
+	display: block;
+	margin-bottom: 0.35rem;
+}
+
+.page-login .card-footer .form-select {
+	width: 100%;
 }
 
 /* Keep desktop inline top-bar search hidden; use the icon-triggered search panel instead. */
@@ -326,3 +370,5 @@ body .page-login {
 		width: 100%;
 	}
 }
+
+

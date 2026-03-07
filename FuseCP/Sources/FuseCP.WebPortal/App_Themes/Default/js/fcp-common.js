@@ -48,6 +48,112 @@ $(document).ready(function () {
         });
     }
 
+    function normalizeHeaderText(value) {
+        if (!value) {
+            return '';
+        }
+
+        return $.trim(String(value).replace(/\s+/g, ' '));
+    }
+
+    function applyResponsiveGridDataLabels(context) {
+        var $scope = context ? $(context) : $(document);
+
+        $scope.find('table.AspNet-GridView, table.NormalGridView, table.LightGridView, .NormalGridView table, .LightGridView table').each(function () {
+            var $table = $(this);
+            var headers = [];
+
+            // Keep existing handcrafted Home cards untouched.
+            if ($table.closest('.fcp-home-hosting-spaces-grid').length) {
+                return;
+            }
+
+            $table.find('thead th').each(function () {
+                headers.push(normalizeHeaderText($(this).text()));
+            });
+
+            if (!headers.length) {
+                $table.find('tr:first').children('th').each(function () {
+                    headers.push(normalizeHeaderText($(this).text()));
+                });
+            }
+
+            if (!headers.length) {
+                return;
+            }
+
+            $table.addClass('fcp-responsive-grid');
+
+            $table.find('tbody tr').each(function () {
+                var $row = $(this);
+
+                if ($row.children('th').length) {
+                    $row.addClass('fcp-responsive-grid-header-row');
+                    return;
+                }
+
+                $row.children('td').each(function (index) {
+                    var label = headers[index] || '';
+
+                    if (!label && headers.length === 1) {
+                        label = headers[0];
+                    }
+
+                    if (label) {
+                        $(this).attr('data-title', label);
+                    }
+                });
+            });
+        });
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function normalizeEncodedButtonIcons(context) {
+        var $scope = context ? $(context) : $(document);
+
+        $scope.find('a.btn, button.btn').each(function () {
+            var button = this;
+            var html = button.innerHTML || '';
+
+            // Some legacy resource strings include escaped icon markup (&lt;span ...&gt;)
+            // that renders literally in WebForms. Decode only known icon patterns.
+            if (html.indexOf('&lt;span') === -1) {
+                return;
+            }
+
+            var decoded = $('<textarea/>').html(html).text();
+            if (decoded.indexOf('<span') === -1) {
+                return;
+            }
+
+            var iconMatch = decoded.match(/<span[^>]*class=['\"]([^'\"]*(?:bi|fa|glyphicon)[^'\"]*)['\"][^>]*>\s*<\/span>/i);
+            if (!iconMatch || !iconMatch[1]) {
+                return;
+            }
+
+            var iconClass = $.trim(iconMatch[1]);
+            if (!/^[a-z0-9_\-\s]+$/i.test(iconClass)) {
+                return;
+            }
+
+            var text = decoded
+                .replace(/<span[^>]*>[\s\S]*?<\/span>/ig, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            button.innerHTML = '<span class="' + iconClass + '" aria-hidden="true"></span>' +
+                '<span class="fcp-btn-label">' + escapeHtml(text) + '</span>';
+        });
+    }
+
     /************************
  	/*	MAIN NAVIGATION
  	/************************/
@@ -75,75 +181,165 @@ $(document).ready(function () {
         });
     });
 
-    var body = document.body,
-    html = document.documentElement;
+    function syncShellLayoutHeight() {
+        var $footer = $('#Footer');
+        var $skinContent = $('#SkinContent');
+        var $colRight = $('#col-right');
 
-    var footer_height = $('#Footer').height();
-    var window_height = Math.max(body.scrollHeight, body.offsetHeight,
-                       html.clientHeight, html.scrollHeight, html.offsetHeight);
-    window_height = window_height - 62;
-    
-    $('#SkinContent').css('height', window_height);
-    $('#Footer').css('height', footer_height);
-    $('#SkinContent').css('margin-bottom', -footer_height);
-    $('#SkinContent').css('padding-bottom', footer_height);
+        if (!$skinContent.length || !$colRight.length) {
+            return;
+        }
 
-    $(window).resize(function () {
-        $('#Footer').css('height', 'auto');
-        footer_height = $('#Footer').height();
-        window_height = Math.max(body.scrollHeight, body.offsetHeight,
-                       html.clientHeight, html.scrollHeight, html.offsetHeight);
-        window_height = window_height - 62;
-        $('#SkinContent').css('height', window_height);
-        $('#Footer').css('height', footer_height);
-        $('#SkinContent').css('margin-bottom', -footer_height);
-        $('#SkinContent').css('padding-bottom', footer_height);
-    });
+        $footer.css('height', 'auto');
+
+        var topBarHeight = Math.round($('.top-bar:visible').outerHeight() || 62);
+        var colRightOffset = $colRight.offset();
+        var colRightTop = Math.max(0, Math.round(colRightOffset ? colRightOffset.top : topBarHeight));
+        var leftColumnHeight = Math.round($('#col-left').outerHeight(true) || 0);
+        var viewportHeight = Math.round(
+            (window.visualViewport && window.visualViewport.height) ||
+            window.innerHeight ||
+            $(window).height() ||
+            0
+        );
+        var availableHeight = Math.max(0, viewportHeight - colRightTop);
+
+        // Footer is inside #col-right, so grow that column to the larger of viewport or expanded left menu.
+        var minColRightHeight = Math.max(0, availableHeight, leftColumnHeight);
+        $colRight.css('minHeight', minColRightHeight + 'px');
+
+        // Let content flow naturally; forcing #SkinContent height causes phantom page scroll.
+        $skinContent.css({
+            height: 'auto',
+            minHeight: '',
+            marginBottom: '0',
+            paddingBottom: '0'
+        });
+    }
+
+    function queueShellLayoutHeightSync(delayMs) {
+        window.setTimeout(syncShellLayoutHeight, delayMs || 0);
+    }
+
+    syncShellLayoutHeight();
+    $(window).on('resize orientationchange', syncShellLayoutHeight);
+    $(window).on('load', function () { queueShellLayoutHeightSync(0); });
 
     // Keep top search hidden until the user explicitly opens it from the search icon.
     var $searchTop = $(".search-top");
     var $topBar = $(".top-bar");
-    $searchTop.hide();
+    if (isMobileTopBar()) {
+        $searchTop.show();
+    } else {
+        $searchTop.hide();
+    }
     $("#SkinOutline").removeClass("search-expanded");
+
+    function isMobileTopBar() {
+        return ($(window).width() <= 991);
+    }
+
+    function syncTopBarHeightVariable() {
+        if (!$topBar.length) {
+            return;
+        }
+
+        var topBarHeight = Math.round($topBar.outerHeight() || 64);
+        var desktopSearchRight = 118;
+
+        if ($(window).width() > 1200) {
+            var $desktopIconStrip = $topBar.find('.signedin-mobile:visible .navbar-sm').first();
+            if ($desktopIconStrip.length) {
+                var iconStripWidth = Math.ceil($desktopIconStrip.outerWidth() || 0);
+                if (iconStripWidth > 0) {
+                    // Keep the desktop search box snug to the icon strip with consistent breathing room.
+                    desktopSearchRight = Math.max(96, iconStripWidth + 20);
+                }
+            }
+        }
+
+        document.documentElement.style.setProperty('--fcp-topbar-height', topBarHeight + 'px');
+        document.documentElement.style.setProperty('--fcp-desktop-search-right', desktopSearchRight + 'px');
+        $topBar.css('--fcp-topbar-height', topBarHeight + 'px');
+        $topBar.css('--fcp-desktop-search-right', desktopSearchRight + 'px');
+    }
+
+    function ensureDesktopSearchVisible() {
+        if (isMobileTopBar()) {
+            return;
+        }
+
+        $topBar.addClass('mobile-search-active');
+        $searchTop.show().css({
+            visibility: "",
+            width: "",
+            left: "",
+            top: ""
+        });
+    }
+
+    function resetMobileSearchInlineStyles() {
+        if (!isMobileTopBar()) return;
+
+        $searchTop.css({
+            left: "",
+            top: "",
+            width: "",
+            visibility: "",
+            display: ""
+        });
+    }
+
+    function closeSearchTop() {
+        $topBar.removeClass('mobile-search-active');
+
+        if (isMobileTopBar()) {
+            $searchTop.show();
+            resetMobileSearchInlineStyles();
+            return;
+        }
+
+        $searchTop.hide();
+    }
 
     function positionSearchTop($trigger) {
         if (!$searchTop.length || !$topBar.length) return;
 
-        var barOffset = $topBar.offset();
-        var triggerOffset = $trigger.offset();
-        var top = triggerOffset.top - barOffset.top + $trigger.outerHeight() + 6;
-
-        $searchTop.css({ display: "block", visibility: "hidden" });
-
-        var maxPanelWidth = Math.max(220, $topBar.innerWidth() - 16);
-        var panelWidth = $searchTop.outerWidth();
-        if (!panelWidth) {
-            panelWidth = 340;
+        if (isMobileTopBar()) {
+            $topBar.addClass('mobile-search-active');
+            $searchTop.css({
+                display: "block",
+                visibility: "",
+                width: "",
+                left: "",
+                top: ""
+            });
+            return;
         }
-        panelWidth = Math.min(panelWidth, maxPanelWidth);
-        $searchTop.css("width", panelWidth + "px");
 
-        // Align the panel's right edge with the trigger's right edge.
-        var triggerRight = triggerOffset.left - barOffset.left + $trigger.outerWidth();
-        var left = triggerRight - panelWidth;
-        var minLeft = 8;
-        var maxLeft = $topBar.innerWidth() - panelWidth - 8;
-
-        if (maxLeft < minLeft) maxLeft = minLeft;
-        left = Math.max(minLeft, Math.min(left, maxLeft));
-
+        // Desktop uses the same class-driven slide-out shell for consistent UX.
+        $topBar.addClass('mobile-search-active');
         $searchTop.css({
-            left: left + "px",
-            top: top + "px",
-            visibility: "visible"
+            display: "block",
+            visibility: "",
+            width: "",
+            left: "",
+            top: ""
         });
     }
 
     $('.show-search').click(function (e) {
         e.preventDefault();
 
-        if ($searchTop.is(':visible')) {
-            $searchTop.hide();
+        if (!isMobileTopBar()) {
+            // Desktop keeps the search field visible by default.
+            ensureDesktopSearchVisible();
+            $searchTop.find('input[type="text"]').first().focus();
+            return;
+        }
+
+        if ($topBar.hasClass('mobile-search-active')) {
+            closeSearchTop();
             return;
         }
 
@@ -154,19 +350,52 @@ $(document).ready(function () {
     });
 
     $(document).on('click', function (e) {
+        if (!isMobileTopBar()) {
+            return;
+        }
+
         if (!$(e.target).closest('.search-top, .show-search').length) {
-            $searchTop.hide();
+            closeSearchTop();
         }
     });
 
     $(window).on('resize', function () {
-        if ($searchTop.is(':visible')) {
-            var trigger = $searchTop.data('trigger');
-            if (trigger) {
-                positionSearchTop($(trigger));
-            }
+        syncTopBarHeightVariable();
+
+        if (isMobileTopBar()) {
+            closeSearchTop();
+            $searchTop.show();
+            resetMobileSearchInlineStyles();
+            return;
         }
+
+        ensureDesktopSearchVisible();
     });
+
+    // Desktop should start with search expanded.
+    syncTopBarHeightVariable();
+    ensureDesktopSearchVisible();
+    applyResponsiveGridDataLabels();
+    normalizeEncodedButtonIcons();
+
+    $(window).on('load', function () {
+        applyResponsiveGridDataLabels();
+        normalizeEncodedButtonIcons();
+    });
+
+    if (window.Sys && Sys.WebForms && Sys.WebForms.PageRequestManager) {
+        var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+
+        if (pageRequestManager && !pageRequestManager._fcpResponsiveGridLabelsHooked) {
+            pageRequestManager._fcpResponsiveGridLabelsHooked = true;
+            pageRequestManager.add_endRequest(function (sender, args) {
+                var updatedPanels = args && args.get_panelsUpdated ? args.get_panelsUpdated() : null;
+                var updateContext = updatedPanels && updatedPanels.length ? updatedPanels : null;
+                applyResponsiveGridDataLabels(updateContext);
+                normalizeEncodedButtonIcons(updateContext);
+            });
+        }
+    }
 
     $('.main-menu .submenu-toggle').click(function (e) {
         e.preventDefault();
@@ -177,18 +406,111 @@ $(document).ready(function () {
         collapseAction($mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).children('ul.in, ul.show'), 'hide');
         $currentItem.toggleClass('active');
         collapseAction($currentItem.children('ul'), 'toggle');
+
+        if (isMobileTopBar()) {
+            syncMobileMenuPageHeight();
+            setTimeout(syncMobileMenuPageHeight, 280);
+        }
+
+        // Keep page shell height aligned after collapse animation completes.
+        queueShellLayoutHeightSync(0);
+        queueShellLayoutHeightSync(300);
     });
 
+    $('#main-nav').on('shown.bs.collapse hidden.bs.collapse', function () {
+        if (isMobileTopBar()) {
+            setTimeout(syncMobileMenuPageHeight, 60);
+        }
+
+        queueShellLayoutHeightSync(0);
+        queueShellLayoutHeightSync(120);
+    });
+
+    function syncOffCanvasStateForViewport() {
+        if ($(window).width() > 1200) {
+            $('.wrapper').removeClass('off-canvas-active');
+            $('.wrapper').css('min-height', '');
+            return;
+        }
+
+        // On mobile, keep the sidebar in normal flow behavior (no slimScroll wrapper).
+        disableFixedLeft();
+        syncMobileMenuPageHeight();
+    }
+
+    function syncMobileMenuPageHeight() {
+        var $wrapper = $('.wrapper');
+
+        if ($(window).width() > 1200 || !$wrapper.hasClass('off-canvas-active')) {
+            $wrapper.css('min-height', '');
+            return;
+        }
+
+        var wrapperNode = $('#col-left .main-nav-wrapper').get(0);
+        var navNode = $('#main-nav').get(0);
+        var menuHeight = Math.max(
+            $('#col-left .main-nav-wrapper').outerHeight() || 0,
+            wrapperNode ? wrapperNode.scrollHeight : 0,
+            $('#main-nav').outerHeight() || 0,
+            navNode ? navNode.scrollHeight : 0
+        );
+        var topOffset = parseFloat($('#col-left').css('top')) || 0;
+        var viewportHeight = Math.round(
+            (window.visualViewport && window.visualViewport.height) ||
+            window.innerHeight ||
+            $(window).height() ||
+            0
+        );
+        var requiredHeight = Math.max(viewportHeight, Math.ceil(menuHeight + topOffset));
+
+        $wrapper.css('min-height', requiredHeight + 'px');
+    }
+
+    // Start with the mobile menu closed to avoid sticky/off-state carryover.
+    if ($(window).width() <= 991) {
+        $('.wrapper').removeClass('off-canvas-active');
+        disableFixedLeft();
+        syncMobileMenuPageHeight();
+    }
+
     $('.btn-off-canvas').click(function () {
+        if (isMobileTopBar()) {
+            disableFixedLeft();
+        }
+
         if ($('.wrapper').hasClass('off-canvas-active')) {
             $('.wrapper').removeClass('off-canvas-active');
         } else {
             $('.wrapper').addClass('off-canvas-active');
         }
+
+        syncMobileMenuPageHeight();
+        queueShellLayoutHeightSync(0);
+        queueShellLayoutHeightSync(120);
     });
+
+    $(window).on('resize', syncOffCanvasStateForViewport);
+    syncOffCanvasStateForViewport();
+
+    function refreshSidebarToggleIcon() {
+        var isMinified = $('.wrapper').hasClass('main-nav-minified');
+
+        $('.btn-nav-sidebar-minified')
+            .attr('title', isMinified ? 'Expand menu' : 'Collapse menu')
+            .attr('aria-label', isMinified ? 'Expand menu' : 'Collapse menu');
+        $('.btn-nav-sidebar-minified i')
+            .removeClass('bi-chevron-bar-left bi-chevron-bar-right')
+            .addClass(isMinified ? 'bi-chevron-bar-right' : 'bi-chevron-bar-left');
+    }
 
     $('.btn-nav-sidebar-minified').click(function (e) {
         e.preventDefault();
+
+        if (($(document).innerWidth()) > 1200) {
+            $('.wrapper').removeClass('main-nav-minified');
+            refreshSidebarToggleIcon();
+            return;
+        }
 
         if ($('.wrapper').hasClass('main-nav-minified')) {
             $('.wrapper').removeClass('main-nav-minified');
@@ -204,15 +526,20 @@ $(document).ready(function () {
             disableFixedLeft(); // fixed left sidebar is not applicable for this mode
             $('#fixed-left-nav').attr('checked', false).attr('disabled', true);
         }
+
+        refreshSidebarToggleIcon();
     });
 
     $(window).resize(removeMinifiedOnSmallScreen);
 
     function removeMinifiedOnSmallScreen() {
-        if (($(document).innerWidth()) < 1200) {
+        if (($(document).innerWidth()) >= 1200) {
             $('.wrapper').removeClass('main-nav-minified');
+            refreshSidebarToggleIcon();
         }
     }
+
+    refreshSidebarToggleIcon();
 
 
     /************************
@@ -264,7 +591,7 @@ $(document).ready(function () {
         }
 
         // fixed left nav checkbox
-        if ($('#fixed-left-nav').is(':checked')) {
+        if ($('#fixed-left-nav').is(':checked') && $(window).width() > 1200) {
             $('body').addClass('fixed-left-active');
 
             $('.main-nav-wrapper').slimScroll({
@@ -283,9 +610,22 @@ $(document).ready(function () {
     function disableFixedLeft() {
         $('body').removeClass('fixed-left-active');
 
-        if ($('#col-left .slimScrollDiv').length > 0) {
-            $(".main-nav-wrapper").parent().replaceWith($(".main-nav-wrapper"));
+        // Fully unwrap any residual slimScroll wrappers; partial cleanup leaves nested scrollbars.
+        while ($('#col-left .main-nav-wrapper').parent().hasClass('slimScrollDiv')) {
+            $('#col-left .main-nav-wrapper').unwrap();
         }
+
+        // Clean up plugin artifacts that can leave an inner menu scrollbar on mobile.
+        $('#col-left .slimScrollBar, #col-left .slimScrollRail').remove();
+        $('#col-left .slimScrollDiv').remove();
+
+        $('#col-left, #col-left .main-nav-wrapper, #main-nav').css({
+            height: '',
+            maxHeight: 'none',
+            overflowY: 'visible'
+        });
+
+        $('.main-nav-wrapper').removeAttr('style');
     }
 
     // reset stlye

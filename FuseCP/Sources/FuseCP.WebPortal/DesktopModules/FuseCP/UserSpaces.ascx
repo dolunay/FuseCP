@@ -68,7 +68,7 @@
 <asp:UpdatePanel runat="server" ID="ResellerPackagesPanel" Visible="false">
     <ContentTemplate>
 <asp:GridView ID="gvPackages" runat="server" AutoGenerateColumns="False"
-    EmptyDataText="gvPackages" CssSelectorClass="NormalGridView"
+    EmptyDataText="gvPackages" CssSelectorClass="NormalGridView fcp-home-hosting-spaces-grid"
     AllowSorting="True" DataSourceID="odsPackages">
     <Columns>
         <asp:TemplateField SortExpression="PackageName" HeaderText="gvPackagesName">

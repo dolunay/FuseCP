@@ -3,7 +3,7 @@
 <%@ Register Src="UserControls/SearchBox.ascx" TagName="SearchBox" TagPrefix="uc1" %>
 
 <%@ Import Namespace="FuseCP.Portal" %>
-<div class="FormButtonsBar right">
+<div class="FormButtonsBar right fcp-home-create-toolbar">
 	<div class="right">
 		<asp:LinkButton id="btnCreate" CssClass="btn btn-primary" runat="server" OnClick="btnCreate_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCreate"/> </asp:LinkButton>
 	</div>
