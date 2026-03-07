@@ -50,6 +50,15 @@ namespace FuseCP.Portal {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
+        /// passwordValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordValidator;
+
+        /// <summary>
         /// chkRemember control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace FuseCP.Portal {
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPin;
         
+        /// <summary>
+        /// pinValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pinValidator;
+
         /// <summary>
         /// StyleButton2 control.
         /// </summary>
