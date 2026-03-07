@@ -14,6 +14,7 @@ $(document).ready(function () {
         var $submit = $root.find("a[id$='ImageButton1']");
         var $mobileShell = $root.closest(".search-top");
         var isMobileShell = $mobileShell.length > 0;
+        var isSubmitting = false;
         var noResultsText = $.trim(($noResultsText.val() || ""));
         var goToSearchText = $.trim(($goToSearchText.val() || ""));
 
@@ -49,9 +50,84 @@ $(document).ready(function () {
             $accountId.val("");
         }
 
+        function getAutocompleteItemData($searchInput) {
+            var instance = $searchInput.autocomplete("instance");
+
+            if (!instance || !instance.menu || !instance.menu.active || !instance.menu.active.length) {
+                return null;
+            }
+
+            // jQuery UI stores selected menu metadata under different keys across versions.
+            return instance.menu.active.data("item.autocomplete") || instance.menu.active.data("ui-autocomplete-item") || null;
+        }
+
+        function submitSearch() {
+            if (!$submit.length || isSubmitting) {
+                return;
+            }
+
+            isSubmitting = true;
+
+            var submitElement = $submit.get(0);
+            if (submitElement && typeof submitElement.click === "function") {
+                submitElement.click();
+            } else {
+                $submit.trigger("click");
+            }
+
+            $submit.attr("disabled", "disabled");
+        }
+
+        function handleSelectedItem(event, item) {
+            if (item && item.noResults) {
+                if (event && event.preventDefault) {
+                    event.preventDefault();
+                }
+                return false;
+            }
+
+            if (item && item.goToSearch) {
+                if (event && event.preventDefault) {
+                    event.preventDefault();
+                }
+                clearSelectedEntityFields();
+                $searchText.val($.trim($search.val() || item.value || ""));
+                submitSearch();
+                return false;
+            }
+
+            var code = item && item.code ? item.code : item;
+
+            if (!code || typeof code !== "object") {
+                clearSelectedEntityFields();
+                $searchText.val($.trim($search.val() || ""));
+                submitSearch();
+                return false;
+            }
+
+            $searchColumnType.val(code.ColumnType || code.columnType || "");
+            $searchFullType.val(code.FullType || code.fullType || "");
+            $searchText.val(code.TextSearch || code.textSearch || (item && (item.value || item.label)) || $.trim($search.val() || ""));
+            $objectId.val(code.ItemID || code.itemID || code.id || "");
+            $packageId.val(code.PackageID || code.packageID || "");
+            $accountId.val(code.AccountID || code.accountID || "");
+
+            submitSearch();
+            return false;
+        }
+
         function suppressPlainEnter(e) {
             var key = e.which || e.keyCode;
             if (key !== 13) {
+                return;
+            }
+
+            var instance = $search.autocomplete("instance");
+            var menuVisible = !!(instance && instance.menu && instance.menu.element && instance.menu.element.is(":visible"));
+            var activeItem = menuVisible ? getAutocompleteItemData($search) : null;
+
+            // Allow Enter when a real autocomplete item is actively selected.
+            if (menuVisible && activeItem && !activeItem.noResults) {
                 return;
             }
 
@@ -139,29 +215,7 @@ $(document).ready(function () {
                 }
             },
             select: function (event, ui) {
-                if (ui.item && ui.item.noResults) {
-                    event.preventDefault();
-                    return false;
-                }
-
-                if (ui.item && ui.item.goToSearch) {
-                    event.preventDefault();
-                    clearSelectedEntityFields();
-                    $searchText.val($.trim($search.val() || ui.item.value || ""));
-                    $submit.trigger("click");
-                    $submit.attr("disabled", "disabled");
-                    return false;
-                }
-
-                var item = ui.item;
-                $searchColumnType.val(item.code.ColumnType);
-                $searchFullType.val(item.code.FullType);
-                $searchText.val(item.code.TextSearch);
-                $objectId.val(item.code.ItemID);
-                $packageId.val(item.code.PackageID);
-                $accountId.val(item.code.AccountID);
-                $submit.trigger("click");
-                $submit.attr("disabled", "disabled");
+                return handleSelectedItem(event, ui && ui.item ? ui.item : null);
             },
             open: function () {
                 var widget = $search.autocomplete("widget");
@@ -206,6 +260,12 @@ $(document).ready(function () {
                 return $li.append($("<a>").text(item.label || "")).appendTo(ul);
             };
         }
+
+        // Defensive hook for legacy jQuery UI behavior differences.
+        // Ensures mouse selection always navigates immediately without Enter.
+        $search.on("autocompleteselect", function (event, ui) {
+            return handleSelectedItem(event, ui && ui.item ? ui.item : null);
+        });
 
         if (document.referrer.search("pid=Login") > 0 || window.location.href.search("pid=SearchObject") > 0) {
             $search.focus();

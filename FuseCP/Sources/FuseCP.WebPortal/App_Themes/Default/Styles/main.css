@@ -91,8 +91,8 @@ display: none !important;
   .top-bar.mobile-search-active .signedin-mobile .navbar-sm>li:first-child,.top-bar.mobile-search-active .show-search{opacity:0;pointer-events:none}
 }
 .ui-autocomplete.fcp-global-search-menu{border:1px solid #d7e6f3;border-radius:10px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.18);margin-top:6px;max-height:min(42vh,320px);overflow-y:auto;overflow-x:hidden;padding:6px 0;z-index:3000 !important}
-.ui-autocomplete.fcp-global-search-menu .ui-menu-item{list-style:none;margin:0;padding:0}
-.ui-autocomplete.fcp-global-search-menu .ui-menu-item a{display:block;padding:8px 12px;color:#2d3a4a;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item{list-style:none;margin:0;padding:0;cursor:pointer}
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item a{display:block;padding:8px 12px;color:#2d3a4a;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item a.ui-state-focus,.ui-autocomplete.fcp-global-search-menu .ui-menu-item a:hover{background:#eaf5fe;color:#076fb3}
 .ui-helper-hidden-accessible{border:0 !important;clip:rect(0 0 0 0) !important;clip-path:inset(50%) !important;height:1px !important;margin:-1px !important;overflow:hidden !important;padding:0 !important;position:absolute !important;left:-9999px !important;top:auto !important;width:1px !important;white-space:nowrap !important}
 /* Mobile search final polish: fade out original trigger icon while expanded */
