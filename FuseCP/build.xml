@@ -136,7 +136,8 @@
 	<Target Name="RestorePackages" DependsOnTargets="ShowParameters">
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\FuseCP.Server.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\FuseCP.WebPortalAndEnterpriseServer.sln" />
-		<Exec Command="dotnet restore /p:BuildWithNetFrameworkHostedCompiler=true $(TrunkFolder)\Sources\FuseCP.WebDavPortal.sln" />
+		<!-- WebDavPortal uses legacy packages.config imports (..\packages\*.targets); restore with NuGet.exe to populate Sources\packages on CI. -->
+		<Exec Command="&quot;$(TrunkFolder)\Sources\.nuget\NuGet.exe&quot; restore &quot;$(TrunkFolder)\Sources\FuseCP.WebDavPortal.sln&quot; -PackagesDirectory &quot;$(TrunkFolder)\Sources\packages&quot;" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.Import.CsvBulk.sln" />
 		<Exec Command="dotnet restore $(RootFolder)\FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils.sln" />
 		<Exec Command="dotnet restore $(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" />
