@@ -810,7 +810,11 @@ namespace FuseCP.Providers.DNS
                    );
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error removing record '{0}' of type '{1}' from Power DNS", name, type), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error removing record '{0}' of type '{1}' from Power DNS", name, type), ex);
             }
@@ -861,7 +865,11 @@ namespace FuseCP.Providers.DNS
                  );
 
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error adding record '{0}' of type '{1}' in Power DNS", name, type), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error adding record '{0}' of type '{1}' in Power DNS", name, type), ex);
             }
@@ -891,7 +899,11 @@ namespace FuseCP.Providers.DNS
                     , RecordId
                 );
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error updating record with id '{0}' in Power DNS", recordId), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error updating record with id '{0}' in Power DNS", recordId), ex);
             }
@@ -1069,7 +1081,11 @@ namespace FuseCP.Providers.DNS
                 reader.Close();
 
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error getting domain '{0}' id from Power DNS.", domainName), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error getting domain '{0}' id from Power DNS.", domainName), ex);
             }
@@ -1103,7 +1119,11 @@ namespace FuseCP.Providers.DNS
                 }
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error getting notofied serial for domain '{0}' from Power DNS.", domainName), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error getting notofied serial for domain '{0}' from Power DNS.", domainName), ex);
             }
@@ -1157,7 +1177,15 @@ namespace FuseCP.Providers.DNS
                     , DomainType
                 );
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error adding domain '{0}' of type '{1}' to Power DNS", zoneName, domainType), ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(String.Format("Error adding domain '{0}' of type '{1}' to Power DNS", zoneName, domainType), ex);
+            }
+            catch (ArgumentException ex)
             {
                 Log.WriteError(String.Format("Error adding domain '{0}' of type '{1}' to Power DNS", zoneName, domainType), ex);
             }
@@ -1306,7 +1334,15 @@ namespace FuseCP.Providers.DNS
                         // delete DNS zone
                         DeleteZone(item.Name);
                     }
-                    catch (Exception ex)
+                    catch (MySqlException ex)
+                    {
+                        Log.WriteError(String.Format("Error deleting '{0}' Power DNS zone", item.Name), ex);
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Log.WriteError(String.Format("Error deleting '{0}' Power DNS zone", item.Name), ex);
+                    }
+                    catch (ArgumentException ex)
                     {
                         Log.WriteError(String.Format("Error deleting '{0}' Power DNS zone", item.Name), ex);
                     }

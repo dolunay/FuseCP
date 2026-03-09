@@ -17,6 +17,7 @@ using System;
 using System.Management;
 using System.Collections.Generic;
 using System.Text;
+using System.Net.Sockets;
 using Microsoft.Win32;
 
 using FuseCP.Server.Utils;
@@ -302,7 +303,27 @@ namespace FuseCP.Providers.DNS
 					 new object[] { zoneName, System.Net.Dns.GetHostEntry("LocalHost").HostName, zoneName });
 				 */
 			}
-			catch (Exception ex)
+			catch (ManagementException ex)
+			{
+				objZone = null;
+				Log.WriteError("Could not get DNS Zone", ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				objZone = null;
+				Log.WriteError("Could not get DNS Zone", ex);
+			}
+			catch (SocketException ex)
+			{
+				objZone = null;
+				Log.WriteError("Could not get DNS Zone", ex);
+			}
+			catch (ArgumentException ex)
+			{
+				objZone = null;
+				Log.WriteError("Could not get DNS Zone", ex);
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				objZone = null;
 				Log.WriteError("Could not get DNS Zone", ex);
@@ -429,7 +450,15 @@ namespace FuseCP.Providers.DNS
 								objZone.InvokeMethod("ReloadZone", null);
 							}
 						}
-						catch (Exception ex)
+						catch (ManagementException ex)
+						{
+							Log.WriteWarning("Error ReloadZone for secondary zone '{0}': {1}", zoneName, ex.Message);
+						}
+						catch (InvalidOperationException ex)
+						{
+							Log.WriteWarning("Error ReloadZone for secondary zone '{0}': {1}", zoneName, ex.Message);
+						}
+						catch (UnauthorizedAccessException ex)
 						{
 							Log.WriteWarning("Error ReloadZone for secondary zone '{0}': {1}", zoneName, ex.Message);
 						}
@@ -456,7 +485,15 @@ namespace FuseCP.Providers.DNS
 						objZone.Delete();
 				}
 			}
-			catch (Exception ex)
+			catch (ManagementException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				Log.WriteError(ex);
 			}
@@ -485,7 +522,22 @@ namespace FuseCP.Providers.DNS
                     AddSrvRecord(zoneName, record.RecordName, record.SrvPriority, record.SrvWeight, record.SrvPort, record.RecordData);
 
 			}
-			catch (Exception ex)
+			catch (ArgumentException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (ManagementException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				// log exception
 				Log.WriteError(ex);
@@ -522,7 +574,22 @@ namespace FuseCP.Providers.DNS
                     DeleteSrvRecord(zoneName, record.RecordName, record.RecordData);
 
 			}
-			catch (Exception ex)
+			catch (ArgumentException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (ManagementException ex)
+			{
+				// log exception
+				Log.WriteError(ex);
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				// log exception
 				Log.WriteError(ex);
@@ -543,7 +610,22 @@ namespace FuseCP.Providers.DNS
 				AddDnsRecord(zoneName, recordText);
 				Log.WriteEnd("Added MS DNS Server zone record");
 			}
-			catch (Exception ex)
+			catch (ArgumentException ex)
+			{
+				Log.WriteError(ex);
+				throw;
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+				throw;
+			}
+			catch (ManagementException ex)
+			{
+				Log.WriteError(ex);
+				throw;
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				Log.WriteError(ex);
 				throw;
@@ -655,7 +737,27 @@ namespace FuseCP.Providers.DNS
 
 				}
 			}
-			catch (Exception ex)
+			catch (ManagementException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (ArgumentException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (FormatException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (OverflowException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (UnauthorizedAccessException ex)
 			{
 				Log.WriteError(ex);
 			}
@@ -1203,7 +1305,19 @@ namespace FuseCP.Providers.DNS
 						// delete DNS zone
 						DeleteZone(item.Name);
 					}
-					catch (Exception ex)
+					catch (ManagementException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' MS DNS zone", item.Name), ex);
+					}
+					catch (InvalidOperationException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' MS DNS zone", item.Name), ex);
+					}
+					catch (ArgumentException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' MS DNS zone", item.Name), ex);
+					}
+					catch (UnauthorizedAccessException ex)
 					{
 						Log.WriteError(String.Format("Error deleting '{0}' MS DNS zone", item.Name), ex);
 					}
