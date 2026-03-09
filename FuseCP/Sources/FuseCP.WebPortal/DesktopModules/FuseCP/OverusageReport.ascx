@@ -17,7 +17,7 @@
 		>
 	</fcp:CollapsiblePanel>
 	<asp:Panel ID="bandwidthSearchCriteria" runat="server" Height="0" style="overflow:hidden">
-		<div style="margin-left: 5pt">
+		<div class="fcp-ms-5pt">
 			<p>
 				<asp:Label
 					ID="bandwidthCaption" runat="server"
@@ -101,7 +101,7 @@
 		>
 	</fcp:CollapsiblePanel>
 	<asp:Panel ID="exportPanel" runat="server" Height="0" style="overflow:hidden">
-		<div style="margin-left: 5pt">
+		<div class="fcp-ms-5pt">
 			<asp:HyperLink 
 				ID="exportToExcel" runat="server"
 				Text="Export to Microsoft Excel" meta:resourcekey="exportToExcel"

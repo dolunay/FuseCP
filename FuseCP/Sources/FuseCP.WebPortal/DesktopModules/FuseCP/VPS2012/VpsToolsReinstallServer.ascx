@@ -33,7 +33,7 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineSetttings" runat="server"
                                 TargetControlID="VirtualMachineSettingsPanel" meta:resourcekey="secVirtualMachineSetttings" Text="Virtual Machine Settings">
                             </fcp:CollapsiblePanel>
-                        <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <div class="mb-3" id="hostnameSetting" runat="server">
                             <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
@@ -93,8 +93,8 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineSummary" runat="server"
                                 TargetControlID="VirtualMachineSummaryPanel" meta:resourcekey="secVirtualMachineSummary" Text="Virtual Machine Summary">
                             </fcp:CollapsiblePanel>
-                            <asp:Panel ID="VirtualMachineSummaryPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                                <table style="border-collapse: separate; border-spacing: 6px 1px">                                
+                            <asp:Panel ID="VirtualMachineSummaryPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                                <table class="fcp-legacy-spacing-table-6x1">                                
                                     <tr>
                                         <td><asp:Localize ID="locCpu" runat="server" meta:resourcekey="locCpu" Text="CPU cores:" /></td>
                                         <td><asp:Literal ID="litCpu" runat="server"></asp:Literal></td>
@@ -137,8 +137,8 @@
                         <fcp:CollapsiblePanel id="secVirtualMachineNetwork" runat="server"
                                 TargetControlID="VirtualMachineNetworkPanel" meta:resourcekey="secVirtualMachineNetwork" Text="Virtual Machine Networks">
                             </fcp:CollapsiblePanel>
-                            <asp:Panel ID="VirtualMachineNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                                <table style="border-collapse: separate; border-spacing: 6px">                                
+                            <asp:Panel ID="VirtualMachineNetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                                <table class="fcp-legacy-spacing-table-6">                                
                                     <tr id="ExternalAddressesRow" runat="server">
                                         <td><asp:Localize ID="locExternalAddressesList" runat="server"
                                                     meta:resourcekey="locExternalAddressesList" Text="External IP addresses list:" /></td>
@@ -178,7 +178,7 @@
 				                </td>
 				            </tr>
 				            <tr>
-				                <td style="padding-left:20px">
+				                <td class="fcp-ps-20">
 				                    <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
 				                
 				                    <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"

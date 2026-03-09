@@ -13,7 +13,7 @@
         </div>
         <div class="widget-content Popup">
             <div class="ProgressPanelArea">
-				<div class="MediumBold" style="white-space:nowrap;padding-right:45px">
+				<div class="MediumBold text-nowrap fcp-pr-45">
 					<img id="imgAjaxIndicator" src='<%= PortalUtils.GetThemedImage("indicator_medium.gif") %>' class="align-middle" />&nbsp;
 					<span id="objProgressDialogTitle"></span>
 				</div>
@@ -52,7 +52,7 @@
 					</table>
 				</fieldset>
 			</div>
-            <div id="PopupFormFooter" class="FormFooter" style="text-align: center">
+            <div id="PopupFormFooter" class="FormFooter text-center" >
 			    <div id="objProgressDialogCommandButtons">
 				    <asp:LinkButton id="btnCancelProgressDialog" Text="  Close  " CssClass="btn btn-warning" meta:resourcekey="btnCancelProgressDialog" runat="server" />
 			    </div>

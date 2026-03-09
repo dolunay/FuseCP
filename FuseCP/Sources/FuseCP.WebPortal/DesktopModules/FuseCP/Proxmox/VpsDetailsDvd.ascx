@@ -15,7 +15,7 @@
 	
                         <wsp:SimpleMessageBox id="messageBox" runat="server" />
                         
-			            <table style="margin: 50px 0px 50px 50px">
+			            <table class="fcp-m-dvd-table">
 			                <tr>
 			                    <td><asp:Localize ID="locDvdDrive" runat="server" meta:resourcekey="locDvdDrive" Text="DVD Drive:"></asp:Localize></td>
 			                </tr>

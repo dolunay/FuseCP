@@ -19,7 +19,7 @@
                         </h3>
                 </div>
                 <div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_general_settings" />
                     </div>
                     <div class="card tab-content">

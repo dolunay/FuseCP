@@ -111,8 +111,7 @@
                                 <fcp:CollapsiblePanel id="secResources" runat="server" TargetControlID="ResourcesPanel"
                                     meta:resourcekey="secResources" Text="Resources">
                                 </fcp:CollapsiblePanel>
-                                <asp:Panel ID="ResourcesPanel" runat="server" Height="0" Style="overflow: hidden;
-                                    padding: 10px; width: 400px;">
+                                <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-10 fcp-w-400" Style="overflow:hidden;">
                                     <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td >
@@ -166,8 +165,7 @@
 								<%-- <fcp:CollapsiblePanel id="secSnapshots" runat="server" TargetControlID="SnapshotsPanel"
                                     meta:resourcekey="secSnapshots" Text="Snapshots">
                                 </fcp:CollapsiblePanel>
-                                <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" Style="overflow: hidden;
-                                    padding: 5px;">
+                                <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                     <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td class="FormLabel150">
@@ -186,7 +184,7 @@
                                 <fcp:CollapsiblePanel id="secDvd" runat="server" TargetControlID="DvdPanel" meta:resourcekey="secDvd"
                                     Text="DVD">
                                 </fcp:CollapsiblePanel>
-                                <asp:Panel ID="DvdPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+                                <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                     <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td>
@@ -198,7 +196,7 @@
                                 <fcp:CollapsiblePanel id="secBios" runat="server" TargetControlID="BiosPanel" meta:resourcekey="secBios"
                                     Text="BIOS">
                                 </fcp:CollapsiblePanel>
-                                <asp:Panel ID="BiosPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+                                <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                     <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td >
@@ -213,7 +211,7 @@
 								<fcp:CollapsiblePanel id="secActions" runat="server" TargetControlID="ActionsPanel"
                                     meta:resourcekey="secActions" Text="Allowed actions">
                                 </fcp:CollapsiblePanel>
-                                <asp:Panel ID="ActionsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+                                <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                     <table class="table table-borderless align-middle mb-0">
                                         <tr>
                                             <td >
@@ -276,7 +274,7 @@
                                     <asp:CheckBox ID="chkExternalNetworkEnabled" runat="server" AutoPostBack="true" Checked="true"
                                         meta:resourcekey="chkExternalNetworkEnabled" Text="External network enabled" />
                                 </p>
-                                <div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
+                                <div runat="server" id="EmptyExternalAddressesMessage" class="fcp-p-5" visible="false">
                                     <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                         meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                                 </div>

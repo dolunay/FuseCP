@@ -6,45 +6,37 @@
 <fcp:SimpleMessageBox ID="messageBox" runat="server" />
 
 
-<div class="FormButtonsBar right">
+<div class="FormButtonsBar right mb-2">
     <asp:LinkButton ID="btnAddItem" runat="server" CssClass="btn btn-primary" OnClick="btnAddItem_Click">
         <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem" />
     </asp:LinkButton>
 </div>
 
-<div class="card-body form-horizontal">
+<div class="card-body form-horizontal fcp-vlans-search-area">
     <div class="row">
-        <div class="col-md-4">
-        </div>
-        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
-            <div class="mb-3">
-                <div class="input-group">
-                    <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control"
-                        AutoPostBack="True" OnSelectedIndexChanged="ddlItemsPerPage_SelectedIndexChanged">
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        <asp:ListItem Value="20">20</asp:ListItem>
-                        <asp:ListItem Value="50">50</asp:ListItem>
-                        <asp:ListItem Value="100">100</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
+        <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-12 text-end d-flex flex-wrap justify-content-end align-items-center fcp-vlans-search">
+            <div class="mb-0 fcp-vlans-filter">
+                <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-select"
+                    AutoPostBack="True" OnSelectedIndexChanged="ddlItemsPerPage_SelectedIndexChanged">
+                    <asp:ListItem Value="10">10</asp:ListItem>
+                    <asp:ListItem Value="20">20</asp:ListItem>
+                    <asp:ListItem Value="50">50</asp:ListItem>
+                    <asp:ListItem Value="100">100</asp:ListItem>
+                </asp:DropDownList>
             </div>
-            <div class="mb-3">
-                <div class="input-group">
-                    <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
-                        <asp:ListItem Value="Vlan" meta:resourcekey="liVLAN">VLAN</asp:ListItem>
-                        <asp:ListItem Value="ServerName" meta:resourcekey="liServer">Server</asp:ListItem>
-                        <asp:ListItem Value="Username" meta:resourcekey="liUsername">Username</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
+            <div class="mb-0 fcp-vlans-filter">
+                <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-select">
+                    <asp:ListItem Value="Vlan" meta:resourcekey="liVLAN">VLAN</asp:ListItem>
+                    <asp:ListItem Value="ServerName" meta:resourcekey="liServer">Server</asp:ListItem>
+                    <asp:ListItem Value="Username" meta:resourcekey="liUsername">Username</asp:ListItem>
+                </asp:DropDownList>
             </div>
-            <div class="mb-3">
-                <div class="input-group">
+            <div class="mb-0 fcp-vlans-search-input-wrap">
+                <div class="input-group fcp-vlans-search-input">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <div class="d-flex">
-                        <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
-                            <i class="bi bi-search" aria-hidden="true"></i>
-                        </asp:LinkButton>
-                    </div>
+                    <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
+                        <i class="bi bi-search" aria-hidden="true"></i>
+                    </asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
@@ -53,7 +45,7 @@
 
 <asp:GridView ID="gvVLANs" runat="server" AutoGenerateColumns="False"
     AllowSorting="True" EmptyDataText="gvVLANs"
-    CssSelectorClass="NormalGridView" DataKeyNames="VlanID"
+    CssSelectorClass="NormalGridView" CssClass="fcp-vlans-grid" EmptyDataRowStyle-CssClass="fcp-vlans-empty-row" DataKeyNames="VlanID"
     AllowPaging="True" DataSourceID="odsVLANs">
     <Columns>
         <asp:TemplateField>
@@ -101,12 +93,8 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div class="card-footer">
-    <div class="row">
-        <div class="col-md-9">
-            <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected"
-                meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary btn-sm"
-                CausesValidation="false" OnClick="btnDeleteSelected_Click"></asp:Button>
-        </div>
-    </div>
+<div class="card-footer text-end">
+    <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected"
+        meta:resourcekey="btnDeleteSelected" CssClass="btn btn-danger"
+        CausesValidation="false" OnClick="btnDeleteSelected_Click"></asp:Button>
 </div>

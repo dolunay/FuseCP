@@ -110,7 +110,7 @@
                                     <fcp:CollapsiblePanel id="secResources" runat="server"
                                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow: hidden; padding: 5px">
+                                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <div class="mb-3">
                                             <asp:Label ID="lblCpu" meta:resourcekey="lblCpu" runat="server" Text="CPU:" CssClass="col-sm-2"  AssociatedControlID="ddlCpu"></asp:Label>
                                             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
@@ -142,7 +142,7 @@
 													</asp:RegularExpressionValidator>
                                                     <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
                                                     </div>
-                                        <div style="margin-top:15px; margin-bottom:25px; margin-left:10px">
+                                        <div class="fcp-mt-15 fcp-mb-25 fcp-ms-10">
                                             <asp:LinkButton id="btnAddHdd" CssClass="btn btn-success" runat="server" Visible="false" OnClick="btnAddHdd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddHdd"/> </asp:LinkButton>
                                         </div>
                                         <asp:Repeater ID="repHdd" runat="server">
@@ -160,7 +160,7 @@
 														ControlToValidate="txtAdditionalHdd" Display="Dynamic" SetFocusOnError="true" ValidationGroup="Vps">
 													</asp:RegularExpressionValidator>
                                                     <asp:Localize ID="locGB" runat="server" meta:resourcekey="locGB" Text="GB"/>
-                                                    <asp:LinkButton id="btnRemoveHdd" style="margin-left: 30px" CssClass="btn btn-danger" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveHdd"/> </asp:LinkButton>
+                                                    <asp:LinkButton id="btnRemoveHdd" CssClass="btn btn-danger fcp-ms-30" runat="server" CausesValidation="false" CommandName="Remove" CommandArgument="<%# Container.ItemIndex %>" OnCommand="btnRemoveHdd_OnCommand"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnRemoveHdd"/> </asp:LinkButton>
                                                 </div>
                                             </ItemTemplate>
                                             <SeparatorTemplate>
@@ -173,7 +173,7 @@
                                     <fcp:CollapsiblePanel id="secHddQOS" runat="server" IsCollapsed="true"
                                         TargetControlID="QOSManag" meta:resourcekey="secHddQOS" Text="Virtual Hard Disk Drive Quality of Service management">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="QOSManag" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                        <div class="mb-3">
                                             <div class="col-sm-10">
                                         <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
@@ -206,7 +206,7 @@
                                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <div class="mb-3">
                                         <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
@@ -222,7 +222,7 @@
                                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <div class="mb-3">
                                              <div class="col-sm-12">
                                                     <asp:CheckBox ID="chkDvdInstalled" runat="server"
@@ -234,7 +234,7 @@
                                     <fcp:CollapsiblePanel id="secBios" runat="server"
                                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <div class="mb-3">
                                             <div class="col-sm-6">
                                                     <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
@@ -248,7 +248,7 @@
                                     <fcp:CollapsiblePanel id="secActions" runat="server"
                                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <div class="mb-3">
                                             <div class="col-sm-4">
                                                     <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
@@ -279,7 +279,7 @@
                                                 </asp:DropDownList>
                                     </p>
                                     
-                                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
+                                     <div runat="server" ID="EmptyExternalAddressesMessage" class="fcp-p-5" visible="false">
                                         <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                                      </div>
@@ -293,7 +293,7 @@
                                             </td>
                                         </tr>
                                         <tr id="ExternalAddressesNumberRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -314,7 +314,7 @@
                                             </td>
                                         </tr>
                                         <tr id="ExternalAddressesListRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
                                                     CssClass="form-control" SelectionMode="Multiple" Height="80"></asp:ListBox>
                                                 <br />
@@ -323,7 +323,7 @@
                                             </td>
                                         </tr>
                                         <tr id="ExternalMACAddressRow" runat="server">
-	                                        <td style="padding-left: 30px">
+	                                        <td class="fcp-ps-30">
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
 		                                            <asp:Localize ID="locExternalMACAddress" runat="server"
 				                                            meta:resourcekey="locExternalMACAddress" Text="MAC:"></asp:Localize>
@@ -365,7 +365,7 @@
                                             </td>
                                         </tr>
                                         <tr id="PrivateAddressesNumberRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -386,7 +386,7 @@
                                             </td>
                                         </tr>
                                         <tr id="PrivateAddressesListRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
                                                     CssClass="form-control" Rows="5"></asp:TextBox>
                                                 <br />
@@ -402,7 +402,7 @@
                                             </td>
                                         </tr>
                                         <tr id="trCustomGateway" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:RequiredFieldValidator ID="GatewayValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtGateway" meta:resourcekey="GatewayValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -438,7 +438,7 @@
                                     </table>
                                     <br />
                                     
-                                    <table style="border-collapse: separate; border-spacing: 3px">
+                                    <table class="fcp-legacy-spacing-table-3">
                                         <tr>
                                             <td><asp:Localize ID="locPrivateNetworkFormat" runat="server"
                                             meta:resourcekey="locPrivateNetworkFormat" Text="Network addresses format:"></asp:Localize></td>
@@ -473,7 +473,7 @@
                                             </td>
                                         </tr>
                                         <tr id="DmzAddressesNumberRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:Localize ID="locDmzAddresses" runat="server"
                                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -494,7 +494,7 @@
                                             </td>
                                         </tr>
                                         <tr id="DmzAddressesListRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:TextBox ID="txtDmzAddressesList" runat="server" TextMode="MultiLine"
                                                     CssClass="form-control" Rows="5"></asp:TextBox>
                                                 <br />
@@ -510,7 +510,7 @@
                                             </td>
                                         </tr>
                                         <tr id="trDmzCustomGateway" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:RequiredFieldValidator ID="DmzGatewayValidator" runat="server" Text="*" Display="Dynamic"
                                                         ControlToValidate="txtDmzGateway" meta:resourcekey="GatewayValidator" SetFocusOnError="true"
                                                         ValidationGroup="Vps">*</asp:RequiredFieldValidator>
@@ -546,7 +546,7 @@
                                     </table>
                                     <br />
                                     
-                                    <table style="border-collapse: separate; border-spacing: 3px">
+                                    <table class="fcp-legacy-spacing-table-3">
                                         <tr>
                                             <td><asp:Localize ID="locDmzNetworkFormat" runat="server"
                                             meta:resourcekey="locDmzNetworkFormat" Text="Network addresses format:"></asp:Localize></td>
@@ -565,7 +565,7 @@
 
                             
                             <asp:WizardStep ID="stepSummary" runat="server" meta:resourcekey="stepSummary" Title="Summary">
-                                    <table style="border-collapse: separate; border-spacing: 6px 1px">
+                                    <table class="fcp-legacy-spacing-table-6x1">
                                         <tr>
                                             <td colspan="2" class="NormalBold">
                                                 <asp:Localize ID="locNameStepTitle2" runat="server"

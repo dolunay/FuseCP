@@ -1,12 +1,12 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VirtualServersAddServer.ascx.cs" Inherits="FuseCP.Portal.VirtualServersAddServer" %>
 <div class="card-body form-horizontal">
     <div class="mb-3">
-        <asp:Label ID="lblServerName" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerName" style="font-weight:bold"></asp:Label>
+        <asp:Label ID="lblServerName" runat="server" CssClass="form-label col-sm-2 fw-bold" meta:resourcekey="lblServerName" ></asp:Label>
         <div class="col-sm-10">
             <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Text="New Server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="valRequireServerName" runat="server" ControlToValidate="txtName" ErrorMessage="*"></asp:RequiredFieldValidator>
         </div>
-        <asp:Label ID="lblServerComments" runat="server" CssClass="form-label col-sm-2" meta:resourcekey="lblServerComments" style="font-weight:bold"></asp:Label>
+        <asp:Label ID="lblServerComments" runat="server" CssClass="form-label col-sm-2 fw-bold" meta:resourcekey="lblServerComments" ></asp:Label>
         <div class="col-sm-10">
             <asp:TextBox ID="txtComments" runat="server" CssClass="form-control" Rows="4" TextMode="MultiLine"></asp:TextBox>
         </div>

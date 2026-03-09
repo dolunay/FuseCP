@@ -6,14 +6,10 @@
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 
-	    <div class="Content">
-		    <div class="Center">
-			    <div class="card-body form-horizontal">
+	    <div class="card-body form-horizontal">
 
                 <fcp:AllocatePackageVLANs id="allocateVLANs" runat="server"
                         ResourceGroup="VPS2012"
                         ListAddressesControl="vdc_private_network" />
 				    
-			    </div>
-		    </div>
 	    </div>

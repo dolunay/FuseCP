@@ -6,7 +6,7 @@
                     <div class="col-sm-10 offset-sm-2">
                         <div id="SendPasswordResetEmailDiv" class="input-group" runat="server">
                             <asp:CheckBox ID="chkSendPasswordResetEmail" runat="server" AutoPostBack="true" OnCheckedChanged="chkSendPasswordResetEmail_StateChanged" />
-                            <asp:Label runat="server" AssociatedControlID="chkSendPasswordResetEmail" style="white-space:nowrap;">
+                            <asp:Label runat="server" AssociatedControlID="chkSendPasswordResetEmail" CssClass="text-nowrap">
                                 <asp:Localize ID="Localize1" runat="server" meta:resourcekey="chkSendPasswordResetEmailLabel" Text="Send Password Request." />
                             </asp:Label>
                         </div>
@@ -29,7 +29,7 @@
                                         <i class="bi bi-envelope" aria-hidden="true"></i>
                                         <asp:RadioButton ID="rbtnEmail" runat="server" meta:resourcekey="rbtnEmail" Text="Email" GroupName="SendToGroup" AutoPostBack="true" Checked="true" OnCheckedChanged="SendToGroupCheckedChanged" />
                                     </label>
-                                    <asp:label class="input-group-text" ID="rbtnMobileLabel" runat="server">
+                                    <asp:label ID="rbtnMobileLabel" runat="server" CssClass="input-group-text">
                                         <i class="bi bi-mobile" aria-hidden="true"></i>
                                         <asp:RadioButton ID="rbtnMobile" runat="server" meta:resourcekey="rbtnMobile" Text="Mobile" GroupName="SendToGroup" AutoPostBack="true" OnCheckedChanged="SendToGroupCheckedChanged" />
                                     </asp:label>

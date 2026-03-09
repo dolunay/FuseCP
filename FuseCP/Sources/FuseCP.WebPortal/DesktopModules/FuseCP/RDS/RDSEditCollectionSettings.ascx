@@ -29,7 +29,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsSessionSettings">                                                
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <table>
                                 <tr>
                                     <td class="FormLabel260" colspan="3" ><asp:Localize ID="locSessionLimitHeader" runat="server" meta:resourcekey="locSessionLimitHeader" Text=""></asp:Localize></td>
@@ -99,7 +99,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsClientSettings">                                                
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <table>
                                 <tr>
                                     <td class="FormLabel260" colspan="2" ><asp:Localize ID="locEnableRedirection" runat="server" meta:resourcekey="locEnableRedirection" Text=""></asp:Localize></td>
@@ -178,7 +178,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsSecuritySettings">                                                
-                        <div style="padding: 10px">                            
+                        <div class="fcp-p-10">                            
                             <table>
                                 <tr>
                                     <td class="Label" ><asp:Localize ID="locSecurityLayer" runat="server" meta:resourcekey="locSecurityLayer" Text=""></asp:Localize></td>

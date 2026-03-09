@@ -2,7 +2,7 @@
 <%@ Register Src="UserControls/SelectIPAddress.ascx" TagName="SelectIPAddress" TagPrefix="uc1" %>
 
 <asp:Panel ID="pnlRecords" runat="server">
-    <div class="text-end" style="margin-bottom:10px">
+    <div class="text-end fcp-mb-10">
         <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" CausesValidation="False">
             <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd" />
         </asp:LinkButton>

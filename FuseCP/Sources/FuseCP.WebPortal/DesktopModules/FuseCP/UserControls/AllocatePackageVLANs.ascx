@@ -18,7 +18,7 @@
 
  <asp:UpdatePanel runat="server" ID="VLANsTable" UpdateMode="Conditional">
      <ContentTemplate>
-        <table >
+        <table class="table table-borderless align-middle mb-0">
             <tr>
                 <td>
                     <asp:RadioButton ID="radioVLANRandom" runat="server" AutoPostBack="true"
@@ -28,7 +28,7 @@
                 </td>
             </tr>
             <tr id="VLANsNumberRow" runat="server">
-                <td style="padding-left: 30px">
+                <td class="fcp-ps-30">
                     <asp:Localize ID="locVLANs" runat="server"
                             meta:resourcekey="locVLANs" Text="Number of VLANs:"></asp:Localize>
 
@@ -50,9 +50,9 @@
                 </td>
             </tr>
             <tr id="VLANsListRow" runat="server">
-                <td style="padding-left: 30px">
+                <td class="fcp-ps-30">
                     <asp:ListBox ID="listVLANs" SelectionMode="Multiple" runat="server" Rows="8"
-                        CssClass="form-control" style="height:100px" ></asp:ListBox>
+                        CssClass="form-control fcp-h-100"></asp:ListBox>
                     <br />
                     <asp:Localize ID="locHoldCtrl" runat="server" 
                             meta:resourcekey="locHoldCtrl" Text="* Hold CTRL key to select multiple addresses" ></asp:Localize>
@@ -61,7 +61,7 @@
         </table>
     </ContentTemplate>
 </asp:UpdatePanel>
-<p style="text-align:right">
+<p class="text-end mb-0 fcp-mt-10">
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddVLAN"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 </p>

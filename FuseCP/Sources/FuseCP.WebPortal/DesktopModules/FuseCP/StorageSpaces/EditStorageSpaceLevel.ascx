@@ -18,7 +18,7 @@
                 TargetControlID="panelSsLevelGeneralSettings" meta:ResourceKey="colSsLevelGeneralSettings"></fcp:CollapsiblePanel>
 
             <asp:Panel runat="server" ID="panelSsLevelGeneralSettings">
-                <div style="padding: 10px">
+                <div class="fcp-p-10">
                     <table class="table table-borderless align-middle mb-0">
                         <tr>
                             <td class="Label" >

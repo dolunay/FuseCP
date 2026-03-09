@@ -69,10 +69,10 @@
 	<table class="table table-borderless align-middle mb-0" style="display:normal">
 		<tr>
 			<td class="text-center">
-				<div class="MediumBold" style="padding:5px">
+				<div class="MediumBold fcp-p-5" >
 					<asp:Literal ID="litStatus" runat="server"></asp:Literal>
 				</div>
-				<div id="StatusBlock" runat="server" style="padding:5px; text-align:center">
+                <div id="StatusBlock" runat="server" class="fcp-p-5 text-center">
 					<asp:ImageButton ID="cmdActive" runat="server" SkinID="Start" meta:resourcekey="cmdActive" CommandName="Active" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdSuspend" runat="server" SkinID="Pause" meta:resourcekey="cmdSuspend" CommandName="Suspended" OnClick="statusButton_Click" />
 					<asp:ImageButton ID="cmdCancel" runat="server" SkinID="Stop" meta:resourcekey="cmdCancel" CommandName="Cancelled" OnClick="statusButton_Click" />

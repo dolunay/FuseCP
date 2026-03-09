@@ -86,7 +86,7 @@
          <div class="mb-3">
         <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4"></asp:Label>
              <div class="col-sm-8">
-        <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control" 
+        <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-select" 
             AutoPostBack="True" onselectedindexchanged="ddlItemsPerPage_SelectedIndexChanged">
             <asp:ListItem Value="10">10</asp:ListItem>
             <asp:ListItem Value="20">20</asp:ListItem>

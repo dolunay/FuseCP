@@ -25,10 +25,10 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationEdit">                                                
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <table>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
+                                    <td class="FormLabel150 text-nowrap" colspan="2" >
                                         <asp:Localize ID="locLblApplicationName" runat="server" meta:resourcekey="locLblApplicationName" Text="Application Name"/>
                                     </td>
                                     <td>
@@ -58,7 +58,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="FormLabel150" colspan="2" style="white-space:nowrap">
+                                    <td class="FormLabel150 text-nowrap" colspan="2" >
                                         <asp:Localize ID="locCommandLine" runat="server" meta:resourcekey="locCommandLine" Text="Command-line parameters"/>
                                     </td>
                                     <td>
@@ -74,7 +74,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsApplicationUsers">                                                
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <fcp:CollectionUsers id="users" runat="server" />
                         </div>                            
                     </asp:Panel>

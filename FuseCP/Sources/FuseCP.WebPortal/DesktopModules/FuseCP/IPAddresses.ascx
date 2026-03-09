@@ -35,7 +35,10 @@
 <asp:GridView id="gvIPAddresses" runat="server" AutoGenerateColumns="False"
 	AllowSorting="True" EmptyDataText="gvIPAddresses"
 	CssSelectorClass="NormalGridView" DataKeyNames="AddressID"
-	AllowPaging="True" DataSourceID="odsIPAddresses">
+    Width="100%"
+    RowStyle-CssClass="fcp-grid-row" RowStyle-BackColor="#ffffff"
+    AlternatingRowStyle-CssClass="fcp-grid-row-alt" AlternatingRowStyle-BackColor="#f7faff"
+    AllowPaging="True" DataSourceID="odsIPAddresses">
 	<Columns>
         <asp:TemplateField>
             <HeaderTemplate>
@@ -87,29 +90,23 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div class="card-footer">
-    <div class="row">
-    <div class="col-md-9">
+<div class="card-footer d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <div class="d-flex flex-wrap gap-2">
         <asp:Button id="btnEditSelected" runat="server" Text="Edit Selected..."
-            meta:resourcekey="btnEditSelected" CssClass="btn btn-primary btn-sm" 
-            CausesValidation="false" onclick="btnEditSelected_Click"></asp:Button>
+            meta:resourcekey="btnEditSelected" CssClass="btn btn-primary"
+            CausesValidation="false" OnClick="btnEditSelected_Click"></asp:Button>
         <asp:Button id="btnDeleteSelected" runat="server" Text="Delete Selected"
-            meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary btn-sm" 
-            CausesValidation="false" onclick="btnDeleteSelected_Click"></asp:Button>
+            meta:resourcekey="btnDeleteSelected" CssClass="btn btn-primary"
+            CausesValidation="false" OnClick="btnDeleteSelected_Click"></asp:Button>
     </div>
-    <div class="col-md-3">
-        <div class="mb-3">
-        <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4"></asp:Label>
-            <div class="col-sm-8">
-        <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-control" 
-            AutoPostBack="True" onselectedindexchanged="ddlItemsPerPage_SelectedIndexChanged">
+    <div class="d-inline-flex align-items-center gap-2 ms-auto">
+        <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="Normal mb-0 text-nowrap"></asp:Label>
+        <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlItemsPerPage_SelectedIndexChanged">
             <asp:ListItem Value="10">10</asp:ListItem>
             <asp:ListItem Value="20">20</asp:ListItem>
             <asp:ListItem Value="50">50</asp:ListItem>
             <asp:ListItem Value="100">100</asp:ListItem>
         </asp:DropDownList>
-                </div>
-  </div> </div>
     </div>
 </div>
 

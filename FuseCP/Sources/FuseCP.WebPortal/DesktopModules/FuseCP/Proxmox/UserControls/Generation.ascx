@@ -4,7 +4,7 @@
 
 <% if (Mode != VirtualMachineSettingsMode.Summary){ %>
     <wsp:CollapsiblePanel ID="secGeneration" runat="server" TargetControlID="GenerationPanel" meta:ResourceKey="secGeneration" Text="Generation"></wsp:CollapsiblePanel>
-    <asp:Panel ID="GenerationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+    <asp:Panel ID="GenerationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
         <table>
             <% if (Mode == VirtualMachineSettingsMode.Edit) { %>
             <tr>

@@ -28,7 +28,7 @@
 		</tr>
 
         <tr>
-            <td class="SubHead" style="white-space: nowrap">
+            <td class="SubHead text-nowrap" >
 				<asp:Label runat="server" meta:resourcekey="lblExpirationMailSubject" Text="Expiration Mail Subject:"></asp:Label>
 			</td>
             <td class="Normal">
@@ -37,7 +37,7 @@
         </tr>
 
         <tr>
-            <td class="SubHead" style="white-space: nowrap">
+            <td class="SubHead text-nowrap" >
 				<asp:Label runat="server" meta:resourcekey="lblExpirationMailBody" Text="Expiration Mail Body:"></asp:Label>
 			</td>
 			<td class="Normal">
@@ -76,7 +76,7 @@
         </tr>
 
         <tr>
-            <td class="SubHead" style="white-space: nowrap">
+            <td class="SubHead text-nowrap" >
 				<asp:Label runat="server" meta:resourcekey="lblErrorMailSubject" Text="SSL Error Mail Subject:"></asp:Label>
 			</td>
             <td class="Normal">
@@ -85,7 +85,7 @@
         </tr>
 
         <tr>
-			<td class="SubHead" style="white-space: nowrap">
+			<td class="SubHead text-nowrap" >
 				<asp:Label runat="server" meta:resourcekey="lblErrorMailBody" Text="SSL Error Mail Body:"></asp:Label>
 			</td>
 			<td class="Normal">

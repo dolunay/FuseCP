@@ -18,7 +18,7 @@
                         </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_mailflow" />	
                     </div>
                     <div class="card tab-content">

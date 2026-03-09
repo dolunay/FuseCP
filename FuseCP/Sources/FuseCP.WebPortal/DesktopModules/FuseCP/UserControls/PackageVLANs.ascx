@@ -5,14 +5,14 @@
 
 <fcp:SimpleMessageBox id="messageBox" runat="server" />
 
-<div class="FormButtonsBarClean">
-    <div class="FormButtonsBarCleanLeft">
+<div class="FormButtonsBarClean d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+    <div class="FormButtonsBarCleanLeft d-flex align-items-center gap-2">
         <asp:LinkButton id="btnAllocateVLAN" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateVLAN_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateVLANText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
-		<div style="float: right">
+        <div class="d-flex align-items-center gap-2">
 			<asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
-			<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"
+            <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" CssClass="form-select"
 				onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
 				<asp:ListItem>10</asp:ListItem>   
 				<asp:ListItem Selected="True">20</asp:ListItem>   
@@ -68,8 +68,8 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div style="margin-top:4px">
+<div class="fcp-mt-4 text-end">
     <asp:Button ID="btnDeallocateVLANs" runat="server" meta:resourcekey="btnDeallocateVLANs"
-            Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
+            Text="Deallocate selected" CssClass="btn btn-danger" CausesValidation="False" 
         onclick="btnDeallocateVLANs_Click" />
 </div>

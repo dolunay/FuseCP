@@ -164,7 +164,7 @@
                             <div class="input-group">
                             <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
                                 <div class="d-flex">
-                                <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" style="vertical-align: middle" CssClass="btn btn-primary">
+                                <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" OnClick="cmdSearch_Click" CssClass="btn btn-primary align-middle" >
                                     <i class="bi bi-search" aria-hidden="true"></i>
                                 </asp:LinkButton>      
                                     </div>

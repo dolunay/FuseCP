@@ -4,7 +4,7 @@
 
 <% if (Mode != VirtualMachineSettingsMode.Summary){ %>
     <fcp:CollapsiblePanel ID="secGeneration" runat="server" TargetControlID="GenerationPanel" meta:ResourceKey="secGeneration" Text="Generation"></fcp:CollapsiblePanel>
-    <asp:Panel ID="GenerationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+    <asp:Panel ID="GenerationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 <div class="mb-3">
             <% if (Mode == VirtualMachineSettingsMode.Edit) { %>
                     <asp:Label ID="locGeneration" meta:resourcekey="locGeneration" runat="server" Text="Generation:" CssClass="col-sm-2" AssociatedControlID="ddlGeneration"></asp:Label>

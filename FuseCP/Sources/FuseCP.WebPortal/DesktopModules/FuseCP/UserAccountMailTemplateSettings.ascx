@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserAccountMailTemplateSettings.ascx.cs" Inherits="FuseCP.Portal.UserAccountMailTemplateSettings" %>
 <%@ Import Namespace="FuseCP.Portal" %>
 <div class="card-body form-horizontal">
-    <ul class="LinksList">
+    <ul class="LinksList mb-0">
         <li>
             <asp:HyperLink ID="lnkAccountLetter" runat="server" meta:resourcekey="lnkAccountLetter"
                 Text="Account Summary Letter" NavigateUrl='<%# GetSettingsLink("AccountSummaryLetter", "SettingsAccountSummaryLetter") %>'></asp:HyperLink>
@@ -64,6 +64,6 @@
         </li>
     </ul>
 </div>
-<div class="card-footer text-end">
-    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>
+<div class="card-footer d-flex justify-content-end align-items-center flex-wrap gap-2">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/></asp:LinkButton>
 </div>

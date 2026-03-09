@@ -34,7 +34,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="input-group">
-                        <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
+                        <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                             <asp:ListItem Value="S.Name" meta:resourcekey="liServerName">Server Name</asp:ListItem>
                             <asp:ListItem Value="SI.ItemName" meta:resourcekey="liOrganization">Organization</asp:ListItem>
                         </asp:DropDownList>
@@ -44,7 +44,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control" />
                         <div class="d-flex">
-                            <asp:LinkButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false" style="vertical-align: middle" CssClass="btn btn-primary" OnClick="btnSearchClick">
+                            <asp:LinkButton ID="cmdSearch" runat="server" SkinID="SearchButton" CausesValidation="false"  OnClick="btnSearchClick" CssClass="btn btn-primary align-middle">
                                 <i class="bi bi-search" aria-hidden="true"></i>
                             </asp:LinkButton>
                         </div>

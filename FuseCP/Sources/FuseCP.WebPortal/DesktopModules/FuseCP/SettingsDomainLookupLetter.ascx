@@ -26,14 +26,14 @@
         </td>
     </tr>
 	<tr>
-		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="lblHtmlBody" runat="server" meta:resourcekey="lblHtmlBody" Text="HTML Body:"></asp:Label></td>
+		<td class="SubHead pt-3" colspan="2"><asp:Label ID="lblHtmlBody" runat="server" meta:resourcekey="lblHtmlBody" Text="HTML Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
 			<asp:TextBox ID="txtHtmlBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 	<tr>
-		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="lblTextBody" runat="server" meta:resourcekey="lblTextBody" Text="Text Body:"></asp:Label></td>
+		<td class="SubHead pt-3" colspan="2"><asp:Label ID="lblTextBody" runat="server" meta:resourcekey="lblTextBody" Text="Text Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
@@ -42,14 +42,14 @@
 
 
     <tr>
-		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="Label1" runat="server" meta:resourcekey="lblNoChangesHtmlBody" Text="No Changes HTML Body:"></asp:Label></td>
+		<td class="SubHead pt-3" colspan="2"><asp:Label ID="Label1" runat="server" meta:resourcekey="lblNoChangesHtmlBody" Text="No Changes HTML Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">
 			<asp:TextBox ID="txtNoChangesHtmlBody" runat="server" Rows="15" TextMode="MultiLine" CssClass="form-control" Wrap="false"></asp:TextBox></td>
 	</tr>
 	<tr>
-		<td class="SubHead" colspan="2"><br /><br /><asp:Label ID="Label2" runat="server" meta:resourcekey="lblNoChangesTextBody" Text="No Changes Text Body:"></asp:Label></td>
+		<td class="SubHead pt-3" colspan="2"><asp:Label ID="Label2" runat="server" meta:resourcekey="lblNoChangesTextBody" Text="No Changes Text Body:"></asp:Label></td>
 	</tr>
 	<tr>
 		<td class="Normal" colspan="2">

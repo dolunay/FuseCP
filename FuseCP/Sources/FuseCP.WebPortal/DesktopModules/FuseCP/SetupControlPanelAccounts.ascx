@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SetupControlPanelAccounts.ascx.cs" Inherits="FuseCP.Portal.SetupControlPanelAccounts" %>
 <%@ Register src="UserControls/PasswordControl.ascx" tagname="PasswordControl" TagPrefix="fcp" %>
 <div class="card-body form-horizontal">
-	<p class="SubHead" style="text-align: justify"><asp:Localize runat="server" meta:resourcekey="ScpaProcedureDescription" /></p>
+	<p class="SubHead fcp-text-justify"><asp:Localize runat="server" meta:resourcekey="ScpaProcedureDescription" /></p>
 	<table class="table table-borderless align-middle mb-0">
 		<tr>
 			<td class="SubHead text-end" ><asp:Localize runat="server" meta:resourcekey="lblUserNameA" Text="User Name:" /></td>

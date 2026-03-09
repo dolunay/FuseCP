@@ -14,7 +14,7 @@
         </h3>
     </div>
     <div class="card-body form-horizontal">
-        <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+        <div class="nav nav-tabs pb-2">
             <fcp:SecurityGroupTabs id="tabs" runat="server" SelectedTab="secur_group_settings" />
         </div>
         <div class="card tab-content">

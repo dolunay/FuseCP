@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebSitesColdFusionControl.ascx.cs" Inherits="FuseCP.Portal.WebSitesColdFusionControl" %>
-<div style="padding: 20;">
+<div class="fcp-p-20">
 <asp:Literal ID="litCFUnavailable" runat="server"></asp:Literal>
 <table class="table table-borderless align-middle mb-0">
     <tr id="rowAsp" runat="server">

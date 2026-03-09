@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserAccountPolicySettings.ascx.cs" Inherits="FuseCP.Portal.UserAccountPolicySettings" %>
 <div class="card-body form-horizontal">
-    <ul class="LinksList">
+    <ul class="LinksList mb-0">
         <li>
             <asp:HyperLink ID="lnkFuseCPPolicy" runat="server" meta:resourcekey="lnkFuseCPPolicy"
                     Text="FuseCP Policy" NavigateUrl='<%# GetSettingsLink("FuseCPPolicy", "SettingsFuseCPPolicy") %>'></asp:HyperLink>
@@ -77,6 +77,6 @@
         </li>
     </ul>
 </div>
-<div class="card-footer text-end">
-    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/> </asp:LinkButton>
+<div class="card-footer d-flex justify-content-end align-items-center flex-wrap gap-2">
+    <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"><i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancelText"/></asp:LinkButton>
 </div>

@@ -23,7 +23,7 @@
 		                    Text="Add External IP Addresses" />
 		            </p>
 		            
-                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
+                     <div runat="server" ID="EmptyExternalAddressesMessage" class="fcp-p-5" visible="false">
                         <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                      </div>
@@ -37,7 +37,7 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -58,7 +58,7 @@
                             </td>
                         </tr>
                         <tr id="ExternalAddressesListRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
                                     CssClass="_form-control" ></asp:ListBox>
                                 <br />

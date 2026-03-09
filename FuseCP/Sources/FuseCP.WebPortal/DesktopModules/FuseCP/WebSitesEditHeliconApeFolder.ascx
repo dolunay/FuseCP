@@ -18,10 +18,10 @@
 <div class="card-body form-horizontal">
 <table class="table table-borderless align-middle mb-0 w-100">
 	<tr>
-		<td class="SubHead" style="white-space: nowrap">
+		<td class="SubHead text-nowrap" >
 			<asp:Label ID="lblFolderName" runat="server" meta:resourcekey="lblFolderName"></asp:Label>
 		</td>
-		<td class="NormalBold" style="white-space: nowrap">
+		<td class="NormalBold text-nowrap" >
 		    <asp:Label runat="server" ID="LabelWebSiteName"></asp:Label>
 
 			<uc1:FileLookup id="folderPath" runat="server">
@@ -42,7 +42,7 @@
 </asp:Panel>
 
 
-<asp:TextBox ID="htaccessContent" runat="server" TextMode="MultiLine" class="CodeEditor"></asp:TextBox>
+<asp:TextBox ID="htaccessContent" runat="server" TextMode="MultiLine" CssClass="CodeEditor"></asp:TextBox>
 
 </div>
 

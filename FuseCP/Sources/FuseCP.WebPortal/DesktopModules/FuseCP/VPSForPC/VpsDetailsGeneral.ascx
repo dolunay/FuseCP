@@ -38,7 +38,7 @@
                                             <b><asp:HyperLink ID="lnkHostname" runat="server" NavigateUrl="javascript:void(0);" Text="[hostname]" /><asp:Literal ID="litHostname" runat="server" Text="[hostname]" /></b>
                                                 
                                             <asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" style="display:none">
-                                                <div style="padding-bottom:3px">
+                                                <div class="fcp-pb-3">
                                                     <asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                                     <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
                                                 </div>

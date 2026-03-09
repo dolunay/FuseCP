@@ -8,13 +8,11 @@
 								</div>
 							</div>
 							<div class="widget-content">
-<asp:Panel ID="SettingsPanel" runat="server" CssClass="Normal">
-    <div class="ToolLink">
-        <asp:HyperLink ID="lnkMailTemplates" runat="server" meta:resourcekey="lnkMailTemplates" Text="Mail Templates"></asp:HyperLink>
-    </div>
-    <div class="ToolLink">
-        <asp:HyperLink ID="lnkPolicies" runat="server" meta:resourcekey="lnkPolicies" Text="Policies"></asp:HyperLink>
-    </div>
-</asp:Panel>
+	<asp:Panel ID="SettingsPanel" runat="server" CssClass="Normal">
+		<ul class="LinksList mb-0">
+			<li><asp:HyperLink ID="lnkMailTemplates" runat="server" meta:resourcekey="lnkMailTemplates" Text="Mail Templates"></asp:HyperLink></li>
+			<li><asp:HyperLink ID="lnkPolicies" runat="server" meta:resourcekey="lnkPolicies" Text="Policies"></asp:HyperLink></li>
+		</ul>
+	</asp:Panel>
                                 </div>
     </div>

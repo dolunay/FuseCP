@@ -44,7 +44,7 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="SubHead align-top" style="padding-top: 7px">
+		    <td class="SubHead align-top fcp-pt-7">
 			    <asp:Label ID="lblFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:"></asp:Label>
 	        </td>
 		    <td class="Normal align-top">

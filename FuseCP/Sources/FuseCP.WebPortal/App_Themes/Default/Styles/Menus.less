@@ -595,7 +595,7 @@ a.FileManagerTreeNode:hover, a.FileManagerTreeNodeSelected:hover {
     background: #f5f5f5;
 }
 
-select, textarea {
+select:not(.form-select):not(.form-control), textarea {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
@@ -617,7 +617,7 @@ input.Huge, input.HugeTextBox, input.LoginTextBox, input.NormalTextBox {
     border: 1px solid #ccc;
 }
 
-    input[type=password]:hover, input[type=text]:hover, select:hover {
+    input[type=password]:hover, input[type=text]:hover, select:not(.form-select):not(.form-control):hover {
         border-color: #999;
     }
 
@@ -629,7 +629,7 @@ input.TextBox300 {
     width: 300px;
 }
 
-select {
+select:not(.form-select):not(.form-control) {
     margin: 0 3px 3px 0;
     vertical-align: middle;
     padding: 7px;
@@ -639,7 +639,7 @@ select {
         width: 220px !important;
     }
 
-    select:disabled {
+    select:not(.form-select):not(.form-control):disabled {
         border: 1px solid #ccc;
         background: #f5f5f5;
         color: #ccc;

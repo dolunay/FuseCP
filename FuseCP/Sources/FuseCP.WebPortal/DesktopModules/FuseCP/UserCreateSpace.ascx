@@ -120,7 +120,7 @@
         <legend>
             <asp:Label ID="lblSystemGroup" meta:resourcekey="lblSystemGroup" runat="server" Text="System" CssClass="NormalBold"></asp:Label>&nbsp;
         </legend>
-        <table class="table table-borderless align-middle mb-0 w-100" style="margin-bottom:20px">
+        <table class="table table-borderless align-middle mb-0 w-100 fcp-mb-20">
             <tr>
                 <td class="Normal">
                     <fcp:DomainControl ID="txtDomainName" runat="server" RequiredEnabled="True" ValidationGroup="CreateSpace" OnTextChanged="txtDomainName_OnTextChanged"></fcp:DomainControl>

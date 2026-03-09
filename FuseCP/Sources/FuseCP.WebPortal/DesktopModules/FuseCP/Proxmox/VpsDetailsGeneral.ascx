@@ -36,7 +36,7 @@
 										meta:resourcekey="btnChangeHostnamePopup" SkinID="EditSmall" Text="Edit" />
 
 									<%--<asp:Panel ID="RdpPanel" runat="server" CssClass="PopupExtender" Style="display: none;">
-										<div style="padding-bottom: 3px">
+										<div class="fcp-pb-3">
 											<asp:Image ID="imgRdc" runat="server" SkinID="Rdc16" />&nbsp;
                                  <asp:Localize ID="locRdpText" runat="server" meta:resourcekey="locRdpText" Text="Remote desktop"></asp:Localize><br />
 										</div>

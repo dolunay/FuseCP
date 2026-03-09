@@ -84,8 +84,8 @@
     </table>
     <asp:Repeater runat="server" ID="rptBackupSetSummary">
 		<HeaderTemplate>
-			<div class="NormalBold" style="margin-bottom: 10px;"><asp:Localize runat="server" meta:resourcekey="lblBackupSetSummary" /></div>
-			<div style="padding: 5px 5px 5px 5px; height: 180px; overflow: auto;" class="BorderFillBox">
+            <div class="NormalBold fcp-mb-10"><asp:Localize runat="server" meta:resourcekey="lblBackupSetSummary" /></div>
+            <div class="BorderFillBox fcp-p-5" style="height: 180px; overflow: auto;">
 		</HeaderTemplate>
 		<ItemTemplate>
 			<div>

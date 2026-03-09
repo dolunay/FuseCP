@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebSitesExtensionsControl.ascx.cs" Inherits="FuseCP.Portal.WebSitesExtensionsControl" %>
-<div style="padding: 20;">
+<div class="fcp-p-20">
 <table class="table table-borderless align-middle mb-0">
     <tr id="rowAsp" runat="server">
         <td class="SubHead">

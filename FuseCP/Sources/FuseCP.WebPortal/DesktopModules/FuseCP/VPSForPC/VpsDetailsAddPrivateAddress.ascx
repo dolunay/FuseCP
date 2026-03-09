@@ -37,7 +37,7 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -58,7 +58,7 @@
                             </td>
                         </tr>
                         <tr id="PrivateAddressesListRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
                                     CssClass="form-control" Rows="5"></asp:TextBox>
                                 <br />

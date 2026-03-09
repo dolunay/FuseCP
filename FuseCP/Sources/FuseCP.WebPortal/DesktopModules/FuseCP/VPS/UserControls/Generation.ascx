@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="fcp" TagName="CollapsiblePanel" Src="../../UserControls/CollapsiblePanel.ascx" %>
 
 <fcp:CollapsiblePanel ID="secGeneration" runat="server" TargetControlID="GenerationPanel" meta:ResourceKey="secGeneration" Text="Generation"></fcp:CollapsiblePanel>
-<asp:Panel ID="GenerationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+<asp:Panel ID="GenerationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
     <table>
         <tr>
             <td class="FormLabel150">

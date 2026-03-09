@@ -36,7 +36,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="lblSharePointBackup" runat="server" meta:resourcekey="lblSharePointBackup" Text="SharePoint Backup" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="lblSharePointBackup" runat="server" meta:resourcekey="lblSharePointBackup" Text="SharePoint Backup" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
 	<table class="table table-borderless align-middle mb-0 w-100">
@@ -47,7 +47,7 @@
 		    </td>
 		    <td class="Normal align-top">
                 <asp:TextBox ID="txtBackupTempFolder" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
-                <p style="text-align: justify"><i><asp:Localize ID="Localize1" runat="server" meta:resourcekey="lclTempBackupNote" /></i></p>
+				<p class="fcp-text-justify"><i><asp:Localize ID="Localize1" runat="server" meta:resourcekey="lclTempBackupNote" /></i></p>
 			</td>
 		</tr>
 				

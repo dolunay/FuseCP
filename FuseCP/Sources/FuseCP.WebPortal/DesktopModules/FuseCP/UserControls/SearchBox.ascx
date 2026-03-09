@@ -60,9 +60,9 @@
                                     ID="cmdSearch"
                                     runat="server"
                                     SkinID="SearchButton"
-                                    CausesValidation="false"
-                                    style="vertical-align: middle;"
-                                    CssClass="btn btn-primary"
+                                    CausesValidation="false" CssClass="btn btn-primary align-middle"
+                                    
+                                   
                                 >
                                     <i class="bi bi-search" aria-hidden="true"></i>
                                 </asp:LinkButton>      

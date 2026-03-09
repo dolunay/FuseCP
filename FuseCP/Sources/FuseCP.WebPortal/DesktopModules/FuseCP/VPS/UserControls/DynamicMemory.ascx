@@ -3,7 +3,7 @@
 
 <fcp:CollapsiblePanel id="secDymanicMemory" runat="server" TargetControlID="DymanicMemoryPanel" meta:resourcekey="secDymanicMemory" Text="Dymanic memory">
 </fcp:CollapsiblePanel>
-<asp:Panel ID="DymanicMemoryPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+<asp:Panel ID="DymanicMemoryPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
     <table>
         <tr>
             <td class="FormLabel150">

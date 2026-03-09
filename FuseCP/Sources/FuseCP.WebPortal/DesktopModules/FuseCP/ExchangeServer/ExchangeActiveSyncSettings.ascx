@@ -95,7 +95,7 @@
 						        </td>
 						    </tr>
 					        <tr id="PasswordSettingsRow" runat="server">
-						        <td class="Normal" colspan="2" style="padding-left: 20px;">
+						        <td class="Normal fcp-ps-20" colspan="2">
 
 				                    <table>
 					                    <tr>

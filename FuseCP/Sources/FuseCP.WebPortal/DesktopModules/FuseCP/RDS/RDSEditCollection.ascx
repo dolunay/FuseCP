@@ -27,7 +27,7 @@
                     </fcp:CollapsiblePanel>		
                     
                     <asp:Panel runat="server" ID="panelRdsServers">                                                
-                        <div style="padding: 10px;">
+                        <div class="fcp-p-10">
                             <fcp:CollectionServers id="servers" runat="server" />
                         </div>                             
                     </asp:Panel>

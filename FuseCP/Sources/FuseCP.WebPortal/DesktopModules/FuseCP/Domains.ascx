@@ -52,7 +52,7 @@
  	                NavigateUrl='<%# GetItemEditUrl(Eval("PackageID"), Eval("DomainID")) %>'>
  		            <%# Eval("DomainName")%></asp:hyperlink>
  	            </b>
- 	            <div runat="server" class="Small" style="margin-top:2px" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
+                <div runat="server" class="Small fcp-mt-2" visible=' <%# Eval("MailDomainName") != DBNull.Value %>'>
                      <asp:Label ID="lblMailDomain" runat="server" meta:resourcekey="lblMailDomain" Text="Mail:"></asp:Label>
                      <b><%# Eval("MailDomainName")%></b>
  	            </div>

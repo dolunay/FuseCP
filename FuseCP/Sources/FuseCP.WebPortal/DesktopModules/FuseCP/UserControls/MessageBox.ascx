@@ -16,7 +16,7 @@
                     <td>
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
-                                <td class="NormalBold" style="white-space:nowrap" >
+                                <td class="NormalBold text-nowrap"  >
                                     <asp:Label ID="lblPageUrl" runat="server" meta:resourcekey="lblPageUrl" Text="Page URL:"></asp:Label>
                                 </td>
                                 <td class="Normal">

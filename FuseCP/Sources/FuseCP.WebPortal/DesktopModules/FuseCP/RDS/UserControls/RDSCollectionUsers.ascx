@@ -69,7 +69,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox><div class="d-flex">
-                                                    <asp:LinkButton ID="cmdSearch" runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="cmdSearch" runat="server" meta:resourcekey="cmdSearch" CausesValidation="false" OnClick="cmdSearch_Click" CssClass="btn btn-primary"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,7 +11,7 @@
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <div style="float:right">
+                    <div class="float-end">
                         <asp:ImageButton ID="btnDelete" SkinID="DeleteSmall" CommandName="delete" runat="server" Text="Delete" meta:resourcekey="btnDelete" />
                     </div>
                     <div class="Small">                                

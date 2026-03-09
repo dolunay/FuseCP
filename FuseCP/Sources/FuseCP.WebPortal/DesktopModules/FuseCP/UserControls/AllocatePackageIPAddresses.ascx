@@ -28,7 +28,7 @@
                 </td>
             </tr>
             <tr id="AddressesNumberRow" runat="server">
-                <td style="padding-left: 30px">
+                <td class="fcp-ps-30">
                     <asp:Localize ID="locExternalAddresses" runat="server"
                             meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -50,7 +50,7 @@
                 </td>
             </tr>
             <tr id="AddressesListRow" runat="server">
-                <td style="padding-left: 30px">
+                <td class="fcp-ps-30">
                     <asp:ListBox ID="listExternalAddresses" SelectionMode="Multiple" runat="server" Rows="8"
                         CssClass="form-control" style="height:100px" ></asp:ListBox>
                     <br />
@@ -61,7 +61,7 @@
         </table>
     </ContentTemplate>
 </asp:UpdatePanel>
-<p style="text-align:right">
+<p class="text-end">
     <asp:LinkButton id="btnCancel" CssClass="btn btn-warning" runat="server" CausesValidation="False" OnClick="btnCancel_Click"> <i class="bi bi-x-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnCancel"/> </asp:LinkButton>&nbsp;
     <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" ValidationGroup="AddAddress"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 </p>

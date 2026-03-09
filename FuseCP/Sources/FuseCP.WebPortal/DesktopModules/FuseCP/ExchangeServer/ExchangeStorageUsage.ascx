@@ -15,12 +15,12 @@
 				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 				    
-				    <div style="margin-left: 30px;margin-top: 30px;">
+				    <div class="fcp-ms-30 fcp-mt-30">
 				       
 			            <table class="table table-borderless align-middle mb-0">					        
 					        <tr>
-					            <td class="FormLabel150" style="white-space:nowrap;"><asp:Localize ID="locUsedSize" runat="server" meta:resourcekey="locUsedSize" Text="Allocated Disk Space:"></asp:Localize></td>
-					            <td style="white-space:nowrap;">
+					            <td class="FormLabel150 text-nowrap" ><asp:Localize ID="locUsedSize" runat="server" meta:resourcekey="locUsedSize" Text="Allocated Disk Space:"></asp:Localize></td>
+					            <td class="text-nowrap">
 						            <asp:LinkButton runat="server" CssClass="NormalBold" Text="100"  meta:resourcekey="btnUsedSize"  ID="btnUsedSize" onclick="btnUsedSize_Click"  />						            
 					            </td>
 					        </tr>

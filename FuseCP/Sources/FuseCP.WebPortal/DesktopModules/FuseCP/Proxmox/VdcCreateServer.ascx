@@ -148,7 +148,7 @@
 
 						<wsp:CollapsiblePanel ID="secResources" runat="server"
 							TargetControlID="ResourcesPanel" meta:ResourceKey="secResources" Text="Resources"></wsp:CollapsiblePanel>
-						<asp:Panel ID="ResourcesPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+						<asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
@@ -198,7 +198,7 @@
 
 						<wsp:CollapsiblePanel ID="secSnapshots" runat="server"
 							TargetControlID="SnapshotsPanel" meta:ResourceKey="secSnapshots" Text="Snapshots"></wsp:CollapsiblePanel>
-						<asp:Panel ID="SnapshotsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+						<asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td class="FormLabel150">
@@ -217,7 +217,7 @@
 
 						<wsp:CollapsiblePanel ID="secDvd" runat="server"
 							TargetControlID="DvdPanel" meta:ResourceKey="secDvd" Text="DVD"></wsp:CollapsiblePanel>
-						<asp:Panel ID="DvdPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+						<asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td>
@@ -230,7 +230,7 @@
 
 						<wsp:CollapsiblePanel ID="secBios" runat="server"
 							TargetControlID="BiosPanel" meta:ResourceKey="secBios" Text="BIOS"></wsp:CollapsiblePanel>
-						<asp:Panel ID="BiosPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+						<asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td >
@@ -245,7 +245,7 @@
 
 						<wsp:CollapsiblePanel ID="secActions" runat="server"
 							TargetControlID="ActionsPanel" meta:ResourceKey="secActions" Text="Allowed actions"></wsp:CollapsiblePanel>
-						<asp:Panel ID="ActionsPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+						<asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 							<table class="table table-borderless align-middle mb-0">
 								<tr>
 									<td >
@@ -292,7 +292,7 @@
 							</asp:DropDownList>
 						</p>
 
-						<div runat="server" id="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
+						<div runat="server" id="EmptyExternalAddressesMessage" class="fcp-p-5" visible="false">
 							<asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
 								meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
 						</div>
@@ -306,7 +306,7 @@
 								</td>
 							</tr>
 							<tr id="ExternalAddressesNumberRow" runat="server">
-								<td style="padding-left: 30px">
+								<td class="fcp-ps-30">
 									<asp:Localize ID="locExternalAddresses" runat="server"
 										meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -327,7 +327,7 @@
 								</td>
 							</tr>
 							<tr id="ExternalAddressesListRow" runat="server">
-								<td style="padding-left: 30px">
+								<td class="fcp-ps-30">
 									<asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
 										CssClass="_form-control" SelectionMode="Multiple" Height="80"></asp:ListBox>
 									<br />
@@ -367,7 +367,7 @@
 								</td>
 							</tr>
 							<tr id="PrivateAddressesNumberRow" runat="server">
-								<td style="padding-left: 30px">
+								<td class="fcp-ps-30">
 									<asp:Localize ID="locPrivateAddresses" runat="server"
 										meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -388,7 +388,7 @@
 								</td>
 							</tr>
 							<tr id="PrivateAddressesListRow" runat="server">
-								<td style="padding-left: 30px">
+								<td class="fcp-ps-30">
 									<asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
 										CssClass="form-control" Rows="5"></asp:TextBox>
 									<br />

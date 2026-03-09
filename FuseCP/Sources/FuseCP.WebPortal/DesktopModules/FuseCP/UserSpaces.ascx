@@ -7,7 +7,7 @@
 
 <script src="/JavaScript/chosen.min.js" type="text/javascript"></script>
 
-<asp:Panel id="ButtonsPanel" runat="server" class="FormButtonsBar UserSpaces right">
+<asp:Panel id="ButtonsPanel" runat="server" CssClass="FormButtonsBar UserSpaces right">
     <asp:LinkButton id="btnAddItem" CssClass="btn btn-primary" runat="server" OnClick="btnAddItem_Click"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddItem"/> </asp:LinkButton>
 </asp:Panel>
 

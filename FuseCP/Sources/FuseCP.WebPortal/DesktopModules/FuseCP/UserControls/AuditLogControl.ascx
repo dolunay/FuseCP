@@ -257,7 +257,7 @@
             </tr>
             <tr>
                 <td colspan="3" class="Normal">
-                    <asp:Panel ID="pnlExecutionLog" runat="server" style="border: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px">
+                    <asp:Panel ID="pnlExecutionLog" runat="server" CssClass="fcp-log-scroll">
                         <asp:Literal ID="litLog" runat="server"></asp:Literal>
                     </asp:Panel>
                 </td>

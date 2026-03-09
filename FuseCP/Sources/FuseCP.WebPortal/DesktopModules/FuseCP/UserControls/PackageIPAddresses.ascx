@@ -11,10 +11,10 @@
         <asp:LinkButton id="btnAllocateAddress" CssClass="btn btn-primary" runat="server" OnClick="btnAllocateAddress_Click" CausesValidation="False"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAllocateAddressText"/> </asp:LinkButton>
     </div>
     <div class="FormButtonsBarCleanRight">
-		<div style="float: right"> <!-- In the future, make it more elegant way -->
+		<div class="float-end"> <!-- In the future, make it more elegant way -->
 			<fcp:SearchBox ID="searchBox" runat="server" />	 
 		</div>
-		<div style="float: right">
+		<div class="float-end">
 			<asp:Label runat="server" Text="Page size:" CssClass="Normal"></asp:Label>
 			<asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True"
 				onselectedindexchanged="ddlPageSize_SelectedIndexChanged">   
@@ -94,7 +94,7 @@
     </SelectParameters>
 </asp:ObjectDataSource>
 
-<div style="margin-top:4px">
+<div class="fcp-mt-4">
     <asp:Button ID="btnDeallocateAddresses" runat="server" meta:resourcekey="btnDeallocateAddresses"
             Text="Deallocate selected" CssClass="btn btn-primary btn-sm" CausesValidation="False" 
         onclick="btnDeallocateAddresses_Click" />
