@@ -20,14 +20,18 @@ permissions:
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
+    name: Analyze (${{ matrix.language }} / ${{ matrix.build_scope }})
     runs-on: windows-2025
     strategy:
       fail-fast: false
       matrix:
-        language:
-          - csharp
-          - javascript-typescript
+        include:
+          - language: csharp
+            build_scope: server
+          - language: csharp
+            build_scope: enterprise
+          - language: javascript-typescript
+            build_scope: none
 
     steps:
       - name: Checkout
@@ -56,10 +60,14 @@ jobs:
         if: matrix.language == 'csharp'
         shell: pwsh
         run: |
-          dotnet build .\FuseCP\Sources\FuseCP.Server.sln -c Release --nologo
-          dotnet build .\FuseCP\Sources\FuseCP.EnterpriseServer.sln -c Release --nologo
+          if ("${{ matrix.build_scope }}" -eq "server") {
+            dotnet build .\FuseCP\Sources\FuseCP.Server.sln -c Release --nologo
+          }
+          elseif ("${{ matrix.build_scope }}" -eq "enterprise") {
+            dotnet build .\FuseCP\Sources\FuseCP.EnterpriseServer.sln -c Release --nologo
+          }
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: '/language:${{ matrix.language }}'
+          category: '/language:${{ matrix.language }}-${{ matrix.build_scope }}'
