@@ -107,14 +107,14 @@ namespace FuseCP.Providers.FTP
         public virtual bool AccountExists(string accountName)
         {
             XmlDocument doc = GetFileZillaConfig();
-            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name='" + accountName + "']");
+            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name=" + ToXPathLiteral(accountName) + "]");
             return (nodeUser != null);
         }
 
         public virtual FtpAccount GetAccount(string accountName)
         {
             XmlDocument doc = GetFileZillaConfig();
-            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name='" + accountName + "']");
+            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name=" + ToXPathLiteral(accountName) + "]");
             if (nodeUser == null)
                 return null;
 
@@ -218,7 +218,7 @@ namespace FuseCP.Providers.FTP
         public virtual void UpdateAccount(FtpAccount account)
         {
             XmlDocument doc = GetFileZillaConfig();
-            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name='" + account.Name + "']");
+            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name=" + ToXPathLiteral(account.Name) + "]");
             if (nodeUser == null)
                 return;
 
@@ -252,7 +252,7 @@ namespace FuseCP.Providers.FTP
         public virtual void DeleteAccount(string accountName)
         {
             XmlDocument doc = GetFileZillaConfig();
-            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name='" + accountName + "']");
+            XmlNode nodeUser = doc.SelectSingleNode("/FileZillaServer/Users/User[@Name=" + ToXPathLiteral(accountName) + "]");
             if (nodeUser == null)
                 return;
 
@@ -317,7 +317,7 @@ namespace FuseCP.Providers.FTP
 
         private void SetOption(XmlNode parentNode, string name, string val)
         {
-            XmlNode option = parentNode.SelectSingleNode("Option[@Name='" + name + "']");
+            XmlNode option = parentNode.SelectSingleNode("Option[@Name=" + ToXPathLiteral(name) + "]");
             if (option == null)
             {
                 option = parentNode.OwnerDocument.CreateElement("Option");
@@ -325,6 +325,33 @@ namespace FuseCP.Providers.FTP
                 ((XmlElement)option).SetAttribute("Name", name);
             }
             option.InnerText = val;
+        }
+
+        private static string ToXPathLiteral(string value)
+        {
+            if (value == null)
+                return "''";
+
+            if (!value.Contains("'"))
+                return "'" + value + "'";
+
+            if (!value.Contains("\""))
+                return "\"" + value + "\"";
+
+            string[] parts = value.Split('\'');
+            StringBuilder builder = new StringBuilder("concat(");
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (i > 0)
+                    builder.Append(", \"'\", ");
+
+                builder.Append("'");
+                builder.Append(parts[i]);
+                builder.Append("'");
+            }
+            builder.Append(")");
+
+            return builder.ToString();
         }
 
         private FtpAccount CreateAccountFromXmlNode(XmlNode nodeUser, bool excludeDetails)
