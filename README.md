@@ -30,6 +30,7 @@ Notes:
 ## Governance
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Security Policy](SECURITY.md)
 * [AI Directives](.github/AI_DIRECTIVES.md)
 * [AI FuseCP Playbook](.github/AI_FUSECP_PLAYBOOK.md)
 * [Contributing Guide](CONTRIBUTING.md)
