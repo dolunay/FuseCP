@@ -56,7 +56,11 @@ namespace FuseCP.Providers.DNS
 					this.runSpace.Close();
 				this.runSpace = null;
 			}
-			catch( Exception ex )
+			catch( InvalidOperationException ex )
+			{
+				Log.WriteError( "Runspace error", ex );
+			}
+			catch( RuntimeException ex )
 			{
 				Log.WriteError( "Runspace error", ex );
 			}

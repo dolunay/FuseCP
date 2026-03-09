@@ -15,6 +15,7 @@
 
 using System;
 using System.Management;
+using System.Management.Automation;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
@@ -114,7 +115,11 @@ namespace FuseCP.Providers.DNS
 			{
 				ps.Remove_DnsServerZone( zoneName );
 			}
-			catch( Exception ex )
+			catch( InvalidOperationException ex )
+			{
+				Log.WriteError( ex );
+			}
+			catch( RuntimeException ex )
 			{
 				Log.WriteError( ex );
 			}
@@ -147,7 +152,17 @@ namespace FuseCP.Providers.DNS
                 else
 					throw new Exception( "Unknown record type" );
 			}
-			catch( Exception ex )
+			catch( ArgumentException ex )
+			{
+				// log exception
+				Log.WriteError( ex );
+			}
+			catch( InvalidOperationException ex )
+			{
+				// log exception
+				Log.WriteError( ex );
+			}
+			catch( RuntimeException ex )
 			{
 				// log exception
 				Log.WriteError( ex );
@@ -179,7 +194,17 @@ namespace FuseCP.Providers.DNS
 					throw new Exception( "Unknown record type" );
 				ps.Remove_DnsServerResourceRecord( zoneName, record);
 			}
-			catch( Exception ex )
+			catch( ArgumentException ex )
+			{
+				// log exception
+				Log.WriteError( ex );
+			}
+			catch( InvalidOperationException ex )
+			{
+				// log exception
+				Log.WriteError( ex );
+			}
+			catch( RuntimeException ex )
 			{
 				// log exception
 				Log.WriteError( ex );
@@ -201,7 +226,15 @@ namespace FuseCP.Providers.DNS
             {
                 ps.Update_DnsServerResourceRecordSOA(zoneName, ExpireLimit, MinimumTTL, primaryNsServer, RefreshInterval, primaryPerson, RetryDelay, null);
             }
-            catch (Exception ex)
+			catch (ArgumentException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (RuntimeException ex)
             {
                 Log.WriteError(ex);
             }
@@ -216,7 +249,15 @@ namespace FuseCP.Providers.DNS
             {
                 ps.Update_DnsServerResourceRecordSOA(zoneName, ExpireLimit, MinimumTTL, null, RefreshInterval, null, RetryDelay, null);
             }
-            catch (Exception ex)
+			catch (ArgumentException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+			}
+			catch (RuntimeException ex)
             {
                 Log.WriteError(ex);
             }
@@ -236,7 +277,11 @@ namespace FuseCP.Providers.DNS
 						// delete DNS zone
 						DeleteZone( item.Name );
 					}
-					catch( Exception ex )
+					catch( InvalidOperationException ex )
+					{
+						Log.WriteError( String.Format( "Error deleting '{0}' MS DNS zone", item.Name ), ex );
+					}
+					catch( RuntimeException ex )
 					{
 						Log.WriteError( String.Format( "Error deleting '{0}' MS DNS zone", item.Name ), ex );
 					}

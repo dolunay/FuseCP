@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Management.Automation;
 using FuseCP.Providers.OS;
 using FuseCP.Server.Utils;
 
@@ -72,7 +73,17 @@ namespace FuseCP.Providers.DNS
                 else
                     throw new Exception("Unknown record type");
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (RuntimeException ex)
             {
                 // log exception
                 Log.WriteError(ex);
@@ -104,7 +115,17 @@ namespace FuseCP.Providers.DNS
                     throw new Exception("Unknown record type");
                 ps.Remove_DnsServerResourceRecord(zoneName, record);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (RuntimeException ex)
             {
                 // log exception
                 Log.WriteError(ex);
@@ -127,7 +148,15 @@ namespace FuseCP.Providers.DNS
             {
                 ps.Update_DnsServerResourceRecordSOA(zoneName, ExpireLimit, MinimumTTL, primaryNsServer, RefreshInterval, primaryPerson, RetryDelay, null);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
+            {
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(ex);
+            }
+            catch (RuntimeException ex)
             {
                 Log.WriteError(ex);
             }
@@ -142,7 +171,15 @@ namespace FuseCP.Providers.DNS
             {
                 ps.Update_DnsServerResourceRecordSOA(zoneName, ExpireLimit, MinimumTTL, null, RefreshInterval, null, RetryDelay, null);
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
+            {
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(ex);
+            }
+            catch (RuntimeException ex)
             {
                 Log.WriteError(ex);
             }

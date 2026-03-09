@@ -196,7 +196,11 @@ namespace FuseCP.Providers.DNS
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error locating '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error locating '{0}' Power DNS zone", zoneName), ex);
             }
@@ -231,7 +235,11 @@ namespace FuseCP.Providers.DNS
                             zonename
                         );
                     }
-                    catch (Exception ex)
+                    catch (InvalidCastException ex)
+                    {
+                        Log.WriteError("Error getting one zone from the list of Power DNS zones.", ex);
+                    }
+                    catch (InvalidOperationException ex)
                     {
                         Log.WriteError("Error getting one zone from the list of Power DNS zones.", ex);
                     }
@@ -239,7 +247,11 @@ namespace FuseCP.Providers.DNS
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError("Error getting the list of Power DNS zones.", ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError("Error getting the list of Power DNS zones.", ex);
             }
@@ -301,7 +313,11 @@ namespace FuseCP.Providers.DNS
                     , DomainId
                 );
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error deleting '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (InvalidOperationException ex)
             {
                 Log.WriteError(String.Format("Error deleting '{0}' Power DNS zone", zoneName), ex);
             }
@@ -354,7 +370,15 @@ namespace FuseCP.Providers.DNS
 
                 UpdateRecord(recordId, soaData.ToString());
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (ArgumentOutOfRangeException ex)
             {
                 Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
             }
@@ -420,7 +444,19 @@ namespace FuseCP.Providers.DNS
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error getting records for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(String.Format("Error getting records for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Log.WriteError(String.Format("Error getting records for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (FormatException ex)
             {
                 Log.WriteError(String.Format("Error getting records for '{0}' Power DNS zone", zoneName), ex);
             }
@@ -655,7 +691,15 @@ namespace FuseCP.Providers.DNS
 
                 UpdateRecord(recordId, data.ToString());
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
+            {
+                Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
+            }
+            catch (ArgumentOutOfRangeException ex)
             {
                 Log.WriteError(String.Format("Error updating SOA record for '{0}' Power DNS zone", zoneName), ex);
             }

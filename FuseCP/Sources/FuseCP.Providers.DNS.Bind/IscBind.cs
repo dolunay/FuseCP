@@ -321,7 +321,17 @@ namespace FuseCP.Providers.DNS
                 else if (record.RecordType == DnsRecordType.SRV)
                     AddSrvRecord(zoneName, record.RecordName, record.RecordData, record.SrvPriority, record.SrvWeight, record.SrvPort);
             }
-            catch (Exception ex)
+            catch (IOException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (ArgumentException ex)
             {
                 // log exception
                 Log.WriteError(ex);
@@ -344,7 +354,17 @@ namespace FuseCP.Providers.DNS
                 // delete record
                 DeleteRecord(zoneName, record.RecordType, record.RecordName, record.RecordData);
             }
-            catch (Exception ex)
+            catch (IOException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log exception
+                Log.WriteError(ex);
+            }
+            catch (ArgumentException ex)
             {
                 // log exception
                 Log.WriteError(ex);
@@ -657,7 +677,15 @@ namespace FuseCP.Providers.DNS
                         // delete DNS zone
                         DeleteZone(item.Name);
                     }
-                    catch (Exception ex)
+                    catch (IOException ex)
+                    {
+                        Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
+                    }
+                    catch (ArgumentException ex)
                     {
                         Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
                     }
