@@ -61,10 +61,10 @@ jobs:
         shell: pwsh
         run: |
           if ("${{ matrix.build_scope }}" -eq "server") {
-            dotnet build .\FuseCP\Sources\FuseCP.Server.sln -c Release --nologo
+            dotnet build .\FuseCP\Sources\FuseCP.Server.sln -c Debug -m:1 -p:BuildInParallel=false --nologo
           }
           elseif ("${{ matrix.build_scope }}" -eq "enterprise") {
-            dotnet build .\FuseCP\Sources\FuseCP.EnterpriseServer.sln -c Release --nologo
+            dotnet build .\FuseCP\Sources\FuseCP.EnterpriseServer.sln -c Debug -m:1 -p:BuildInParallel=false --nologo
           }
 
       - name: Perform CodeQL Analysis
