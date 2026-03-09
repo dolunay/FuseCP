@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+> Security vulnerability reports must be submitted privately per [SECURITY.md](../../SECURITY.md), not as public feature requests.
+
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 

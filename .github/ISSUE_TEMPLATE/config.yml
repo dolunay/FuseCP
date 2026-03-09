@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability report (private)
+    about: Do not open public issues for vulnerabilities. Use private disclosure via the project's security policy.
+    url: https://github.com/FuseCP/FuseCP/security/advisories/new
+  - name: Security policy
+    about: Read supported versions, reporting process, and disclosure guidance.
+    url: https://github.com/FuseCP/FuseCP/blob/main/SECURITY.md

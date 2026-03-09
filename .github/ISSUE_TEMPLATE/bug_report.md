@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+> Security vulnerability? Do not file it publicly. Please use private reporting as described in [SECURITY.md](../../SECURITY.md).
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
