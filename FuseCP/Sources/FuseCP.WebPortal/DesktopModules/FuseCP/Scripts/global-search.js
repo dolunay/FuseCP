@@ -50,8 +50,26 @@ $(document).ready(function () {
             $accountId.val("");
         }
 
+        function getAutocompleteInstance($searchInput) {
+            if (!$searchInput || !$searchInput.length || typeof $searchInput.autocomplete !== "function") {
+                return null;
+            }
+
+            // jQuery UI 1.12+ exposes "instance"; older builds store instance in data().
+            try {
+                return $searchInput.autocomplete("instance")
+                    || $searchInput.data("ui-autocomplete")
+                    || $searchInput.data("autocomplete")
+                    || null;
+            } catch (e) {
+                return $searchInput.data("ui-autocomplete")
+                    || $searchInput.data("autocomplete")
+                    || null;
+            }
+        }
+
         function getAutocompleteItemData($searchInput) {
-            var instance = $searchInput.autocomplete("instance");
+            var instance = getAutocompleteInstance($searchInput);
 
             if (!instance || !instance.menu || !instance.menu.active || !instance.menu.active.length) {
                 return null;
@@ -122,7 +140,7 @@ $(document).ready(function () {
                 return;
             }
 
-            var instance = $search.autocomplete("instance");
+            var instance = getAutocompleteInstance($search);
             var menuVisible = !!(instance && instance.menu && instance.menu.element && instance.menu.element.is(":visible"));
             var activeItem = menuVisible ? getAutocompleteItemData($search) : null;
 
@@ -251,7 +269,7 @@ $(document).ready(function () {
             }
         });
 
-        var acInstance = $search.autocomplete("instance");
+        var acInstance = getAutocompleteInstance($search);
         if (acInstance) {
             acInstance._renderItem = function (ul, item) {
                 var $li = $("<li>")

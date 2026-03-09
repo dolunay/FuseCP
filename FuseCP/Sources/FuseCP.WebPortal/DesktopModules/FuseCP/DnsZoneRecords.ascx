@@ -10,7 +10,10 @@
 		</div>
 	</div>
     <div class="FormButtonsBar">
-        <asp:Button ID="btnAdd" runat="server" meta:resourcekey="btnAdd" Text="Add record" CssClass="btn btn-success" OnClick="btnAdd_Click" CausesValidation="False" />
+        <asp:LinkButton id="btnAdd" CssClass="btn btn-success" runat="server" meta:resourcekey="btnAdd" OnClick="btnAdd_Click" CausesValidation="False">
+            <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;
+            <asp:Localize runat="server" meta:resourcekey="btnAddText" Text="Add record" />
+        </asp:LinkButton>
     </div>
     <asp:GridView ID="gvRecords" runat="server" AutoGenerateColumns="False" EmptyDataText="gvRecords"
         CssSelectorClass="NormalGridView FixedGrid"
