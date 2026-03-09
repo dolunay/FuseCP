@@ -42,7 +42,7 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvMailboxPlanDefault">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <input type="radio" name="DefaultMailboxPlan" value='<%# Eval("MailboxPlanId") %>' <%# IsChecked((bool)Eval("IsDefault")) %> />
 								    </div>
 							    </ItemTemplate>

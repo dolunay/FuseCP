@@ -9,7 +9,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secServiceSettings" runat="server" meta:resourcekey="secServiceSettings" Text="Service Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secServiceSettings" runat="server" meta:resourcekey="secServiceSettings" Text="Service Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -48,7 +48,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label runat="server" meta:resourcekey="WDeployPublishingSettings" Text="Web Publishing Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label runat="server" meta:resourcekey="WDeployPublishingSettings" Text="Web Publishing Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 
 	<p><asp:Localize runat="server" Text="Web publishing enables your customers to publish content to their web sites through Web Deployment publishing protocol that is supported in modern web development tools such as Web Matrix and Visual Studio .NET 2010." /></p>
@@ -69,7 +69,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secAspNet" runat="server" meta:resourcekey="secAspNet" Text="ASP.NET" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secAspNet" runat="server" meta:resourcekey="secAspNet" Text="ASP.NET" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -120,7 +120,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secPools" runat="server" meta:resourcekey="secPools" Text="Pools" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secPools" runat="server" meta:resourcekey="secPools" Text="Pools" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -181,7 +181,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secWebExtensions" runat="server" meta:resourcekey="secWebExtensions" Text="Web Extensions" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secWebExtensions" runat="server" meta:resourcekey="secWebExtensions" Text="Web Extensions" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -238,7 +238,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label runat="server" meta:resourcekey="secWmSvcManagement" Text="Web Management Service" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label runat="server" meta:resourcekey="secWmSvcManagement" Text="Web Management Service" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -282,7 +282,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secColdFusion" runat="server" meta:resourcekey="secColdFusion" Text="ColdFusion" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secColdFusion" runat="server" meta:resourcekey="secColdFusion" Text="ColdFusion" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -314,7 +314,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secureFoldersLabel" runat="server" meta:resourcekey="secureFoldersLabel" Text="Secure Folders" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secureFoldersLabel" runat="server" meta:resourcekey="secureFoldersLabel" Text="Secure Folders" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -347,7 +347,7 @@
 
 <fieldset >
     <legend>
-        <asp:Label runat="server" meta:resourcekey="HtaccessLabel" Text=".htaccess" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label runat="server" meta:resourcekey="HtaccessLabel" Text=".htaccess" CssClass="NormalBold"></asp:Label>
     </legend>
     
     <asp:Panel ID="downloadApePanel" runat="server">
@@ -389,8 +389,8 @@
 		        <asp:Label ID="Label4" runat="server" Text="httpd.conf:"></asp:Label>
 		    </td>
 		    <td class="align-top"> 
-                    <asp:Button ID="EditHeliconApeConfButton" runat="server" class="btn btn-success" 
-                        Text="Edit httpd.conf (server config)" onclick="EditHeliconApeConfButton_Click" />
+                    <asp:Button ID="EditHeliconApeConfButton" runat="server" 
+                        Text="Edit httpd.conf (server config)" onclick="EditHeliconApeConfButton_Click" CssClass="btn btn-success" />
             </td>
 		</tr>
         <tr>
@@ -398,7 +398,7 @@
                 <asp:Label runat="server" AssociatedControlID="chkHeliconApeGlobalRegistration" meta:resourcekey="chkHeliconApeGlobalRegistration">Register Helicon Ape module globally:</asp:Label>
             </td>
             <td>
-                <asp:CheckBox ID="chkHeliconApeGlobalRegistration" runat="server" style="margin-left: -4px"/>
+				<asp:CheckBox ID="chkHeliconApeGlobalRegistration" runat="server" CssClass="fcp-check-inline fcp-checkbox-offset" />
                 (<asp:Label runat="server" AssociatedControlID="chkHeliconApeGlobalRegistration">Uncheck this box to enable managing Helicon Ape using hosting plan policies.</asp:Label>)
             </td>
         </tr>
@@ -410,7 +410,7 @@
 <!-- Helicon Ape END-->
 <fieldset>
     <legend>
-        <asp:Label ID="secSsl" runat="server" meta:resourcekey="secSsl" Text="SSL" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secSsl" runat="server" meta:resourcekey="secSsl" Text="SSL" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -472,7 +472,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 
     <table class="table table-borderless align-middle mb-0 w-100" >

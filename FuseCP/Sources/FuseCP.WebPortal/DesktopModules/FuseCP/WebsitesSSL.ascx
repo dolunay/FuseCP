@@ -227,7 +227,7 @@
 					<p>
 						<asp:Localize ID="InstallCSRDescription" runat="server" meta:resourcekey="InstallCSRDescription" /></p>
 					<asp:Localize ID="sslCSR" runat="server" meta:resourcekey="sslCSR" />:<br />
-					<asp:TextBox ID="txtCSR" runat="server" CssClass="form-control" Style="text-align: left; font-family: Courier New"
+					<asp:TextBox ID="txtCSR" runat="server" CssClass="form-control" CssClass="fcp-code-mono"
 						Rows="25" TextMode="MultiLine" ReadOnly="True" Columns="65" Wrap="false" onfocus="this.select();"></asp:TextBox>
 					<br />
 					<br />
@@ -239,7 +239,7 @@
 					</p>
 					<asp:Localize ID="sslCertificate" runat="server" meta:resourcekey="sslCertificate" />:<br />
 					<asp:TextBox ID="txtCertificate" CssClass="form-control" runat="server" Rows="30" Columns="65" Wrap="false"
-						Style="text-align: left; font-family: Courier New" TextMode="MultiLine" ReadOnly="False"></asp:TextBox>
+						CssClass="fcp-code-mono" TextMode="MultiLine" ReadOnly="False"></asp:TextBox>
 					<br />
 					<br />
 					<asp:Button ID="btnInstallCertificate" meta:resourcekey="btnInstallCertificate" runat="server"

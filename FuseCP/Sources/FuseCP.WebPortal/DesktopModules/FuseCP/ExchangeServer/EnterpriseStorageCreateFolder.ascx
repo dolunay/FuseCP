@@ -61,7 +61,7 @@
                 <asp:Localize ID="locQuotaType" runat="server" meta:resourcekey="locQuotaType" Text="Quota Type:"></asp:Localize>
             </label>
             <div class="mb-3">
-                <div class="input-group" style="padding-top:6px;">
+                <div class="input-group fcp-pt-6">
                     <asp:RadioButton ID="rbtnQuotaSoft" runat="server" meta:resourcekey="rbtnQuotaSoft" Text="Soft" GroupName="QuotaType" />
                     <asp:RadioButton ID="rbtnQuotaHard" runat="server" meta:resourcekey="rbtnQuotaHard" Text="Hard" GroupName="QuotaType" Checked="true" />
                 </div>
@@ -74,7 +74,7 @@
                 <asp:Localize ID="locAddDefaultGroup" runat="server" meta:resourcekey="locAddDefaultGroup" Text="Add Default Group:"></asp:Localize>
             </label>
             <div class="mb-3">
-                <div class="input-group" style="padding-top:6px;">
+                <div class="input-group fcp-pt-6">
                     <asp:CheckBox ID="chkAddDefaultGroup" runat="server" Checked="false"></asp:CheckBox>
                 </div>
             </div>

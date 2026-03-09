@@ -64,7 +64,7 @@
 						            <asp:BoundField DataField="DefaultGateway" HeaderText="gvDefaultGateway" meta:resourcekey="gvDefaultGateway" />
 						            <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
 							            <ItemTemplate>
-							                <div style="text-align:center">
+							                <div class="text-center">
 							                    &nbsp;
 								                <asp:Image ID="Image2" runat="server" SkinID="Checkbox16" Visible='<%# Eval("IsPrimary") %>' />
 								            </div>
@@ -74,7 +74,7 @@
 				            </asp:GridView>
 				        </div>
 				        
-				        <div style="margin-top: 4px">
+				        <div class="fcp-mt-4">
 				            <asp:Button ID="btnAddExternalAddress" runat="server" meta:resourcekey="btnAddExternalAddress"
                                 Text="Add" CssClass="btn btn-primary btn-sm" onclick="btnAddExternalAddress_Click" />
 				            <asp:Button id="btnSetPrimaryExternal" runat="server" Text="Set As Primary"
@@ -141,7 +141,7 @@
 						                </asp:TemplateField>
 						                <asp:TemplateField HeaderText="gvPrimary" meta:resourcekey="gvPrimary">
 							                <ItemTemplate>
-							                    <div style="text-align:center">
+							                    <div class="text-center">
 							                        &nbsp;
 								                    <asp:Image ID="Image2" runat="server" SkinID="Checkbox16" Visible='<%# Eval("IsPrimary") %>' />
 								                </div>
@@ -151,7 +151,7 @@
 				                </asp:GridView>
 				            </div>
     				        
-				            <div style="margin-top: 4px">
+				            <div class="fcp-mt-4">
                                 <asp:Button ID="btnAddPrivateAddress" runat="server" meta:resourcekey="btnAddPrivateAddress"
                                     Text="Add" CssClass="btn btn-primary btn-sm" onclick="btnAddPrivateAddress_Click" />
 				                <asp:Button id="btnSetPrimaryPrivate" runat="server" Text="Set As Primary"

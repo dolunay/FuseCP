@@ -12,7 +12,7 @@
 				
 <asp:UpdatePanel ID="RecordsUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
     <ContentTemplate>
-    <div class="FormButtonsBar right" style="margin: -68px 0px 20px !important">
+	<div class="FormButtonsBar right fcp-domain-records-action-offset">
 						<asp:LinkButton ID="btnAdd" runat="server" CssClass="btn btn-primary" CausesValidation="False"> <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAdd"/> </asp:LinkButton>
 	</div>
 				<fcp:SimpleMessageBox id="messageBox" runat="server" />
@@ -62,7 +62,7 @@
 				</asp:GridView>
 
 				<br />
-				<div style="text-align: center">
+				<div class="text-center">
 					<asp:LinkButton id="btnBack" CssClass="btn btn-warning" runat="server" OnClick="btnBack_Click"> <i class="bi bi-arrow-left">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnBack"/> </asp:LinkButton>&nbsp;
 				</div>
 

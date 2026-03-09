@@ -34,7 +34,7 @@
                                     <NodeStyle CssClass="TreeNode" />
 				                </asp:TreeView>
 				                
-				                <div id="NoSnapshotsPanel" runat="server" style="padding: 5px">
+				                <div id="NoSnapshotsPanel" runat="server" class="fcp-p-5">
 				                    <asp:Localize ID="locNoSnapshots" runat="server" meta:resourcekey="locNoSnapshots" Text="No snapshots"></asp:Localize>
 				                </div>
                                 

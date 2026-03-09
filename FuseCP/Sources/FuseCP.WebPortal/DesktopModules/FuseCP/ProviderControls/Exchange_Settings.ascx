@@ -113,11 +113,11 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead text-nowrap align-top" style="padding-top:15px">
+        <td class="SubHead text-nowrap align-top fcp-pt-15">
             <asp:Localize ID="locHubTransport" runat="server" meta:resourcekey="locHubTransport"
                 Text="Hub Transport Service:"></asp:Localize>
         </td>
-        <td style="padding-top:15px">
+        <td class="fcp-pt-15">
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlHubTransport" runat="server" CssClass="form-control">
                 </asp:DropDownList>
@@ -146,11 +146,11 @@
         </td>
     </tr>
     <tr>
-        <td class="SubHead text-nowrap align-top" style="padding-top:15px">
+        <td class="SubHead text-nowrap align-top fcp-pt-15">
             <asp:Localize ID="locClientAccess" runat="server" meta:resourcekey="locClientAccess"
                 Text="Client Access Service:"></asp:Localize>
         </td>
-        <td style="padding-top:15px">
+        <td class="fcp-pt-15">
             <div class="input-group col-sm-6">
                 <asp:DropDownList ID="ddlClientAccess" runat="server" CssClass="form-control">
                 </asp:DropDownList>
@@ -183,9 +183,9 @@
 <fieldset>
     <legend>
         <asp:Label ID="lblSetupVariables" runat="server" meta:resourcekey="lblSetupVariables"
-            Text="Setup Instruction Variables" CssClass="NormalBold"></asp:Label>&nbsp;
+            Text="Setup Instruction Variables" CssClass="NormalBold"></asp:Label>
     </legend>
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
         <tr>
             <td class="SubHead align-top" >
                 <asp:Localize ID="locSmtpServers" runat="server" meta:resourcekey="locSmtpServers"
@@ -242,7 +242,7 @@
 <fieldset>
     <legend>
         <asp:Label ID="lblRouteFromSE" runat="server" meta:resourcekey="lblRouteFromSE"
-            Text="Automatic Mail Filter" CssClass="NormalBold"></asp:Label>&nbsp;
+            Text="Automatic Mail Filter" CssClass="NormalBold"></asp:Label>
     </legend>
     <asp:CheckBox ID="chkSEEnable" runat="server" meta:resourcekey="chkEnableSE" Text="Enable Automatic Mail Filtering (SpamExperts) for domains managed by this provider" />
     <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -268,7 +268,7 @@
 	        </asp:GridView>
             <br />
             <div class="input-group col-sm-6">
-             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" style="vertical-align: middle" runat="server"></asp:TextBox>
+             <asp:TextBox ID="tbSEDestinations" CssClass="form-control" runat="server"></asp:TextBox>
                 <span class="d-flex">
                 <asp:LinkButton ID="bntAddSEDestination" runat="server" CssClass="btn btn-primary" OnClick="bntAddSEDestination_Click" CausesValidation="False">
                 <i class="bi bi-plus-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="bntAddSEDestination" />

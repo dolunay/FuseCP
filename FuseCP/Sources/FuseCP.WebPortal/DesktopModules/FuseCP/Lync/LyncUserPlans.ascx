@@ -39,7 +39,7 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvPlanDefault">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <input type="radio" name="DefaultPlan" value='<%# Eval("LyncUserPlanId") %>' <%# IsChecked((bool)Eval("IsDefault")) %> />
 								    </div>
 							    </ItemTemplate>
@@ -52,7 +52,7 @@
 					    </Columns>
 				    </asp:GridView>
 				    <br />
-				    <div style="text-align: center">
+				    <div class="text-center">
 				        <asp:LinkButton id="btnSetDefaultPlan" CssClass="btn btn-success" runat="server" OnClick="btnSetDefaultPlan_Click"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetDefaultPlanText"/> </asp:LinkButton>
                     </div>
 				    

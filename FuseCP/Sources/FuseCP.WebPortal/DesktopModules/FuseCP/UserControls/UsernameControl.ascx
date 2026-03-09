@@ -2,7 +2,7 @@
 <div class="input-group col-sm-12">
     <asp:Label ID="litPrefix" runat="server" CssClass="input-group-text"></asp:Label>
     <asp:textbox id="txtName" runat="server" CssClass="form-control" MaxLength="100" style="text-transform: lowercase;" onkeyup="this.value = this.value.toLowerCase();" ></asp:textbox>
-    <asp:textbox ID="lblName" runat="server" style="line-height: 22px;" CssClass="form-control" ReadOnly="true"></asp:textbox>
+    <asp:textbox ID="lblName" runat="server" CssClass="form-control fcp-lh-22" ReadOnly="true"></asp:textbox>
     <asp:Label ID="litSuffix" runat="server" CssClass="input-group-text"></asp:Label>
 </div>
 <asp:RequiredFieldValidator id="valRequireUsername" runat="server" CssClass="input-form-addon" ErrorMessage="*" ControlToValidate="txtName" Display="Dynamic"></asp:RequiredFieldValidator>

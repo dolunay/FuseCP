@@ -20,11 +20,11 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
 					<asp:Literal ID="litMailboxType" runat="server" Text="" Visible="false" />
                     <asp:Image ID="imgVipUser" SkinID="VipUser16" runat="server" tooltip="VIP user" Visible="false"/>
-                    <asp:Label ID="litServiceLevel" runat="server" style="float:right; padding-right:8px" Visible="false"></asp:Label>
+					<asp:Label ID="litServiceLevel" runat="server" CssClass="float-end pe-2" Visible="false"></asp:Label>
               </h3>
                           </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_settings" />
                     </div>
                     <div class="card tab-content">
@@ -231,7 +231,7 @@
 						</asp:UpdatePanel>
 					</asp:Panel>
 					
-					<table style="margin-top:10px">
+					<table class="fcp-mt-10">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" Visible="false" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true"

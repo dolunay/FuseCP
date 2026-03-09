@@ -18,7 +18,7 @@
     </h3>
 </div>
 <div class="card-body form-horizontal">
-    <div class="nav nav-tabs" style="padding-bottom: 7px !important">
+    <div class="nav nav-tabs pb-2">
         <fcp:MailboxTabs ID="MailboxTabs" runat="server" SelectedTab="mailbox_autoreply" />
     </div>
     <div class="card tab-content">
@@ -35,41 +35,41 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px">
+                        <td class="fcp-ps-15">
                             <asp:CheckBox ID="chkAutoReplyTime" runat="server" meta:resourcekey="chkAutoReplyTime" Text="Send replies only during this time period:" AutoPostBack="true" OnCheckedChanged="chkAutoReplyTime_CheckedChanged" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 5px; padding-top: 5px">
+                        <td class="fcp-ps-30 fcp-pb-5 fcp-pt-5">
                             <asp:Label ID="locStartTime" runat="server" meta:resourcekey="locStartTime" Text="Start time:"></asp:Label>
                             <asp:TextBox ID="txtStartDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtStartTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 10px; padding-top: 5px">
+                        <td class="fcp-ps-30 fcp-pb-10 fcp-pt-5">
                             <asp:Label ID="locEndTime" runat="server" meta:resourcekey="locEndTime" Text="End time:"></asp:Label>
                             <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date"></asp:TextBox>
                             <asp:TextBox ID="txtEndTime" runat="server" TextMode="Time"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px">
+                        <td class="fcp-ps-15">
                             <asp:Localize ID="locIntReply" runat="server" meta:resourcekey="locIntReply" Text="Send a reply once to each sender inside my organization with the following message:"></asp:Localize>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px">
+                        <td class="fcp-ps-15">
                             <asp:TextBox ID="txtIntReply" runat="server" CssClass="tinymce" Rows="15" cols="20" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px; padding-top: 20px">
+                        <td class="fcp-ps-15 fcp-pt-20">
                             <asp:CheckBox ID="chkOutsideOrganization" runat="server" meta:resourcekey="chkOutsideOrganization" Text="Send replies outside my organization" AutoPostBack="true" OnCheckedChanged="chkOutsideOrganization_CheckedChanged" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px; padding-bottom: 10px">
+                        <td class="fcp-ps-30 fcp-pb-10">
                             <asp:RadioButtonList ID="rblExternalAudience" runat="server" AutoPostBack="False">
                                 <asp:ListItem Text="Only to senders in my Contact list" meta:resourcekey="rblExtContact"></asp:ListItem>
                                 <asp:ListItem Text="Send to all external senders" meta:resourcekey="rblExtAll" Selected="True"></asp:ListItem>
@@ -77,12 +77,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px">
+                        <td class="fcp-ps-30">
                             <asp:Localize ID="locExtReply" runat="server" meta:resourcekey="locExtReply" Text="Send a reply once to each sender outside my organization with the following message:"></asp:Localize>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 30px">
+                        <td class="fcp-ps-30">
                             <asp:TextBox ID="txtExtReply" runat="server" CssClass="tinymce" Rows="15" cols="20" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>

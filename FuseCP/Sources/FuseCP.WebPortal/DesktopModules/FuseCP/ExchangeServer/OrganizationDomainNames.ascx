@@ -29,7 +29,7 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvDomainsDefault">
 							    <ItemTemplate>
-							        <div style="text-align:left">
+							        <div class="text-start">
 								        <input type="radio" name="DefaultDomain" value='<%# Eval("DomainId") %>' <%# IsChecked((bool)Eval("IsDefault")) %> />
 								    </div>
 							    </ItemTemplate>

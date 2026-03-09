@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                         <tr id="DmzAddressesNumberRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:Localize ID="locDmzAddresses" runat="server"
                                         meta:resourcekey="locDmzAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -53,7 +53,7 @@
                             </td>
                         </tr>
                         <tr id="DmzAddressesListRow" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:TextBox ID="txtDmzAddressesList" runat="server" TextMode="MultiLine"
                                     CssClass="form-control" Rows="5"></asp:TextBox>
                                 <br />
@@ -69,7 +69,7 @@
                             </td>
                         </tr>
                         <tr id="trCustomGateway" runat="server">
-                            <td style="padding-left: 30px">
+                            <td class="fcp-ps-30">
                                 <asp:RequiredFieldValidator ID="GatewayValidator" runat="server" Text="*" Display="Dynamic"
                                     ControlToValidate="txtGateway" meta:resourcekey="GatewayValidator" SetFocusOnError="true"
                                     ValidationGroup="Vps">*</asp:RequiredFieldValidator>

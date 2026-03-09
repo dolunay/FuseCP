@@ -6,17 +6,17 @@
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <asp:ValidationSummary ID="validatorsSummary" runat="server" ValidationGroup="EditVLAN" ShowMessageBox="True" ShowSummary="False" />
     <asp:CustomValidator ID="consistentVLAN" runat="server" ErrorMessage="Wrong VLAN." ValidationGroup="EditVLAN" Display="dynamic" ServerValidate="CheckVLAN" />
-    <table>
+    <table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td>
+		    <td class="SubHead text-nowrap">
                 <asp:Localize ID="locServer" runat="server" meta:resourcekey="locServer" Text="Server:"></asp:Localize>
 		    </td>
 		    <td>
-		        <asp:dropdownlist id="ddlServer" CssClass="form-control" runat="server" DataTextField="ServerName" DataValueField="ServerID"></asp:dropdownlist>
+		        <asp:dropdownlist id="ddlServer" CssClass="form-select" runat="server" DataTextField="ServerName" DataValueField="ServerID"></asp:dropdownlist>
 		    </td>
 	    </tr>
 	    <tr id="VLANRow" runat="server">
-		    <td>
+		    <td class="SubHead text-nowrap">
                 <asp:Localize ID="lblVLAN" runat="server" meta:resourcekey="lblVLAN" Text="VLAN:"></asp:Localize>
 		    </td>
 		    <td>
@@ -24,7 +24,7 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td>
+		    <td class="SubHead align-top text-nowrap">
                 <asp:Localize ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Comments:"></asp:Localize>
 		    </td>
 		    <td>

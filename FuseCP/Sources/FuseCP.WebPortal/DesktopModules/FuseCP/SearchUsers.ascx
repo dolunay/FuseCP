@@ -23,7 +23,7 @@
                                 <asp:TextBox ID="tbSearchFullType" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
                                 <asp:TextBox ID="tbSearchText" ClientIDMode="Static" runat="server" type="hidden"></asp:TextBox>
                                 <div class="d-flex">
-                                 <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" class="btn btn-primary" CausesValidation="false" OnClick="cmdSearch_Click"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
+                                 <asp:LinkButton ID="cmdSearch" Runat="server" meta:resourcekey="cmdSearch" CausesValidation="false" OnClick="cmdSearch_Click" CssClass="btn btn-primary"><i class="bi bi-search" aria-hidden="true"></i></asp:LinkButton>
                                     </div>
                             </div>
                                     </div>

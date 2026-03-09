@@ -73,7 +73,7 @@
                                     <div class="col-md-6">
                                         <div class="card border-success">
                                             <div class="card-header">
-                                                <h3 class="card-title m-0 d-flex align-items-center gap-2" style="white-space:nowrap;overflow:hidden;" title="<%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %>">
+                                                <h3 class="card-title m-0 d-flex align-items-center gap-2 text-nowrap overflow-hidden" title="<%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %>">
                                                     <i class="bi bi-server"></i>
                                                     <span><%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %></span>
                                                 </h3>

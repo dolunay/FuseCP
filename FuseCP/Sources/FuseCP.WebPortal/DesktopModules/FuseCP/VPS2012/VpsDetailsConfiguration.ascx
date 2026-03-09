@@ -23,8 +23,8 @@
                     <fcp:CollapsiblePanel id="secSoftware" runat="server"
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
                                     meta:resourcekey="locOperatingSystem" Text="Operating system:"></asp:Localize></td>
@@ -49,8 +49,8 @@
                     <fcp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:10px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-10" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
                                         meta:resourcekey="lblCpu" Text="CPU:" /></td>
@@ -59,7 +59,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblRam" runat="server"
                                         meta:resourcekey="lblRam" Text="RAM:" /></td>
@@ -68,7 +68,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHdd" runat="server"
                                         meta:resourcekey="lblHdd" Text="HDD:" /></td>
@@ -98,12 +98,12 @@
                     <fcp:CollapsiblePanel id="secHddQOS" runat="server" IsCollapsed="true"
                         TargetControlID="QOSManag" meta:resourcekey="secHddQOS" Text="Virtual Hard Disk Drive Quality of Service management">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="QOSManag" runat="server" Height="0" style="overflow:hidden; padding:10px">
+                    <asp:Panel ID="QOSManag" runat="server" Height="0" CssClass="fcp-p-10" Style="overflow:hidden;">
                         <p>
 		                <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
                             Text="Specify Quality of Service management for this virtual hard disk. Minimum and maximum IOPS are measured in 8KB increments. Default value is 0." />
 		                </p>
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHddMinIOPS" runat="server"
                                         meta:resourcekey="lblHddMinIOPS" Text="Minimum:" /></td>
@@ -112,7 +112,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblHddMaxIOPS" runat="server"
                                         meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" /></td>
@@ -130,8 +130,8 @@
                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td><asp:Localize ID="locSnapshots" runat="server"
                                     meta:resourcekey="locSnapshots" Text="Number of snapshots:"></asp:Localize></td>
@@ -145,8 +145,8 @@
                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td>
                                     <fcp:CheckBoxOption id="optionDvdInstalled" runat="server"
@@ -159,8 +159,8 @@
                     <fcp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td >
                                     <fcp:CheckBoxOption id="optionBootFromCD" runat="server"
@@ -181,8 +181,8 @@
                     <fcp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table  style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table  class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td >
                                     <fcp:CheckBoxOption id="optionStartShutdown" runat="server"
@@ -218,8 +218,8 @@
                     <fcp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                        <table style="border-collapse: separate; border-spacing: 5px 1px">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
+                        <table class="fcp-legacy-spacing-table-tight">
                             <tr>
                                 <td><fcp:CheckBoxOption id="optionExternalNetwork" runat="server"
                                         Text="External network enabled" meta:resourcekey="optionExternalNetwork" Value="True" />

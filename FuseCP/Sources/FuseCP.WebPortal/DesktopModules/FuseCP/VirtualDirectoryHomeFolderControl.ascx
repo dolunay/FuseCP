@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VirtualDirectoryHomeFolderControl.ascx.cs" Inherits="FuseCP.Portal.VirtualDirectoryHomeFolderControl" %>
 <%@ Register Src="UserControls/FileLookup.ascx" TagName="FileLookup" TagPrefix="uc1" %>
-<div style="padding: 20px">
+<div class="fcp-p-20">
 <table>
 
 	<tr>
@@ -11,7 +11,7 @@
 	                <td colspan="3">
 			            <table>
 				            <tr>
-					            <td class="Normal text-nowrap align-top" style="padding-top:7px">
+					            <td class="Normal text-nowrap align-top fcp-pt-7">
 					                <asp:Label ID="lblSitePath" runat="server" meta:resourcekey="lblSitePath" Text="Content Path: "></asp:Label>&nbsp;
 					            </td>
 					            <td class="align-top">

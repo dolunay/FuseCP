@@ -20,7 +20,7 @@
                     -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                     <asp:Image ID="imgVipUser" SkinID="VipUser16" runat="server" tooltip="VIP user" Visible="false"/>
-                    <asp:Label ID="litServiceLevel" runat="server" style="float:right;padding-right:8px;" Visible="false"></asp:Label>
+                    <asp:Label ID="litServiceLevel" runat="server" CssClass="float-end fcp-pr-8" Visible="false"></asp:Label>
                 </div>
                 <div class="card-body form-horizontal">
                     

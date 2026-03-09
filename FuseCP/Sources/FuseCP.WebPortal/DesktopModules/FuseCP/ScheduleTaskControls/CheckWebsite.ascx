@@ -7,7 +7,7 @@
 <asp:Panel ID="pnlSendMessageIf" runat="server" CssClass="Normal">
 		<table class="table table-borderless align-middle mb-0 w-100">
 			<tr>
-				<td class="SubHead" style="white-space: nowrap">
+				<td class="SubHead text-nowrap" >
 					<asp:CheckBox ID="cbxResponseStatus" runat="server" meta:resourcekey="cbxResponseStatus" Text="Response status equal to" /> :
    				</td>
    				<td class="SubHead">
@@ -16,7 +16,7 @@
    				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" style="white-space: nowrap">
+				<td class="SubHead text-nowrap" >
 					<asp:CheckBox ID="cbxResponseContains" runat="server" meta:resourcekey="cbxResponseContains" Text="Response content contains" /> :
    				</td>
    				<td class="SubHead">
@@ -24,7 +24,7 @@
    				</td>
 			</tr>
 			<tr>
-				<td class="SubHead" style="white-space: nowrap">
+				<td class="SubHead text-nowrap" >
 					<asp:CheckBox ID="cbxResponseDoesntContain" runat="server" meta:resourcekey="cbxResponseDoesntContain" Text="Response content doesn't contain" /> :
    				</td>
    				<td class="SubHead">

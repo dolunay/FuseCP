@@ -22,7 +22,7 @@
                     </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                     <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                     <div class="nav nav-tabs pb-2">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_mailflow" />	
                     </div>
                     <div class="card tab-content">
@@ -81,7 +81,7 @@
 								</td>
 							</tr>
 					    </table>
-                      <table id="tablesavesentitems" runat="server" style="margin-top:10px">
+					  <table id="tablesavesentitems" runat="server" class="fcp-mt-10">
     					    <tr>
 	   				            <td class="text-start">
                                    <asp:CheckBox ID="chkSaveSentItems" runat="server" meta:resourcekey="chkSaveSentItems" Text="Copy items sent as and on behalf of this mailbox" />
@@ -107,7 +107,7 @@
 					    <fcp:RejectedSenders id="rejectAccounts" runat="server" />
 					</asp:Panel>
 					
-					<table style="margin-top:10px">
+					<table class="fcp-mt-10">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true" Visible="false"

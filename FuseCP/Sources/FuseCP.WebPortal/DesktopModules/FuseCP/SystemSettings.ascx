@@ -441,7 +441,7 @@
                 </div>
             </div>
         </div>
-        <asp:Panel id="DebugSettingsPanel" class="card" runat="Server">
+        <asp:Panel id="DebugSettingsPanel" runat="Server" CssClass="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-wrench" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
                 <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#DebugSettings" aria-expanded="false" class="collapsed">

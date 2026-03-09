@@ -19,7 +19,7 @@
                         </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important;">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:PublicFolderTabs id="tabs" runat="server" SelectedTab="public_folder_settings" />
                     </div>
                     <div class="card tab-content">
@@ -59,7 +59,7 @@
 						<tr><td>&nbsp;</td></tr>
 						
 						<tr>
-						    <td style="white-space:nowrap;">
+						    <td class="text-nowrap">
 						        <br />
 						        <asp:CheckBox ID="chkHideAddressBook" runat="server" meta:resourcekey="chkHideAddressBook" Text="Hide from Address Book" />
 						    </td>

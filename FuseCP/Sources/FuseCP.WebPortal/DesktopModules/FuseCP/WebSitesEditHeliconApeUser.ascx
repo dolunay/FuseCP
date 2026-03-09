@@ -20,7 +20,7 @@
                     </td>
 	            </tr>
 	            <tr>
-		            <td class="SubHead" style="vertical-align: top">
+		            <td class="SubHead align-top">
 						<asp:Label ID="lblAuthType" runat="server" meta:resourcekey="lblAuthType" Text="Auth Type"></asp:Label>
 					</td>
 		            <td>
@@ -28,7 +28,7 @@
                     </td>
 	            </tr>
 	            <tr class="EncType">
-		            <td class="SubHead" style="vertical-align: top">
+		            <td class="SubHead align-top">
 						<asp:Label ID="lblEncType" runat="server" meta:resourcekey="lblEncType" Text="Encryption Type"></asp:Label>
 					</td>
 		            <td>
@@ -36,7 +36,7 @@
                     </td>
 	            </tr>
 	            <tr class="DigestRealm" style="display: none">
-		            <td class="SubHead" style="vertical-align: top">
+		            <td class="SubHead align-top">
 						<asp:Label ID="lblDigestRealm" runat="server" meta:resourcekey="lblDigestRealm" Text="Digest Realm"></asp:Label>
 					</td>
 		            <td>

@@ -145,8 +145,8 @@
                 <div class="col-sm-10">
                     <asp:CheckBox ID="chkAccountLetter" runat="server" Text="Yes" Checked="False" meta:resourcekey="chkAccountLetter" />
                 </div>
-                <%--<asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" class="alert alert-info">--%>
-                <asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" class="form-label col-sm-10">
+                <%--<asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" CssClass="alert alert-info">--%>
+                <asp:Panel runat="server" ID="pnlDisabledSummaryLetterHint" Visible="false" CssClass="form-label col-sm-10">
                     <label id="lblDisabledSummaryLetterHint" runat="server">
                         <asp:Localize ID="LocDisabledSummaryLetterHint" runat="server" meta:resourcekey="lblDisabledSummaryLetterHint"
                             Text="To enable account summary letter please go to Mail Templates\User Account Summary Letter." />

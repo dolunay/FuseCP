@@ -50,15 +50,15 @@
 	<tr>
 		<td class=Normal colspan=2>
 			<asp:CheckBox id="chkScriptMemberRoles" runat="server" Text="Script ASP.NET MemberRoles" Checked="True" CssClass="NormalBold"></asp:CheckBox>
-			<div style="padding-left: 20px; padding-bottom: 10px">
+			<div class="fcp-ps-20 fcp-pb-10">
 				This option will create the ASP.NET MemberRoles information and remove the objects if they are already present. If you're installing into a shared database with other MemberRole compatible applications please uncheck this option.
 			</div>
 			<asp:CheckBox id="chkScriptCommunity" runat="server" Text="Script Community Server" Checked="True" CssClass="NormalBold"></asp:CheckBox>
-			<div style="padding-left: 20px; padding-bottom: 10px">
+			<div class="fcp-ps-20 fcp-pb-10">
 				Select this option if you are installing for the first time or you wish to recreate the Community Server schema. If you already have a working schema then please uncheck this option to keep your current schema intact.
 			</div>
 			<asp:CheckBox id="chkCreateCommunity" runat="server" Text="Create Community" Checked="True" CssClass="NormalBold"></asp:CheckBox>
-			<div style="padding-left: 20px; padding-bottom: 10px">
+			<div class="fcp-ps-20 fcp-pb-10">
 				Choose this option to have the installer create a new community for you or if you already have an existing community in the database this will allow you to create another community.
 			</div>
 		</td>

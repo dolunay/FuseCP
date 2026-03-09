@@ -22,11 +22,11 @@
         -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
         <asp:Image ID="imgVipUser" SkinID="VipUser16" runat="server" ToolTip="VIP user" Visible="false" />
-        <asp:Label ID="litServiceLevel" runat="server" Style="float: right; padding-right: 8px;" Visible="false"></asp:Label>
+        <asp:Label ID="litServiceLevel" runat="server" CssClass="float-end pe-2" Visible="false"></asp:Label>
     </h3>
 </div>
 <div class="card-body form-horizontal">
-<div class="nav nav-tabs" style="padding-bottom:7px !important">
+<div class="nav nav-tabs pb-2">
         <fcp:UserTabs ID="UserTabsId" runat="server" SelectedTab="edit_user" />
         <fcp:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="edit_user" />
 </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div id="PasswordBlock" runat="server">
                     <fcp:PasswordControl ID="password" runat="server" ValidationGroup="ValidatePassword" AllowGeneratePassword="true"></fcp:PasswordControl>
-					<div class="offset-sm-6 col-sm-4 float-end" style="margin-top: -50px; margin-right: -40px"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
+                    <div class="offset-sm-6 col-sm-4 float-end fcp-org-user-password-action"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
                                 </asp:LinkButton></div>
                 </div>
      
@@ -148,7 +148,7 @@
                     <asp:Panel ID="pnlThumbnailphoto" runat="server" HorizontalAlign="Center">
                             <h3><i class="bi bi-camera"></i> <asp:Localize ID="locThumbnailphoto" runat="server" meta:resourcekey="locThumbnailphoto" Text="Thumbnail photo:"></asp:Localize></h3>
                         <div id="divUpThumbnailphoto" style="display: none">
-                            <asp:FileUpload ID="upThumbnailphoto" ClientIDMode="Static" runat="server" Style="width: 190px;"
+                            <asp:FileUpload ID="upThumbnailphoto" ClientIDMode="Static" runat="server" CssClass="fcp-w-190"
                                 onchange="__doPostBack('<%= btnLoadThumbnailphoto.ClientID %>', '')" />
                             <br />
                             <br />
@@ -168,7 +168,7 @@
                     </asp:Panel>
             </div>
             </div>
-        <div class="row" style="padding:20px">
+        <div class="row fcp-org-user-sections">
             <div class="accordion" id="accordion">
                 <div class="card">
                     <div class="card-header card-header-link">

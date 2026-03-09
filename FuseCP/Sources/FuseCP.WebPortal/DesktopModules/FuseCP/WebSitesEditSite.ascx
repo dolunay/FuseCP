@@ -106,7 +106,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-4" style="padding-top:6px">
+                        <div class="col-md-4 fcp-pt-6">
                             <asp:HyperLink ID="lnkSiteName" runat="server" NavigateUrl="#" CssClass="card-title" Target="_blank">domain.com</asp:HyperLink>
                         </div>
                         <div class="col-md-4 padding-top-sm">
@@ -163,7 +163,7 @@
                         <asp:TemplateField HeaderText="gvPointersName">
                             <ItemStyle Wrap="false"></ItemStyle>
                             <ItemTemplate>
-                                <asp:HyperLink ID="lnkPointer" runat="server" style="padding-top:7px" NavigateUrl='<%# "http://" + (string)Eval("DomainName") %>'
+                                <asp:HyperLink ID="lnkPointer" runat="server" NavigateUrl='<%# "http://" + (string)Eval("DomainName") % CssClass="fcp-pt-7">'
                                     Target="_blank"><%# Eval("DomainName") %></asp:HyperLink>
 
                                 <asp:LinkButton runat="server" ID="cmdDeletePointer" CommandName='delete' CommandArgument='<%# Eval("DomainId") %>' Visible='<%# !(bool)Eval("IsPreviewDomain") %>' CssClass="btn btn-danger float-end" OnClientClick="return confirm('Remove pointer?');">&nbsp;<i class="bi bi-trash">&nbsp;</i></asp:LinkButton>
@@ -347,7 +347,7 @@
                     <fcp:WebSitesHeliconApeControl ID="webSitesHeliconApeControl" runat="server" />
                 </asp:View>
                 <asp:View ID="tabFrontPage" runat="server">
-                    <asp:Panel ID="pnlFrontPage" runat="server" Style="padding: 20;">
+                    <asp:Panel ID="pnlFrontPage" runat="server" CssClass="fcp-p-20">
                         <table id="tblSharePoint" runat="server">
                             <tr>
                                 <td class="NormalBold">
@@ -366,10 +366,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="SubHead" style="margin-bottom:10px">
+                                <td class="SubHead fcp-mb-10">
                                     <asp:Label ID="lblFPAccount" runat="server" meta:resourcekey="lblFPAccount" Text="FrontPage User Account:"></asp:Label>
                                 </td>
-                                <td class="Normal" style="margin-bottom:10px">
+                                <td class="Normal fcp-mb-10">
                                     <fcp:UsernameControl ID="frontPageUsername" runat="server" ValidationGroup="FrontPage" />
                                 </td>
                             </tr>
@@ -431,7 +431,7 @@
                     <uc6:WebSitesCustomHeadersControl ID="webSitesCustomHeadersControl" runat="server" />
                 </asp:View>
                 <asp:View ID="tabWebDeployPublishing" runat="server">
-                    <div style="padding: 20">
+                    <div class="fcp-p-20">
                         <asp:PlaceHolder runat="server" ID="PanelWDeploySitePublishingDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="WDeploySitePublishingDisabled" />
@@ -562,7 +562,7 @@
                     </table>
                 </asp:View>
                 <asp:View ID="tabWebManagement" runat="server">
-                    <div style="padding: 20px">
+                    <div class="fcp-p-20">
                         <asp:PlaceHolder runat="server" ID="pnlWmSvcSiteDisabled" Visible="false">
                             <div class="NormalBold">
                                 <asp:Localize runat="server" meta:resourcekey="lclWmSvcSiteDisabled" />

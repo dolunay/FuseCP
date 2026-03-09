@@ -16,7 +16,7 @@
                 </h3>
                         </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:UserTabs ID="UserTabs" runat="server" SelectedTab="organization_user_setup" />
                     <fcp:MailboxTabs id="MailboxTabs" runat="server" SelectedTab="organization_user_setup" IsADUserTabs="true" />
                     </div>

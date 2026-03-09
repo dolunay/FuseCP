@@ -18,7 +18,7 @@
 	                <td colspan="3">
 			            <table class="w-100">
 				            <tr>
-				            <td class="Normal text-nowrap align-top" style="padding-top:7px">
+				            <td class="Normal text-nowrap align-top fcp-pt-7">
 					                <asp:Label ID="lblSitePath" runat="server" meta:resourcekey="lblSitePath" Text="Path:"></asp:Label>
 					            </td>
 				            <td class="align-top">

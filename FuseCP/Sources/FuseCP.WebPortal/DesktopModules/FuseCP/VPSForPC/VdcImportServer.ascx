@@ -57,7 +57,7 @@
                     <fcp:CollapsiblePanel id="secOsTemplate" runat="server"
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                    <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table>
                             <tr>
                                 <td class="FormLabel150">
@@ -101,7 +101,7 @@
                         <fcp:CollapsiblePanel id="secConfiguration" runat="server"
                             TargetControlID="ConfigurationPanel" meta:resourcekey="secConfiguration" Text="Configuration">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td class="FormLabel150">
@@ -141,7 +141,7 @@
                         <fcp:CollapsiblePanel id="secBios" runat="server"
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
                                     <td >
@@ -159,7 +159,7 @@
                         <fcp:CollapsiblePanel id="secDvd" runat="server"
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table class="table table-borderless align-middle mb-0">
                                 <tr>
                                     <td>
@@ -173,7 +173,7 @@
                         <fcp:CollapsiblePanel id="secAllowedActions" runat="server"
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table class="table table-borderless align-middle mb-0 w-100">
                                 <tr>
                                     <td >
@@ -197,7 +197,7 @@
                         <fcp:CollapsiblePanel id="secExternalNetwork" runat="server"
                             TargetControlID="ExternalNetworkPanel" meta:resourcekey="secExternalNetwork" Text="External Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table>
                                 <tr>
                                     <td class="FormLabel150">
@@ -227,7 +227,7 @@
                         <fcp:CollapsiblePanel id="secManagementNetwork" runat="server"
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                        <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <table>
                                 <tr>
                                     <td class="FormLabel150">

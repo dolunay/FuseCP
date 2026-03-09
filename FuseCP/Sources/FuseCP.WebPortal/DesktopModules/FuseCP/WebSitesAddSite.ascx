@@ -30,7 +30,7 @@
 	</tr>
 	<tr>
         <td class="Normal">
-  			<div class="Small WrapText" style="padding-top: 10px;">
+			<div class="Small WrapText fcp-pt-10">
 			    <asp:Label ID="lblIgnoreGlobalDNSRecords" runat="server" meta:resourcekey="lblIPHelp2" Text="If you need your site..."></asp:Label>
 			</div>
         </td>
@@ -63,7 +63,7 @@
 		<td><asp:dropdownlist id="ddlIpAddresses" Runat="server" CssClass="form-control"></asp:dropdownlist>
 			<asp:RequiredFieldValidator id="valRequireIP" runat="server" meta:resourcekey="valRequireIP" CssClass="NormalBold" ErrorMessage="Please select web site IP address"
 				Display="Dynamic" ControlToValidate="ddlIpAddresses"></asp:RequiredFieldValidator><br/>
-			<div class="Small" style="padding-top: 10px;">
+			<div class="Small fcp-pt-10">
 			    <asp:Label ID="lblIPHelp" runat="server" meta:resourcekey="lblIPHelp" Text="If you need your site..."></asp:Label>
 			</div>
 		</td>

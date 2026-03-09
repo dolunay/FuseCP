@@ -2,7 +2,7 @@
 
 
 <div class="card-body mb-3" runat="server" id="userPwdDiv">
-    <div class="row mb-3">
+    <div class="row g-3 mb-3">
         <div class="col-sm-12">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person" aria-hidden="true"></i></span>
@@ -11,7 +11,7 @@
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="*" Text="" ControlToValidate="txtUsername" Display="None" ValidationGroup="LoginForm"></asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class="row mb-3">
+    <div class="row g-3 mb-3">
         <div class="col-sm-12">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-lock" aria-hidden="true"></i></span>
@@ -20,12 +20,12 @@
             <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="*" Text="" ControlToValidate="txtPassword" Display="None" ValidationGroup="LoginForm"></asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class="row align-items-center">
-        <div class="col-sm-6" style="padding-bottom: 15px">
+    <div class="row g-2 align-items-center mb-2">
+        <div class="col-sm-6 mb-2 mb-sm-0">
             <asp:CheckBox ID="chkRemember" runat="server" meta:resourcekey="chkRemember" Text="Remember me on this computer"></asp:CheckBox>
         </div>
-        <div class="col-sm-6">
-            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-success float-end" OnClick="btnLogin_Click" ValidationGroup="LoginForm" CausesValidation="True">
+        <div class="col-sm-6 text-sm-end">
+            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-success" OnClick="btnLogin_Click" ValidationGroup="LoginForm" CausesValidation="True">
                 <asp:Localize runat="server" meta:resourcekey="btnLogin" />&nbsp;<i class="bi bi-box-arrow-in-right" aria-hidden="true"></i></asp:LinkButton>
         </div>
     </div>
@@ -40,8 +40,8 @@
     </div>
 </div>
 <div class="card-body mb-3" runat="server" id="tokenDiv" visible="false">
-    <div class="row">
-        <div class="col-sm-12"  style="padding-bottom: 15px">
+    <div class="row mb-3">
+        <div class="col-sm-12">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-lock" aria-hidden="true"></i></span>
                 <asp:TextBox ID="txtPin" runat="server" CssClass="form-control"></asp:TextBox>
@@ -51,12 +51,14 @@
     </div>
      <div class="row">
          <div class="col-sm-12">
-            <asp:LinkButton ID="StyleButton2" runat="server" CssClass="btn btn-success float-end" OnClick="btnVerifyPin_Click" ValidationGroup="PinForm" CausesValidation="True">
-                <asp:Localize runat="server" meta:resourcekey="btnLogin" />&nbsp;<i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
-            </asp:LinkButton>
-            <asp:LinkButton runat="server" id="btnResendPin" CssClass="btn btn-success" OnClick="btnResendPin_Click">
-                <asp:Localize runat="server" meta:resourcekey="btResendPin" />
-            </asp:LinkButton>
+            <div class="d-flex justify-content-end flex-wrap gap-2">
+                <asp:LinkButton runat="server" ID="btnResendPin" CssClass="btn btn-success" OnClick="btnResendPin_Click">
+                    <asp:Localize runat="server" meta:resourcekey="btResendPin" />
+                </asp:LinkButton>
+                <asp:LinkButton ID="StyleButton2" runat="server" CssClass="btn btn-success" OnClick="btnVerifyPin_Click" ValidationGroup="PinForm" CausesValidation="True">
+                    <asp:Localize runat="server" meta:resourcekey="btnLogin" />&nbsp;<i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
+                </asp:LinkButton>
+            </div>
         </div>
     </div>
 </div>

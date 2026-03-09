@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ServerVLANsControl.ascx.cs" Inherits="FuseCP.Portal.ServerVLANsControl" %>
 <%@ Register Src="UserControls/UserDetails.ascx" TagName="UserDetails" TagPrefix="uc2" %>
-<div class="FormButtonsBar">
+<div class="FormButtonsBar text-end">
     <asp:Button ID="btnAdd" runat="server" Text="Add" meta:resourcekey="btnAdd" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
 </div>
 <asp:GridView id="gvVLANs" runat="server" EnableViewState="False" AutoGenerateColumns="False"

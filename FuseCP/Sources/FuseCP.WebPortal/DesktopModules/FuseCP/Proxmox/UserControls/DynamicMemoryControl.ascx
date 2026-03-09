@@ -6,14 +6,14 @@
 <% if (Mode != VirtualMachineSettingsMode.Summary){ %>
     <wsp:CollapsiblePanel id="secDymanicMemory" runat="server" TargetControlID="DymanicMemoryPanel" meta:resourcekey="secDymanicMemory" Text="Dymanic memory">
     </wsp:CollapsiblePanel>
-    <asp:Panel ID="DymanicMemoryPanel" runat="server" Height="0" Style="overflow: hidden; padding: 5px;">
+    <asp:Panel ID="DymanicMemoryPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
         <table>
             <% if (Mode == VirtualMachineSettingsMode.Edit) { %>
             <tr>
                 <td colspan="2">
                     <asp:CheckBox ID="chkDynamicMemoryEnabled" runat="server" AutoPostBack="true" meta:resourcekey="chkDynamicMemoryEnabled" Text="Dynamic memory enabled" />
                 
-                    <table class="table table-borderless align-middle mb-0" id="tableDynamicMemory" runat="server" style="margin-top: 15px">
+                    <table class="table table-borderless align-middle mb-0 fcp-mt-15" id="tableDynamicMemory" runat="server">
                         <tr>
                             <td class="FormLabel150" >
                                 <asp:Localize ID="locMinimum" runat="server" meta:resourcekey="locMinimum" Text="Minimum RAM:"></asp:Localize>

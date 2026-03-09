@@ -134,7 +134,7 @@
                                     <fcp:CollapsiblePanel id="secResources" runat="server"
                                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden; padding:10px">
+                                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-10" Style="overflow:hidden;">
                                         <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td ><asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
@@ -177,7 +177,7 @@
                                     <fcp:CollapsiblePanel id="secSnapshots" runat="server"
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td class="FormLabel150"><asp:Localize ID="locSnapshots" runat="server"
@@ -196,7 +196,7 @@
                                     <fcp:CollapsiblePanel id="secDvd" runat="server"
                                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td>
@@ -210,7 +210,7 @@
                                     <fcp:CollapsiblePanel id="secBios" runat="server"
                                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td >
@@ -226,7 +226,7 @@
                                     <fcp:CollapsiblePanel id="secActions" runat="server"
                                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                                     </fcp:CollapsiblePanel>
-                                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden; padding:5px">
+                                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                                         <table class="table table-borderless align-middle mb-0">
                                             <tr>
                                                 <td >
@@ -270,7 +270,7 @@
                                                     meta:resourcekey="chkExternalNetworkEnabled" Text="External network enabled" />
                                     </p>
                                     
-                                     <div runat="server" ID="EmptyExternalAddressesMessage" style="padding: 5px" visible="false">
+                                     <div runat="server" ID="EmptyExternalAddressesMessage" class="fcp-p-5" visible="false">
                                         <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough..."
                                                 meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>
                                      </div>
@@ -284,7 +284,7 @@
                                             </td>
                                         </tr>
                                         <tr id="ExternalAddressesNumberRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:Localize ID="locExternalAddresses" runat="server"
                                                         meta:resourcekey="locExternalAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -305,7 +305,7 @@
                                             </td>
                                         </tr>
                                         <tr id="ExternalAddressesListRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:ListBox ID="listExternalAddresses" runat="server" Rows="8"
                                                     CssClass="form-control" SelectionMode="Multiple" Height="80"></asp:ListBox>
                                                 <br />
@@ -339,7 +339,7 @@
                                             </td>
                                         </tr>
                                         <tr id="PrivateAddressesNumberRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:Localize ID="locPrivateAddresses" runat="server"
                                                         meta:resourcekey="locPrivateAddresses" Text="Number of IP addresses:"></asp:Localize>
 
@@ -360,7 +360,7 @@
                                             </td>
                                         </tr>
                                         <tr id="PrivateAddressesListRow" runat="server">
-                                            <td style="padding-left: 30px">
+                                            <td class="fcp-ps-30">
                                                 <asp:TextBox ID="txtPrivateAddressesList" runat="server" TextMode="MultiLine"
                                                     CssClass="form-control" Rows="5"></asp:TextBox>
                                                 <br />

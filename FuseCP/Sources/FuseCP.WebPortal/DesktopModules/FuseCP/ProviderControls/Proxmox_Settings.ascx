@@ -8,7 +8,7 @@
 		<asp:Localize ID="locProxmoxServer" runat="server" meta:resourcekey="locProxmoxCluster" Text="Proxmox Cluster"></asp:Localize>
 	</legend>
 
-	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 m-2">
 		<tr id="rowServerHost" runat="server">
 			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxClusterServerHost" runat="server" meta:resourcekey="locProxmoxClusterServerHost" Text="Proxmox Cluster Server Host:"></asp:Localize>
@@ -110,7 +110,7 @@
 	<legend>
 		<asp:Localize ID="locProxmoxSSH" runat="server" meta:resourcekey="locDeploySSH" Text="Proxmox VM deploy SSH"></asp:Localize>
 	</legend>
-	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 m-2">
 
 		<asp:PlaceHolder runat="server" ID="pnlSshSettings">
 			<tr>
@@ -219,7 +219,7 @@
 		</tr>
 	</table>
 
-	<p style="margin: 10px">
+	<p class="m-2">
 		<asp:Localize ID="locvmdeploytext" runat="server" meta:resourcekey="locvmdeploytext" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -231,7 +231,7 @@
 		<asp:Localize ID="locTemplates" runat="server" meta:resourcekey="locTemplates" Text="OS Templates"></asp:Localize>
 	</legend>
 
-	<div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
+	<div class="mt-3 mb-4 ms-2">
 		<asp:Button ID="btnAddOsTemplate" runat="server" meta:resourcekey="btnAddOsTemplate"
 			CssClass="btn btn-primary" Text="Add OS Template" CausesValidation="false"
 			OnClick="btnAddOsTemplate_Click" />
@@ -240,7 +240,7 @@
 		<HeaderTemplate>
 		</HeaderTemplate>
 		<ItemTemplate>
-			<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+			<table class="table table-borderless align-middle mb-0 w-100 m-2">
 				<tr>
 					<td class="SubHead FormLabel200">
 						<asp:Localize ID="locTemplateName" runat="server" meta:resourcekey="locTemplateName" Text="Name:"></asp:Localize>
@@ -250,7 +250,7 @@
 						<asp:RequiredFieldValidator ID="TemplateNameValidator" runat="server" ControlToValidate="txtTemplateName"
 							Text="*" meta:resourcekey="TemplateNameValidator" Display="Dynamic" SetFocusOnError="true" />
 					</td>
-					<td rowspan="3" style="padding:8px">
+					<td rowspan="3" class="p-2">
 						<asp:CheckBox ID="chkLegacyNetworkAdapter" runat="server" Checked='<%# Eval("LegacyNetworkAdapter") %>' meta:resourcekey="chkLegacyNetworkAdapter" Text="Use legacy adapter" />
 						<br />
 						<%--<asp:CheckBox ID="chkRemoteDesktop" runat="server" Checked='<%# Eval("RemoteDesktop") %>' meta:resourcekey="chkRemoteDesktop" Text="Remote desktop" /><br/>--%>
@@ -311,7 +311,7 @@
 		</ItemTemplate>
 		<SeparatorTemplate>
 			<br />
-			<%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>--%>
+			<%--<hr class="fcp-legacy-divider"/>--%>
 		</SeparatorTemplate>
 	</asp:Repeater>
 </fieldset>
@@ -322,7 +322,7 @@
 	<legend>
 		<asp:Localize ID="Localize1" runat="server" meta:resourcekey="locProxmoxISOs" Text="DVD Library"></asp:Localize>
 	</legend>
-	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 m-2">
 		<tr>
 			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locProxmoxIsosonStorage" runat="server" meta:resourcekey="locProxmoxIsosonStorage" Text="DVD ISO Images on Storage:"></asp:Localize>
@@ -344,7 +344,7 @@
 	<legend>
 		<asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
 	</legend>
-	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 w-100 m-2">
 		<tr>
 			<td class="SubHead FormLabel200">
 				<asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern" Text="VPS host name pattern:"></asp:Localize>
@@ -356,7 +356,7 @@
 			</td>
 		</tr>
 	</table>
-	<p style="margin: 10px">
+	<p class="m-2">
 		<asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>

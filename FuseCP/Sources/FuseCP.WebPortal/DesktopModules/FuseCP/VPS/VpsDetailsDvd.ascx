@@ -19,7 +19,7 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 			        <fcp:ServerTabs id="tabs" runat="server" SelectedTab="vps_dvd" />
                         
-			            <table style="margin: 50px 0px 50px 50px">
+			            <table class="fcp-m-dvd-table">
 			                <tr>
 			                    <td><asp:Localize ID="locDvdDrive" runat="server" meta:resourcekey="locDvdDrive" Text="DVD Drive:"></asp:Localize></td>
 			                </tr>

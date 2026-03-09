@@ -16,7 +16,7 @@
                     </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:PublicFolderTabs id="tabs" runat="server" SelectedTab="public_folder_addresses" />
                     </div>
                     <div class="card tab-content">
@@ -26,8 +26,8 @@
 					    <legend>
 					       <h3><i class="bi bi-envelope"></i>  <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
-					    <div class="row" style="padding:20px">
-                           <div class="col-sm-2" style="line-height: 2.5">
+					    <div class="row fcp-p-20">
+                           <div class="col-sm-2 fcp-lh-25">
                                <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize></td>
 						   </div>
                            <div class="input-group col-sm-10">
@@ -64,7 +64,7 @@
 						        </asp:TemplateField>
 						        <asp:TemplateField HeaderText="gvPrimaryEmail">
 							        <ItemTemplate>
-							            <div style="text-align:center">
+							            <div class="text-center">
 							                &nbsp;
 								            <asp:Image ID="Image2" runat="server" SkinID="Checkbox16" Visible='<%# Eval("IsPrimary") %>' />
 								        </div>

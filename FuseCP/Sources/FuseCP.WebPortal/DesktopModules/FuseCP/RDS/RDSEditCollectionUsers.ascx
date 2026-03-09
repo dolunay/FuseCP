@@ -31,7 +31,7 @@
                                 TargetControlID="panelRdsUsers" meta:resourcekey="secRdsUsers" Text="">
                             </fcp:CollapsiblePanel>		
                             <asp:Panel runat="server" ID="panelRdsUsers">                                                
-                                <div style="padding: 10px;">
+                                <div class="fcp-p-10">
                                     <fcp:CollectionUsers id="users" runat="server" />
                                 </div>                            
                             </asp:Panel>

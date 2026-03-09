@@ -6,7 +6,7 @@
 			<asp:Label ID="lblServerName" runat="server" meta:resourcekey="lblServerName">Server Name: </asp:Label>
 		</td>
         <td class="Normal">
-            <asp:DropDownList ID="ddlServers" runat="server" CssClass="form-control" Width="150px" style="vertical-align: middle" />
+            <asp:DropDownList ID="ddlServers" runat="server" CssClass="form-control align-middle" Width="150px"  />
         </td>
     </tr>
     <tr>

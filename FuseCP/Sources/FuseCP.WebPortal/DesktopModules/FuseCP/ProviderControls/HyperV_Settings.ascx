@@ -7,7 +7,7 @@
     <legend>
         <asp:Localize ID="locHyperVServer" runat="server" meta:resourcekey="locHyperVServer" Text="Hyper-V Server"></asp:Localize>
     </legend>
-	<table class="table table-borderless align-middle mb-0" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 m-2">
 	    <tr>
 		    <td colspan="2">
 		        <asp:RadioButtonList ID="radioServer" runat="server" AutoPostBack="true" 
@@ -18,7 +18,7 @@
 		    </td>
 	    </tr>
 	    <tr id="ServerNameRow" runat="server">
-		    <td class="SubHead" style="padding-left:30px" colspan="2">
+		    <td class="SubHead fcp-ps-30" colspan="2">
 		        <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server name:"></asp:Localize>
                 <asp:TextBox Width="200px" CssClass="form-control" Runat="server" ID="txtServerName"></asp:TextBox>
                 <asp:LinkButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </asp:LinkButton>
@@ -40,7 +40,7 @@
     <legend>
         <asp:Localize ID="locGeneralSettings" runat="server" meta:resourcekey="locGeneralSettings" Text="General Settings"></asp:Localize>
     </legend>
-	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locVpsRootFolder" runat="server" meta:resourcekey="locVpsRootFolder" Text="VPS root folder:"></asp:Localize>
@@ -87,7 +87,7 @@
     <legend>
         <asp:Localize ID="locProcessorSettings" runat="server" meta:resourcekey="locProcessorSettings" Text="Processor Resource Settings"></asp:Localize>
     </legend>
-	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locCpuReserve" runat="server" meta:resourcekey="locCpuReserve" Text="Virtual machine reserve:"></asp:Localize>
@@ -128,7 +128,7 @@
     <legend>
         <asp:Localize ID="locMediaLibrary" runat="server" meta:resourcekey="locMediaLibrary" Text="DVD Media Library"></asp:Localize>
     </legend>
-	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locDvdIsoPath" runat="server" meta:resourcekey="locDvdIsoPath" Text="Path to DVD ISO files:"></asp:Localize>
@@ -147,7 +147,7 @@
     <legend>
         <asp:Localize ID="locVhd" runat="server" meta:resourcekey="locVhd" Text="Virtual Hard Drive"></asp:Localize>
     </legend>
-	<table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+	<table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead align-top" >
 		        <asp:Localize ID="locDiskType" runat="server" meta:resourcekey="locDiskType" Text="Disk Type:"></asp:Localize>
@@ -167,7 +167,7 @@
     <legend>
         <asp:Localize ID="locExternalNetwork" runat="server" meta:resourcekey="locExternalNetwork" Text="External Network"></asp:Localize>
     </legend>
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locExternalNetworkName" runat="server" meta:resourcekey="locExternalNetworkName" Text="Connect to Network:"></asp:Localize>
@@ -209,7 +209,7 @@
     <legend>
         <asp:Localize ID="locManagementNetwork" runat="server" meta:resourcekey="locManagementNetwork" Text="Management Network"></asp:Localize>
     </legend>
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td >
 		        <asp:Localize ID="locManagementNetworkName" runat="server" meta:resourcekey="locManagementNetworkName" Text="Connect to Network:"></asp:Localize>
@@ -263,7 +263,7 @@
     <legend>
         <asp:Localize ID="locPrivateNetwork" runat="server" meta:resourcekey="locPrivateNetwork" Text="Private Network"></asp:Localize>
     </legend>
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locIPFormat" runat="server" meta:resourcekey="locIPFormat" Text="IP addresses format:"></asp:Localize>
@@ -324,7 +324,7 @@
     <legend>
         <asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
     </legend>
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
 	    <tr>
 		    <td class="SubHead" >
 		        <asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern" Text="VPS host name pattern:"></asp:Localize>
@@ -336,7 +336,7 @@
             </td>
 	    </tr>
 	</table>
-	<p style="margin: 10px">
+	<p class="m-2">
 	    <asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -347,7 +347,7 @@
         <asp:Localize ID="locStartAction" runat="server" meta:resourcekey="locStartAction" Text="Automatic Start Action"></asp:Localize>
     </legend>
     
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
         <tr>
             <td>
                 <asp:Localize ID="locStartOptionsText" runat="server" meta:resourcekey="locStartOptionsText" Text="What do you want VPS to do when the physical computer starts?"></asp:Localize>
@@ -385,7 +385,7 @@
         <asp:Localize ID="locStopAction" runat="server" meta:resourcekey="locStopAction" Text="Automatic Stop Action"></asp:Localize>
     </legend>
     
-    <table class="table table-borderless align-middle mb-0 w-100" style="margin: 10px">
+    <table class="table table-borderless align-middle mb-0 w-100 m-2">
         <tr>
             <td>
                 <asp:Localize ID="locStopActionText" runat="server" meta:resourcekey="locStopActionText" Text="What do you want VPS to do when the physical shuts down?"></asp:Localize>

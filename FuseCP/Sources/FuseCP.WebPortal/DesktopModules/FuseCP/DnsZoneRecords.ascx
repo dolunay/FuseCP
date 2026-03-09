@@ -5,7 +5,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 <asp:Panel ID="pnlRecords" runat="server">
 	<div class="card-body form-horizontal">
-		<div class="Huge" style="padding: 10px; border: solid 1px #e5e5e5; background-color: #f5f5f5">
+        <div class="Huge fcp-p-10" style="border: solid 1px #e5e5e5; background-color: #f5f5f5">
 			<asp:Literal ID="litDomainName" runat="server"></asp:Literal>
 		</div>
 	</div>

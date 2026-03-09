@@ -23,7 +23,7 @@
                     <wsp:CollapsiblePanel id="secSoftware" runat="server"
                         TargetControlID="SoftwarePanel" meta:resourcekey="secSoftware" Text="Software">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="SoftwarePanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locOperatingSystem" runat="server"
@@ -42,7 +42,7 @@
                     <wsp:CollapsiblePanel id="secResources" runat="server"
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" style="overflow:hidden;padding:10px">
+                    <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-10" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td class="Medium"><asp:Localize ID="lblCpu" runat="server"
@@ -77,7 +77,7 @@
                     <wsp:CollapsiblePanel id="secSnapshots" runat="server"
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><asp:Localize ID="locSnapshots" runat="server"
@@ -92,7 +92,7 @@
                     <wsp:CollapsiblePanel id="secDvd" runat="server"
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="DvdPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td>
@@ -106,7 +106,7 @@
                     <wsp:CollapsiblePanel id="secBios" runat="server"
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="BiosPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td >
@@ -120,7 +120,7 @@
                     <wsp:CollapsiblePanel id="secActions" runat="server"
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0" >
                             <tr>
                                 <td >
@@ -157,7 +157,7 @@
                     <wsp:CollapsiblePanel id="secNetwork" runat="server"
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </wsp:CollapsiblePanel>
-                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" style="overflow:hidden;padding:5px">
+                    <asp:Panel ID="NetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
                                 <td><wsp:CheckBoxOption id="optionExternalNetwork" runat="server"
@@ -172,7 +172,7 @@
                         </table>
                     </asp:Panel>
                     
-                    <p style="padding: 5px">
+                    <p class="fcp-p-5">
                         <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-primary"
 			                 meta:resourcekey="btnEdit" Text="Edit configuration" CausesValidation="false" 
                             onclick="btnEdit_Click" />
@@ -198,7 +198,7 @@
 		<div class="Popup-Body">
 			<br />
 			
-			<table class="table table-borderless align-middle mb-0" style="margin-left:20px">
+			<table class="table table-borderless align-middle mb-0 fcp-ms-20" >
 			    <tr>
 			        <td>
 			            <asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"

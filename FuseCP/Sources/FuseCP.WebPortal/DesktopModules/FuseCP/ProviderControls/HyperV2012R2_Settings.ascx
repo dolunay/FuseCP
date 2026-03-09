@@ -8,7 +8,7 @@
     <legend>
         <asp:Localize ID="locHyperVServer" runat="server" meta:resourcekey="locHyperVServer" Text="Hyper-V Server"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td colspan="2">
 		        <asp:RadioButtonList ID="radioServer" runat="server" AutoPostBack="true" 
@@ -19,10 +19,10 @@
 		    </td>
 	    </tr>
 	    <tr id="ServerNameRow" runat="server">
-		    <td class="SubHead" style="padding-left:30px" colspan="2">
+		    <td class="SubHead fcp-ps-30" colspan="2">
 		        <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server name:"></asp:Localize>
                 <asp:TextBox CssClass="form-control" Runat="server" ID="txtServerName"></asp:TextBox>
-                <p style="margin: 10px">
+                <p class="m-2">
 	                <asp:Localize ID="locRemoteServerHelp" runat="server" meta:resourcekey="locRemoteServerHelp" Text="Help text goes here..."></asp:Localize>
 	            </p>
                 <asp:LinkButton id="btnConnect" CssClass="btn btn-success" runat="server" OnClick="btnConnect_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnConnectText"/> </asp:LinkButton>
@@ -52,7 +52,7 @@
     <legend>
         <asp:Localize ID="locMaintenanceMode" runat="server" meta:resourcekey="locMaintenanceMode" Text="Maintenance Mode:"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 			<td class="SubHead FormLabel200 align-top">
 				<asp:Localize ID="locStatusMaintenanceMode" runat="server" meta:resourcekey="locStatusMaintenanceMode" Text="Maintenance mode status:"></asp:Localize>
@@ -65,7 +65,7 @@
 			</td>
 		</tr>
 	</table>
-	<p style="margin: 10px">
+	<p class="m-2">
 	    <asp:Localize ID="locMaintenanceModeText" runat="server" meta:resourcekey="locMaintenanceModeText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -75,7 +75,7 @@
     <legend>
         <asp:Localize ID="locGuacamole" runat="server" meta:resourcekey="locGuacamole" Text="Guacamole"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 
 	    <tr>
 		    <td class="SubHead FormLabel200">
@@ -155,7 +155,7 @@
     <legend>
         <asp:Localize ID="locGeneralSettings" runat="server" meta:resourcekey="locGeneralSettings" Text="General Settings"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locVpsRootFolder" runat="server" meta:resourcekey="locVpsRootFolder" Text="VPS root folder:"></asp:Localize>
@@ -193,7 +193,7 @@
     <legend>
         <asp:Localize ID="locProcessorSettings" runat="server" meta:resourcekey="locProcessorSettings" Text="Processor Resource Settings"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locCpuReserve" runat="server" meta:resourcekey="locCpuReserve" Text="Virtual machine reserve:"></asp:Localize>
@@ -234,7 +234,7 @@
     <legend>
         <asp:Localize ID="locRamSettings" runat="server" meta:resourcekey="locRamSettings" Text="Memory Resource Settings"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locRamReserve" runat="server" meta:resourcekey="locRamReserve" Text="Node RAM reserve:"></asp:Localize>
@@ -254,7 +254,7 @@
     <legend>
         <asp:Localize ID="locConfigVersion" runat="server" meta:resourcekey="locConfigVersion" Text="Virtual Machines Configuration Version"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr><td class="SubHead FormLabel200">
                         <asp:Localize ID="locHyperVConfig" runat="server" meta:resourcekey="locHyperVConfig" Text="HyperV Config Version:"></asp:Localize>
                     </td>
@@ -265,7 +265,7 @@
                     </td>
                 </tr>
 	</table>
-	<p style="margin: 10px">
+	<p class="m-2">
 	    <asp:Localize ID="locConfigVersionText" runat="server" meta:resourcekey="locConfigVersionText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -274,7 +274,7 @@
     <legend>
         <asp:Localize ID="locTemplates" runat="server" meta:resourcekey="locTemplates" Text="OS Templates"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
           <tr>
 		    <td class="SubHead">
 		        <asp:Localize ID="locOSTemplatesPath" runat="server" meta:resourcekey="locOSTemplatesPath" Text="OS Templates path:"></asp:Localize>
@@ -286,14 +286,14 @@
             </td>
 	    </tr>        
     </table>
-    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
+    <div class="mt-3 mb-4 ms-2">
         <asp:LinkButton id="btnAddOsTemplate" CssClass="btn btn-success" runat="server" OnClick="btnAddOsTemplate_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddOsTemplateText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repOsTemplates" runat="server">
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
-            <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+            <table class="fcp-legacy-spacing-table">
                 <tr>
                     <td class="SubHead FormLabel200">
                         <asp:Localize ID="locTemplateName" runat="server" meta:resourcekey="locTemplateName" Text="Name:"></asp:Localize>
@@ -380,8 +380,8 @@
                         <fcp:CollapsiblePanel id="clpAdvancedTemplateSettings" runat="server" IsCollapsed="true"
 	                        TargetControlID="pAdvancedTemplateSettings" meta:resourcekey="clpAdvancedTemplateSettings" Text="Advanced template settings">
                         </fcp:CollapsiblePanel>
-                        <asp:Panel ID="pAdvancedTemplateSettings" runat="server" Height="0" style="overflow:hidden; padding:5px">
-                            <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+                        <asp:Panel ID="pAdvancedTemplateSettings" runat="server" Height="0" CssClass="fcp-p-5" style="overflow:hidden;">
+                            <table class="fcp-legacy-spacing-table">
                                 <tr>
 	                                <td class="SubHead">
 		                                <asp:Localize ID="locVhdBlockSizeBytes" runat="server" meta:resourcekey="locVhdBlockSizeBytes" Text="VHD Block Size (Bytes):"></asp:Localize>
@@ -431,7 +431,7 @@
         </ItemTemplate>
         <SeparatorTemplate>
             <br/>
-            <%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>--%>
+            <%--<hr class="fcp-legacy-divider"/>--%>
         </SeparatorTemplate>
     </asp:Repeater>
 </fieldset>
@@ -441,7 +441,7 @@
     <legend>
         <asp:Localize ID="locDvdLibrary" runat="server" meta:resourcekey="locDvdLibrary" Text="DVD Library"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
         <tr>
             <td class="SubHead FormLabel200">
                 <asp:Localize ID="locDvdIsoPath" runat="server" meta:resourcekey="locDvdIsoPath" Text="Path to DVD ISO files:"></asp:Localize>
@@ -453,14 +453,14 @@
             </td>
         </tr>
     </table>
-    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
+    <div class="mt-3 mb-4 ms-2">
         <asp:LinkButton id="btnAddDvd" CssClass="btn btn-success" runat="server" OnClick="btnAddDvd_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddDvdText"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repDvdLibrary" runat="server">
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
-            <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+            <table class="fcp-legacy-spacing-table">
                 <tr>
                     <td class="SubHead FormLabel200">
                         <asp:Localize ID="locDvdName" runat="server" meta:resourcekey="locDvdName" Text="Name:"></asp:Localize>
@@ -498,7 +498,7 @@
         </ItemTemplate>
         <SeparatorTemplate>
             <br/>
-            <%--<hr style="margin-bottom: 20px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>--%>
+            <%--<hr class="fcp-legacy-divider"/>--%>
         </SeparatorTemplate>
     </asp:Repeater>
 </fieldset>
@@ -508,7 +508,7 @@
     <legend>
         <asp:Localize ID="locPsScript" runat="server" meta:resourcekey="locPsScript" Text="Custom PowerShell Scripts"></asp:Localize>
     </legend>
-    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
+    <div class="mt-3 mb-4 ms-2">
         <table class="table table-borderless align-middle mb-0">
             <tr>
                 <td >
@@ -522,14 +522,14 @@
             </tr>
         </table>
     </div>
-    <div style="margin-top: 15px; margin-bottom: 25px; margin-left: 10px">
+    <div class="mt-3 mb-4 ms-2">
         <asp:LinkButton id="btnAddPsScript" CssClass="btn btn-success" runat="server" OnClick="btnAddPsScript_Click" CausesValidation="false"> <i class="bi bi-check-lg">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnAddPsScript"/> </asp:LinkButton>
     </div>
     <asp:Repeater ID="repPsScript" runat="server">
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
-            <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+            <table class="fcp-legacy-spacing-table">
                 <tr>
                     <td class="SubHead FormLabel200">
                         <asp:Localize ID="locRunAt" runat="server" meta:resourcekey="locRunAt" Text="Execute at:"></asp:Localize>
@@ -572,10 +572,10 @@
     <legend>
         <asp:Localize ID="locReplication" runat="server" meta:resourcekey="locReplication" Text="Replication"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
         <tr>
             <td>
-                <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+                <table class="fcp-legacy-spacing-table">
                 <tr>
                     <td colspan="2">
                         <asp:RadioButtonList ID="ReplicationModeList" runat="server" AutoPostBack="true"
@@ -587,8 +587,8 @@
                     </td>
                 </tr>
                 <tr id="EnableReplicaRow" runat="server">
-                    <td class="SubHead" style="padding-left: 20px" colspan="2">
-                        <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+                    <td class="SubHead fcp-ps-20" colspan="2">
+                        <table class="fcp-legacy-spacing-table">
                             <tr>
                                 <td >
                                     <asp:Localize ID="locReplicaServer" runat="server" meta:resourcekey="locReplicaServer" Text="Replication Server:"></asp:Localize>
@@ -609,8 +609,8 @@
                     </td>
                 </tr>
                 <tr id="IsReplicaServerRow" runat="server">
-                <td class="SubHead" style="padding-left: 20px" colspan="2">
-                    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+                <td class="SubHead fcp-ps-20" colspan="2">
+                    <table class="fcp-legacy-spacing-table">
                         <tr>
                             <td >
                                 <asp:Localize ID="locReplicaPath" runat="server" meta:resourcekey="locReplicaPath" Text="Path to Replications:"></asp:Localize>
@@ -661,7 +661,7 @@
     <legend>
         <asp:Localize ID="locVhd" runat="server" meta:resourcekey="locVhd" Text="Virtual Hard Drive"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200 align-top">
 		        <asp:Localize ID="locDiskType" runat="server" meta:resourcekey="locDiskType" Text="Disk Type:"></asp:Localize>
@@ -681,7 +681,7 @@
     <legend>
         <asp:Localize ID="locExternalNetwork" runat="server" meta:resourcekey="locExternalNetwork" Text="External Network"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
         <tr>
             <td class="SubHead FormLabel200 align-top">
 		        <asp:Localize ID="locSwitchType" runat="server" meta:resourcekey="locSwitchType" Text="Switch Type:"></asp:Localize>
@@ -738,7 +738,7 @@
     <legend>
         <asp:Localize ID="locManagementNetwork" runat="server" meta:resourcekey="locManagementNetwork" Text="Management Network"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td >
 		        <asp:Localize ID="locManagementNetworkName" runat="server" meta:resourcekey="locManagementNetworkName" Text="Connect to Network:"></asp:Localize>
@@ -792,7 +792,7 @@
     <legend>
         <asp:Localize ID="locPrivateNetwork" runat="server" meta:resourcekey="locPrivateNetwork" Text="Private Network"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locIPFormat" runat="server" meta:resourcekey="locIPFormat" Text="IP addresses format:"></asp:Localize>
@@ -882,7 +882,7 @@
     <legend>
         <asp:Localize ID="locDmzNetwork" runat="server" meta:resourcekey="locDmzNetwork" Text="DMZ Network"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locIPFormatDmz" runat="server" meta:resourcekey="locIPFormat" Text="IP addresses format:"></asp:Localize>
@@ -969,7 +969,7 @@
     <legend>
         <asp:Localize ID="locHostname" runat="server" meta:resourcekey="locHostname" Text="Host name"></asp:Localize>
     </legend>
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
 	    <tr>
 		    <td class="SubHead FormLabel200">
 		        <asp:Localize ID="locHostnamePattern" runat="server" meta:resourcekey="locHostnamePattern" Text="VPS host name pattern:"></asp:Localize>
@@ -981,7 +981,7 @@
             </td>
 	    </tr>
 	</table>
-	<p style="margin: 10px">
+	<p class="m-2">
 	    <asp:Localize ID="locPatternText" runat="server" meta:resourcekey="locPatternText" Text="Help text goes here..."></asp:Localize>
 	</p>
 </fieldset>
@@ -992,7 +992,7 @@
         <asp:Localize ID="locStartAction" runat="server" meta:resourcekey="locStartAction" Text="Automatic Start Action"></asp:Localize>
     </legend>
     
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
         <tr>
             <td>
                 <asp:Localize ID="locStartOptionsText" runat="server" meta:resourcekey="locStartOptionsText" Text="What do you want VPS to do when the physical computer starts?"></asp:Localize>
@@ -1030,7 +1030,7 @@
         <asp:Localize ID="locStopAction" runat="server" meta:resourcekey="locStopAction" Text="Automatic Stop Action"></asp:Localize>
     </legend>
     
-    <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+    <table class="fcp-legacy-spacing-table">
         <tr>
             <td>
                 <asp:Localize ID="locStopActionText" runat="server" meta:resourcekey="locStopActionText" Text="What do you want VPS to do when the physical shuts down?"></asp:Localize>
@@ -1056,7 +1056,7 @@
     
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true">
         <ContentTemplate>
-            <table style="border-collapse: separate; border-spacing: 5px 3px; margin: 10px">
+            <table class="fcp-legacy-spacing-table">
                 <tr>
                     <td colspan="3">
                         <asp:CheckBox ID="chkUseFailoverCluster" runat="server" meta:resourcekey="chkUseFailoverCluster" OnCheckedChanged="chkUseFailoverCluster_CheckedChanged" Text="Use Failover Cluster" AutoPostBack="true" />

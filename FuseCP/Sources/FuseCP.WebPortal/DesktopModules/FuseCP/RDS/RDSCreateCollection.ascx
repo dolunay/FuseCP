@@ -27,7 +27,7 @@
 
                     <fieldset id="RDSServersPanel" runat="server">
                         <legend><asp:Localize ID="locRDSServersSection" runat="server" meta:resourcekey="locRDSServersSection" Text="RDS Servers"></asp:Localize></legend>
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <fcp:CollectionServers id="servers" runat="server" />
                         </div>  
                     </fieldset>

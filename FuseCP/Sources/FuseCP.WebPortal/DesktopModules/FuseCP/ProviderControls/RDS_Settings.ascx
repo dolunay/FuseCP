@@ -3,14 +3,14 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secCertificateSettings" runat="server" meta:resourcekey="secServiceSettings" Text="SSL Certificate" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secCertificateSettings" runat="server" meta:resourcekey="secServiceSettings" Text="SSL Certificate" CssClass="NormalBold"></asp:Label>
     </legend>    
     <table class="table table-borderless align-middle mb-0">  
         <tr>
             <td class="SubHead text-nowrap" >
                 <asp:Localize runat="server" meta:resourcekey="lblSelectFile" />
             </td>
-            <td style="padding: 10px 0 10px 0"><asp:FileUpload ID="upPFX" runat="server"/></td>            
+            <td class="fcp-py-10"><asp:FileUpload ID="upPFX" runat="server"/></td>            
         </tr>        
         <tr><td></td></tr>
         <tr>
@@ -26,7 +26,7 @@
 <br />
 <fieldset>   
     <legend>
-        <asp:Label ID="currentCertificate" runat="server" meta:resourcekey="currentCertificate" Text="Current Certificate" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="currentCertificate" runat="server" meta:resourcekey="currentCertificate" Text="Current Certificate" CssClass="NormalBold"></asp:Label>
     </legend>
             <asp:Panel ID="plCertificateInfo" Visible="false" runat="server">
             <table class="table table-borderless align-middle mb-0">
@@ -60,7 +60,7 @@
 <br />
 <fieldset>
     <legend>
-        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 <table class="table table-borderless align-middle mb-0">
     <tr>

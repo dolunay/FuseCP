@@ -8,7 +8,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secServiceSettings" runat="server" meta:resourcekey="secServiceSettings" Text="Service Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secServiceSettings" runat="server" meta:resourcekey="secServiceSettings" Text="Service Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -47,7 +47,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secAspNet" runat="server" meta:resourcekey="secAspNet" Text="ASP.NET" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secAspNet" runat="server" meta:resourcekey="secAspNet" Text="ASP.NET" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -90,7 +90,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secPools" runat="server" meta:resourcekey="secPools" Text="Pools" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secPools" runat="server" meta:resourcekey="secPools" Text="Pools" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -127,7 +127,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secWebExtensions" runat="server" meta:resourcekey="secWebExtensions" Text="Pools" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secWebExtensions" runat="server" meta:resourcekey="secWebExtensions" Text="Pools" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -166,7 +166,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secColdFusion" runat="server" meta:resourcekey="secColdFusion" Text="ColdFusion" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secColdFusion" runat="server" meta:resourcekey="secColdFusion" Text="ColdFusion" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -198,7 +198,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secIISpassword" runat="server" meta:resourcekey="secIISpassword" Text="IISPassword" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secIISpassword" runat="server" meta:resourcekey="secIISpassword" Text="IISPassword" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
     <table class="table table-borderless align-middle mb-0 w-100" >
@@ -244,7 +244,7 @@
 
 <fieldset>
     <legend>
-        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>&nbsp;
+        <asp:Label ID="secOther" runat="server" meta:resourcekey="secOther" Text="Other Settings" CssClass="NormalBold"></asp:Label>
     </legend>
 <br />
 <table class="table table-borderless align-middle mb-0 w-100" >

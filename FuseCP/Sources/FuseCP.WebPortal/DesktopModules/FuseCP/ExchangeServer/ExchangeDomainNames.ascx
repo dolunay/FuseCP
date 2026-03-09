@@ -29,21 +29,21 @@
 						    </asp:TemplateField>
                             <asp:TemplateField HeaderText="gvDomainsType">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <asp:Label ID="Label1" Text='<%# Eval("DomainType") %>' runat="server"/>
 								    </div>
 							    </ItemTemplate>
 						    </asp:TemplateField>
                              <asp:TemplateField HeaderText="gvDomainsTypeChange">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <asp:Button ID="btnChangeDomain" text="Change" meta:resourcekey="btnChangeDomain" CssClass="btn btn-secondary btn-sm" runat="server" CommandName="Change" CommandArgument='<%# Eval("DomainId") + "|" + Eval("DomainType") %>'/>
 								    </div>
 							    </ItemTemplate>
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvDomainsDefault">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <input type="radio" name="DefaultDomain" value='<%# Eval("DomainId") %>' <%# IsChecked((bool)Eval("IsDefault")) %> />
 								    </div>
 							    </ItemTemplate>

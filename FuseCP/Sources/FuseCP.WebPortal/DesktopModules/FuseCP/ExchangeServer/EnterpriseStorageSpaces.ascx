@@ -40,21 +40,21 @@
 							</asp:TemplateField>
 							<asp:TemplateField HeaderText="gvQuota">
 								<ItemTemplate>
-									<div style="text-align: center">
+									<div class="text-center">
 										<asp:Label ID="Label1" Text='<%# Eval("Quota").ToString() %>' runat="server" />
 									</div>
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField HeaderText="gvPublish">
 								<ItemTemplate>
-									<div style="text-align: center">
+									<div class="text-center">
 										<asp:Button ID="btnPublish" Text='<%# IsPublished((bool)Eval("IsPublished")) %>' meta:resourcekey="btnPublish" runat="server" CommandName="Publish" CommandArgument='<%# Eval("Name") + "|" + Eval("IsPublished").ToString() %>' />
 									</div>
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField HeaderText="gvManage">
 								<ItemTemplate>
-									<div style="text-align: center">
+									<div class="text-center">
 										<%-- TODO: There is no method GetManageImage <asp:Image ID="Image5" runat="server" Width="16px" Height="16px" ToolTip="CRM" ImageUrl='<%# GetManageImage((Guid)Eval("SpaceName")) %>'  /> --%>
 									</div>
 								</ItemTemplate>

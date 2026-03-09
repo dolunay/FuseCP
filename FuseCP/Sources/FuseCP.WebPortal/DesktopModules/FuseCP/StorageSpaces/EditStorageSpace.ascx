@@ -23,7 +23,7 @@
             <asp:Panel runat="server" ID="panelStorageSpaceGeneralSettings">
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <table>
                                 <tr>
                                     <td class="Label" >

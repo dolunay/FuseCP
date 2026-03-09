@@ -8,8 +8,8 @@
 
         <asp:UpdateProgress ID="loadProgress" runat="server" AssociatedUpdatePanelID="upUsage" DisplayAfter="0">
             <ProgressTemplate>
-                <div class="ProgressPanelArea" style="text-align: center; margin-top: 10px;">
-                    <div class="MediumBold" style="white-space:nowrap; display: inline-flex; align-items: center; justify-content: center;">
+                <div class="ProgressPanelArea text-center fcp-mt-10">
+                    <div class="MediumBold text-nowrap d-inline-flex align-items-center justify-content-center">
                         <img src='<%= PortalUtils.GetThemedImage("indicator_medium.gif") %>' alt="Loading..." style="vertical-align: middle;" />&nbsp;
                         <span>Loading data...</span> 
                     </div>

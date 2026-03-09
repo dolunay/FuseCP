@@ -27,7 +27,7 @@
         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center exchange-search-inline">
             <div class="mb-0">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddlPageSize" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged" CssClass="form-control">
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem Selected="True">20</asp:ListItem>
                         <asp:ListItem>50</asp:ListItem>
@@ -37,7 +37,7 @@
             </div>
             <div class="mb-0">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddlSearchColumn" runat="server" class="form-control">
+                    <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
                         <asp:ListItem Value="PrimaryEmailAddress" meta:resourcekey="ddlSearchColumnEmail">Email</asp:ListItem>
                         <asp:ListItem Value="AccountName" meta:resourcekey="ddlSearchColumnAccountName">AccountName</asp:ListItem>

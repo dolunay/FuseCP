@@ -15,7 +15,7 @@
                         </h3>
                 </div>
 				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs" style="padding-bottom:7px !important">
+                    <div class="nav nav-tabs pb-2">
                     <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_addresses" />
                     </div>
                     <div class="card tab-content">
@@ -26,8 +26,8 @@
 					        <h3><i class="bi bi-envelope"></i> <asp:Label ID="lblAddEmail" runat="server" Text="Add New E-mail Address" meta:resourcekey="lblAddEmail" CssClass="NormalBold"></asp:Label></h3>
 					    </legend>
                         <br /><br />
-					   <div class="row" style="padding:20px">
-                           <div class="col-sm-2" style="line-height: 2.5">
+					   <div class="row fcp-p-20">
+                           <div class="col-sm-2 fcp-lh-25">
                                <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                            </div>
                            <div class="input-group col-sm-10">
@@ -83,7 +83,7 @@
 				        <asp:LinkButton id="btnDeleteAddresses" CssClass="btn btn-danger" runat="server" OnClick="btnDeleteAddresses_Click" CausesValidation="false"> <i class="bi bi-trash">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnDeleteAddresses"/> </asp:LinkButton>
 					</asp:Panel>					
 					<br />
-					<table style="margin-top:10px">
+					<table class="fcp-mt-10">
 					    <tr>
 					        <td class="text-center">
 					            <asp:CheckBox ID="chkPmmAllowed" Visible="false" runat="server" meta:resourcekey="chkPmmAllowed" AutoPostBack="true"

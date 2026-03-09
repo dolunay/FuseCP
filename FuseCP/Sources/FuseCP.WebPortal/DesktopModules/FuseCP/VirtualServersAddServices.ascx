@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="card border-info server-panel matchHeight">
                     <div class="card-header">
-                        <h3 class="card-title m-0 d-flex align-items-center gap-2" style="white-space:nowrap; overflow:hidden" title="<%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %>">
+                        <h3 class="card-title m-0 d-flex align-items-center gap-2 text-nowrap overflow-hidden" title="<%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %>">
                             <i class="bi bi-server" aria-hidden="true"></i>
                             <span><%# (((string)Eval("ServerName")) ?? string.Empty).Trim() %></span>
                         </h3>

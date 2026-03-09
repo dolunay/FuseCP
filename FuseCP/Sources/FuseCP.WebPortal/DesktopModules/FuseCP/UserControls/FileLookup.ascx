@@ -3,9 +3,9 @@
 <asp:RequiredFieldValidator ID="valRequireFile" runat="server" meta:resourcekey="valRequireFile" ControlToValidate="txtFile"
     ErrorMessage="*"></asp:RequiredFieldValidator>
 <br />
-<asp:Panel ID="pnlLookup" runat="server" class="Toolbox" style="display: none">
-<div style="height: 175px; overflow: auto; white-space: nowrap; background-color: #ffffff; padding:3px; border:solid 1px #909090">
-    <div style="float:right">
+<asp:Panel ID="pnlLookup" runat="server" style="display: none" CssClass="Toolbox">
+<div class="fcp-log-scroll-alt">
+    <div class="float-end">
 	    <asp:UpdateProgress ID="treeProgress" runat="server"
 	        AssociatedUpdatePanelID="TreeUpdatePanel" DynamicLayout="true">
 	        <ProgressTemplate>

@@ -29,26 +29,26 @@
                         ValidationGroup="Vps" ShowMessageBox="True" ShowSummary="False" />
 
                     <%--<fcp:CollapsiblePanel ID="secReplicationDetails" runat="server" Visible="False"
-                        TargetControlID="ReplicationDetailsPanel" meta:ResourceKey="secReplicationDetails" Text="Health"></fcp:CollapsiblePanel> Height="0" Style="overflow: hidden; padding: 10px; width: 750px;"--%>
-                    <asp:Panel ID="ReplicationDetailsPanel" runat="server" Visible="False" Style="padding: 10px;">
+                        TargetControlID="ReplicationDetailsPanel" meta:ResourceKey="secReplicationDetails" Text="Health"></fcp:CollapsiblePanel> Height="0" Style="overflow:hidden;" CssClass="fcp-p-10 fcp-w-750"--%>
+                    <asp:Panel ID="ReplicationDetailsPanel" runat="server" Visible="False" CssClass="fcp-p-10">
                         <asp:Localize ID="locHealth" runat="server" meta:resourcekey="locHealth" Text="Health:"></asp:Localize>
                         <asp:Label ID="labHealth" runat="server"></asp:Label>
-                        <asp:Button ID="btnDetailInfo" runat="server" CausesValidation="false" CssClass="ActionButtonRename"
-                            meta:resourcekey="btnDetailInfo" Text="Details" Style="margin-left: 20px"></asp:Button>
-                        <asp:Button ID="btnPause" runat="server" CausesValidation="false" CssClass="ActionButtonRename"
-                            meta:resourcekey="btnPause" Text="Pause" OnClick="btnPause_Click" Style="margin-left: 20px"></asp:Button>
-                        <asp:Button ID="btnResume" runat="server" CausesValidation="false" CssClass="ActionButtonRename"
-                            meta:resourcekey="btnResume" Text="Resume" OnClick="btnResume_Click" Style="margin-left: 20px"></asp:Button>
+                        <asp:Button ID="btnDetailInfo" runat="server" CausesValidation="false" CssClass="ActionButtonRename fcp-ms-20"
+                            meta:resourcekey="btnDetailInfo" Text="Details" ></asp:Button>
+                        <asp:Button ID="btnPause" runat="server" CausesValidation="false" CssClass="ActionButtonRename fcp-ms-20"
+                            meta:resourcekey="btnPause" Text="Pause" OnClick="btnPause_Click" ></asp:Button>
+                        <asp:Button ID="btnResume" runat="server" CausesValidation="false" CssClass="ActionButtonRename fcp-ms-20"
+                            meta:resourcekey="btnResume" Text="Resume" OnClick="btnResume_Click" ></asp:Button>
                     </asp:Panel>
 
                     <fcp:CollapsiblePanel ID="secReplication" runat="server" Visible="True"
                         TargetControlID="ReplicationPanel" meta:ResourceKey="secReplication" Text="Replication Configuration">
                     </fcp:CollapsiblePanel>
-                    <asp:Panel ID="ReplicationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 10px; width: 750px;">
+                    <asp:Panel ID="ReplicationPanel" runat="server" Height="0" CssClass="fcp-p-10 fcp-w-750" Style="overflow:hidden;">
                         <div class="FormButtonsBarClean" onclick="ShowProgressDialog('Prepare UI...');">
                             <asp:CheckBox ID="chbEnable" runat="server" meta:resourcekey="chbEnable" Text="Enable replication" AutoPostBack="True"  />
                         </div>
-                        <table runat="server" id="ReplicaTable" class="ReplicaTable" style="margin: 10px">
+                        <table runat="server" id="ReplicaTable" class="ReplicaTable fcp-m-10" >
 				            <tr>
 				                <td >
 				                   <asp:Localize ID="locPrimaryServer" runat="server" meta:resourcekey="locPrimaryServer" Text="Primary Server:"></asp:Localize>
@@ -78,7 +78,7 @@
 				                   <asp:Localize ID="locVHDs" runat="server" meta:resourcekey="locVHDs" Text="Choose Replication VHDs:"></asp:Localize>
                                 </td>
                                 <td>
-                                    <asp:CheckBoxList runat="server" ID="chlVHDs"  class="vhdContainer"/>
+                                    <asp:CheckBoxList runat="server" ID="chlVHDs" CssClass="vhdContainer" />
                                     <asp:CustomValidator ID="valVHDs" ErrorMessage="Please select at least one VHD" ValidationGroup="Vps" Display="Dynamic" SetFocusOnError="true"
                                         ForeColor="Red" ClientValidationFunction="ValidateCheckBoxList" runat="server" />
                                 </td>
@@ -123,14 +123,14 @@
                             <tr class="AdditionalPoints">
                                 <td colspan="2">
                                     <asp:Label ID="locRecoveryPoints" runat="server" meta:resourcekey="locRecoveryPoints" 
-                                        Text="Additional Recovery Points:" style="margin-bottom: 10px"></asp:Label>
+                                        Text="Additional Recovery Points:" CssClass="fcp-mb-10"></asp:Label>
 
                                     <asp:RadioButtonList ID="radRecoveryPoints" runat="server" AutoPostBack="true">
                                         <asp:ListItem Value="OnlyLast" meta:resourcekey="radRecoveryPointsLast" Selected="True">Maintain only the latest recovery point</asp:ListItem>
                                         <asp:ListItem Value="Additional" meta:resourcekey="radRecoveryPointsAdditional">Create additional hourly recovery points</asp:ListItem>
                                     </asp:RadioButtonList>
 
-                                    <table runat="server" ID="tabAdditionalRecoveryPoints" class="AdditionalPoints" style="margin: 10px">
+                                    <table runat="server" ID="tabAdditionalRecoveryPoints" class="AdditionalPoints fcp-m-10" >
                                         <tr>
                                             <td >
                                                 <asp:Localize ID="locRecoveryPointsAdditional" runat="server" meta:resourcekey="locRecoveryPointsAdditional"
@@ -231,7 +231,7 @@
 
             <fcp:CollapsiblePanel ID="StatisticCollapsiblePanel" runat="server" Visible="True"
                 TargetControlID="StatisticPanel" meta:ResourceKey="secStatisticPanel" Text="Statistic for past "></fcp:CollapsiblePanel>
-            <asp:Panel ID="StatisticPanel" runat="server" Height="0" Style="overflow: hidden; padding: 10px; width: 400px;">
+            <asp:Panel ID="StatisticPanel" runat="server" Height="0" CssClass="fcp-p-10 fcp-w-400" Style="overflow:hidden;">
                 <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td >
@@ -295,7 +295,7 @@
                       
             <fcp:CollapsiblePanel ID="PendingReplicationCollapsiblePanel" runat="server" Visible="True"
                 TargetControlID="PendingReplicationPanel" meta:ResourceKey="secPendingReplication" Text="Pending replication"></fcp:CollapsiblePanel>
-            <asp:Panel ID="PendingReplicationPanel" runat="server" Height="0" Style="overflow: hidden; padding: 10px; width: 400px;">
+            <asp:Panel ID="PendingReplicationPanel" runat="server" Height="0" CssClass="fcp-p-10 fcp-w-400" Style="overflow:hidden;">
                 <table class="table table-borderless align-middle mb-0">
                     <tr>
                         <td >

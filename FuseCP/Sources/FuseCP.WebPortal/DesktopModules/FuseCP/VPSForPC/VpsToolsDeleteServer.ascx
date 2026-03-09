@@ -54,7 +54,7 @@
 				                    </td>
 				                </tr>
 				                <tr>
-				                    <td style="padding-left:20px">
+				                    <td class="fcp-ps-20">
 				                        <asp:TextBox ID="txtExportPath" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
         				                
 				                        <asp:RequiredFieldValidator ID="ExportPathValidator" runat="server" Text="*" Display="Dynamic"

@@ -144,7 +144,7 @@
                                 </td>
                                 <td>
                                     <div class="input-group col-sm-6">
-                                    <asp:TextBox ID="tbTelephoneProvider" CssClass="form-control" style="vertical-align: middle;" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="tbTelephoneProvider" CssClass="form-control align-middle"  runat="server"></asp:TextBox>
                                     <span class="d-flex">
                                     <asp:Button runat="server" ID="btnAccept" Text="Accept" CssClass="btn btn-primary" OnClick="btnAccept_Click" OnClientClick="ShowProgressDialog('Loading...');" ValidationGroup="Accept"/>
                                     </span>

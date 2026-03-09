@@ -4,6 +4,7 @@
 .form-select,
 input,
 select,
+
 textarea,
 .NormalTextBox,
 .input-group .input-group-text {
@@ -11,6 +12,7 @@ transition: border-color .18s ease, box-shadow .18s ease, color .18s ease, backg
 }
 
 .form-control.is-invalid,
+
 .form-select.is-invalid,
 input.is-invalid,
 select.is-invalid,
@@ -21,12 +23,14 @@ background-color: #fff;
 box-shadow: 0 0 0 .18rem rgba(220, 53, 69, .14);
 }
 
+
 .form-control.is-invalid:focus,
 .form-select.is-invalid:focus,
 input.is-invalid:focus,
 select.is-invalid:focus,
 textarea.is-invalid:focus,
 .NormalTextBox.is-invalid:focus {
+
 border-color: #dc3545 !important;
 box-shadow: 0 0 0 .22rem rgba(220, 53, 69, .2);
 }
@@ -61,10 +65,10 @@ display: none !important;
 .top-bar .search-top{display:none;position:fixed;top:11px;right:var(--fcp-desktop-search-right,118px);left:auto;width:0;max-width:var(--desktop-search-width);height:42px;border:1px solid transparent;border-radius:10px;background:transparent;box-shadow:0 0 0 rgba(0,0,0,0);overflow:hidden;box-sizing:border-box;z-index:70;pointer-events:none;transition:width .24s ease,border-color .24s ease,background-color .24s ease,box-shadow .24s ease}
 .top-bar .search-top .fcp-global-search,.top-bar .search-top .input-group{width:100%;height:42px;margin:0;padding:0}
 .top-bar .search-top .fcp-global-search{border:0;background:transparent;box-shadow:none}
-.top-bar .search-top .input-group{display:flex;align-items:center;border:0;background:transparent;box-shadow:none}
-.top-bar .search-top .d-flex{display:flex !important;order:1}
+.top-bar .search-top .input-group{display:flex;flex-wrap:nowrap;align-items:center;border:0;background:transparent;box-shadow:none}
+.top-bar .search-top .d-flex{display:flex !important;flex:0 0 auto;order:1}
 .top-bar .search-top .btn{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:#0a8fd8;box-shadow:none;opacity:1;pointer-events:auto;padding:0}
-.top-bar .search-top input[type="text"]{order:2;flex:1 1 auto;min-width:0;width:100%;float:none;opacity:1;height:40px;border:0 !important;background:transparent;box-shadow:none !important;padding-left:12px;padding-right:12px}
+.top-bar .search-top input[type="text"]{order:2;flex:1 1 auto;min-width:0;width:auto;float:none;opacity:1;height:40px;border:0 !important;background:transparent;box-shadow:none !important;padding-left:12px;padding-right:12px;pointer-events:auto}
 .top-bar .search-top input[type="text"]:focus{border:0 !important;box-shadow:none !important;outline:none}
 .top-bar.mobile-search-active .search-top{width:var(--desktop-search-width);border-color:#0a8fd8;background:#fff;box-shadow:0 8px 18px rgba(10,143,216,.16);overflow:visible;pointer-events:auto}
 @media screen and (max-width:1200px){#col-left{top:var(--fcp-topbar-height,64px);margin-top:0;z-index:1035;box-shadow:0 18px 40px rgba(0,0,0,.28)}.off-canvas-active #col-right{margin-left:0;margin-right:0}.main-nav h3{margin:14px 0 10px;padding-left:16px}}
@@ -80,10 +84,10 @@ display: none !important;
   .top-bar .search-top{display:block !important;position:fixed;top:10px;right:calc(10px + var(--mobile-search-right));left:auto;width:0;max-width:calc(100vw - 280px);height:42px;border:1px solid transparent;border-radius:10px;background:transparent;box-shadow:0 0 0 rgba(0,0,0,0);overflow:hidden;box-sizing:border-box;z-index:70;pointer-events:none;transition:width .24s ease,border-color .24s ease,background-color .24s ease,box-shadow .24s ease}
   .top-bar .search-top .fcp-global-search,.top-bar .search-top .input-group{width:100% !important;height:42px;margin:0 !important;padding:0 !important}
   .top-bar .search-top .fcp-global-search{border:0;background:transparent;box-shadow:none}
-  .top-bar .search-top .input-group{display:flex;align-items:center;border:0;background:transparent;box-shadow:none}
-  .top-bar .search-top .d-flex{display:flex !important;order:1}
+  .top-bar .search-top .input-group{display:flex;flex-wrap:nowrap;align-items:center;border:0;background:transparent;box-shadow:none}
+  .top-bar .search-top .d-flex{display:flex !important;flex:0 0 auto;order:1}
   .top-bar .search-top .btn{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:#0a8fd8;box-shadow:none;opacity:1;pointer-events:auto;padding:0}
-  .top-bar .search-top input[type="text"]{order:2;flex:1 1 auto;min-width:0;width:100%;float:none;opacity:1;height:40px;border:0 !important;background:transparent;box-shadow:none !important;padding-left:12px;padding-right:12px}
+  .top-bar .search-top input[type="text"]{order:2;flex:1 1 auto;min-width:0;width:auto;float:none;opacity:1;height:40px;border:0 !important;background:transparent;box-shadow:none !important;padding-left:12px;padding-right:12px}
   .top-bar .search-top input[type="text"]:focus{border:0 !important;box-shadow:none !important;outline:none}
   .top-bar.mobile-search-active .search-top{width:var(--mobile-search-width);border-color:#0a8fd8;background:#fff;box-shadow:0 8px 18px rgba(10,143,216,.16);overflow:visible;pointer-events:auto}
   .top-bar.mobile-search-active .signedin-mobile,.top-bar.mobile-search-active .signedin-anonymous{visibility:visible !important;width:auto !important;margin-left:auto !important;margin-right:52px !important}
@@ -136,12 +140,33 @@ display: none !important;
 .FormButtonsBar.right .btn,.FormButtonsBar.UserSpaces .btn,.FormButtonsBar.right input.Button1,.FormButtonsBar.right input.Button2,.FormButtonsBar.right input.Button3,.FormButtonsBar.UserSpaces input.Button1,.FormButtonsBar.UserSpaces input.Button2,.FormButtonsBar.UserSpaces input.Button3{margin-bottom:0}
 .FormButtonsBar.right .Normal,.FormButtonsBar.UserSpaces .Normal{margin:0;display:inline-flex;align-items:center}
 .FormButtonsBar + .card-body{padding-top:0}
+.FormButtonsBar + .card-body.fcp-vlans-search-area{padding:14px 18px 12px}
+.FormButtonsBarClean{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.FormButtonsBarCleanLeft,.FormButtonsBarCleanRight{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.FormButtonsBarCleanRight{margin-left:auto;justify-content:flex-end}
+.FormButtonsBarClean .float-end{float:none !important;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.FormButtonsBarClean .form-control,.FormButtonsBarClean .form-select{max-width:220px}
+.Module,.Module>.Content,.Module>.Content>.Center{width:100%;min-width:0}
 [id$="_tblSearch"]{display:block;width:100%;max-width:100%}
 [id$="_tblSearch"] .input-group{display:flex;align-items:stretch;flex-wrap:nowrap;width:100%;max-width:100%}
+[id$="_tblSearch"],[id$="_tblSearch"] .input-group,[id$="_tblSearch"] .form-control,[id$="_tblSearch"] input[type="text"]{pointer-events:auto}
 [id$="_tblSearch"] .d-flex{flex:0 0 auto}
 [id$="_tblSearch"] .form-control{min-width:0}
+.fcp-vlans-search{column-gap:12px;row-gap:10px}
+.fcp-vlans-search .fcp-vlans-filter{flex:0 0 170px;min-width:170px}
+.fcp-vlans-search .fcp-vlans-filter .form-select{width:100%;min-width:170px;font-size:15px;line-height:1.35}
+.fcp-vlans-search .fcp-vlans-search-input-wrap{flex:0 1 420px;min-width:280px}
+.fcp-vlans-search .fcp-vlans-search-input{display:flex;flex-wrap:nowrap;align-items:stretch;width:100%}
+.fcp-vlans-search .fcp-vlans-search-input .form-control{flex:1 1 auto;min-width:0}
+.fcp-vlans-search .fcp-vlans-search-input .btn{flex:0 0 auto;width:auto;min-width:52px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.fcp-vlans-grid{margin:0}
+.fcp-vlans-grid th,.fcp-vlans-grid td{padding-left:14px;padding-right:14px}
+.fcp-vlans-grid .fcp-vlans-empty-row,.fcp-vlans-grid .fcp-vlans-empty-row td{padding-top:16px;padding-bottom:16px}
 .NormalGridView,.LightGridView{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .NormalGridView .AspNet-GridView,.LightGridView .AspNet-GridView{min-width:760px}
+.NormalGridView .AspNet-GridView th,.NormalGridView .AspNet-GridView td,.NormalGridView>table th,.NormalGridView>table td,.LightGridView .AspNet-GridView th,.LightGridView .AspNet-GridView td,.LightGridView>table th,.LightGridView>table td{display:table-cell;padding:10px 12px;vertical-align:middle;text-align:left}
+.NormalGridView .AspNet-GridView th,.NormalGridView>table th,.LightGridView .AspNet-GridView th,.LightGridView>table th{font-size:12px;font-weight:600;border-bottom:1px solid #d8d8d8;background-color:#f7f9fc}
+.NormalGridView .AspNet-GridView td,.NormalGridView>table td,.LightGridView .AspNet-GridView td,.LightGridView>table td{border-bottom:1px solid #e5e5e5}
 .AspNet-GridView-Pagination,.NormalGridView .AspNet-GridView-Pagination,.LightGridView .AspNet-GridView-Pagination{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px;margin-bottom:10px;text-align:center}
 .AspNet-GridView-Pagination a,.AspNet-GridView-Pagination span,.NormalGridView .AspNet-GridView-Pagination a,.NormalGridView .AspNet-GridView-Pagination span,.LightGridView .AspNet-GridView-Pagination a,.LightGridView .AspNet-GridView-Pagination span{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:4px 8px;border-radius:4px}
 .AspNet-GridView-Pagination a,.AspNet-GridView-Pagination span,.NormalGridView .AspNet-GridView-Pagination a,.NormalGridView .AspNet-GridView-Pagination span,.LightGridView .AspNet-GridView-Pagination a,.LightGridView .AspNet-GridView-Pagination span{border:1px solid #ddd;background:#fff;color:#333;text-decoration:none}
@@ -156,7 +181,7 @@ display: none !important;
 .widget .widget-header .widget-header-toolbar .btn-link.btn-remove{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;padding:0 !important;line-height:1;font-size:16px}
 .widget .widget-header .widget-header-toolbar .btn-link.btn-remove i,.widget .widget-header .widget-header-toolbar .btn-link.btn-remove .bi,.widget .widget-header .widget-header-toolbar .btn-link.btn-remove .icon{font-size:16px !important;line-height:1 !important;display:inline-flex;align-items:center;justify-content:center}
 .ToolLink a:before{content:"\f285";font-family:"bootstrap-icons";font-size:11px;line-height:1;margin-right:6px;vertical-align:-1px}
-@media screen and (max-width:767px){.FormButtonsBar.right,.FormButtonsBar.UserSpaces{justify-content:stretch;margin:0 0 10px !important}.FormButtonsBar.right{position:static;min-height:0}.FormButtonsBar.right>.right,.FormButtonsBar.right>.Right{position:static;top:auto;right:auto;width:100%;display:flex;align-items:center;justify-content:stretch;flex-wrap:wrap;gap:10px}.FormButtonsBar.right .btn,.FormButtonsBar.UserSpaces .btn,.FormButtonsBar.right input.Button1,.FormButtonsBar.right input.Button2,.FormButtonsBar.right input.Button3,.FormButtonsBar.UserSpaces input.Button1,.FormButtonsBar.UserSpaces input.Button2,.FormButtonsBar.UserSpaces input.Button3{width:100%}.NormalGridView .AspNet-GridView,.LightGridView .AspNet-GridView,.NormalGridView>table,.LightGridView>table{min-width:0;width:100%}.NormalGridView td,.LightGridView td,.NormalGridView th,.LightGridView th{white-space:normal !important;word-break:break-word}.fcp-home-hosting-spaces-grid>table,.fcp-home-hosting-spaces-grid .AspNet-GridView{min-width:640px}.fcp-home-create-toolbar{position:static;min-height:0}.fcp-home-create-toolbar>.right{position:static;top:auto;right:auto}.AspNet-GridView-Pagination,.NormalGridView .AspNet-GridView-Pagination,.LightGridView .AspNet-GridView-Pagination{justify-content:center}.buttons-in-panel-header{justify-content:stretch}.buttons-in-panel-header .btn,.buttons-in-panel-header input.Button1,.buttons-in-panel-header input.Button2,.buttons-in-panel-header input.Button3{width:100%}}
+@media screen and (max-width:767px){.FormButtonsBar.right,.FormButtonsBar.UserSpaces{justify-content:stretch;margin:0 0 10px !important}.FormButtonsBar.right{position:static;min-height:0}.FormButtonsBar.right>.right,.FormButtonsBar.right>.Right{position:static;top:auto;right:auto;width:100%;display:flex;align-items:center;justify-content:stretch;flex-wrap:wrap;gap:10px}.FormButtonsBar.right .btn,.FormButtonsBar.UserSpaces .btn,.FormButtonsBar.right input.Button1,.FormButtonsBar.right input.Button2,.FormButtonsBar.right input.Button3,.FormButtonsBar.UserSpaces input.Button1,.FormButtonsBar.UserSpaces input.Button2,.FormButtonsBar.UserSpaces input.Button3{width:100%}.NormalGridView .AspNet-GridView,.LightGridView .AspNet-GridView,.NormalGridView>table,.LightGridView>table{min-width:0;width:100%}.NormalGridView td,.LightGridView td,.NormalGridView th,.LightGridView th{white-space:normal !important;word-break:break-word}.fcp-home-hosting-spaces-grid>table,.fcp-home-hosting-spaces-grid .AspNet-GridView{min-width:640px}.fcp-home-create-toolbar{position:static;min-height:0}.fcp-home-create-toolbar>.right{position:static;top:auto;right:auto}.AspNet-GridView-Pagination,.NormalGridView .AspNet-GridView-Pagination,.LightGridView .AspNet-GridView-Pagination{justify-content:center}.buttons-in-panel-header{justify-content:stretch}.buttons-in-panel-header .btn,.buttons-in-panel-header input.Button1,.buttons-in-panel-header input.Button2,.buttons-in-panel-header input.Button3{width:100%}.fcp-vlans-search .fcp-vlans-filter,.fcp-vlans-search .fcp-vlans-search-input-wrap{flex:1 1 100%;min-width:0}.fcp-vlans-search .fcp-vlans-filter .form-select{min-width:0}}
 @media screen and (max-width:767px){.fcp-home-hosting-spaces-grid>table,.fcp-home-hosting-spaces-grid .AspNet-GridView{min-width:0;width:100%}.fcp-home-hosting-spaces-grid .AspNet-GridView thead,.fcp-home-hosting-spaces-grid>table>thead{display:none}.fcp-home-hosting-spaces-grid .AspNet-GridView tbody,.fcp-home-hosting-spaces-grid .AspNet-GridView tr,.fcp-home-hosting-spaces-grid>table>tbody,.fcp-home-hosting-spaces-grid>table>tbody>tr{display:block;width:100%}.fcp-home-hosting-spaces-grid .AspNet-GridView tr,.fcp-home-hosting-spaces-grid>table>tbody>tr{margin-bottom:10px;border:1px solid #e9ecef;border-radius:4px;background:#fff}.fcp-home-hosting-spaces-grid .AspNet-GridView td,.fcp-home-hosting-spaces-grid>table>tbody>tr>td{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;width:100% !important;border:0;border-bottom:1px solid #f0f0f0;padding:8px 10px;text-align:left;white-space:normal}.fcp-home-hosting-spaces-grid .AspNet-GridView td:last-child,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:last-child{border-bottom:0}.fcp-home-hosting-spaces-grid .AspNet-GridView td:before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:before{flex:0 0 42%;font-weight:600;color:#495057;content:""}.fcp-home-hosting-spaces-grid .AspNet-GridView td:nth-child(1):before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:nth-child(1):before{content:"Space"}.fcp-home-hosting-spaces-grid .AspNet-GridView td:nth-child(2):before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:nth-child(2):before{content:"Server"}.fcp-home-hosting-spaces-grid .AspNet-GridView td:nth-child(3):before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:nth-child(3):before{content:"Created"}.fcp-home-hosting-spaces-grid .AspNet-GridView td:nth-child(4):before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:nth-child(4):before{content:"Status"}.fcp-home-hosting-spaces-grid .AspNet-GridView td:nth-child(5):before,.fcp-home-hosting-spaces-grid>table>tbody>tr>td:nth-child(5):before{content:"Comments"}}
 
 /* Global spacing tune-up for breadcrumb and titles */
@@ -183,15 +208,38 @@ display: none !important;
 @media screen and (max-width:767px){.FormButtonsBar.right,.FormButtonsBar.UserSpaces{justify-content:stretch;margin:0 0 10px !important}.FormButtonsBar.right{position:static}.FormButtonsBar.right>.right,.FormButtonsBar.right>.Right{position:static;top:auto;right:auto;width:100%;display:flex;align-items:center;justify-content:stretch;flex-wrap:wrap;gap:10px}.FormButtonsBar.right>.btn,.FormButtonsBar.right>input.btn,.FormButtonsBar.right>a.btn{position:static;top:auto;right:auto;width:100%}}
 
 /* Global responsive hardening for list search/filter rows and standard GridView cards */
-.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center{justify-content:flex-end;width:100%;margin-left:auto}
-.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3{margin-bottom:0}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center{justify-content:flex-end;width:100%;margin-left:auto;column-gap:12px;row-gap:10px}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3{margin-bottom:0 !important;flex:0 0 auto}
 .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"]{min-width:280px}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .form-select,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .form-select{margin:0;padding:.375rem 2.25rem .375rem .75rem;min-width:170px;min-height:42px;font-size:15px;line-height:1.35}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .form-control,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .form-control{min-height:42px}
 .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"],.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"] .NormalBold,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"] .input-group{width:100%;max-width:100%}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .input-group,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .input-group{display:flex;flex-wrap:nowrap;align-items:stretch}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .input-group .form-control,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .input-group .form-control{flex:1 1 auto;min-width:0}
+.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .input-group .btn,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .input-group .btn{flex:0 0 auto;width:auto;min-height:42px;min-width:52px;white-space:nowrap}
+.NormalGridView>table>tbody>tr>td[colspan],.LightGridView>table>tbody>tr>td[colspan]{padding-top:14px;padding-bottom:14px;padding-left:14px;padding-right:14px}
+.NormalGridView .AspNet-GridView>tbody>tr>td,.NormalGridView>table>tbody>tr>td,.LightGridView .AspNet-GridView>tbody>tr>td,.LightGridView>table>tbody>tr>td{background-color:#fff;transition:background-color .15s ease-in-out}
+.NormalGridView .AspNet-GridView>tr>td,.NormalGridView>table>tr>td,.LightGridView .AspNet-GridView>tr>td,.LightGridView>table>tr>td{background-color:#fff;transition:background-color .15s ease-in-out}
+.NormalGridView .AspNet-GridView>tbody>tr:nth-child(even)>td,.NormalGridView>table>tbody>tr:nth-child(even)>td,.LightGridView .AspNet-GridView>tbody>tr:nth-child(even)>td,.LightGridView>table>tbody>tr:nth-child(even)>td{background-color:#f7faff !important}
+.NormalGridView .AspNet-GridView>tr:nth-child(even)>td,.NormalGridView>table>tr:nth-child(even)>td,.LightGridView .AspNet-GridView>tr:nth-child(even)>td,.LightGridView>table>tr:nth-child(even)>td{background-color:#f7faff !important}
+.NormalGridView .AspNet-GridView>tbody>tr:not(.active):not(.selected):hover>td,.NormalGridView>table>tbody>tr:not(.active):not(.selected):hover>td,.LightGridView .AspNet-GridView>tbody>tr:not(.active):not(.selected):hover>td,.LightGridView>table>tbody>tr:not(.active):not(.selected):hover>td{background-color:#edf3fb !important}
+.NormalGridView .AspNet-GridView tbody tr:hover>td,.NormalGridView>table tbody tr:hover>td,.LightGridView .AspNet-GridView tbody tr:hover>td,.LightGridView>table tbody tr:hover>td{background-color:#dfeefa !important}
+.NormalGridView .AspNet-GridView>tr:not(.active):not(.selected):hover>td,.NormalGridView>table>tr:not(.active):not(.selected):hover>td,.LightGridView .AspNet-GridView>tr:not(.active):not(.selected):hover>td,.LightGridView>table>tr:not(.active):not(.selected):hover>td{background-color:#edf3fb !important}
+.NormalGridView .AspNet-GridView tr.fcp-grid-row-alt>td,.NormalGridView>table tr.fcp-grid-row-alt>td,.LightGridView .AspNet-GridView tr.fcp-grid-row-alt>td,.LightGridView>table tr.fcp-grid-row-alt>td{background-color:#eaf2fd !important}
+.NormalGridView .AspNet-GridView tr.fcp-grid-row:hover>td,.NormalGridView .AspNet-GridView tr.fcp-grid-row-alt:hover>td,.NormalGridView>table tr.fcp-grid-row:hover>td,.NormalGridView>table tr.fcp-grid-row-alt:hover>td,.LightGridView .AspNet-GridView tr.fcp-grid-row:hover>td,.LightGridView .AspNet-GridView tr.fcp-grid-row-alt:hover>td,.LightGridView>table tr.fcp-grid-row:hover>td,.LightGridView>table tr.fcp-grid-row-alt:hover>td{background-color:#dfeefa !important}
+.card-footer.d-flex{align-items:center}
+.card-footer.d-flex .btn,.card-footer.d-flex input.btn,.card-footer.d-flex input.Button1,.card-footer.d-flex input.Button2,.card-footer.d-flex input.Button3,.card-footer.d-flex .form-control,.card-footer.d-flex .form-select{min-height:34px;height:34px;line-height:1.2}
+.card-footer.d-flex .d-inline-flex{margin-left:auto}
+.card-footer.d-flex .d-inline-flex .form-control,.card-footer.d-flex .d-inline-flex .form-select{width:auto;min-width:100px;margin:0}
+.card-footer.d-flex .d-inline-flex .Normal,.card-footer.d-flex .d-inline-flex label{margin-bottom:0}
+.AspNet-GridView-Empty{min-width:0 !important;padding:14px 16px !important;margin:6px 14px;border:1px dashed #cfd8e3;border-radius:8px;background:#f8fbff;color:#425466;font-weight:500;line-height:1.45}
+.AspNet-GridView-Empty::before{content:"\1F50D";font-family:inherit;margin-right:8px;color:#6b839d}
 
 @media screen and (max-width:991px){
   .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center{justify-content:stretch;align-items:stretch !important}
-  .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3{width:100%;flex:1 1 100%;margin-bottom:8px}
-  .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .input-group,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"],.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .form-control,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .NormalBold{width:100%;max-width:100%;min-width:0}
+  .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3{width:100%;flex:1 1 100%;margin-bottom:8px}
+  .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .input-group,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 [id$="_tblSearch"],.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .form-control,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .NormalBold,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .input-group,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 [id$="_tblSearch"],.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .form-control,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .NormalBold{width:100%;max-width:100%;min-width:0}
+  .row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-0 .form-select,.row>[class*="col-"].text-end.d-flex.flex-wrap.align-items-center>.mb-3 .form-select{min-width:0;width:100%}
   .NormalGridView th,.LightGridView th{white-space:nowrap;word-break:normal}
   .NormalGridView td,.LightGridView td{white-space:normal !important;word-break:normal;overflow-wrap:anywhere}
   table.fcp-responsive-grid{min-width:0;width:100%;border:0;margin-bottom:10px}
@@ -242,3 +290,84 @@ display: none !important;
 .fcp-system-settings .text-info,.fcp-system-settings .mb-3 .text-info,.fcp-system-settings .mb-3 p{color:#5b6f85 !important;font-size:12px;line-height:1.5;margin-top:6px}
 .fcp-system-settings .alert.alert-info{border-color:#d7e7f7;background:#f6fbff;color:#46627f;padding:10px 12px}
 @media screen and (max-width:991px){.fcp-system-settings .mb-3{grid-template-columns:1fr;gap:6px}.fcp-system-settings .mb-3>.form-label,.fcp-system-settings .mb-3>.col-sm-2.form-label{padding-top:0}.fcp-system-settings .accordion-collapse>.card-body>.btn.btn-success.w-100{width:100% !important}}
+.card-body.form-horizontal .LinksList{margin:0;padding-left:1rem}
+.card-body.form-horizontal .LinksList>li{margin-bottom:.5rem}
+.card-body.form-horizontal .table.table-borderless.align-middle{margin-bottom:0}
+.card-body.form-horizontal .table.table-borderless.align-middle>tbody>tr>td{padding:.5rem .75rem;vertical-align:middle}
+.card-body.form-horizontal .table.table-borderless.align-middle>tbody>tr>td.SubHead{width:280px;max-width:40%;font-weight:600;color:#2f3f53}
+.card-body.form-horizontal .table.table-borderless.align-middle .form-control,.card-body.form-horizontal .table.table-borderless.align-middle .form-select{max-width:100%}
+@media (max-width:767px){.card-body.form-horizontal .table.table-borderless.align-middle>tbody>tr{display:block;margin-bottom:.75rem}.card-body.form-horizontal .table.table-borderless.align-middle>tbody>tr>td,.card-body.form-horizontal .table.table-borderless.align-middle>tbody>tr>td.SubHead{display:block;width:100%;max-width:100%;padding:.25rem 0}}
+.fcp-org-user-sections{padding:20px}
+.fcp-org-user-password-action{margin-top:-50px;margin-right:-40px}
+.fcp-ps-5{padding-left:5px}
+.fcp-ps-15{padding-left:15px}
+.fcp-p-20{padding:20px}
+.fcp-p-10{padding:10px}
+.fcp-py-10{padding-top:10px;padding-bottom:10px}
+.fcp-mt-10{margin-top:10px}
+.fcp-legacy-spacing-table{border-collapse:separate;border-spacing:5px 3px;margin:10px}
+.fcp-ps-20{padding-left:20px}
+.fcp-ps-30{padding-left:30px}
+.fcp-checkbox-offset{margin-left:-4px}
+.fcp-h-22{height:22px}
+.fcp-pt-15{padding-top:15px}
+.fcp-pt-7{padding-top:7px}
+.fcp-lh-25{line-height:2.5}
+.fcp-text-justify{text-align:justify}
+.fcp-p-5{padding:5px}
+.fcp-w-190{width:190px}
+.fcp-legacy-divider{margin:10px;margin-bottom:20px}
+.fcp-legacy-spacing-table-tight{border-collapse:separate;border-spacing:5px 1px}
+.fcp-mt-4{margin-top:4px}
+.fcp-mt-2{margin-top:2px}
+.fcp-mb-4{margin-bottom:4px}
+.fcp-mb-10{margin-bottom:10px}
+.fcp-mb-15{margin-bottom:15px}
+.fcp-mb-20{margin-bottom:20px}
+.fcp-mb-25{margin-bottom:25px}
+.fcp-ms-20{margin-left:20px}
+.fcp-ms-30{margin-left:30px}
+.fcp-ms-10{margin-left:10px}
+.fcp-pb-10{padding-bottom:10px}
+.fcp-pb-3{padding-bottom:3px}
+.fcp-pb-5{padding-bottom:5px}
+.fcp-pb-20{padding-bottom:20px}
+.fcp-p-2{padding:2px}
+.fcp-p-3{padding:3px}
+.fcp-pt-10{padding-top:10px}
+.fcp-pt-5{padding-top:5px}
+.fcp-pt-6{padding-top:6px}
+.fcp-pt-20{padding-top:20px}
+.fcp-m-10{margin:10px}
+.fcp-mt-15{margin-top:15px}
+.fcp-mt-30{margin-top:30px}
+.fcp-ms-50{margin-left:50px}
+.fcp-pr-5{padding-right:5px}
+.fcp-pr-8{padding-right:8px}
+.fcp-pr-45{padding-right:45px}
+.fcp-p-7{padding:7px}
+.fcp-tab-link-padding{padding:10px 15px}
+.fcp-mt-2em{margin-top:2em}
+.fcp-mt-3em{margin-top:3em}
+.fcp-me-2{margin-right:2px}
+.fcp-me-20{margin-right:20px}
+.fcp-me-3{margin-right:3px}
+.fcp-ms-5pt{margin-left:5pt}
+.fcp-log-scroll-top{border-top:solid 1px #e0e0e0;height:175px;overflow:auto;white-space:nowrap}
+.fcp-log-scroll{border:solid 1px #e0e0e0;height:175px;overflow:auto;white-space:nowrap;background-color:#fff;padding:3px}
+.fcp-log-scroll-alt{border:solid 1px #909090;height:175px;overflow:auto;white-space:nowrap;background-color:#fff;padding:3px}
+.fcp-domain-records-action-offset{margin:-68px 0 20px !important}
+.fcp-legacy-spacing-table-3x1{border-collapse:separate;border-spacing:3px 1px}
+.fcp-legacy-spacing-table-3{border-collapse:separate;border-spacing:3px}
+.fcp-legacy-spacing-table-6x1{border-collapse:separate;border-spacing:6px 1px}
+.fcp-legacy-spacing-table-6{border-collapse:separate;border-spacing:6px}
+.fcp-legacy-spacing-table-15x5{border-collapse:separate;border-spacing:15px 5px}
+.fcp-code-mono{text-align:left;font-family:"Courier New",Courier,monospace}
+.fcp-m-dvd-table{margin:50px 0 50px 50px}
+.fcp-w-400{width:400px}
+.fcp-w-750{width:750px}
+.fcp-h-100{height:100px}
+
+
+/* Keep legacy GridView tables full-width inside cards */
+.NormalGridView .AspNet-GridView,.LightGridView .AspNet-GridView,.NormalGridView>table,.LightGridView>table,table.NormalGridView,table.LightGridView,.AspNet-GridView>table,.NormalGridView .AspNet-GridView>table,.LightGridView .AspNet-GridView>table,table.fcp-responsive-grid{width:100%!important;}

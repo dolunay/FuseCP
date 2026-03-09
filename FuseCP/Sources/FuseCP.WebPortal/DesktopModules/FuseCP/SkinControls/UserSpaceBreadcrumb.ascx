@@ -37,7 +37,7 @@
         <asp:UpdatePanel runat="server" ID="updatePanelUsers" UpdateMode="Conditional" ChildrenAsTriggers="true">
 			<ContentTemplate>
 	            <asp:Panel ID="pnlViewSpace" runat="server">
-                    <asp:Label ID="lblUserAccountName" runat="server" Text="Account-" CssClass="Huge" style="margin-right:2px"/>
+                    <asp:Label ID="lblUserAccountName" runat="server" Text="Account-" CssClass="Huge fcp-me-2"/>
 			        <asp:LinkButton ID="cmdSpaceName" runat="server" Text="Change Name" OnClick="cmdChangeName_Click" CssClass="Huge" CausesValidation="false" />
 			        <asp:Label ID="lblSpaceDescription" runat="server" Visible="false"></asp:Label>
 		        </asp:Panel>

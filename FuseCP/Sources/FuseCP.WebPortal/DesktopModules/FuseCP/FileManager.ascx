@@ -395,7 +395,7 @@
             <h3><i class="bi bi-people"></i> <fcp:PopupHeader runat="server" meta:resourcekey="lblPermissions" Text="File/Folder Permissions" /></h3>
         </div>
         <div class="widget-content Popup">
-            <div style="border-top: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap">
+			<div class="fcp-log-scroll-top">
                 <asp:GridView id="gvFilePermissions" runat="server" AutoGenerateColumns="False"
                         CssSelectorClass="NormalGridView" ShowHeader="false">
                     <Columns>
@@ -434,13 +434,13 @@
 	<div class="Content">
 		<div class="Body">
 			<br />
-            <div style="border-top: solid 1px #e0e0e0; height: 175px; overflow: auto; white-space: nowrap">
+			<div class="fcp-log-scroll-top">
 				<table class="table table-borderless align-middle mb-0 w-100">
 					<tr>
 						<td><asp:Literal ID="lblOwner" runat="server" Text="Owner:" meta:resourcekey="lblOwner" /></td>
 						<td>
-							<asp:Label ID="lblOwnerText" runat="server" Text="websitepanel" class="OwnerText" />
-							<asp:TextBox ID="txtOwner" runat="server" Text="websitepanel" Style="display:none;" class="OwnerTextBox" />
+							<asp:Label ID="lblOwnerText" runat="server" Text="websitepanel" CssClass="OwnerText" />
+							<asp:TextBox ID="txtOwner" runat="server" Text="websitepanel" Style="display:none;" CssClass="OwnerTextBox" />
 							<asp:ImageButton ID="btnRenameOwner" runat="server" SkinID="RenameButton" AlternateText="Change Owner"
 								meta:resourcekey="btnRenameOwner" OnClientClick="ShowTextBox('Owner'); return false;" />
 						</td>
@@ -453,8 +453,8 @@
 					<tr>
 						<td><asp:Literal ID="lblGroup" runat="server" Text="Group:" meta:resourcekey="lblGroup" /></td>
 						<td>
-							<asp:Label ID="lblGroupText" runat="server" Text="websitepanel" class="GroupText" />
-							<asp:TextBox ID="txtGroup" runat="server" Text="websitepanel" Style="display:none;" class="GroupTextBox" />
+							<asp:Label ID="lblGroupText" runat="server" Text="websitepanel" CssClass="GroupText" />
+							<asp:TextBox ID="txtGroup" runat="server" Text="websitepanel" Style="display:none;" CssClass="GroupTextBox" />
 							<asp:ImageButton ID="btnRenameGroup" runat="server" SkinID="RenameButton" AlternateText="Change Group"
 								meta:resourcekey="btnRenameGroup" OnClientClick="ShowTextBox('Group'); return false;" />					</td>
 						<td>

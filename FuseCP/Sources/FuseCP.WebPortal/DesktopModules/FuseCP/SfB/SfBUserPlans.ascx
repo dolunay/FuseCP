@@ -36,7 +36,7 @@
 						    </asp:TemplateField>
 						    <asp:TemplateField HeaderText="gvPlanDefault">
 							    <ItemTemplate>
-							        <div style="text-align:center">
+							        <div class="text-center">
 								        <input type="radio" name="DefaultPlan" value='<%# Eval("SfBUserPlanId") %>' <%# IsChecked((bool)Eval("IsDefault")) %> />
 								    </div>
 							    </ItemTemplate>

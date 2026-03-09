@@ -77,6 +77,8 @@ namespace FuseCP.Portal
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			ApplyInputMetadata();
+
 			if (!IsPostBack)
 			{
 				Page.RegisterAsyncTask(new PageAsyncTask(() => Task.WhenAll(
@@ -112,6 +114,19 @@ namespace FuseCP.Portal
 				// perform login
 				LoginUser(usr, psw, chkRemember.Checked, String.Empty, String.Empty);
 			}
+		}
+
+		private void ApplyInputMetadata()
+		{
+			// Make login fields explicit for browser/extension autofill parsers.
+			txtUsername.Attributes["autocomplete"] = "username";
+			txtUsername.Attributes["aria-label"] = "Username";
+
+			txtPassword.Attributes["autocomplete"] = "current-password";
+			txtPassword.Attributes["aria-label"] = "Password";
+
+			txtPin.Attributes["autocomplete"] = "one-time-code";
+			txtPin.Attributes["aria-label"] = "One-time verification code";
 		}
 
 		private async Task EnsureFCPAAsync()

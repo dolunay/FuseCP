@@ -6,29 +6,31 @@
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
     <asp:ValidationSummary ID="validatorsSummary" runat="server"  ValidationGroup="EditVLAN" ShowMessageBox="True" ShowSummary="False" />
 	<asp:CustomValidator ID="consistentVLANs" runat="server" ErrorMessage="Wrong VLAN." ValidationGroup="EditVLAN" Display="dynamic" ServerValidate="CheckVLANs" /> 
-	<table>
+	<table class="table table-borderless align-middle mb-0">
 	    <tr>
-		    <td>
+		    <td class="SubHead text-nowrap">
                 <asp:Localize ID="locServer" runat="server" meta:resourcekey="locServer" Text="Server:"></asp:Localize>
 		    </td>
 		    <td>
-		        <asp:dropdownlist id="ddlServer" CssClass="form-control" runat="server" DataTextField="ServerName" DataValueField="ServerID"></asp:dropdownlist>
+		        <asp:dropdownlist id="ddlServer" CssClass="form-select" runat="server" DataTextField="ServerName" DataValueField="ServerID"></asp:dropdownlist>
 		    </td>
 	    </tr>
 	    <tr>
-		    <td>
+		    <td class="SubHead text-nowrap">
                 <asp:Localize ID="lblVLAN" runat="server" meta:resourcekey="lblVLAN" Text="VLAN:"></asp:Localize>
 		    </td>
 		    <td>
+		        <div class="d-flex flex-wrap gap-2 align-items-center">
 		        <fcp:EditVLANControl id="startVLAN" runat="server" ValidationGroup="EditVLAN" Required="true"/>
 			    &nbsp;
                 <asp:Localize ID="locTo" runat="server" meta:resourcekey="locTo" Text="to"></asp:Localize>
                 &nbsp;
 		        <fcp:EditVLANControl id="endVLAN" runat="server" ValidationGroup="EditVLAN" />
+		        </div>
 		    </td>
 	    </tr>
 	    <tr>
-		    <td><asp:Localize ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Comments:"></asp:Localize></td>
+		    <td class="SubHead align-top text-nowrap"><asp:Localize ID="lblComments" runat="server" meta:resourcekey="lblComments" Text="Comments:"></asp:Localize></td>
 		    <td class="NormalBold">
                 <asp:textbox id="txtComments" CssClass="form-control" runat="server" Rows="3" TextMode="MultiLine"></asp:textbox>
 		    </td>

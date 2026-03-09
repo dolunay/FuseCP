@@ -19,11 +19,11 @@
         -
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
         <asp:Image ID="imgVipUser" SkinID="VipUser16" runat="server" ToolTip="VIP user" Visible="false" />
-        <asp:Label ID="litServiceLevel" runat="server" Style="float: right; padding-right: 8px;" Visible="false"></asp:Label>
+        <asp:Label ID="litServiceLevel" runat="server" CssClass="float-end pe-2" Visible="false"></asp:Label>
     </h3>
 </div>
 <div class="card-body form-horizontal">
-    <div class="nav nav-tabs" style="padding-bottom: 7px !important;">
+    <div class="nav nav-tabs pb-2">
         <fcp:MailboxTabs ID="tabs" runat="server" SelectedTab="journaling_mailbox_settings" />
     </div>
     <div class="card tab-content">

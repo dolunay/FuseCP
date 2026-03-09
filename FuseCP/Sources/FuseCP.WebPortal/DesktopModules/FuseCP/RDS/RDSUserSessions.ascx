@@ -40,7 +40,7 @@
                     </div>
                     <fcp:CollapsiblePanel id="secRdsUserSessions" runat="server" TargetControlID="panelRdsUserSessions" meta:resourcekey="secRdsUserSessions" Text=""></fcp:CollapsiblePanel>
                     <asp:Panel runat="server" ID="panelRdsUserSessions">
-                        <div style="padding: 10px">
+                        <div class="fcp-p-10">
                             <asp:GridView ID="gvRDSUserSessions" runat="server" AutoGenerateColumns="False" EnableViewState="true" EmptyDataText="No Sessions available" CssSelectorClass="NormalGridView" OnRowCommand="gvRDSCollections_RowCommand" AllowPaging="True" AllowSorting="True" meta:resourcekey="gvRDSUserSessions">
                                 <Columns>
                                     <asp:TemplateField meta:resourcekey="gvUserName" HeaderText="gvUserName">

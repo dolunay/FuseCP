@@ -52966,6 +52966,16 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
     <DefaultValue>Users</DefaultValue>
   </Resource>
   <Resource>
+    <File>DesktopModules\FuseCP\SkinControls\App_LocalResources\GlobalSearch.ascx.resx</File>
+    <Key>NoResults.Text</Key>
+    <DefaultValue>No results found</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\SkinControls\App_LocalResources\GlobalSearch.ascx.resx</File>
+    <Key>GoToSearch.Text</Key>
+    <DefaultValue>Go to search page</DefaultValue>
+  </Resource>
+  <Resource>
     <File>DesktopModules\FuseCP\SkinControls\App_LocalResources\SearchObject.ascx.resx</File>
     <Key>gvUsername.Header</Key>
     <DefaultValue>Customer</DefaultValue>

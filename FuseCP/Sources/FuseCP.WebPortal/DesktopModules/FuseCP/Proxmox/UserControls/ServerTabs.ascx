@@ -35,7 +35,7 @@
                     <asp:Repeater ID="repRecords" runat="server" 
                         onitemdatabound="repRecords_ItemDataBound">
                         <ItemTemplate>
-                            <div style="padding: 2px">
+                            <div class="fcp-p-2">
                                 <asp:Literal ID="litRecord" runat="server"></asp:Literal>
                                 <wsp:Gauge id="gauge" runat="server" OneColour="true" />
                             </div>

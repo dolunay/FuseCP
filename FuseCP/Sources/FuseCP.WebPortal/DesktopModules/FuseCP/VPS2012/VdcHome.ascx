@@ -108,7 +108,7 @@
 				    </asp:ObjectDataSource>
 	
     	
-                    <asp:Panel ID="QuotasPanel" runat="server" class="card-footer">
+                    <asp:Panel ID="QuotasPanel" runat="server" CssClass="card-footer">
                     
                         <table class="table table-borderless align-middle mb-0">
                             <tr>
