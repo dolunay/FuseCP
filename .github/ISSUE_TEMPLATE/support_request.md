@@ -8,3 +8,5 @@ assignees: ''
 ---
 
 **Please submit support requests to https://fusecp.com/forum/ as this issue tracker is for code bugs & features.**
+
+> Security vulnerability? Report it privately using [SECURITY.md](../../SECURITY.md) and do not open a public issue.
