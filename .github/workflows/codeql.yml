@@ -50,12 +50,12 @@ jobs:
         if: matrix.language == 'csharp'
         uses: microsoft/setup-msbuild@v2
 
-      - name: Install .NET SDK 10.0.100
+      - name: Install .NET SDK 10.0.200
         if: matrix.language == 'csharp'
         uses: actions/setup-dotnet@v5
         with:
           # Pin to a known available SDK to avoid transient channel manifest 404s.
-          dotnet-version: '10.0.100'
+          dotnet-version: '10.0.200'
 
       - name: Build C# solutions for CodeQL
         if: matrix.language == 'csharp'
