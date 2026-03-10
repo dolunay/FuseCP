@@ -122,7 +122,7 @@ namespace FuseCP.Providers.DNS
                 Log.WriteError("SimpleDNS 9 API Call (GET) - HttpClient timed out.", ex);
                 return null;
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 //Handle error and return null
                 Log.WriteError("SimpleDNS 9 API Call (GET) - An unhandled exception occured.", ex);
@@ -186,7 +186,7 @@ namespace FuseCP.Providers.DNS
                 Log.WriteError("SimpleDNS 9 API Call (PUT) - HttpClient timed out.", ex);
                 return null;
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 //Handle error and return null
                 Log.WriteError("SimpleDNS 9 API Call (PUT) - An unhandled exception occured.", ex);
@@ -245,7 +245,7 @@ namespace FuseCP.Providers.DNS
                 Log.WriteError("SimpleDNS 9 API Call (DELETE) - HttpClient timed out.", ex);
                 return null;
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 //Handle error and return null
                 Log.WriteError("SimpleDNS 9 API Call (DELETE) - An unhandled exception occured.", ex);
@@ -309,7 +309,7 @@ namespace FuseCP.Providers.DNS
                 Log.WriteError("SimpleDNS 9 API Call (PATCH) - HttpClient timed out.", ex);
                 return null;
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 //Handle error and return null
                 Log.WriteError("SimpleDNS 9 API Call (PATCH) - An unhandled exception occured.", ex);
@@ -421,7 +421,11 @@ namespace FuseCP.Providers.DNS
                         // delete DNS zone
                         DeleteZone(item.Name);
                     }
-                    catch (Exception ex)
+                    catch (InvalidOperationException ex)
+                    {
+                        Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS9 zone", item.Name), ex);
+                    }
+                    catch (ArgumentException ex)
                     {
                         Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS9 zone", item.Name), ex);
                     }

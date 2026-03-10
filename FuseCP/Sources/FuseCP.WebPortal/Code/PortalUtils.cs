@@ -829,7 +829,7 @@ public class PortalUtils
 
 				List<ListItem> items = new List<ListItem>();
 
-				XmlNodeList xmlNodes = xmlDoc.SelectNodes("//State[@countryCode='" + countryCode + "']");
+				XmlNodeList xmlNodes = xmlDoc.SelectNodes("//State[@countryCode=" + ToXPathLiteral(countryCode) + "]");
 				foreach (XmlElement xmlNode in xmlNodes)
 				{
 					string nodeName = xmlNode.GetAttribute("name");
@@ -1140,7 +1140,7 @@ public class PortalUtils
 				XmlDocument xmlDoc = new XmlDocument();
 				xmlDoc.Load(xmlFilePath);
 
-				XmlElement xmlNode = (XmlElement)xmlDoc.SelectSingleNode(string.Format("/Controls/Control[@key='{0}']", controlKey));
+				XmlElement xmlNode = (XmlElement)xmlDoc.SelectSingleNode("/Controls/Control[@key=" + ToXPathLiteral(controlKey) + "]");
 
 				if (xmlNode.HasAttribute("general_key"))
 				{
@@ -1153,6 +1153,33 @@ public class PortalUtils
 			}
 		}
 		return generalControlKey;
+	}
+
+	private static string ToXPathLiteral(string value)
+	{
+		if (value == null)
+			return "''";
+
+		if (!value.Contains("'"))
+			return "'" + value + "'";
+
+		if (!value.Contains("\""))
+			return "\"" + value + "\"";
+
+		string[] parts = value.Split('\'');
+		StringBuilder builder = new StringBuilder("concat(");
+		for (int i = 0; i < parts.Length; i++)
+		{
+			if (i > 0)
+				builder.Append(", \"'\", ");
+
+			builder.Append("'");
+			builder.Append(parts[i]);
+			builder.Append("'");
+		}
+		builder.Append(")");
+
+		return builder.ToString();
 	}
 }
 

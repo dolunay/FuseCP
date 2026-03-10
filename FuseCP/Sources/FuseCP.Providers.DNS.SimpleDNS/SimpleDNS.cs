@@ -188,7 +188,35 @@ namespace FuseCP.Providers.DNS
 				else if (record.RecordType == DnsRecordType.TXT)
 					AddTxtRecord(zoneName, record.RecordName, record.RecordData);
 			}
-			catch (Exception ex)
+			catch (WebException ex)
+			{
+				// log exception
+				Log.WriteError(
+					String.Format(
+						"Simple DNS: Unable to create record (Name '{0}', Data '{1}', Text '{2}') to zone '{3}'"
+						, record.RecordName
+						, record.RecordData
+						, record.RecordText
+						, zoneName
+						)
+					, ex
+				);
+			}
+			catch (InvalidOperationException ex)
+			{
+				// log exception
+				Log.WriteError(
+					String.Format(
+						"Simple DNS: Unable to create record (Name '{0}', Data '{1}', Text '{2}') to zone '{3}'"
+						, record.RecordName
+						, record.RecordData
+						, record.RecordText
+						, zoneName
+						)
+					, ex
+				);
+			}
+			catch (ArgumentException ex)
 			{
 				// log exception
 				Log.WriteError(
@@ -220,7 +248,35 @@ namespace FuseCP.Providers.DNS
 				// delete record
 				DeleteRecord(zoneName, record.RecordType, record.RecordName, record.RecordData);
 			}
-			catch (Exception ex)
+			catch (WebException ex)
+			{
+				// log exception
+				Log.WriteError(
+					String.Format(
+						"Simple DNS: Unable to delete record (Name '{0}', Data '{1}', Text '{2}') to zone '{3}'"
+						, record.RecordName
+						, record.RecordData
+						, record.RecordText
+						, zoneName
+						)
+					, ex
+				);
+			}
+			catch (InvalidOperationException ex)
+			{
+				// log exception
+				Log.WriteError(
+					String.Format(
+						"Simple DNS: Unable to delete record (Name '{0}', Data '{1}', Text '{2}') to zone '{3}'"
+						, record.RecordName
+						, record.RecordData
+						, record.RecordText
+						, zoneName
+						)
+					, ex
+				);
+			}
+			catch (ArgumentException ex)
 			{
 				// log exception
 				Log.WriteError(
@@ -507,7 +563,15 @@ namespace FuseCP.Providers.DNS
 						// delete DNS zone
 						DeleteZone(item.Name);
 					}
-					catch (Exception ex)
+					catch (WebException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
+					}
+					catch (InvalidOperationException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
+					}
+					catch (ArgumentException ex)
 					{
 						Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS zone", item.Name), ex);
 					}

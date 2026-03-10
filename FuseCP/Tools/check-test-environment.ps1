@@ -124,6 +124,10 @@ $results += Add-Result -Name "dotnet CLI" -Passed $hasDotnet -Details $dotnetDet
 
 $msbuildCommand = Get-Command msbuild -ErrorAction SilentlyContinue
 $msbuildKnownPath = Find-FirstExistingPath -CandidatePaths @(
+    "C:\Program Files\Microsoft Visual Studio\18\BuildTools\MSBuild\Current\Bin\MSBuild.exe",
+    "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe",
+    "C:\Program Files\Microsoft Visual Studio\18\Professional\MSBuild\Current\Bin\MSBuild.exe",
+    "C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Current\Bin\MSBuild.exe",
     "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe",
     "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe",
     "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe",
@@ -158,39 +162,61 @@ if ($needIntegration) {
     $results += Add-Result -Name "IIS service (W3SVC)" -Passed $hasW3Svc -Details $w3svcDetails
 
     if (Test-Path $sqlCmdExe) {
-        try {
-            $sqlOutput = & $sqlCmdExe -S "(local)\SQLExpress" -E -Q "SELECT @@VERSION" 2>&1 | Out-String
-            if ($LASTEXITCODE -eq 0) {
-                $results += Add-Result -Name "SQLExpress connectivity" -Passed $true -Details "Connected to (local)\\SQLExpress"
-            }
-            else {
+        $sqlInstances = @("(local)\SQLExpress", "(local)")
+        $connectionErrors = New-Object System.Collections.Generic.List[string]
+        $connectedInstance = $null
+
+        foreach ($instance in $sqlInstances) {
+            try {
+                $sqlOutput = & $sqlCmdExe -S $instance -E -Q "SELECT @@VERSION" 2>&1 | Out-String
+                if ($LASTEXITCODE -eq 0) {
+                    $connectedInstance = $instance
+                    break
+                }
+
                 $trimmedOutput = $sqlOutput.Trim()
                 if ([string]::IsNullOrWhiteSpace($trimmedOutput)) {
-                    $trimmedOutput = "Cannot connect to (local)\\SQLExpress using integrated auth"
+                    $trimmedOutput = "Cannot connect to $instance using integrated auth"
                 }
 
-                if ($trimmedOutput.Length -gt 180) {
-                    $trimmedOutput = $trimmedOutput.Substring(0, 180) + "..."
+                if ($trimmedOutput.Length -gt 120) {
+                    $trimmedOutput = $trimmedOutput.Substring(0, 120) + "..."
                 }
 
-                $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details $trimmedOutput
+                $connectionErrors.Add("[$instance] $trimmedOutput")
+            }
+            catch {
+                $details = $_.Exception.Message
+                if ([string]::IsNullOrWhiteSpace($details)) {
+                    $details = "Cannot connect to $instance using integrated auth"
+                }
+
+                if ($details.Length -gt 120) {
+                    $details = $details.Substring(0, 120) + "..."
+                }
+
+                $connectionErrors.Add("[$instance] $details")
             }
         }
-        catch {
-            $details = $_.Exception.Message
-            if ([string]::IsNullOrWhiteSpace($details)) {
-                $details = "Cannot connect to (local)\\SQLExpress using integrated auth"
+
+        if ($null -ne $connectedInstance) {
+            $results += Add-Result -Name "SQL Server connectivity" -Passed $true -Details "Connected to $connectedInstance"
+        }
+        else {
+            $errorDetails = ($connectionErrors -join " | ")
+            if ([string]::IsNullOrWhiteSpace($errorDetails)) {
+                $errorDetails = "Cannot connect to SQL Server instances (local)\\SQLExpress or (local) using integrated auth"
             }
 
-            if ($details.Length -gt 180) {
-                $details = $details.Substring(0, 180) + "..."
+            if ($errorDetails.Length -gt 180) {
+                $errorDetails = $errorDetails.Substring(0, 180) + "..."
             }
 
-            $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details $details
+            $results += Add-Result -Name "SQL Server connectivity" -Passed $false -Details $errorDetails
         }
     }
     else {
-        $results += Add-Result -Name "SQLExpress connectivity" -Passed $false -Details "Missing tools/sqlcmd/SQLCMD.EXE"
+        $results += Add-Result -Name "SQL Server connectivity" -Passed $false -Details "Missing tools/sqlcmd/SQLCMD.EXE"
     }
 }
 

@@ -102,6 +102,33 @@ namespace FuseCP.Providers.HostedSolution
             return sb.ToString();
         }
 
+        private static string ToXPathLiteral(string value)
+        {
+            if (value == null)
+                return "''";
+
+            if (!value.Contains("'"))
+                return "'" + value + "'";
+
+            if (!value.Contains("\""))
+                return "\"" + value + "\"";
+
+            string[] parts = value.Split('\'');
+            StringBuilder builder = new StringBuilder("concat(");
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (i > 0)
+                    builder.Append(", \"'\", ");
+
+                builder.Append("'");
+                builder.Append(parts[i]);
+                builder.Append("'");
+            }
+            builder.Append(")");
+
+            return builder.ToString();
+        }
+
         internal string GetOrganizationPath(string organizationId)
         {
             StringBuilder sb = new StringBuilder();
@@ -1917,7 +1944,7 @@ namespace FuseCP.Providers.HostedSolution
 
                     var xml = GetOrCreateDrivesFile(gpoId);
 
-                    XmlNode drive = xml.SelectSingleNode(string.Format("./Drives/Drive[contains(Properties/@path,'{0}')]", path));
+                    XmlNode drive = xml.SelectSingleNode("./Drives/Drive[contains(Properties/@path," + ToXPathLiteral(path) + ")]");
 
                     if (drive != null)
                     {
@@ -1964,7 +1991,7 @@ namespace FuseCP.Providers.HostedSolution
 
                 var xml = GetOrCreateDrivesFile(gpoId);
 
-                XmlNode x = xml.SelectSingleNode(string.Format("/Drives/Drive[@name='{0}:']", drive));
+                XmlNode x = xml.SelectSingleNode("/Drives/Drive[@name=" + ToXPathLiteral(drive + ":") + "]");
                 if (x != null)
                 {
                     x.ParentNode.RemoveChild(x);
@@ -2065,7 +2092,7 @@ namespace FuseCP.Providers.HostedSolution
                      // open xml document
                      var xml = GetOrCreateDrivesFile(gpoId);
 
-                     XmlNodeList drives = xml.SelectNodes(string.Format("./Drives/Drive[contains(Properties/@path,'{0}')]", locationPath));
+                     XmlNodeList drives = xml.SelectNodes("./Drives/Drive[contains(Properties/@path," + ToXPathLiteral(locationPath) + ")]");
 
                      foreach (XmlNode driveNode in drives)
                      {
@@ -2131,7 +2158,7 @@ namespace FuseCP.Providers.HostedSolution
                      // open xml document
                      var xml = GetOrCreateDrivesFile(gpoId);
 
-                     XmlNodeList drives = xml.SelectNodes(string.Format("./Drives/Drive[contains(Properties/@path,'{0}')]", oldFolder));
+                     XmlNodeList drives = xml.SelectNodes("./Drives/Drive[contains(Properties/@path," + ToXPathLiteral(oldFolder) + ")]");
 
                      foreach (XmlNode driveNode in drives)
                      {

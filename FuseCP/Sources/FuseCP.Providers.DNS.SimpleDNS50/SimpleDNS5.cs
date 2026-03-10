@@ -211,7 +211,19 @@ namespace FuseCP.Providers.DNS
 				else
 					return new Connection(uri.Host, uri.Port, SimpleDnsPassword);
 			}
-			catch (Exception ex)
+			catch (UriFormatException ex)
+			{
+				Log.WriteError(ex);
+
+				throw;
+			}
+			catch (InvalidOperationException ex)
+			{
+				Log.WriteError(ex);
+
+				throw;
+			}
+			catch (ArgumentException ex)
 			{
 				Log.WriteError(ex);
 
@@ -457,7 +469,15 @@ namespace FuseCP.Providers.DNS
                         // delete DNS zone
                         DeleteZone(item.Name);
                     }
-                    catch (Exception ex)
+					catch (WebException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS5 zone", item.Name), ex);
+					}
+					catch (InvalidOperationException ex)
+					{
+						Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS5 zone", item.Name), ex);
+					}
+					catch (ArgumentException ex)
                     {
                         Log.WriteError(String.Format("Error deleting '{0}' SimpleDNS5 zone", item.Name), ex);
                     }
