@@ -11205,6 +11205,9 @@ a:focus {
 .fcp-password-policy li + li {
   margin-top: 0.35rem;
 }
+.fcp-password-control + .row .fcp-form-actions {
+  margin-top: 0.75rem;
+}
 .fcp-validation-message {
   display: block;
   margin-top: 0.45rem;
