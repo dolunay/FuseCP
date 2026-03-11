@@ -167,8 +167,8 @@ $(document).ready(function () {
         });
     }
 
-    $mainMenu.find('li.active').has('ul').children('ul').addClass('in');
-    $mainMenu.find('li').not('.active').has('ul').children('ul').removeClass('in');
+    $mainMenu.find('li.active').has('ul').children('ul').addClass('show');
+    $mainMenu.find('li').not('.active').has('ul').children('ul').removeClass('show');
 
 
 
@@ -403,7 +403,7 @@ $(document).ready(function () {
         $currentItemToggle = $(this);
         $currentItem = $(this).parent();
         $mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).removeClass('active');
-        collapseAction($mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).children('ul.in, ul.show'), 'hide');
+        collapseAction($mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).children('ul.show'), 'hide');
         $currentItem.toggleClass('active');
         collapseAction($currentItem.children('ul'), 'toggle');
 

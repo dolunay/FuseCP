@@ -1,5 +1,33 @@
 $(document).ready(function () {
 
+    function forEachElement($collection, callback) {
+        if (!$collection || !$collection.length) {
+            return;
+        }
+
+        $collection.each(function () {
+            callback(this);
+        });
+    }
+
+    function collapseAction($collection, action) {
+        if (!window.bootstrap || !window.bootstrap.Collapse) {
+            return;
+        }
+
+        forEachElement($collection, function (element) {
+            var instance = window.bootstrap.Collapse.getOrCreateInstance(element, { toggle: false });
+
+            if (action === 'show') {
+                instance.show();
+            } else if (action === 'hide') {
+                instance.hide();
+            } else {
+                element.classList.contains('show') ? instance.hide() : instance.show();
+            }
+        });
+    }
+
     /************************
  	/*	MAIN NAVIGATION
  	/************************/
@@ -7,10 +35,14 @@ $(document).ready(function () {
     $mainMenu = $('.main-menu');
 
     // init collapse first for browser without transition support (IE9) 
-    $mainMenu.find('li').has('ul').children('ul').collapse({ toggle: false });
+    if (window.bootstrap && window.bootstrap.Collapse) {
+        forEachElement($mainMenu.find('li').has('ul').children('ul'), function (element) {
+            window.bootstrap.Collapse.getOrCreateInstance(element, { toggle: false });
+        });
+    }
 
-    $mainMenu.find('li.active').has('ul').children('ul').addClass('in');
-    $mainMenu.find('li').not('.active').has('ul').children('ul').removeClass('in');
+    $mainMenu.find('li.active').has('ul').children('ul').addClass('show');
+    $mainMenu.find('li').not('.active').has('ul').children('ul').removeClass('show');
 
 
 
@@ -223,8 +255,10 @@ $(document).ready(function () {
 
         $currentItemToggle = $(this);
         $currentItem = $(this).parent();
-        $mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).removeClass('active').children('ul.in').collapse('hide');
-        $currentItem.toggleClass('active').children('ul').collapse('toggle');
+        $mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).removeClass('active');
+        collapseAction($mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).children('ul.show'), 'hide');
+        $currentItem.toggleClass('active');
+        collapseAction($currentItem.children('ul'), 'toggle');
 
         if (isMobileTopBar()) {
             syncMobileMenuPageHeight();
