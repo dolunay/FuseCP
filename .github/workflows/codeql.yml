@@ -47,6 +47,9 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           queries: security-and-quality
+          config: |
+            paths-ignore:
+              - FuseCP/Lib/WebFormsForCore/src/WebFormsForCore.Web.Extensions/Script/Sys/UI/Controls/PermaLink.js
 
       - name: Add MSBuild to PATH
         if: matrix.language == 'csharp'
