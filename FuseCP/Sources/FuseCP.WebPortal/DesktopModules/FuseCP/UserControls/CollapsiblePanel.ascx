@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CollapsiblePanel.ascx.cs" Inherits="FuseCP.Portal.CollapsiblePanel" %>
 <asp:Panel ID="HeaderPanel" runat="server" style="cursor: pointer">
-    <table class="Shevron table table-borderless align-middle mb-0" onmouseout="this.className='Shevron';" onmouseover="this.className='ShevronActive';">
+    <table class="Shevron">
 		<tr>
       <td class="text-nowrap fcp-pr-5"><asp:Label ID="lblTitle" runat="server"></asp:Label></td>
 			<td class="ShevronLine"></td>

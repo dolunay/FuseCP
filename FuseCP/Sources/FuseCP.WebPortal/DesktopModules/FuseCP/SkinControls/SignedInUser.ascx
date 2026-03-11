@@ -7,14 +7,20 @@
 
 <asp:Panel ID="LoggedPanel" runat="server" CssClass="signedin-desktop">
 
-    <ul class="nav navbar-nav ms-auto d-none d-sm-block">
-    <li>
-    <asp:HyperLink ID="lnkEditUserDetails" runat="server">
-        <i class="bi bi-person"></i>&nbsp;
-        <span class="d-none d-md-inline"><asp:Localize runat="server" meta:resourcekey="lnkEditUserDetails" /></span>
-    </asp:HyperLink>
-    </li>
-        </ul>
+    <ul class="nav navbar-sm ms-auto d-none d-sm-block">
+        <li>
+            <asp:HyperLink ID="lnkEditUserDetails" runat="server">
+                <i class="bi bi-person fs-4" aria-hidden="true"></i>
+                <span class="visually-hidden"><asp:Localize runat="server" meta:resourcekey="lnkEditUserDetails" /></span>
+            </asp:HyperLink>
+        </li>
+        <li>
+            <asp:LinkButton ID="cmdSignOut" runat="server" CausesValidation="false" OnClick="cmdSignOut_Click" ToolTip="Sign Out">
+                <i class="bi bi-box-arrow-right fs-4" aria-hidden="true"></i>
+                <span class="visually-hidden">Sign Out</span>
+            </asp:LinkButton>
+        </li>
+    </ul>
 </asp:Panel>
 
 

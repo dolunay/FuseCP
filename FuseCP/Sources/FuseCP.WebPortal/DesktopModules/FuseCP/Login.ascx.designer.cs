@@ -57,7 +57,7 @@ namespace FuseCP.Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordValidator;
-
+        
         /// <summary>
         /// chkRemember control.
         /// </summary>
@@ -138,15 +138,6 @@ namespace FuseCP.Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator pinValidator;
-
-        /// <summary>
-        /// StyleButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton StyleButton2;
         
         /// <summary>
         /// btnResendPin control.
@@ -156,6 +147,15 @@ namespace FuseCP.Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnResendPin;
+        
+        /// <summary>
+        /// StyleButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton StyleButton2;
         
         /// <summary>
         /// lblLanguage control.

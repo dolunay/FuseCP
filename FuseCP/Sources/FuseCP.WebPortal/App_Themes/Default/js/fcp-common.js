@@ -683,12 +683,12 @@ $(document).ready(function () {
  		    e.preventDefault();
  		    $(this).parents('.widget').find('.slimScrollDiv').css('height', 'auto');
  		    $(this).parents('.widget').find('.widget-content').slideUp(300);
- 		    $(this).find('i').removeClass('ion-ios-arrow-up').addClass('ion-ios-arrow-down');
+ 		    $(this).find('i').removeClass('bi-chevron-up ion-ios-arrow-up').addClass('bi-chevron-down');
  		},
  		function (e) {
  		    e.preventDefault();
  		    $(this).parents('.widget').find('.widget-content').slideDown(300);
- 		    $(this).find('i').removeClass('ion-ios-arrow-down').addClass('ion-ios-arrow-up');
+ 		    $(this).find('i').removeClass('bi-chevron-down ion-ios-arrow-down').addClass('bi-chevron-up');
  		}
  	);
 
