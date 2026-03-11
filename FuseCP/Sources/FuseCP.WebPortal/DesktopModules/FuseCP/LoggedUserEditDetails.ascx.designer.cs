@@ -38,7 +38,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow rowUsernameReadonly;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rowUsernameReadonly;
         
         /// <summary>
         /// lblUserNameText control.
@@ -74,7 +74,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow rowChangePassword;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rowChangePassword;
         
         /// <summary>
         /// cmdChangePassword control.
@@ -209,7 +209,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow rowGoogleAuth;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rowGoogleAuth;
         
         /// <summary>
         /// lblUseMfa control.
@@ -344,7 +344,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblDisplay;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblDisplay;
         
         /// <summary>
         /// lblLanguage control.
