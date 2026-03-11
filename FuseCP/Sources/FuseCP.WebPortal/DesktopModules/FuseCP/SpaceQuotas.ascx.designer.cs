@@ -752,6 +752,33 @@ namespace FuseCP.Portal {
         protected global::FuseCP.Portal.Quota quotamssql2022databases;
         
         /// <summary>
+        /// pnlMsSQL2025Databases control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow pnlMsSQL2025Databases;
+        
+        /// <summary>
+        /// lblMsSQL2025Databases control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsSQL2025Databases;
+        
+        /// <summary>
+        /// quotamssql2025databases control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FuseCP.Portal.Quota quotamssql2025databases;
+        
+        /// <summary>
         /// pnlMySQL5Databases control.
         /// </summary>
         /// <remarks>
