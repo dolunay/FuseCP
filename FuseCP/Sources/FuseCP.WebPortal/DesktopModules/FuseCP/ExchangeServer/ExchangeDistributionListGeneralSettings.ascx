@@ -23,7 +23,7 @@
                     </div>
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-					<div class="mb-3">
+					<div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
                         </asp:Label>
@@ -35,12 +35,12 @@
                         </div>
                         </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="row mb-3">
                         <div class="col-sm-10 offset-sm-2">
 						        <asp:CheckBox ID="chkHideAddressBook" runat="server" meta:resourcekey="chkHideAddressBook" Text="Hide from Address Book" />
 						</div>
                         </div>
-                         <div class="mb-3">
+                         <div class="row mb-3">
                         <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="form-label col-sm-2">
 						   <asp:Localize ID="locManager" runat="server" meta:resourcekey="locManager" Text="Manager:"></asp:Localize>
                         </asp:label>
@@ -56,7 +56,7 @@
                          </div>
                         </div>
 					    <br /><br />
-					    <div class="mb-3">
+					    <div class="row mb-3">
                         <asp:label runat="server" AssociatedControlID="members" CssClass="form-label col-sm-2">
                             <asp:Localize ID="locMembers" runat="server" meta:resourcekey="locMembers" Text="Members:"></asp:Localize>
                         </asp:label>
@@ -66,7 +66,7 @@
                                 </div>
 						</div>
                         </div>
-						<div class="mb-3">
+						<div class="row mb-3">
                         <div class="col-sm-10 offset-sm-2">
 							    <asp:TextBox ID="txtNotes" runat="server" CssClass="form-control" Rows="4" TextMode="MultiLine"></asp:TextBox>
 						</div>

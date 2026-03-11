@@ -32,17 +32,15 @@
 </div>
 <div class="row mb-3">
     <div class="col-sm-10 offset-sm-2">
-        <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
-            PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
-            RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
-            StrengthStyles="alert alert-danger;alert alert-warning;alert alert-default;alert alert-success;alert alert-success" CalculationWeightings="50;15;15;20" />
-    </div>
-    <div class="col-sm-2 offset-sm-2">
-        <asp:HyperLink ID="lnkGenerate" runat="server" NavigateUrl="#" meta:resourcekey="lnkGenerate" CssClass="btn btn-primary btn-sm" Visible="true">
-            Generate Random Password
-        </asp:HyperLink>
-    </div>
-    <div class="col-sm-8">
+        <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+            <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
+                PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
+                RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
+                StrengthStyles="alert alert-danger;alert alert-warning;alert alert-default;alert alert-success;alert alert-success" CalculationWeightings="50;15;15;20" />
+            <asp:HyperLink ID="lnkGenerate" runat="server" NavigateUrl="#" meta:resourcekey="lnkGenerate" CssClass="btn btn-primary btn-sm" Visible="true">
+                Generate Random Password
+            </asp:HyperLink>
+        </div>
         <asp:CompareValidator ID="valRequireEqualPassword" CssClass="alert alet-warning" runat="server" ControlToCompare="txtPassword" ErrorMessage="*" Display="Dynamic" ControlToValidate="txtConfirmPassword" meta:resourcekey="valRequireEqualPassword"></asp:CompareValidator>
         <asp:CustomValidator ID="valCorrectLength" CssClass="alert alet-warning" runat="server" ControlToValidate="txtPassword" ErrorMessage="len" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordLength" OnServerValidate="valCorrectLength_ServerValidate"></asp:CustomValidator>
         <asp:CustomValidator ID="valRequireNumbers" CssClass="alert alet-warning" runat="server" ControlToValidate="txtPassword" ErrorMessage="num" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordNumbers" OnServerValidate="valRequireNumbers_ServerValidate"></asp:CustomValidator>

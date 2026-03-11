@@ -56,7 +56,7 @@
                             <span class="search-options-caret" aria-hidden="true"></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" role="menu">
-                              <div class="mb-3">
+                              <div class="row mb-3">
                                 <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                                   <br />
                                   <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;

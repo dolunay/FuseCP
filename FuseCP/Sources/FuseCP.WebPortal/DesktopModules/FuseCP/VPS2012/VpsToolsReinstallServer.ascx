@@ -34,8 +34,8 @@
                                 TargetControlID="VirtualMachineSettingsPanel" meta:resourcekey="secVirtualMachineSetttings" Text="Virtual Machine Settings">
                             </fcp:CollapsiblePanel>
                         <asp:Panel ID="VirtualMachineSettingsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3" id="hostnameSetting" runat="server">
-                            <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2"  AssociatedControlID="txtHostname"></asp:Label>
+                        <div class="row mb-3" id="hostnameSetting" runat="server">
+                            <asp:Label ID="locHostname" meta:resourcekey="locHostname" runat="server" Text="Host name:" CssClass="col-sm-2 col-form-label"  AssociatedControlID="txtHostname"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHostname" runat="server" CssClass="form-control"></asp:TextBox>
                                                 
@@ -60,8 +60,8 @@
                                 </div>
                         </div>
 				    
-                        <div class="mb-3">
-                            <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2"  AssociatedControlID="listOperatingSystems"></asp:Label>
+                        <div class="row mb-3">
+                            <asp:Label ID="locOperatingSystem" meta:resourcekey="locOperatingSystem" runat="server" Text="Operating system:" CssClass="col-sm-2 col-form-label"  AssociatedControlID="listOperatingSystems"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:DropDownList ID="listOperatingSystems" runat="server"
                                         DataValueField="Path" DataTextField="Name">

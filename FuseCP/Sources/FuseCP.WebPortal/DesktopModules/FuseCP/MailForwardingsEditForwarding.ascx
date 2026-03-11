@@ -8,7 +8,7 @@
 <div class="card-body form-horizontal">
 	<dnc:EmailAddress id="emailAddress" runat="server">
 	</dnc:EmailAddress>
-	<div class="mb-3">
+	<div class="row mb-3">
         <asp:Label ID="lblForwardsToEmail" CssClass="form-label col-sm-2" runat="server" meta:resourcekey="lblForwardsToEmail"
 					Text="Forwards to e-mail:"></asp:Label>
         <div class="input-group col-sm-8">

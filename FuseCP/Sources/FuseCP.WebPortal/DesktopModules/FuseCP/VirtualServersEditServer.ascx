@@ -4,7 +4,7 @@
 
 <div class="card-body form-horizontal">
     <asp:ValidationSummary ID="summary" runat="server" ShowMessageBox="true" ShowSummary="false" ValidationGroup="VirtualServer" />
-    <div class="mb-3">
+    <div class="row mb-3">
         <label class="col-sm-2">
             <asp:Label ID="lblServerName" runat="server" meta:resourcekey="lblServerName"></asp:Label></label>
         <div class="col-sm-10">
@@ -13,7 +13,7 @@
                 ValidationGroup="VirtualServer" meta:resourcekey="VirtualServerNameValidator"></asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class="mb-3">
+    <div class="row mb-3">
         <label class="col-sm-2">
             <asp:Label ID="lblServerComments" runat="server" meta:resourcekey="lblServerComments"></asp:Label></label>
         <div class="col-sm-10">
@@ -23,7 +23,7 @@
     <fcp:CollapsiblePanel ID="secServices" runat="server"
         TargetControlID="ServicesPanel" ResourceKey="secServices" Text="Services"></fcp:CollapsiblePanel>
     <asp:Panel ID="ServicesPanel" runat="server">
-        <div class="mb-3" id="rowPrimaryGroup" runat="server">
+        <div class="row mb-3" id="rowPrimaryGroup" runat="server">
             <label class="col-sm-2">
                 <asp:Label ID="lblPDR" runat="server" meta:resourcekey="lblPDR" Text="Primary distribution group:"></asp:Label></label>
             <div class="col-sm-10">
@@ -47,14 +47,14 @@
                     </div>
                     <div class="card-body">
 <fieldset  id="tblGroupDistribution" runat="server">
-                        <div class="mb-3" id="rowBound" runat="server">
+                        <div class="row mb-3" id="rowBound" runat="server">
                             <label class="col-sm-2">Distribution</label>
                             <div class="col-sm-10">
                                 <asp:CheckBox ID="chkBind" runat="server" Text="Bind to primary" CssClass="fcp-check-inline"
                                     AutoPostBack="true" Checked='<%# Eval("BindDistributionToPrimary") %>' />
                             </div>
                         </div>
-                        <div class="mb-3" id="rowDistType" runat="server">
+                        <div class="row mb-3" id="rowDistType" runat="server">
                             <label class="col-sm-2">Distribution Type</label>
                             <div class="col-sm-10">
                                 <asp:DropDownList ID="ddlDistType" runat="server" CssClass="form-control" SelectedValue='<%# Eval("DistributionType") %>'>

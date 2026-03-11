@@ -30,20 +30,20 @@
                 </div>
                 <asp:Repeater ID="repVMNetwork" runat="server">
                     <ItemTemplate>
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <table class="fcp-legacy-spacing-table-15x5 fcp-ps-5">
                                 <tr>
                                     <td>
-                                        <asp:Label ID="locAdapterName" meta:resourcekey="locAdapterName" runat="server" Text="Adapter Name:" CssClass="col-sm-20" AssociatedControlID="litAdapterName"></asp:Label>
+                                        <asp:Label ID="locAdapterName" meta:resourcekey="locAdapterName" runat="server" Text="Adapter Name:" CssClass="col-sm-20 col-form-label" AssociatedControlID="litAdapterName"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:Label ID="locAdapterMAC" meta:resourcekey="locAdapterMAC" runat="server" Text="MAC:" CssClass="col-sm-20" AssociatedControlID="litAdapterMAC"></asp:Label>
+                                        <asp:Label ID="locAdapterMAC" meta:resourcekey="locAdapterMAC" runat="server" Text="MAC:" CssClass="col-sm-20 col-form-label" AssociatedControlID="litAdapterMAC"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:Label ID="locAdapterAddresses" meta:resourcekey="locAdapterAddresses" runat="server" Text="IP addresses:" CssClass="col-sm-20" AssociatedControlID="gvVMNetwork"></asp:Label>
+                                        <asp:Label ID="locAdapterAddresses" meta:resourcekey="locAdapterAddresses" runat="server" Text="IP addresses:" CssClass="col-sm-20 col-form-label" AssociatedControlID="gvVMNetwork"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:Label ID="locAdapterVLAN" meta:resourcekey="locAdapterVLAN" runat="server" Visible='<%# IsVlanEnabled(Eval("vlan")) %>' Text="VLAN:" CssClass="col-sm-20" AssociatedControlID="litAdapterVLAN"></asp:Label>
+                                        <asp:Label ID="locAdapterVLAN" meta:resourcekey="locAdapterVLAN" runat="server" Visible='<%# IsVlanEnabled(Eval("vlan")) %>' Text="VLAN:" CssClass="col-sm-20 col-form-label" AssociatedControlID="litAdapterVLAN"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr  class="align-top">

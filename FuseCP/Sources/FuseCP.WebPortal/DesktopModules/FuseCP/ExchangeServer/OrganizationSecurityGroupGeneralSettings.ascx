@@ -19,7 +19,7 @@
         </div>
         <div class="card tab-content">
         <fcp:SimpleMessageBox id="messageBox" runat="server" />
-            <div class="mb-3">
+            <div class="row mb-3">
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtDisplayName">
                     <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize>
                 </asp:Label>
@@ -28,7 +28,7 @@
                     <asp:RequiredFieldValidator ID="valRequireDisplayName" runat="server" meta:resourcekey="valRequireDisplayName" ControlToValidate="txtDisplayName" ErrorMessage="Enter Display Name" ValidationGroup="EditList" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="lblGroupName">
                     <asp:Localize ID="locGroupName" runat="server" meta:resourcekey="locGroupName" Text="Windows Group Name:"></asp:Localize>
                 </asp:Label>
@@ -36,7 +36,7 @@
                     <asp:TextBox ID="lblGroupName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="members">
                     <asp:Localize ID="locMembers" runat="server" meta:resourcekey="locMembers" Text="Members:"></asp:Localize>
                 </asp:Label>
@@ -44,7 +44,7 @@
                     <fcp:UsersList id="members" runat="server" />
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtNotes">
                     <asp:Localize ID="locNotes" runat="server" meta:resourcekey="locNotes" Text="Notes:"></asp:Localize>
                 </asp:Label>

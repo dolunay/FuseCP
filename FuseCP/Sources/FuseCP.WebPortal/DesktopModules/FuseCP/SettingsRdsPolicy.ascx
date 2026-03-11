@@ -6,7 +6,7 @@
     <div class="col">
         <asp:DropDownList ID="ddTimeout" runat="server" CssClass="form-control"/>
     </div>
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbTimeoutUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -19,7 +19,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secRunCommand" runat="server" TargetControlID="runCommandPanel" meta:resourcekey="secRunCommand" Text="Remove Run Command"/>
 <asp:Panel ID="runCommandPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbRunCommandUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -32,7 +32,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secPowershellCommand" runat="server" TargetControlID="powershellCommandPanel" meta:resourcekey="secPowershellCommand" Text="Remove Powershell Command"/>
 <asp:Panel ID="powershellCommandPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbPowershellUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -56,7 +56,7 @@
             <asp:ListItem Value="67108863" Text="Restrict all drives" />
         </asp:DropDownList>
     </div>
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbHideCDriveUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -69,7 +69,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secShutdown" runat="server" TargetControlID="shutdownPanel" meta:resourcekey="secShutdown" Text="Remove Shutdown and Restart"/>
 <asp:Panel ID="shutdownPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbShutdownUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -82,7 +82,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secTaskManager" runat="server" TargetControlID="taskManagerPanel" meta:resourcekey="secTaskManager" Text="Disable Task Manager"/>
 <asp:Panel ID="taskManagerPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbTaskManagerUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -95,7 +95,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secChangeDesktop" runat="server" TargetControlID="desktopPanel" meta:resourcekey="secChangeDesktop" Text="Changing Desktop Disabled"/>
 <asp:Panel ID="desktopPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbDesktopUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -108,7 +108,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secScreenSaver" runat="server" TargetControlID="screenSaverPanel" meta:resourcekey="secScreenSaver" Text="Disable Screen Saver"/>
 <asp:Panel ID="screenSaverPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbScreenSaverUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -137,7 +137,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secViewSession" runat="server" TargetControlID="viewSessionPanel" meta:resourcekey="secViewSession" Text="View RDS Session without Users's Permission"/>
 <asp:Panel ID="viewSessionPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbViewSessionUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -150,7 +150,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secControlSession" runat="server" TargetControlID="controlSessionPanel" meta:resourcekey="secControlSession" Text="Control RDS Session without Users's Permission"/>
 <asp:Panel ID="controlSessionPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbControlSessionUsers" meta:resourcekey="cbUsers" Checked="false" />
@@ -163,7 +163,7 @@
 </asp:Panel>
 <fcp:CollapsiblePanel id="secDisableCmd" runat="server" TargetControlID="disableCmdPanel" meta:resourcekey="secDisableCmd" Text="Disable Command Prompt"/>
 <asp:Panel ID="disableCmdPanel" runat="server" Height="0" style="overflow:hidden;">
-    <div class="mb-3">
+    <div class="row mb-3">
         <div class="col-sm-9">
             <div class="input-group">
                 <asp:CheckBox runat="server" Text="Users" ID="cbDisableCmdUsers" meta:resourcekey="cbUsers" Checked="false" />

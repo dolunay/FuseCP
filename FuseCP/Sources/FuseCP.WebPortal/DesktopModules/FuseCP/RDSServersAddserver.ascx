@@ -7,7 +7,7 @@
 
 <div class="card-body form-horizontal">
     <fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div class="mb-3">
+    <div class="row mb-3">
         <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="txtServerName">
             <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server Fully Qualified Domain Name:"></asp:Localize>
         </asp:Label>

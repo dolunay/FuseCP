@@ -254,7 +254,7 @@
 		</div>
 		<div class="widget-content Popup">
 			<div class="card-body form-horizontal">
-				<div class="mb-3">
+				<div class="row mb-3">
 					<div class="col-sm-20">
 						<asp:Localize ID="locNewPassword" runat="server" Text="Enter new password:"
 											meta:resourcekey="locNewPassword"></asp:Localize>

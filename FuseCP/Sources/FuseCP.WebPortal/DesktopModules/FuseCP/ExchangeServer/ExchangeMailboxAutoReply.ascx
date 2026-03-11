@@ -23,7 +23,7 @@
     </div>
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-        <div class="mb-3">
+        <div class="row mb-3">
             <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                 <table >
                     <tr>

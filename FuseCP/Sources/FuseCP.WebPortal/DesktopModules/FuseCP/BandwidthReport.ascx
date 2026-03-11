@@ -13,22 +13,22 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="d-flex flex-wrap gap-2 align-items-center">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label ID="lblFrom" runat="server" meta:resourcekey="lblFrom" Text="From:" CssClass="form-label"></asp:Label>
                         <uc3:CalendarControl ID="calStartDate" runat="server" Cssclass="form-control" />
                     </div>
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label ID="lblTo" runat="server" meta:resourcekey="lblTo" Text="To:" CssClass="form-label"></asp:Label>
                         <uc3:CalendarControl ID="calEndDate" runat="server" Cssclass="form-control" />
                     </div>
-                      <div class="mb-3">
+                      <div class="row mb-3">
                     <asp:Button ID="btnDisplay" runat="server" Text="Display Report" meta:resourcekey="btnDisplay" CssClass="btn btn-primary" CausesValidation="false" OnClick="btnDisplay_Click" />
                 </div>
                 </div>
             </div>
             <div class="col-sm-6 text-end">
                 <div class="d-flex flex-wrap gap-2 align-items-center">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:LinkButton ID="cmdPrevMonth" runat="server" meta:resourcekey="cmdPrevMonth" OnClick="cmdPrevMonth_Click" CssClass="btn btn-primary"></asp:LinkButton>&nbsp;
                         <asp:Literal ID="litStartDate" runat="server" Visible="false"></asp:Literal>
                         <asp:Literal ID="litPeriod" runat="server"></asp:Literal>

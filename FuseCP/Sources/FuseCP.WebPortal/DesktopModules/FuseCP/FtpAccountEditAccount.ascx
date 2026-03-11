@@ -9,7 +9,7 @@
 
 
 <div class="card-body form-horizontal">
-    <div class="mb-3">
+    <div class="row mb-3">
         <asp:Label ID="lblUserName" runat="server" meta:resourcekey="lblUserName" Text="User name:" CssClass="form-label col-sm-2" AssociatedControlID="usernameControl"></asp:Label>
         <div class="col-sm-8">
             <uc4:UsernameControl ID="usernameControl" runat="server" />

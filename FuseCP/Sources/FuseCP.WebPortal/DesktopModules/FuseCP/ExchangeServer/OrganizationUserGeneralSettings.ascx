@@ -75,7 +75,7 @@
                 </div>
      
                     <fieldset>
-                     <div class="mb-3">
+                     <div class="row mb-3">
                          <div class="col-sm-10 offset-sm-2">
                                         <div class="input-group">
                                 <asp:CheckBox ID="chkUserMustChangePassword" runat="server" meta:resourcekey="chkUserMustChangePassword" Text="User must change password at next login" /><br />
@@ -91,7 +91,7 @@
                     </fieldset>
                     <fieldset>
                   
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtFirstName">
                                         <asp:Localize ID="locName" runat="server" meta:resourcekey="locName" Text="Name:" />
                                     </asp:Label>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                      
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
                                         <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
                                     </asp:Label>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                          
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtExternalEmailAddress">
                                         <asp:Localize ID="locExternalEmailAddress" runat="server" meta:resourcekey="locExternalEmailAddress" Text="E-mail Address: *" />
                                     </asp:Label>
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                  
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtNotes">
                                         <asp:Localize ID="locNotes" runat="server" meta:resourcekey="locNotes" Text="Notes:" />
                                     </asp:Label>
@@ -182,7 +182,7 @@
                         <div class="card-body">
                             <fieldset>
                                 
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtFirstName">
                                                 <asp:Localize ID="locServiceLevel" runat="server" meta:resourcekey="locServiceLevel" Text="Service Level:" />
                                             </asp:Label>
@@ -191,7 +191,7 @@
                                             </div>
                                         </div>
                                
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtFirstName">
                                                 <asp:Localize ID="locVIPUser" runat="server" meta:resourcekey="locVIPUser" Text="VIP:" />
                                             </asp:Label>
@@ -215,7 +215,7 @@
                         <div class="card-body">
                             <fieldset>
                               
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locJobTitle" runat="server" meta:resourcekey="locJobTitle" Text="Job Title:" />
                                             </asp:Label>
@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
                                
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locCompany" runat="server" meta:resourcekey="locCompany" Text="Company:" />
                                             </asp:Label>
@@ -233,7 +233,7 @@
                                             </div>
                                         </div>
                                 
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locDepartment" runat="server" meta:resourcekey="locDepartment" Text="Department:" />
                                             </asp:Label>
@@ -243,7 +243,7 @@
                                         </div>
                                 
                                
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locOffice" runat="server" meta:resourcekey="locOffice" Text="Office:" />
                                             </asp:Label>
@@ -252,7 +252,7 @@
                                             </div>
                                         </div>
                            
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locManager" runat="server" meta:resourcekey="locManager" Text="Manager:" />
                                             </asp:Label>
@@ -275,7 +275,7 @@
                         <div class="card-body">
                             <fieldset>
                            
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locBusinessPhone" runat="server" meta:resourcekey="locBusinessPhone" Text="Business Phone:" />
                                             </asp:Label>
@@ -284,7 +284,7 @@
                                             </div>
                                         </div>
                              
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locFax" runat="server" meta:resourcekey="locFax" Text="Fax:" />
                                             </asp:Label>
@@ -293,7 +293,7 @@
                                             </div>
                                         </div>
                              
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locHomePhone" runat="server" meta:resourcekey="locHomePhone" Text="Home Phone:" />
                                             </asp:Label>
@@ -302,7 +302,7 @@
                                             </div>
                                         </div>
                                  
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locMobilePhone" runat="server" meta:resourcekey="locMobilePhone" Text="Mobile Phone:" />
                                             </asp:Label>
@@ -311,7 +311,7 @@
                                             </div>
                                         </div>
                                 
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPager">
                                                 <asp:Localize ID="locPager" runat="server" meta:resourcekey="locPager" Text="Pager:" />
                                             </asp:Label>
@@ -320,7 +320,7 @@
                                             </div>
                                         </div>
                                  
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locWebPage" runat="server" meta:resourcekey="locWebPage" Text="Web Page:" />
                                             </asp:Label>
@@ -343,7 +343,7 @@
                         <div class="card-body">
                             <fieldset>
                              
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locAddress" runat="server" meta:resourcekey="locAddress" Text="Street Address:" />
                                             </asp:Label>
@@ -352,7 +352,7 @@
                                             </div>
                                         </div>
                                   
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtCity">
                                                 <asp:Localize ID="locCity" runat="server" meta:resourcekey="locCity" Text="City:" />
                                             </asp:Label>
@@ -361,7 +361,7 @@
                                             </div>
                                         </div>
                                   
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtState">
                                                 <asp:Localize ID="locState" runat="server" meta:resourcekey="locState" Text="State/Province:" />
                                             </asp:Label>
@@ -370,7 +370,7 @@
                                             </div>
                                         </div>
                                  
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtZip">
                                                 <asp:Localize ID="locZip" runat="server" meta:resourcekey="locZip" Text="Zip/Postal Code:" />
                                             </asp:Label>
@@ -379,7 +379,7 @@
                                             </div>
                                         </div>
                                   
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPager">
                                                 <asp:Localize ID="locCountry" runat="server" meta:resourcekey="locCountry" Text="Country/Region:" />
                                             </asp:Label>
@@ -402,7 +402,7 @@
                         <div class="card-body">
                             <fieldset>
                                
-                                        <div class="mb-3">
+                                        <div class="row mb-3">
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locUserDomainName" runat="server" meta:resourcekey="locUserDomainName" Text="User Domain Name:" />
                                             </asp:Label>

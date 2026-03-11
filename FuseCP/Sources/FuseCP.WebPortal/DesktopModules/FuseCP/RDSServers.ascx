@@ -21,7 +21,7 @@
     <div class="row">
         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch">
             <div class="col-sm-12 text-end d-flex flex-wrap gap-2 align-items-center">
-                <div class="mb-3">
+                <div class="row mb-3">
                     <div class="input-group">
                         <asp:Localize ID="locSearch" runat="server" meta:resourcekey="locSearch" Visible="false"></asp:Localize>
                         <asp:DropDownList ID="ddlPageSize" runat="server" CssClass="form-control" AutoPostBack="True" onselectedindexchanged="ddlPageSize_SelectedIndexChanged">
@@ -32,7 +32,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="row mb-3">
                     <div class="input-group">
                         <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
                             <asp:ListItem Value="S.Name" meta:resourcekey="liServerName">Server Name</asp:ListItem>
@@ -40,7 +40,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="row mb-3">
                     <div class="input-group">
                         <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control" />
                         <div class="d-flex">

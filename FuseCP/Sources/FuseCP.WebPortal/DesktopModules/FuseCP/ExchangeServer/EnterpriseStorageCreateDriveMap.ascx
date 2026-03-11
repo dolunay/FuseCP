@@ -19,7 +19,7 @@
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLetter" runat="server" meta:resourcekey="locDriveLetter" Text="Select Drive Letter:"></asp:Localize>
             </label>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <div class="input-group">
                     <asp:DropDownList ID="ddlLetters" runat="server" CssClass="form-control" />
                 </div>
@@ -31,7 +31,7 @@
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locFolder" runat="server" meta:resourcekey="locFolder" Text="Storage Folder:"></asp:Localize>
             </label>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <div class="input-group">
                     <div class="Folders" style="display:inline;">
                         <asp:DropDownList ID="ddlFolders" runat="server" CssClass="form-control" />  
@@ -55,7 +55,7 @@
             <label class="col-sm-2 form-label">
                 <asp:Localize ID="locDriveLabel" runat="server" meta:resourcekey="locDriveLabel" Text="Label As:"></asp:Localize>
             </label>
-            <div class="mb-3">
+            <div class="row mb-3">
                 <div class="input-group">
                     <asp:TextBox ID="txtLabelAs" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>

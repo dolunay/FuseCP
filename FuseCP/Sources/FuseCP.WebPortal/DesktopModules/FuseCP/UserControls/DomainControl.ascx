@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DomainControl.ascx.cs" Inherits="FuseCP.Portal.UserControls.DomainControl" %>
 
-<div class="mb-3">
-     <asp:Label ID="lblAddress" runat="server" Text="Domain Name" CssClass="col-sm-2"  AssociatedControlID="txtDomainName"></asp:Label>
+<div class="row mb-3">
+     <asp:Label ID="lblAddress" runat="server" Text="Domain Name" CssClass="col-sm-2 col-form-label"  AssociatedControlID="txtDomainName"></asp:Label>
      <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
          <asp:TextBox ID="txtDomainName" runat="server" CssClass="form-control" OnTextChanged="txtDomainName_TextChanged"></asp:TextBox>
      <asp:Literal runat="server" ID="SubDomainSeparator" Visible="False">.</asp:Literal>

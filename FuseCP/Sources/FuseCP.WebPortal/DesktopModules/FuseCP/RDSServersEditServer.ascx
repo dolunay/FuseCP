@@ -8,7 +8,7 @@
 
 <div class="card-body form-horizontal">
 	<fcp:SimpleMessageBox id="messageBox" runat="server" />
-    <div class="mb-3">
+    <div class="row mb-3">
         <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="lblServerName">
             <asp:Localize ID="locServerName" runat="server" meta:resourcekey="locServerName" Text="Server Fully Qualified Domain Name:"></asp:Localize>
         </asp:Label>
@@ -16,7 +16,7 @@
             <asp:TextBox ID="lblServerName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
-    <div class="mb-3">
+    <div class="row mb-3">
         <asp:Label runat="server" CssClass="form-label col-sm-4" AssociatedControlID="txtServerComments">
             <asp:Localize ID="locServerComments" runat="server" meta:resourcekey="locServerComments" Text="Server Comments:"></asp:Localize>
         </asp:Label>

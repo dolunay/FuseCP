@@ -12,7 +12,7 @@
     </div>
     <div class="card-body form-horizontal">
         <fcp:SimpleMessageBox id="messageBox" runat="server" />
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-3" AssociatedControlID="txtDisplayName">
                 <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize>
             </asp:Label>
