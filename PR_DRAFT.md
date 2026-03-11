@@ -33,8 +33,10 @@
 - Re-run CodeQL workflow and inspect Analyze (javascript-typescript / none).
 - Confirm no repeated inconsistent fingerprint warnings for PermaLink.js line 1.
 
-### Follow-up (Post-Push Warning Persistence)
-- Added a targeted CodeQL `paths-ignore` entry for the single legacy script path in workflow init config:
+### Follow-up (Root-Cause Fix)
+- Implemented the normalization fix in the WebFormsForCore submodule itself (real source fix):
 	- FuseCP/Lib/WebFormsForCore/src/WebFormsForCore.Web.Extensions/Script/Sys/UI/Controls/PermaLink.js
-- Purpose: prevent SARIF post-processing from attempting dedup fingerprint reconciliation for this unstable legacy script source while preserving broader JS/TS analysis coverage.
+	- UTF-8 without BOM, LF line endings
+- Updated this repository's submodule pointer to the new WebFormsForCore commit.
+- Removed temporary CodeQL `paths-ignore` suppression from workflow after source fix was available.
 
