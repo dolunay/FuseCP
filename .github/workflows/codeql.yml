@@ -39,6 +39,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          # Keep file content hashes stable for CodeQL fingerprinting on Windows.
+          eol: lf
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4

@@ -2,3 +2,4 @@
 # See https://help.github.com/articles/dealing-with-line-endings/
 *.sh text eol=lf
 *.bat text eol=crlf
+FuseCP/Lib/WebFormsForCore/src/WebFormsForCore.Web.Extensions/Script/**/*.js text eol=lf
