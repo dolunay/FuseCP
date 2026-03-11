@@ -18,12 +18,13 @@ permissions:
   contents: read
   security-events: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }} / ${{ matrix.build_scope }})
     runs-on: windows-2025
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     strategy:
       fail-fast: false
       matrix:
@@ -57,10 +58,6 @@ jobs:
           # Re-checkout after config update so tracked files and submodules use LF.
           git reset --hard HEAD
           git submodule foreach --recursive "git config core.autocrlf false; git config core.eol lf; git reset --hard HEAD"
-
-      - name: Add MSBuild to PATH
-        if: matrix.language == 'csharp'
-        uses: microsoft/setup-msbuild@v2
 
       - name: Install .NET SDK 10.0.200
         if: matrix.language == 'csharp'
