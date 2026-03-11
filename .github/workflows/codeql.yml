@@ -48,6 +48,10 @@ jobs:
           languages: ${{ matrix.language }}
           queries: security-and-quality
 
+      - name: Set git config to respect .gitattributes for CodeQL extraction
+        if: matrix.language == 'javascript-typescript'
+        run: git config --global core.autocrlf false
+
       - name: Add MSBuild to PATH
         if: matrix.language == 'csharp'
         uses: microsoft/setup-msbuild@v2

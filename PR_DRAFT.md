@@ -40,3 +40,9 @@
 - Updated this repository's submodule pointer to the new WebFormsForCore commit.
 - Removed temporary CodeQL `paths-ignore` suppression from workflow after source fix was available.
 
+### Final Fix (core.autocrlf Override)
+- Windows GitHub runners have `core.autocrlf=true` globally, which converts LF→CRLF during checkout.
+- Even with `.gitattributes eol=lf`, core.autocrlf was still re-converting the file to CRLF during CodeQL extraction.
+- Added explicit `git config --global core.autocrlf false` step in CodeQL workflow for javascript-typescript job only.
+- This ensures .gitattributes eol=lf takes precedence and file stays LF in CodeQL's file reading phase.
+
