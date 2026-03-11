@@ -39,8 +39,6 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          # Keep file content hashes stable for CodeQL fingerprinting on Windows.
-          eol: lf
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
@@ -48,9 +46,15 @@ jobs:
           languages: ${{ matrix.language }}
           queries: security-and-quality
 
-      - name: Set git config to respect .gitattributes for CodeQL extraction
+      - name: Normalize checkout for JS CodeQL extraction
         if: matrix.language == 'javascript-typescript'
-        run: git config --global core.autocrlf false
+        shell: pwsh
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+          # Re-checkout after config update so tracked files and submodules use LF.
+          git reset --hard HEAD
+          git submodule foreach --recursive "git config core.autocrlf false; git config core.eol lf; git reset --hard HEAD"
 
       - name: Add MSBuild to PATH
         if: matrix.language == 'csharp'

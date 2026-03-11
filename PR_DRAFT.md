@@ -11,9 +11,9 @@
 - Root cause was content normalization drift at line 1 (BOM and line-ending variance during analysis/post-processing).
 
 ### Changes
-- Updated checkout behavior in CodeQL workflow to force LF content materialization:
+- Updated CodeQL workflow to normalize line endings after checkout for JS extraction:
 	- .github/workflows/codeql.yml
-	- Added: checkout with eol: lf
+	- Added: git config core.autocrlf/core.eol + forced re-checkout for repo and submodules
 - Added path-specific EOL policy for WebFormsForCore JS assets:
 	- .gitattributes
 	- Added: FuseCP/Lib/WebFormsForCore/src/WebFormsForCore.Web.Extensions/Script/**/*.js text eol=lf
@@ -43,6 +43,7 @@
 ### Final Fix (core.autocrlf Override)
 - Windows GitHub runners have `core.autocrlf=true` globally, which converts LF→CRLF during checkout.
 - Even with `.gitattributes eol=lf`, core.autocrlf was still re-converting the file to CRLF during CodeQL extraction.
-- Added explicit `git config --global core.autocrlf false` step in CodeQL workflow for javascript-typescript job only.
-- This ensures .gitattributes eol=lf takes precedence and file stays LF in CodeQL's file reading phase.
+- Removed unsupported `actions/checkout@v5` input (`eol`) and switched to explicit post-checkout normalization.
+- Added explicit `git config --global core.autocrlf false` and `core.eol lf`, then forced re-checkout (`git reset --hard`) for root repo and submodules.
+- This ensures .gitattributes eol=lf is actually applied to the working tree that CodeQL fingerprints.
 
