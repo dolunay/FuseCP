@@ -18,6 +18,9 @@ permissions:
   contents: read
   security-events: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }} / ${{ matrix.build_scope }})
@@ -46,15 +49,22 @@ jobs:
           languages: ${{ matrix.language }}
           queries: security-and-quality
 
-      - name: Add MSBuild to PATH
-        if: matrix.language == 'csharp'
-        uses: microsoft/setup-msbuild@v2
+      - name: Normalize checkout for JS CodeQL extraction
+        if: matrix.language == 'javascript-typescript'
+        shell: pwsh
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+          # Re-checkout after config update so tracked files and submodules use LF.
+          git reset --hard HEAD
+          git submodule foreach --recursive "git config core.autocrlf false; git config core.eol lf; git reset --hard HEAD"
 
-      - name: Install .NET SDK 10
+      - name: Install .NET SDK 10.0.200
         if: matrix.language == 'csharp'
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.x'
+          # Pin to a known available SDK to avoid transient channel manifest 404s.
+          dotnet-version: '10.0.200'
 
       - name: Build C# solutions for CodeQL
         if: matrix.language == 'csharp'

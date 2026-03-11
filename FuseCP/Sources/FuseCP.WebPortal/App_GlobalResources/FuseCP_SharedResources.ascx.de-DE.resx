@@ -3897,6 +3897,9 @@
   <data name="Quota.MsSQL2022.MaxLogSize" xml:space="preserve">
     <value>Max. Log-Gr��e, MB</value>
   </data>
+  <data name="Quota.MsSQL2025.MaxLogSize" xml:space="preserve">
+    <value>Max. Log-Gr��e, MB</value>
+  </data>
   <data name="Error.EXCHANGE_UPDATE_MAILBOX_PERMISSIONS" xml:space="preserve">
     <value>Fehler Beim Aktualisieren der  Postfachberechtigungen. �berpr�fen Sie das Auditprotokoll f�r weitere Details.</value>
   </data>
@@ -5639,6 +5642,9 @@
   </data>
   <data name="ReportResourceGroup.MsSQL2022" xml:space="preserve">
     <value>SQL Server 2022</value>
+  </data>
+  <data name="ReportResourceGroup.MsSQL2025" xml:space="preserve">
+    <value>SQL Server 2025</value>
   </data>
   <data name="WebAppGallery.ApplicationInstallationError" xml:space="preserve">
     <value>Fehler beim Installieren des Applikations-Pakets</value>
