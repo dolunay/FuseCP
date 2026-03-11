@@ -6350,6 +6350,8 @@ legend {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
   height: var(--fcp-topbar-height, 64px);
   padding: 0 16px;
   margin-left: 0;
@@ -6425,7 +6427,7 @@ legend {
 }
 .top-bar .search-top {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 11px;
   right: var(--fcp-desktop-search-right, 118px);
   left: auto;
@@ -6571,7 +6573,7 @@ legend {
   }
   .top-bar .search-top {
     display: block !important;
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: calc(10px + var(--mobile-search-right));
     left: auto;
@@ -6671,6 +6673,19 @@ legend {
   .top-bar.mobile-search-active .show-search {
     opacity: 0;
     pointer-events: none;
+  }
+}
+@media screen and (max-width:1200px) {
+  .top-bar,
+  .top-bar.navbar-fixed-top {
+    position: relative !important;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+  .top-bar .search-top {
+    position: absolute;
+    top: 10px;
   }
 }
 .ui-autocomplete.fcp-global-search-menu {
