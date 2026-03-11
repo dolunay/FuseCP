@@ -80,6 +80,7 @@ namespace FuseCP.Portal
             { "quotamssql2017databases", "pnlMsSQL2017Databases" },
             { "quotamssql2019databases", "pnlMsSQL2019Databases" },
             { "quotamssql2022databases", "pnlMsSQL2022Databases" },
+            { "quotamssql2025databases", "pnlMsSQL2025Databases" },
             { "quotamysql5databases", "pnlMySQL5Databases" },
             { "quotamysql8databases", "pnlMySQL8Databases" },
             { "quotamysql9databases", "pnlMySQL9Databases" },

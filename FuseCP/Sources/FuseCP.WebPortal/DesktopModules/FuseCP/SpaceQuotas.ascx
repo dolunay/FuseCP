@@ -120,6 +120,10 @@
         <td class="SubHead text-nowrap"><asp:Label ID="lblMsSQL2022Databases" runat="server" meta:resourcekey="lblMsSQL2022Databases" Text="MsSQL2022 Databases:"></asp:Label></td>
         <td class="Normal"><fcp:Quota ID="quotamssql2022databases" runat="server" QuotaName="MsSQL2022.Databases" DisplayGauge="True"/></td>
     </tr>
+    <tr ID="pnlMsSQL2025Databases" runat="server">
+        <td class="SubHead text-nowrap"><asp:Label ID="lblMsSQL2025Databases" runat="server" meta:resourcekey="lblMsSQL2025Databases" Text="MsSQL2025 Databases:"></asp:Label></td>
+        <td class="Normal"><fcp:Quota ID="quotamssql2025databases" runat="server" QuotaName="MsSQL2025.Databases" DisplayGauge="True"/></td>
+    </tr>
     <tr ID="pnlMySQL5Databases" runat="server">
         <td class="SubHead text-nowrap"><asp:Label ID="lblMySQL5Databases" runat="server" meta:resourcekey="lblMySQL5Databases" Text="MySQL5 Databases:"></asp:Label></td>
         <td class="Normal"><fcp:Quota ID="quotamysql5databases" runat="server" QuotaName="MySQL5.Databases" DisplayGauge="True"/></td>
