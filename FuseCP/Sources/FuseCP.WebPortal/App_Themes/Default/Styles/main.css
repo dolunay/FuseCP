@@ -11102,6 +11102,116 @@ a:focus {
 .fcp-h-100 {
   height: 100px;
 }
+.form-horizontal.fcp-form-sheet .row.mb-3,
+.form-horizontal.fcp-form-sheet .row.mb-4,
+.fcp-form-sheet .row.mb-3,
+.fcp-form-sheet .row.mb-4 {
+  align-items: flex-start;
+}
+.form-horizontal.fcp-form-sheet .col-form-label,
+.form-horizontal.fcp-form-sheet .fcp-form-label,
+.fcp-form-sheet .col-form-label,
+.fcp-form-sheet .fcp-form-label {
+  font-weight: 600;
+  color: #1f2937;
+  padding-top: 0.7rem;
+}
+.form-horizontal.fcp-form-sheet .col-sm-10,
+.form-horizontal.fcp-form-sheet .col-sm-8,
+.fcp-form-sheet .col-sm-10,
+.fcp-form-sheet .col-sm-8 {
+  min-width: 0;
+}
+.form-horizontal.fcp-form-sheet .form-control,
+.form-horizontal.fcp-form-sheet .form-select,
+.fcp-form-sheet .form-control,
+.fcp-form-sheet .form-select {
+  min-height: 44px;
+}
+.fcp-form-section {
+  padding: 0 0 1rem;
+}
+.fcp-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.fcp-form-check-stack {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.fcp-inline-warning {
+  color: #d9534f;
+  font-weight: 600;
+}
+.fcp-field-note {
+  display: inline-block;
+  margin-left: 10px;
+  color: #5f6b7a;
+  line-height: 1.5;
+}
+.fcp-field-short {
+  max-width: 180px;
+}
+.fcp-readonly-field {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #d9e0e7;
+  border-radius: 0.375rem;
+  background: #f8fafc;
+  color: #122033;
+  font-weight: 600;
+}
+.fcp-readonly-field-hero {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.fcp-password-control .fcp-password-tools {
+  margin-top: -2px;
+}
+.fcp-password-control .fcp-password-strength-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.fcp-password-policy {
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #d9e0e7;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+}
+.fcp-password-policy h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+.fcp-password-policy ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #4b5563;
+}
+.fcp-password-policy li + li {
+  margin-top: 0.35rem;
+}
+.fcp-validation-message {
+  display: block;
+  margin-top: 0.45rem;
+  color: #d9534f;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
 /* Final cascade guard: enforce readable row striping on legacy GridViews. */
 .NormalGridView .AspNet-GridView tr.fcp-grid-row-alt > td,
 .NormalGridView > table tr.fcp-grid-row-alt > td,

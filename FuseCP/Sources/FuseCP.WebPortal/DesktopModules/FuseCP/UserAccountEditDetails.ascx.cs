@@ -73,7 +73,7 @@ namespace FuseCP.Portal
                     txtEmail.Text = user.Email;
                     txtSecondaryEmail.Text = user.SecondaryEmail;
                     ddlMailFormat.SelectedIndex = user.HtmlMail ? 1 : 0;
-                    lblUsername.Text = user.Username;
+                    lblUsername.Text = PortalAntiXSS.Encode(user.Username);
                     cbxMfaEnabled.Checked = user.MfaMode > 0 ? true: false;
                     cbxMfaEnabled.Enabled = ES.Services.Users.CanUserChangeMfa(PanelSecurity.SelectedUserId);
                     lblMfaEnabled.Visible = cbxMfaEnabled.Checked;
@@ -120,11 +120,11 @@ namespace FuseCP.Portal
                 user.LoginStatusId = loginStatus.SelectedIndex;
                 
                 // account info
-                user.FirstName = txtFirstName.Text;
-                user.LastName = txtLastName.Text;
-                user.SubscriberNumber = txtSubscriberNumber.Text;
-                user.Email = txtEmail.Text;
-                user.SecondaryEmail = txtSecondaryEmail.Text;
+                user.FirstName = NormalizeUserText(txtFirstName.Text);
+                user.LastName = NormalizeUserText(txtLastName.Text);
+                user.SubscriberNumber = NormalizeUserText(txtSubscriberNumber.Text);
+                user.Email = NormalizeEmail(txtEmail.Text);
+                user.SecondaryEmail = NormalizeEmail(txtSecondaryEmail.Text);
                 user.HtmlMail = ddlMailFormat.SelectedIndex == 1;
 
                 // contact info
@@ -206,6 +206,16 @@ namespace FuseCP.Portal
             bool result = PortalUtils.UpdateUserMfa(user.Username, cbxMfaEnabled.Checked);
             lblMfaEnabled.Visible = result;
             cbxMfaEnabled.Checked = result;
+        }
+
+        private static string NormalizeUserText(string value)
+        {
+            return PortalAntiXSS.Encode((value ?? String.Empty).Trim());
+        }
+
+        private static string NormalizeEmail(string value)
+        {
+            return (value ?? String.Empty).Trim();
         }
     }
 }
