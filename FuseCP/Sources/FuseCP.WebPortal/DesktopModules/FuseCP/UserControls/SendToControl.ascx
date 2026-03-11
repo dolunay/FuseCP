@@ -2,7 +2,7 @@
 <div>
     <div>
         <fieldset>
-                <div class="mb-3">
+                <div class="row mb-3">
                     <div class="col-sm-10 offset-sm-2">
                         <div id="SendPasswordResetEmailDiv" class="input-group" runat="server">
                             <asp:CheckBox ID="chkSendPasswordResetEmail" runat="server" AutoPostBack="true" OnCheckedChanged="chkSendPasswordResetEmail_StateChanged" />

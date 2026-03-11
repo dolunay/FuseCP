@@ -408,7 +408,7 @@ td.Normal .NormalTextBox + span {
     width: 60px;
     display: block;
 }
-.ToolLink a:before{content:"> ";font-family:inherit}
+.ToolLink a:before{content:"\f285";font-family:"bootstrap-icons";font-size:11px;line-height:1;margin-right:6px;vertical-align:-1px}
 .ToolLink a {
     font-size: 13px;
     display: inline-block;
@@ -747,6 +747,13 @@ input[type=image] {
         text-align: right;
     }
 
+@media screen and (max-width:767px) {
+    .FormButtonsBar.right,
+    .FormButtonsBar.UserSpaces {
+        margin: 10px 0 12px !important;
+    }
+}
+
 .Small {
     font-size: 9pt;
 }
@@ -889,6 +896,14 @@ table.BorderFillBox td {
     line-height: 30px;
     font-size: 13px;
     width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.Shevron td,
+.ShevronActive td {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .Shevron {

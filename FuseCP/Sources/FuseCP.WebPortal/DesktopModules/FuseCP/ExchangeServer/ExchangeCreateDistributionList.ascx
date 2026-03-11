@@ -17,7 +17,7 @@
 				<div class="card-body form-horizontal">
 				    <fcp:SimpleMessageBox id="messageBox" runat="server" />
 					
-					<div class="mb-3">
+					<div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
                         </asp:Label>
@@ -29,7 +29,7 @@
 							            </div>
                         </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
 							<asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
                         </asp:Label>
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         </div>
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:label runat="server" AssociatedControlID="txtDisplayName" CssClass="form-label col-sm-2">
                         <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locManagedBy" ></asp:Localize>
                         </asp:label>

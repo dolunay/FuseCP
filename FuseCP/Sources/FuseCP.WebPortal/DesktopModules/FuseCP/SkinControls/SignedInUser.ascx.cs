@@ -44,10 +44,14 @@ namespace FuseCP.Portal.SkinControls
 			UserInfo user = PanelSecurity.LoggedUser;
             if (user != null)
             {
-               // lnkEditUserDetails.Text = PanelSecurity.LoggedUser.Username;
                 lnkEditUserDetails.NavigateUrl = PortalUtils.GetLoggedUserAccountPageUrl();
                 lnkEditUserDetailsSm.NavigateUrl = PortalUtils.GetLoggedUserAccountPageUrl();
-                lnkEditUserDetails.Text = user.Username;
+                lnkEditUserDetails.Text = string.Empty;
+                lnkEditUserDetails.ToolTip = user.Username;
+                lnkEditUserDetails.Attributes["title"] = user.Username;
+                lnkEditUserDetails.Attributes["aria-label"] = user.Username;
+                lnkEditUserDetailsSm.Attributes["title"] = user.Username;
+                lnkEditUserDetailsSm.Attributes["aria-label"] = user.Username;
             }
 
 			AnonymousPanel.Visible = !Request.IsAuthenticated;

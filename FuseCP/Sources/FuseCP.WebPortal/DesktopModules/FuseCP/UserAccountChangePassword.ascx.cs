@@ -48,7 +48,7 @@ namespace FuseCP.Portal
                 if (user != null)
                 {
                     // account info
-                    lblUsername.Text = user.Username;
+                    lblUsername.Text = PortalAntiXSS.Encode(user.Username);
 
                     // password policy
                     userPassword.SetUserPolicy(PanelSecurity.SelectedUserId, UserSettings.FuseCP_POLICY, "PasswordPolicy");

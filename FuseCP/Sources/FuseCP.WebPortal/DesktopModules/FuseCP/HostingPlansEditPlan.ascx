@@ -7,7 +7,7 @@
         <ContentTemplate> 
             <div class="card-body form-horizontal">
                 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-                <div class="mb-3">
+                <div class="row mb-3">
                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPlanName">
                         <asp:Localize ID="lblPlanName" runat="server" meta:resourcekey="lblPlanName" Text="Plan Name:"></asp:Localize>
                     </asp:Label>
@@ -28,7 +28,7 @@
                 </div>
                 <fcp:CollapsiblePanel id="secTarget" runat="server" TargetControlID="TargetPanel" meta:resourcekey="secTarget" Text="Plan Target"></fcp:CollapsiblePanel>
                 <asp:Panel ID="TargetPanel" runat="server" Height="0" style="overflow:hidden;">
-                    <div class="mb-3" id="rowTargetServer" runat="server">
+                    <div class="row mb-3" id="rowTargetServer" runat="server">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddlServer">
                             <asp:Localize ID="lblTargetServer" runat="server" meta:resourcekey="lblTargetServer" Text="Server:"></asp:Localize>
                         </asp:Label>
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3" id="rowTargetSpace" runat="server">
+                    <div class="row mb-3" id="rowTargetSpace" runat="server">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddlSpace">
                             <asp:Localize ID="lblTargetSpace" runat="server" meta:resourcekey="lblTargetSpace" Text="Hosting Space:"></asp:Localize>
                         </asp:Label>

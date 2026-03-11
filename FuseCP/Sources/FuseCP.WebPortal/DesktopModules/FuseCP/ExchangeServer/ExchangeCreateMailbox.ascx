@@ -136,7 +136,7 @@
             </div>
             <div id="ExistingUserDiv" visible="false" runat="server">
                 <div class="container">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <label for="userSelector">
                             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *" />
                         </label>
@@ -149,7 +149,7 @@
 
         <fieldset>
      
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <label for="mailboxPlanSelector" class="col-sm-2 form-label">
                             <asp:Localize ID="locMailboxplanName" runat="server" meta:resourcekey="locMailboxplanName" Text="Mailboxplan Name: *" />
                         </label>
@@ -160,7 +160,7 @@
                         </div>
                     </div>
         
-                    <div id="divRetentionPolicy" runat="server" class="mb-3">
+                    <div id="divRetentionPolicy" runat="server" class="row mb-3">
                         <label for="archivingMailboxPlanSelector" class="col-sm-2 form-label">
                             <asp:Localize ID="locRetentionPolicyName" runat="server" meta:resourcekey="locRetentionPolicyName" Text="Retention policy Name:  " />
                         </label>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
            
-                    <div id="divArchiving" runat="server" class="mb-3">
+                    <div id="divArchiving" runat="server" class="row mb-3">
                         <label for="chkEnableArchiving" class="col-sm-2 form-label">
                         </label>
                         <div class="col-sm-10">
@@ -181,7 +181,7 @@
                         </div>
                     </div>
             
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <label for="chkSendInstructions" class="col-sm-2 form-label">
                             <asp:CheckBox ID="CheckBox1" runat="server" meta:resourcekey="chkSendInstructions" Text="Send Setup Instructions" Checked="false" />
                         </label>
@@ -192,7 +192,7 @@
                         </div>
                     </div>
               
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <label class="col-sm-2 form-label">
                         </label>
                         <div class="col-sm-10">

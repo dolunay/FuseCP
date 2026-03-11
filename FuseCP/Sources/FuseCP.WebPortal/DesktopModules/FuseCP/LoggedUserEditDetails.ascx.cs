@@ -101,7 +101,7 @@ namespace FuseCP.Portal
                 txtLastName.Text = PortalAntiXSS.DecodeOld(user.LastName);
                 txtEmail.Text = user.Email;
                 txtSecondaryEmail.Text = user.SecondaryEmail;
-                lblUsername.Text = user.Username;
+                lblUsername.Text = PortalAntiXSS.Encode(user.Username);
                 ddlMailFormat.SelectedIndex = user.HtmlMail ? 1 : 0;
                 cbxMfaEnabled.Checked = user.MfaMode > 0 ? true : false;
                 cbxMfaEnabled.Enabled = ES.Services.Users.CanUserChangeMfa(PanelSecurity.LoggedUserId);
@@ -173,10 +173,10 @@ namespace FuseCP.Portal
             {
                 // gather data from form
                 // account info
-                user.FirstName = txtFirstName.Text;
-                user.LastName = txtLastName.Text;
-                user.Email = txtEmail.Text;
-                user.SecondaryEmail = txtSecondaryEmail.Text;
+                user.FirstName = NormalizeUserText(txtFirstName.Text);
+                user.LastName = NormalizeUserText(txtLastName.Text);
+                user.Email = NormalizeEmail(txtEmail.Text);
+                user.SecondaryEmail = NormalizeEmail(txtSecondaryEmail.Text);
                 user.HtmlMail = ddlMailFormat.SelectedIndex == 1;
 
                 // contact info
@@ -310,6 +310,16 @@ namespace FuseCP.Portal
             qrData.Visible = false;
             btnGetQRCodeData.Visible = result;
             lblMfaEnabled.Visible = result;
+        }
+
+        private static string NormalizeUserText(string value)
+        {
+            return PortalAntiXSS.Encode((value ?? String.Empty).Trim());
+        }
+
+        private static string NormalizeEmail(string value)
+        {
+            return (value ?? String.Empty).Trim();
         }
 
         private void SetCurrentLanguage()

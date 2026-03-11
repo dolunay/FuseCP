@@ -27,10 +27,10 @@
                         TargetControlID="ResourcesPanel" meta:resourcekey="secResources" Text="Resources">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ResourcesPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
 
                             <asp:Label ID="lblCpu" runat="server" AssociatedControlID="ddlCpu"
-                                        meta:resourcekey="lblCpu" Text="CPU:" CssClass="col-sm-1" />
+                                        meta:resourcekey="lblCpu" Text="CPU:" CssClass="col-sm-1 col-form-label" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:DropDownList ID="ddlCpu" runat="server" CssClass="form-control">
                                     </asp:DropDownList>
@@ -38,7 +38,7 @@
                             </div>
 
                             <asp:Label ID="lblRam" runat="server" AssociatedControlID="txtRam"
-                                        meta:resourcekey="lblRam" Text="RAM:" CssClass="col-sm-1" />
+                                        meta:resourcekey="lblRam" Text="RAM:" CssClass="col-sm-1 col-form-label" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtRam" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireRamValidator" runat="server" Text="*" Display="Dynamic"
@@ -48,7 +48,7 @@
                             </div>
 
                             <asp:Label ID="lblHdd" runat="server" AssociatedControlID="txtHdd"
-                                        meta:resourcekey="lblHdd" Text="HDD:" CssClass="col-sm-1" />
+                                        meta:resourcekey="lblHdd" Text="HDD:" CssClass="col-sm-1 col-form-label" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHdd" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddValidator" runat="server" Text="*" Display="Dynamic"
@@ -64,7 +64,7 @@
                                 <HeaderTemplate>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-1" AssociatedControlID="txtAdditionalHdd"></asp:Label>
+                                    <asp:Label ID="lblAdditionalHdd" meta:resourcekey="lblHdd" runat="server" Text="HDD:" CssClass="col-sm-1 col-form-label" AssociatedControlID="txtAdditionalHdd"></asp:Label>
                                     <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                         <asp:TextBox ID="txtAdditionalHdd" runat="server" CssClass="form-control" Text='<%# Eval("DiskSize") % MaxLength="255">'></asp:TextBox>
                                         <asp:HiddenField id="txtAdditionalHddPath" Value='<%# Eval("DiskPath") %>' runat="server" />
@@ -99,10 +99,10 @@
 		                <asp:Localize ID="locHddIOPSTitle" runat="server" meta:resourcekey="locHddIOPSTitle" 
                             Text="Specify Quality of Service management for this virtual hard disk. Minimum and maximum IOPS are measured in 8KB increments. Default value is 0." />
 		                </p>
-                        <div class="mb-3">
+                        <div class="row mb-3">
 
                             <asp:Label ID="lblHddMinIOPS" runat="server" AssociatedControlID="txtHddMinIOPS"
-                                        meta:resourcekey="lblHddMinIOPS" Text="Minimum:" CssClass="col-sm-1" />
+                                        meta:resourcekey="lblHddMinIOPS" Text="Minimum:" CssClass="col-sm-1 col-form-label" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHddMinIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMinIOPSValidator" runat="server" Text="*" Display="Dynamic"
@@ -112,7 +112,7 @@
                             </div>
 
                             <asp:Label ID="lblHddMaxIOPS" runat="server" AssociatedControlID="txtHddMaxIOPS"
-                                        meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" CssClass="col-sm-1" />
+                                        meta:resourcekey="lblHddMaxIOPS" Text="Maximum:" CssClass="col-sm-1 col-form-label" />
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtHddMaxIOPS" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequireHddMaxIOPSValidator" runat="server" Text="*" Display="Dynamic"
@@ -130,10 +130,10 @@
                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
 
                             <asp:Label ID="locSnapshots" runat="server"
-                                    meta:resourcekey="locSnapshots" Text="Number of snapshots:" CssClass="col-sm-1"></asp:Label>
+                                    meta:resourcekey="locSnapshots" Text="Number of snapshots:" CssClass="col-sm-1 col-form-label"></asp:Label>
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>                                    
                                     <asp:RequiredFieldValidator ID="SnapshotsValidator" runat="server" Text="*" Display="Dynamic"
@@ -147,7 +147,7 @@
                         TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <div class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:CheckBox ID="chkDvdInstalled" runat="server" Checked="true"
                                         Text="DVD drive installed" meta:resourcekey="chkDvdInstalled" />
@@ -159,7 +159,7 @@
                         TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkBootFromCd" runat="server" Text="Boot from CD" meta:resourcekey="chkBootFromCd" />
                             </div>
@@ -176,7 +176,7 @@
                         TargetControlID="ActionsPanel" meta:resourcekey="secActions" Text="Allowed actions">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="ActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <div class="col-sm-4">
                                 <asp:CheckBox ID="chkStartShutdown" runat="server" Text="Start, Turn off and Shutdown" meta:resourcekey="chkStartShutdown" />
                             </div>
@@ -199,7 +199,7 @@
                         TargetControlID="NetworkPanel" meta:resourcekey="secNetwork" Text="Network">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="NetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <div runat="server" ID="EmptyExternalAddressesMessage" class="fcp-p-5 fcp-ps-15" visible="false">
                                 <asp:Localize ID="locNotEnoughExternalAddresses" runat="server" Text="Not enough external IP Addresses."
                                              meta:resourcekey="locNotEnoughExternalAddresses"></asp:Localize>

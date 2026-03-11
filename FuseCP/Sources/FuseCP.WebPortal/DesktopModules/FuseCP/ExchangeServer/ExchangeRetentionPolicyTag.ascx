@@ -49,7 +49,7 @@
     <br />
     <fcp:CollapsiblePanel id="secPolicy" runat="server" TargetControlID="Policy" meta:resourcekey="secPolicy" Text="Policy"></fcp:CollapsiblePanel>
     <asp:Panel ID="Policy" runat="server" Height="0" style="overflow:hidden">
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="valRequirePolicy">
                 <asp:Localize ID="lblPolicyTagName" runat="server" meta:resourcekey="lblPolicyTagName" Text="Tag Name:"></asp:Localize>
             </asp:Label>
@@ -62,7 +62,7 @@
     </asp:Panel>
     <fcp:CollapsiblePanel id="secPolicyFeatures" runat="server" TargetControlID="PolicyFeatures" meta:resourcekey="secPolicyFeatures" Text="Policy Tag Features"></fcp:CollapsiblePanel>
     <asp:Panel ID="PolicyFeatures" runat="server" Height="0" style="overflow:hidden">
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddTagType">
                 <asp:Localize ID="locType" runat="server" meta:resourcekey="locType" Text="Type :"></asp:Localize>
             </asp:Label>
@@ -70,7 +70,7 @@
                 <asp:DropDownList ID="ddTagType" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ageLimitForRetention">
                 <asp:Localize ID="locAgeLimitForRetention" runat="server" meta:resourcekey="locAgeLimitForRetention" Text="Age limit for retention (Days):"></asp:Localize>
             </asp:Label>
@@ -78,7 +78,7 @@
                  <uc1:QuotaEditor id="ageLimitForRetention" runat="server" QuotaTypeID="2" QuotaValue="1" QuotaMinValue="1" QuotaMaxValue="24855" ParentQuotaValue="-1"></uc1:QuotaEditor>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="ddRetentionAction">
                 <asp:Localize ID="locRetentionAction" runat="server" meta:resourcekey="locRetentionAction" Text="Retention action :"></asp:Localize>
             </asp:Label>

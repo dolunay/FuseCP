@@ -5,7 +5,7 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="DisplayNameLabel" runat="server" meta:resourcekey="DisplayNameLabel" Text="First Name:" />
                         </asp:Label>

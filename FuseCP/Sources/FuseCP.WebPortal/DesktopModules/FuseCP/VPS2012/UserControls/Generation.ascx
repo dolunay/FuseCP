@@ -5,9 +5,9 @@
 <% if (Mode != VirtualMachineSettingsMode.Summary){ %>
     <fcp:CollapsiblePanel ID="secGeneration" runat="server" TargetControlID="GenerationPanel" meta:ResourceKey="secGeneration" Text="Generation"></fcp:CollapsiblePanel>
     <asp:Panel ID="GenerationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-<div class="mb-3">
+<div class="row mb-3">
             <% if (Mode == VirtualMachineSettingsMode.Edit) { %>
-                    <asp:Label ID="locGeneration" meta:resourcekey="locGeneration" runat="server" Text="Generation:" CssClass="col-sm-2" AssociatedControlID="ddlGeneration"></asp:Label>
+                    <asp:Label ID="locGeneration" meta:resourcekey="locGeneration" runat="server" Text="Generation:" CssClass="col-sm-2 col-form-label" AssociatedControlID="ddlGeneration"></asp:Label>
                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                     <asp:DropDownList ID="ddlGeneration" runat="server" CssClass="form-control" resourcekey="ddlGeneration">
                         <asp:ListItem Value="1">1</asp:ListItem>
@@ -15,7 +15,7 @@
                     </asp:DropDownList>
                 </div>
             <% } else { %>
-            <asp:Label ID="locGenerationDisplay" meta:resourcekey="locGeneration" runat="server" Text="Generation:" CssClass="col-sm-2"></asp:Label>
+            <asp:Label ID="locGenerationDisplay" meta:resourcekey="locGeneration" runat="server" Text="Generation:" CssClass="col-sm-2 col-form-label"></asp:Label>
                      <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                     <asp:Label runat="server" ID="lblGeneration"/>
                     </div>
@@ -23,8 +23,8 @@
         </div>
     </asp:Panel>
 <% } else { %>
-<div class="mb-3">
-    <asp:Label ID="locGeneration2" meta:resourcekey="locGeneration2" runat="server" Text="Generation:" CssClass="col-sm-2"></asp:Label>
+<div class="row mb-3">
+    <asp:Label ID="locGeneration2" meta:resourcekey="locGeneration2" runat="server" Text="Generation:" CssClass="col-sm-2 col-form-label"></asp:Label>
     <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
     <asp:Literal ID="litGeneration" runat="server"></asp:Literal>
     </div>

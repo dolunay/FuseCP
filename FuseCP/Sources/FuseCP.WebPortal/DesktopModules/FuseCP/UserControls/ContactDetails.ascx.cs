@@ -31,14 +31,14 @@ namespace FuseCP.Portal
 		private string companyName;
 		public string CompanyName
 		{
-			get { return txtCompanyName.Text; }
+            get { return NormalizeText(txtCompanyName.Text); }
 			set { companyName = value; }
 		}
 
         private string address;
         public string Address
         {
-            get { return txtAddress.Text; }
+            get { return NormalizeText(txtAddress.Text); }
             set { address = value; }
         }
 
@@ -58,28 +58,28 @@ namespace FuseCP.Portal
         private string city;
         public string City
         {
-            get { return txtCity.Text; }
+            get { return NormalizeText(txtCity.Text); }
             set { city = value; }
         }
 
         private string zip;
         public string Zip
         {
-            get { return txtZip.Text; }
+            get { return NormalizeText(txtZip.Text); }
             set { zip = value; }
         }
 
         private string primaryPhone;
         public string PrimaryPhone
         {
-            get { return txtPrimaryPhone.Text; }
+            get { return NormalizeText(txtPrimaryPhone.Text); }
             set { primaryPhone = value; }
         }
 
         private string secondaryPhone;
         public string SecondaryPhone
         {
-            get { return txtSecondaryPhone.Text; }
+            get { return NormalizeText(txtSecondaryPhone.Text); }
             set { secondaryPhone = value; }
         }
 
@@ -91,7 +91,7 @@ namespace FuseCP.Portal
                 if (ddlStates.Visible)
                     return ddlStates.SelectedItem.Text;
                 else
-                    return txtState.Text;
+                    return NormalizeText(txtState.Text);
             }
             set
             {
@@ -103,14 +103,14 @@ namespace FuseCP.Portal
 
         public string Fax
         {
-            get { return txtFax.Text; }
+            get { return NormalizeText(txtFax.Text); }
             set { fax = value; }
         }
 
         private string messengerId;
         public string MessengerId
         {
-            get { return txtMessengerId.Text; }
+            get { return NormalizeText(txtMessengerId.Text); }
             set { messengerId = value; }
         }
 
@@ -125,17 +125,17 @@ namespace FuseCP.Portal
 
         private void BindContact()
         {
-			txtCompanyName.Text = companyName;
-            txtAddress.Text = address;
-            txtCity.Text = city;
+            txtCompanyName.Text = PortalAntiXSS.DecodeOld(companyName);
+            txtAddress.Text = PortalAntiXSS.DecodeOld(address);
+            txtCity.Text = PortalAntiXSS.DecodeOld(city);
             SetCountry(country);
             BindStates();
             SetState(state);
-            txtZip.Text = zip;
-            txtPrimaryPhone.Text = primaryPhone;
-            txtSecondaryPhone.Text = secondaryPhone;
-            txtFax.Text = fax;
-            txtMessengerId.Text = messengerId;
+            txtZip.Text = PortalAntiXSS.DecodeOld(zip);
+            txtPrimaryPhone.Text = PortalAntiXSS.DecodeOld(primaryPhone);
+            txtSecondaryPhone.Text = PortalAntiXSS.DecodeOld(secondaryPhone);
+            txtFax.Text = PortalAntiXSS.DecodeOld(fax);
+            txtMessengerId.Text = PortalAntiXSS.DecodeOld(messengerId);
         }
 
         private void BindCountries()
@@ -209,6 +209,11 @@ namespace FuseCP.Portal
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindStates();
+        }
+
+        private static string NormalizeText(string value)
+        {
+            return PortalAntiXSS.Encode((value ?? String.Empty).Trim());
         }
     }
 }

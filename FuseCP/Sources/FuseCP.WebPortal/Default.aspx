@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Solid CP</title>
     <link runat="server" rel="stylesheet" href="~/Styles/Import.css" type="text/css" id="AdaptersInvariantImportCSS" />
-    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/bootstrap5.min.css" />
-    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/main.css" />
-    <link runat="server" rel="stylesheet" href="~/App_Themes/Default/Styles/custom.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Fav and touch icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -89,10 +85,39 @@
                     validator.getAttribute('data-val-controltovalidate');
             }
 
+            var hasValidated = false;
+
             function isStarMarker(validator) {
                 var text = (validator.textContent || validator.innerText || '').trim();
                 var errorMessage = (validator.errormessage || validator.getAttribute('errormessage') || validator.getAttribute('data-val-errormessage') || '').trim();
                 return text === '*' || errorMessage === '*';
+            }
+
+            function isValidatorInvalid(validator) {
+                return validator.isvalid === false || validator.getAttribute('data-val-isvalid') === 'False';
+            }
+
+            function hasVisibleMessage(validator) {
+                var text = (validator.textContent || validator.innerText || '').trim();
+                if (isStarMarker(validator) && text === '*') {
+                    text = '';
+                }
+
+                var style = window.getComputedStyle ? window.getComputedStyle(validator) : null;
+                var hidden = validator.hidden || validator.getAttribute('aria-hidden') === 'true' || validator.style.display === 'none' || (style && style.display === 'none');
+                return !hidden && text.length > 0;
+            }
+
+            function detectExistingValidationState() {
+                var validators = getValidators();
+
+                for (var i = 0; i < validators.length; i++) {
+                    if (isValidatorInvalid(validators[i]) && hasVisibleMessage(validators[i])) {
+                        return true;
+                    }
+                }
+
+                return false;
             }
 
             function refreshValidationUi() {
@@ -103,7 +128,7 @@
                     var target = byIdOrSuffix(getTargetId(validator));
                     if (!target) continue;
 
-                    var invalid = validator.isvalid === false;
+                    var invalid = isValidatorInvalid(validator) && (hasValidated || hasVisibleMessage(validator));
 
                     target.classList.toggle('is-invalid', invalid);
                     target.setAttribute('aria-invalid', invalid ? 'true' : 'false');
@@ -123,6 +148,7 @@
             var originalPageClientValidate = window.Page_ClientValidate;
             if (typeof originalPageClientValidate === 'function') {
                 window.Page_ClientValidate = function (validationGroup) {
+                    hasValidated = true;
                     var result = originalPageClientValidate(validationGroup);
                     window.setTimeout(refreshValidationUi, 0);
                     return result;
@@ -130,6 +156,7 @@
             }
 
             document.addEventListener('submit', function () {
+                hasValidated = true;
                 window.setTimeout(refreshValidationUi, 0);
             }, true);
 
@@ -142,8 +169,12 @@
             }, true);
 
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', refreshValidationUi);
+                document.addEventListener('DOMContentLoaded', function () {
+                    hasValidated = detectExistingValidationState();
+                    refreshValidationUi();
+                });
             } else {
+                hasValidated = detectExistingValidationState();
                 refreshValidationUi();
             }
         })();

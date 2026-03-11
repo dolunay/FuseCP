@@ -86,7 +86,7 @@
                         <div class="dropdown dropdown-lg">
 							<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
 							<div class="dropdown-menu dropdown-menu-end" role="menu">
-                                  <div class="mb-3">
+                                  <div class="row mb-3">
                                     <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
                                       <br />
 					<asp:CheckBox ID="chkIncludeMailboxes" runat="server" Text="Accounts" Checked="true"

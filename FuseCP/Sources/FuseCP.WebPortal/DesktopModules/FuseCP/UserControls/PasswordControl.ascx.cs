@@ -82,7 +82,7 @@ namespace FuseCP.Portal
 
         public string Password
         {
-            get { return (txtPassword.Text == EMPTY_PASSWORD) ? "" : txtPassword.Text; }
+            get { return (txtPassword.Text == EMPTY_PASSWORD) ? "" : NormalizePassword(txtPassword.Text); }
             set { txtPassword.Text = value; txtConfirmPassword.Text = value; }
         }
 
@@ -212,6 +212,11 @@ namespace FuseCP.Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtPassword.Attributes["autocomplete"] = "new-password";
+            txtConfirmPassword.Attributes["autocomplete"] = "new-password";
+            txtPassword.Attributes["spellcheck"] = "false";
+            txtConfirmPassword.Attributes["spellcheck"] = "false";
+
             txtPassword.Attributes["value"] = txtPassword.Text;
             txtConfirmPassword.Attributes["value"] = txtConfirmPassword.Text;
             
@@ -266,15 +271,13 @@ namespace FuseCP.Portal
 
 
             }
-
-            if (!Page.ClientScript.IsClientScriptIncludeRegistered("jqueryui-tooltip"))
-            {
-                  Page.ClientScript.RegisterClientScriptInclude(this.GetType(),"jqueryui-tooltip", ResolveUrl("~/JavaScript/jquery.poshytip.min.js"));
-            }
         }
 
         private void ToggleControls()
         {
+            valRequirePassword.Text = String.Empty;
+            valRequireConfirmPassword.Text = String.Empty;
+            valRequireEqualPassword.Text = String.Empty;
             valCorrectLength.Attributes["dpsw"] = EMPTY_PASSWORD;
             valRequireNumbers.Attributes["dpsw"] = EMPTY_PASSWORD;
             valRequireUppercase.Attributes["dpsw"] = EMPTY_PASSWORD;
@@ -325,7 +328,7 @@ namespace FuseCP.Portal
                         MinimumLength = minLength;
                         valCorrectLength.Enabled = true;
                         valCorrectLength.Attributes["minimumLength"] = MinimumLength.ToString();
-                        valCorrectLength.ErrorMessage = String.Format(GetLocalizedString("CorrectLength.Text"), MinimumLength);
+                        valCorrectLength.ErrorMessage = NormalizeValidationMessage(String.Format(GetLocalizedString("CorrectLength.Text"), MinimumLength));
                     }
 
                     // max length
@@ -341,8 +344,8 @@ namespace FuseCP.Portal
                     {
                         valRequireNumbers.Enabled = true;
                         valRequireNumbers.Attributes["minimumNumber"] = MinimumNumbers.ToString();
-                        valRequireNumbers.ErrorMessage = String.Format(
-                            GetLocalizedString("RequireNumbers.Text"), MinimumNumbers);
+                        valRequireNumbers.ErrorMessage = NormalizeValidationMessage(String.Format(
+                            GetLocalizedString("RequireNumbers.Text"), MinimumNumbers));
                     }
 
                     // UPPERCASE
@@ -350,8 +353,8 @@ namespace FuseCP.Portal
                     {
                         valRequireUppercase.Enabled = true;
                         valRequireUppercase.Attributes["minimumNumber"] = MinimumUppercase.ToString();
-                        valRequireUppercase.ErrorMessage = String.Format(
-                            GetLocalizedString("RequireUppercase.Text"), MinimumUppercase);
+                        valRequireUppercase.ErrorMessage = NormalizeValidationMessage(String.Format(
+                            GetLocalizedString("RequireUppercase.Text"), MinimumUppercase));
                     }
 
                     // symbols
@@ -359,8 +362,8 @@ namespace FuseCP.Portal
                     {
                         valRequireSymbols.Enabled = true;
                         valRequireSymbols.Attributes["minimumNumber"] = MinimumSymbols.ToString();
-                        valRequireSymbols.ErrorMessage = String.Format(
-                            GetLocalizedString("RequireSymbols.Text"), MinimumSymbols);
+                        valRequireSymbols.ErrorMessage = NormalizeValidationMessage(String.Format(
+                            GetLocalizedString("RequireSymbols.Text"), MinimumSymbols));
                     }
 
                 } // if(enabled)
@@ -413,6 +416,16 @@ namespace FuseCP.Portal
         private bool ValidatePattern(string regexp, string val, int minimumNumber)
         {
             return (Regex.Matches(val, regexp).Count >= minimumNumber);
+        }
+
+        private static string NormalizePassword(string value)
+        {
+            return (value ?? String.Empty).Replace("\r", String.Empty).Replace("\n", String.Empty);
+        }
+
+        private static string NormalizeValidationMessage(string value)
+        {
+            return Regex.Replace(value ?? String.Empty, "<br\\s*/?>", String.Empty, RegexOptions.IgnoreCase).Trim();
         }
     }
 }

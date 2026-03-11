@@ -19,9 +19,9 @@
                     
                     <asp:ValidationSummary ID="validatorsSummary" runat="server" 
                         ValidationGroup="ImportWizard" ShowMessageBox="True" ShowSummary="False" />
-                    <div class="mb-3">
+                    <div class="row mb-3">
 
-                        <asp:Label ID="locHyperVService" runat="server" CssClass="col-sm-1" AssociatedControlID="HyperVServices" meta:resourcekey="locHyperVService" Text="Hyper-V Service:"></asp:Label>
+                        <asp:Label ID="locHyperVService" runat="server" CssClass="col-sm-1 col-form-label" AssociatedControlID="HyperVServices" meta:resourcekey="locHyperVService" Text="Hyper-V Service:"></asp:Label>
                         <div class="col-sm-11">
                             <asp:DropDownList ID="HyperVServices" runat="server" CssClass="form-control"
                                     DataValueField="ServiceID" DataTextField="FullServiceName" AutoPostBack="true"
@@ -34,7 +34,7 @@
 
                         <div id="VMsRow" runat="server">
 
-                            <asp:Label ID="locVirtualMachine" runat="server" CssClass="col-sm-1" meta:resourcekey="locVirtualMachine" Text="Virtual machine:"></asp:Label>
+                            <asp:Label ID="locVirtualMachine" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locVirtualMachine" Text="Virtual machine:"></asp:Label>
                             <div class="col-sm-11">
                                 <asp:DropDownList ID="VirtualMachines" runat="server" CssClass="form-control"
                                     DataValueField="VirtualMachineId" DataTextField="Name" AutoPostBack="true"
@@ -51,8 +51,8 @@
                         TargetControlID="OsTemplatePanel" meta:resourcekey="secOsTemplate" Text="OS Template">
                     </fcp:CollapsiblePanel>
                     <asp:Panel ID="OsTemplatePanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                        <div class="mb-3">
-                            <asp:Label ID="locOsTemplate" runat="server" CssClass="col-sm-1" meta:resourcekey="locOsTemplate" AssociatedControlID="OsTemplates" Text="OS Template:"></asp:Label>
+                        <div class="row mb-3">
+                            <asp:Label ID="locOsTemplate" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locOsTemplate" AssociatedControlID="OsTemplates" Text="OS Template:"></asp:Label>
                             <div class="col-sm-11 d-flex flex-wrap gap-2 align-items-center">
                                 <asp:DropDownList ID="OsTemplates" runat="server" CssClass="form-control"
                                         DataValueField="Path" DataTextField="Name"></asp:DropDownList>
@@ -66,7 +66,7 @@
                                         meta:resourcekey="EnableRemoteDesktop" Text="Enable Remote Desktop Web Connection" />
                             </div>
                             <div id="AdminPasswordPanel" runat="server" visible="false">
-                                <asp:Label ID="locAdminPassword" runat="server" CssClass="col-sm-2" meta:resourcekey="locAdminPassword" AssociatedControlID="adminPassword" Text="Administrator password:"></asp:Label>
+                                <asp:Label ID="locAdminPassword" runat="server" CssClass="col-sm-2 col-form-label" meta:resourcekey="locAdminPassword" AssociatedControlID="adminPassword" Text="Administrator password:"></asp:Label>
                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                     <asp:TextBox ID="adminPassword" runat="server" TextMode="Password" CssClass="form-control" MaxLength="255"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredAdminPassword" runat="server"
@@ -85,23 +85,23 @@
                         <asp:Panel ID="ConfigurationPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
                             <fcp:Generation runat="server" ID="GenerationSetting" Mode="Summary"/>
 
-                            <div class="mb-3">
-                                <asp:Label ID="locCPU" runat="server" CssClass="col-sm-1" meta:resourcekey="locCPU" Text="CPU:"></asp:Label>
+                            <div class="row mb-3">
+                                <asp:Label ID="locCPU" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locCPU" Text="CPU:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:Literal ID="CpuCores" runat="server" Text="0"></asp:Literal>
                                 </div>
 
-                                <asp:Label ID="locRAM" runat="server" CssClass="col-sm-1" meta:resourcekey="locRAM" Text="RAM:"></asp:Label>
+                                <asp:Label ID="locRAM" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locRAM" Text="RAM:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:Literal ID="RamSize" runat="server" Text="0"></asp:Literal>
                                 </div>
 
-                                <asp:Label ID="locHDD" runat="server" CssClass="col-sm-1" meta:resourcekey="locHDD" Text="HDD:"></asp:Label>
+                                <asp:Label ID="locHDD" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locHDD" Text="HDD:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:Literal ID="HddSize" runat="server" Text="0"></asp:Literal>
                                 </div>
 
-                                <asp:Label ID="locVhdPath" runat="server" CssClass="col-sm-1" meta:resourcekey="locVhdPath" Text="VHD location:"></asp:Label>
+                                <asp:Label ID="locVhdPath" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locVhdPath" Text="VHD location:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:Literal ID="VhdPath" runat="server" Text="0"></asp:Literal>
                                 </div>
@@ -110,12 +110,12 @@
                                     <HeaderTemplate>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="locAdditionalHDD" runat="server" CssClass="col-sm-1" meta:resourcekey="locHDD" Text="HDD:"></asp:Label>
+                                        <asp:Label ID="locAdditionalHDD" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locHDD" Text="HDD:"></asp:Label>
                                         <div class="col-sm-11">
                                             <asp:Literal ID="AdditionalHddSize" runat="server" Text='<%# Eval("DiskSize") %>'></asp:Literal>
                                         </div>
 
-                                        <asp:Label ID="locAdditionalVhdPath" runat="server" CssClass="col-sm-1" meta:resourcekey="locVhdPath" Text="VHD location:"></asp:Label>
+                                        <asp:Label ID="locAdditionalVhdPath" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locVhdPath" Text="VHD location:"></asp:Label>
                                         <div class="col-sm-11">
                                             <asp:Literal ID="AdditionalVhdPath" runat="server" Text='<%# Eval("DiskPath") %>'></asp:Literal>
                                         </div>
@@ -132,8 +132,8 @@
                                         TargetControlID="SnapshotsPanel" meta:resourcekey="secSnapshots" Text="Snapshots quota">
                                     </fcp:CollapsiblePanel>
                                     <asp:Panel ID="SnapshotsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                                        <div class="mb-3">
-                                        <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2"  AssociatedControlID="txtSnapshots"></asp:Label>
+                                        <div class="row mb-3">
+                                        <asp:Label ID="locSnapshots" meta:resourcekey="locSnapshots" runat="server" Text="Number of snapshots:" CssClass="col-sm-2 col-form-label"  AssociatedControlID="txtSnapshots"></asp:Label>
                                                 <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                                                     <asp:TextBox ID="txtSnapshots" runat="server" CssClass="form-control" Text="0" MaxLength="255"></asp:TextBox>
                                                     
@@ -148,7 +148,7 @@
                             TargetControlID="BiosPanel" meta:resourcekey="secBios" Text="BIOS">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="BiosPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">                            
-                            <div class="mb-3">
+                            <div class="row mb-3">
                                 <div id="divBootFromCdChkOption" runat="server" class="col-sm-6">
                                     <fcp:CheckBoxOption id="BootFromCd" runat="server" Value="False" />
                                     <asp:Localize ID="locBootFromCd" runat="server" meta:resourcekey="locBootFromCd"></asp:Localize>
@@ -171,7 +171,7 @@
                             TargetControlID="DvdPanel" meta:resourcekey="secDvd" Text="DVD">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="DvdPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                            <div class="mb-3">
+                            <div class="row mb-3">
                                 <div id="divDvdInstalledChkOption" runat="server" class="col-sm-12 d-flex flex-wrap gap-2 align-items-center">
                                     <fcp:CheckBoxOption id="DvdInstalled" runat="server" Value="False" />
                                         <asp:Localize ID="locDvdInstalled" runat="server" meta:resourcekey="locDvdInstalled"></asp:Localize>
@@ -187,7 +187,7 @@
                             TargetControlID="AllowedActionsPanel" meta:resourcekey="secAllowedActions" Text="Allowed Actions">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="AllowedActionsPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                            <div class="mb-3">
+                            <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="AllowStartShutdown" runat="server" meta:resourcekey="AllowStartShutdown" />
                                 </div>
@@ -211,9 +211,9 @@
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="ExternalNetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
 
-                            <div class="mb-3">
+                            <div class="row mb-3">
 
-                                <asp:Label ID="locExternalAdapter" runat="server" CssClass="col-sm-1" 
+                                <asp:Label ID="locExternalAdapter" runat="server" CssClass="col-sm-1 col-form-label" 
                                     meta:resourcekey="locExternalAdapter" AssociatedControlID="ExternalAdapters" Text="Connected NIC:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:DropDownList ID="ExternalAdapters" runat="server" CssClass="form-control"
@@ -223,7 +223,7 @@
 
                                 <div id="ExternalAddressesRow" runat="server">
 
-                                    <asp:Label ID="locExternalAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Label>
+                                    <asp:Label ID="locExternalAddresses" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locExternalAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ExternalAddresses" runat="server" Rows="5"
                                             SelectionMode="Multiple"></asp:ListBox>
@@ -240,9 +240,9 @@
                             TargetControlID="ManagementNetworkPanel" meta:resourcekey="secManagementNetwork" Text="Management Network">
                         </fcp:CollapsiblePanel>
                         <asp:Panel ID="ManagementNetworkPanel" runat="server" Height="0" CssClass="fcp-p-5" Style="overflow:hidden;">
-                            <div class="mb-3">
+                            <div class="row mb-3">
 
-                                <asp:Label ID="locManagementAdapter" runat="server" CssClass="col-sm-1" 
+                                <asp:Label ID="locManagementAdapter" runat="server" CssClass="col-sm-1 col-form-label" 
                                     meta:resourcekey="locManagementAdapter" AssociatedControlID="ManagementAdapters" Text="Connected NIC:"></asp:Label>
                                 <div class="col-sm-11">
                                     <asp:DropDownList ID="ManagementAdapters" runat="server" CssClass="form-control"
@@ -252,7 +252,7 @@
 
                                 <div id="ManagementAddressesRow" runat="server">
 
-                                    <asp:Label ID="locManagementAddresses" runat="server" CssClass="col-sm-1" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Label>
+                                    <asp:Label ID="locManagementAddresses" runat="server" CssClass="col-sm-1 col-form-label" meta:resourcekey="locManagementAddresses" Text="Assign IP addresses:"></asp:Label>
                                     <div class="col-sm-11">
                                         <asp:ListBox ID="ManagementAddresses" runat="server" Rows="5"
                                             SelectionMode="Single"></asp:ListBox>

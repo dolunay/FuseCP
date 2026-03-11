@@ -15,8 +15,8 @@
 
 <div class="card-body row">
 	<div class="col-md-6">
-        <div class="mb-3">
-		<asp:Label ID="lblPool" runat="server" meta:resourcekey="lblPool" Text="Pool:" CssClass="col-sm-2"></asp:Label>
+        <div class="row mb-3">
+		<asp:Label ID="lblPool" runat="server" meta:resourcekey="lblPool" Text="Pool:" CssClass="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
 		<asp:DropDownList ID="ddlPools" runat="server" CssClass="form-control" AutoPostBack="true">
 		    <asp:ListItem Value="General" meta:resourcekey="ddlPoolsGeneral">General</asp:ListItem>

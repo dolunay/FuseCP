@@ -16,7 +16,7 @@
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="txtSmtpServer" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpServer" runat="server" meta:resourcekey="SettinglblSmtpServer" />
                                         </CPCC:H5Label>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="txtSmtpPort" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpPort" runat="server" meta:resourcekey="SettinglblSmtpPort" />
                                         </CPCC:H5Label>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="txtSmtpUser" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpUser" runat="server" meta:resourcekey="SettinglblSmtpUser" />
                                         </CPCC:H5Label>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="txtSmtpPassword" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpUserPassword" runat="server" meta:resourcekey="SettinglblSmtpUserPassword" />
                                         </CPCC:H5Label>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="chkEnableSsl" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpEnableSSL" runat="server" meta:resourcekey="SettinglblSmtpEnableSSL" />
                                         </CPCC:H5Label>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3">
+                                    <div class="row mb-3">
                                         <CPCC:H5Label runat="server" for="chkEnableLegacySSL" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblEnableLegacySSL" runat="server" meta:resourcekey="SettinglblSmtpEnableLegacySSL" Text="Enable Support for unsecure SSL Versions TLS1 and TLS1.1 (Not recommended):" />
                                         </CPCC:H5Label>
@@ -89,7 +89,7 @@
                         </fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <p><asp:Localize ID="configuremailtemplates" runat="server" meta:resourcekey="Settingsconfiguremailtemplates" /><br />
                                <asp:HyperLink ID="MailTemplates" runat="server" NavigateUrl="/Default.aspx?mid=25&ctl=mail_templates&UserID=1" Text="Serveradmin - Home"></asp:HyperLink></p>
                             </div>
@@ -115,7 +115,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="txtBackupsPath" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblBackupFolderPath" runat="server" meta:resourcekey="SettinglblBackupFolderPath" />
                                     </CPCC:H5Label>
@@ -144,7 +144,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="txtFileManagerEditableExtensions" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblFileManagerEditableExtensions" runat="server" meta:resourcekey="SettinglblFileManagerEditableExtensions" />
                                     </CPCC:H5Label>
@@ -174,7 +174,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="ddlRdsController" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblRdsController" runat="server" meta:resourcekey="SettinglblRdsController" />
                                     </CPCC:H5Label>
@@ -203,7 +203,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="chkEnableOwa" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblEnableOwa" runat="server" meta:resourcekey="SettinglblEnableOwa" />
                                     </CPCC:H5Label>
@@ -215,7 +215,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="txtOwaUrl" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblOwaUrl" runat="server" meta:resourcekey="SettinglblOwaUrl" />
                                     </CPCC:H5Label>
@@ -259,7 +259,7 @@
                                             <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="txtAccountSid" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioAccountSid" runat="server" meta:resourcekey="SettinglblTwilioAccountSid" />
                                                     </CPCC:H5Label>
@@ -271,7 +271,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="txtAuthToken" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioAuthToken" runat="server" meta:resourcekey="SettinglblTwilioAuthToken" />
                                                     </CPCC:H5Label>
@@ -283,7 +283,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="SettingNoteTwilioAccount" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioPhoneFrom" runat="server" meta:resourcekey="SettinglblTwilioPhoneFrom" />
                                                     </CPCC:H5Label>
@@ -317,7 +317,7 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="chkEnablePasswordReset" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblEnablePasswordReset" runat="server" meta:resourcekey="SettinglblEnablePasswordReset" />
                                                     </CPCC:H5Label>
@@ -329,7 +329,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="SettingNotePasswordResetLinkLifeSpan" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblPasswordResetLinkLifeSpan" runat="server" meta:resourcekey="SettinglblPasswordResetLinkLifeSpan" />
                                                     </CPCC:H5Label>
@@ -342,7 +342,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="mb-3">
+                                                <div class="row mb-3">
                                                     <CPCC:H5Label runat="server" for="txtWebdavPortalUrl" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblWebdavPortalUrl" runat="server" meta:resourcekey="SettinglblWebdavPortalUrl" />
                                                     </CPCC:H5Label>
@@ -375,7 +375,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="txtIPAddress" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblIpAddressRestriction" runat="server" meta:resourcekey="SettinglblIpAddressRestriction" />
                                     </CPCC:H5Label>
@@ -413,7 +413,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="txtMfaTokenAppDisplayName" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettingtxtMfaTokenAppDisplayName" runat="server" meta:resourcekey="SettingtxtMfaTokenAppDisplayName" />
                                     </CPCC:H5Label>
@@ -425,7 +425,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="chkCanPeerChangeMFa" class="col-sm-2 form-label">
                                         <asp:Localize ID="SettingchkCanPeerChangeMFa" runat="server" meta:resourcekey="SettingchkCanPeerChangeMFa" />
                                     </CPCC:H5Label>
@@ -453,7 +453,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mb-3">
+                                <div class="row mb-3">
                                     <CPCC:H5Label runat="server" for="chkAlwaysUseEntityFramework" class="col-sm-2 form-label">
                                         <asp:Localize ID="SettingchkAlwaysUseEntityFramework" runat="server" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
                                     </CPCC:H5Label>

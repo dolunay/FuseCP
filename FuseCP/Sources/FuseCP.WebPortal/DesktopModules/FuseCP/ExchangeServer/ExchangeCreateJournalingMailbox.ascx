@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:" />
                         </asp:Label>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
                             <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
                         </asp:Label>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
                             <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *" />
                         </asp:Label>
@@ -111,7 +111,7 @@
             </div>
             <div id="ExistingUserDiv" visible="false" runat="server">
                 <div class="container">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <label for="userSelector">
                             <asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *" />
                         </label>
@@ -123,7 +123,7 @@
     </asp:UpdatePanel>
 
     <fieldset>
-        <div class="mb-3">
+        <div class="row mb-3">
             <label for="mailboxPlanSelector" class="col-sm-2 form-label">
                 <asp:Localize ID="locMailboxplanName" runat="server" meta:resourcekey="locMailboxplanName" Text="Mailboxplan Name: *" />
             </label>
@@ -136,7 +136,7 @@
 
         <hr />
 
-        <div class="mb-3">
+        <div class="row mb-3">
             <label for="ddlScope" class="col-sm-2 form-label">
                 <asp:Localize ID="locScope" runat="server" meta:resourcekey="locScope" Text="If the message is sent to or received from:" />
             </label>
@@ -151,7 +151,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="row mb-3">
             <label for="ddlRecipient" class="col-sm-2 form-label">
                 <asp:Localize ID="locRecipient" runat="server" meta:resourcekey="locRecipient" Text="Journal messages sent to or received from:" />
             </label>
@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
+        <div class="row mb-3">
             <div class="col-sm-2 form-label">
             </div>
             <div class="col-sm-10">

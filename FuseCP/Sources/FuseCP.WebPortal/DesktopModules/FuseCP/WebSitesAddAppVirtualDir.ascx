@@ -9,7 +9,7 @@
     <fieldset>
         <div class="row">
             <div class="col-sm-12">
-                <div class="mb-3">
+                <div class="row mb-3">
                     <CPCC:H5Label ID="lblDirectoryName" runat="server" for="txtSmtpServer" class="col-sm-2 form-label">
                                                 <asp:Localize ID="locDirectoryName" runat="server" meta:resourcekey="lblAppDirectoryName" Text="Directory name:" />
                     </CPCC:H5Label>
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="mb-3">
+                <div class="row mb-3">
                     <CPCC:H5Label ID="lblFolder" runat="server" for="txtSmtpPort" class="col-sm-2 form-label">
                                                 <asp:Localize ID="locFolder" runat="server" meta:resourcekey="lblFolder" Text="Folder:" />
                     </CPCC:H5Label>

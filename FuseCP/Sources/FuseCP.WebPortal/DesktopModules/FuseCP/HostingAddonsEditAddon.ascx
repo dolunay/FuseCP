@@ -7,7 +7,7 @@
         <asp:UpdatePanel runat="server" ID="updatePanelUsers">
             <ContentTemplate>
                 <asp:Label ID="lblMessage" runat="server" CssClass="NormalBold" ForeColor="red"></asp:Label>
-                <div class="mb-3">
+                <div class="row mb-3">
                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtPlanName">
                         <asp:Localize ID="lblAddOnName" runat="server" meta:resourcekey="lblAddOnName" Text="Add-On Name:"></asp:Localize>
                     </asp:Label>

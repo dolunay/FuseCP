@@ -29,185 +29,6 @@
             text-decoration: none;
         }
 
-.bootstrap-switch {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    position: relative;
-    text-align: left;
-    overflow: hidden;
-    line-height: 8px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    vertical-align: middle;
-    min-width: 100px;
-    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-
-    .bootstrap-switch.bootstrap-switch-mini {
-        min-width: 71px;
-    }
-
-        .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-label {
-            padding-bottom: 4px;
-            padding-top: 4px;
-            font-size: 10px;
-            line-height: 9px;
-        }
-
-    .bootstrap-switch.bootstrap-switch-small {
-        min-width: 79px;
-    }
-
-        .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label {
-            padding-bottom: 3px;
-            padding-top: 3px;
-            font-size: 12px;
-            line-height: 18px;
-        }
-
-    .bootstrap-switch.bootstrap-switch-large {
-        min-width: 120px;
-    }
-
-        .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label {
-            padding-bottom: 9px;
-            padding-top: 9px;
-            font-size: 16px;
-            line-height: normal;
-        }
-
-    .bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
-        -webkit-transition: margin-left .5s;
-        transition: margin-left .5s;
-    }
-
-    .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-container {
-        margin-left: 0;
-    }
-
-    .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
-        border-bottom-right-radius: 3px;
-        border-top-right-radius: 3px;
-    }
-
-    .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-container {
-        margin-left: -50%;
-    }
-
-    .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
-    }
-
-    .bootstrap-switch.bootstrap-switch-disabled, .bootstrap-switch.bootstrap-switch-readonly {
-        opacity: .5;
-        filter: alpha(opacity=50);
-        cursor: default !important;
-    }
-
-        .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-label {
-            cursor: default !important;
-        }
-
-    .bootstrap-switch.bootstrap-switch-focused {
-        border-color: #66afe9;
-        outline: 0;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-    }
-
-    .bootstrap-switch .bootstrap-switch-container {
-        display: inline-block;
-        width: 150%;
-        top: 0;
-        border-radius: 4px;
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-label {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: inline-block !important;
-        height: 100%;
-        padding-bottom: 4px;
-        padding-top: 4px;
-        font-size: 14px;
-        line-height: 20px;
-    }
-
-    .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on {
-        text-align: center;
-        z-index: 1;
-        width: 33.333333333%;
-    }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
-            color: #fff;
-            background: #428bca;
-        }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info {
-            color: #fff;
-            background: #5bc0de;
-        }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
-            color: #fff;
-            background: #5cb85c;
-        }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning {
-            background: #f0ad4e;
-            color: #fff;
-        }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger {
-            color: #fff;
-            background: #d9534f;
-        }
-
-        .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
-            color: #000;
-            background: #eee;
-        }
-
-    .bootstrap-switch .bootstrap-switch-handle-on {
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
-    }
-
-    .bootstrap-switch .bootstrap-switch-handle-off {
-        border-bottom-right-radius: 3px;
-        border-top-right-radius: 3px;
-    }
-
-    .bootstrap-switch .bootstrap-switch-label {
-        text-align: center;
-        margin-top: -1px;
-        margin-bottom: -1px;
-        z-index: 100;
-        width: 33.333333333%;
-        color: #333;
-        background: #fff;
-    }
-
-    .bootstrap-switch input[type=radio], .bootstrap-switch input[type=checkbox] {
-        position: absolute !important;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        filter: alpha(opacity=0);
-        z-index: -1;
-    }
-
 .datepicker td span.active, .datepicker td.active, .datepicker td.active:hover {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
@@ -3820,7 +3641,7 @@ hr {
 }
 
 .fixed-top-active #col-right {
-    padding-top: 47px;
+    padding-top: 0;
 }
 
 #col-right {
@@ -4090,28 +3911,31 @@ blockquote {
     border-color: #0081bd;
 }
 
-.input-group .form-control:last-child, .input-group-text:last-child, .btn-group:first-child > .btn-group:not(:first-child) > .btn, .btn-group:first-child > .btn:not(:first-child), .btn-group:last-child > .btn, .btn-group:last-child > .btn-group > .btn, .btn-group:last-child > .dropdown-toggle {
-    -moz-border-radius-topright: 2px;
-    -webkit-border-top-right-radius: 2px;
-    border-top-right-radius: 2px;
-    -moz-border-radius-bottomright: 2px;
-    -webkit-border-bottom-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+/* Use Bootstrap 5 input-group layout semantics (flex) for all portal forms. */
+.input-group {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
 }
 
-    .input-group .form-control:first-child, .input-group-text:first-child, .btn-group:first-child > .btn, .btn-group:first-child > .btn-group > .btn, .btn-group:first-child > .dropdown-toggle, .btn-group:last-child > .btn-group:not(:last-child) > .btn, .btn-group:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-        -moz-border-radius-topleft: 2px;
-        -webkit-border-top-left-radius: 2px;
-        border-top-left-radius: 2px;
-        -moz-border-radius-bottomleft: 2px;
-        -webkit-border-bottom-left-radius: 2px;
-        border-bottom-left-radius: 2px;
-    }
+.input-group > .form-control,
+.input-group > .form-select {
+    flex: 1 1 auto;
+    min-width: 0;
+}
 
-.input-group-text {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
+.input-group > .input-group-text {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.input-group > .input-group-text:first-child {
+    border-right: 0;
+}
+
+.input-group > .input-group-text:last-child {
+    border-left: 0;
 }
 
     .input-group-text .simple-checkbox input[type=checkbox] + label, .input-group-text .simple-radio input[type=radio] + label {
@@ -7063,13 +6887,15 @@ legend {
 }
 
 .fixed-top-active #col-right {
-    padding-top: var(--fcp-topbar-height, 64px);
+    padding-top: 0;
 }
 
 .top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
     height: var(--fcp-topbar-height, 64px);
     padding: 0 16px;
     margin-left: 0;
@@ -7158,7 +6984,7 @@ legend {
 
 .top-bar .search-top {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 11px;
     right: var(--fcp-desktop-search-right, 118px);
     left: auto;
@@ -7326,7 +7152,7 @@ legend {
 
     .top-bar .search-top {
         display: block !important;
-        position: fixed;
+        position: absolute;
         top: 10px;
         right: calc(10px + var(--mobile-search-right));
         left: auto;
@@ -7440,6 +7266,21 @@ legend {
     }
 }
 
+@media screen and (max-width:1200px) {
+    .top-bar,
+    .top-bar.navbar-fixed-top {
+        position: relative !important;
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .top-bar .search-top {
+        position: absolute;
+        top: 10px;
+    }
+}
+
 .ui-autocomplete.fcp-global-search-menu {
     border: 1px solid #d7e6f3;
     border-radius: 10px;
@@ -7525,22 +7366,21 @@ legend {
 /* Shared legacy list page layout normalization */
 .FormButtonsBar.right,
 .FormButtonsBar.UserSpaces {
-    margin: 0 0 12px !important;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    clear: both !important;
+    margin: 10px 0 20px !important;
+    display: block;
+    text-align: right !important;
+    min-height: 34px;
 }
 
 .FormButtonsBar.right {
-    position: relative;
-    min-height: 0;
+    position: static;
+    min-height: 34px;
 }
 
 .FormButtonsBar.UserSpaces {
-    margin: 0 0 12px !important;
-    text-align: right;
+    margin: 10px 0 20px !important;
+    text-align: right !important;
 }
 
 .primary-content h1 + .FormButtonsBar.right,
@@ -7556,21 +7396,22 @@ legend {
 
 .FormButtonsBar.right > .right,
 .FormButtonsBar.right > .Right {
-    position: absolute;
-    top: -54px;
-    right: 12px;
-    z-index: 2;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
     width: auto;
+    display: block;
 }
 
 /* Fallback for pages where the action button is a direct child (no .right wrapper). */
 .FormButtonsBar.right > .btn,
 .FormButtonsBar.right > input.btn,
 .FormButtonsBar.right > a.btn {
-    position: absolute;
-    top: -54px;
-    right: 12px;
-    z-index: 2;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
 }
 
 .buttons-in-panel-header {
@@ -7617,7 +7458,7 @@ legend {
 }
 
 .FormButtonsBar + .card-body {
-    padding-top: 0;
+    padding-top: 15px;
 }
 
 .FormButtonsBar + .card-body.fcp-vlans-search-area {
@@ -7881,10 +7722,10 @@ table.LightGridView {
 }
 
 .fcp-home-create-toolbar > .right {
-    position: absolute;
-    top: -54px;
-    right: 12px;
-    z-index: 2;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
 }
 
 .primary-content .card + .card {
@@ -7917,7 +7758,7 @@ table.LightGridView {
 }
 
 .ToolLink a:before {
-    content: "\\f285";
+    content: "\f285";
     font-family: "bootstrap-icons";
     font-size: 11px;
     line-height: 1;
@@ -10059,6 +9900,11 @@ body .page-login {
   margin:0 auto;
 }
 
+.page-login .centering {
+        max-width: 540px;
+        width: 100%;
+}
+
 @media screen and (max-width:480px) {
     .page-login .container-fluid {
         margin-top: 6em;
@@ -10167,6 +10013,55 @@ body .page-login {
 .login-box {
     padding-top: 30px;
     background-color: #fff;
+}
+
+/* Keep login controls compact to match legacy proportions while staying on BS5 components. */
+.page-login .card .card-body,
+.page-login .card .card-footer {
+    padding: 1rem;
+}
+
+.page-login .card .input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.page-login .card .input-group > .input-group-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    padding: 0.5rem 0.75rem;
+}
+
+.page-login .card .input-group > .input-group-text i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.page-login .card .input-group > .form-control,
+.page-login .card .form-select {
+    min-height: 38px;
+    font-size: 1rem !important;
+    line-height: 1.25;
+}
+
+.page-login .card .input-group > .input-group-text,
+.page-login .card .form-label,
+.page-login .card .btn,
+.page-login .card input[type="checkbox"] + label,
+.page-login .card label {
+    font-size: 0.95rem;
+}
+
+.page-login .card .card-footer .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.page-login .card .card-footer .row > [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
     .login-box h1 {
@@ -11344,12 +11239,12 @@ ul.project-activity-list > li {
 }
 
 .buttons-in-panel-header{
-    text-align:right;
-    margin:10px;
-    position:relative;
-    top:-55px;
-    clear: both;
-    margin-bottom: -45px;
+    margin:0 0 12px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
 }
 
 .panel-title .btn-sm{
@@ -11432,38 +11327,36 @@ border-top:none;
 /* Final cascade guard: keep project-wide toolbar and widget close button behavior stable. */
 .FormButtonsBar.right,
 .FormButtonsBar.UserSpaces {
-    clear: none !important;
-    margin: 0 0 12px !important;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    clear: both !important;
+    margin: 10px 0 20px !important;
+    display: block;
     text-align: right !important;
+    min-height: 34px;
 }
 
 .FormButtonsBar.right {
-    position: relative;
-    min-height: 0 !important;
+    position: static;
+    min-height: 34px !important;
 }
 
 .FormButtonsBar.right > .right,
 .FormButtonsBar.right > .Right {
-    position: absolute;
-    top: -54px;
-    right: 12px;
-    z-index: 2;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
     width: auto;
+    display: block;
 }
 
 /* Fallback for pages where action buttons are direct children (no .right wrapper). */
 .FormButtonsBar.right > .btn,
 .FormButtonsBar.right > input.btn,
 .FormButtonsBar.right > a.btn {
-    position: absolute;
-    top: -54px;
-    right: 12px;
-    z-index: 2;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
 }
 
 .widget .widget-header .widget-header-toolbar .btn-link.btn-remove,
@@ -11523,6 +11416,25 @@ border-top:none;
         right: auto;
         width: 100%;
     }
+
+    .card > .card-header > .card-title {
+        flex-wrap: wrap;
+        row-gap: 4px;
+    }
+
+    .buttons-in-panel-header {
+        position: static;
+        top: auto;
+        margin: 0 0 10px;
+        justify-content: stretch;
+    }
+
+    .buttons-in-panel-header .btn,
+    .buttons-in-panel-header input.Button1,
+    .buttons-in-panel-header input.Button2,
+    .buttons-in-panel-header input.Button3 {
+        width: 100%;
+    }
 }
 
 /* Global search/filter row normalization for list pages */
@@ -11540,6 +11452,64 @@ border-top:none;
     flex: 0 0 auto;
 }
 
+/* Regression guard: keep links un-underlined across portal chrome and content. */
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+/* Keep button-style links from regaining underline in higher-specificity states. */
+.btn,
+.btn:hover,
+.btn:focus,
+.btn-link,
+.btn-link:hover,
+.btn-link:focus {
+    text-decoration: none !important;
+}
+
+/* Regression guard: keep widget header controls icon-sized and prevent text-like glyph rendering. */
+.widget .widget-header .widget-header-toolbar .btn-link,
+.widget .widget-header .widget-header-toolbar .btn-link:hover,
+.widget .widget-header .widget-header-toolbar .btn-link:focus {
+    text-decoration: none !important;
+}
+
+.widget .widget-header .widget-header-toolbar .btn-link i,
+.widget .widget-header .widget-header-toolbar .btn-link .bi,
+.widget .widget-header .widget-header-toolbar .btn-link .icon {
+    font-size: 14px !important;
+    line-height: 1 !important;
+}
+
+/* Regression guard: prevent absolute-position toolbar buttons from overlapping form content in card bodies. */
+.card-body.form-horizontal .FormButtonsBar.right {
+    position: static !important;
+    min-height: 0 !important;
+    margin-bottom: 12px !important;
+}
+
+.card-body.form-horizontal .FormButtonsBar.right > .right,
+.card-body.form-horizontal .FormButtonsBar.right > .Right,
+.card-body.form-horizontal .FormButtonsBar.right > .btn,
+.card-body.form-horizontal .FormButtonsBar.right > input.btn,
+.card-body.form-horizontal .FormButtonsBar.right > a.btn {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: auto;
+}
+
+.card-body.form-horizontal .FormButtonsBar.right > .right,
+.card-body.form-horizontal .FormButtonsBar.right > .Right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 [id$="_tblSearch"] {
     min-width: 280px;
 }
@@ -11549,14 +11519,16 @@ border-top:none;
     margin: 0;
     padding: 0.375rem 2.25rem 0.375rem 0.75rem;
     min-width: 170px;
-    min-height: 42px;
+    min-height: 40px;
     font-size: 15px;
     line-height: 1.35;
 }
 
 .row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-0 .form-control,
 .row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 .form-control {
-    min-height: 42px;
+    min-height: 40px;
+    font-size: 15px;
+    line-height: 1.35;
 }
 
 .row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 [id$="_tblSearch"],
@@ -11583,9 +11555,23 @@ border-top:none;
 .row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 .input-group .btn {
     flex: 0 0 auto;
     width: auto;
-    min-height: 42px;
+    min-height: 40px;
     min-width: 52px;
+    padding: 0.375rem 0.75rem;
+    font-size: 15px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
+}
+
+.row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-0 .input-group .btn i,
+.row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-0 .input-group .btn .bi,
+.row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 .input-group .btn i,
+.row > [class*="col-"].text-end.d-flex.flex-wrap.align-items-center > .mb-3 .input-group .btn .bi {
+    line-height: 1;
+    display: inline-block;
 }
 
 .NormalGridView > table > tbody > tr > td[colspan],
@@ -12439,6 +12425,136 @@ border-top:none;
 
 .fcp-h-100 {
     height: 100px;
+}
+
+.form-horizontal.fcp-form-sheet,
+.fcp-form-sheet {
+    .row.mb-3,
+    .row.mb-4 {
+        align-items: flex-start;
+    }
+
+    .col-form-label,
+    .fcp-form-label {
+        font-weight: 600;
+        color: #1f2937;
+        padding-top: 0.7rem;
+    }
+
+    .col-sm-10,
+    .col-sm-8 {
+        min-width: 0;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 44px;
+    }
+}
+
+.fcp-form-section {
+    padding: 0 0 1rem;
+}
+
+.fcp-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.fcp-form-check-stack {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.fcp-inline-warning {
+    color: #d9534f;
+    font-weight: 600;
+}
+
+.fcp-field-note {
+    display: inline-block;
+    margin-left: 10px;
+    color: #5f6b7a;
+    line-height: 1.5;
+}
+
+.fcp-field-short {
+    max-width: 180px;
+}
+
+.fcp-readonly-field {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #d9e0e7;
+    border-radius: 0.375rem;
+    background: #f8fafc;
+    color: #122033;
+    font-weight: 600;
+}
+
+.fcp-readonly-field-hero {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.fcp-password-control {
+    .fcp-password-tools {
+        margin-top: -2px;
+    }
+
+    .fcp-password-strength-text {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+}
+
+.fcp-password-policy {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #d9e0e7;
+    border-radius: 0.5rem;
+    background: #f8fafc;
+
+    h3 {
+        margin: 0 0 0.65rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: #4b5563;
+    }
+
+    li + li {
+        margin-top: 0.35rem;
+    }
+}
+
+.fcp-password-control + .row .fcp-form-actions {
+    margin-top: 0.75rem;
+}
+
+.fcp-validation-message {
+    display: block;
+    margin-top: 0.45rem;
+    color: #d9534f;
+    font-size: 0.875rem;
+    line-height: 1.4;
 }
 
 /* Final cascade guard: enforce readable row striping on legacy GridViews. */

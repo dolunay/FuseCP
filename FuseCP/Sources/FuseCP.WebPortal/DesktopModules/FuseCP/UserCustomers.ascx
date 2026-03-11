@@ -17,7 +17,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center">
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <div class="input-group">
                             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" resourcekey="ddlStatus" AutoPostBack="true">
                                 <asp:ListItem Value="0">ByStatus</asp:ListItem>
@@ -28,7 +28,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <div class="input-group">
                             <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-control" resourcekey="ddlRole" AutoPostBack="true">
                                 <asp:ListItem Value="0">ByRole</asp:ListItem>
@@ -37,7 +37,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="row mb-3">
                         <uc1:SearchBox ID="searchBox" runat="server" />
                     </div>
                 </div>

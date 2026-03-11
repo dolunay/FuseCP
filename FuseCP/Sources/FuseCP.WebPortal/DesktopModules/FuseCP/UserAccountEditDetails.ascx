@@ -5,50 +5,50 @@
   <div class="card-body form-horizontal">
 <asp:BulletedList ID="blLog" runat="server" CssClass="ErrorText">
 </asp:BulletedList>
-    <div class="mb-3">
-        <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+        <asp:Label ID="lblUsername2" runat="server" meta:resourcekey="lblUsername" Text="Username:" CssClass="col-sm-2 col-form-label"></asp:Label>
         <div class="col-sm-10">
             <span class="form-control"><asp:Literal ID="lblUsername" Runat="server"></asp:Literal></span>
         </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" AssociatedControlID="txtFirstName" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblFirstName" runat="server" meta:resourcekey="lblFirstName" Text="First Name:" AssociatedControlID="txtFirstName" CssClass="col-sm-2 col-form-label"></asp:Label>
 		<div class="col-sm-10">	
         <asp:TextBox id="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
 				<asp:RequiredFieldValidator id="firstNameValidator" runat="server" ErrorMessage="*" Display="Dynamic"
 					ControlToValidate="txtFirstName"></asp:RequiredFieldValidator>
             </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" AssociatedControlID="txtLastName" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblLastName" runat="server" meta:resourcekey="lblLastName" Text="Last Name:" AssociatedControlID="txtLastName" CssClass="col-sm-2 col-form-label"></asp:Label>
 <div class="col-sm-10">	
 				<asp:TextBox id="txtLastName" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator id="lastNameValidator" runat="server" ErrorMessage="*" Display="Dynamic"
 					ControlToValidate="txtLastName"></asp:RequiredFieldValidator>
             </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblSubscriberNumber" runat="server" meta:resourcekey="lblSubscriberNumber" Text="Account Number:" AssociatedControlID="txtSubscriberNumber" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblSubscriberNumber" runat="server" meta:resourcekey="lblSubscriberNumber" Text="Account Number:" AssociatedControlID="txtSubscriberNumber" CssClass="col-sm-2 col-form-label"></asp:Label>
 <div class="col-sm-10">	
 				<asp:TextBox id="txtSubscriberNumber" runat="server" CssClass="form-control" ></asp:TextBox>
             </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblEmail" runat="server" meta:resourcekey="lblEmail" Text="E-mail:" AssociatedControlID="txtEmail" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblEmail" runat="server" meta:resourcekey="lblEmail" Text="E-mail:" AssociatedControlID="txtEmail" CssClass="col-sm-2 col-form-label"></asp:Label>
 <div class="col-sm-10">	
                 <uc2:EmailControl id="txtEmail" runat="server" CssClass="form-control">
                 </uc2:EmailControl>
             </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblSecondaryEmail" runat="server" meta:resourcekey="lblSecondaryEmail" Text="Secondary e-mail:" AssociatedControlID="txtSecondaryEmail" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblSecondaryEmail" runat="server" meta:resourcekey="lblSecondaryEmail" Text="Secondary e-mail:" AssociatedControlID="txtSecondaryEmail" CssClass="col-sm-2 col-form-label"></asp:Label>
 <div class="col-sm-10">	
                 <uc2:EmailControl id="txtSecondaryEmail" runat="server" RequiredEnabled="false" CssClass="form-control">
                 </uc2:EmailControl>
             </div>
     </div>
-    <div class="mb-3">
-				<asp:Label ID="lblMailFormat" runat="server" meta:resourcekey="lblMailFormat" Text="Mail Format:"  AssociatedControlID="ddlMailFormat" CssClass="col-sm-2"></asp:Label>
+    <div class="row mb-3">
+				<asp:Label ID="lblMailFormat" runat="server" meta:resourcekey="lblMailFormat" Text="Mail Format:"  AssociatedControlID="ddlMailFormat" CssClass="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">	
 				<asp:DropDownList ID="ddlMailFormat" runat="server"
 				    CssClass="form-control" resourcekey="ddlMailFormat">
@@ -57,8 +57,8 @@
 				</asp:DropDownList>
             </div>
     </div>
-	<div id="rowRole" runat="server" class="mb-3">
-			    <asp:Label ID="lblRole" runat="server" meta:resourcekey="lblRole" Text="Role:"  AssociatedControlID="role" CssClass="col-sm-2"></asp:Label>
+	<div id="rowRole" runat="server" class="row mb-3">
+			    <asp:Label ID="lblRole" runat="server" meta:resourcekey="lblRole" Text="Role:"  AssociatedControlID="role" CssClass="col-sm-2 col-form-label"></asp:Label>
 <div class="col-sm-10">	
 				<asp:DropDownList id="role" runat="server" resourcekey="role" AutoPostBack="true" CssClass="form-control">
 			        <asp:ListItem Value="User"></asp:ListItem>
@@ -69,7 +69,7 @@
 		</div>
 
 
-		<div id="rowDemo" runat="server" class="mb-3">
+		<div id="rowDemo" runat="server" class="row mb-3">
             <div class="offset-sm-2 col-sm-10">
 			    <div class="checkbox">
                     <asp:Label ID="lblDemoAccount" runat="server" AssociatedControlID="chkDemo">
@@ -79,17 +79,17 @@
                 </div>
             </div>
 		</div>
-        <div id="rowMfa" runat="server" class="mb-3">
-          <asp:Label ID="lblMfa" runat="server" meta:resourcekey="lblMfa" Text="Enable MFA:"  AssociatedControlID="role" CssClass="col-sm-2"></asp:Label>
+        <div id="rowMfa" runat="server" class="row mb-3">
+          <asp:Label ID="lblMfa" runat="server" meta:resourcekey="lblMfa" Text="Enable MFA:"  AssociatedControlID="role" CssClass="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:CheckBox id="cbxMfaEnabled" runat="server" AutoPostBack="true" OnCheckedChanged="cbxMfaEnabled_CheckedChanged"></asp:CheckBox>
                 <asp:Label ID="lblMfaEnabled" runat="server" meta:resourcekey="lblMfaEnabled" Text="When you log in, a validation code is sent to the primary email address. Enabling an authentication app stops the validation code from being sent by email."></asp:Label>
             </div>
 		</div>
 
-		<div id="roleLoginStatus" runat="server" class="mb-3">
+		<div id="roleLoginStatus" runat="server" class="row mb-3">
 	
-			    <asp:Label ID="lblLoginStatus" runat="server" meta:resourcekey="lblLoginStatus" Text="Login Status:" AssociatedControlID="loginStatus" CssClass="col-sm-2"></asp:Label>
+			    <asp:Label ID="lblLoginStatus" runat="server" meta:resourcekey="lblLoginStatus" Text="Login Status:" AssociatedControlID="loginStatus" CssClass="col-sm-2 col-form-label"></asp:Label>
                 <div class="col-sm-10">	
 				<asp:DropDownList id="loginStatus" runat="server" resourcekey="loginStatus"  CssClass="form-control">
 			        <asp:ListItem Value="Enabled"></asp:ListItem>

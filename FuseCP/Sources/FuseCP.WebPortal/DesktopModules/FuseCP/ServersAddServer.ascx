@@ -6,7 +6,7 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server" />
 <asp:Panel ID="ServersAddServerPanel" runat="server" DefaultButton="btnAdd">
     <div class="card-body form-horizontal">
-        <div class="mb-3">
+        <div class="row mb-3">
             <asp:Label ID="lblServerName" runat="server" CssClass="form-label col-sm-2 fw-bold" meta:resourcekey="lblServerName" ></asp:Label>
             <div class="col-sm-10">
                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Text="New Server"></asp:TextBox>

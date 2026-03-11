@@ -17,14 +17,14 @@
                 </div>
                 <div class="card-body form-horizontal">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
-                    <div class="mb-3">
-                        <asp:Label ID="locDisplayName" meta:resourcekey="locDisplayName" runat="server" Text="Display Name:" CssClass="col-sm-2" AssociatedControlID="txtDisplayName"></asp:Label>
+                    <div class="row mb-3">
+                        <asp:Label ID="locDisplayName" meta:resourcekey="locDisplayName" runat="server" Text="Display Name:" CssClass="col-sm-2 col-form-label" AssociatedControlID="txtDisplayName"></asp:Label>
                         <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                             <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ValidationGroup="CreateMailbox"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="valRequireDisplayName" runat="server" meta:resourcekey="valRequireDisplayName" ControlToValidate="txtDisplayName"
                                 ErrorMessage="Enter Display Name" ValidationGroup="EditList" Display="Dynamic" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
-                        <asp:Label ID="locNotes" meta:resourcekey="locNotes" runat="server" Text="Text:" CssClass="col-sm-2" AssociatedControlID="txtNotes"></asp:Label>
+                        <asp:Label ID="locNotes" meta:resourcekey="locNotes" runat="server" Text="Text:" CssClass="col-sm-2 col-form-label" AssociatedControlID="txtNotes"></asp:Label>
                         <div class="col-sm-10 d-flex flex-wrap gap-2 align-items-center">
                             <asp:TextBox ID="txtNotes" runat="server" CssClass="tinymce" Rows="15" cols="20" TextMode="MultiLine"></asp:TextBox>
                         </div>

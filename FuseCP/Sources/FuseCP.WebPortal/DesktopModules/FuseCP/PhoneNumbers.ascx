@@ -83,8 +83,8 @@
             CausesValidation="false" onclick="btnDeleteSelected_Click"></asp:Button>
     </div>
     <div class="col-md-3">
-         <div class="mb-3">
-        <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4"></asp:Label>
+         <div class="row mb-3">
+        <asp:Label ID="lblItemsPerPage" runat="server" meta:resourcekey="lblItemsPerPage" Text="Page size:" CssClass="col-sm-4 col-form-label"></asp:Label>
              <div class="col-sm-8">
         <asp:DropDownList ID="ddlItemsPerPage" runat="server" CssClass="form-select" 
             AutoPostBack="True" onselectedindexchanged="ddlItemsPerPage_SelectedIndexChanged">
