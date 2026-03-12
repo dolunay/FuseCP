@@ -35,6 +35,9 @@ namespace FuseCP.Portal
         private const string ThemePaletteDarkCookie = "UserThemePaletteDark";
         private const string ThemeButtonsLightCookie = "UserThemeButtonsLight";
         private const string ThemeButtonsDarkCookie = "UserThemeButtonsDark";
+        private const string ThemeModeCookie = "UserThemeMode";
+        private const string ThemeStyleLight = "light-theme";
+        private const string ThemeStyleDark = "dark-theme";
 
         private static readonly Regex PaletteHexColorRegex = new Regex("^#(?:[0-9A-Fa-f]{6})$", RegexOptions.Compiled);
         private static readonly Regex CssLengthRegex = new Regex("^(?:0|(?:\\d+(?:\\.\\d+)?)(?:px|rem|em|%))$", RegexOptions.Compiled);
@@ -269,6 +272,8 @@ namespace FuseCP.Portal
                     }
                 }
 
+                ApplySelectedThemeMode();
+
                 BindPaletteEditors(UserThemeSettingsData);
                 BindButtonStyleEditors(UserThemeSettingsData);
 
@@ -366,6 +371,8 @@ namespace FuseCP.Portal
                         HttpCookie UserThemeStyleCrum = new HttpCookie("UserThemeStyle", ddlThemeStyle.SelectedValue);
                         UserThemeStyleCrum.Expires = DateTime.Now.AddMonths(2);
                         HttpContext.Current.Response.Cookies.Add(UserThemeStyleCrum);
+
+                        SyncThemeModeCookie(ddlThemeStyle.SelectedValue);
 
                         ES.Services.Users.UpdateUserThemeSetting(PanelSecurity.LoggedUserId, "Style", ddlThemeStyle.SelectedValue);
 
@@ -757,6 +764,40 @@ namespace FuseCP.Portal
             Response.Redirect(Request.Url.ToString());
         }
 
+        private void ApplySelectedThemeMode()
+        {
+            HttpCookie modeCookie = Request.Cookies[ThemeModeCookie];
+            if (modeCookie == null)
+                return;
+
+            string modeValue = (modeCookie.Value ?? String.Empty).Trim();
+            if (!String.Equals(modeValue, ThemeStyleLight, StringComparison.OrdinalIgnoreCase)
+                && !String.Equals(modeValue, ThemeStyleDark, StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
+            Utils.SelectListItem(ddlThemeStyle, modeValue);
+        }
+
+        private void SyncThemeModeCookie(string selectedThemeStyle)
+        {
+            string normalizedStyle = (selectedThemeStyle ?? String.Empty).Trim();
+
+            if (String.Equals(normalizedStyle, ThemeStyleLight, StringComparison.OrdinalIgnoreCase)
+                || String.Equals(normalizedStyle, ThemeStyleDark, StringComparison.OrdinalIgnoreCase))
+            {
+                HttpCookie modeCookie = new HttpCookie(ThemeModeCookie, normalizedStyle.ToLowerInvariant());
+                modeCookie.Expires = DateTime.Now.AddMonths(2);
+                HttpContext.Current.Response.Cookies.Add(modeCookie);
+                return;
+            }
+
+            HttpCookie expiredModeCookie = new HttpCookie(ThemeModeCookie, String.Empty);
+            expiredModeCookie.Expires = DateTime.Now.AddMonths(-1);
+            HttpContext.Current.Response.Cookies.Add(expiredModeCookie);
+        }
+
         protected void RemoveThemeOptions()
         {
             ES.Services.Users.DeleteUserThemeSetting(PanelSecurity.LoggedUserId, "Style"); 
@@ -772,6 +813,10 @@ namespace FuseCP.Portal
             HttpCookie UserThemeStyleCrum = new HttpCookie("UserThemeStyle", "");
             UserThemeStyleCrum.Expires = DateTime.Now.AddMonths(-1);
             HttpContext.Current.Response.Cookies.Add(UserThemeStyleCrum);
+
+            HttpCookie userThemeModeCrumb = new HttpCookie(ThemeModeCookie, "");
+            userThemeModeCrumb.Expires = DateTime.Now.AddMonths(-1);
+            HttpContext.Current.Response.Cookies.Add(userThemeModeCrumb);
 
             HttpCookie legacyHeaderColorCookie = new HttpCookie("UserThemecolorHeader", "");
             legacyHeaderColorCookie.Expires = DateTime.Now.AddMonths(-1);

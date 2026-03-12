@@ -257,11 +257,15 @@
         <RemoveDir Directories="bin\WebServices;bin\refs;bin_dotnet\WebServices" ContinueOnError="true" />
     </Target>
 
-    <Target Name="CopyBinDotnetToBin" AfterTargets="Build" Condition="'$(TargetFramework)' != 'net48'">
-      <Message Text="Copying bin_dotnet → bin because TargetFramework is $(TargetFramework)" Importance="high" />
+<Target Name="CopyProvidersBaseToBin" AfterTargets="DeleteUnusedDlls">
+      <Message Text="Ensuring FuseCP.Providers.Base.dll is in bin folder for TargetFramework $(TargetFramework)" Importance="high" />
       <MakeDir Directories="$(ProjectDir)bin" />
     <ItemGroup>
-        <FilesToCopy Include="bin_dotnet\FuseCP.Providers.Base.*" />
+        <!-- For net10.0, copy from bin_dotnet; for net48, also ensure it's in bin (fallback) -->
+        <FilesToCopy Include="bin_dotnet\FuseCP.Providers.Base.*" Condition="'$(TargetFramework)' == 'net10.0'" />
+        <FilesToCopy Include="..\..\Bin\FuseCP.Providers.Base.*" Condition="'$(TargetFramework)' == 'net48'" />
+                <!-- Also restore from bin\Lazy in case it was moved there by mistake -->
+                <FilesToCopy Include="bin\Lazy\FuseCP.Providers.Base.*" />
     </ItemGroup>
       <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="bin" SkipUnchangedFiles="true" /> 
     </Target>
