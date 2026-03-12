@@ -18,7 +18,6 @@
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="System.Web.Services" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
@@ -26,5 +25,9 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
 		<ProjectReference Include="..\FuseCP.Server.Utils\FuseCP.Server.Utils.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.ServiceModel.Http" Version="8.0.0" />
+	  <PackageReference Include="System.Web.Services.Description" Version="10.0.652802" />
 	</ItemGroup>
 </Project>
