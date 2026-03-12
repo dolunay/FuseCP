@@ -29,6 +29,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Remove="Razor/**/*.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<AdditionalFiles Include="WCFServiceTypes.cshtml">
 			<IsRazorBlade>True</IsRazorBlade>
 			<Namespace>$([MSBuild]::ValueOrDefault('$(RootNamespace).%(RelativeDir)', '').Replace('\', '.').Replace('/', '.').Trim('.'))</Namespace>
