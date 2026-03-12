@@ -72,7 +72,7 @@
                 </div>
                 <div class="Popup-Scroll">
 					<asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False"
-					 CssSelectorClass="NormalGridView"
+					 CssSelectorClass="NormalGridView" CssClass="fcp-responsive-grid"
 						DataKeyNames="AccountName">
 						<Columns>
 							<asp:TemplateField>

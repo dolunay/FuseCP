@@ -48,22 +48,25 @@
         <table class="table table-borderless align-middle mb-0 w-100" id="TabsTable" runat="server" visible="false">
             <tr>
                 <td class="Tabs">
-                    &nbsp;&nbsp;
-                    <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"
-                        EnableViewState="false">
-                        <ItemStyle Wrap="False" />
-                        <ItemTemplate>
-                            <asp:HyperLink ID="lnkTab" runat="server" CssClass="Tab" NavigateUrl='<%# Eval("Url") %>'>
-                                <%# Eval("Name") %>
-                            </asp:HyperLink>
-                        </ItemTemplate>
-                        <SelectedItemStyle Wrap="False" />
-                        <SelectedItemTemplate>
-                            <asp:HyperLink ID="lnkSelTab" runat="server" CssClass="ActiveTab" NavigateUrl='<%# Eval("Url") %>'>
-                                <%# Eval("Name") %>
-                            </asp:HyperLink>
-                        </SelectedItemTemplate>
-                    </asp:DataList>
+                    <div class="fcp-modern-tabs" role="navigation" aria-label="Proxmox server sections">
+                        <ul class="nav nav-tabs fcp-modern-nav-tabs" role="tablist">
+                            <asp:Repeater ID="rptTabs" runat="server" EnableViewState="false">
+                                <ItemTemplate>
+                                    <li class="nav-item" role="presentation">
+                                        <asp:HyperLink
+                                            ID="lnkTab"
+                                            runat="server"
+                                            CssClass='<%# GetTabCssClass(Container.ItemIndex) %>'
+                                            NavigateUrl='<%# Eval("Url") %>'
+                                            role="tab"
+                                            aria-selected='<%# IsSelectedTab(Container.ItemIndex) ? "true" : "false" %>'>
+                                            <%# Eval("Name") %>
+                                        </asp:HyperLink>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         </table>

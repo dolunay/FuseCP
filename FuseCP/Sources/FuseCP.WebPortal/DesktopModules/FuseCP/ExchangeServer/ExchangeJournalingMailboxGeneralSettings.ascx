@@ -22,10 +22,8 @@
         <asp:Label ID="litServiceLevel" runat="server" CssClass="float-end pe-2" Visible="false"></asp:Label>
     </h3>
 </div>
-<div class="card-body form-horizontal">
-    <div class="nav nav-tabs pb-2">
-        <fcp:MailboxTabs ID="tabs" runat="server" SelectedTab="journaling_mailbox_settings" />
-    </div>
+<div class="card-body form-horizontal fcp-modern-page">
+    <fcp:MailboxTabs ID="tabs" runat="server" SelectedTab="journaling_mailbox_settings" />
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
         <asp:UpdatePanel ID="GeneralUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">

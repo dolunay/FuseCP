@@ -22,7 +22,7 @@
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     <table id="ExistingUserTable"   runat="server"> 					    
 					    <tr>
-					        <td class="FormLabel150"><asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize></td>
+					        <td class="FormLabel150"><asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize></td>
 					        <td>
                                 <uc1:MailboxSelector ID="mailboxSelector" ContactsEnabled="false" ShowOnlyMailboxes="true" MailboxesEnabled="true"  DistributionListsEnabled="false" runat="server" />
                             </td>

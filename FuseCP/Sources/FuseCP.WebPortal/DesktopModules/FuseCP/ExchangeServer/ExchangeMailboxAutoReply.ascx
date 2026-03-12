@@ -17,10 +17,8 @@
 		<asp:Literal ID="litDisplayName" runat="server" Text="" />
     </h3>
 </div>
-<div class="card-body form-horizontal">
-    <div class="nav nav-tabs pb-2">
-        <fcp:MailboxTabs ID="MailboxTabs" runat="server" SelectedTab="mailbox_autoreply" />
-    </div>
+<div class="card-body form-horizontal fcp-modern-page">
+    <fcp:MailboxTabs ID="MailboxTabs" runat="server" SelectedTab="mailbox_autoreply" />
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
         <div class="row mb-3">

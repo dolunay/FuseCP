@@ -533,17 +533,33 @@ legend {
         padding: 0;
     }
 
-.Tabs a {
-    display: block;
-    padding: 10px 20px;
+.Tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
     border-bottom: 1px solid var(--fcp-border);
+    margin-bottom: 1rem;
+}
+
+.Tabs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    margin-top: 0.625rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--fcp-border);
+    border-radius: 0.45rem;
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text);
+    text-decoration: none;
+    line-height: 1.2;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
 
     .Tabs a:Hover {
-        background: var(--fcp-surface-alt);
-        border-radius: 3px;
-        border: 1px solid var(--fcp-border);
-        border-bottom: none;
+        background: var(--fcp-surface-h);
+        border-color: var(--fcp-border);
+        color: var(--fcp-text-hi);
     }
 
 .FormRow a:hover, .Toolbox a:hover {
@@ -552,15 +568,15 @@ legend {
 
 .Tabs a.ActiveTab {
     border: 1px solid var(--fcp-border);
-    border-bottom-color: #fff;
-    color: var(--fcp-text);
-    margin-bottom: -1px;
-    background-color: var(--fcp-surface);
-    border-radius: 3px;
+    border-color: var(--bs-primary);
+    color: #fff;
+    background-color: var(--bs-primary);
+    border-radius: 0.45rem;
 }
 
     .Tabs a.ActiveTab:hover {
-        background: 0 0;
+        background: var(--bs-primary);
+        color: #fff;
     }
 
 .Toolbox {
@@ -1161,18 +1177,42 @@ h2.ProductTitle.Huge {
 
 .FormButtonsBarClean {
     clear: both;
-    padding-bottom: 4px;
-    height: 26px;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    height: auto;
+    min-height: 26px;
+    padding-bottom: 0;
+    margin-bottom: 12px;
 }
 
 .FormButtonsBarCleanLeft {
-    margin-bottom: 10px;
-    float: left;
+    margin-bottom: 0;
+    float: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .FormButtonsBarCleanMiddle {
-    float: right;
+    float: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.FormButtonsBarCleanRight {
+    float: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: auto;
 }
 
 .FormButtonsBarCleanSeparator {
@@ -2073,7 +2113,7 @@ p.warningText {
         }
 
     #Breadcrumb .CurrentNode {
-        border-bottom: 1px solid #eee;
+        border-bottom: none;
         padding-bottom: 15px;
     }
 
@@ -2151,9 +2191,8 @@ p.warningText {
         color: #787878;
     }
 
-#Footer, #Footer A {
-    color: #505050;
-}
+// #Footer text color is now governed by CSS custom properties in main.less (var(--fcp-text), var(--fcp-text-hi))
+// The legacy hardcoded color below was removed to avoid overriding theme-aware variables.
 
 #Left .NewsMenuContent p {
     margin: 0;

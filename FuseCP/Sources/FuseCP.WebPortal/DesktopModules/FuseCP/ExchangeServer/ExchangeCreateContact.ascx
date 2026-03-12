@@ -13,7 +13,7 @@
         <fcp:SimpleMessageBox id="messageBox" runat="server" />
         <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
-                <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
+                <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize>
             </asp:Label>
             <div class="col-sm-10">
                 <div class="input-group">
@@ -24,7 +24,7 @@
         </div>
         <div class="row mb-3">
             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtEmail">
-                <asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address: *"></asp:Localize>
+                <asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address:"></asp:Localize>
             </asp:Label>
             <div class="col-sm-10">
                 <div class="input-group">

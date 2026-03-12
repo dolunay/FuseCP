@@ -10,9 +10,22 @@
 		<fcp:SimpleMessageBox id="messageBox" runat="server"></fcp:SimpleMessageBox>
 	</contenttemplate>
 </asp:UpdatePanel>
-<ajaxToolkit:TabContainer ID="TabContainer1" runat="server">
-	<ajaxToolkit:TabPanel ID="tabInstalled" runat="server" Visible="false" Enabled="false" CssClass="nav nav-tabs">
-		<ContentTemplate>
+<div class="fcp-modern-tabs">
+	<ul class="fcp-modern-nav-tabs nav nav-tabs" role="tablist">
+		<li class="nav-item" role="presentation" runat="server" id="liInstalledTabLink" visible="false">
+			<asp:LinkButton ID="btnShowInstalledTab" runat="server" CssClass="nav-link" OnClick="btnShowInstalledTab_Click">
+				<asp:Literal ID="litInstalledTabText" runat="server" />
+			</asp:LinkButton>
+		</li>
+		<li class="nav-item" role="presentation" runat="server" id="liCsrTabLink">
+			<asp:LinkButton ID="btnShowCsrTab" runat="server" CssClass="nav-link" OnClick="btnShowCsrTab_Click">
+				<asp:Literal ID="litCsrTabText" runat="server" />
+			</asp:LinkButton>
+		</li>
+	</ul>
+</div>
+<asp:MultiView ID="sslTabs" runat="server" ActiveViewIndex="0">
+	<asp:View ID="tabInstalled" runat="server" Visible="false">
 			<div class="Normal">
 				<h2><asp:Localize runat="server" meta:resourcekey="headerInstalledCertificate"/></h2>
 				<table>
@@ -104,10 +117,8 @@
 			<ajaxToolkit:ModalPopupExtender ID="modalPfxPass" runat="server" TargetControlID="btnExportModal"
 				PopupControlID="pnlPFXPassword" OkControlID="btnExport" BackgroundCssClass="modalBackground"
 				DropShadow="false" CancelControlID="btnPFXExportCancel" />
-		</ContentTemplate>
-	</ajaxToolkit:TabPanel>
-	<ajaxToolkit:TabPanel ID="tabCSR" runat="server" meta:resourcekey="tabNewCertificate" CssClass="nav nav-tabs">
-		<ContentTemplate>
+	</asp:View>
+	<asp:View ID="tabCSR" runat="server">
 			<asp:Panel ID="SSLNotInstalled" runat="server" Visible="true">
                 <div id="NoLE" class="col-sm-6">
                     <h3>
@@ -149,7 +160,7 @@
 	                <tr>
 						<td class="SubHead">
 							<asp:Localize ID="SelectCertType" runat="server" meta:resourcekey="SelectCertType" /></td>
-		                <td class="NormalBold" ><asp:DropDownList id="ddlbSiteCertificate" GroupName="Content" Runat="server" Checked="True"></asp:DropDownList></td>
+		                <td class="NormalBold" ><asp:DropDownList id="ddlbSiteCertificate" GroupName="Content" runat="server" Checked="True"></asp:DropDownList></td>
 					<tr>
 						<td class="SubHead">
 							<asp:Localize ID="sslBitLength" runat="server" meta:resourcekey="sslBitLength" /></td>
@@ -185,7 +196,7 @@
 							<asp:Localize ID="sslState" runat="server" meta:resourcekey="sslState" /></td>
 						<td class="Normal">
 							<asp:TextBox id="txtState" runat="server" CssClass="form-control" Width="200px"></asp:TextBox>
-							<asp:DropDownList ID="ddlStates" Runat="server" DataTextField="Text" DataValueField="Value" CssClass="form-control"
+							<asp:DropDownList ID="ddlStates" runat="server" DataTextField="Text" DataValueField="Value" CssClass="form-control"
 								Width="200px" Visible="false" />
 							<asp:RequiredFieldValidator ID="SSLSSLStateReq" ValidationGroup="SSL" runat="server"
 								ControlToValidate="txtState" Display="Dynamic" ErrorMessage="*" /></td>
@@ -248,6 +259,5 @@
 						CssClass="btn btn-warning" Text="Cancel request" OnClick="btnCancelRequest_Click" />
 				</div>
 			</asp:Panel>
-		</ContentTemplate>
-	</ajaxToolkit:TabPanel>
-</ajaxToolkit:TabContainer>
+	</asp:View>
+</asp:MultiView>

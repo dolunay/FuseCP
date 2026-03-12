@@ -40,7 +40,7 @@
 							</td>
 						</tr>
 						<tr id="EmailRow" runat="server">
-							<td class="FormLabel150"><asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address: *"></asp:Localize></td>
+							<td class="FormLabel150"><asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address:"></asp:Localize></td>
 							<td>
                                 <fcp:EmailAddress id="email" runat="server" ValidationGroup="CreateFolder">
                                 </fcp:EmailAddress>

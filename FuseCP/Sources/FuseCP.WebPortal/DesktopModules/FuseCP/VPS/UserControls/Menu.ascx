@@ -1,15 +1,15 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Menu.ascx.cs" Inherits="FuseCP.Portal.VPS.UserControls.Menu" %>
-<ul class="nav nav-tabs">
+<ul class="fcp-modern-nav-tabs nav nav-tabs" role="tablist">
 
 	<asp:DataList runat="server" ID="MenuItems" EnableViewState="false" RepeatDirection="Horizontal" RepeatLayout="Flow">
 	    <ItemTemplate>
-	        <li role="presentation">
-                <asp:HyperLink ID="lnkItem" runat="server" NavigateUrl='<%# Eval("Url") %>' Text='<%# Eval("Text") %>'/>			                
+	        <li class="nav-item" role="presentation">
+                <asp:HyperLink ID="lnkItem" runat="server" CssClass="nav-link" NavigateUrl='<%# Eval("Url") %>' Text='<%# Eval("Text") %>'/>			                
             </li>
 	    </ItemTemplate>
 	    <SelectedItemTemplate>
-            <li role="presentation" class="active">
-                <asp:HyperLink ID="lnkItem" runat="server"
+            <li class="nav-item" role="presentation">
+                <asp:HyperLink ID="lnkItem" runat="server" CssClass="nav-link active" aria-current="page"
 	                NavigateUrl='<%# Eval("Url") %>'
 	                Text='<%# Eval("Text") %>'/>			                
             </li>

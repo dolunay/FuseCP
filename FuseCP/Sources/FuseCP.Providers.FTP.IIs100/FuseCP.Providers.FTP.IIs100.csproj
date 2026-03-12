@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<AssemblyTitle>FuseCP.Providers.FTP.IIs100</AssemblyTitle>
 		<Product>FuseCP.Providers.FTP.IIs100</Product>
 		<OutputPath>..\FuseCP.Server\bin\Providers\</OutputPath>
@@ -30,8 +30,6 @@
 		<Reference Include="Microsoft.Web.Management.FtpClient">
 		  <HintPath>..\..\Lib\References\Microsoft\Microsoft.Web.Management.FtpClient.dll</HintPath>
 		</Reference>
-		<Reference Include="System.Data.DataSetExtensions" />
-		<Reference Include="System.Web" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />

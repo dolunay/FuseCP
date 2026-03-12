@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<RootNamespace>FuseCP.Providers.Mail</RootNamespace>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<OptionExplicit>On</OptionExplicit>
 		<OptionCompare>Binary</OptionCompare>
 		<OptionStrict>Off</OptionStrict>
@@ -28,10 +28,6 @@
 		<DefineDebug>false</DefineDebug>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="Microsoft.VisualBasic" />
-		<Reference Include="System" />
-		<Reference Include="System.Collections" />
-		<Reference Include="System.Data" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.vb" Link="VersionInfo.vb" />
@@ -73,5 +69,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
 		<ProjectReference Include="..\FuseCP.Providers.Mail.Merak\FuseCP.Providers.Mail.Merak.vbproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
 	</ItemGroup>
 </Project>

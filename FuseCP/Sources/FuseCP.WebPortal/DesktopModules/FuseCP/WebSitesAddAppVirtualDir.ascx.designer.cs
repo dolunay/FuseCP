@@ -23,15 +23,6 @@ namespace FuseCP.Portal {
         protected global::FuseCP.Portal.EnableAsyncTasksSupport asyncTasks;
         
         /// <summary>
-        /// lblDirectoryName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CPCC.H5Label lblDirectoryName;
-        
-        /// <summary>
         /// locDirectoryName control.
         /// </summary>
         /// <remarks>
@@ -48,15 +39,6 @@ namespace FuseCP.Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::FuseCP.Portal.UsernameControl virtAppDirName;
-        
-        /// <summary>
-        /// lblFolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CPCC.H5Label lblFolder;
         
         /// <summary>
         /// locFolder control.

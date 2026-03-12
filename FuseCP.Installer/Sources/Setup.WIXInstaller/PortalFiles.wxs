@@ -1987,9 +1987,6 @@
             <Component Id="cmp7D6910E329A9678B3CE2B375A7EBF6F4" Directory="dir66D18F7C39516D2CCDEB894F239B7287" Guid="{ADFEE245-F68B-4EC9-9212-68E242C8D5BB}">
                 <File Id="filA4267AA59BE85C870FEA9FF72BEA5203" KeyPath="yes" Source="!(wix.BUILDPPATH)\bin\BundleTransformer.Less.dll" />
             </Component>
-            <Component Id="cmpE37F5DF7A324D82D276CC79933107E6E" Directory="dir66D18F7C39516D2CCDEB894F239B7287" Guid="{0A6049FB-268A-45EB-BC88-C50EFD3D825A}">
-                <File Id="filCDC7718DAD4D1D5CD44745E305E5CD45" KeyPath="yes" Source="!(wix.BUILDPPATH)\bin\CPCC.dll" />
-            </Component>
             <Component Id="cmp67F4388FE15EB3F67C3039C3282E2B76" Directory="dir66D18F7C39516D2CCDEB894F239B7287" Guid="{C690A0EC-A693-40AC-8497-0CC1B53875EC}">
                 <File Id="fil92BBA79CC0CF63179622C88726CAC993" KeyPath="yes" Source="!(wix.BUILDPPATH)\bin\JavaScriptEngineSwitcher.Core.dll" />
             </Component>

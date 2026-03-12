@@ -17,10 +17,8 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
-                    <fcp:PublicFolderTabs id="tabs" runat="server" SelectedTab="public_folder_mailflow" />
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+				<fcp:PublicFolderTabs id="tabs" runat="server" SelectedTab="public_folder_mailflow" />
                     <div class="card tab-content">			
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 					
