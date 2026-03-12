@@ -9,7 +9,7 @@
 <fcp:EnableAsyncTasksSupport ID="asyncTasks" runat="server" />
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/websites-edit-site.js"></script>
 
-<div class="card-body form-horizontal">
+<div class="card-body form-horizontal fcp-modern-page">
     <table>
         <tr>
             <td class="align-top">
@@ -25,21 +25,25 @@
         <tr>
             <td>
                 <div class="widget">
-                    <div class="widget-header clearfix">
-                        <ul class="nav nav-tabs">
+                    <div class="fcp-modern-tabs">
+                        <ul class="fcp-modern-nav-tabs nav nav-tabs" role="tablist">
                             <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal"
                                 OnSelectedIndexChanged="dlTabs_SelectedIndexChanged" RepeatLayout="Flow">
                                 <ItemStyle Wrap="False" />
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="Tab">
-                                        <%# Eval("Name") %>
-                                    </asp:LinkButton>
+                                    <li class="nav-item" role="presentation">
+                                        <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link">
+                                            <%# Eval("Name") %>
+                                        </asp:LinkButton>
+                                    </li>
                                 </ItemTemplate>
                                 <SelectedItemStyle Wrap="False" />
                                 <SelectedItemTemplate>
-                                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="ActiveTab">
-                                        <%# Eval("Name") %>
-                                    </asp:LinkButton>
+                                    <li class="nav-item" role="presentation">
+                                        <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link active" aria-current="page">
+                                            <%# Eval("Name") %>
+                                        </asp:LinkButton>
+                                    </li>
                                 </SelectedItemTemplate>
                             </asp:DataList>
                         </ul>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -151,7 +151,7 @@
     <value>Department:</value>
   </data>
   <data name="locDisplayName.Text" xml:space="preserve">
-    <value>Display Name: *</value>
+    <value>Display Name:</value>
   </data>
   <data name="locExternalEmailAddress.Text" xml:space="preserve">
     <value>External e-mail:</value>

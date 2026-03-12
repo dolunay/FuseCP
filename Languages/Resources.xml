@@ -30034,7 +30034,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeContactGeneralSettings.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeContactGeneralSettings.ascx.resx</File>
@@ -30329,7 +30329,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateContact.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateContact.ascx.resx</File>
@@ -30409,7 +30409,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateDistributionList.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateDistributionList.ascx.resx</File>
@@ -30479,7 +30479,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateJournalingMailbox.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateJournalingMailbox.ascx.resx</File>
@@ -30619,7 +30619,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateMailbox.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateMailbox.ascx.resx</File>
@@ -33114,7 +33114,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationCreateSecurityGroup.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationCreateSecurityGroup.ascx.resx</File>
@@ -33169,7 +33169,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationCreateUser.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationCreateUser.ascx.resx</File>
@@ -33264,7 +33264,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationDeletedUserGeneralSettings.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationDeletedUserGeneralSettings.ascx.resx</File>
@@ -33999,7 +33999,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationSecurityGroupGeneralSettings.ascx.resx</File>
     <Key>locDisplayName</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationSecurityGroupGeneralSettings.ascx.resx</File>
@@ -34369,7 +34369,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationUserGeneralSettings.ascx.resx</File>
     <Key>locDisplayName.Text</Key>
-    <DefaultValue>Display Name: *</DefaultValue>
+    <DefaultValue>Display Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationUserGeneralSettings.ascx.resx</File>
@@ -35544,7 +35544,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\MailboxSelector.ascx.resx</File>
     <Key>UserLookup.Text</Key>
-    <DefaultValue>&amp;lt;i class='bi bi-folder2-open' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
+    <DefaultValue>Lookup User</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\MailboxSelector.ascx.resx</File>
@@ -35934,7 +35934,7 @@ After creating your virtual directory go to FP administrator and create a subweb
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\UserSelector.ascx.resx</File>
     <Key>UserLookup.Text</Key>
-    <DefaultValue>&amp;lt;i class='bi bi-folder2-open' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</DefaultValue>
+    <DefaultValue>Lookup User</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\UserControls\App_LocalResources\UserSelector.ascx.resx</File>

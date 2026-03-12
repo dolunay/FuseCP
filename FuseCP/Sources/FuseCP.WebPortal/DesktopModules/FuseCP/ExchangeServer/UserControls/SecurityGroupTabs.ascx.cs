@@ -25,6 +25,8 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
     public partial class SecurityGroupTabs : FuseCPControlBase
     {
         private string selectedTab;
+        private int selectedTabIndex;
+
         public string SelectedTab
         {
             get { return selectedTab; }
@@ -55,17 +57,18 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
             PackageContext cntx = PackagesHelper.GetCachedPackageContext(PanelSecurity.PackageId);
 
             // find selected menu item
-            int idx = 0;
-            foreach (Tab tab in tabsList)
+            selectedTabIndex = 0;
+            for (int i = 0; i < tabsList.Count; i++)
             {
-                if (String.Compare(tab.Id, SelectedTab, true) == 0)
+                if (String.Compare(tabsList[i].Id, SelectedTab, true) == 0)
+                {
+                    selectedTabIndex = i;
                     break;
-                idx++;
+                }
             }
-            dlTabs.SelectedIndex = idx;
 
-            dlTabs.DataSource = tabsList;
-            dlTabs.DataBind();
+            rptTabs.DataSource = tabsList;
+            rptTabs.DataBind();
         }
 
         private Tab CreateTab(string id, string text)
@@ -74,6 +77,16 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
                 HostModule.EditUrl("AccountID", PanelRequest.AccountID.ToString(), id,
                 "SpaceID=" + PanelSecurity.PackageId.ToString(),
                 "ItemID=" + PanelRequest.ItemID.ToString()));
+        }
+
+        protected string GetTabCssClass(int index)
+        {
+            return IsSelectedTab(index) ? "nav-link active" : "nav-link";
+        }
+
+        protected bool IsSelectedTab(int index)
+        {
+            return index == selectedTabIndex;
         }
     }
 }

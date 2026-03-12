@@ -8,34 +8,34 @@
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/mail-confirmation.js"></script>
 
-<div class="card-body form-horizontal">
+<div class="card-body form-horizontal fcp-modern-page">
     <div class="FormRow">
         <asp:HyperLink ID="lnkSiteName" runat="server" CssClass="Big" NavigateUrl="#" Target="_blank">domain.com/vdir</asp:HyperLink>
     </div>
     <div class="FormRow widget">
-        <div class="widget-header clearfix">
-        <table class="table table-borderless align-middle mb-0 w-100">
-            <tr>
-                <td class="Tabs">
-                    <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal"
-                        OnSelectedIndexChanged="dlTabs_SelectedIndexChanged" RepeatLayout="Flow">
-                        <ItemStyle Wrap="False" />
-                        <ItemTemplate>
-                            <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="Tab">
+        <div class="fcp-modern-tabs">
+            <ul class="fcp-modern-nav-tabs nav nav-tabs" role="tablist">
+                <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal"
+                    OnSelectedIndexChanged="dlTabs_SelectedIndexChanged" RepeatLayout="Flow">
+                    <ItemStyle Wrap="False" />
+                    <ItemTemplate>
+                        <li class="nav-item" role="presentation">
+                            <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link">
                                 <%# Eval("Name") %>
                             </asp:LinkButton>
-                        </ItemTemplate>
-                        <SelectedItemStyle Wrap="False" />
-                        <SelectedItemTemplate>
-                            <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="ActiveTab">
+                        </li>
+                    </ItemTemplate>
+                    <SelectedItemStyle Wrap="False" />
+                    <SelectedItemTemplate>
+                        <li class="nav-item" role="presentation">
+                            <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link active" aria-current="page">
                                 <%# Eval("Name") %>
                             </asp:LinkButton>
-                        </SelectedItemTemplate>
-                    </asp:DataList>
-                </td>
-            </tr>
-        </table>
-            </div>
+                        </li>
+                    </SelectedItemTemplate>
+                </asp:DataList>
+            </ul>
+        </div>
         <div class="widget-content tab-content">
        <div class="card-body form-horizontal">
            <asp:MultiView ID="tabs" runat="server" ActiveViewIndex="0">
@@ -61,7 +61,7 @@
             
            </asp:MultiView>
        </div>
-            </div>
+        </div>
     </div>
 </div>
 <div class="card-footer text-end">

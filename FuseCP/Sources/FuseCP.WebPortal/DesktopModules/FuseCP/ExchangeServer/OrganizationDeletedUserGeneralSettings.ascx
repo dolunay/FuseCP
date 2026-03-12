@@ -30,12 +30,10 @@
                     </h3>
                 </div>
 
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
+				<div class="card-body form-horizontal fcp-modern-page">
                     <uc1:UserTabs ID="UserTabsId" runat="server" SelectedTab="view_deleted_user" />
                     <uc1:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="view_deleted_user" />
-                     </div>
-                    <div class="card tab-content">
+                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 					<table>
@@ -53,7 +51,7 @@
 
 						<tr>
 							<td class="FormLabel150">
-                                <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *" />
+                                <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:" />
 							</td>
 							<td>
 								<asp:Label ID="lblDisplayName" runat="server"></asp:Label>

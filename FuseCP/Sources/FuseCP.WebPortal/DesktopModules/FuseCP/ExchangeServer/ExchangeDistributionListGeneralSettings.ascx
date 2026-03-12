@@ -17,15 +17,13 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
-                    <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_settings" />
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+                <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_settings" />
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<div class="row mb-3">
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
-                            <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize>
+                            <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize>
                         </asp:Label>
                         <div class="col-sm-10">
                                         <div class="input-group">

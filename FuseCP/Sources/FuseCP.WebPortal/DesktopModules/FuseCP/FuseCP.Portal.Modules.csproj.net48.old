@@ -9256,10 +9256,6 @@
     <Content Include="VPS\VpsToolsReinstallServer.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CPCC\CPCC.csproj">
-      <Project>{68b50d26-3f14-4ac7-977a-2f6128088019}</Project>
-      <Name>CPCC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj">
       <Project>{c09ce910-f16b-48a1-b2cc-c99b8c1cf775}</Project>
       <Name>FuseCP.EnterpriseServer.Base</Name>

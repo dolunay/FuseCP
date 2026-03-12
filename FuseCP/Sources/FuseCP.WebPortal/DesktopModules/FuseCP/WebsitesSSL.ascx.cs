@@ -56,6 +56,15 @@ namespace FuseCP.Portal
 
         public SSLCertificate PendingCert { get; set; }
 
+        private const string InstalledTabKey = "installed";
+        private const string CsrTabKey = "csr";
+
+        private string ActiveSslTab
+        {
+            get { return (string)(ViewState["ActiveSslTab"] ?? CsrTabKey); }
+            set { ViewState["ActiveSslTab"] = value; }
+        }
+
         public string State
         {
             get
@@ -83,8 +92,56 @@ namespace FuseCP.Portal
                 // Load countries
                 BindCountries();
                 BindStates();
+                SetInstalledTabText(GetLocalizedString("tabInstalled.Text"));
+                SetCsrTabText(GetLocalizedString("tabNewCertificate.Text"));
             }
 
+            ApplyTabSelection();
+
+        }
+
+        protected void btnShowInstalledTab_Click(object sender, EventArgs e)
+        {
+            SelectInstalledTab();
+            ApplyTabSelection();
+        }
+
+        protected void btnShowCsrTab_Click(object sender, EventArgs e)
+        {
+            SelectCsrTab();
+            ApplyTabSelection();
+        }
+
+        private void SetInstalledTabText(string text)
+        {
+            litInstalledTabText.Text = string.IsNullOrEmpty(text) ? GetLocalizedString("tabInstalled.Text") : text;
+        }
+
+        private void SetCsrTabText(string text)
+        {
+            litCsrTabText.Text = string.IsNullOrEmpty(text) ? GetLocalizedString("tabNewCertificate.Text") : text;
+        }
+
+        private void SelectInstalledTab()
+        {
+            ActiveSslTab = InstalledTabKey;
+        }
+
+        private void SelectCsrTab()
+        {
+            ActiveSslTab = CsrTabKey;
+        }
+
+        private void ApplyTabSelection()
+        {
+            liInstalledTabLink.Visible = tabInstalled.Visible;
+            liCsrTabLink.Visible = true;
+
+            bool useInstalled = tabInstalled.Visible && ActiveSslTab == InstalledTabKey;
+            sslTabs.SetActiveView(useInstalled ? tabInstalled : tabCSR);
+
+            btnShowInstalledTab.CssClass = useInstalled ? "nav-link active" : "nav-link";
+            btnShowCsrTab.CssClass = useInstalled ? "nav-link" : "nav-link active";
         }
 
         protected void lstCountries_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,11 +255,13 @@ namespace FuseCP.Portal
             // We are done
             SSLNotInstalled.Visible = false;
             pnlCSR.Visible = false;
-            tabCSR.HeaderText = GetLocalizedString("tabPendingCertificate.HeaderText");
+            SetCsrTabText(GetLocalizedString("tabPendingCertificate.HeaderText"));
             ViewState["CSRID"] = certificate.id;
             pnlInstallCertificate.Visible = true;
             txtCSR.Text = certificate.CSR;
             txtCSR.Attributes.Add("onfocus", "this.select();");
+            SelectCsrTab();
+            ApplyTabSelection();
         }
 
         protected void btnRegenCSR_Click(object sender, EventArgs e)
@@ -269,7 +328,8 @@ namespace FuseCP.Portal
             ViewState["CSRID"] = certificate.id;
             txtCSR.Attributes.Add("onfocus", "this.select();");
             RefreshControlLayout();
-            TabContainer1.ActiveTab = TabContainer1.Tabs[0];
+            SelectInstalledTab();
+            ApplyTabSelection();
             messageBox.ShowSuccessMessage(WEB_GEN_CSR);
         }
 
@@ -299,9 +359,9 @@ namespace FuseCP.Portal
             SSLNotInstalled.Visible = false;
             //
             RefreshControlLayout();
-            TabContainer1.ActiveTab = TabContainer1.Tabs[0];
+            SelectInstalledTab();
             messageBox.ShowSuccessMessage("WEB_INSTALL_LE");
-            TabContainer1.ActiveTab = tabInstalled;
+            ApplyTabSelection();
         }
 
             protected void InstallCertificate(int webSiteId, string certText)
@@ -319,15 +379,15 @@ namespace FuseCP.Portal
             //
             messageBox.ShowSuccessMessage("WEB_INSTALL_CSR");
             tabInstalled.Visible = true;
-            tabInstalled.Enabled = true;
-            tabInstalled.HeaderText = "Installed Certificate";
-            tabCSR.HeaderText = "New Certificate";
+            SetInstalledTabText("Installed Certificate");
+            SetCsrTabText("New Certificate");
             pnlInstallCertificate.Visible = false;
             SSLNotInstalled.Visible = true;
             //
-            TabContainer1.ActiveTab = tabInstalled;
+            SelectInstalledTab();
 
             RefreshControlLayout();
+            ApplyTabSelection();
         }
 
         protected void btnInstallPFX_Click(object sender, EventArgs e)
@@ -360,6 +420,8 @@ namespace FuseCP.Portal
             SSLNotInstalled.Visible = false;
             tabInstalled.Visible = true;
             RefreshControlLayout();
+            SelectInstalledTab();
+            ApplyTabSelection();
         }
 
         protected void BindCertificateFields()
@@ -435,9 +497,10 @@ namespace FuseCP.Portal
             messageBox.ShowSuccessMessage(WEB_SSL_DELETE);
             //
             tabInstalled.Visible = false;
-            tabInstalled.Enabled = false;
-            tabInstalled.HeaderText = "";
+            SetInstalledTabText(GetLocalizedString("tabInstalled.Text"));
             InstalledCert = null;
+            SelectCsrTab();
+            ApplyTabSelection();
         }
 
         protected void btnRenew_Click(object sender, EventArgs e)
@@ -447,10 +510,10 @@ namespace FuseCP.Portal
 
         protected void RenewCertificate(SSLCertificate cert)
         {
-            TabContainer1.ActiveTab = TabContainer1.Tabs[1];
+            SelectCsrTab();
             SSLNotInstalled.Visible = false;
             pnlCSR.Visible = true;
-            tabCSR.HeaderText = GetLocalizedString("SSLGenereateRenewal.HeaderText");
+            SetCsrTabText(GetLocalizedString("SSLGenereateRenewal.HeaderText"));
 
             string hostname = cert.Hostname;
 
@@ -470,6 +533,7 @@ namespace FuseCP.Portal
             // Render button controls appropriately
             btnCSR.Visible = false;
             btnRenCSR.Visible = true;
+            ApplyTabSelection();
         }
 
         protected void btnImport_click(object sender, EventArgs e)
@@ -509,12 +573,13 @@ namespace FuseCP.Portal
 
                 // Set some default visible values, states and texts
                 tabInstalled.Visible = false;
-                tabInstalled.Enabled = false;
                 SSLNotInstalled.Visible = true;
                 SSLImport.Visible = false;
                 pnlCSR.Visible = false;
                 pnlShowUpload.Visible = false;
                 pnlInstallCertificate.Visible = false;
+                SetInstalledTabText(GetLocalizedString("tabInstalled.Text"));
+                SetCsrTabText(GetLocalizedString("tabNewCertificate.Text"));
 
                 btnShowpnlCSR.Attributes.Remove("OnClientClick");
                 btnShowUpload.Attributes.Remove("OnClientClick");
@@ -542,8 +607,7 @@ namespace FuseCP.Portal
                 if (hasactive)
                 {
                     tabInstalled.Visible = true;
-                    tabInstalled.Enabled = true;
-                    tabInstalled.HeaderText = GetLocalizedString("tabInstalled.Text");
+                    SetInstalledTabText(GetLocalizedString("tabInstalled.Text"));
 
                     InstalledCert = (from c in certificates
                                      where c.Installed == true
@@ -572,7 +636,7 @@ namespace FuseCP.Portal
                 // Web site has pending certificate
                 if (haspending)
                 {
-                    tabCSR.HeaderText = GetLocalizedString("tabPendingCertificate.HeaderText");//"Pending Certificate";
+                    SetCsrTabText(GetLocalizedString("tabPendingCertificate.HeaderText"));//"Pending Certificate";
                     SSLNotInstalled.Visible = false;
                     pnlInstallCertificate.Visible = true;
                     SSLCertificate pending = (from c in certificates
@@ -592,6 +656,13 @@ namespace FuseCP.Portal
                     SSLNotInstalled.Visible = false;
                     SSLImport.Visible = true;
                 }
+
+                if (hasactive && !haspending && ActiveSslTab != CsrTabKey)
+                    SelectInstalledTab();
+                else if (!hasactive)
+                    SelectCsrTab();
+
+                ApplyTabSelection();
             }
             catch (Exception ex)
             {

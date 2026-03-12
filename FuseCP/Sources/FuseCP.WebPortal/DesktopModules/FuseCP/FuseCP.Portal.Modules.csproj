@@ -3,7 +3,7 @@
         <OutputType>Library</OutputType>
         <RootNamespace>FuseCP.Portal</RootNamespace>
         <AssemblyName>FuseCP.Portal.Modules</AssemblyName>
-        <TargetFrameworks>net48;net10.0</TargetFrameworks>
+        <TargetFramework>net10.0</TargetFramework>
         <LangVersion>13</LangVersion>
         <Nullable>disable</Nullable>
         <EnableDefaultItems>false</EnableDefaultItems>
@@ -24,18 +24,15 @@
         <Optimize>true</Optimize>
         <DefineConstants>TRACE;Modules</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(TargetFramework) != 'net48'">
+    <PropertyGroup>
         <OutputPath>..\..\bin_dotnet</OutputPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(TargetFramework) == 'net48'">
-        <OutputPath>..\..\bin</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     </ItemGroup>
     
-    <ItemGroup Condition="$(TargetFramework) != 'net48'">
+    <ItemGroup>
 		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.6" />
         <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.30" />
@@ -48,7 +45,7 @@
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' != 'net48'">
+    <ItemGroup>
         <AspNetControls Remove="MailAccess.ascx" />
         <AspNetControls Remove="RDS\RdsLocalAdmins.ascx" />
         <AspNetControls Remove="OverusageReport.ascx" />
@@ -58,36 +55,6 @@
         <AspNetControls Remove="Proxmox\VdcCreateServer.ascx" />
         <AspNetControls Remove="VPSForPC\VpsMonitoring.ascx" />
         <AspNetControls Remove="VPSForPC\MonitoringPage.aspx" />
-    </ItemGroup>
-
-    <ItemGroup Condition="$(TargetFramework) == 'net48'">
-        <PackageReference Include="AntiXSS" Version="4.3.0" />
-        <Reference Include="System" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="System.Drawing" />
-        <Reference Include="System.Net" />
-        <Reference Include="System.Net.Http" />
-        <Reference Include="System.Web" />
-        <Reference Include="System.Web.ApplicationServices" />
-        <Reference Include="System.Web.DataVisualization" />
-        <Reference Include="System.Web.DynamicData" />
-        <Reference Include="System.Web.Entity" />
-        <Reference Include="System.Web.Extensions" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Configuration" />
-        <Reference Include="System.Web.Services" />
-        <Reference Include="System.EnterpriseServices" />
-        <Reference Include="System.Web.Mobile" />
-		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
-		<Reference Include="System.Xml.Linq" />
-        <PackageReference Include="AjaxControlToolkit" Version="20.1" />
-        <!--<PackageReference Include="Microsoft.ReportViewer.WebForms" Version="8.0.0.0" />-->
-		<Reference Include="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-			<SpecificVersion>False</SpecificVersion>
-			<HintPath>..\..\..\..\Lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
-		</Reference>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\..\..\VersionInfo.cs">
@@ -9183,7 +9150,6 @@
         <Content Include="VPS\VpsToolsReinstallServer.ascx" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\..\CPCC\CPCC.csproj" />
         <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
         <ProjectReference Include="..\..\..\FuseCP.EnterpriseServer\WebServices\FuseCP.Build\FuseCP.EnterpriseServer.Client.csproj" />
         <ProjectReference Include="..\..\..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
@@ -9248,41 +9214,7 @@
     <ItemGroup>
         <WCFMetadata Include="Connected Services\" />
     </ItemGroup>
-    
-    <Target Name="DeleteUnusedDlls" AfterTargets="Build" Condition="$(TargetFramework) == 'net48'">
-
-        <!-- move lazy loaded assemblies to $(OutputPath)\Code and delete unused assemblies in bin -->
-        <Message Text="Delete unused dll files" Importance="high" />
-        <ItemGroup>
-            <FilesToMove Include="$(OutputPath)\Microsoft.Bcl.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.Win32.Registry.*" />
-            <FilesToMove Include="$(OutputPath)\Newtonsoft.Json.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.IdentityModel.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.Web.Administration.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.ReportViewer.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.Extensions.*" />
-            <FilesToMove Include="$(OutputPath)\Microsoft.Web.*" />
-            <FilesToMove Include="$(OutputPath)\FuseCP.Server.Client.*" />
-            <FilesToMove Include="$(OutputPath)\MsieJavaScriptEngine.*" />
-            <FilesToMove Include="$(OutputPath)\Renci.SshNet.*" />
-            <FilesToMove Include="$(OutputPath)\FuseCP.EnterpriseServer.Client.*" />
-            <FilesToMove Include="$(OutputPath)\FuseCP.Providers.*" Exclude="$(OutputPath)\FuseCP.Providers.Virtualization.NoVNC.*" />
-            <FilesToMove Include="$(OutputPath)\WebGrease.*" />
-            <FilesToMove Include="$(OutputPath)\JavaScriptEngineSwitcher.*" />
-            <FilesToMove Include="$(OutputPath)\System.*" />
-            <FilesToMove Include="$(OutputPath)\SwaggerWcf.*" />
-            <FilesToMove Include="$(OutputPath)\SkiaSharp.*" />
-            <FilesToMove Include="$(OutputPath)\BouncyCastle.*" />
-            <FilesToMove Include="$(OutputPath)\Antlr3.*" />
-            <FilesToMove Include="$(OutputPath)\AdvancedStringBuilder.*" />
-            <FilesToMove Include="$(OutputPath)\AntiXssLibrary.*" />
-            <FilesToMove Include="$(OutputPath)\HtmlSanitizationLibrary.*" />
-            <FilesToDelete Include="$(OutputPath)\WebServices\**\*.*" />
-        </ItemGroup>
-
-        <Delete Files="@(FilesToDelete)" ContinueOnError="true" />
-        <Move SourceFiles="@(FilesToMove)" DestinationFolder="$(OutputPath)\Lazy" ContinueOnError="true" />
-        <RemoveDir Directories="$(OutputPath)\WebServices;" ContinueOnError="true" />
-    </Target>
 
 </Project>
+
+

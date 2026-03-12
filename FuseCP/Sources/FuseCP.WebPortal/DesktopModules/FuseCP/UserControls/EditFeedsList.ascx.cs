@@ -14,7 +14,6 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Web.UI.WebControls;
-using CPCC;
 
 namespace FuseCP.Portal.UserControls
 {
@@ -40,3 +39,4 @@ namespace FuseCP.Portal.UserControls
         }
     }
 }
+

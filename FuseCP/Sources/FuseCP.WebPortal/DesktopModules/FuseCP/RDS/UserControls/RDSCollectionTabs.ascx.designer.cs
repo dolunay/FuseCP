@@ -14,12 +14,12 @@ namespace FuseCP.Portal.RDS.UserControls {
     public partial class RdsServerTabs {
         
         /// <summary>
-        /// rdsTabs control.
+        /// rptTabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList rdsTabs;
+        protected global::System.Web.UI.WebControls.Repeater rptTabs;
     }
 }

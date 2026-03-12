@@ -59,6 +59,8 @@ namespace FuseCP.Portal.VPSForPC.UserControls
         }
 
         private string selectedTab;
+        private int selectedTabIndex;
+
         public string SelectedTab
         {
             get { return selectedTab; }
@@ -136,20 +138,21 @@ namespace FuseCP.Portal.VPSForPC.UserControls
 
 
             // find selected menu item
-            int idx = 0;
-            foreach (Tab tab in tabsList)
+            selectedTabIndex = 0;
+            for (int i = 0; i < tabsList.Count; i++)
             {
-                if (String.Compare(tab.Id, SelectedTab, true) == 0)
+                if (String.Compare(tabsList[i].Id, SelectedTab, true) == 0)
+                {
+                    selectedTabIndex = i;
                     break;
-                idx++;
+                }
             }
-            dlTabs.SelectedIndex = idx;
 
-            dlTabs.DataSource = tabsList;
-            dlTabs.DataBind();
+            rptTabs.DataSource = tabsList;
+            rptTabs.DataBind();
 
             // show provision error message
-            if(createError && idx == 0)
+            if(createError && selectedTabIndex == 0)
                 messageBox.ShowErrorMessage("VPS_PROVISION_ERROR");
         }
 
@@ -186,6 +189,16 @@ namespace FuseCP.Portal.VPSForPC.UserControls
             return new Tab(id, GetLocalizedString(text), (disabled ? String.Empty :
                 HostModule.EditUrl("ItemID", PanelRequest.ItemID.ToString(), id,
                 "SpaceID=" + PanelSecurity.PackageId.ToString())));
+        }
+
+        protected string GetTabCssClass(int index)
+        {
+            return IsSelectedTab(index) ? "nav-link active" : "nav-link";
+        }
+
+        protected bool IsSelectedTab(int index)
+        {
+            return index == selectedTabIndex;
         }
 
 

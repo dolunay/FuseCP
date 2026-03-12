@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net48;net10.0</TargetFrameworks>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>disable</Nullable>
         <LangVersion>11</LangVersion>
         <DefineConstants>$(DefineConstants);Client</DefineConstants>
@@ -53,3 +53,4 @@
     </Target>
 
 </Project>
+

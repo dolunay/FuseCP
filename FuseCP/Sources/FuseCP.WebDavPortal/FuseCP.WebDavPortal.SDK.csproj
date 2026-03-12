@@ -529,7 +529,6 @@
         <None Include="Project_Readme.html" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\CPCC\CPCC.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer\WebServices\FuseCP.Build\FuseCP.EnterpriseServer.Client.csproj" />
         <ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
@@ -550,3 +549,4 @@
         </EmbeddedResource>
     </ItemGroup>
 </Project>
+
