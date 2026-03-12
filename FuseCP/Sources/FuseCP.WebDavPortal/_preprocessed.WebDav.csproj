@@ -992,8 +992,6 @@ E:\FuseCP\FuseCP\FuseCP\Sources\FuseCP.WebDavPortal\FuseCP.WebDavPortal.csproj
     <Content Include="Scripts\jquery-3.6.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Project>{68b50d26-3f14-4ac7-977a-2f6128088019}</Project>
-      <Name>CPCC</Name>
     </ProjectReference>
     <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj">
       <Project>{c09ce910-f16b-48a1-b2cc-c99b8c1cf775}</Project>
