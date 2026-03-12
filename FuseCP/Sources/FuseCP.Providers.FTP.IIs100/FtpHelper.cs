@@ -22,7 +22,6 @@ namespace  FuseCP.Providers.FTP.IIs100
     using System;
     using System.Security.Cryptography;
     using System.Security.Cryptography.X509Certificates;
-    using System.Web.UI;
 
     internal static class FtpHelper
     {
@@ -70,10 +69,10 @@ namespace  FuseCP.Providers.FTP.IIs100
                 for (int i = 0; i < strArray.Length; i++)
                 {
                     pairAndValue = strArray[i];
-                    Pair pair = ConvertStringToPair(pairAndValue);
-                    if (string.Equals((string) pair.First, "CN", StringComparison.OrdinalIgnoreCase))
+                    var pair = ConvertStringToPair(pairAndValue);
+                    if (string.Equals(pair.First, "CN", StringComparison.OrdinalIgnoreCase))
                     {
-                        name = (string) pair.Second;
+                        name = pair.Second;
                         flag = false;
                         break;
                     }
@@ -91,16 +90,16 @@ namespace  FuseCP.Providers.FTP.IIs100
             return name;
         }
 
-        private static Pair ConvertStringToPair(string pairAndValue)
+        private static (string First, string Second) ConvertStringToPair(string pairAndValue)
         {
-            Pair pair = new Pair(pairAndValue, pairAndValue);
+            (string First, string Second) pair = (pairAndValue, pairAndValue);
             int length = -1;
             length = pairAndValue.IndexOf("=", StringComparison.Ordinal);
             if ((length != -1) && (pairAndValue.Length >= (length + 1)))
             {
                 string x = pairAndValue.Substring(0, length);
                 string y = pairAndValue.Substring(length + 1);
-                pair = new Pair(x, y);
+                pair = (x, y);
             }
             return pair;
         }
