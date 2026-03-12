@@ -130,9 +130,6 @@
             <Component Id="cmp2ADDD606D07BAE9BEB3C2FB9F29EA569" Directory="dirA488D7C8E79ACCB655B160355DEE4802" Guid="{7BE14859-FC27-4D43-A6B9-A4A8A822DE1C}">
                 <File Id="fil547011A229F393EFEA50F4B6048DD4AF" KeyPath="yes" Source="!(wix.BUILDWDPPATH)\bin\AutoMapper.Net4.dll" />
             </Component>
-            <Component Id="cmpCCB4C7A1C93B2C1EDE0B6F8B6ACCC879" Directory="dirA488D7C8E79ACCB655B160355DEE4802" Guid="{77E92C1A-D684-4053-B120-6B2621BB4F2B}">
-                <File Id="fil3D67A573D62DF398D7DABF47978DE260" KeyPath="yes" Source="!(wix.BUILDWDPPATH)\bin\CPCC.dll" />
-            </Component>
             <Component Id="cmp6935104CFD1ECE4B3531109F99E2BE79" Directory="dirA488D7C8E79ACCB655B160355DEE4802" Guid="{53435047-F507-40DB-B1F8-315341E23BEB}">
                 <File Id="filB0E3913205E1C12F94E91B8414A5F768" KeyPath="yes" Source="!(wix.BUILDWDPPATH)\bin\Ionic.Zip.Reduced.dll" />
             </Component>

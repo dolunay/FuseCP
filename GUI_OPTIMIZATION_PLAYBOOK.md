@@ -20,7 +20,7 @@ Applies to:
 5. XSS safety is mandatory: do not introduce raw/unencoded user-controlled output.
 6. Keep pages responsive where safe in WebForms context (prefer fluid controls, remove hard-coded widths when not behavior-critical).
 7. Keep old completed categories clean:
-- `Legacy button/control hits (filtered)` must stay `0` for `Button1|Button2|Button3|CPCC button tags`.
+- `Legacy button/control hits (filtered)` must stay `0` for `Button1|Button2|Button3|legacy button tags`.
 - `Actionable old-HTML attr hits (case-sensitive, filtered)` must stay `0` for `align|valign|hspace|vspace|border="N"`.
 8. Icons must use Bootstrap Icons (`bi bi-*`) only; no Font Awesome reintroduction.
 9. Preserve functionality and event wiring; UI improvements must not alter business behavior.
