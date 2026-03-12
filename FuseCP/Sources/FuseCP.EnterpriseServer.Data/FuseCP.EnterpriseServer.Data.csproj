@@ -237,3 +237,4 @@
         <Copy SourceFiles="@(InstallSqlFiles)" DestinationFolder="..\..\Database" SkipUnchangedFiles="true" />
     </Target>
 </Project>
+

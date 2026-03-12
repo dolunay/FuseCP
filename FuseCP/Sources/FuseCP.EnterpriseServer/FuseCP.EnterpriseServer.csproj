@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFrameworks>net10.0;net48</TargetFrameworks>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>disable</Nullable>
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <CompilerGeneratedFilesOutputPath>WebServices</CompilerGeneratedFilesOutputPath>
@@ -203,3 +203,4 @@
         <RemoveDir Directories="bin\WebServices;bin\refs;bin_dotnet\WebServices" ContinueOnError="true" />
     </Target>
 </Project>
+
