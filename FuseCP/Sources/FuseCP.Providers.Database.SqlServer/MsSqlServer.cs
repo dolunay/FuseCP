@@ -128,7 +128,7 @@ namespace FuseCP.Providers.Database
 
 		public virtual DataSet ExecuteSqlQuery(string databaseName, string commandText, string connectionString)
 		{
-			commandText = "USE [" + databaseName + "]; " + commandText;
+			commandText = "USE " + QuoteSqlIdentifier(databaseName) + "; " + commandText;
 			return ExecuteQuery(commandText, connectionString);
 		}
 
@@ -139,7 +139,7 @@ namespace FuseCP.Providers.Database
 
 		public virtual void ExecuteSqlNonQuery(string databaseName, string commandText, string connectionString)
 		{
-			commandText = "USE [" + databaseName + "]\nGO\n" + commandText;
+			commandText = "USE " + QuoteSqlIdentifier(databaseName) + "\nGO\n" + commandText;
 
 			SqlConnection connection = new SqlConnection(connectionString);
 
@@ -205,8 +205,9 @@ namespace FuseCP.Providers.Database
 
 		public virtual bool DatabaseExists(string databaseName)
 		{
-			return (ExecuteQuery(
-				 String.Format("select name from master..sysdatabases where name = '{0}'", EscapeSql(databaseName))).Tables[0].Rows.Count > 0);
+			return ExecuteQuery(
+				"select name from master..sysdatabases where name = @DatabaseName",
+				CreateNVarCharParameter("@DatabaseName", databaseName)).Tables[0].Rows.Count > 0;
 		}
 
 		public virtual string[] GetDatabases()
@@ -228,7 +229,7 @@ namespace FuseCP.Providers.Database
 
 			// get database size
 			DataView dvFiles = ExecuteQuery(String.Format(
-				 "SELECT Status, (Size * 8) AS DbSize, Name, FileName FROM [{0}]..sysfiles", databaseName)).Tables[0].DefaultView;
+				 "SELECT Status, (Size * 8) AS DbSize, Name, FileName FROM {0}..sysfiles", QuoteSqlIdentifier(databaseName))).Tables[0].DefaultView;
 
 			foreach (DataRowView drFile in dvFiles)
 			{
@@ -256,7 +257,7 @@ namespace FuseCP.Providers.Database
 
 		private string CreateFileNameString(string fileName, int fileSize)
 		{
-			string str = fileSize == 0 ? string.Format(" FILENAME = '{0}' ", fileName) :
+			string str = fileSize == 0 ? string.Format(" FILENAME = '{0}' ", EscapeSql(fileName)) :
 				 string.Format(" FILENAME = '{0}', MAXSIZE = {1} ", EscapeSql(fileName), fileSize);
 
 			return str;
@@ -291,10 +292,10 @@ namespace FuseCP.Providers.Database
 			string logFile = Path.Combine(database.Location, database.Name) + "_log.ldf";
 
 
-			commandText = string.Format("CREATE DATABASE [{0}]" +
+			commandText = string.Format("CREATE DATABASE {0}" +
 					  " ON ( NAME = '{1}_data', {2})" +
 					  " LOG ON ( NAME = '{3}_log', {4}){5};",
-					  database.Name,
+					  QuoteSqlIdentifier(database.Name),
 					  EscapeSql(database.Name),
 					  CreateFileNameString(dataFile, database.DataSize),
 					  EscapeSql(database.Name),
@@ -342,7 +343,7 @@ namespace FuseCP.Providers.Database
 			CloseDatabaseConnections(databaseName);
 
 			// drop database
-			ExecuteNonQuery(String.Format("DROP DATABASE [{0}]", databaseName));
+			ExecuteNonQuery(String.Format("DROP DATABASE {0}", QuoteSqlIdentifier(databaseName)));
 
 			// drop database folder if empty
 			string dbFolder = Path.GetDirectoryName(db.DataPath);
@@ -362,8 +363,9 @@ namespace FuseCP.Providers.Database
 		#region Users
 		public virtual bool UserExists(string username)
 		{
-			return (ExecuteQuery(
-				 String.Format("select name from master..syslogins where name = '{0}'", EscapeSql(username))).Tables[0].Rows.Count > 0);
+			return ExecuteQuery(
+				"select name from master..syslogins where name = @UserName",
+				CreateNVarCharParameter("@UserName", username)).Tables[0].Rows.Count > 0;
 		}
 
 		public virtual string[] GetUsers()
@@ -380,8 +382,8 @@ namespace FuseCP.Providers.Database
 			// get user information
 			SqlUser user = new SqlUser();
 
-			DataView dvUser = ExecuteQuery(String.Format("select dbname from master..syslogins where name = '{0}'",
-				 EscapeSql(username))).Tables[0].DefaultView;
+			DataView dvUser = ExecuteQuery("select dbname from master..syslogins where name = @UserName",
+				CreateNVarCharParameter("@UserName", username)).Tables[0].DefaultView;
 
 			user.Name = username;
 			user.DefaultDatabase = "";
@@ -410,8 +412,8 @@ namespace FuseCP.Providers.Database
 			//    user.Name, password, user.DefaultDatabase));
 			//Fixed create login with "Enforce password policy" disabled.
 			ExecuteNonQuery(
-				 String.Format("CREATE LOGIN [{0}] WITH PASSWORD='{1}', DEFAULT_DATABASE=[{2}], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF",
-					  user.Name, EscapeSql(password), user.DefaultDatabase));
+				 String.Format("CREATE LOGIN {0} WITH PASSWORD='{1}', DEFAULT_DATABASE={2}, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF",
+					  QuoteSqlIdentifier(user.Name), EscapeSql(password), QuoteSqlIdentifier(user.DefaultDatabase)));
 
 			// add access to databases
 			foreach (string database in user.Databases)
@@ -466,8 +468,8 @@ namespace FuseCP.Providers.Database
 		public virtual void TruncateDatabase(string databaseName)
 		{
 			SqlDatabase database = GetDatabase(databaseName);
-			ExecuteNonQuery(String.Format(@"USE [{0}];DBCC SHRINKFILE ('{1}', 1);",
-				databaseName, database.LogName));
+			ExecuteNonQuery(String.Format(@"USE {0};DBCC SHRINKFILE ({1}, 1);",
+				QuoteSqlIdentifier(databaseName), QuoteSqlStringLiteral(database.LogName)));
 		}
 		#endregion
 
@@ -549,8 +551,8 @@ namespace FuseCP.Providers.Database
 
 				// backup database
 				Log.WriteInfo("Backing up Database {0} \n Network disk {1} \n Local Disk {2}", databaseName, networkBakFile, bakFile);
-				ExecuteNonQuery(String.Format(@"BACKUP DATABASE [{0}] TO DISK = N'{1}'", // WITH INIT, NAME = '{2}'
-					 databaseName, EscapeSql(networkBakFile)/*, backupName*/));
+				ExecuteNonQuery(String.Format(@"BACKUP DATABASE {0} TO DISK = {1}",
+					 QuoteSqlIdentifier(databaseName), QuoteSqlUnicodeLiteral(networkBakFile)));
 
 			}
 			else
@@ -561,8 +563,8 @@ namespace FuseCP.Providers.Database
 
 				// backup database
 				Log.WriteInfo("Backing up Database {0} \n Local Disk {2}", databaseName, bakFile);
-				ExecuteNonQuery(String.Format(@"BACKUP DATABASE [{0}] TO DISK = N'{1}'", // WITH INIT, NAME = '{2}'
-					 databaseName, EscapeSql(bakFile)/*, backupName*/));
+				ExecuteNonQuery(String.Format(@"BACKUP DATABASE {0} TO DISK = {1}",
+					 QuoteSqlIdentifier(databaseName), QuoteSqlUnicodeLiteral(bakFile)));
 			}
 
 
@@ -731,10 +733,10 @@ namespace FuseCP.Providers.Database
 				}
 
 				// restore database
-				Log.WriteInfo("RESTORE DATABASE [{0}] FROM DISK = '{1}' WITH REPLACE, {2}",
-					 database.Name, EscapeSql(bakFile), String.Join(", ", movings));
-				ExecuteNonQuery(String.Format(@"RESTORE DATABASE [{0}] FROM DISK = '{1}' WITH REPLACE, {2}",
-					 database.Name, EscapeSql(bakFile), String.Join(", ", movings)));
+				Log.WriteInfo("RESTORE DATABASE {0} FROM DISK = {1} WITH REPLACE, {2}",
+					 QuoteSqlIdentifier(database.Name), QuoteSqlStringLiteral(bakFile), String.Join(", ", movings));
+				ExecuteNonQuery(String.Format(@"RESTORE DATABASE {0} FROM DISK = {1} WITH REPLACE, {2}",
+					 QuoteSqlIdentifier(database.Name), QuoteSqlStringLiteral(bakFile), String.Join(", ", movings)));
 
 
 				// restore original database users
@@ -833,7 +835,7 @@ namespace FuseCP.Providers.Database
 		private string[][] GetBackupFiles(string file)
 		{
 			DataView dvFiles = ExecuteQuery(
-				 String.Format("RESTORE FILELISTONLY FROM DISK = '{0}'", EscapeSql(file))).Tables[0].DefaultView;
+				 String.Format("RESTORE FILELISTONLY FROM DISK = {0}", QuoteSqlStringLiteral(file))).Tables[0].DefaultView;
 
 			string[][] files = new string[dvFiles.Count][];
 			for (int i = 0; i < dvFiles.Count; i++)
@@ -852,20 +854,28 @@ namespace FuseCP.Providers.Database
 
 		protected int ExecuteNonQuery(string commandText)
 		{
+			return ExecuteNonQuery(commandText, null);
+		}
+
+		protected int ExecuteNonQuery(string commandText, params SqlParameter[] parameters)
+		{
 			SqlConnection conn = null;
 			try
 			{
 				conn = new SqlConnection(ConnectionString);
-				SqlCommand cmd = new SqlCommand(commandText, conn);
-				cmd.CommandTimeout = 300;
-				conn.Open();
-				int ret = cmd.ExecuteNonQuery();
-				conn.Close();
-				return ret;
+				using (SqlCommand cmd = new SqlCommand(commandText, conn))
+				{
+					cmd.CommandTimeout = 300;
+					if (parameters != null && parameters.Length > 0)
+						cmd.Parameters.AddRange(parameters);
+					conn.Open();
+					int ret = cmd.ExecuteNonQuery();
+					conn.Close();
+					return ret;
+				}
 			}
 			finally
 			{
-				// close connection if required
 				if (conn != null && conn.State == ConnectionState.Open)
 					conn.Close();
 			}
@@ -873,20 +883,35 @@ namespace FuseCP.Providers.Database
 
 		protected DataSet ExecuteQuery(string commandText)
 		{
-			return ExecuteQuery(commandText, ConnectionString);
+			return ExecuteQuery(commandText, ConnectionString, null);
+		}
+
+		protected DataSet ExecuteQuery(string commandText, params SqlParameter[] parameters)
+		{
+			return ExecuteQuery(commandText, ConnectionString, parameters);
 		}
 
 		private DataSet ExecuteQuery(string commandText, string connectionString)
+		{
+			return ExecuteQuery(commandText, connectionString, null);
+		}
+
+		private DataSet ExecuteQuery(string commandText, string connectionString, params SqlParameter[] parameters)
 		{
 			SqlConnection conn = null;
 			try
 			{
 				conn = new SqlConnection(connectionString);
-				SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
-				adapter.SelectCommand.CommandTimeout = 600; // 10 minutes
-				DataSet ds = new DataSet();
-				adapter.Fill(ds);
-				return ds;
+				using (SqlCommand cmd = new SqlCommand(commandText, conn))
+				using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+				{
+					cmd.CommandTimeout = 600; // 10 minutes
+					if (parameters != null && parameters.Length > 0)
+						cmd.Parameters.AddRange(parameters);
+					DataSet ds = new DataSet();
+					adapter.Fill(ds);
+					return ds;
+				}
 			}
 			finally
 			{
@@ -969,10 +994,10 @@ namespace FuseCP.Providers.Database
 		private string[] GetDatabaseUsers(string databaseName)
 		{
 			string cmdText = String.Format(@"
-				select su.name FROM [{0}]..sysusers as su
+				select su.name FROM {0}..sysusers as su
 				inner JOIN master..syslogins as sl on su.sid = sl.sid
 				where su.hasdbaccess = 1 AND su.islogin = 1 AND su.issqluser = 1 AND su.name <> 'dbo'",
-					  databaseName);
+					  QuoteSqlIdentifier(databaseName));
 			DataView dvUsers = ExecuteQuery(cmdText).Tables[0].DefaultView;
 
 			string[] users = new string[dvUsers.Count];
@@ -991,15 +1016,12 @@ namespace FuseCP.Providers.Database
 				if (allDatabases.Length == 0)
 					return new string[] { };
 
-				for (int i = 0; i < allDatabases.Length; i++)
-					allDatabases[i] = "'" + allDatabases[i] + "'";
-
-				filter = String.Format(" AND name IN ({0})", String.Join(", ", allDatabases));
+				filter = String.Format(" AND name IN ({0})", BuildSqlStringLiteralList(allDatabases));
 			}
 
 			string cmdText = String.Format(@"
-					DECLARE @Username varchar(100)
-					SET @Username = '{0}'
+					DECLARE @Username nvarchar(100)
+					SET @Username = @LookupUsername
 
 					CREATE TABLE #UserDatabases
 					(
@@ -1009,7 +1031,7 @@ namespace FuseCP.Providers.Database
 					DECLARE @DbName nvarchar(100)
 					DECLARE DatabasesCursor CURSOR FOR
 					SELECT name FROM master..sysdatabases
-					WHERE (status & 256) = 0 AND (status & 512) = 0 {1}
+					WHERE (status & 256) = 0 AND (status & 512) = 0 {0}
 
 					OPEN DatabasesCursor
 
@@ -1027,17 +1049,18 @@ namespace FuseCP.Providers.Database
 						END
 
 						DECLARE @sql nvarchar(1000)
-                SET @sql = 'if exists (select ''' + @DbName + ''' from [' + @DbName + ']..sysusers where name = ''' + @Username + ''') insert into #UserDatabases (Name) values (''' + @DbName + ''')'
+	                SET @sql = N'if exists (select 1 from ' + QUOTENAME(@DbName) + N'..sysusers where name = @DynamicUserName) insert into #UserDatabases (Name) values (@DynamicDbName)'
 
-						EXECUTE(@sql)
+						EXEC sp_executesql @sql, N'@DynamicUserName nvarchar(100), @DynamicDbName nvarchar(100)', @DynamicUserName = @Username, @DynamicDbName = @DbName
 
 					END
 
 					SELECT Name FROM #UserDatabases
 
 					DROP TABLE #UserDatabases
-					", username, filter);
-			DataView dvDatabases = ExecuteQuery(cmdText).Tables[0].DefaultView;
+					", filter);
+			DataView dvDatabases = ExecuteQuery(cmdText,
+				CreateNVarCharParameter("@LookupUsername", username)).Tables[0].DefaultView;
 
 			string[] databases = new string[dvDatabases.Count];
 			for (int i = 0; i < dvDatabases.Count; i++)
@@ -1056,8 +1079,8 @@ namespace FuseCP.Providers.Database
 			// grant database access
 			try
 			{
-				ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_grantdbaccess '{1}';",
-					 databaseName, EscapeSql(user)));
+				ExecuteNonQuery(String.Format("USE {0};EXEC sp_grantdbaccess '{1}';",
+					 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
 			}
 			catch (SqlException ex)
 			{
@@ -1065,8 +1088,8 @@ namespace FuseCP.Providers.Database
 				{
 					// the user already exists in the database
 					// so, try to auto fix his login in the database
-					ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_change_users_login 'Auto_Fix', '{1}';",
-						 databaseName, EscapeSql(user)));
+					ExecuteNonQuery(String.Format("USE {0};EXEC sp_change_users_login 'Auto_Fix', '{1}';",
+						 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
 				}
 				else
 				{
@@ -1075,8 +1098,8 @@ namespace FuseCP.Providers.Database
 			}
 
 			// add database owner
-			ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_addrolemember 'db_owner', '{1}';",
-				 databaseName, EscapeSql(user)));
+			ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_owner', '{1}';",
+				 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
 		}
 
 		private void RemoveUsersFromDatabase(string databaseName, List<string> users)
@@ -1093,8 +1116,8 @@ namespace FuseCP.Providers.Database
 			{
 				try
 				{
-					ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
-						 databaseName, EscapeSql(user), EscapeSql(userObject)));
+					ExecuteNonQuery(String.Format("USE {0};EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
+						 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(userObject)));
 				}
 				catch (SqlException ex)
 				{
@@ -1105,12 +1128,12 @@ namespace FuseCP.Providers.Database
 
 						// try to rename object before changing owner
 						string renamedObject = user + DateTime.Now.Ticks + "_" + userObject;
-						ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_rename '{1}.{2}', '{3}'",
-							 databaseName, EscapeSql(user), EscapeSql(userObject), EscapeSql(renamedObject)));
+						ExecuteNonQuery(String.Format("USE {0};EXEC sp_rename '{1}.{2}', '{3}'",
+							 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(userObject), EscapeSql(renamedObject)));
 
 						// change owner
-						ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
-							 databaseName, EscapeSql(user), EscapeSql(renamedObject)));
+						ExecuteNonQuery(String.Format("USE {0};EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
+							 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(renamedObject)));
 					}
 					else
 					{
@@ -1120,15 +1143,16 @@ namespace FuseCP.Providers.Database
 			}
 
 			// revoke db access
-			ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_revokedbaccess '{1}';",
-				 databaseName, EscapeSql(user)));
+			ExecuteNonQuery(String.Format("USE {0};EXEC sp_revokedbaccess '{1}';",
+				 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
 		}
 
 		private string[] GetUserDatabaseObjects(string databaseName, string user)
 		{
-			DataView dvObjects = ExecuteQuery(String.Format("select so.name from [{0}]..sysobjects as so" +
-				 " inner join [{1}]..sysusers as su on so.uid = su.uid" +
-				 " where su.name = '{2}'", databaseName, databaseName, EscapeSql(user))).Tables[0].DefaultView;
+			DataView dvObjects = ExecuteQuery(String.Format("select so.name from {0}..sysobjects as so" +
+				 " inner join {0}..sysusers as su on so.uid = su.uid" +
+				 " where su.name = @UserName", QuoteSqlIdentifier(databaseName)),
+				CreateNVarCharParameter("@UserName", user)).Tables[0].DefaultView;
 			string[] objects = new string[dvObjects.Count];
 			for (int i = 0; i < dvObjects.Count; i++)
 			{
@@ -1140,7 +1164,8 @@ namespace FuseCP.Providers.Database
 		private void CloseDatabaseConnections(string databaseName)
 		{
 			DataView dv = ExecuteQuery(
-				 String.Format(@"SELECT spid FROM master..sysprocesses WHERE dbid = DB_ID('{0}')", EscapeSql(databaseName))).Tables[0].DefaultView;
+				"SELECT spid FROM master..sysprocesses WHERE dbid = DB_ID(@DatabaseName)",
+				CreateNVarCharParameter("@DatabaseName", databaseName)).Tables[0].DefaultView;
 
 			// kill processes
 			for (int i = 0; i < dv.Count; i++)
@@ -1150,7 +1175,8 @@ namespace FuseCP.Providers.Database
 		private void CloseUserConnections(string userName)
 		{
 			DataView dv = ExecuteQuery(
-				 String.Format(@"SELECT spid FROM master..sysprocesses WHERE loginame = '{0}'", EscapeSql(userName))).Tables[0].DefaultView;
+				"SELECT spid FROM master..sysprocesses WHERE loginame = @UserName",
+				CreateNVarCharParameter("@UserName", userName)).Tables[0].DefaultView;
 
 			// kill processes
 			for (int i = 0; i < dv.Count; i++)
@@ -1160,6 +1186,41 @@ namespace FuseCP.Providers.Database
 		private void KillProcess(short spid)
 		{
 			ExecuteNonQuery(String.Format("KILL {0}", spid));
+		}
+
+		private SqlParameter CreateNVarCharParameter(string name, string value)
+		{
+			return new SqlParameter(name, SqlDbType.NVarChar)
+			{
+				Value = (object)value ?? DBNull.Value
+			};
+		}
+
+		private string BuildSqlStringLiteralList(IEnumerable<string> values)
+		{
+			List<string> literals = new List<string>();
+			foreach (string value in values)
+				literals.Add(QuoteSqlStringLiteral(value));
+
+			return String.Join(", ", literals);
+		}
+
+		private string QuoteSqlIdentifier(string identifier)
+		{
+			if (String.IsNullOrWhiteSpace(identifier))
+				throw new ArgumentException("SQL identifier cannot be null or empty.", nameof(identifier));
+
+			return "[" + identifier.Replace("]", "]]" ) + "]";
+		}
+
+		private string QuoteSqlStringLiteral(string value)
+		{
+			return "'" + EscapeSql(value) + "'";
+		}
+
+		private string QuoteSqlUnicodeLiteral(string value)
+		{
+			return "N" + QuoteSqlStringLiteral(value);
 		}
 
 		private string EscapeSql(string s)
@@ -1207,22 +1268,22 @@ namespace FuseCP.Providers.Database
 							if (enabled)
 							{
 								// enable access
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_addrolemember 'db_owner', '{1}';",
-									 database, item.Name));
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_droprolemember 'db_denydatareader', '{1}';",
-									 database, item.Name));
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_droprolemember 'db_denydatawriter', '{1}';",
-									 database, item.Name));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_owner', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_denydatareader', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_denydatawriter', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
 							}
 							else
 							{
 								// disable access
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_droprolemember 'db_owner', '{1}';",
-									 database, item.Name));
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_addrolemember 'db_denydatareader', '{1}';",
-									 database, item.Name));
-								ExecuteNonQuery(String.Format("USE [{0}];EXEC sp_addrolemember 'db_denydatawriter', '{1}';",
-									 database, item.Name));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_owner', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_denydatareader', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_denydatawriter', '{1}';",
+									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
 							}
 						}
 					}
