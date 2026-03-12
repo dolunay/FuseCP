@@ -20,6 +20,7 @@ using Microsoft.Data.SqlClient;
 using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
@@ -89,14 +90,25 @@ namespace FuseCP.Providers.Database
 		#region Databases
 		private string GetSafeConnectionString(string databaseName, string username, string password, bool trustServerCertificate)
 		{
-			return String.Format("Server={0};User id={1};Password={2};Database={3};{4}",
-									  ServerName, username, password, databaseName, trustServerCertificate ? "TrustServerCertificate=true" : "");
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			ValidateSqlLoginInput(username, nameof(username));
+
+			SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+			{
+				DataSource = ServerName,
+				InitialCatalog = databaseName,
+				TrustServerCertificate = trustServerCertificate,
+				IntegratedSecurity = false,
+				UserID = username,
+				Password = password ?? String.Empty
+			};
+
+			return builder.ConnectionString;
 		}
 
 		public virtual bool CheckConnectivity(string databaseName, string username, string password)
 		{
-			SqlConnection conn = new SqlConnection(String.Format("Server={0};Database={1};User id={2};Password={3};{4}",
-				 ServerName, databaseName, username, password, TrustServerCertificate ? "TrustServerCertificate=true" : ""));
+			SqlConnection conn = new SqlConnection(GetSafeConnectionString(databaseName, username, password, TrustServerCertificate));
 			try
 			{
 				conn.Open();
@@ -128,6 +140,7 @@ namespace FuseCP.Providers.Database
 
 		public virtual DataSet ExecuteSqlQuery(string databaseName, string commandText, string connectionString)
 		{
+			connectionString = NormalizeConnectionString(connectionString);
 			commandText = "USE " + QuoteSqlIdentifier(databaseName) + "; " + commandText;
 			return ExecuteQuery(commandText, connectionString);
 		}
@@ -139,6 +152,7 @@ namespace FuseCP.Providers.Database
 
 		public virtual void ExecuteSqlNonQuery(string databaseName, string commandText, string connectionString)
 		{
+			connectionString = NormalizeConnectionString(connectionString);
 			commandText = "USE " + QuoteSqlIdentifier(databaseName) + "\nGO\n" + commandText;
 
 			SqlConnection connection = new SqlConnection(connectionString);
@@ -221,6 +235,8 @@ namespace FuseCP.Providers.Database
 
 		public virtual SqlDatabase GetDatabase(string databaseName)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
 			if (!DatabaseExists(databaseName))
 				return null;
 
@@ -265,6 +281,9 @@ namespace FuseCP.Providers.Database
 
 		public virtual void CreateDatabase(SqlDatabase database)
 		{
+			ValidateSqlIdentifierInput(database.Name, nameof(database.Name));
+			ValidateSqlLoginInputs(database.Users, nameof(database.Users));
+
 			if (database.Users == null)
 				database.Users = new string[0];
 
@@ -285,7 +304,7 @@ namespace FuseCP.Providers.Database
 					Directory.CreateDirectory(database.Location);
 			}
 
-			string collation = String.IsNullOrEmpty(DatabaseCollation) ? "" : " COLLATE " + DatabaseCollation;
+			string collation = GetValidatedCollationClause();
 
 			// create command
 			string dataFile = Path.Combine(database.Location, database.Name) + "_data.mdf";
@@ -312,6 +331,9 @@ namespace FuseCP.Providers.Database
 
 		public virtual void UpdateDatabase(SqlDatabase database)
 		{
+			ValidateSqlIdentifierInput(database.Name, nameof(database.Name));
+			ValidateSqlLoginInputs(database.Users, nameof(database.Users));
+
 			if (database.Users == null)
 				database.Users = new string[0];
 
@@ -321,6 +343,8 @@ namespace FuseCP.Providers.Database
 
 		public virtual void DeleteDatabase(string databaseName)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
 			if (!DatabaseExists(databaseName))
 				return;
 
@@ -363,6 +387,8 @@ namespace FuseCP.Providers.Database
 		#region Users
 		public virtual bool UserExists(string username)
 		{
+			ValidateSqlLoginInput(username, nameof(username));
+
 			return ExecuteQuery(
 				"select name from master..syslogins where name = @UserName",
 				CreateNVarCharParameter("@UserName", username)).Tables[0].Rows.Count > 0;
@@ -379,6 +405,8 @@ namespace FuseCP.Providers.Database
 
 		public virtual SqlUser GetUser(string username, string[] allDatabases)
 		{
+			ValidateSqlLoginInput(username, nameof(username));
+
 			// get user information
 			SqlUser user = new SqlUser();
 
@@ -401,19 +429,26 @@ namespace FuseCP.Providers.Database
 
 		public virtual void CreateUser(SqlUser user, string password)
 		{
+			ValidateSqlLoginInput(user.Name, nameof(user.Name));
+
 			if (user.Databases == null)
 				user.Databases = new string[0];
+
+			ValidateSqlIdentifierInputs(user.Databases, nameof(user.Databases));
 
 			// create user account
 			if (user.DefaultDatabase == null || user.DefaultDatabase == "")
 				user.DefaultDatabase = "master";
 
+			ValidateSqlIdentifierInput(user.DefaultDatabase, nameof(user.DefaultDatabase));
+
 			//ExecuteNonQuery(String.Format("EXEC sp_addlogin '{0}', '{1}', '{2}'",
 			//    user.Name, password, user.DefaultDatabase));
 			//Fixed create login with "Enforce password policy" disabled.
 			ExecuteNonQuery(
-				 String.Format("CREATE LOGIN {0} WITH PASSWORD='{1}', DEFAULT_DATABASE={2}, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF",
-					  QuoteSqlIdentifier(user.Name), EscapeSql(password), QuoteSqlIdentifier(user.DefaultDatabase)));
+				 String.Format("CREATE LOGIN {0} WITH PASSWORD=@Password, DEFAULT_DATABASE={1}, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF",
+					  QuoteSqlIdentifier(user.Name), QuoteSqlIdentifier(user.DefaultDatabase)),
+				 CreateNVarCharParameter("@Password", password));
 
 			// add access to databases
 			foreach (string database in user.Databases)
@@ -423,15 +458,22 @@ namespace FuseCP.Providers.Database
 
 		public virtual void UpdateUser(SqlUser user, string[] allDatabases)
 		{
+			ValidateSqlLoginInput(user.Name, nameof(user.Name));
+
 			if (user.Databases == null)
 				user.Databases = new string[0];
+
+			ValidateSqlIdentifierInputs(user.Databases, nameof(user.Databases));
 
 			// update user's default database
 			if (user.DefaultDatabase == null || user.DefaultDatabase == "")
 				user.DefaultDatabase = "master";
 
-			ExecuteNonQuery(String.Format("EXEC sp_defaultdb '{0}', '{1}'",
-				 EscapeSql(user.Name), EscapeSql(user.DefaultDatabase)));
+			ValidateSqlIdentifierInput(user.DefaultDatabase, nameof(user.DefaultDatabase));
+
+			ExecuteNonQuery("EXEC sp_defaultdb @UserName, @DefaultDatabase",
+				CreateNVarCharParameter("@UserName", user.Name),
+				CreateNVarCharParameter("@DefaultDatabase", user.DefaultDatabase));
 
 
 			// update user databases access
@@ -443,6 +485,8 @@ namespace FuseCP.Providers.Database
 		}
 		public virtual void DeleteUser(string username, string[] allDatabases)
 		{
+			ValidateSqlLoginInput(username, nameof(username));
+
 			// remove user from databases
 			string[] userDatabases = GetUserDatabases(username, allDatabases);
 			foreach (string database in userDatabases)
@@ -452,14 +496,18 @@ namespace FuseCP.Providers.Database
 			CloseUserConnections(username);
 
 			// drop login
-			ExecuteNonQuery(String.Format("EXEC sp_droplogin '{0}'", EscapeSql(username)));
+			ExecuteNonQuery("EXEC sp_droplogin @UserName",
+				CreateNVarCharParameter("@UserName", username));
 		}
 
 		public virtual void ChangeUserPassword(string username, string password)
 		{
+			ValidateSqlLoginInput(username, nameof(username));
+
 			// change user password
-			ExecuteNonQuery(String.Format("EXEC sp_password @new='{0}', @loginame='{1}'",
-				 EscapeSql(password), EscapeSql(username)));
+			ExecuteNonQuery("EXEC sp_password @new=@NewPassword, @loginame=@LoginName",
+				CreateNVarCharParameter("@NewPassword", password),
+				CreateNVarCharParameter("@LoginName", username));
 		}
 
 		#endregion
@@ -610,27 +658,39 @@ namespace FuseCP.Providers.Database
 
 		private void DetachDatabase(string databaseName)
 		{
-			ExecuteNonQuery(String.Format("sp_detach_db '{0}'", EscapeSql(databaseName)));
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			ExecuteNonQuery("EXEC sp_detach_db @DbName",
+				CreateNVarCharParameter("@DbName", databaseName));
 		}
 
 		private void AttachDatabase(string databaseName, string[] files)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
+			List<SqlParameter> parameters = new List<SqlParameter>();
 			string[] sqlFiles = new string[files.Length];
 			for (int i = 0; i < files.Length; i++)
-				sqlFiles[i] = "N'" + EscapeSql(files[i]) + "'";
+			{
+				sqlFiles[i] = "@File" + i;
+				parameters.Add(CreateNVarCharParameter(sqlFiles[i], files[i]));
+			}
 
 			// create command
-			string cmdText = String.Format("sp_attach_db N'{0}', {1}",
-				 EscapeSql(databaseName), String.Join(",", sqlFiles));
+			string cmdText = String.Format("EXEC sp_attach_db @DbName, {0}",
+				String.Join(",", sqlFiles));
+			parameters.Insert(0, CreateNVarCharParameter("@DbName", databaseName));
 
-			ExecuteNonQuery(cmdText);
+			ExecuteNonQuery(cmdText, parameters.ToArray());
 		}
 
 		private void AttachSingleFileDatabase(string databaseName, string file)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
 			// execute command
-			ExecuteNonQuery(String.Format("sp_attach_single_file_db @dbname='{0}', @physname=N'{1}'",
-				 EscapeSql(databaseName), EscapeSql(file)));
+			ExecuteNonQuery("EXEC sp_attach_single_file_db @dbname=@DbName, @physname=@PhysName",
+				CreateNVarCharParameter("@DbName", databaseName),
+				CreateNVarCharParameter("@PhysName", file));
 		}
 		#endregion
 
@@ -901,7 +961,7 @@ namespace FuseCP.Providers.Database
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
+				conn = new SqlConnection(NormalizeConnectionString(connectionString));
 				using (SqlCommand cmd = new SqlCommand(commandText, conn))
 				using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
 				{
@@ -993,6 +1053,8 @@ namespace FuseCP.Providers.Database
 
 		private string[] GetDatabaseUsers(string databaseName)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
 			string cmdText = String.Format(@"
 				select su.name FROM {0}..sysusers as su
 				inner JOIN master..syslogins as sl on su.sid = sl.sid
@@ -1010,6 +1072,9 @@ namespace FuseCP.Providers.Database
 
 		private string[] GetUserDatabases(string username, string[] allDatabases)
 		{
+			ValidateSqlLoginInput(username, nameof(username));
+			ValidateSqlIdentifierInputs(allDatabases, nameof(allDatabases));
+
 			string filter = "";
 			if (allDatabases != null)
 			{
@@ -1076,11 +1141,14 @@ namespace FuseCP.Providers.Database
 
 		private void AddUserToDatabase(string databaseName, string user)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			ValidateSqlLoginInput(user, nameof(user));
+
 			// grant database access
 			try
 			{
-				ExecuteNonQuery(String.Format("USE {0};EXEC sp_grantdbaccess '{1}';",
-					 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
+				ExecuteNonQueryInDatabase(databaseName, "EXEC sp_grantdbaccess @UserName;",
+					CreateNVarCharParameter("@UserName", user));
 			}
 			catch (SqlException ex)
 			{
@@ -1088,8 +1156,8 @@ namespace FuseCP.Providers.Database
 				{
 					// the user already exists in the database
 					// so, try to auto fix his login in the database
-					ExecuteNonQuery(String.Format("USE {0};EXEC sp_change_users_login 'Auto_Fix', '{1}';",
-						 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
+					ExecuteNonQueryInDatabase(databaseName, "EXEC sp_change_users_login 'Auto_Fix', @UserName;",
+						CreateNVarCharParameter("@UserName", user));
 				}
 				else
 				{
@@ -1098,8 +1166,8 @@ namespace FuseCP.Providers.Database
 			}
 
 			// add database owner
-			ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_owner', '{1}';",
-				 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
+			ExecuteNonQueryInDatabase(databaseName, "EXEC sp_addrolemember 'db_owner', @UserName;",
+				CreateNVarCharParameter("@UserName", user));
 		}
 
 		private void RemoveUsersFromDatabase(string databaseName, List<string> users)
@@ -1110,14 +1178,17 @@ namespace FuseCP.Providers.Database
 
 		private void RemoveUserFromDatabase(string databaseName, string user)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			ValidateSqlLoginInput(user, nameof(user));
+
 			// change ownership of user's objects
 			string[] userObjects = GetUserDatabaseObjects(databaseName, user);
 			foreach (string userObject in userObjects)
 			{
 				try
 				{
-					ExecuteNonQuery(String.Format("USE {0};EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
-						 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(userObject)));
+					ExecuteNonQueryInDatabase(databaseName, "EXEC sp_changeobjectowner @ObjectName, 'dbo'",
+						CreateNVarCharParameter("@ObjectName", user + "." + userObject));
 				}
 				catch (SqlException ex)
 				{
@@ -1128,12 +1199,13 @@ namespace FuseCP.Providers.Database
 
 						// try to rename object before changing owner
 						string renamedObject = user + DateTime.Now.Ticks + "_" + userObject;
-						ExecuteNonQuery(String.Format("USE {0};EXEC sp_rename '{1}.{2}', '{3}'",
-							 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(userObject), EscapeSql(renamedObject)));
+						ExecuteNonQueryInDatabase(databaseName, "EXEC sp_rename @OldObjectName, @NewObjectName",
+							CreateNVarCharParameter("@OldObjectName", user + "." + userObject),
+							CreateNVarCharParameter("@NewObjectName", renamedObject));
 
 						// change owner
-						ExecuteNonQuery(String.Format("USE {0};EXEC sp_changeobjectowner '{1}.{2}', 'dbo'",
-							 QuoteSqlIdentifier(databaseName), EscapeSql(user), EscapeSql(renamedObject)));
+						ExecuteNonQueryInDatabase(databaseName, "EXEC sp_changeobjectowner @ObjectName, 'dbo'",
+							CreateNVarCharParameter("@ObjectName", user + "." + renamedObject));
 					}
 					else
 					{
@@ -1143,12 +1215,15 @@ namespace FuseCP.Providers.Database
 			}
 
 			// revoke db access
-			ExecuteNonQuery(String.Format("USE {0};EXEC sp_revokedbaccess '{1}';",
-				 QuoteSqlIdentifier(databaseName), EscapeSql(user)));
+			ExecuteNonQueryInDatabase(databaseName, "EXEC sp_revokedbaccess @UserName;",
+				CreateNVarCharParameter("@UserName", user));
 		}
 
 		private string[] GetUserDatabaseObjects(string databaseName, string user)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			ValidateSqlLoginInput(user, nameof(user));
+
 			DataView dvObjects = ExecuteQuery(String.Format("select so.name from {0}..sysobjects as so" +
 				 " inner join {0}..sysusers as su on so.uid = su.uid" +
 				 " where su.name = @UserName", QuoteSqlIdentifier(databaseName)),
@@ -1163,6 +1238,8 @@ namespace FuseCP.Providers.Database
 
 		private void CloseDatabaseConnections(string databaseName)
 		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+
 			DataView dv = ExecuteQuery(
 				"SELECT spid FROM master..sysprocesses WHERE dbid = DB_ID(@DatabaseName)",
 				CreateNVarCharParameter("@DatabaseName", databaseName)).Tables[0].DefaultView;
@@ -1174,6 +1251,8 @@ namespace FuseCP.Providers.Database
 
 		private void CloseUserConnections(string userName)
 		{
+			ValidateSqlLoginInput(userName, nameof(userName));
+
 			DataView dv = ExecuteQuery(
 				"SELECT spid FROM master..sysprocesses WHERE loginame = @UserName",
 				CreateNVarCharParameter("@UserName", userName)).Tables[0].DefaultView;
@@ -1194,6 +1273,12 @@ namespace FuseCP.Providers.Database
 			{
 				Value = (object)value ?? DBNull.Value
 			};
+		}
+
+		private int ExecuteNonQueryInDatabase(string databaseName, string commandText, params SqlParameter[] parameters)
+		{
+			ValidateSqlIdentifierInput(databaseName, nameof(databaseName));
+			return ExecuteNonQuery(String.Format("USE {0};{1}", QuoteSqlIdentifier(databaseName), commandText), parameters);
 		}
 
 		private string BuildSqlStringLiteralList(IEnumerable<string> values)
@@ -1221,6 +1306,60 @@ namespace FuseCP.Providers.Database
 		private string QuoteSqlUnicodeLiteral(string value)
 		{
 			return "N" + QuoteSqlStringLiteral(value);
+		}
+
+		private string GetValidatedCollationClause()
+		{
+			if (String.IsNullOrWhiteSpace(DatabaseCollation))
+				return "";
+
+			ValidateSqlIdentifierInput(DatabaseCollation, nameof(DatabaseCollation));
+			return " COLLATE " + DatabaseCollation;
+		}
+
+		private string NormalizeConnectionString(string connectionString)
+		{
+			SqlConnectionStringBuilder parsed = new SqlConnectionStringBuilder(connectionString);
+			if (!String.Equals(parsed.DataSource, ServerName, StringComparison.OrdinalIgnoreCase))
+				throw new ArgumentException("Connection string server is not allowed.", nameof(connectionString));
+
+			if (String.IsNullOrWhiteSpace(parsed.InitialCatalog))
+				parsed.InitialCatalog = "master";
+
+			ValidateSqlIdentifierInput(parsed.InitialCatalog, nameof(connectionString));
+			parsed.TrustServerCertificate = TrustServerCertificate;
+
+			return parsed.ConnectionString;
+		}
+
+		private void ValidateSqlIdentifierInput(string value, string paramName)
+		{
+			if (String.IsNullOrWhiteSpace(value) || !Regex.IsMatch(value, @"^[A-Za-z0-9_\-.$#]+$"))
+				throw new ArgumentException("SQL identifier contains invalid characters.", paramName);
+		}
+
+		private void ValidateSqlLoginInput(string value, string paramName)
+		{
+			if (String.IsNullOrWhiteSpace(value) || !Regex.IsMatch(value, @"^[A-Za-z0-9_\-.$#@\\]+$"))
+				throw new ArgumentException("SQL login contains invalid characters.", paramName);
+		}
+
+		private void ValidateSqlIdentifierInputs(IEnumerable<string> values, string paramName)
+		{
+			if (values == null)
+				return;
+
+			foreach (string value in values)
+				ValidateSqlIdentifierInput(value, paramName);
+		}
+
+		private void ValidateSqlLoginInputs(IEnumerable<string> values, string paramName)
+		{
+			if (values == null)
+				return;
+
+			foreach (string value in values)
+				ValidateSqlLoginInput(value, paramName);
 		}
 
 		private string EscapeSql(string s)
@@ -1268,22 +1407,22 @@ namespace FuseCP.Providers.Database
 							if (enabled)
 							{
 								// enable access
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_owner', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_denydatareader', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_denydatawriter', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_addrolemember 'db_owner', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_droprolemember 'db_denydatareader', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_droprolemember 'db_denydatawriter', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
 							}
 							else
 							{
 								// disable access
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_droprolemember 'db_owner', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_denydatareader', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
-								ExecuteNonQuery(String.Format("USE {0};EXEC sp_addrolemember 'db_denydatawriter', '{1}';",
-									 QuoteSqlIdentifier(database), EscapeSql(item.Name)));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_droprolemember 'db_owner', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_addrolemember 'db_denydatareader', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
+								ExecuteNonQueryInDatabase(database, "EXEC sp_addrolemember 'db_denydatawriter', @UserName;",
+									CreateNVarCharParameter("@UserName", item.Name));
 							}
 						}
 					}

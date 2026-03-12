@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<RootNamespace>FuseCP.Providers.Virtualization</RootNamespace>
 		<AssemblyName>FuseCP.Providers.Virtualization.Proxmoxvps</AssemblyName>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<PublishUrl>publish\</PublishUrl>
 		<WarningsAsErrors>618</WarningsAsErrors>
 		<OutputPath>..\FuseCP.Server\bin\netstandard\</OutputPath>

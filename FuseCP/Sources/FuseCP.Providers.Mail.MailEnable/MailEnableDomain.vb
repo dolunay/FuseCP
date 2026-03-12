@@ -31,9 +31,7 @@
 ' SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Option Strict Off
-Option Explicit On
-
-Namespace FuseCP.Providers.Mail
+Option Explicit On`nNamespace FuseCP.Providers.Mail
 
     Public Class MailEnableDomain
         Inherits MarshalByRefObject

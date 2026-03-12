@@ -3,7 +3,7 @@
     <RootNamespace>FuseCP.Providers</RootNamespace>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>FuseCP.snk</AssemblyOriginatorKeyFile>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
     <PublishUrl>publish\</PublishUrl>
     <Product>FuseCP.Providers.Base</Product>
     <WarningsAsErrors>618</WarningsAsErrors>

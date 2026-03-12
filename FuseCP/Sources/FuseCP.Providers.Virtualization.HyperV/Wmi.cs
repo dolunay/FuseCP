@@ -188,7 +188,7 @@ namespace FuseCP.Providers.Virtualization
 
             datetime = new System.DateTime(year, month, day, hour, minute, second, 0);
             datetime = datetime.AddTicks(ticks);
-            System.TimeSpan tickOffset = System.TimeZone.CurrentTimeZone.GetUtcOffset(datetime);
+            System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(datetime);
             int UTCOffset = 0;
             int OffsetToBeAdjusted = 0;
             long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
@@ -214,7 +214,7 @@ namespace FuseCP.Providers.Virtualization
         internal string ToDmtfDateTime(System.DateTime date)
         {
             string utcString = string.Empty;
-            System.TimeSpan tickOffset = System.TimeZone.CurrentTimeZone.GetUtcOffset(date);
+            System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(date);
             long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
             if ((System.Math.Abs(OffsetMins) > 999))
             {
