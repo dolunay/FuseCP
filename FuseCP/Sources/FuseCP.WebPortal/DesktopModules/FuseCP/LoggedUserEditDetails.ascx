@@ -124,32 +124,60 @@
                         <asp:DropDownList ID="ddlThemeStyle" runat="server" CssClass="form-control" DataValueField="PropertyValue" DataTextField="PropertyName"></asp:DropDownList>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <asp:Label ID="lblThemecolorHeader" runat="server" meta:resourcekey="lblThemecolorHeader" Text="Header Color:" CssClass="col-sm-2 col-form-label fcp-form-label"></asp:Label>
-                    <div class="col-sm-10">
-                        <asp:panel runat="server" CssClass="row row-cols-auto g-3">
-                            <asp:Repeater ID="ThemecolorHeaderRepeater1" runat="server">
+                <div class="row mb-4">
+                    <div class="col-sm-10 offset-sm-2">
+                        <div class="fcp-palette-matrix">
+                            <div class="fcp-palette-matrix-header">
+                                <asp:Label ID="lblPaletteColor" runat="server" meta:resourcekey="lblPaletteColor" Text="Color" CssClass="fcp-palette-title fcp-palette-title-color"></asp:Label>
+                                <asp:Label ID="lblPaletteLight" runat="server" meta:resourcekey="lblPaletteLight" Text="Light Mode Palette:" CssClass="fcp-palette-title"></asp:Label>
+                                <asp:Label ID="lblPaletteDark" runat="server" meta:resourcekey="lblPaletteDark" Text="Dark Mode Palette:" CssClass="fcp-palette-title"></asp:Label>
+                            </div>
+                            <asp:Repeater ID="rptPaletteMatrix" runat="server">
                                 <ItemTemplate>
-                                    <asp:panel ID="ThemecolorHeaderPanel" runat="server" Height="45" BorderWidth="10" BorderColor="Transparent" CssClass="col">
-                                        <asp:button ID="ThemecolorHeaderButton" runat="server" BorderWidth="0" Height="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorHeader_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
-                                    </asp:panel>
+                                    <div class="fcp-palette-matrix-row">
+                                        <div class="fcp-palette-label-cell">
+                                            <span class="fcp-field-note fcp-palette-color-name"><%# Eval("DisplayName") %></span>
+                                        </div>
+                                        <div class="fcp-palette-value-cell fcp-palette-value-cell-light">
+                                            <input type="color" class="form-control form-control-color fcp-palette-color-picker" value='<%# Eval("LightColorValue") %>' oninput="this.nextElementSibling.value=this.value.toUpperCase();" />
+                                            <asp:TextBox ID="txtPaletteLightHex" runat="server" Text='<%# Eval("LightColorValue") %>' CssClass="form-control fcp-field-short text-uppercase" MaxLength="7" oninput="if(/^#[0-9A-Fa-f]{6}$/.test(this.value)){this.previousElementSibling.value=this.value.toUpperCase();}" />
+                                        </div>
+                                        <div class="fcp-palette-value-cell fcp-palette-value-cell-dark">
+                                            <input type="color" class="form-control form-control-color fcp-palette-color-picker" value='<%# Eval("DarkColorValue") %>' oninput="this.nextElementSibling.value=this.value.toUpperCase();" />
+                                            <asp:TextBox ID="txtPaletteDarkHex" runat="server" Text='<%# Eval("DarkColorValue") %>' CssClass="form-control fcp-field-short text-uppercase" MaxLength="7" oninput="if(/^#[0-9A-Fa-f]{6}$/.test(this.value)){this.previousElementSibling.value=this.value.toUpperCase();}" />
+                                        </div>
+                                    </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                        </asp:panel>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-4">
-                    <asp:Label ID="lblThemecolorSidebar" runat="server" meta:resourcekey="lblThemecolorSidebar" Text="Sidebar Color:" CssClass="col-sm-2 col-form-label fcp-form-label"></asp:Label>
-                    <div class="col-sm-10">
-                        <asp:panel runat="server" CssClass="row row-cols-auto g-3">
-                            <asp:Repeater ID="ThemecolorSidebarRepeater1" runat="server">
+                    <div class="col-sm-10 offset-sm-2">
+                        <div class="fcp-palette-matrix">
+                            <div class="fcp-palette-matrix-header">
+                                <asp:Label ID="lblButtonProperty" runat="server" meta:resourcekey="lblButtonProperty" Text="Button Property" CssClass="fcp-palette-title fcp-palette-title-color"></asp:Label>
+                                <asp:Label ID="lblButtonLight" runat="server" meta:resourcekey="lblButtonLight" Text="Light" CssClass="fcp-palette-title"></asp:Label>
+                                <asp:Label ID="lblButtonDark" runat="server" meta:resourcekey="lblButtonDark" Text="Dark" CssClass="fcp-palette-title"></asp:Label>
+                            </div>
+                            <asp:Repeater ID="rptButtonMatrix" runat="server">
                                 <ItemTemplate>
-                                    <asp:panel ID="ThemecolorSidebarPanel" runat="server" Height="45" BorderWidth="10" BorderColor="Transparent" CssClass="col">
-                                        <asp:button ID="ThemecolorSidebarButton" runat="server" BorderWidth="0" Height="40" BackColor='<%# ConvertFromHexToColor( Eval("PropertyName").ToString() )%>' oncommand='ThemecolorSidebar_Click' CommandArgument='<%# Eval("PropertyValue").ToString()%>' CssClass="indigator" />
-                                    </asp:panel>
+                                    <div class="fcp-palette-matrix-row">
+                                        <div class="fcp-palette-label-cell">
+                                            <span class="fcp-field-note fcp-palette-color-name"><%# Eval("DisplayName") %></span>
+                                        </div>
+                                        <div class="fcp-palette-value-cell fcp-palette-value-cell-light">
+                                            <input type="color" class='form-control form-control-color fcp-palette-color-picker <%# Convert.ToBoolean(Eval("IsColorValue")) ? string.Empty : "d-none" %>' value='<%# Convert.ToBoolean(Eval("IsColorValue")) ? Eval("LightValue") : "#000000" %>' oninput="this.nextElementSibling.value=this.value.toUpperCase();" />
+                                            <asp:TextBox ID="txtButtonLightValue" runat="server" Text='<%# Eval("LightValue") %>' CssClass="form-control fcp-field-short" MaxLength="20"></asp:TextBox>
+                                        </div>
+                                        <div class="fcp-palette-value-cell fcp-palette-value-cell-dark">
+                                            <input type="color" class='form-control form-control-color fcp-palette-color-picker <%# Convert.ToBoolean(Eval("IsColorValue")) ? string.Empty : "d-none" %>' value='<%# Convert.ToBoolean(Eval("IsColorValue")) ? Eval("DarkValue") : "#000000" %>' oninput="this.nextElementSibling.value=this.value.toUpperCase();" />
+                                            <asp:TextBox ID="txtButtonDarkValue" runat="server" Text='<%# Eval("DarkValue") %>' CssClass="form-control fcp-field-short" MaxLength="20"></asp:TextBox>
+                                        </div>
+                                    </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                        </asp:panel>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-0">

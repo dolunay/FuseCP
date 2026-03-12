@@ -46,7 +46,6 @@ namespace FuseCP.Portal.SkinControls
             {
                 lnkEditUserDetails.NavigateUrl = PortalUtils.GetLoggedUserAccountPageUrl();
                 lnkEditUserDetailsSm.NavigateUrl = PortalUtils.GetLoggedUserAccountPageUrl();
-                lnkEditUserDetails.Text = string.Empty;
                 lnkEditUserDetails.ToolTip = user.Username;
                 lnkEditUserDetails.Attributes["title"] = user.Username;
                 lnkEditUserDetails.Attributes["aria-label"] = user.Username;

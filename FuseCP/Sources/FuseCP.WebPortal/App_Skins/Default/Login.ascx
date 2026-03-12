@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="fcp" TagName="ThemeScripts" Src="~/DesktopModules/FuseCP/SkinControls/ThemeScripts.ascx" %>
 <style>
     body {
-        background-color: #EFEFEF;
+        background-color: var(--fcp-bg);
     }
 </style>
 <div class="middle-content page-login">

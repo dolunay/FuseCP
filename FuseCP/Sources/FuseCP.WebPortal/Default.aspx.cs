@@ -33,11 +33,123 @@ using System.Diagnostics;
 using FuseCP.Portal;
 using FuseCP.Providers.OS;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace FuseCP.WebPortal
 {
     public partial class DefaultPage : System.Web.UI.Page
     {
+        private const string THEME_PALETTE_LIGHT_COOKIE = "UserThemePaletteLight";
+        private const string THEME_PALETTE_DARK_COOKIE = "UserThemePaletteDark";
+        private const string THEME_BUTTONS_LIGHT_COOKIE = "UserThemeButtonsLight";
+        private const string THEME_BUTTONS_DARK_COOKIE = "UserThemeButtonsDark";
+        private const string THEME_MODE_COOKIE = "UserThemeMode";
+
+        private static readonly string[] LightPaletteCssVars = new[]
+        {
+            "--fcp-bg",
+            "--fcp-topbar-bg",
+            "--fcp-topbar-bdr",
+            "--fcp-sidebar-bg",
+            "--fcp-surface",
+            "--fcp-surface-alt",
+            "--fcp-surface-h",
+            "--fcp-border",
+            "--fcp-input-bdr",
+            "--fcp-text",
+            "--fcp-text-hi",
+            "--fcp-accent"
+        };
+
+        private static readonly string[] DarkPaletteCssVars = new[]
+        {
+            "--fcp-dark-bg",
+            "--fcp-dark-topbar-bg",
+            "--fcp-dark-topbar-bdr",
+            "--fcp-dark-sidebar-bg",
+            "--fcp-dark-surface",
+            "--fcp-dark-surface-alt",
+            "--fcp-dark-surface-h",
+            "--fcp-dark-border",
+            "--fcp-dark-input-bdr",
+            "--fcp-dark-text",
+            "--fcp-dark-text-hi",
+            "--fcp-dark-accent"
+        };
+
+        private static readonly string[] LightButtonCssVars = new[]
+        {
+            "--fcp-btn-primary-text",
+            "--fcp-btn-primary-bg",
+            "--fcp-btn-primary-bdr",
+            "--fcp-btn-primary-h-text",
+            "--fcp-btn-primary-h-bg",
+            "--fcp-btn-primary-h-bdr",
+            "--fcp-btn-success-text",
+            "--fcp-btn-success-bg",
+            "--fcp-btn-success-bdr",
+            "--fcp-btn-success-h-text",
+            "--fcp-btn-success-h-bg",
+            "--fcp-btn-success-h-bdr",
+            "--fcp-btn-danger-text",
+            "--fcp-btn-danger-bg",
+            "--fcp-btn-danger-bdr",
+            "--fcp-btn-danger-h-text",
+            "--fcp-btn-danger-h-bg",
+            "--fcp-btn-danger-h-bdr",
+            "--fcp-btn-warning-text",
+            "--fcp-btn-warning-bg",
+            "--fcp-btn-warning-bdr",
+            "--fcp-btn-warning-h-text",
+            "--fcp-btn-warning-h-bg",
+            "--fcp-btn-warning-h-bdr",
+            "--fcp-btn-info-text",
+            "--fcp-btn-info-bg",
+            "--fcp-btn-info-bdr",
+            "--fcp-btn-info-h-text",
+            "--fcp-btn-info-h-bg",
+            "--fcp-btn-info-h-bdr",
+            "--fcp-btn-radius"
+        };
+
+        private static readonly string[] DarkButtonCssVars = new[]
+        {
+            "--fcp-dark-btn-primary-text",
+            "--fcp-dark-btn-primary-bg",
+            "--fcp-dark-btn-primary-bdr",
+            "--fcp-dark-btn-primary-h-text",
+            "--fcp-dark-btn-primary-h-bg",
+            "--fcp-dark-btn-primary-h-bdr",
+            "--fcp-dark-btn-success-text",
+            "--fcp-dark-btn-success-bg",
+            "--fcp-dark-btn-success-bdr",
+            "--fcp-dark-btn-success-h-text",
+            "--fcp-dark-btn-success-h-bg",
+            "--fcp-dark-btn-success-h-bdr",
+            "--fcp-dark-btn-danger-text",
+            "--fcp-dark-btn-danger-bg",
+            "--fcp-dark-btn-danger-bdr",
+            "--fcp-dark-btn-danger-h-text",
+            "--fcp-dark-btn-danger-h-bg",
+            "--fcp-dark-btn-danger-h-bdr",
+            "--fcp-dark-btn-warning-text",
+            "--fcp-dark-btn-warning-bg",
+            "--fcp-dark-btn-warning-bdr",
+            "--fcp-dark-btn-warning-h-text",
+            "--fcp-dark-btn-warning-h-bg",
+            "--fcp-dark-btn-warning-h-bdr",
+            "--fcp-dark-btn-info-text",
+            "--fcp-dark-btn-info-bg",
+            "--fcp-dark-btn-info-bdr",
+            "--fcp-dark-btn-info-h-text",
+            "--fcp-dark-btn-info-h-bg",
+            "--fcp-dark-btn-info-h-bdr",
+            "--fcp-dark-btn-radius"
+        };
+
+        private static readonly Regex PaletteHexColorRegex = new Regex("^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$", RegexOptions.Compiled);
+        private static readonly Regex CssLengthRegex = new Regex("^(?:0|(?:\\d+(?:\\.\\d+)?)(?:px|rem|em|%))$", RegexOptions.Compiled);
+
         public const string DEFAULT_PAGE = "~/Default.aspx";
         public const string PAGE_ID_PARAM = "pid";
         public const string CONTROL_ID_PARAM = "ctl";
@@ -130,33 +242,58 @@ namespace FuseCP.WebPortal
                 }
             }
 
-            //Set HTML Class
-            string sethtmlclassTheme = "";
-
-            HttpCookie UserThemeStyleCrub = Request.Cookies["UserThemeStyle"];
-            if (UserThemeStyleCrub != null)
-            {
-                sethtmlclassTheme = UserThemeStyleCrub.Value;
-            }
-
-            HttpCookie UserThemecolorHeaderCrumb = Request.Cookies["UserThemecolorHeader"];
-            if (UserThemecolorHeaderCrumb != null)
-            {
-                sethtmlclassTheme = sethtmlclassTheme + " color-header " + UserThemecolorHeaderCrumb.Value;
-            }
-
-            HttpCookie UserThemecolorSidebarCrub = Request.Cookies["UserThemecolorSidebar"];
-            if (UserThemecolorSidebarCrub != null)
-            {
-                sethtmlclassTheme = sethtmlclassTheme + " color-sidebar " + UserThemecolorSidebarCrub.Value;
-            }
-
-
-            if (sethtmlclassTheme != "")
+            string sethtmlclassTheme = BuildThemeClassValue();
+            if (!String.IsNullOrWhiteSpace(sethtmlclassTheme))
             {
                 htmltheme.Attributes.Add("class", sethtmlclassTheme);
             }
 
+            ApplyThemePaletteVariables();
+
+        }
+
+        private void ApplyThemePaletteVariables()
+        {
+            ApplyThemePaletteVariablesFromCookie(THEME_PALETTE_LIGHT_COOKIE, LightPaletteCssVars, (_, __) => true);
+            ApplyThemePaletteVariablesFromCookie(THEME_PALETTE_DARK_COOKIE, DarkPaletteCssVars, (_, __) => true);
+            ApplyThemePaletteVariablesFromCookie(THEME_BUTTONS_LIGHT_COOKIE, LightButtonCssVars, IsButtonValueValid);
+            ApplyThemePaletteVariablesFromCookie(THEME_BUTTONS_DARK_COOKIE, DarkButtonCssVars, IsButtonValueValid);
+        }
+
+        private static bool IsButtonValueValid(string cssVariable, string value)
+        {
+            if (cssVariable.EndsWith("-radius", StringComparison.OrdinalIgnoreCase))
+            {
+                return CssLengthRegex.IsMatch(value);
+            }
+
+            return PaletteHexColorRegex.IsMatch(value);
+        }
+
+        private void ApplyThemePaletteVariablesFromCookie(string cookieName, string[] cssVariables, Func<string, string, bool> validator)
+        {
+            HttpCookie paletteCookie = Request.Cookies[cookieName];
+            if (paletteCookie == null || String.IsNullOrWhiteSpace(paletteCookie.Value))
+                return;
+
+            string decodedValue = HttpUtility.UrlDecode(paletteCookie.Value) ?? String.Empty;
+            string[] values = decodedValue.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (values.Length != cssVariables.Length)
+                return;
+
+            for (int i = 0; i < cssVariables.Length; i++)
+            {
+                string normalizedValue = values[i].Trim();
+                if (!validator(cssVariables[i], normalizedValue))
+                    return;
+
+                values[i] = normalizedValue;
+            }
+
+            for (int i = 0; i < cssVariables.Length; i++)
+            {
+                htmltheme.Style[cssVariables[i]] = values[i];
+            }
         }
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -537,32 +674,56 @@ namespace FuseCP.WebPortal
             //clear any current classes
             htmltheme.Attributes.Remove("class");
 
-            //Set HTML Class
-            string sethtmlclassTheme = "";
-
-            HttpCookie UserThemeStyleCrub = Request.Cookies["UserThemeStyle"];
-            if (UserThemeStyleCrub != null)
-            {
-                sethtmlclassTheme = UserThemeStyleCrub.Value;
-            }
-
-            HttpCookie UserThemecolorHeaderCrumb = Request.Cookies["UserThemecolorHeader"];
-            if (UserThemecolorHeaderCrumb != null)
-            {
-                sethtmlclassTheme = sethtmlclassTheme + " color-header " + UserThemecolorHeaderCrumb.Value;
-            }
-
-            HttpCookie UserThemecolorSidebarCrub = Request.Cookies["UserThemecolorSidebar"];
-            if (UserThemecolorSidebarCrub != null)
-            {
-                sethtmlclassTheme = sethtmlclassTheme + " color-sidebar " + UserThemecolorSidebarCrub.Value;
-            }
-
-
-            if (sethtmlclassTheme != "")
+            string sethtmlclassTheme = BuildThemeClassValue();
+            if (!String.IsNullOrWhiteSpace(sethtmlclassTheme))
             {
                 htmltheme.Attributes.Add("class", sethtmlclassTheme);
             }
+
+            ApplyThemePaletteVariables();
+        }
+
+        private string BuildThemeClassValue()
+        {
+            string styleClass = String.Empty;
+            HttpCookie styleCookie = Request.Cookies["UserThemeStyle"];
+            if (styleCookie != null)
+            {
+                styleClass = (styleCookie.Value ?? String.Empty).Trim();
+            }
+
+            string modeClass = String.Empty;
+            HttpCookie modeCookie = Request.Cookies[THEME_MODE_COOKIE];
+            if (modeCookie != null)
+            {
+                string requestedMode = (modeCookie.Value ?? String.Empty).Trim().ToLowerInvariant();
+                if (requestedMode == "dark-theme" || requestedMode == "light-theme")
+                {
+                    modeClass = requestedMode;
+                }
+            }
+
+            if (String.IsNullOrWhiteSpace(styleClass))
+            {
+                return modeClass;
+            }
+
+            if (String.IsNullOrWhiteSpace(modeClass))
+            {
+                return styleClass;
+            }
+
+            string[] styleTokens = styleClass.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Where(t => !t.Equals("light-theme", StringComparison.OrdinalIgnoreCase)
+                    && !t.Equals("dark-theme", StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            if (styleTokens.Length == 0)
+            {
+                return modeClass;
+            }
+
+            return String.Join(" ", styleTokens) + " " + modeClass;
         }
     }
 }

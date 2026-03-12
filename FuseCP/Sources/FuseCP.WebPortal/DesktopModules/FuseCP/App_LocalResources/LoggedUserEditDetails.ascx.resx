@@ -192,4 +192,58 @@
   <data name="lblUseMfa.Text" xml:space="preserve">
     <value>Enable MFA:</value>
   </data>
+  <data name="lblPaletteColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lblPaletteLight.Text" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="lblPaletteDark.Text" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="lblButtonProperty.Text" xml:space="preserve">
+    <value>Button Property</value>
+  </data>
+  <data name="lblButtonLight.Text" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="lblButtonDark.Text" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Palette.PageBackground" xml:space="preserve">
+    <value>Page Background</value>
+  </data>
+  <data name="Palette.TopBarBackground" xml:space="preserve">
+    <value>Top Bar Background</value>
+  </data>
+  <data name="Palette.TopBarBorder" xml:space="preserve">
+    <value>Top Bar Border</value>
+  </data>
+  <data name="Palette.SidebarBackground" xml:space="preserve">
+    <value>Sidebar Background</value>
+  </data>
+  <data name="Palette.Surface" xml:space="preserve">
+    <value>Surface</value>
+  </data>
+  <data name="Palette.SurfaceAlt" xml:space="preserve">
+    <value>Surface Alt</value>
+  </data>
+  <data name="Palette.SurfaceHover" xml:space="preserve">
+    <value>Surface Hover</value>
+  </data>
+  <data name="Palette.Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Palette.InputBorder" xml:space="preserve">
+    <value>Input Border</value>
+  </data>
+  <data name="Palette.Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Palette.TextHigh" xml:space="preserve">
+    <value>Text High</value>
+  </data>
+  <data name="Palette.Accent" xml:space="preserve">
+    <value>Accent</value>
+  </data>
 </root>

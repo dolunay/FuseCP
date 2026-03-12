@@ -41,19 +41,13 @@
 			        <asp:LinkButton ID="cmdSpaceName" runat="server" Text="Change Name" OnClick="cmdChangeName_Click" CssClass="Huge" CausesValidation="false" />
 			        <asp:Label ID="lblSpaceDescription" runat="server" Visible="false"></asp:Label>
 		        </asp:Panel>
-		        <asp:Panel ID="pnlEditSpace" runat="server" DefaultButton="cmdSave" Visible="false">
-			        <table class="table table-borderless align-middle mb-0">
-				        <tr>
-					        <td>
-						        <asp:TextBox ID="txtName" runat="server" CssClass="Huge" Width="300px"></asp:TextBox>
-					        </td>
-					        <td class="align-top" rowspan="2">
-						        &nbsp;&nbsp;<asp:LinkButton ID="cmdSave" runat="server" Text="Save" CssClass="Button" OnClick="cmdSave_Click" ValidationGroup="SpaceName" />
-						        <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CssClass="Button" OnClick="cmdCancel_Click" CausesValidation="false" />
-					        </td>
-				        </tr>
-			        </table>
-		        </asp:Panel><asp:RequiredFieldValidator ID="valRequireName" runat="server" ControlToValidate="txtName"
+                <asp:Panel ID="pnlEditSpace" runat="server" DefaultButton="cmdSave" Visible="false" CssClass="fcp-breadcrumb-edit-panel">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control fcp-breadcrumb-name-input"></asp:TextBox>
+                        <asp:LinkButton ID="cmdSave" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="cmdSave_Click" ValidationGroup="SpaceName" />
+                        <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary" OnClick="cmdCancel_Click" CausesValidation="false" />
+                    </div>
+                </asp:Panel><asp:RequiredFieldValidator ID="valRequireName" runat="server" ControlToValidate="txtName"
 			        ErrorMessage="*" Display="Dynamic" ValidationGroup="SpaceName"></asp:RequiredFieldValidator></ContentTemplate>
 		</asp:UpdatePanel>
     </div>

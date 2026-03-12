@@ -17,6 +17,7 @@ using System;
 using System.Data;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Threading;
 using System.Threading.Tasks;
 using FuseCP.EnterpriseServer;
@@ -28,6 +29,11 @@ namespace FuseCP.Portal
 {
 	public partial class Login : FuseCPModuleBase
 	{
+		private const string ThemeModeCookieName = "UserThemeMode";
+		private const string ThemeModeAuto = "auto";
+		private const string ThemeStyleLight = "light-theme";
+		private const string ThemeStyleDark = "dark-theme";
+
 		string ipAddress;
 		//private IMessageBoxControl messageBox;     --- compile warning - never used
 
@@ -82,8 +88,7 @@ namespace FuseCP.Portal
 			if (!IsPostBack)
 			{
 				Page.RegisterAsyncTask(new PageAsyncTask(() => Task.WhenAll(
-					EnsureFCPAAsync(),
-					BindThemesAsync())));
+					EnsureFCPAAsync())));
 
 				BindControls();
 			}
@@ -149,9 +154,32 @@ namespace FuseCP.Portal
 		{
 			// load languages
 			PortalUtils.LoadCultureDropDownList(ddlLanguage);
+			BindThemeModes();
 
-			// select current theme
-			Utils.SelectListItem(ddlTheme, PortalUtils.CurrentTheme);
+			string selectedThemeMode = ThemeModeAuto;
+			HttpCookie modeCookie = Request.Cookies[ThemeModeCookieName];
+			if (modeCookie != null)
+			{
+				string requestedMode = (modeCookie.Value ?? String.Empty).Trim().ToLowerInvariant();
+				if (requestedMode == ThemeStyleDark || requestedMode == ThemeStyleLight)
+				{
+					selectedThemeMode = requestedMode;
+				}
+			}
+			else
+			{
+				string currentThemeStyle = PortalUtils.CurrentThemeStyle;
+				if (String.Equals(currentThemeStyle, ThemeStyleDark, StringComparison.OrdinalIgnoreCase))
+				{
+					selectedThemeMode = ThemeStyleDark;
+				}
+				else if (String.Equals(currentThemeStyle, ThemeStyleLight, StringComparison.OrdinalIgnoreCase))
+				{
+					selectedThemeMode = ThemeStyleLight;
+				}
+			}
+
+			Utils.SelectListItem(ddlTheme, selectedThemeMode);
 
 			// try to get the last login name from cookie
 			HttpCookie cookie = Request.Cookies["FuseCPLogin"];
@@ -175,10 +203,12 @@ namespace FuseCP.Portal
 			}
 		}
 
-		private async Task BindThemesAsync()
+		private void BindThemeModes()
 		{
-			ddlTheme.DataSource = await ES.Services.Authentication.GetLoginThemesAsync().ConfigureAwait(false);
-			ddlTheme.DataBind();
+			ddlTheme.Items.Clear();
+			ddlTheme.Items.Add(new ListItem("System", ThemeModeAuto));
+			ddlTheme.Items.Add(new ListItem("Light", ThemeStyleLight));
+			ddlTheme.Items.Add(new ListItem("Dark", ThemeStyleDark));
 		}
 
 		protected void cmdForgotPassword_Click(object sender, EventArgs e)
@@ -204,7 +234,7 @@ namespace FuseCP.Portal
 
 			// perform login
 			LoginUser(username, password, chkRemember.Checked,
-				 ddlLanguage.SelectedValue, ddlTheme.SelectedValue);
+				 ddlLanguage.SelectedValue, PortalUtils.CurrentTheme);
 		}
 
 		protected void btnVerifyPin_Click(object sender, EventArgs e)
@@ -230,7 +260,7 @@ namespace FuseCP.Portal
 			}
 
 			var encryptedTicket = tokenDiv.Attributes["value"];
-			PortalUtils.SetTicketAndCompleteLogin(encryptedTicket, txtUsername.Text.Trim(), chkRemember.Checked, ddlLanguage.SelectedValue, ddlTheme.SelectedValue);
+			PortalUtils.SetTicketAndCompleteLogin(encryptedTicket, txtUsername.Text.Trim(), chkRemember.Checked, ddlLanguage.SelectedValue, PortalUtils.CurrentTheme);
 			tokenDiv.Attributes["value"] = null;
 			CompleteLogin(0);
 		}
@@ -261,7 +291,7 @@ namespace FuseCP.Portal
 				return;
 			}
 
-			PortalUtils.SetTicketAndCompleteLogin(encryptedTicket, txtUsername.Text.Trim(), chkRemember.Checked, ddlLanguage.SelectedValue, ddlTheme.SelectedValue);
+			PortalUtils.SetTicketAndCompleteLogin(encryptedTicket, txtUsername.Text.Trim(), chkRemember.Checked, ddlLanguage.SelectedValue, PortalUtils.CurrentTheme);
 			CompleteLogin(loginStatus);
 		}
 
@@ -330,24 +360,32 @@ namespace FuseCP.Portal
 
 						}
 
-						if (RowPropertyName == "colorHeader")
+						if (RowPropertyName == "palette-Light")
 						{
-							string UserThemecolorHeader = RowPropertyValue;
-
-							HttpCookie UserThemecolorHeaderCrumb = new HttpCookie("UserThemecolorHeader", UserThemecolorHeader);
-							UserThemecolorHeaderCrumb.Expires = DateTime.Now.AddMonths(2);
-							HttpContext.Current.Response.Cookies.Add(UserThemecolorHeaderCrumb);
-
+							HttpCookie paletteLightCookie = new HttpCookie("UserThemePaletteLight", RowPropertyValue ?? string.Empty);
+							paletteLightCookie.Expires = DateTime.Now.AddMonths(2);
+							HttpContext.Current.Response.Cookies.Add(paletteLightCookie);
 						}
 
-						if (RowPropertyName == "colorSidebar")
+						if (RowPropertyName == "palette-Dark")
 						{
-							string UserThemecolorSidebar = RowPropertyValue;
+							HttpCookie paletteDarkCookie = new HttpCookie("UserThemePaletteDark", RowPropertyValue ?? string.Empty);
+							paletteDarkCookie.Expires = DateTime.Now.AddMonths(2);
+							HttpContext.Current.Response.Cookies.Add(paletteDarkCookie);
+						}
 
-							HttpCookie UserThemecolorSidebarCrumb = new HttpCookie("UserThemecolorSidebar", UserThemecolorSidebar);
-							UserThemecolorSidebarCrumb.Expires = DateTime.Now.AddMonths(2);
-							HttpContext.Current.Response.Cookies.Add(UserThemecolorSidebarCrumb);
+						if (RowPropertyName == "buttons-Light")
+						{
+							HttpCookie buttonsLightCookie = new HttpCookie("UserThemeButtonsLight", RowPropertyValue ?? string.Empty);
+							buttonsLightCookie.Expires = DateTime.Now.AddMonths(2);
+							HttpContext.Current.Response.Cookies.Add(buttonsLightCookie);
+						}
 
+						if (RowPropertyName == "buttons-Dark")
+						{
+							HttpCookie buttonsDarkCookie = new HttpCookie("UserThemeButtonsDark", RowPropertyValue ?? string.Empty);
+							buttonsDarkCookie.Expires = DateTime.Now.AddMonths(2);
+							HttpContext.Current.Response.Cookies.Add(buttonsDarkCookie);
 						}
 					}
 				}
@@ -453,29 +491,29 @@ namespace FuseCP.Portal
 
 		private void SetCurrentTheme()
 		{
-			string selectedTheme = ddlTheme.SelectedValue;
-
-			HttpCookie UserRTLCrub = Request.Cookies["UserRTL"];
-			if (UserRTLCrub != null)
+			string selectedMode = (ddlTheme.SelectedValue ?? String.Empty).Trim().ToLowerInvariant();
+			if (selectedMode == ThemeModeAuto)
 			{
-				if (HttpContext.Current.Response.Cookies["UserRTL"].Value == "1")
-				{
-					DataSet themeData = ES.Services.Authentication.GetLoginThemes();
-					selectedTheme = themeData.Tables[0].Rows[ddlTheme.SelectedIndex]["RTLName"].ToString();
-				}
+				HttpCookie resetModeCookie = new HttpCookie(ThemeModeCookieName, String.Empty);
+				resetModeCookie.Expires = DateTime.Now.AddMonths(-1);
+				HttpContext.Current.Response.Cookies.Add(resetModeCookie);
+				return;
 			}
 
-			PortalUtils.SetCurrentTheme(selectedTheme);
+			if (!String.Equals(selectedMode, ThemeStyleDark, StringComparison.OrdinalIgnoreCase))
+			{
+				selectedMode = ThemeStyleLight;
+			}
+
+			HttpCookie modeCookie = new HttpCookie(ThemeModeCookieName, selectedMode);
+			modeCookie.Expires = DateTime.Now.AddMonths(2);
+			HttpContext.Current.Response.Cookies.Add(modeCookie);
 		}
 
 		protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			SetCurrentLanguage();
-
-			if (!string.IsNullOrEmpty(HttpContext.Current.Response.Cookies["UserTheme"].Value))
-			{
-				SetCurrentTheme();
-			}
+			SetCurrentTheme();
 
 			Response.Redirect(Request.Url.ToString());
 		}
