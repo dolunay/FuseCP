@@ -66,7 +66,6 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\CPCC\CPCC.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer\WebServices\FuseCP.Build\FuseCP.EnterpriseServer.Client.csproj"
             AdditionalProperties="TargetFrameworks=net48" />
@@ -75,3 +74,4 @@
         <ProjectReference Include="..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
     </ItemGroup>
 </Project>
+

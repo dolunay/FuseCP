@@ -689,8 +689,7 @@
     <Content Include="Scripts\jquery-3.6.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CPCC\CPCC.csproj">
-      <Project>{68b50d26-3f14-4ac7-977a-2f6128088019}</Project>
+    <Project>{68b50d26-3f14-4ac7-977a-2f6128088019}</Project>
       <Name>CPCC</Name>
     </ProjectReference>
     <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj">
@@ -777,3 +776,4 @@
   <Target Name="AfterBuild">
   </Target> -->
 </Project>
+

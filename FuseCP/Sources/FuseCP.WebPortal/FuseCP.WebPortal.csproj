@@ -185,7 +185,6 @@
     </ItemGroup>
     <ItemGroup>
         <!--<ProjectReference Include="..\..\Lib\WebFormsForCore\src\WebFormsForCore.Web\WebFormsForCore.Web.csproj" />-->
-        <ProjectReference Include="..\CPCC\CPCC.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
         <ProjectReference Include="..\FuseCP.EnterpriseServer\WebServices\FuseCP.Build\FuseCP.EnterpriseServer.Client.csproj" />
         <ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
@@ -287,3 +286,4 @@
     </Target>-->
 
 </Project>
+
