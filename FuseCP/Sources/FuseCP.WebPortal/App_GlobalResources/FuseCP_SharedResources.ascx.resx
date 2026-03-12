@@ -7195,7 +7195,4 @@
   <data name="Quota.PROXMOX.StartShutdownAllowed" xml:space="preserve">
     <value>Allow user to Start, Turn off and Shutdown VPS</value>
   </data>
-  <data name="ResourceGroup.MsSQL2025" xml:space="preserve">
-    <value>SQL Server 2025</value>
-  </data>
 </root>

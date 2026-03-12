@@ -17,9 +17,9 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="txtSmtpServer" class="col-sm-2 form-label">
+                                        <label for="txtSmtpServer" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpServer" runat="server" meta:resourcekey="SettinglblSmtpServer" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:TextBox runat="server" CssClass="form-control" meta:resourcekey="SettingPlcSmtpServer" ID="txtSmtpServer" />
                                         </div>
@@ -29,9 +29,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="txtSmtpPort" class="col-sm-2 form-label">
+                                        <label for="txtSmtpPort" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpPort" runat="server" meta:resourcekey="SettinglblSmtpPort" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:TextBox runat="server" CssClass="form-control" meta:resourcekey="SettingPlcSmtpPort" ID="txtSmtpPort" />
                                         </div>
@@ -41,9 +41,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="txtSmtpUser" class="col-sm-2 form-label">
+                                        <label for="txtSmtpUser" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpUser" runat="server" meta:resourcekey="SettinglblSmtpUser" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:TextBox runat="server" CssClass="form-control" meta:resourcekey="SettingPlcSmtpUser" ID="txtSmtpUser" />
                                         </div>
@@ -53,9 +53,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="txtSmtpPassword" class="col-sm-2 form-label">
+                                        <label for="txtSmtpPassword" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpUserPassword" runat="server" meta:resourcekey="SettinglblSmtpUserPassword" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:TextBox runat="server" CssClass="form-control" ID="txtSmtpPassword" meta:resourcekey="SettingPlcSmtpUserPassword" TextMode="Password" />
                                         </div>
@@ -65,9 +65,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="chkEnableSsl" class="col-sm-2 form-label">
+                                        <label for="chkEnableSsl" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblSmtpEnableSSL" runat="server" meta:resourcekey="SettinglblSmtpEnableSSL" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:CheckBox ID="chkEnableSsl" runat="server" CssClass="fcp-check-inline" Text="Enable" meta:resourcekey="SettingchkSmtpEnableSSL" />
                                         </div>
@@ -77,9 +77,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row mb-3">
-                                        <CPCC:H5Label runat="server" for="chkEnableLegacySSL" class="col-sm-2 form-label">
+                                        <label for="chkEnableLegacySSL" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblEnableLegacySSL" runat="server" meta:resourcekey="SettinglblSmtpEnableLegacySSL" Text="Enable Support for unsecure SSL Versions TLS1 and TLS1.1 (Not recommended):" />
-                                        </CPCC:H5Label>
+                                        </label>
                                         <div class="col-sm-6">
                                             <asp:CheckBox ID="chkEnableLegacySSL" runat="server" CssClass="fcp-check-inline" Text="Enable" meta:resourcekey="SettingchkSmtpEnableLegacySSL"/>
                                         </div>
@@ -116,9 +116,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="txtBackupsPath" class="col-sm-2 form-label">
+                                    <label for="txtBackupsPath" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblBackupFolderPath" runat="server" meta:resourcekey="SettinglblBackupFolderPath" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox runat="server" ID="txtBackupsPath" meta:resourcekey="SettingPlcBackupFolderPath" CssClass="form-control" />
                                     </div>
@@ -145,9 +145,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="txtFileManagerEditableExtensions" class="col-sm-2 form-label">
+                                    <label for="txtFileManagerEditableExtensions" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblFileManagerEditableExtensions" runat="server" meta:resourcekey="SettinglblFileManagerEditableExtensions" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox TextMode="MultiLine" Rows="10" runat="server" ID="txtFileManagerEditableExtensions" CssClass="form-control" />
                                         <asp:Literal ID="SettinglitFileManagerEditableExtensions" runat="Server" meta:resourcekey="SettinglitFileManagerEditableExtensions" Text=" (One (1) extension per line)"></asp:Literal>
@@ -175,9 +175,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="ddlRdsController" class="col-sm-2 form-label">
+                                    <label for="ddlRdsController" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblRdsController" runat="server" meta:resourcekey="SettinglblRdsController" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:DropDownList ID="ddlRdsController" runat="server" CssClass="form-select" />
                                     </div>
@@ -204,9 +204,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="chkEnableOwa" class="col-sm-2 form-label">
+                                    <label for="chkEnableOwa" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblEnableOwa" runat="server" meta:resourcekey="SettinglblEnableOwa" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:CheckBox ID="chkEnableOwa" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkEnableOwa" />
                                     </div>
@@ -216,9 +216,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="txtOwaUrl" class="col-sm-2 form-label">
+                                    <label for="txtOwaUrl" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblOwaUrl" runat="server" meta:resourcekey="SettinglblOwaUrl" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox runat="server" ID="txtOwaUrl" CssClass="form-control" />
                                     </div>
@@ -260,9 +260,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="txtAccountSid" class="col-sm-2 form-label">
+                                                    <label for="txtAccountSid" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioAccountSid" runat="server" meta:resourcekey="SettinglblTwilioAccountSid" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:TextBox runat="server" ID="txtAccountSid" CssClass="form-control" />
                                                     </div>
@@ -272,9 +272,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="txtAuthToken" class="col-sm-2 form-label">
+                                                    <label for="txtAuthToken" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioAuthToken" runat="server" meta:resourcekey="SettinglblTwilioAuthToken" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:TextBox runat="server" ID="txtAuthToken" CssClass="form-control" />
                                                     </div>
@@ -284,9 +284,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="SettingNoteTwilioAccount" class="col-sm-2 form-label">
+                                                    <label for="SettingNoteTwilioAccount" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblTwilioPhoneFrom" runat="server" meta:resourcekey="SettinglblTwilioPhoneFrom" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:TextBox runat="server" ID="txtPhoneFrom" meta:resourcekey="SettingPlcTwilioPhoneFrom" CssClass="form-control" />
                                                         <asp:Localize ID="SettingNoteTwilioAccount" runat="server" meta:resourcekey="SettingNoteTwilioAccount" />
@@ -318,9 +318,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="chkEnablePasswordReset" class="col-sm-2 form-label">
+                                                    <label for="chkEnablePasswordReset" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblEnablePasswordReset" runat="server" meta:resourcekey="SettinglblEnablePasswordReset" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:CheckBox ID="chkEnablePasswordReset" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkEnablePasswordReset" />
                                                     </div>
@@ -330,9 +330,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="SettingNotePasswordResetLinkLifeSpan" class="col-sm-2 form-label">
+                                                    <label for="SettingNotePasswordResetLinkLifeSpan" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblPasswordResetLinkLifeSpan" runat="server" meta:resourcekey="SettinglblPasswordResetLinkLifeSpan" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:TextBox runat="server" ID="txtPasswordResetLinkLifeSpan" CssClass="form-control" /><br />
                                                         <asp:Localize ID="SettingNotePasswordResetLinkLifeSpan" runat="server" meta:resourcekey="SettingNotePasswordResetLinkLifeSpan" />
@@ -343,9 +343,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row mb-3">
-                                                    <CPCC:H5Label runat="server" for="txtWebdavPortalUrl" class="col-sm-2 form-label">
+                                                    <label for="txtWebdavPortalUrl" class="col-sm-2 form-label">
                                                                 <asp:Localize ID="SettinglblWebdavPortalUrl" runat="server" meta:resourcekey="SettinglblWebdavPortalUrl" />
-                                                    </CPCC:H5Label>
+                                                    </label>
                                                     <div class="col-sm-6">
                                                         <asp:TextBox runat="server" ID="txtWebdavPortalUrl" meta:resourcekey="SettingPlcWebdavPortalUrl" CssClass="form-control" />
                                                     </div>
@@ -376,9 +376,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="txtIPAddress" class="col-sm-2 form-label">
+                                    <label for="txtIPAddress" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettinglblIpAddressRestriction" runat="server" meta:resourcekey="SettinglblIpAddressRestriction" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox runat="server" TextMode="MultiLine" Rows="10" ID="txtIPAddress" CssClass="form-control" />
                                         <div>
@@ -414,9 +414,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="txtMfaTokenAppDisplayName" class="col-sm-2 form-label">
+                                    <label for="txtMfaTokenAppDisplayName" class="col-sm-2 form-label">
                                                 <asp:Localize ID="SettingtxtMfaTokenAppDisplayName" runat="server" meta:resourcekey="SettingtxtMfaTokenAppDisplayName" />
-                                    </CPCC:H5Label>
+                                    </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox runat="server" Rows="10" ID="txtMfaTokenAppDisplayName" CssClass="form-control" />
                                     </div>
@@ -426,9 +426,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="chkCanPeerChangeMFa" class="col-sm-2 form-label">
+                                    <label for="chkCanPeerChangeMFa" class="col-sm-2 form-label">
                                         <asp:Localize ID="SettingchkCanPeerChangeMFa" runat="server" meta:resourcekey="SettingchkCanPeerChangeMFa" />
-                                    </CPCC:H5Label>
+                                    </label>
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="chkCanPeerChangeMFa" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkCanPeerChangeMFa" />
                                 </div>
@@ -454,9 +454,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-3">
-                                    <CPCC:H5Label runat="server" for="chkAlwaysUseEntityFramework" class="col-sm-2 form-label">
+                                    <label for="chkAlwaysUseEntityFramework" class="col-sm-2 form-label">
                                         <asp:Localize ID="SettingchkAlwaysUseEntityFramework" runat="server" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
-                                    </CPCC:H5Label>
+                                    </label>
                                 <div class="col-sm-6">
                                     <asp:CheckBox ID="chkAlwaysUseEntityFramework" runat="server" CssClass="fcp-check-inline" Text="Yes" meta:resourcekey="SettingchkAlwaysUseEntityFramework" />
                                 </div>
@@ -471,4 +471,5 @@
         </asp:Panel>
     </div>
 </div>
+
 
