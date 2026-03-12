@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<RootNamespace>FuseCP.Providers.Virtualization</RootNamespace>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<PublishUrl>publish\</PublishUrl>
 		<WarningsAsErrors>618</WarningsAsErrors>
 		<OutputPath>..\FuseCP.Server\bin\Providers\</OutputPath>
@@ -31,5 +31,10 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />
 		<ProjectReference Include="..\FuseCP.Server.Utils\FuseCP.Server.Utils.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
+	  <PackageReference Include="System.Drawing.Common" Version="10.0.0" />
+	  <PackageReference Include="System.Management" Version="10.0.0" />
 	</ItemGroup>
 </Project>
