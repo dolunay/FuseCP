@@ -152,6 +152,19 @@ namespace FuseCP.Portal.ExchangeServer
             return GetThemedImage("Exchange/" + imgName);
         }
 
+        public string GetAccountIconClass(int accountTypeId, bool vip)
+        {
+            if (vip && cntx.Groups.ContainsKey(ResourceGroups.ServiceLevels))
+                return "bi bi-star-fill text-warning";
+            ExchangeAccountType accountType = (ExchangeAccountType)accountTypeId;
+            if (accountType == ExchangeAccountType.Contact) return "bi bi-person";
+            if (accountType == ExchangeAccountType.DistributionList) return "bi bi-people";
+            if (accountType == ExchangeAccountType.Room) return "bi bi-door-open";
+            if (accountType == ExchangeAccountType.Equipment) return "bi bi-gear";
+            if (accountType == ExchangeAccountType.SharedMailbox) return "bi bi-envelope-paper";
+            return "bi bi-envelope";
+        }
+
         public string GetStateImage(bool locked, bool disabled)
         {
             string imgName = "enabled.png";

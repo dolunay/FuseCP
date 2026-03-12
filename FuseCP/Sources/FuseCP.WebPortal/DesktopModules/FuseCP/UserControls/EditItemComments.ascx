@@ -12,7 +12,11 @@
             <asp:TemplateField>
                 <ItemTemplate>
                     <div class="float-end">
-                        <asp:ImageButton ID="btnDelete" SkinID="DeleteSmall" CommandName="delete" runat="server" Text="Delete" meta:resourcekey="btnDelete" />
+                        <asp:LinkButton ID="btnDelete" CommandName="delete" runat="server" CssClass="btn btn-link btn-sm fcp-btn-delete-comment p-0" meta:resourcekey="btnDelete"
+                            OnClientClick="return confirm(this.getAttribute('data-confirm'));" data-confirm="Delete note?">
+                            <i class="bi bi-trash3" aria-hidden="true"></i>
+                            <span class="visually-hidden">Delete note</span>
+                        </asp:LinkButton>
                     </div>
                     <div class="Small">                                
                          <uc2:UserDetails ID="userDetails" runat="server"

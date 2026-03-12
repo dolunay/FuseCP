@@ -70,7 +70,7 @@
                             SkinID="SearchButton"
                             OnClick="btnSearchObject_Click"
                             CausesValidation="false"
-                            CssClass="btn btn-primary"
+                            CssClass="btn fcp-search-trigger"
                         >
                                 <i class="bi bi-search" aria-hidden="true"></i>
                             </asp:LinkButton>

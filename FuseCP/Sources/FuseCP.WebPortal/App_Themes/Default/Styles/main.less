@@ -8,10 +8,42 @@
 }
 
 .login-footer {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--fcp-border);
+    color: var(--fcp-text-hi);
     font-size:.9em;
+
+    a {
+        color: var(--fcp-primary);
+        text-decoration-color: transparent;
+    }
+
+    a:focus,
+    a:hover {
+        color: var(--fcp-primary-h);
+        text-decoration-color: currentColor;
+    }
+
     .Version{
         text-align:right;
     }
+}
+
+@media screen and (max-width: 575px) {
+    .login-footer,
+    .login-footer .Version {
+        text-align: center;
+    }
+}
+
+.card {
+    --bs-card-bg: var(--fcp-surface);
+    --bs-card-color: var(--fcp-text);
+    --bs-card-border-color: var(--fcp-border);
+    --bs-border-color-translucent: var(--fcp-border);
+    --bs-card-cap-bg: var(--fcp-surface-alt);
+    --bs-card-cap-color: var(--fcp-text-hi);
 }
 
 .content-footer {
@@ -3608,7 +3640,7 @@ body {
     font-family: "Open Sans",sans-serif;
     font-size: 13px;
     line-height: 1.6;
-    background: @navbar-default-bg;
+    background: var(--fcp-sidebar-bg);
 }
 
 hr {
@@ -3649,6 +3681,9 @@ hr {
     background-color: @body-bg;
     background-repeat: repeat;
     overflow:hidden;
+    min-height: calc(100vh - var(--fcp-topbar-height, 64px));
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width:767px){
@@ -6942,11 +6977,11 @@ legend {
 
 .top-bar .btn-off-canvas i {
     font-size: 30px;
-    color: #0a8fd8;
+    color: var(--fcp-accent);
 }
 
 .top-bar .btn-off-canvas:hover {
-    background-color: #e8f3fb;
+    background-color: var(--fcp-surface-alt);
 }
 
 .top-bar .navbar-sm {
@@ -6966,15 +7001,15 @@ legend {
     width: 42px;
     height: 42px;
     border-radius: 10px;
-    color: #0a8fd8;
+    color: var(--fcp-accent);
     text-decoration: none;
     transition: background-color .2s ease, color .2s ease;
 }
 
 .top-bar .navbar-sm > li > a:hover,
 .top-bar .navbar-sm > li > span > a:hover {
-    background-color: #e8f3fb;
-    color: #077fc4;
+    background-color: var(--fcp-surface-alt);
+    color: var(--fcp-accent);
 }
 
 .top-bar .navbar-sm .bi {
@@ -7031,7 +7066,7 @@ legend {
     order: 1;
 }
 
-.top-bar .search-top .btn {
+.top-bar .search-top .fcp-search-trigger {
     width: 40px;
     height: 40px;
     display: inline-flex;
@@ -7039,20 +7074,38 @@ legend {
     justify-content: center;
     border: 0;
     background: transparent;
-    color: #0a8fd8;
+    color: var(--fcp-accent);
     box-shadow: none;
     opacity: 1;
     pointer-events: auto;
     padding: 0;
 }
 
-.top-bar .search-top input[type="text"] {
+/* Keep top search trigger as outline icon even when global button theming changes. */
+.top-bar .search-top .fcp-search-trigger,
+.top-bar .search-top .fcp-search-trigger:hover,
+.top-bar .search-top .fcp-search-trigger:focus,
+.top-bar .search-top .fcp-search-trigger:active {
+    color: var(--fcp-accent) !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.top-bar .search-top .fcp-search-trigger:hover,
+.top-bar .search-top .fcp-search-trigger:focus {
+    background-color: fade(var(--fcp-accent), 10%) !important;
+}
+
+.top-bar .search-top input[type="text"],
+.top-bar .search-top input.ui-autocomplete-input,
+.top-bar .search-top .form-control {
     order: 2;
     flex: 1 1 auto;
     min-width: 0;
     width: auto;
     float: none;
-    opacity: 1;
+    opacity: 1 !important;
     height: 40px;
     border: 0 !important;
     background: transparent;
@@ -7060,6 +7113,16 @@ legend {
     padding-left: 12px;
     padding-right: 12px;
     pointer-events: auto;
+    color: var(--fcp-text-hi) !important;
+    -webkit-text-fill-color: var(--fcp-text-hi);
+    caret-color: var(--fcp-text-hi);
+}
+
+.top-bar .search-top input[type="text"]::placeholder,
+.top-bar .search-top input.ui-autocomplete-input::placeholder,
+.top-bar .search-top .form-control::placeholder {
+    color: var(--fcp-text) !important;
+    opacity: .82;
 }
 
 .top-bar .search-top input[type="text"]:focus {
@@ -7070,9 +7133,9 @@ legend {
 
 .top-bar.mobile-search-active .search-top {
     width: var(--desktop-search-width);
-    border-color: #0a8fd8;
-    background: #fff;
-    box-shadow: 0 8px 18px rgba(10, 143, 216, .16);
+    border-color: var(--fcp-accent);
+    background: var(--fcp-surface);
+    box-shadow: 0 0 0 1px var(--fcp-accent), 0 8px 18px rgba(0,0,0,.16);
     overflow: visible;
     pointer-events: auto;
 }
@@ -7199,7 +7262,7 @@ legend {
         order: 1;
     }
 
-    .top-bar .search-top .btn {
+    .top-bar .search-top .fcp-search-trigger {
         width: 40px;
         height: 40px;
         display: inline-flex;
@@ -7207,7 +7270,7 @@ legend {
         justify-content: center;
         border: 0;
         background: transparent;
-        color: #0a8fd8;
+        color: var(--fcp-accent);
         box-shadow: none;
         opacity: 1;
         pointer-events: auto;
@@ -7227,6 +7290,12 @@ legend {
         box-shadow: none !important;
         padding-left: 12px;
         padding-right: 12px;
+        color: var(--fcp-text-hi);
+    }
+
+    .top-bar .search-top input[type="text"]::placeholder {
+        color: var(--fcp-text);
+        opacity: .72;
     }
 
     .top-bar .search-top input[type="text"]:focus {
@@ -7237,9 +7306,9 @@ legend {
 
     .top-bar.mobile-search-active .search-top {
         width: var(--mobile-search-width);
-        border-color: #0a8fd8;
-        background: #fff;
-        box-shadow: 0 8px 18px rgba(10, 143, 216, .16);
+        border-color: var(--fcp-accent);
+        background: var(--fcp-surface);
+        box-shadow: 0 0 0 1px var(--fcp-accent), 0 8px 18px rgba(0,0,0,.16);
         overflow: visible;
         pointer-events: auto;
     }
@@ -7282,9 +7351,9 @@ legend {
 }
 
 .ui-autocomplete.fcp-global-search-menu {
-    border: 1px solid #d7e6f3;
+    border: 1px solid var(--fcp-border);
     border-radius: 10px;
-    background: #fff;
+    background: var(--fcp-surface);
     box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
     margin-top: 6px;
     max-height: min(42vh, 320px);
@@ -7301,10 +7370,16 @@ legend {
     cursor: pointer;
 }
 
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item a,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item .ui-menu-item-wrapper {
+    color: var(--fcp-text-hi) !important;
+    opacity: 1 !important;
+}
+
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item a {
     display: block;
     padding: 8px 12px;
-    color: #2d3a4a;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
@@ -7312,40 +7387,70 @@ legend {
     cursor: pointer;
 }
 
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item .ui-menu-item-wrapper {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    background: transparent !important;
+}
+
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item a.ui-state-focus,
-.ui-autocomplete.fcp-global-search-menu .ui-menu-item a:hover {
-    background: #eaf5fe;
-    color: #076fb3;
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item a:hover,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item .ui-menu-item-wrapper.ui-state-active,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item .ui-menu-item-wrapper:hover,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item .ui-menu-item-wrapper:focus {
+    background: var(--fcp-surface-h) !important;
+    color: var(--fcp-text-hi) !important;
 }
 
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-no-results a,
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-no-results a:hover,
-.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-no-results a.ui-state-focus {
-    color: #6b7785;
-    background: #f8fbfe;
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-no-results a.ui-state-focus,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-no-results .ui-menu-item-wrapper {
+    color: var(--fcp-text) !important;
+    background: var(--fcp-surface-alt) !important;
     cursor: default;
 }
 
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search a {
-    color: #4f5b66;
-    background: #f4f6f8;
+    color: var(--fcp-text);
+    background: var(--fcp-surface-alt);
     font-weight: 600;
-    border-top: 1px solid #e5eaef;
+    border-top: 1px solid var(--fcp-border);
+}
+
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search .ui-menu-item-wrapper,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search .ui-menu-item-wrapper.ui-state-default {
+    color: var(--fcp-text) !important;
+    background: var(--fcp-surface-alt) !important;
+    border-top: 1px solid var(--fcp-border);
+    font-weight: 600;
 }
 
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search {
-    background: #f4f6f8;
+    background: var(--fcp-surface-alt);
 }
 
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search a,
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search a.ui-state-default {
-    background: #f4f6f8 !important;
+    background: var(--fcp-surface-alt) !important;
 }
 
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search a:hover,
 .ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search a.ui-state-focus {
-    color: #36424d;
-    background: #e9edf2 !important;
+    color: var(--fcp-text-hi);
+    background: var(--fcp-surface-alt) !important;
+}
+
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search .ui-menu-item-wrapper:hover,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search .ui-menu-item-wrapper.ui-state-active,
+.ui-autocomplete.fcp-global-search-menu .ui-menu-item.fcp-go-to-search .ui-menu-item-wrapper.ui-state-focus {
+    color: var(--fcp-text-hi) !important;
+    background: var(--fcp-surface-h) !important;
 }
 
 .ui-helper-hidden-accessible {
@@ -7649,15 +7754,45 @@ table.fcp-responsive-grid {
 .LightGridView > table th {
     font-size: 12px;
     font-weight: 600;
-    border-bottom: 1px solid #d8d8d8;
-    background-color: #f7f9fc;
+    border-bottom: 1px solid var(--fcp-border);
+    background-color: var(--fcp-surface-alt);
 }
 
 .NormalGridView .AspNet-GridView td,
 .NormalGridView > table td,
 .LightGridView .AspNet-GridView td,
 .LightGridView > table td {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--fcp-border);
+}
+
+/* Keep Bootstrap table variables aligned with portal theme in widget/card contexts. */
+.widget .table,
+.card .table,
+.NormalGridView table.table,
+.LightGridView table.table {
+    --bs-table-color: var(--fcp-text-hi);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--fcp-border);
+    --bs-table-striped-color: var(--fcp-text-hi);
+    --bs-table-striped-bg: var(--fcp-surface-alt);
+    --bs-table-hover-color: var(--fcp-text-hi);
+    --bs-table-hover-bg: var(--fcp-surface-h);
+}
+
+.widget .table > :not(caption) > * > *,
+.card .table > :not(caption) > * > *,
+.NormalGridView table.table > :not(caption) > * > *,
+.LightGridView table.table > :not(caption) > * > * {
+    color: var(--fcp-text-hi);
+}
+
+.card > .card-header > .card-title img {
+    filter: grayscale(1) brightness(0);
+    opacity: 0.9;
+}
+
+html.dark-theme .card > .card-header > .card-title img {
+    filter: grayscale(1) brightness(0) invert(1);
 }
 
 .AspNet-GridView-Pagination,
@@ -7694,8 +7829,8 @@ table.fcp-responsive-grid {
 .AspNet-GridView-Pagination span,
 .NormalGridView .AspNet-GridView-Pagination span,
 .LightGridView .AspNet-GridView-Pagination span {
-    background: #f5f5f5;
-    color: #555;
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text-hi);
 }
 
 .NormalGridView > table,
@@ -7708,12 +7843,47 @@ table.LightGridView {
 
 .fcp-home-hosting-spaces-grid {
     overflow-x: visible;
+    border: 1px solid var(--fcp-border);
+    border-radius: 12px;
+    background: var(--fcp-surface);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
 }
 
 .fcp-home-hosting-spaces-grid > table,
 .fcp-home-hosting-spaces-grid .AspNet-GridView {
     width: 100%;
     min-width: 0;
+}
+
+.fcp-home-hosting-spaces-grid > table th,
+.fcp-home-hosting-spaces-grid .AspNet-GridView th {
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text-hi);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--fcp-border);
+}
+
+.fcp-home-hosting-spaces-grid > table td,
+.fcp-home-hosting-spaces-grid .AspNet-GridView td {
+    color: var(--fcp-text-hi);
+    border-bottom: 1px solid var(--fcp-border);
+}
+
+.fcp-home-hosting-spaces-grid > table tbody tr:hover,
+.fcp-home-hosting-spaces-grid .AspNet-GridView tbody tr:hover {
+    background: var(--fcp-surface-h);
+}
+
+.fcp-home-hosting-spaces-grid a {
+    color: var(--fcp-accent);
+    font-weight: 600;
+}
+
+.fcp-home-hosting-spaces-grid .comment {
+    color: var(--fcp-text);
 }
 
 .fcp-home-create-toolbar {
@@ -7769,6 +7939,76 @@ table.LightGridView {
 /* Global spacing tune-up for breadcrumb and titles */
 #Breadcrumb .Path {
     padding: 15px 0 12px 25px;
+}
+
+#Breadcrumb .Path a img {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(99%) saturate(1632%) hue-rotate(170deg) brightness(96%) contrast(102%);
+    opacity: .9;
+}
+
+html.dark-theme #Breadcrumb .Path a img {
+    filter: brightness(0) saturate(100%) invert(63%) sepia(92%) saturate(3064%) hue-rotate(163deg) brightness(95%) contrast(92%);
+    opacity: .95;
+}
+
+.fcp-package-icon {
+    filter: grayscale(1) brightness(0) opacity(.82);
+}
+
+html.dark-theme .fcp-package-icon {
+    filter: grayscale(1) brightness(0) invert(1) opacity(.82);
+}
+
+/* Action image buttons (pause/play/stop etc.) inside widget/card contexts. */
+.widget input[type="image"],
+.card-body input[type="image"],
+.card-footer input[type="image"] {
+    filter: grayscale(1) brightness(0) opacity(.75);
+    transition: opacity .15s ease, filter .15s ease;
+}
+
+.widget input[type="image"]:hover,
+.card-body input[type="image"]:hover,
+.card-footer input[type="image"]:hover {
+    opacity: 1;
+    filter: grayscale(1) brightness(0) opacity(1);
+}
+
+html.dark-theme .widget input[type="image"],
+html.dark-theme .card-body input[type="image"],
+html.dark-theme .card-footer input[type="image"] {
+    filter: grayscale(1) brightness(0) invert(1) opacity(.8);
+}
+
+html.dark-theme .widget input[type="image"]:hover,
+html.dark-theme .card-body input[type="image"]:hover,
+html.dark-theme .card-footer input[type="image"]:hover {
+    filter: grayscale(1) brightness(0) invert(1) opacity(1);
+}
+    border-radius: 12px;
+    background: var(--fcp-surface);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.fcp-user-packages-panel .Icon.Hover,
+.fcp-user-packages-panel .Icon:hover {
+    border-color: var(--fcp-accent);
+    background: var(--fcp-surface-alt);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+    transform: translateY(-1px);
+}
+
+.fcp-user-packages-panel .Icon .fcp-package-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.fcp-user-packages-panel .Icon > a:last-child {
+    margin-top: 8px;
+    color: var(--fcp-text-hi);
+    font-weight: 600;
 }
 
 .primary-content h1,
@@ -10015,10 +10255,17 @@ body .page-login {
     background-color: #fff;
 }
 
-/* Keep login controls compact to match legacy proportions while staying on BS5 components. */
+.page-login .card .card-header {
+    border-bottom: 1px solid var(--fcp-border);
+}
+
 .page-login .card .card-body,
 .page-login .card .card-footer {
     padding: 1rem;
+}
+
+.page-login .card .card-footer {
+    border-top: 1px solid var(--fcp-border);
 }
 
 .page-login .card .input-group {
@@ -10032,6 +10279,9 @@ body .page-login {
     justify-content: center;
     min-width: 38px;
     padding: 0.5rem 0.75rem;
+    background-color: var(--fcp-surface-alt);
+    border-color: var(--fcp-border);
+    color: var(--fcp-text-hi);
 }
 
 .page-login .card .input-group > .input-group-text i {
@@ -10044,6 +10294,20 @@ body .page-login {
     min-height: 38px;
     font-size: 1rem !important;
     line-height: 1.25;
+    background-color: var(--fcp-surface);
+    border-color: var(--fcp-input-bdr);
+    color: var(--fcp-text);
+}
+
+.page-login .card .input-group > .form-control::placeholder {
+    color: var(--fcp-muted);
+    opacity: 1;
+}
+
+.page-login .card .input-group > .form-control:focus,
+.page-login .card .form-select:focus {
+    border-color: var(--fcp-accent);
+    box-shadow: 0 0 0 0.2rem rgba(0, 147, 214, 0.15);
 }
 
 .page-login .card .input-group > .input-group-text,
@@ -10062,6 +10326,47 @@ body .page-login {
 .page-login .card .card-footer .row > [class*="col-"] {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+
+.page-login .card .fcp-login-select-group {
+    position: relative;
+}
+
+.page-login .card .fcp-login-select-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.page-login .card .fcp-login-select-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.65rem;
+    transform: translateY(-50%);
+    color: var(--fcp-text-hi);
+    pointer-events: none;
+    z-index: 2;
+    width: 1.55rem;
+    height: 1.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: var(--fcp-surface-alt);
+    border: 1px solid var(--fcp-border);
+}
+
+.page-login .card .fcp-login-select-group > .form-select {
+    padding-left: 2.7rem;
+}
+
+.page-login .card .fcp-login-select-group:focus-within .fcp-login-select-icon {
+    color: var(--fcp-primary);
 }
 
     .login-box h1 {
@@ -11586,7 +11891,8 @@ a:focus {
 .NormalGridView > table > tbody > tr > td,
 .LightGridView .AspNet-GridView > tbody > tr > td,
 .LightGridView > table > tbody > tr > td {
-    background-color: #ffffff;
+    background-color: var(--fcp-surface);
+    color: var(--fcp-text-hi);
     transition: background-color 0.15s ease-in-out;
 }
 
@@ -11594,7 +11900,8 @@ a:focus {
 .NormalGridView > table > tr > td,
 .LightGridView .AspNet-GridView > tr > td,
 .LightGridView > table > tr > td {
-    background-color: #ffffff;
+    background-color: var(--fcp-surface);
+    color: var(--fcp-text-hi);
     transition: background-color 0.15s ease-in-out;
 }
 
@@ -11602,42 +11909,42 @@ a:focus {
 .NormalGridView > table > tbody > tr:nth-child(even) > td,
 .LightGridView .AspNet-GridView > tbody > tr:nth-child(even) > td,
 .LightGridView > table > tbody > tr:nth-child(even) > td {
-    background-color: #f7faff !important;
+    background-color: var(--fcp-surface-alt) !important;
 }
 
 .NormalGridView .AspNet-GridView > tr:nth-child(even) > td,
 .NormalGridView > table > tr:nth-child(even) > td,
 .LightGridView .AspNet-GridView > tr:nth-child(even) > td,
 .LightGridView > table > tr:nth-child(even) > td {
-    background-color: #f7faff !important;
+    background-color: var(--fcp-surface-alt) !important;
 }
 
 .NormalGridView .AspNet-GridView > tbody > tr:not(.active):not(.selected):hover > td,
 .NormalGridView > table > tbody > tr:not(.active):not(.selected):hover > td,
 .LightGridView .AspNet-GridView > tbody > tr:not(.active):not(.selected):hover > td,
 .LightGridView > table > tbody > tr:not(.active):not(.selected):hover > td {
-    background-color: #edf3fb !important;
+    background-color: var(--fcp-surface-h) !important;
 }
 
 .NormalGridView .AspNet-GridView tbody tr:hover > td,
 .NormalGridView > table tbody tr:hover > td,
 .LightGridView .AspNet-GridView tbody tr:hover > td,
 .LightGridView > table tbody tr:hover > td {
-    background-color: #dfeefa !important;
+    background-color: var(--fcp-surface-h) !important;
 }
 
 .NormalGridView .AspNet-GridView > tr:not(.active):not(.selected):hover > td,
 .NormalGridView > table > tr:not(.active):not(.selected):hover > td,
 .LightGridView .AspNet-GridView > tr:not(.active):not(.selected):hover > td,
 .LightGridView > table > tr:not(.active):not(.selected):hover > td {
-    background-color: #edf3fb !important;
+    background-color: var(--fcp-surface-h) !important;
 }
 
 .NormalGridView .AspNet-GridView tr.fcp-grid-row-alt > td,
 .NormalGridView > table tr.fcp-grid-row-alt > td,
 .LightGridView .AspNet-GridView tr.fcp-grid-row-alt > td,
 .LightGridView > table tr.fcp-grid-row-alt > td {
-    background-color: #eaf2fd !important;
+    background-color: var(--fcp-surface-alt) !important;
 }
 
 .NormalGridView .AspNet-GridView tr.fcp-grid-row:hover > td,
@@ -11648,7 +11955,7 @@ a:focus {
 .LightGridView .AspNet-GridView tr.fcp-grid-row-alt:hover > td,
 .LightGridView > table tr.fcp-grid-row:hover > td,
 .LightGridView > table tr.fcp-grid-row-alt:hover > td {
-    background-color: #dfeefa !important;
+    background-color: var(--fcp-surface-h) !important;
 }
 
 .card-footer.d-flex {
@@ -11687,19 +11994,238 @@ a:focus {
     min-width: 0 !important;
     padding: 14px 16px !important;
     margin: 6px 14px;
-    border: 1px dashed #cfd8e3;
+    border: 1px dashed var(--fcp-border);
     border-radius: 8px;
-    background: #f8fbff;
-    color: #425466;
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text);
     font-weight: 500;
     line-height: 1.45;
 }
 
 .AspNet-GridView-Empty::before {
-    content: "\1F50D";
-    font-family: inherit;
+    content: "\f52a";
+    font-family: "bootstrap-icons";
+    font-size: 1em;
+    line-height: 1;
     margin-right: 8px;
-    color: #6b839d;
+    color: var(--fcp-text);
+    vertical-align: -2px;
+}
+
+/* Delete comment button — subtle by default, danger on hover. */
+.fcp-btn-delete-comment {
+    color: var(--fcp-text);
+    opacity: 0.55;
+    line-height: 1;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+.fcp-btn-delete-comment:hover,
+.fcp-btn-delete-comment:focus {
+    color: var(--bs-danger, #dc3545);
+    opacity: 1;
+}
+.fcp-btn-delete-comment .bi {
+    font-size: 15px;
+    line-height: 1;
+}
+
+/* Exchange search area — options dropdown button and search button */
+.btn-search-options {
+    color: var(--fcp-text-hi);
+    background-color: var(--fcp-surface-alt);
+    border: 1px solid var(--fcp-border);
+    border-left: 0;
+    border-radius: 0;
+    padding: 0.375rem 0.55rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.btn-search-options:hover {
+    background-color: var(--fcp-surface-h);
+}
+.search-options-caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    opacity: 0.7;
+    vertical-align: 1px;
+}
+/* Search submit button: remove left radius so it joins the options button flush */
+.mailbox-search-input .input-group .input-group-btn:last-child > .btn,
+.mailbox-search-input .input-group .input-group-btn:last-child > .btn:only-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Exchange mailboxes page: align actions/search row and normalize input-group joins. */
+.fcp-exchange-mailboxes-page {
+    min-height: 0;
+}
+
+.fcp-exchange-title-icon {
+    margin-right: 10px;
+    vertical-align: -8px;
+}
+
+html.dark-theme .fcp-exchange-title-icon {
+    filter: brightness(0) invert(0.86);
+}
+
+.mailbox-actions-row {
+    align-items: center;
+    row-gap: 10px;
+}
+
+.mailbox-actions-left,
+.mailbox-actions-right {
+    min-width: 0;
+}
+
+.mailbox-actions-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.mailbox-actions-right > .mb-0 {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.mailbox-search-input {
+    flex: 1 1 340px;
+    min-width: 260px;
+    max-width: 100%;
+}
+
+.mailbox-search-input .input-group {
+    width: 100%;
+}
+
+@media (max-width: 1199px) {
+    .mailbox-actions-right {
+        justify-content: flex-start;
+    }
+}
+
+.mailbox-actions-left .input-group,
+.mailbox-actions-right .input-group {
+    flex-wrap: nowrap;
+}
+
+.mailbox-actions-left .form-select,
+.mailbox-actions-right .form-select,
+.mailbox-actions-right .form-control {
+    border-color: var(--fcp-border);
+    min-height: 40px;
+}
+
+.mailbox-actions-left .user-actions-apply > .btn,
+.mailbox-search-options > .btn-search-options,
+.mailbox-search-submit > .btn {
+    min-height: 40px;
+    border-color: var(--fcp-border);
+}
+
+.mailbox-actions-left .user-actions-apply > .btn,
+#Breadcrumb .OrgsSelector .input-group > .btn,
+.mailbox-search-submit > .btn {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    margin-left: -1px;
+}
+
+.mailbox-search-options > .btn-search-options {
+    border-left: 0;
+    border-radius: 0;
+    margin-left: -1px;
+}
+
+.mailbox-search-submit > .btn {
+    border-left: 0;
+}
+
+.mailbox-search-input .dropdown-menu {
+    border: 1px solid var(--fcp-border);
+    background: var(--fcp-surface);
+    color: var(--fcp-text);
+}
+
+.mailbox-search-menu {
+    min-width: 260px;
+    padding: 8px 10px;
+}
+
+.mailbox-search-menu-title {
+    color: var(--fcp-text-hi);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.mailbox-search-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.mailbox-search-check:last-child {
+    margin-bottom: 0;
+}
+
+.mailbox-search-check input[type="checkbox"] {
+    margin-top: 0;
+}
+
+.mailbox-search-input .dropdown-menu label {
+    color: var(--fcp-text-hi);
+    margin: 0;
+}
+
+#Breadcrumb .OrgsSelector .input-group > .form-select {
+    min-width: 220px;
+    border-color: var(--fcp-border);
+}
+
+#Breadcrumb .CurrentNode {
+    border-bottom: 1px solid var(--fcp-border);
+    padding: 0 0 10px;
+}
+
+#Breadcrumb .CurrentNode .Huge {
+    color: var(--fcp-text-hi);
+    font-size: 1rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+#Breadcrumb .CurrentNode .Huge:first-child {
+    opacity: 0.75;
+}
+
+#Breadcrumb .fcp-breadcrumb-edit-panel {
+    padding: 4px 0;
+}
+
+#Breadcrumb .fcp-breadcrumb-name-input {
+    max-width: 360px;
+    min-width: 220px;
+    height: 40px;
+    font-size: 1rem;
+    border-color: var(--fcp-border);
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text-hi);
+}
+
+#Footer,
+.content-footer {
+    margin-top: auto;
 }
 
 /* Stacked cards for standard GridView tables with JS-provided header labels. */
@@ -12437,7 +12963,7 @@ a:focus {
     .col-form-label,
     .fcp-form-label {
         font-weight: 600;
-        color: #1f2937;
+        color: var(--fcp-text-hi);
         padding-top: 0.7rem;
     }
 
@@ -12450,6 +12976,15 @@ a:focus {
     .form-select {
         min-height: 44px;
     }
+}
+
+.RightBlockTable {
+    color: var(--fcp-text);
+}
+
+.RightBlockTable td.Normal,
+.RightBlockTable td.SubHead {
+    color: inherit;
 }
 
 .fcp-form-section {
@@ -12483,6 +13018,106 @@ a:focus {
 
 .fcp-field-short {
     max-width: 180px;
+}
+
+.fcp-palette-matrix {
+    border: 1px solid var(--fcp-border);
+    border-radius: 0.75rem;
+    background: var(--fcp-surface);
+    overflow: hidden;
+}
+
+.fcp-palette-matrix-header,
+.fcp-palette-matrix-row {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(240px, 1.15fr) minmax(240px, 1.15fr);
+    gap: 0;
+}
+
+.fcp-palette-matrix-header {
+    background: var(--fcp-surface-alt);
+    border-bottom: 1px solid var(--fcp-border);
+}
+
+.fcp-palette-matrix-row + .fcp-palette-matrix-row {
+    border-top: 1px solid var(--fcp-border);
+}
+
+.fcp-palette-title {
+    display: block;
+    margin: 0;
+    padding: 0.9rem 1rem;
+    color: var(--fcp-text-hi);
+    font-weight: 700;
+}
+
+.fcp-palette-title-color {
+    background: linear-gradient(90deg, rgba(255,255,255,.04), rgba(0,0,0,.08));
+}
+
+.fcp-palette-label-cell,
+.fcp-palette-value-cell {
+    padding: 0.9rem 1rem;
+}
+
+.fcp-palette-label-cell {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,.02);
+}
+
+.fcp-palette-color-name {
+    min-width: 0;
+    color: var(--fcp-text);
+    margin-left: 0;
+}
+
+.fcp-palette-value-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fcp-palette-value-cell-light {
+    background: #f8fafc;
+}
+
+.fcp-palette-value-cell-dark {
+    background: #1d1f22;
+}
+
+.fcp-palette-value-cell-light .form-control {
+    background: #ffffff;
+    color: #1a1a1a;
+    border-color: #d7dde5;
+}
+
+.fcp-palette-value-cell-dark .form-control {
+    background: #202225;
+    color: #f3f5f7;
+    border-color: #4a4f57;
+}
+
+.fcp-palette-value-cell-dark .fcp-palette-color-picker {
+    background-color: #202225;
+    border-color: #4a4f57;
+}
+
+.fcp-palette-color-picker {
+    width: 56px;
+    flex: 0 0 auto;
+}
+
+@media screen and (max-width: 991px) {
+    .fcp-palette-matrix-header,
+    .fcp-palette-matrix-row {
+        grid-template-columns: 1fr;
+    }
+
+    .fcp-palette-title-color,
+    .fcp-palette-label-cell {
+        border-bottom: 1px solid var(--fcp-border);
+    }
 }
 
 .fcp-readonly-field {
@@ -12562,7 +13197,7 @@ a:focus {
 .NormalGridView > table tr.fcp-grid-row-alt > td,
 .LightGridView .AspNet-GridView tr.fcp-grid-row-alt > td,
 .LightGridView > table tr.fcp-grid-row-alt > td {
-    background-color: #f7faff !important;
+    background-color: var(--fcp-surface-alt) !important;
 }
 
 .NormalGridView .AspNet-GridView tr.fcp-grid-row:hover > td,
@@ -12573,19 +13208,550 @@ a:focus {
 .LightGridView .AspNet-GridView tr.fcp-grid-row-alt:hover > td,
 .LightGridView > table tr.fcp-grid-row:hover > td,
 .LightGridView > table tr.fcp-grid-row-alt:hover > td {
-    background-color: #edf3fb !important;
+    background-color: var(--fcp-surface-h) !important;
 }
 
 .NormalGridView .AspNet-GridView tr:nth-of-type(even) > td,
 .NormalGridView > table tr:nth-of-type(even) > td,
 .LightGridView .AspNet-GridView tr:nth-of-type(even) > td,
 .LightGridView > table tr:nth-of-type(even) > td {
-    background-color: #f7faff !important;
+    background-color: var(--fcp-surface-alt) !important;
 }
 
 .NormalGridView .AspNet-GridView tr:hover > td,
 .NormalGridView > table tr:hover > td,
 .LightGridView .AspNet-GridView tr:hover > td,
 .LightGridView > table tr:hover > td {
-    background-color: #edf3fb !important;
+    background-color: var(--fcp-surface-h) !important;
 }
+
+/* ==========================================================================
+   Theme System — FuseCP
+   ─────────────────────────────────────────────────────────────────────────
+   Applied via HTML class set in Default.aspx.cs from user cookies.
+   Styles: light-theme | dark-theme | semi-dark | minimal-theme
+   Header: html.color-header.headercolorN .top-bar
+   Sidebar: html.color-sidebar.sidebarcolorN #col-left
+   OS dark-mode auto-activates when no explicit style class is set.
+   ========================================================================== */
+
+/* -- Palette swatch buttons (.indigator) ---------------------------------- */
+.indigator {
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,.28);
+    outline: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+}
+
+.indigator:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,.35);
+}
+
+.indigator.fcp-palette-active {
+    border-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.50), 0 2px 6px rgba(0,0,0,.25);
+    transform: scale(1.08);
+}
+
+/* -- Semantic colour tokens (12 vars) ------------------------------------- */
+/* Light defaults — dark values applied by class or OS prefers-color-scheme. */
+:root {
+    /* Layout */
+    --fcp-bg:          #f4f6f9;   /* page / wrapper background               */
+    --fcp-topbar-bg:   #ffffff;   /* top navigation bar                      */
+    --fcp-topbar-bdr:  #e8eaf0;   /* top bar bottom border                   */
+    --fcp-sidebar-bg:  #2d3e50;   /* left sidebar                            */
+    /* Surfaces */
+    --fcp-surface:     #ffffff;   /* cards, panels, modals, dropdowns        */
+    --fcp-surface-alt: #f5f7fa;   /* card-header, grid-header, alt-row       */
+    --fcp-surface-h:   #edf3fb;   /* hover / focus highlight surface         */
+    /* Borders */
+    --fcp-border:      #e0e0e0;   /* general borders                         */
+    --fcp-input-bdr:   #cccccc;   /* input / control border                  */
+    /* Text */
+    --fcp-text:        #333333;   /* primary body text                       */
+    --fcp-text-hi:     #1a1a1a;   /* headings, strong / high-emphasis text   */
+    /* Accent */
+    --fcp-accent:      #0a8fd8;   /* interactive accent (focus, highlights)  */
+
+    /* Buttons (top 5 project-wide variants) */
+    --fcp-btn-primary-text: #ffffff;
+    --fcp-btn-primary-bg: #0a8fd8;
+    --fcp-btn-primary-bdr: #0a8fd8;
+    --fcp-btn-primary-h-text: #ffffff;
+    --fcp-btn-primary-h-bg: #0877b5;
+    --fcp-btn-primary-h-bdr: #0877b5;
+
+    --fcp-btn-success-text: #ffffff;
+    --fcp-btn-success-bg: #28a745;
+    --fcp-btn-success-bdr: #28a745;
+    --fcp-btn-success-h-text: #ffffff;
+    --fcp-btn-success-h-bg: #218838;
+    --fcp-btn-success-h-bdr: #218838;
+
+    --fcp-btn-danger-text: #ffffff;
+    --fcp-btn-danger-bg: #dc3545;
+    --fcp-btn-danger-bdr: #dc3545;
+    --fcp-btn-danger-h-text: #ffffff;
+    --fcp-btn-danger-h-bg: #c82333;
+    --fcp-btn-danger-h-bdr: #c82333;
+
+    --fcp-btn-warning-text: #1a1a1a;
+    --fcp-btn-warning-bg: #ffc107;
+    --fcp-btn-warning-bdr: #ffc107;
+    --fcp-btn-warning-h-text: #1a1a1a;
+    --fcp-btn-warning-h-bg: #e0a800;
+    --fcp-btn-warning-h-bdr: #e0a800;
+
+    --fcp-btn-info-text: #ffffff;
+    --fcp-btn-info-bg: #17a2b8;
+    --fcp-btn-info-bdr: #17a2b8;
+    --fcp-btn-info-h-text: #ffffff;
+    --fcp-btn-info-h-bg: #138496;
+    --fcp-btn-info-h-bdr: #138496;
+
+    --fcp-btn-radius: 6px;
+
+    /* Dark palette defaults (user-overridable via cookie settings) */
+    --fcp-dark-bg:          #1a1a2e;
+    --fcp-dark-topbar-bg:   #141414;
+    --fcp-dark-topbar-bdr:  #2a2a2a;
+    --fcp-dark-sidebar-bg:  #1d1f22;
+    --fcp-dark-surface:     #202225;
+    --fcp-dark-surface-alt: #292c31;
+    --fcp-dark-surface-h:   #31353b;
+    --fcp-dark-border:      #3a3e45;
+    --fcp-dark-input-bdr:   #4a4f57;
+    --fcp-dark-text:        #d0d5dc;
+    --fcp-dark-text-hi:     #f3f5f7;
+    --fcp-dark-accent:      #0a8fd8;
+
+    --fcp-dark-btn-primary-text: #f3f5f7;
+    --fcp-dark-btn-primary-bg: #0a8fd8;
+    --fcp-dark-btn-primary-bdr: #0a8fd8;
+    --fcp-dark-btn-primary-h-text: #ffffff;
+    --fcp-dark-btn-primary-h-bg: #0877b5;
+    --fcp-dark-btn-primary-h-bdr: #0877b5;
+
+    --fcp-dark-btn-success-text: #f3f5f7;
+    --fcp-dark-btn-success-bg: #2d9b53;
+    --fcp-dark-btn-success-bdr: #2d9b53;
+    --fcp-dark-btn-success-h-text: #ffffff;
+    --fcp-dark-btn-success-h-bg: #278846;
+    --fcp-dark-btn-success-h-bdr: #278846;
+
+    --fcp-dark-btn-danger-text: #f3f5f7;
+    --fcp-dark-btn-danger-bg: #c34755;
+    --fcp-dark-btn-danger-bdr: #c34755;
+    --fcp-dark-btn-danger-h-text: #ffffff;
+    --fcp-dark-btn-danger-h-bg: #b33e4a;
+    --fcp-dark-btn-danger-h-bdr: #b33e4a;
+
+    --fcp-dark-btn-warning-text: #1a1a1a;
+    --fcp-dark-btn-warning-bg: #d9a406;
+    --fcp-dark-btn-warning-bdr: #d9a406;
+    --fcp-dark-btn-warning-h-text: #121212;
+    --fcp-dark-btn-warning-h-bg: #c59305;
+    --fcp-dark-btn-warning-h-bdr: #c59305;
+
+    --fcp-dark-btn-info-text: #f3f5f7;
+    --fcp-dark-btn-info-bg: #248d9d;
+    --fcp-dark-btn-info-bdr: #248d9d;
+    --fcp-dark-btn-info-h-text: #ffffff;
+    --fcp-dark-btn-info-h-bg: #1f7e8c;
+    --fcp-dark-btn-info-h-bdr: #1f7e8c;
+
+    --fcp-dark-btn-radius: 6px;
+}
+
+/* LESS mixin: dark token values — shared by explicit class + OS auto-detect */
+.fcp-dark-tokens() {
+    --fcp-bg:          var(--fcp-dark-bg);
+    --fcp-topbar-bg:   var(--fcp-dark-topbar-bg);
+    --fcp-topbar-bdr:  var(--fcp-dark-topbar-bdr);
+    --fcp-sidebar-bg:  var(--fcp-dark-sidebar-bg);
+    --fcp-surface:     var(--fcp-dark-surface);
+    --fcp-surface-alt: var(--fcp-dark-surface-alt);
+    --fcp-surface-h:   var(--fcp-dark-surface-h);
+    --fcp-border:      var(--fcp-dark-border);
+    --fcp-input-bdr:   var(--fcp-dark-input-bdr);
+    --fcp-text:        var(--fcp-dark-text);
+    --fcp-text-hi:     var(--fcp-dark-text-hi);
+    --fcp-accent:      var(--fcp-dark-accent);
+
+    --fcp-btn-primary-text: var(--fcp-dark-btn-primary-text);
+    --fcp-btn-primary-bg: var(--fcp-dark-btn-primary-bg);
+    --fcp-btn-primary-bdr: var(--fcp-dark-btn-primary-bdr);
+    --fcp-btn-primary-h-text: var(--fcp-dark-btn-primary-h-text);
+    --fcp-btn-primary-h-bg: var(--fcp-dark-btn-primary-h-bg);
+    --fcp-btn-primary-h-bdr: var(--fcp-dark-btn-primary-h-bdr);
+
+    --fcp-btn-success-text: var(--fcp-dark-btn-success-text);
+    --fcp-btn-success-bg: var(--fcp-dark-btn-success-bg);
+    --fcp-btn-success-bdr: var(--fcp-dark-btn-success-bdr);
+    --fcp-btn-success-h-text: var(--fcp-dark-btn-success-h-text);
+    --fcp-btn-success-h-bg: var(--fcp-dark-btn-success-h-bg);
+    --fcp-btn-success-h-bdr: var(--fcp-dark-btn-success-h-bdr);
+
+    --fcp-btn-danger-text: var(--fcp-dark-btn-danger-text);
+    --fcp-btn-danger-bg: var(--fcp-dark-btn-danger-bg);
+    --fcp-btn-danger-bdr: var(--fcp-dark-btn-danger-bdr);
+    --fcp-btn-danger-h-text: var(--fcp-dark-btn-danger-h-text);
+    --fcp-btn-danger-h-bg: var(--fcp-dark-btn-danger-h-bg);
+    --fcp-btn-danger-h-bdr: var(--fcp-dark-btn-danger-h-bdr);
+
+    --fcp-btn-warning-text: var(--fcp-dark-btn-warning-text);
+    --fcp-btn-warning-bg: var(--fcp-dark-btn-warning-bg);
+    --fcp-btn-warning-bdr: var(--fcp-dark-btn-warning-bdr);
+    --fcp-btn-warning-h-text: var(--fcp-dark-btn-warning-h-text);
+    --fcp-btn-warning-h-bg: var(--fcp-dark-btn-warning-h-bg);
+    --fcp-btn-warning-h-bdr: var(--fcp-dark-btn-warning-h-bdr);
+
+    --fcp-btn-info-text: var(--fcp-dark-btn-info-text);
+    --fcp-btn-info-bg: var(--fcp-dark-btn-info-bg);
+    --fcp-btn-info-bdr: var(--fcp-dark-btn-info-bdr);
+    --fcp-btn-info-h-text: var(--fcp-dark-btn-info-h-text);
+    --fcp-btn-info-h-bg: var(--fcp-dark-btn-info-h-bg);
+    --fcp-btn-info-h-bdr: var(--fcp-dark-btn-info-h-bdr);
+
+    --fcp-btn-radius: var(--fcp-dark-btn-radius);
+}
+
+/* -- Explicit dark-theme class (always wins over OS preference) ----------- */
+html.dark-theme {
+    .fcp-dark-tokens();
+}
+
+/* -- OS dark-mode auto-detect (no manual style class set) ---------------- */
+@media (prefers-color-scheme: dark) {
+    html:not(.light-theme):not(.dark-theme):not(.semi-dark):not(.minimal-theme) {
+        .fcp-dark-tokens();
+    }
+}
+
+/* -- semi-dark: dark header + sidebar, light content --------------------- */
+html.semi-dark .top-bar {
+    background-color: #23282c;
+    border-bottom-color: #1a1f23;
+}
+
+html.semi-dark .top-bar .btn-off-canvas i,
+html.semi-dark .top-bar .navbar-sm > li > a,
+html.semi-dark .top-bar .search-top .fcp-search-trigger {
+    color: rgba(255,255,255,.85);
+}
+
+html.semi-dark .top-bar .btn-off-canvas:hover,
+html.semi-dark .top-bar .navbar-sm > li > a:hover {
+    background-color: rgba(255,255,255,.15);
+    color: #fff;
+}
+
+html.semi-dark #col-left {
+    background-color: #2d3748;
+}
+
+html.semi-dark ul.main-menu li a {
+    color: rgba(255,255,255,.8);
+}
+
+html.semi-dark ul.main-menu li a:hover {
+    background-color: rgba(0,0,0,.18);
+    color: #fff;
+}
+
+html.semi-dark ul.main-menu li.active > a {
+    background-color: rgba(0,0,0,.28);
+    color: #fff;
+}
+
+html.semi-dark .main-nav h3 {
+    color: rgba(255,255,255,.4);
+}
+
+/* -- minimal-theme: reduced shadows/borders ------------------------------ */
+html.minimal-theme .card {
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+}
+
+html.minimal-theme .panel {
+    box-shadow: none;
+}
+
+html.minimal-theme .top-bar {
+    box-shadow: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* -- Header colour palettes ---------------------------------------------- */
+/* Common: icon/link accent → white when any header palette is active */
+html.color-header .top-bar .btn-off-canvas i,
+html.color-header .top-bar .navbar-sm > li > a,
+html.color-header .top-bar .search-top .fcp-search-trigger {
+    color: rgba(255,255,255,.85);
+}
+
+html.color-header .top-bar .btn-off-canvas:hover,
+html.color-header .top-bar .navbar-sm > li > a:hover {
+    background-color: rgba(255,255,255,.15);
+    color: #fff;
+}
+
+html.color-header.headercolor1 .top-bar { background-color: #0727d7; border-bottom-color: #0620b9; }
+html.color-header.headercolor2 .top-bar { background-color: #23282c; border-bottom-color: #1a1f23; }
+html.color-header.headercolor3 .top-bar { background-color: #e10a1f; border-bottom-color: #c20918; }
+html.color-header.headercolor4 .top-bar { background-color: #157d4c; border-bottom-color: #106040; }
+html.color-header.headercolor5 .top-bar { background-color: #673ab7; border-bottom-color: #5a32a0; }
+html.color-header.headercolor6 .top-bar { background-color: #795548; border-bottom-color: #6b4a3e; }
+html.color-header.headercolor7 .top-bar { background-color: #d3094e; border-bottom-color: #b8083f; }
+html.color-header.headercolor8 .top-bar { background-color: #ff9800; border-bottom-color: #e08600; }
+
+/* -- Sidebar colour palettes --------------------------------------------- */
+/* Common: menu text → white when any sidebar palette is active */
+html.color-sidebar ul.main-menu li a           { color: rgba(255,255,255,.8); }
+html.color-sidebar ul.main-menu li a:hover     { background-color: rgba(0,0,0,.18); color: #fff; }
+html.color-sidebar ul.main-menu li.active > a  { background-color: rgba(0,0,0,.28); color: #fff; }
+html.color-sidebar ul.main-menu li i           { color: rgba(255,255,255,.6); }
+html.color-sidebar ul.main-menu li.active > a i { color: #fff; }
+html.color-sidebar .main-nav h3               { color: rgba(255,255,255,.4); }
+html.color-sidebar ul.sub-menu               { background-color: rgba(0,0,0,.10); }
+html.color-sidebar ul.sub-menu li a           { color: rgba(255,255,255,.7); }
+html.color-sidebar ul.sub-menu li a:hover     { color: #fff; background-color: rgba(0,0,0,.18); }
+
+html.color-sidebar.sidebarcolor1 #col-left { background-color: #6c85ec; }
+html.color-sidebar.sidebarcolor2 #col-left { background-color: #5b737f; }
+html.color-sidebar.sidebarcolor3 #col-left { background-color: #408851; }
+html.color-sidebar.sidebarcolor4 #col-left { background-color: #230924; }
+html.color-sidebar.sidebarcolor5 #col-left { background-color: #903a85; }
+html.color-sidebar.sidebarcolor6 #col-left { background-color: #a04846; }
+html.color-sidebar.sidebarcolor7 #col-left { background-color: #a65314; }
+html.color-sidebar.sidebarcolor8 #col-left { background-color: #1f0e3b; }
+
+/* -- Global token bindings (class-agnostic) ------------------------------- */
+.top-bar {
+    background-color: var(--fcp-topbar-bg);
+    border-bottom-color: var(--fcp-topbar-bdr);
+    color: var(--fcp-text-hi);
+}
+
+.top-bar .btn-off-canvas i,
+.top-bar .navbar-sm > li > a,
+.top-bar .navbar-sm > li > span > a,
+.top-bar .search-top .fcp-search-trigger,
+.top-bar .signedin-mobile .navbar-sm > li > a,
+.top-bar .signedin-anonymous a {
+    color: var(--fcp-accent);
+}
+
+.top-bar .btn-off-canvas:hover,
+.top-bar .navbar-sm > li > a:hover,
+.top-bar .navbar-sm > li > span > a:hover,
+.top-bar .signedin-mobile .navbar-sm > li > a:hover,
+.top-bar .signedin-anonymous a:hover {
+    color: var(--fcp-accent);
+}
+
+#col-left {
+    background-color: var(--fcp-sidebar-bg);
+}
+
+ul.main-menu li a {
+    color: rgba(255,255,255,.82);
+}
+
+ul.main-menu li a:hover {
+    background-color: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+ul.main-menu li.active > a {
+    background-color: rgba(0,0,0,.24);
+    color: #fff;
+}
+
+ul.main-menu li i {
+    color: rgba(255,255,255,.68);
+}
+
+ul.sub-menu {
+    background-color: rgba(0,0,0,.12);
+}
+
+ul.sub-menu li a {
+    color: rgba(255,255,255,.74);
+}
+
+.widget {
+    background-color: var(--fcp-surface);
+    border-color: var(--fcp-border);
+    color: var(--fcp-text);
+}
+
+.widget .widget-header {
+    background-color: var(--fcp-surface-alt);
+    border-bottom-color: var(--fcp-border);
+    color: var(--fcp-text-hi);
+}
+
+.widget .widget-header h3,
+.widget.widget-no-header h3,
+.widget .widget-header h3 i,
+.widget .widget-header .btn-group .dropdown-toggle .icon,
+.widget .widget-header .btn-group > a,
+.widget .widget-header .widget-header-toolbar .btn-link,
+.widget .widget-header .widget-header-toolbar .btn-link i,
+.widget .widget-header .widget-header-toolbar .btn-link .bi,
+.widget .widget-header .widget-header-toolbar .btn-link .icon {
+    color: var(--fcp-text-hi);
+}
+
+.widget .widget-header .btn-group .dropdown-toggle .icon:focus,
+.widget .widget-header .btn-group .dropdown-toggle .icon:hover,
+.widget .widget-header .btn-group > a:focus,
+.widget .widget-header .btn-group > a:hover,
+.widget .widget-header .widget-header-toolbar .btn-link:hover,
+.widget .widget-header .widget-header-toolbar .btn-link:focus,
+.widget .widget-header .widget-header-toolbar .btn-link:hover i,
+.widget .widget-header .widget-header-toolbar .btn-link:focus i {
+    color: var(--fcp-accent);
+}
+
+#col-right {
+    background-color: var(--fcp-bg);
+}
+
+#col-right .card {
+    --bs-card-bg: var(--fcp-surface);
+    --bs-card-color: var(--fcp-text);
+    --bs-body-bg: var(--fcp-surface);
+    --bs-body-color: var(--fcp-text);
+    --bs-card-border-color: var(--fcp-border);
+    --bs-border-color-translucent: var(--fcp-border);
+    --bs-card-cap-bg: var(--fcp-surface-alt);
+    --bs-card-cap-color: var(--fcp-text-hi);
+    background-color: var(--fcp-surface);
+    border-color: var(--fcp-border);
+    color: var(--fcp-text);
+}
+
+#col-right .card > .card-header,
+#col-right .card > .card-footer {
+    background-color: var(--fcp-surface-alt);
+    border-color: var(--fcp-border);
+    color: var(--fcp-text-hi);
+}
+
+#col-right .card > .card-body {
+    background-color: var(--fcp-surface);
+    color: var(--fcp-text);
+}
+
+#Footer,
+.content-footer {
+    background-color: var(--fcp-surface);
+    color: var(--fcp-text);
+}
+
+.content-footer {
+    border-top-color: var(--fcp-border);
+}
+
+#Footer a,
+.content-footer a {
+    color: var(--fcp-text-hi);
+}
+
+.btn-primary,
+input.Button1 {
+    color: var(--fcp-btn-primary-text) !important;
+    background-color: var(--fcp-btn-primary-bg) !important;
+    border-color: var(--fcp-btn-primary-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+input.Button1:hover,
+input.Button1:focus {
+    color: var(--fcp-btn-primary-h-text) !important;
+    background-color: var(--fcp-btn-primary-h-bg) !important;
+    border-color: var(--fcp-btn-primary-h-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-success {
+    color: var(--fcp-btn-success-text) !important;
+    background-color: var(--fcp-btn-success-bg) !important;
+    border-color: var(--fcp-btn-success-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    color: var(--fcp-btn-success-h-text) !important;
+    background-color: var(--fcp-btn-success-h-bg) !important;
+    border-color: var(--fcp-btn-success-h-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-danger {
+    color: var(--fcp-btn-danger-text) !important;
+    background-color: var(--fcp-btn-danger-bg) !important;
+    border-color: var(--fcp-btn-danger-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    color: var(--fcp-btn-danger-h-text) !important;
+    background-color: var(--fcp-btn-danger-h-bg) !important;
+    border-color: var(--fcp-btn-danger-h-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-warning,
+input.Button2 {
+    color: var(--fcp-btn-warning-text) !important;
+    background-color: var(--fcp-btn-warning-bg) !important;
+    border-color: var(--fcp-btn-warning-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+input.Button2:hover,
+input.Button2:focus {
+    color: var(--fcp-btn-warning-h-text) !important;
+    background-color: var(--fcp-btn-warning-h-bg) !important;
+    border-color: var(--fcp-btn-warning-h-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-info,
+input.Button3 {
+    color: var(--fcp-btn-info-text) !important;
+    background-color: var(--fcp-btn-info-bg) !important;
+    border-color: var(--fcp-btn-info-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+input.Button3:hover,
+input.Button3:focus {
+    color: var(--fcp-btn-info-h-text) !important;
+    background-color: var(--fcp-btn-info-h-bg) !important;
+    border-color: var(--fcp-btn-info-h-bdr) !important;
+    border-radius: var(--fcp-btn-radius) !important;
+}
+

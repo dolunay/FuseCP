@@ -437,40 +437,76 @@ namespace FuseCP.Portal {
         protected global::System.Web.UI.WebControls.DropDownList ddlThemeStyle;
         
         /// <summary>
-        /// lblThemecolorHeader control.
+        /// lblPaletteColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThemecolorHeader;
+        protected global::System.Web.UI.WebControls.Label lblPaletteColor;
         
         /// <summary>
-        /// ThemecolorHeaderRepeater1 control.
+        /// lblPaletteLight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ThemecolorHeaderRepeater1;
+        protected global::System.Web.UI.WebControls.Label lblPaletteLight;
         
         /// <summary>
-        /// lblThemecolorSidebar control.
+        /// lblPaletteDark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThemecolorSidebar;
+        protected global::System.Web.UI.WebControls.Label lblPaletteDark;
         
         /// <summary>
-        /// ThemecolorSidebarRepeater1 control.
+        /// rptPaletteMatrix control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ThemecolorSidebarRepeater1;
+        protected global::System.Web.UI.WebControls.Repeater rptPaletteMatrix;
+
+        /// <summary>
+        /// lblButtonProperty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblButtonProperty;
+
+        /// <summary>
+        /// lblButtonLight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblButtonLight;
+
+        /// <summary>
+        /// lblButtonDark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblButtonDark;
+
+        /// <summary>
+        /// rptButtonMatrix control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptButtonMatrix;
         
         /// <summary>
         /// ResetDisplay control.

@@ -1,8 +1,8 @@
-﻿.TopMenu ul.AspNet-Menu li ul li.AspNet-Menu-WithChildren span {
+.TopMenu ul.AspNet-Menu li ul li.AspNet-Menu-WithChildren span {
     height: auto;
     padding: 0;
     background: 0 0;
-    color: #333;
+    color: var(--fcp-text);
     font-size: 13px;
     line-height: 34px;
     text-transform: capitalize;
@@ -62,7 +62,7 @@
     text-align: left;
     clear: both;
     text-indent: 10px;
-    color: #777;
+    color: var(--fcp-text);
     margin: 0 0 0 5px;
 }
 
@@ -70,18 +70,18 @@
         height: auto;
         padding: 0;
         background: 0 0;
-        color: #333;
+        color: var(--fcp-text);
         font-size: 13px;
         line-height: 34px;
         text-transform: capitalize;
     }
 
 .TopMenu ul.AspNet-Menu li ul li.AspNet-Menu-Hover, .TopMenu ul.AspNet-Menu li ul li:hover {
-    background: #f6f6f6;
+    background: var(--fcp-surface-alt);
 }
 
     .TopMenu ul.AspNet-Menu li ul li.AspNet-Menu-Hover a, .TopMenu ul.AspNet-Menu li ul li:hover a {
-        color: #313131;
+        color: var(--fcp-text);
     }
 
 .TopMenu .AspNet-Menu-Horizontal ul.AspNet-Menu li ul li ul:before {
@@ -145,8 +145,8 @@
     margin: -10px 0 0;
     list-style: none;
     font-size: 14px;
-    background-color: #FFF;
-    border: 1px solid #CCC;
+    background-color: var(--fcp-surface);
+    border: 1px solid var(--fcp-border);
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -159,7 +159,7 @@
 }
 
     .LeftMenu ul {
-        background-color: #D1E9FF;
+        background-color: var(--fcp-surface-alt);
     }
 
         .LeftMenu ul.AspNet-Menu {
@@ -171,7 +171,7 @@
                 top: -.5em;
                 width: 190px;
                 z-index: 400;
-                border: 1px solid #86B9F7;
+                border: 1px solid var(--fcp-accent);
                 padding: 2px;
             }
 
@@ -180,14 +180,14 @@
     }
 
     .LeftMenu ul.AspNet-Menu li a {
-        color: #000;
+        color: var(--fcp-text-hi);
         padding: 6px 15px 6px 7px;
         text-align: left;
     }
 
     .LeftMenu ul.AspNet-Menu li span {
         cursor: pointer;
-        color: #333;
+        color: var(--fcp-text);
         padding: 6px 25px 6px 7px;
         background: url(../Images/menu_popup_right.gif) right center no-repeat;
         text-align: left;
@@ -199,8 +199,8 @@
     }
 
     .LeftMenu .AspNet-Menu-Horizontal ul.AspNet-Menu ul {
-        border: 1px solid #CCC;
-        background-color: #F8F8F8;
+        border: 1px solid var(--fcp-border);
+        background-color: var(--fcp-surface-alt);
     }
 
         .LeftMenu .AspNet-Menu-Horizontal ul.AspNet-Menu ul li a {
@@ -220,7 +220,7 @@
 }
 
     .PopupMenu ul.AspNet-Menu li a, .PopupMenu ul.AspNet-Menu li span {
-        color: #000;
+        color: var(--fcp-text-hi);
         height: 12px;
         width: 16px;
         text-align: center;
@@ -248,7 +248,7 @@
 }
 
 .PopupMenu ul.AspNet-Menu li.AspNet-Menu-Hover, .PopupMenu ul.AspNet-Menu li:hover {
-    background-color: #f0f0f0;
+    background-color: var(--fcp-surface-alt);
 }
 
     .PopupMenu ul.AspNet-Menu li.AspNet-Menu-Hover a, .PopupMenu ul.AspNet-Menu li.AspNet-Menu-Hover span {
@@ -260,14 +260,14 @@
 }
 
     .PopupMenu ul.AspNet-Menu li ul li.AspNet-Menu-Hover, .PopupMenu ul.AspNet-Menu li ul li:hover {
-        background-color: #D1E9FF;
+        background-color: var(--fcp-surface-alt);
         background-image: none;
         margin: 0;
     }
 
 .PopupMenu .AspNet-Menu-Horizontal ul.AspNet-Menu ul {
-    border: 1px solid #3263BD;
-    background-color: #FFF;
+    border: 1px solid var(--fcp-accent);
+    background-color: var(--fcp-surface);
 }
 
     .PopupMenu .AspNet-Menu-Horizontal ul.AspNet-Menu ul li a {
@@ -276,7 +276,7 @@
         text-align: left;
         border: none;
         margin: 0;
-        color: #000;
+        color: var(--fcp-text-hi);
     }
 
 .PopupMenu .AspNet-Menu-Horizontal ul.AspNet-Menu li ul li ul {
@@ -332,7 +332,7 @@ img {
 td.SubHead {
     min-width: 70px;
     line-height: 13px;
-    color: #000;
+    color: var(--fcp-text-hi);
     padding: 9px 0 5px;
 }
 
@@ -344,7 +344,7 @@ td.Normal {
 
 .NormalBold {
     font-weight: 600;
-    color: #222;
+    color: var(--fcp-text-hi);
     padding: 0;
     width: auto !important;
 }
@@ -355,7 +355,7 @@ td.Normal > br {
 
 .NormalTextBox + br + span {
     font-size: 11px;
-    color: #888;
+    color: var(--fcp-text);
 }
 
 td.Normal .NormalTextBox + span {
@@ -365,11 +365,11 @@ td.Normal .NormalTextBox + span {
 
 .FormSimpleLabel {
     padding: 9px 8px 14px 0;
-    color: #555;
+    color: var(--fcp-text);
 }
 
 .FormLabel150, .FormLabel200, .FormLabel260 {
-    color: #888;
+    color: var(--fcp-text);
     vertical-align: middle;
 }
 
@@ -389,7 +389,7 @@ td.Normal .NormalTextBox + span {
     font-family: Arial;
     font-size: 36px;
     font-weight: 300;
-    color: #333;
+    color: var(--fcp-text);
     padding: 0 !important;
     letter-spacing: -1px;
 }
@@ -445,7 +445,7 @@ ul.LinksList {
 }
 
     .IconsTitle a {
-        color: #428bca;
+        color: var(--fcp-accent);
     }
 
 .Icon {
@@ -459,12 +459,12 @@ ul.LinksList {
 
     .Icon.Hover {
         border-color: #fff;
-        background: #e9e9e9;
+        background: var(--fcp-surface-alt);
     }
 
     .Icon a {
         display: block;
-        color: #333;
+        color: var(--fcp-text);
     }
 
     .Icon > a + br + a {
@@ -496,7 +496,7 @@ ul.LinksList {
             width: auto;
             padding: 8px;
             font-size: 13px;
-            color: #333;
+            color: var(--fcp-text);
         }
 
         .IconMenu ul li:Hover {
@@ -506,7 +506,7 @@ ul.LinksList {
 
 legend {
     font-weight: 700;
-    color: #428bca;
+    color: var(--fcp-accent);
     padding: 0 4px;
 }
 
@@ -536,13 +536,13 @@ legend {
 .Tabs a {
     display: block;
     padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--fcp-border);
 }
 
     .Tabs a:Hover {
-        background: #E1E1E1;
+        background: var(--fcp-surface-alt);
         border-radius: 3px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--fcp-border);
         border-bottom: none;
     }
 
@@ -551,11 +551,11 @@ legend {
 }
 
 .Tabs a.ActiveTab {
-    border: 1px solid #ddd;
+    border: 1px solid var(--fcp-border);
     border-bottom-color: #fff;
-    color: #555;
+    color: var(--fcp-text);
     margin-bottom: -1px;
-    background-color: #fff;
+    background-color: var(--fcp-surface);
     border-radius: 3px;
 }
 
@@ -588,19 +588,19 @@ legend {
 }
 
     .FileManagerTreeNode a {
-        color: #333 !important;
+        color: var(--fcp-text) !important;
     }
 
 a.FileManagerTreeNode:hover, a.FileManagerTreeNodeSelected:hover {
-    background: #f5f5f5;
+    background: var(--fcp-surface-alt);
 }
 
 select:not(.form-select):not(.form-control), textarea {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
-    background: #fff;
-    border: 1px solid #ccc;
+    background: var(--fcp-surface);
+    border: 1px solid var(--fcp-border);
 }
 
 .FormButtonsBar + .NormalGridView .AspNet-GridView {
@@ -613,12 +613,12 @@ input.Huge, input.HugeTextBox, input.LoginTextBox, input.NormalTextBox {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
-    background: #fff;
-    border: 1px solid #ccc;
+    background: var(--fcp-surface);
+    border: 1px solid var(--fcp-border);
 }
 
     input[type=password]:hover, input[type=text]:hover, select:not(.form-select):not(.form-control):hover {
-        border-color: #999;
+        border-color: var(--fcp-text);
     }
 
 input.NormalTextBox {
@@ -640,9 +640,9 @@ select:not(.form-select):not(.form-control) {
     }
 
     select:not(.form-select):not(.form-control):disabled {
-        border: 1px solid #ccc;
-        background: #f5f5f5;
-        color: #ccc;
+        border: 1px solid var(--fcp-border);
+        background: var(--fcp-surface-alt);
+        color: var(--fcp-text);
         cursor: not-allowed;
     }
 
@@ -700,7 +700,7 @@ input[type=image] {
 
 .LoginContainer .SubHead {
     padding-right: 8px;
-    color: #333;
+    color: var(--fcp-text);
 }
 
 .RightBlockTitle {
@@ -711,7 +711,7 @@ input[type=image] {
 }
 
 .RightBlockTable {
-    color: #000;
+    color: var(--fcp-text-hi);
 }
 
     .RightBlockTable td.Normal, .RightBlockTable td.SubHead {
@@ -759,7 +759,7 @@ input[type=image] {
 }
 
     .Small span {
-        color: #888;
+        color: var(--fcp-text);
     }
 
     .Small b {
@@ -813,7 +813,7 @@ table.BorderFillBox td {
 .Brick {
     float: none;
     background: #f9e9a5;
-    color: #333;
+    color: var(--fcp-text);
     font-size: 11px;
     margin-bottom: 1px;
 }
@@ -833,9 +833,9 @@ table.BorderFillBox td {
 .GridFooter {
     clear: both;
     font-size: 8pt;
-    color: #888;
+    color: var(--fcp-text);
     padding: 8px 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--fcp-border);
     margin: 10px 0 20px;
 }
 
@@ -845,14 +845,14 @@ table.BorderFillBox td {
 
 .FormBody fieldset {
     padding: 5px 10px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--fcp-border);
     margin-top: 10px;
 }
 
 .PreviewArea {
     padding: 15px;
     margin: 20px;
-    color: #000;
+    color: var(--fcp-text-hi);
     font-size: 14px;
 }
 
@@ -932,7 +932,7 @@ table.BorderFillBox td {
 
 .Calendar {
     width: 300px !important;
-    border: 1px solid #ccc !important;
+    border: 1px solid var(--fcp-border) !important;
     margin-right: 20px;
 }
 
@@ -942,12 +942,12 @@ table.BorderFillBox td {
 
     .Calendar td {
         height: 28px;
-        background: #fff;
+        background: var(--fcp-surface);
     }
 
 .CalendarTitle td {
     height: 30px;
-    background: #ccc !important;
+    background: var(--fcp-surface-alt) !important;
 }
 
 .CalendarSelectedDate {
@@ -1026,9 +1026,9 @@ input.Button2 {
     }
 
     input.Button1:disabled, input.Button2:disabled, input.Button3:disabled {
-        border: 1px solid #ccc;
-        background: #f5f5f5;
-        color: #ccc;
+        border: 1px solid var(--fcp-border);
+        background: var(--fcp-surface-alt);
+        color: var(--fcp-text-muted);
         cursor: not-allowed;
     }
 
@@ -1052,14 +1052,14 @@ ul.WPIKeywordList {
     }
 
         ul.WPIKeywordList li:hover {
-            background: #eee !important;
+            background: var(--fcp-surface-alt) !important;
         }
 
     ul.WPIKeywordList label {
         text-decoration: none !important;
         display: block;
         padding: 5px 10px !important;
-        color: #428bca;
+        color: var(--fcp-accent);
     }
 
     ul.WPIKeywordList li span.selected {
@@ -1071,15 +1071,15 @@ ul.WPIKeywordList {
     }
 
         ul.WPIKeywordList li span.selected label {
-            color: #555;
+            color: var(--fcp-text);
             border: 1px solid #eee !important;
-            background: #fff !important;
+            background: var(--fcp-surface) !important;
             border-bottom-color: #fff !important;
         }
 
 .FormBody.tabs, .FormFooter.tabs {
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--fcp-surface);
 }
 
 .ProductsSearchInput {
@@ -1110,7 +1110,7 @@ h2.ProductTitle.Huge {
     border-left: 1px;
     border-right: 1px;
     border-style: solid;
-    border-color: #d0d0d0;
+    border-color: var(--fcp-border);
     border-bottom: 0;
     border-top: 0;
 }
@@ -1120,7 +1120,7 @@ h2.ProductTitle.Huge {
     border-bottom-right-radius: 3px;
     border-width: 1px;
     border-style: solid;
-    border-color: #d0d0d0;
+    border-color: var(--fcp-border);
     border-top: 0;
 }
 
@@ -1131,7 +1131,7 @@ h2.ProductTitle.Huge {
 }
 
 .FormContentRDSConf, .FormFooterRDSConf {
-    border-color: #eee;
+    border-color: var(--fcp-border);
     border-width: 2px;
     width: 97%;
 }
@@ -1215,13 +1215,13 @@ SPAN.Checkbox.Bold {
     font-size: 9pt;
     margin-top: 10px;
     padding: 10px 10px 0 0;
-    border-top: solid 1px #DFDFDF;
+    border-top: solid 1px var(--fcp-border);
 }
 
 .HugeTextBox, INPUT.HugeTextBox100, INPUT.HugeTextBox200 {
     font-size: 14pt;
     font-weight: 400;
-    color: #000;
+    color: var(--fcp-text-hi);
 }
 
 .FormFooterMiddle {
@@ -1299,7 +1299,7 @@ INPUT.HugeTextBox200 {
     height: 24px;
     padding-top: 5px;
     padding-left: 7px;
-    color: #000;
+    color: var(--fcp-text-hi);
     font-size: 8pt;
     background: #E5F2FF;
     font-weight: 700;
@@ -1361,13 +1361,13 @@ INPUT.HugeTextBox200 {
 }
 
 .ProgressPanelArea {
-    color: #888;
+    color: var(--fcp-text);
 }
 
 .TreeNode {
     padding-left: 2px;
     padding-right: 2px;
-    color: #000;
+    color: var(--fcp-text-hi);
 }
 
 .SelectedTreeNode {
@@ -1396,7 +1396,7 @@ A.Black {
 .BigBold {
     font-size: 14pt;
     font-weight: 700;
-    color: #000;
+    color: var(--fcp-text-hi);
 }
 
 .QuotaName, .QuotaValue {
@@ -1414,16 +1414,16 @@ A.Black {
     text-decoration: none !important;
     border-bottom-style: double;
     border-bottom-width: 3px;
-    border-bottom-color: #d0d0d0;
+    border-bottom-color: var(--fcp-border);
 }
 
 .HintActive {
-    background-color: #efefef;
+    background-color: var(--fcp-surface-alt);
 }
 
 .DropdownMenu {
     border: 1px solid #e0e0e0;
-    background-color: #f0f0f0;
+    background-color: var(--fcp-surface-alt);
 }
 
 .NormalError {
@@ -1436,7 +1436,7 @@ A.Black {
 }
 
 .QuotaValue {
-    color: #0153A4;
+    color: var(--fcp-accent);
 }
 
 .ChartLegendElement {
@@ -1463,7 +1463,7 @@ A.Black {
 .ActivityBox {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #f0f0f0;
+    background-color: var(--fcp-surface-alt);
 }
 
 .RedStatus, .YellowStatus {
@@ -1495,8 +1495,8 @@ A.Black {
 }
 
 .TechnicalDetailsTable {
-    background-color: #FFF;
-    color: #222;
+    background-color: var(--fcp-surface);
+    color: var(--fcp-text-hi);
 }
 
 .popupComments, .popupHint {
@@ -1532,13 +1532,13 @@ A.Black {
 
     .LogRecord .Time {
         width: 70px;
-        background-color: #f5f5f5;
+        background-color: var(--fcp-surface-alt);
         float: left;
         padding: 2px;
     }
 
     .LogRecord .Information {
-        color: #000;
+        color: var(--fcp-text-hi);
         padding: 2px;
     }
 
@@ -1558,7 +1558,7 @@ A.Black {
 }
 
 .PopupExtender {
-    background-color: #fff;
+    background-color: var(--fcp-surface);
     padding: 7px;
     border: 1px solid silver;
 }
@@ -1805,7 +1805,7 @@ p.warningText {
 .ui-popupdialog {
     display: none;
     position: absolute;
-    background-color: #FFF;
+    background-color: var(--fcp-surface);
     border: 1px solid silver;
     border: 1px solid rgba(0,0,0,.15);
     background-clip: padding-box;
@@ -1813,7 +1813,7 @@ p.warningText {
 
     .ui-popupdialog .title {
         padding: 5px;
-        background: #F8F8F8;
+        background: var(--fcp-surface-alt);
     }
 
     .ui-popupdialog .content {
@@ -1823,18 +1823,18 @@ p.warningText {
     .ui-popupdialog .actions {
         padding: 5px;
         border-top: 1px solid silver;
-        background: #F0F0F0;
+        background: var(--fcp-surface-alt);
     }
 
 .ui-menu {
-    background-color: #FFF;
+    background-color: var(--fcp-surface);
     border: 1px solid silver;
     border: 1px solid rgba(0,0,0,.15);
     background-clip: padding-box;
 }
 
 .ui-widget-content {
-    background: #FFF;
+    background: var(--fcp-surface);
 }
 
 .ui-corner-all {
@@ -1844,16 +1844,16 @@ p.warningText {
 }
 
 .ui-menu-item .ui-state-hover {
-    background: #e9e9e9;
+    background: var(--fcp-surface-alt);
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-color: #fff;
-    color: #000;
+    color: var(--fcp-text-hi);
 }
 
 .ui-menu-item:hover {
-    background-color: #e9e9e9;
+    background-color: var(--fcp-surface-alt);
 }
 
 .tip-bluesimple {
@@ -1865,8 +1865,8 @@ p.warningText {
     -webkit-border-radius: 4px;
     min-width: 50px;
     max-width: 300px;
-    color: #333;
-    background-color: #fff;
+    color: var(--fcp-text);
+    background-color: var(--fcp-surface);
 }
 
     .tip-bluesimple .tip-inner {
@@ -1927,7 +1927,7 @@ p.warningText {
 }
 
 #LoginSkinContent {
-    background: #fff;
+    background: var(--fcp-surface);
 }
 
     #LoginSkinContent > a img {
@@ -2026,7 +2026,7 @@ p.warningText {
     #Breadcrumb .Path {
         padding: 10px 5px 12px 25px;
         margin-bottom: 20px;
-        background-color: #f5f5f5;
+        background-color: var(--fcp-surface-alt);
     }
 
         #Breadcrumb .Path img {
@@ -2041,7 +2041,7 @@ p.warningText {
         #Breadcrumb .Path a:not(:last-child):after, #Breadcrumb .Path span a:after {
             content: '/\00a0';
             padding: 0 5px 0 10px;
-            color: #999;
+            color: var(--fcp-text);
             display: inline-block;
         }
 
@@ -2050,13 +2050,13 @@ p.warningText {
         }
 
         #Breadcrumb .Path a, #Breadcrumb .Path a:Active, #Breadcrumb .Path a:Hover, #Breadcrumb .Path a:Visited {
-            color: #428bca;
+            color: var(--fcp-accent);
             font-size: 13px;
             line-height: 1.428571429;
         }
 
             #Breadcrumb .Path a:last-child {
-                color: #999;
+                color: var(--fcp-text);
             }
 
         #Breadcrumb .Path a.btn {
@@ -2093,7 +2093,7 @@ p.warningText {
 
 #Breadcrumb .CurrentNode A.Button, #Breadcrumb .CurrentNode A.Button:Active, #Breadcrumb .CurrentNode A.Button:Visited {
     font-size: 8pt;
-    color: #1F4978 !important;
+    color: var(--fcp-accent) !important;
 }
 
 #Left {
@@ -2106,7 +2106,7 @@ p.warningText {
 
     #Left .MenuHeader, #Left .NewsMenuHeader {
         margin-top: 5px;
-        color: #1F4978;
+        color: var(--fcp-accent);
         font-size: 9pt;
     }
 
@@ -2119,8 +2119,8 @@ p.warningText {
 
     #Left .Menu {
         padding: 0 3px 5px;
-        background-color: #D1E9FF;
-        border: 1px solid #86B9F7;
+        background-color: var(--fcp-surface-alt);
+        border: 1px solid var(--fcp-accent);
         border-top: none;
         margin-bottom: 20px;
     }
@@ -2133,8 +2133,8 @@ p.warningText {
     }
 
     #Left .NewsMenu {
-        background-color: #FFF;
-        border: 1px solid #86B9F7;
+        background-color: var(--fcp-surface);
+        border: 1px solid var(--fcp-accent);
         border-top: none;
     }
 
@@ -2193,7 +2193,7 @@ p.warningText {
     #SimpleWhiteOutline {
         width: 100%;
         height: 100%;
-        background-color: #FFF;
+        background-color: var(--fcp-surface);
     }
 
     table.failed {
@@ -2203,3 +2203,7 @@ p.warningText {
     table.failed tr td:first-child {
         width: 15%;
     }
+
+
+
+

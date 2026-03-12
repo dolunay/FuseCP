@@ -192,4 +192,58 @@
   <data name="lblUseMfa.Text" xml:space="preserve">
     <value>MFA aktivieren:</value>
   </data>
+  <data name="lblPaletteColor.Text" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lblPaletteLight.Text" xml:space="preserve">
+    <value>Hell</value>
+  </data>
+  <data name="lblPaletteDark.Text" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="lblButtonProperty.Text" xml:space="preserve">
+    <value>Schaltflächen-Eigenschaft</value>
+  </data>
+  <data name="lblButtonLight.Text" xml:space="preserve">
+    <value>Hell</value>
+  </data>
+  <data name="lblButtonDark.Text" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="Palette.PageBackground" xml:space="preserve">
+    <value>Seitenhintergrund</value>
+  </data>
+  <data name="Palette.TopBarBackground" xml:space="preserve">
+    <value>Top-Leisten-Hintergrund</value>
+  </data>
+  <data name="Palette.TopBarBorder" xml:space="preserve">
+    <value>Top-Leisten-Rand</value>
+  </data>
+  <data name="Palette.SidebarBackground" xml:space="preserve">
+    <value>Sidebar-Hintergrund</value>
+  </data>
+  <data name="Palette.Surface" xml:space="preserve">
+    <value>Fläche</value>
+  </data>
+  <data name="Palette.SurfaceAlt" xml:space="preserve">
+    <value>Alternative Fläche</value>
+  </data>
+  <data name="Palette.SurfaceHover" xml:space="preserve">
+    <value>Fläche bei Hover</value>
+  </data>
+  <data name="Palette.Border" xml:space="preserve">
+    <value>Rand</value>
+  </data>
+  <data name="Palette.InputBorder" xml:space="preserve">
+    <value>Eingabefeld-Rand</value>
+  </data>
+  <data name="Palette.Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Palette.TextHigh" xml:space="preserve">
+    <value>Hervorgehobener Text</value>
+  </data>
+  <data name="Palette.Accent" xml:space="preserve">
+    <value>Akzent</value>
+  </data>
 </root>

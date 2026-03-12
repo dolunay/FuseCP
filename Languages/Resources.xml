@@ -16666,6 +16666,96 @@
     <DefaultValue>Enable MFA:</DefaultValue>
   </Resource>
   <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblPaletteColor.Text</Key>
+    <DefaultValue>Color</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblPaletteLight.Text</Key>
+    <DefaultValue>Light</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblPaletteDark.Text</Key>
+    <DefaultValue>Dark</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblButtonProperty.Text</Key>
+    <DefaultValue>Button Property</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblButtonLight.Text</Key>
+    <DefaultValue>Light</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>lblButtonDark.Text</Key>
+    <DefaultValue>Dark</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.PageBackground</Key>
+    <DefaultValue>Page Background</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.TopBarBackground</Key>
+    <DefaultValue>Top Bar Background</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.TopBarBorder</Key>
+    <DefaultValue>Top Bar Border</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.SidebarBackground</Key>
+    <DefaultValue>Sidebar Background</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.Surface</Key>
+    <DefaultValue>Surface</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.SurfaceAlt</Key>
+    <DefaultValue>Surface Alt</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.SurfaceHover</Key>
+    <DefaultValue>Surface Hover</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.Border</Key>
+    <DefaultValue>Border</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.InputBorder</Key>
+    <DefaultValue>Input Border</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.Text</Key>
+    <DefaultValue>Text</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.TextHigh</Key>
+    <DefaultValue>Text High</DefaultValue>
+  </Resource>
+  <Resource>
+    <File>DesktopModules\FuseCP\App_LocalResources\LoggedUserEditDetails.ascx.resx</File>
+    <Key>Palette.Accent</Key>
+    <DefaultValue>Accent</DefaultValue>
+  </Resource>
+  <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\Login.ascx.resx</File>
     <Key>ErrorMessage.WrongLogin</Key>
     <DefaultValue>Sorry the username or password you entered is incorrect or your account is locked.</DefaultValue>
@@ -54458,7 +54548,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>CorrectLength.Text</Key>
-    <DefaultValue>&lt;br&gt;Password should be at least {0} characters</DefaultValue>
+    <DefaultValue>Password should be at least {0} characters</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
@@ -54473,17 +54563,17 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>RequireNumbers.Text</Key>
-    <DefaultValue>&lt;br&gt;Password should contain at least {0} numbers</DefaultValue>
+    <DefaultValue>Password should contain at least {0} numbers</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>RequireSymbols.Text</Key>
-    <DefaultValue>&lt;br&gt;Password should contain at least {0} non-alphanumeric symbols</DefaultValue>
+    <DefaultValue>Password should contain at least {0} non-alphanumeric symbols</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>RequireUppercase.Text</Key>
-    <DefaultValue>&lt;br&gt;Password should contain at least {0} UPPERCASE characters</DefaultValue>
+    <DefaultValue>Password should contain at least {0} UPPERCASE characters</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
@@ -54493,7 +54583,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>valRequireConfirmPassword.Text</Key>
-    <DefaultValue>*</DefaultValue>
+    <DefaultValue />
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
@@ -54503,7 +54593,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>valRequireEqualPassword.Text</Key>
-    <DefaultValue>&lt;br&gt;Both passwords should be identical</DefaultValue>
+    <DefaultValue />
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
@@ -54513,7 +54603,7 @@ The following substitution variables can be used in the pattern:&lt;br/&gt;
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>
     <Key>valRequirePassword.Text</Key>
-    <DefaultValue>*</DefaultValue>
+    <DefaultValue />
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\UserControls\App_LocalResources\PasswordControl.ascx.resx</File>

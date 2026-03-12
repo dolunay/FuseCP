@@ -86,6 +86,24 @@ namespace FuseCP.Portal.SkinControls {
         protected global::System.Web.UI.WebControls.TextBox tbAccountId;
         
         /// <summary>
+        /// hfNoResultsText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfNoResultsText;
+        
+        /// <summary>
+        /// hfGoToSearchText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfGoToSearchText;
+        
+        /// <summary>
         /// ImageButton1 control.
         /// </summary>
         /// <remarks>

@@ -65,13 +65,15 @@
 
 <div class="card-footer">
     <div class="row g-3 align-items-end">
-        <div class="col-6">
-            <asp:Label ID="lblLanguage" runat="server" CssClass="form-label mb-1" meta:resourcekey="lblLanguage" Text="Preferred Language:"></asp:Label>
+        <div class="col-6 fcp-login-select-group">
+            <asp:Label ID="lblLanguage" runat="server" CssClass="form-label mb-1 fcp-login-select-label" meta:resourcekey="lblLanguage" Text="Preferred Language:" AssociatedControlID="ddlLanguage"></asp:Label>
+            <span class="fcp-login-select-icon bi bi-translate" aria-hidden="true"></span>
             <asp:DropDownList ID="ddlLanguage" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage_SelectedIndexChanged"></asp:DropDownList>
         </div>
-        <div class="col-6">
-            <asp:Label ID="lblTheme" runat="server" CssClass="form-label mb-1" meta:resourcekey="lblTheme" Text="Theme:"></asp:Label>
-            <asp:DropDownList ID="ddlTheme" runat="server" CssClass="form-select" DataValueField="LTRName" DataTextField="DisplayName" AutoPostBack="True" OnSelectedIndexChanged="ddlTheme_SelectedIndexChanged"></asp:DropDownList>
+        <div class="col-6 fcp-login-select-group">
+            <asp:Label ID="lblTheme" runat="server" CssClass="form-label mb-1 fcp-login-select-label" meta:resourcekey="lblTheme" Text="Theme mode:" AssociatedControlID="ddlTheme"></asp:Label>
+            <span class="fcp-login-select-icon bi bi-palette" aria-hidden="true"></span>
+            <asp:DropDownList ID="ddlTheme" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlTheme_SelectedIndexChanged"></asp:DropDownList>
         </div>
     </div>
 </div>

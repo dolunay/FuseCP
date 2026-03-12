@@ -8,9 +8,10 @@
 <script type="text/javascript" src="/DesktopModules/FuseCP/Scripts/email-selection.js"></script>
 
 <fcp:EnableAsyncTasksSupport id="asyncTasks" runat="server"/>
+<div class="fcp-exchange-mailboxes-page">
 <div class="card-header">
     <h3 class="card-title">
-        <asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" />
+        <asp:Image ID="Image1" SkinID="ExchangeMailbox48" runat="server" CssClass="fcp-exchange-title-icon" />
         <asp:Localize ID="locTitle" runat="server" Text="Mailboxes"></asp:Localize>
     </h3>
 </div>
@@ -29,7 +30,7 @@
         <asp:Panel ID="SearchPanel" runat="server" DefaultButton="cmdSearch" CssClass="col-md-8 text-end d-flex flex-wrap gap-2 align-items-center mailbox-actions-right">
             <div class="mb-0">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged" CssClass="form-control">
+                    <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged" CssClass="form-select">
                         <asp:ListItem>10</asp:ListItem>
                         <asp:ListItem Selected="True">20</asp:ListItem>
                         <asp:ListItem>50</asp:ListItem>
@@ -39,7 +40,7 @@
             </div>
             <div class="mb-0">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-control">
+                    <asp:DropDownList ID="ddlSearchColumn" runat="server" CssClass="form-select">
                         <asp:ListItem Value="DisplayName" meta:resourcekey="ddlSearchColumnDisplayName">DisplayName</asp:ListItem>
                         <asp:ListItem Value="PrimaryEmailAddress" meta:resourcekey="ddlSearchColumnEmail">Email</asp:ListItem>
                         <asp:ListItem Value="AccountName" meta:resourcekey="ddlSearchColumnAccountName">AccountName</asp:ListItem>
@@ -51,21 +52,22 @@
             <div class="mb-0 mailbox-search-input">
                 <div class="input-group">
                     <asp:TextBox ID="txtSearchValue" runat="server" CssClass="form-control"></asp:TextBox>
-                    <span class="input-group-btn dropdown dropdown-lg">
+                    <span class="dropdown dropdown-lg mailbox-search-options">
                         <button type="button" class="btn btn-search-options" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Search options">
                             <span class="search-options-caret" aria-hidden="true"></span>
                         </button>
-                        <div class="dropdown-menu dropdown-menu-end" role="menu">
-                              <div class="row mb-3">
-                                <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
-                                  <br />
-                                  <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
-                                  <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />&emsp;
-                                  <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="col-12 col-sm-6" />
-                                </div>
-                              </div>
+                                                <div class="dropdown-menu dropdown-menu-end" role="menu">
+                                                        <div class="mailbox-search-menu">
+                                                                <div class="mailbox-search-menu-title">
+                                                                        <asp:Localize ID="locIncludeSearch" runat="server" Text="Include in search:"></asp:Localize>
+                                                                </div>
+                                                                <asp:CheckBox ID="chkMailboxes" runat="server" meta:resourcekey="chkMailboxes" Text="Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="mailbox-search-check" />
+                                                                <asp:CheckBox ID="chkResourceMailboxes" runat="server" meta:resourcekey="chkResourceMailboxes" Text="Resource Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="mailbox-search-check" />
+                                                                <asp:CheckBox ID="chkSharedMailboxes" runat="server" meta:resourcekey="chkSharedMailboxes" Text="Shared Mailboxes" AutoPostBack="true" OnCheckedChanged="chkMailboxes_CheckedChanged" CssClass="mailbox-search-check" />
+                                                        </div>
+                                                </div>
                     </span>
-                    <span class="input-group-btn">
+                    <span class="mailbox-search-submit">
                         <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="false" CssClass="btn btn-primary">
                             <i class="bi bi-search" aria-hidden="true"></i>
                         </asp:LinkButton>
@@ -93,7 +95,7 @@
     <asp:TemplateField HeaderText="gvMailboxesDisplayName" SortExpression="DisplayName">
         <ItemStyle></ItemStyle>
         <ItemTemplate>
-            <asp:Image ID="img1" runat="server" ImageUrl='<%# GetAccountImage((int)Eval("AccountType"),(bool)Eval("IsVIP")) %>' ImageAlign="AbsMiddle" />
+            <i class='<%# GetAccountIconClass((int)Eval("AccountType"),(bool)Eval("IsVIP")) %>' aria-hidden="true"></i>
             <asp:HyperLink id="lnk1" runat="server" NavigateUrl='<%# GetMailboxEditUrl(Eval("AccountId").ToString()) %>'>
                 <%# PortalAntiXSS.EncodeOld((string)Eval("DisplayName")) %>
             </asp:HyperLink>
@@ -157,4 +159,5 @@
         </div>
     </ItemTemplate>
 </asp:Repeater>
+</div>
 

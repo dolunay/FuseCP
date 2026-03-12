@@ -180,4 +180,58 @@
   <data name="valRequireGridItems.Text" xml:space="preserve">
     <value>*</value>
   </data>
+  <data name="lblPaletteColor.Text" xml:space="preserve">
+    <value>اللون</value>
+  </data>
+  <data name="lblPaletteLight.Text" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="lblPaletteDark.Text" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="lblButtonProperty.Text" xml:space="preserve">
+    <value>خصائص الزر</value>
+  </data>
+  <data name="lblButtonLight.Text" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="lblButtonDark.Text" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="Palette.PageBackground" xml:space="preserve">
+    <value>خلفية الصفحة</value>
+  </data>
+  <data name="Palette.TopBarBackground" xml:space="preserve">
+    <value>خلفية الشريط العلوي</value>
+  </data>
+  <data name="Palette.TopBarBorder" xml:space="preserve">
+    <value>حدود الشريط العلوي</value>
+  </data>
+  <data name="Palette.SidebarBackground" xml:space="preserve">
+    <value>خلفية الشريط الجانبي</value>
+  </data>
+  <data name="Palette.Surface" xml:space="preserve">
+    <value>السطح</value>
+  </data>
+  <data name="Palette.SurfaceAlt" xml:space="preserve">
+    <value>سطح بديل</value>
+  </data>
+  <data name="Palette.SurfaceHover" xml:space="preserve">
+    <value>سطح التحويم</value>
+  </data>
+  <data name="Palette.Border" xml:space="preserve">
+    <value>الحدود</value>
+  </data>
+  <data name="Palette.InputBorder" xml:space="preserve">
+    <value>حدود الإدخال</value>
+  </data>
+  <data name="Palette.Text" xml:space="preserve">
+    <value>النص</value>
+  </data>
+  <data name="Palette.TextHigh" xml:space="preserve">
+    <value>نص عالي التباين</value>
+  </data>
+  <data name="Palette.Accent" xml:space="preserve">
+    <value>لون التمييز</value>
+  </data>
 </root>
