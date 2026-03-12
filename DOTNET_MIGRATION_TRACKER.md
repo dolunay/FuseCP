@@ -113,6 +113,15 @@ Remediation result (2026-03-12):
 - Ran first WebPortal net10 build successfully and captured warning backlog.
 - Resolved WebPortal warning backlog and validated clean net10 build.
 
+### 2026-03-13
+
+- Synced local `main` to `upstream/main` (`2eacb283f`) and resumed Phase 3/TASK-016 from tracker notes.
+- Ran focused build validation for `FuseCP/Sources/FuseCP.Providers.HostedSolution/FuseCP.Providers.HostedSolution.csproj` on `net10.0-windows`.
+- Confirmed blocker: generated CRM proxy (`CRMProxy.cs`) depends on legacy `System.Web.Services.Protocols` APIs (`System.Web.Services.*` namespace), which are not directly available through supported modern package references for .NET 10.
+- Result: HostedSolution remains blocked on CRM SOAP proxy modernization strategy (regenerate/replace proxy stack or isolate legacy path) before TASK-016 can be marked complete.
+- Implemented CRM decommission baseline in data seeds by removing CRM providers, quotas, and resource groups from `FuseCP.EnterpriseServer.Data` configuration seeds (including `Configuration/Sources` mirrors).
+- Added idempotent CRM cleanup guards to DB upgrade/install paths (`FuseCP/Database/update_db.sql`, `install.sqlserver.sql`, `install.mysql.sql`, `install.postgresql.sql`, `install.sqlite.sql`) and legacy migration script (`FuseCP/Sources/FuseCP.EnterpriseServer.Data/LegacyScripts/update_db.sql`) to safely handle legacy CRM rows.
+
 ## Definition of Done (Per Project)
 
 - [ ] Builds successfully for intended target frameworks.

@@ -20427,4 +20427,56 @@ BEGIN
 	INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 	VALUES (N'20251104195729_v1.5.1', N'9.0.9');
 END;
+
+IF NOT EXISTS (
+	SELECT * FROM [__EFMigrationsHistory]
+	WHERE [MigrationId] = N'20260313093000_RemoveLegacyCrmArtifacts'
+)
+BEGIN
+	IF OBJECT_ID(N'[dbo].[PackageQuotas]') IS NOT NULL
+		DELETE FROM [dbo].[PackageQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+	IF OBJECT_ID(N'[dbo].[HostingPlanQuotas]') IS NOT NULL
+		DELETE FROM [dbo].[HostingPlanQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+	IF OBJECT_ID(N'[dbo].[Quotas]') IS NOT NULL
+		DELETE FROM [dbo].[Quotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+	IF OBJECT_ID(N'[dbo].[ServiceDefaultProperties]') IS NOT NULL
+		DELETE FROM [dbo].[ServiceDefaultProperties] WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206);
+
+	IF OBJECT_ID(N'[dbo].[Providers]') IS NOT NULL AND OBJECT_ID(N'[dbo].[Services]') IS NOT NULL
+		DELETE FROM [dbo].[Providers]
+		WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206)
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[Services] AS s WHERE s.[ProviderID] = [Providers].[ProviderID]);
+
+	IF OBJECT_ID(N'[dbo].[ResourceGroups]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[Providers]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[Quotas]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[HostingPlanResources]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[PackageResources]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[PackagesBandwidth]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[PackagesDiskspace]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[ServiceItemTypes]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[VirtualGroups]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[Servers]') IS NOT NULL
+	   AND OBJECT_ID(N'[dbo].[StorageSpaceLevelResourceGroups]') IS NOT NULL
+	BEGIN
+		DELETE FROM [dbo].[ResourceGroups]
+		WHERE [GroupID] IN (21, 24)
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[Providers] AS p WHERE p.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[Quotas] AS q WHERE q.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[HostingPlanResources] AS hpr WHERE hpr.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackageResources] AS pr WHERE pr.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesBandwidth] AS pb WHERE pb.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesDiskspace] AS pd WHERE pd.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[ServiceItemTypes] AS sit WHERE sit.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[VirtualGroups] AS vg WHERE vg.[GroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[Servers] AS srv WHERE srv.[PrimaryGroupID] = [ResourceGroups].[GroupID])
+		  AND NOT EXISTS (SELECT 1 FROM [dbo].[StorageSpaceLevelResourceGroups] AS slrg WHERE slrg.[GroupID] = [ResourceGroups].[GroupID]);
+	END;
+
+	INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+	VALUES (N'20260313093000_RemoveLegacyCrmArtifacts', N'9.0.9');
+END;
 GO

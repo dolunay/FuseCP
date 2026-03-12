@@ -111,7 +111,6 @@ public partial class ProviderConfiguration: EntityTypeConfiguration<Provider>
             new Provider() { ProviderId = 160, DisplayName = "IceWarp Mail Server", EditorControl = "IceWarp", GroupId = 4, ProviderName = "IceWarp", ProviderType = "FuseCP.Providers.Mail.IceWarp, FuseCP.Providers.Mail.IceWarp" },
             new Provider() { ProviderId = 200, DisplayName = "Hosted Windows SharePoint Services 3.0", EditorControl = "HostedSharePoint30", GroupId = 20, ProviderName = "HostedSharePoint30", ProviderType = "FuseCP.Providers.HostedSolution.HostedSharePointServer, FuseCP.Providers.Hoste" +
                 "dSolution" },
-            new Provider() { ProviderId = 201, DisplayName = "Hosted MS CRM 4.0", EditorControl = "CRM", GroupId = 21, ProviderName = "CRM", ProviderType = "FuseCP.Providers.HostedSolution.CRMProvider, FuseCP.Providers.HostedSolution" },
             new Provider() { ProviderId = 202, DisplayName = "Microsoft SQL Server 2008", EditorControl = "MSSQL", GroupId = 22, ProviderName = "MsSQL", ProviderType = "FuseCP.Providers.Database.MsSqlServer2008, FuseCP.Providers.Database.SqlServer" },
             new Provider() { ProviderId = 203, DisableAutoDiscovery = true, DisplayName = "BlackBerry 4.1", EditorControl = "BlackBerry", GroupId = 31, ProviderName = "BlackBerry 4.1",
                 ProviderType = "FuseCP.Providers.HostedSolution.BlackBerryProvider, FuseCP.Providers.HostedSol" +
@@ -162,15 +161,7 @@ public partial class ProviderConfiguration: EntityTypeConfiguration<Provider>
                 "rage.Windows2012" },
             new Provider() { ProviderId = 700, DisplayName = "Storage Spaces Windows 2012", EditorControl = "StorageSpaceServices", GroupId = 49, ProviderName = "StorageSpace2012", ProviderType = "FuseCP.Providers.StorageSpaces.Windows2012, FuseCP.Providers.StorageSpaces.Win" +
                 "dows2012" },
-            new Provider() { ProviderId = 1201, DisplayName = "Hosted MS CRM 2011", EditorControl = "CRM2011", GroupId = 21, ProviderName = "CRM", ProviderType = "FuseCP.Providers.HostedSolution.CRMProvider2011, FuseCP.Providers.HostedSoluti" +
-                "on.CRM2011" },
-            new Provider() { ProviderId = 1202, DisplayName = "Hosted MS CRM 2013", EditorControl = "CRM2011", GroupId = 24, ProviderName = "CRM", ProviderType = "FuseCP.Providers.HostedSolution.CRMProvider2013, FuseCP.Providers.HostedSoluti" +
-                "on.Crm2013" },
             new Provider() { ProviderId = 1203, DisplayName = "Microsoft SQL Server 2014", EditorControl = "MSSQL", GroupId = 46, ProviderName = "MsSQL", ProviderType = "FuseCP.Providers.Database.MsSqlServer2014, FuseCP.Providers.Database.SqlServer" },
-            new Provider() { ProviderId = 1205, DisplayName = "Hosted MS CRM 2015", EditorControl = "CRM2011", GroupId = 24, ProviderName = "CRM", ProviderType = "FuseCP.Providers.HostedSolution.CRMProvider2015, FuseCP.Providers.HostedSoluti" +
-                "on.Crm2015" },
-            new Provider() { ProviderId = 1206, DisplayName = "Hosted MS CRM 2016", EditorControl = "CRM2011", GroupId = 24, ProviderName = "CRM", ProviderType = "FuseCP.Providers.HostedSolution.CRMProvider2016, FuseCP.Providers.HostedSoluti" +
-                "on.Crm2016" },
             new Provider() { ProviderId = 1301, DisplayName = "Hosted SharePoint Foundation 2013", EditorControl = "HostedSharePoint30", GroupId = 20, ProviderName = "HostedSharePoint2013", ProviderType = "FuseCP.Providers.HostedSolution.HostedSharePointServer2013, FuseCP.Providers.H" +
                 "ostedSolution.SharePoint2013" },
             new Provider() { ProviderId = 1306, DisplayName = "Hosted SharePoint Foundation 2016", EditorControl = "HostedSharePoint30", GroupId = 20, ProviderName = "HostedSharePoint2016", ProviderType = "FuseCP.Providers.HostedSolution.HostedSharePointServer2016, FuseCP.Providers.H" +

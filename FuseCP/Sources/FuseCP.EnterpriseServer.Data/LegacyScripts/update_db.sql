@@ -21742,6 +21742,51 @@ CREATE FUNCTION [dbo].[UserParents]
     END
 GO
 
+-- CRM decommission cleanup for legacy SolidCP -> FuseCP upgrade paths.
+IF OBJECT_ID(N'[dbo].[PackageQuotas]') IS NOT NULL
+	DELETE FROM [dbo].[PackageQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+IF OBJECT_ID(N'[dbo].[HostingPlanQuotas]') IS NOT NULL
+	DELETE FROM [dbo].[HostingPlanQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+IF OBJECT_ID(N'[dbo].[Quotas]') IS NOT NULL
+	DELETE FROM [dbo].[Quotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
+
+IF OBJECT_ID(N'[dbo].[ServiceDefaultProperties]') IS NOT NULL
+	DELETE FROM [dbo].[ServiceDefaultProperties] WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206);
+
+IF OBJECT_ID(N'[dbo].[Providers]') IS NOT NULL AND OBJECT_ID(N'[dbo].[Services]') IS NOT NULL
+	DELETE FROM [dbo].[Providers]
+	WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206)
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[Services] AS s WHERE s.[ProviderID] = [Providers].[ProviderID]);
+
+IF OBJECT_ID(N'[dbo].[ResourceGroups]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[Providers]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[Quotas]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[HostingPlanResources]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[PackageResources]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[PackagesBandwidth]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[PackagesDiskspace]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[ServiceItemTypes]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[VirtualGroups]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[Servers]') IS NOT NULL
+   AND OBJECT_ID(N'[dbo].[StorageSpaceLevelResourceGroups]') IS NOT NULL
+BEGIN
+	DELETE FROM [dbo].[ResourceGroups]
+	WHERE [GroupID] IN (21, 24)
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[Providers] AS p WHERE p.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[Quotas] AS q WHERE q.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[HostingPlanResources] AS hpr WHERE hpr.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackageResources] AS pr WHERE pr.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesBandwidth] AS pb WHERE pb.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesDiskspace] AS pd WHERE pd.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[ServiceItemTypes] AS sit WHERE sit.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[VirtualGroups] AS vg WHERE vg.[GroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[Servers] AS srv WHERE srv.[PrimaryGroupID] = [ResourceGroups].[GroupID])
+	  AND NOT EXISTS (SELECT 1 FROM [dbo].[StorageSpaceLevelResourceGroups] AS slrg WHERE slrg.[GroupID] = [ResourceGroups].[GroupID]);
+END;
+GO
+
 -- Fix AddDnsRecord
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE type = 'P' AND name = 'AddDnsRecord')
 DROP PROCEDURE AddDnsRecord

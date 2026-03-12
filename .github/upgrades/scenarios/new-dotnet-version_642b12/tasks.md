@@ -199,12 +199,17 @@ This document tracks the bottom-up incremental upgrade of the FuseCP.Server solu
 ### [▶] TASK-016: Phase 3 - Upgrade specialized providers
 **References**: Plan §Phase 3: Specialized Providers
 
+Current blocker note (2026-03-13):
+- `FuseCP.Providers.HostedSolution` net10 build fails in `CRMProxy.cs` due to missing legacy `System.Web.Services.Protocols` API surface.
+- `System.Web.Services` is not available as a direct modern package; migration requires CRM SOAP proxy modernization or explicit legacy path isolation.
+- CRM decommission path has been started in EF seeds and SQL migration/install scripts; follow-up validation is required for legacy database upgrade paths.
+
 - [▶] (1) Update target framework in HostedSolution base provider to net10.0-windows per Plan §Sub-Phase 3a (critical: 17 providers depend on this)
 - [ ] (2) Install Directory Services NuGet packages (System.DirectoryServices, System.DirectoryServices.AccountManagement, System.DirectoryServices.Protocols)
 - [ ] (3) Address 677 issues in HostedSolution base per Plan §HostedSolution Base & Extensions (focus: AD/LDAP, IdentityModel, GDI+)
 - [ ] (4) HostedSolution base builds with 0 errors (**Verify**)
-- [ ] (5) Update target framework in Exchange, SharePoint, Lync/SfB, CRM providers per Plan §Phase 3
-- [ ] (6) Update management SDKs (Exchange EWS, SharePoint CSOM, Lync/SfB SDK, Dynamics CRM SDK)
+- [ ] (5) Update target framework in Exchange, SharePoint, Lync/SfB providers per Plan §Phase 3 (CRM providers decommissioned)
+- [ ] (6) Update management SDKs (Exchange EWS, SharePoint CSOM, Lync/SfB SDK)
 - [ ] (7) Update target framework in DNS/Mail/OS extension providers (SimpleDNS variants, MsDNS2016, Windows 2019/2022/2025, RDS variants)
 - [ ] (8) Update target framework in WebDav and EnterpriseStorage providers
 - [ ] (9) All Phase 3 project files updated (**Verify**)
@@ -220,7 +225,7 @@ This document tracks the bottom-up incremental upgrade of the FuseCP.Server solu
 - [ ] (2) Run component tests for Exchange providers (verify mailbox operations, distribution lists)
 - [ ] (3) Run component tests for SharePoint providers (verify site collection/site/list operations)
 - [ ] (4) Run component tests for Lync/SfB providers (verify user provisioning and policies)
-- [ ] (5) Run component tests for CRM providers (verify organization/user management)
+- [ ] (5) Validate legacy CRM decommission upgrade path (verify migration succeeds when legacy CRM provider/quota rows exist)
 - [ ] (6) Run component tests for remaining specialized providers
 - [ ] (7) Fix any test failures
 - [ ] (8) Re-run tests after fixes
