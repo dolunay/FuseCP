@@ -4,7 +4,7 @@
 
 <div class="row mb-3">
     <asp:Label ID="lblEmailAddress" runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtName">
-        <asp:Localize ID="locAccount" runat="server" meta:resourcekey="lblEmailAddress" Text="E-mail Address: *" />
+        <asp:Localize ID="locAccount" runat="server" meta:resourcekey="lblEmailAddress" Text="E-mail Address:" />
     </asp:Label>
     <div id="EditEmailPanel" runat="server" class="col-sm-8">
         <div class="input-group">

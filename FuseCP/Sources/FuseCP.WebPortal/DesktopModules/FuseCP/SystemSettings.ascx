@@ -11,7 +11,7 @@
                         <asp:Localize runat="server" meta:resourcekey="HeaderSmtpSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                     </a>
                 </div>
-                <div id="lclSmtpSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                <div id="lclSmtpSettings" class="accordion-collapse collapse" aria-expanded="false">
                     <div class="card-body">
                         <fieldset>
                             <div class="row">
@@ -110,7 +110,7 @@
                     <asp:Localize runat="server" meta:resourcekey="HeaderBackupSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="lclBackupSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="lclBackupSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -139,7 +139,7 @@
                     <asp:Localize runat="server" meta:resourcekey="HeaderFileManagerSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="PanelFileManagereSettings" class="accordion-collapse collapse" style="overflow: hidden; height: 0px;" aria-expanded="false">
+            <div id="PanelFileManagereSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -150,7 +150,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <asp:TextBox TextMode="MultiLine" Rows="10" runat="server" ID="txtFileManagerEditableExtensions" CssClass="form-control" />
-                                        <asp:Literal ID="SettinglitFileManagerEditableExtensions" runat="Server" meta:resourcekey="SettinglitFileManagerEditableExtensions" Text=" (One (1) extension per line)"></asp:Literal>
+                                        <asp:Literal ID="SettinglitFileManagerEditableExtensions" runat="server" meta:resourcekey="SettinglitFileManagerEditableExtensions" Text=" (One (1) extension per line)"></asp:Literal>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                     <asp:Localize runat="server" meta:resourcekey="HeaderRdsSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="RdsSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="RdsSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -198,7 +198,7 @@
                     <asp:Localize runat="server" meta:resourcekey="HeaderOwaSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="OwaSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="OwaSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -239,7 +239,7 @@
                     <asp:Localize runat="server" meta:resourcekey="HeaderCloudStorageSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="collapse-764" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="collapse-764" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <div class="accordion" id="collapse-765">
                         <div class="card">
@@ -249,7 +249,7 @@
                                     <asp:Localize runat="server" meta:resourcekey="HeaderTwilioSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                                 </a>
                             </div>
-                            <div id="TwilioSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div id="TwilioSettings" class="accordion-collapse collapse" aria-expanded="false">
                                 <div class="card-body">
                                     <div class="alert alert-info">
                                         <p>Visit <a href="https://www.twilio.com">https://www.twilio.com</a> to get your Twilio Information.</p>
@@ -312,7 +312,7 @@
                                     <asp:Localize runat="server" meta:resourcekey="HeaderCloudStorageSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                                 </a>
                             </div>
-                            <div id="WebdavPortalSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div id="WebdavPortalSettings" class="accordion-collapse collapse" aria-expanded="false">
                                 <div class="card-body">
                                     <fieldset>
                                         <div class="row">
@@ -370,7 +370,7 @@
                     <asp:Localize ID="HeaderIpRestrictionSettings" runat="server" meta:resourcekey="HeaderIpRestrictionSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="AccessIPsSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="AccessIPsSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -408,7 +408,7 @@
                     <asp:Localize ID="HeaderAuthenticationSettings" runat="server" meta:resourcekey="HeaderAuthenticationSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="AuthenticationSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="AuthenticationSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">
@@ -441,14 +441,14 @@
                 </div>
             </div>
         </div>
-        <asp:Panel id="DebugSettingsPanel" runat="Server" CssClass="card">
+        <asp:Panel id="DebugSettingsPanel" runat="server" CssClass="card">
             <div class="card-header card-header-link">
                 <span><i class="bi bi-wrench" aria-hidden="true">&nbsp;</i>&nbsp;&nbsp;</span>
                 <a data-bs-toggle="collapse" data-bs-parent="#accordion" href="#DebugSettings" aria-expanded="false" class="collapsed">
                     <asp:Localize ID="Localize1" runat="server" meta:resourcekey="HeaderDebugSettings" /><span class='bi bi-plus-lg float-end' aria-hidden='true'> </span>
                 </a>
             </div>
-            <div id="DebugSettings" class="accordion-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div id="DebugSettings" class="accordion-collapse collapse" aria-expanded="false">
                 <div class="card-body">
                     <fieldset>
                         <div class="row">

@@ -15,10 +15,8 @@
 					<asp:Localize ID="locTitle" runat="server" meta:resourcekey="locTitle" Text="Edit Mailbox"></asp:Localize>					
                     </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
-                    <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_setup" />	
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+                <fcp:MailboxTabs id="tabs" runat="server" SelectedTab="mailbox_setup" />	
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 

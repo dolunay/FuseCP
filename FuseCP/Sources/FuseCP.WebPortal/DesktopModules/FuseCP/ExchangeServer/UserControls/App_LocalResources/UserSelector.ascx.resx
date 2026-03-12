@@ -133,7 +133,7 @@
     <value>Organization Users</value>
   </data>
   <data name="UserLookup.Text" xml:space="preserve">
-    <value>&amp;lt;i class='bi bi-folder2-open' aria-hidden='true'&amp;gt;&amp;lt;/i&amp;gt;&amp;nbsp;Lookup User</value>
+    <value>Lookup User</value>
   </data>
   <data name="btnCancelText.Text" xml:space="preserve">
     <value>Cancel</value>

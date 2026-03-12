@@ -3644,6 +3644,11 @@ body {
     background: var(--fcp-sidebar-bg);
 }
 
+:root {
+    --fcp-ui-font-size: 13px;
+    --fcp-ui-line-height: 1.45;
+}
+
 hr {
     border-color: #ccc;
 }
@@ -4197,6 +4202,18 @@ select.input-sm {
 .btn, .btn-group > .btn {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
+}
+
+.form-control,
+.form-select,
+.input-group-text,
+.btn,
+.btn-group > .btn,
+label,
+.form-label,
+.SubHead {
+    font-size: var(--fcp-ui-font-size);
+    line-height: var(--fcp-ui-line-height);
 }
 
 .custom-tabs-left .tab-content {
@@ -7095,7 +7112,7 @@ legend {
 
 .top-bar .search-top .fcp-search-trigger:hover,
 .top-bar .search-top .fcp-search-trigger:focus {
-    background-color: fade(var(--fcp-accent), 10%) !important;
+    background-color: color-mix(in srgb, var(--fcp-accent) 10%, transparent) !important;
 }
 
 .top-bar .search-top input[type="text"],
@@ -7986,6 +8003,8 @@ html.dark-theme .card-body input[type="image"]:hover,
 html.dark-theme .card-footer input[type="image"]:hover {
     filter: grayscale(1) brightness(0) invert(1) opacity(1);
 }
+
+.fcp-user-packages-panel .Icon {
     border-radius: 12px;
     background: var(--fcp-surface);
     box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
@@ -10084,7 +10103,7 @@ ul.nav-categories {
     }
 
 body .page-login {
-    background-color: #EFEFEF;
+    background-color: var(--fcp-bg);
     display: table;
     position: absolute;
     height: 100%;
@@ -11475,10 +11494,18 @@ ul.project-activity-list > li {
 }
 
 .Popup {
-    width: 50%;
-    overflow-y: scroll;
-    max-height: 90%;
+    width: 90%;
+    max-width: 800px;
+    overflow-y: auto;
+    max-height: 90vh;
     padding: 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
 }
 
 .PopupContainer {
@@ -12195,7 +12222,7 @@ html.dark-theme .fcp-exchange-title-icon {
 }
 
 #Breadcrumb .CurrentNode {
-    border-bottom: 1px solid var(--fcp-border);
+    border-bottom: none !important;
     padding: 0 0 10px;
 }
 
@@ -12385,9 +12412,9 @@ html.dark-theme .fcp-exchange-title-icon {
 
     table.fcp-responsive-grid > tbody > tr {
         margin-bottom: 10px;
-        border: 1px solid #e6eaee;
+        border: 1px solid var(--fcp-border);
         border-radius: 6px;
-        background: #fff;
+        background: var(--fcp-surface);
     }
 
     table.fcp-responsive-grid > tbody > tr > td {
@@ -12396,7 +12423,7 @@ html.dark-theme .fcp-exchange-title-icon {
         width: 100% !important;
         max-width: none !important;
         border: 0;
-        border-bottom: 1px solid #f1f3f5;
+        border-bottom: 1px solid var(--fcp-border);
         padding: 8px 10px;
         text-align: left;
         white-space: normal !important;
@@ -12413,7 +12440,7 @@ html.dark-theme .fcp-exchange-title-icon {
         display: block;
         margin-bottom: 4px;
         font-weight: 600;
-        color: #4a5661;
+        color: var(--fcp-text-hi);
         text-transform: uppercase;
         letter-spacing: .02em;
         font-size: 11px;
@@ -12459,6 +12486,54 @@ html.dark-theme .fcp-exchange-title-icon {
         max-width: 100%;
     }
 
+    // Fallback: some legacy popup GridViews may not emit fcp-responsive-grid class on <table>.
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table {
+        min-width: 0;
+        width: 100%;
+        border: 0;
+        margin-bottom: 10px;
+    }
+
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > thead,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > thead {
+        display: none;
+    }
+
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > tbody,
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > tbody > tr,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > tbody,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > tbody > tr {
+        display: block !important;
+        width: 100%;
+    }
+
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > tbody > tr,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > tbody > tr {
+        margin-bottom: 10px;
+        border: 1px solid var(--fcp-border);
+        border-radius: 6px;
+        background: var(--fcp-surface);
+    }
+
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > tbody > tr > td,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > tbody > tr > td {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        border: 0;
+        border-bottom: 1px solid var(--fcp-border);
+        padding: 8px 10px;
+        text-align: left;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .widget-content.Popup .Popup-Scroll .NormalGridView > table > tbody > tr > td:last-child,
+    .widget-content.Popup .Popup-Scroll .LightGridView > table > tbody > tr > td:last-child {
+        border-bottom: 0;
+    }
+
     .AspNet-GridView-Pagination,
     .NormalGridView .AspNet-GridView-Pagination,
     .LightGridView .AspNet-GridView-Pagination {
@@ -12475,9 +12550,23 @@ html.dark-theme .fcp-exchange-title-icon {
     padding-right: 0;
 }
 
+.fcp-system-settings {
+    --fcp-settings-section-border: var(--fcp-border);
+    --fcp-settings-header-bg: var(--fcp-surface-alt);
+    --fcp-settings-header-border: var(--fcp-border);
+    --fcp-settings-header-icon: var(--fcp-accent);
+    --fcp-settings-header-text: var(--fcp-text-hi);
+    --fcp-settings-header-toggle: var(--fcp-text);
+    --fcp-settings-label: var(--fcp-text);
+    --fcp-settings-helper: var(--fcp-text);
+    --fcp-settings-info-border: color-mix(in srgb, var(--fcp-accent) 24%, var(--fcp-border));
+    --fcp-settings-info-bg: color-mix(in srgb, var(--fcp-accent) 8%, var(--fcp-surface));
+    --fcp-settings-info-text: color-mix(in srgb, var(--fcp-text-hi) 75%, var(--fcp-accent));
+}
+
 .fcp-system-settings .accordion > .card,
 .fcp-system-settings > .container > .card {
-    border: 1px solid #dbe2ea;
+    border: 1px solid var(--fcp-settings-section-border);
     border-radius: 10px;
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     margin-bottom: 12px;
@@ -12485,8 +12574,8 @@ html.dark-theme .fcp-exchange-title-icon {
 }
 
 .fcp-system-settings .card-header.card-header-link {
-    background: #f8fbff;
-    border-bottom: 1px solid #e4ebf3;
+    background: var(--fcp-settings-header-bg);
+    border-bottom: 1px solid var(--fcp-settings-header-border);
     padding: 12px 14px;
 }
 
@@ -12495,7 +12584,7 @@ html.dark-theme .fcp-exchange-title-icon {
     width: 26px;
     align-items: center;
     justify-content: center;
-    color: #5f88b4;
+    color: var(--fcp-settings-header-icon);
 }
 
 .fcp-system-settings .card-header.card-header-link > a {
@@ -12505,14 +12594,14 @@ html.dark-theme .fcp-exchange-title-icon {
     justify-content: space-between;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.35;
-    color: #2f3f53;
+    color: var(--fcp-settings-header-text);
 }
 
 .fcp-system-settings .card-header.card-header-link > a .bi-plus-lg {
     font-size: 14px;
-    color: #6b839d;
+    color: var(--fcp-settings-header-toggle);
 }
 
 .fcp-system-settings .accordion-collapse > .card-body {
@@ -12540,7 +12629,14 @@ html.dark-theme .fcp-exchange-title-icon {
     margin: 0;
     padding-top: 8px;
     font-weight: 600;
-    color: #425466;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--fcp-settings-label);
+}
+
+.fcp-system-settings h5.form-label {
+    font-size: 0.9375rem;
+    line-height: 1.4;
 }
 
 .fcp-system-settings .mb-3 > .col-sm-6,
@@ -12553,16 +12649,17 @@ html.dark-theme .fcp-exchange-title-icon {
 
 .fcp-system-settings .form-control,
 .fcp-system-settings .form-select {
-    min-height: 40px;
+    min-height: 38px;
     border-radius: 8px;
-    border-color: #cfd8e3;
+    border-color: var(--fcp-input-bdr);
+    font-size: 0.9375rem;
     box-shadow: none;
 }
 
 .fcp-system-settings .form-control:focus,
 .fcp-system-settings .form-select:focus {
-    border-color: #87add7;
-    box-shadow: 0 0 0 3px rgba(102, 153, 204, 0.16);
+    border-color: var(--fcp-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--fcp-accent) 20%, transparent);
 }
 
 .fcp-system-settings textarea.form-control {
@@ -12623,7 +12720,8 @@ html.dark-theme .fcp-exchange-title-icon {
 .fcp-system-settings .fcp-check-inline label {
     margin: 0;
     cursor: pointer;
-    color: #2f3f53;
+    font-size: 0.9375rem;
+    color: var(--fcp-settings-label);
 }
 
 .fcp-system-settings .accordion-collapse > .card-body > .btn.btn-success.w-100 {
@@ -12655,22 +12753,22 @@ html.dark-theme .fcp-exchange-title-icon {
 
 .fcp-system-settings .accordion-collapse > .card-body > hr {
     margin: 14px 0 12px;
-    border-top-color: #e5ebf2;
+    border-top-color: var(--fcp-settings-header-border);
 }
 
 .fcp-system-settings .text-info,
 .fcp-system-settings .mb-3 .text-info,
 .fcp-system-settings .mb-3 p {
-    color: #5b6f85 !important;
+    color: var(--fcp-settings-helper) !important;
     font-size: 12px;
     line-height: 1.5;
     margin-top: 6px;
 }
 
 .fcp-system-settings .alert.alert-info {
-    border-color: #d7e7f7;
-    background: #f6fbff;
-    color: #46627f;
+    border-color: var(--fcp-settings-info-border);
+    background: var(--fcp-settings-info-bg);
+    color: var(--fcp-settings-info-text);
     padding: 10px 12px;
 }
 
@@ -12713,7 +12811,7 @@ html.dark-theme .fcp-exchange-title-icon {
     width: 280px;
     max-width: 40%;
     font-weight: 600;
-    color: #2f3f53;
+    color: var(--fcp-text-hi);
 }
 
 .card-body.form-horizontal .table.table-borderless.align-middle .form-control,
@@ -12740,9 +12838,268 @@ html.dark-theme .fcp-exchange-title-icon {
     padding: 20px;
 }
 
+/* Exchange mailbox/contact/distribution settings pages: style legacy MailboxTabs/UserTabs controls project-wide. */
+.card-body.form-horizontal {
+    > .nav.nav-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        border-bottom: 1px solid var(--fcp-border);
+        margin-bottom: 1rem;
+    }
+
+    > .nav.nav-tabs a.Tab,
+    > .nav.nav-tabs a.ActiveTab {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 0.625rem;
+        min-height: 34px;
+        padding: 0.35rem 0.7rem;
+        border-radius: 0.45rem;
+        border: 1px solid var(--fcp-border);
+        text-decoration: none;
+        color: var(--fcp-text);
+        background: var(--fcp-surface-alt);
+        font-size: 0.875rem;
+        line-height: 1.2;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    > .nav.nav-tabs a.Tab:hover,
+    > .nav.nav-tabs a.Tab:focus {
+        color: var(--fcp-text-hi);
+        background: var(--fcp-surface-h);
+        border-color: var(--fcp-border);
+    }
+
+    > .nav.nav-tabs a.ActiveTab,
+    > .nav.nav-tabs a.ActiveTab:hover,
+    > .nav.nav-tabs a.ActiveTab:focus {
+        color: #fff;
+        background: var(--bs-primary);
+        border-color: var(--bs-primary);
+    }
+}
+
+/* Shared modern tab styling for all modules using fcp-modern-tabs markup. */
+.fcp-modern-tabs {
+    margin-bottom: 0;
+}
+
+.fcp-modern-nav-tabs {
+    gap: 0.5rem;
+    border: none;
+}
+
+.fcp-modern-nav-tabs .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    min-height: 34px;
+    margin-top: -1px;
+    border-radius: 0.35rem 0.35rem 0 0;
+    border: 1px solid var(--fcp-border);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    color: var(--fcp-text);
+    background: var(--fcp-surface-alt);
+    transition: all 0.15s ease;
+}
+
+.fcp-modern-nav-tabs .nav-link:hover {
+    color: var(--fcp-text-hi);
+    background: var(--fcp-surface-h);
+    border-color: var(--fcp-border);
+}
+
+.fcp-modern-nav-tabs .nav-link:focus {
+    color: var(--fcp-text-hi);
+    background: var(--fcp-surface-h);
+    border-color: var(--bs-primary);
+    outline: none;
+}
+
+.fcp-modern-nav-tabs .nav-link.active {
+    color: #fff;
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    font-weight: 600;
+}
+
+.fcp-modern-nav-tabs .nav-link.active:hover,
+.fcp-modern-nav-tabs .nav-link.active:focus {
+    color: #fff;
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+/* Exchange edit user page: restore spacing and style legacy tab controls in theme-aware way. */
+.fcp-org-user-page {
+    .nav.nav-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        border-bottom: 1px solid var(--fcp-border);
+        margin-bottom: 1rem;
+    }
+
+    .nav.nav-tabs a.Tab,
+    .nav.nav-tabs a.ActiveTab {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 0.625rem;
+        min-height: 34px;
+        padding: 0.35rem 0.7rem;
+        border-radius: 0.45rem;
+        border: 1px solid var(--fcp-border);
+        text-decoration: none;
+        color: var(--fcp-text);
+        background: var(--fcp-surface-alt);
+        font-size: 0.875rem;
+        line-height: 1.2;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav.nav-tabs a.Tab:hover,
+    .nav.nav-tabs a.Tab:focus {
+        color: var(--fcp-text-hi);
+        background: var(--fcp-surface-h);
+        border-color: var(--fcp-border);
+    }
+
+    .nav.nav-tabs a.ActiveTab,
+    .nav.nav-tabs a.ActiveTab:hover,
+    .nav.nav-tabs a.ActiveTab:focus {
+        color: #fff;
+        background: var(--bs-primary);
+        border-color: var(--bs-primary);
+    }
+
+    .fcp-user-header-row,
+    .fcp-user-display-row {
+        row-gap: 0.5rem;
+    }
+
+    .input-group > .input-group-text {
+        background: var(--fcp-surface-alt);
+        color: var(--fcp-text-hi);
+        border-color: var(--fcp-border);
+    }
+
+    // Remove top border on nested tab-content card (avoids double-border with nav-tabs below)
+    .card.tab-content {
+        border-top: none;
+    }
+
+    .fcp-user-toggle-row {
+        margin-top: 0.5rem;
+    }
+
+    .fcp-user-toggle-list {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 0.5rem;
+        row-gap: 0.55rem;
+        align-items: center;
+    }
+
+    .fcp-user-toggle-list > input[type="checkbox"],
+    .fcp-user-toggle-list > span input[type="checkbox"] {
+        margin: 0;
+        justify-self: start;
+        align-self: center;
+        flex-shrink: 0;
+    }
+
+    .fcp-user-toggle-list > label,
+    .fcp-user-toggle-list > span label {
+        margin: 0;
+        line-height: 1.35;
+        color: var(--fcp-text-hi);
+    }
+
+    // Legacy WebForms can wrap disabled checkbox rows in a span; flatten it into grid flow.
+    .fcp-user-toggle-list > span {
+        display: contents;
+    }
+
+    .fcp-user-toggle-list > span[disabled] label {
+        opacity: 0.75;
+    }
+
+    .fcp-user-toggle-list > span + br {
+        display: none;
+    }
+
+    .fcp-manager-selector-wrap .form-label.col-sm-2 {
+        display: none;
+    }
+
+    .fcp-manager-selector-wrap .col-sm-10 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    @media (max-width: 575px) {
+        .nav.nav-tabs a.Tab,
+        .nav.nav-tabs a.ActiveTab {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    }
+
+}
+
+.fcp-user-lookup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin-right: 0.4rem;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+
+    &::before {
+        content: "\f3e7";
+        font-family: "bootstrap-icons";
+        font-size: 1rem;
+        line-height: 1;
+        display: inline-block;
+        flex-shrink: 0;
+        font-weight: 400;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+        speak: never;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+// Keep User Lookup square while in the middle of an input-group, then round the trailing clear button.
+.input-group > .btn.fcp-user-lookup-btn {
+    border-radius: 0 !important;
+    margin-right: 0 !important;
+}
+
+.input-group > .btn.fcp-user-lookup-btn + .btn {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+}
+
 .fcp-org-user-password-action {
-    margin-top: -50px;
-    margin-right: -40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
 }
 
 .fcp-ps-5 {
@@ -13241,26 +13598,43 @@ html.dark-theme .fcp-exchange-title-icon {
         font-size: 0.875rem;
         font-weight: 600;
     }
+
+    // Restore rounded-left corners on lock icon when hidden autocomplete inputs precede it
+    .fcp-password-input > .input-group-text {
+        border-top-left-radius: calc(var(--bs-border-radius) - 1px) !important;
+        border-bottom-left-radius: calc(var(--bs-border-radius) - 1px) !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+}
+
+// Restore rounded-right corners on required-asterisk spans when validator spans follow in the DOM
+.input-group > span.input-group-text[title="Required"] {
+    border-top-right-radius: calc(var(--bs-border-radius) - 1px) !important;
+    border-bottom-right-radius: calc(var(--bs-border-radius) - 1px) !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .fcp-password-policy {
-    margin-top: 0.75rem;
+    margin-top: 0;
+    margin-bottom: 0;
     padding: 0.9rem 1rem;
-    border: 1px solid #d9e0e7;
+    border: 1px solid var(--fcp-border);
     border-radius: 0.5rem;
-    background: #f8fafc;
+    background: var(--fcp-surface-alt);
 
     h3 {
         margin: 0 0 0.65rem;
         font-size: 0.95rem;
         font-weight: 700;
-        color: #1f2937;
+        color: var(--fcp-text-hi);
     }
 
     ul {
         margin: 0;
         padding-left: 1.1rem;
-        color: #4b5563;
+        color: var(--fcp-text);
     }
 
     li + li {
@@ -13841,5 +14215,192 @@ input.Button3:focus {
     background-color: var(--fcp-btn-info-h-bg) !important;
     border-color: var(--fcp-btn-info-h-bdr) !important;
     border-radius: var(--fcp-btn-radius) !important;
+}
+
+// =============================
+// FCP UI Modernization Rules
+// =============================
+
+// Global input-group styling - apply theme colors to all input addons across modals/forms
+.input-group > .input-group-text {
+    background: var(--fcp-surface-alt);
+    color: var(--fcp-text-hi);
+    border-color: var(--fcp-border);
+    
+    .bi-asterisk {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--bs-danger);
+    }
+    
+    .bi-search,
+    .bi-info-circle,
+    .bi-folder2-open {
+        font-size: 0.9rem;
+    }
+}
+
+// Improve disabled form control visibility in dark mode
+.form-control:disabled,
+.form-select:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+    background-color: var(--fcp-surface-alt);
+    color: var(--fcp-text);
+    opacity: 0.65;
+    cursor: not-allowed;
+    border-color: var(--fcp-border);
+}
+
+// ReadOnly state should also use theme
+.form-control[readonly],
+.form-select[readonly],
+input[readonly],
+textarea[readonly],
+select[readonly] {
+    background-color: var(--fcp-surface-alt);
+    color: var(--fcp-text);
+    border-color: var(--fcp-border);
+    cursor: default;
+}
+
+// Modernize required field indicators - use icon in input-group instead of asterisk text in label
+.form-label {
+    &.fcp-required::after {
+        content: "*";
+        color: var(--bs-danger);
+        font-weight: 700;
+        margin-left: 0.25rem;
+    }
+}
+
+// Widget popup styling - ensure modals respect theme
+.widget-content.Popup {
+    display: flex;
+    flex-direction: column;
+    max-height: 78vh;
+    overflow: hidden;
+    background: var(--fcp-surface);
+    color: var(--fcp-text);
+    border: 1px solid var(--fcp-border);
+
+    .FormButtonsBarClean {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        height: auto !important;
+        min-height: 26px;
+        clear: both;
+        padding-bottom: 0;
+        gap: 0.65rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .FormButtonsBarCleanRight {
+        width: 100%;
+    }
+
+    .FormButtonsBarClean .form-control,
+    .FormButtonsBarClean .form-select {
+        max-width: none;
+    }
+
+    .FormButtonsBarClean .d-flex {
+        width: 100%;
+        flex-wrap: nowrap !important;
+        gap: 0.65rem;
+    }
+
+    .FormButtonsBarClean .input-group {
+        width: auto;
+        min-width: 220px;
+        flex-wrap: nowrap;
+    }
+
+    .FormButtonsBarClean .input-group .form-control,
+    .FormButtonsBarClean .input-group .form-select {
+        min-width: 0;
+    }
+
+    .FormButtonsBarClean .input-group-btn {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .FormButtonsBarClean .input-group .btn {
+        white-space: nowrap;
+    }
+
+    // Restore proper border-radius on buttons nested inside Bootstrap 3 input-group-btn spans
+    .FormButtonsBarClean .input-group .input-group-btn:last-child > .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: var(--bs-border-radius);
+        border-bottom-right-radius: var(--bs-border-radius);
+    }
+
+    .FormButtonsBarClean .input-group .input-group-btn:last-child > .btn,
+    .FormButtonsBarClean .input-group .input-group-btn:last-child > a.btn,
+    .FormButtonsBarClean .input-group .input-group-btn:last-child > input.btn,
+    .FormButtonsBarClean .input-group .input-group-btn:last-child > button.btn {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: var(--bs-border-radius) !important;
+        border-bottom-right-radius: var(--bs-border-radius) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .widget-content.Popup .FormButtonsBarClean .d-flex {
+        flex-wrap: wrap !important;
+    }
+
+    .widget-content.Popup .FormButtonsBarClean .input-group {
+        width: 100%;
+    }
+}
+
+// Popup scroll container — fills remaining popup height via flex, search bar takes its natural size
+.Popup-Scroll {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.widget-content.Popup .Popup-Scroll .NormalGridView,
+.widget-content.Popup .Popup-Scroll .NormalGridView > table {
+    width: 100% !important;
+}
+
+.widget-content.Popup .Popup-Scroll .NormalGridView > table,
+.widget-content.Popup .Popup-Scroll .LightGridView > table {
+    table-layout: fixed;
+}
+
+.widget-content.Popup .Popup-Scroll .NormalGridView td,
+.widget-content.Popup .Popup-Scroll .NormalGridView th {
+    white-space: normal;
+    word-break: break-word;
+}
+
+// Dark-mode filter for Exchange account-type GIF icons in popup grids
+html.dark-theme .widget-content.Popup img[src*="/Exchange/"],
+html.dark-theme .Popup-Scroll img[src*="/Exchange/"] {
+    filter: brightness(0) invert(0.85);
+}
+
+// Ensure ModalPopupExtender aligns properly
+.modalBackground {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1040;
 }
 

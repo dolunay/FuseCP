@@ -29,11 +29,9 @@
                         </h3>
                 </div>
 
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
+				<div class="card-body form-horizontal fcp-modern-page">
                     <uc1:UserTabs ID="UserTabsId" runat="server" SelectedTab="user_memberof" />
                     <uc1:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="user_memberof" />
-                    </div>
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     

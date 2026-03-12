@@ -15,10 +15,8 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
-                    <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_addresses" />
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+				<fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_addresses" />
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
 					<fieldset>
@@ -28,7 +26,7 @@
                         <br />
 					   <div class="row fcp-p-20">
                            <div class="col-sm-2 fcp-lh-25">
-                               <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *"></asp:Localize>
+							   <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address:"></asp:Localize>
                            </div>
                            <div class="input-group col-sm-10">
 									<fcp:EmailAddress id="email" runat="server" ValidationGroup="AddEmail"></fcp:EmailAddress>

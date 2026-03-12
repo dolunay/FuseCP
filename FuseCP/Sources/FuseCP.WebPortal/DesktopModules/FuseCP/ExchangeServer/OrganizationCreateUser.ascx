@@ -63,7 +63,7 @@
                   
                                 <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
-                                        <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
+                                        <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
@@ -76,7 +76,7 @@
                 
                                 <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="email">
-                                        <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address: *" />
+                                        <asp:Localize ID="locAccount" runat="server" meta:resourcekey="locAccount" Text="E-mail Address:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                         <fcp:EmailAddress ID="email" runat="server" ValidationGroup="CreateMailbox"></fcp:EmailAddress>

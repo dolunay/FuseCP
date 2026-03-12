@@ -25,7 +25,7 @@
 										  					   					    							
 					<table id="ExistingUserTable"   runat="server"> 					    
 					    <tr>
-					        <td class="FormLabel150"><asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize></td>
+					        <td class="FormLabel150"><asp:Localize ID="Localize1" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize></td>
 					        <td><fcp:UserSelector id="userSelector" runat="server" IncludeMailboxes="true"></fcp:UserSelector></td>
 					    </tr>
 

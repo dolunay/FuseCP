@@ -18,10 +18,8 @@
 					<asp:Literal ID="litFolderName" runat="server" Text="Folder 32" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                        <div class="nav nav-tabs pb-2">
-				            <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="enterprisestorage_folder_settings" />
-                        </div>
+                <div class="card-body form-horizontal fcp-modern-page">
+                            <fcp:CollectionTabs id="tabs" runat="server" SelectedTab="enterprisestorage_folder_settings" />
                         <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     

@@ -17,16 +17,14 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-				    <div class="nav nav-tabs pb-2">
-                    <fcp:ContactTabs id="tabs" runat="server" SelectedTab="contact_settings" />
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+				<fcp:ContactTabs id="tabs" runat="server" SelectedTab="contact_settings" />
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox id="messageBox" runat="server" />
                     
 					<table class="col-sm-12">
 						<tr>
-							<td class="col-sm-2"><asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name: *"></asp:Localize></td>
+							<td class="col-sm-2"><asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"></asp:Localize></td>
 							<td>
 								<asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ValidationGroup="CreateMailbox"></asp:TextBox>
 								<asp:RequiredFieldValidator ID="valRequireDisplayName" runat="server" meta:resourcekey="valRequireDisplayName" ControlToValidate="txtDisplayName"
@@ -34,7 +32,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="col-sm-2"><asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address: *"></asp:Localize></td>
+							<td class="col-sm-2"><asp:Localize ID="locEmail" runat="server" meta:resourcekey="locEmail" Text="E-mail Address:"></asp:Localize></td>
 							<td>
 							    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="valRequireAccount" runat="server" meta:resourcekey="valRequireAccount" ControlToValidate="txtEmail"

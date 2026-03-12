@@ -32,13 +32,67 @@ namespace FuseCP.Portal {
         protected global::FuseCP.Portal.UserControls.SimpleMessageBox messageBox;
         
         /// <summary>
-        /// TabContainer1 control.
+        /// liInstalledTabLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabContainer TabContainer1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liInstalledTabLink;
+
+        /// <summary>
+        /// btnShowInstalledTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnShowInstalledTab;
+
+        /// <summary>
+        /// litInstalledTabText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litInstalledTabText;
+
+        /// <summary>
+        /// liCsrTabLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liCsrTabLink;
+
+        /// <summary>
+        /// btnShowCsrTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnShowCsrTab;
+
+        /// <summary>
+        /// litCsrTabText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCsrTabText;
+
+        /// <summary>
+        /// sslTabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView sslTabs;
         
         /// <summary>
         /// tabInstalled control.
@@ -47,7 +101,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel tabInstalled;
+        protected global::System.Web.UI.WebControls.View tabInstalled;
         
         /// <summary>
         /// lblInstalledDomain control.
@@ -290,7 +344,7 @@ namespace FuseCP.Portal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel tabCSR;
+        protected global::System.Web.UI.WebControls.View tabCSR;
         
         /// <summary>
         /// SSLNotInstalled control.

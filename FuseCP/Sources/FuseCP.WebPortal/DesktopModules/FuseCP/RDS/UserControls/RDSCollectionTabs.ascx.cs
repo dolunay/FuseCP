@@ -26,6 +26,7 @@ namespace FuseCP.Portal.RDS.UserControls
     public partial class RdsServerTabs : FuseCPControlBase
     {
         public string SelectedTab { get; set; }
+        private int selectedTabIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,21 +44,20 @@ namespace FuseCP.Portal.RDS.UserControls
             tabsList.Add(CreateTab("rds_collection_user_sessions", "Tab.UserSessions"));
             tabsList.Add(CreateTab("rds_collection_local_admins", "Tab.LocalAdmins"));                                
             
-            int idx = 0;
+            selectedTabIndex = 0;
 
-            foreach (Tab tab in tabsList)
+            for (int i = 0; i < tabsList.Count; i++)
             {
-                if (String.Compare(tab.Id, SelectedTab, true) == 0)
+                if (String.Compare(tabsList[i].Id, SelectedTab, true) == 0)
                 {
                     break;
                 }
 
-                idx++;
+                selectedTabIndex++;
             }
 
-            rdsTabs.SelectedIndex = idx;
-            rdsTabs.DataSource = tabsList;
-            rdsTabs.DataBind();
+            rptTabs.DataSource = tabsList;
+            rptTabs.DataBind();
         }
 
         private Tab CreateTab(string id, string text)
@@ -66,6 +66,16 @@ namespace FuseCP.Portal.RDS.UserControls
                 HostModule.EditUrl("AccountID", PanelRequest.AccountID.ToString(), id,
                 "SpaceID=" + PanelSecurity.PackageId.ToString(),
                 "ItemID=" + PanelRequest.ItemID.ToString(), "CollectionID=" + PanelRequest.CollectionID));
+        }
+
+        protected string GetTabCssClass(int index)
+        {
+            return IsSelectedTab(index) ? "nav-link active" : "nav-link";
+        }
+
+        protected bool IsSelectedTab(int index)
+        {
+            return index == selectedTabIndex;
         }
     }
 }
