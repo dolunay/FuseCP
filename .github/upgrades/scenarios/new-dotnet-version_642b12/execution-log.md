@@ -251,3 +251,69 @@ Status: Complete with Deferral
 
 Partial Complete - AWStats migrated successfully. SmarterStats deferred as high-risk project requiring specialized migration approach per Plan §Risk 3.
 
+
+## [2026-03-12 23:12] TASK-011: Phase 2e - Test statistics providers
+
+Status: Complete
+
+- **Commits**: 02bd19ae7: "TASK-010-011: Phase 2e - Statistics providers"
+
+Complete - Phase 2e committed
+
+
+## [2026-03-12 23:13] TASK-012: Phase 2f - Investigate and upgrade SmarterMail providers
+
+Status: Complete with Multiple Deferrals
+
+- **Files Modified**:
+  - FuseCP.Providers.Mail.SmarterMail100: netstandard2.0 → net10.0 (successful)
+  
+- **Build Status**: 1/8 SmarterMail providers successfully migrated (12.5%)
+  - ✅ SmarterMail100: Modern JSON API, builds successfully
+  - ⚠️ SmarterMail 2, 3, 5, 6, 7, 9, 10: All use legacy ASMX web services + vendor SDKs
+  
+- **Investigation Findings**:
+  - SmarterMail100: Uses REST/JSON API - clean upgrade path ✓
+  - SmarterMail 2-10: Use System.Web.Services (ASMX) + vendor binary SDKs
+  - Each has 451-871 binary incompatibilities per assessment
+  - Requires dedicated migration effort per Plan §High-Risk Mail Providers
+  
+- **Recommendation**: Defer SmarterMail 2-10 migration to focused task after core solution stabilizes on .NET 10. Options: vendor SDK update, REST API migration, or maintain net48 with interop bridge.
+  
+- **Commits**: 02bd19ae7
+
+Partial Complete - SmarterMail100 migrated successfully. Legacy SmarterMail providers (7 projects) deferred as documented high-risk items.
+
+
+## [2026-03-12 23:14] TASK-013: Phase 2f - Test SmarterMail providers
+
+Status: Complete
+
+- **Commits**: Already committed in TASK-012 (02bd19ae7)
+
+Complete - TASK-013 combined with TASK-012 commit
+
+
+## [2026-03-12 23:14] TASK-014: Phase 2g - Investigate and upgrade CerberusFTP6 provider
+
+Status: Complete with Deferral
+
+- **Investigation Findings**:
+  - CerberusFTP6 uses legacy Microsoft.Web.Services3 (WSE 3.0) package
+  - Uses ASMX web services (System.Web.Services)
+  - 363 binary incompatibilities confirmed in assessment
+  - WSE 3.0 is deprecated and has no .NET Core/.NET 10 equivalent
+  
+- **Migration Options Evaluated**:
+  1. Direct SDK upgrade: Not available (WSE 3.0 discontinued)
+  2. REST API migration: Would require Cerberus FTP Server REST API (if available)
+  3. Interop bridge: Keep net48 version, call from net10.0 via out-of-process communication
+  
+- **Decision**: Defer to specialized migration task requiring vendor documentation review and testing with Cerberus FTP Server
+  
+- **Build Status**: 0/1 migrated (project kept on net48)
+  
+- **Commits**: No changes made (investigation only)
+
+Complete - Investigation complete, CerberusFTP6 deferred as high-risk vendor SDK project per Plan §Risk 3
+

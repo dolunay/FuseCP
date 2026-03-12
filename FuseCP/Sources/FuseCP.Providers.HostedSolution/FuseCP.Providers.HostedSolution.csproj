@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<PublishUrl>publish\</PublishUrl>
 		<WarningsAsErrors>618</WarningsAsErrors>
 		<OutputPath>..\FuseCP.Server\bin\Providers\</OutputPath>
@@ -19,6 +19,9 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="AntiXSS" Version="4.3.0" />
+		<PackageReference Include="System.DirectoryServices" Version="10.0.0" />
+		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="10.0.0" />
+		<PackageReference Include="System.DirectoryServices.Protocols" Version="10.0.0" />
 		<PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
 	</ItemGroup>
 	<ItemGroup>
