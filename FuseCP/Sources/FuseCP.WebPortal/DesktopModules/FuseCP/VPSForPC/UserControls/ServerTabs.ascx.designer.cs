@@ -104,13 +104,13 @@ namespace FuseCP.Portal.VPSForPC.UserControls {
         protected global::System.Web.UI.HtmlControls.HtmlTable TabsTable;
         
         /// <summary>
-        /// dlTabs control.
+        /// rptTabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlTabs;
+        protected global::System.Web.UI.WebControls.Repeater rptTabs;
         
         /// <summary>
         /// messageBox control.

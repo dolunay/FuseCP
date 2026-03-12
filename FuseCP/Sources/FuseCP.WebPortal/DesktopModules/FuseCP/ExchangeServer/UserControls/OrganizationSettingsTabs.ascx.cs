@@ -26,6 +26,7 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
     public partial class OrganizationSettingsTabs : FuseCPControlBase
     {
         public string SelectedTab { get; set; }
+        private int selectedTabIndex;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,21 +41,20 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
 
             
 
-            int idx = 0;
+            selectedTabIndex = 0;
 
-            foreach (Tab tab in tabsList)
+            for (int i = 0; i < tabsList.Count; i++)
             {
-                if (String.Compare(tab.Id, SelectedTab, true) == 0)
+                if (String.Compare(tabsList[i].Id, SelectedTab, true) == 0)
                 {
                     break;
                 }
 
-                idx++;
+                selectedTabIndex++;
             }
 
-            osTabs.SelectedIndex = idx;
-            osTabs.DataSource = tabsList;
-            osTabs.DataBind();
+            rptTabs.DataSource = tabsList;
+            rptTabs.DataBind();
         }
 
         private Tab CreateTab(string id, string text)
@@ -63,6 +63,16 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
                 HostModule.EditUrl("ItemID", PanelRequest.ItemID.ToString(), id,
                 "SpaceID=" + PanelSecurity.PackageId
                 ));
+        }
+
+        protected string GetTabCssClass(int index)
+        {
+            return IsSelectedTab(index) ? "nav-link active" : "nav-link";
+        }
+
+        protected bool IsSelectedTab(int index)
+        {
+            return index == selectedTabIndex;
         }
     }
 }

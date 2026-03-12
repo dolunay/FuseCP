@@ -9,13 +9,11 @@
                         <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                             <asp:Localize ID="DisplayNameLabel" runat="server" meta:resourcekey="DisplayNameLabel" Text="First Name:" />
                         </asp:Label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             <div class="input-group">
                                 <asp:TextBox ID="txtDisplayName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="d-flex">
-                                    <asp:LinkButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary" />
-                                    <asp:LinkButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
-                                </span>
+                                <asp:LinkButton ID="UserLookUp" runat="server" CausesValidation="false" OnClick="UserLookUp_Click" meta:resourcekey="UserLookup" CssClass="btn btn-primary fcp-user-lookup-btn" />
+                                <asp:LinkButton ID="cmdClear" runat="server" CssClass="btn btn-primary" meta:resourcekey="cmdClear" OnClick="cmdClear_Click" CausesValidation="False"/>
                             </div>
                         </div>
                     </div>
@@ -55,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="Popup-Scroll">
-			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" CssSelectorClass="NormalGridView" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
+			                    <asp:GridView ID="gvPopupAccounts" runat="server" meta:resourcekey="gvPopupAccounts" AutoGenerateColumns="False" CssSelectorClass="NormalGridView" CssClass="fcp-responsive-grid" DataKeyNames="AccountName" OnRowCommand="gvPopupAccounts_RowCommand" OnSorting="OnSorting" AllowSorting="true">
 				                    <Columns>
 					                    <asp:TemplateField meta:resourcekey="gvAccountsDisplayName" SortExpression="DisplayName">
 						                    <ItemStyle></ItemStyle>

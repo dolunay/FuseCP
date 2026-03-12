@@ -25,17 +25,15 @@
         <asp:Label ID="litServiceLevel" runat="server" CssClass="float-end pe-2" Visible="false"></asp:Label>
     </h3>
 </div>
-<div class="card-body form-horizontal">
-<div class="nav nav-tabs pb-2">
-        <fcp:UserTabs ID="UserTabsId" runat="server" SelectedTab="edit_user" />
-        <fcp:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="edit_user" />
-</div>
+<div class="card-body form-horizontal fcp-modern-page">
+    <fcp:UserTabs ID="UserTabsId" runat="server" SelectedTab="edit_user" />
+    <fcp:MailboxTabs ID="MailboxTabsId" runat="server" SelectedTab="edit_user" />
     <div class="card tab-content">
         <fcp:SimpleMessageBox ID="messageBox" runat="server" />
         <div class="row">
         <div class="col-sm-9">
             <h3><i class="bi bi-person"></i> <asp:Localize ID="Generalinfo" runat="server" meta:resourcekey="Generalinfo" Text="General Information"></asp:Localize></h3>
-             <div class="row">
+             <div class="row mb-3 fcp-user-header-row">
 								<div class="col-sm-2">
                                     <asp:Label runat="server" ID="lblUserPrincipalName" Text="Login Name:" CssClass="form-label" AssociatedControlID="ddlEmailAddresses">
                                     </asp:Label>
@@ -47,7 +45,7 @@
                                         <asp:LinkButton ID="btnSetUserPrincipalName" CssClass="col-sm-3 btn btn-primary" runat="server" OnClick="btnSetUserPrincipalName_Click"><i class="bi bi-person">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPrincipalNameText" />
                                 </asp:LinkButton>
                  </div>
-       <div class="row">
+       <div class="row mb-3 fcp-user-display-row">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtDisplayName">
                                         <asp:Localize ID="locDisplayName" runat="server" meta:resourcekey="locDisplayName" Text="Display Name:"/>
                                     </asp:Label>
@@ -68,25 +66,22 @@
         <fcp:SendToControl ID="sendToControl" runat="server" ValidationGroup="CreateMailbox" ControlToHide="PasswordBlock"></fcp:SendToControl>
                 </div>
                 </div>
-                <div id="PasswordBlock" runat="server">
+                <div id="PasswordBlock" runat="server" style="position:relative">
                     <fcp:PasswordControl ID="password" runat="server" ValidationGroup="ValidatePassword" AllowGeneratePassword="true"></fcp:PasswordControl>
-                    <div class="offset-sm-6 col-sm-4 float-end fcp-org-user-password-action"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
+                    <div class="fcp-org-user-password-action"><asp:LinkButton ID="btnSetUserPassword" CssClass="btn btn-primary btn-sm" runat="server" OnClick="btnSetUserPassword_Click" ValidationGroup="ValidatePassword"><i class="bi bi-key">&nbsp;</i>&nbsp;<asp:Localize runat="server" meta:resourcekey="btnSetUserPasswordText" />
                                 </asp:LinkButton></div>
                 </div>
      
                     <fieldset>
-                     <div class="row mb-3">
+                     <div class="row mb-3 fcp-user-toggle-row">
                          <div class="col-sm-10 offset-sm-2">
-                                        <div class="input-group">
-                                <asp:CheckBox ID="chkUserMustChangePassword" runat="server" meta:resourcekey="chkUserMustChangePassword" Text="User must change password at next login" /><br />
-                                <asp:CheckBox ID="chkDisable" runat="server" meta:resourcekey="chkDisable" Text="Disable User" /><br />
+                             <div class="fcp-user-toggle-list">
+                                <asp:CheckBox ID="chkUserMustChangePassword" runat="server" meta:resourcekey="chkUserMustChangePassword" Text="User must change password at next login" />
+                                <asp:CheckBox ID="chkDisable" runat="server" meta:resourcekey="chkDisable" Text="Disable User" />
                                 <asp:CheckBox ID="chkInherit" runat="server" meta:resourcekey="chkInherit" Text="Services inherit Login Name" Checked="true" />
-                                        </div>
-                                        <div class="input-group">
                                 <asp:CheckBox ID="chkLocked" runat="server" meta:resourcekey="chkLocked" Text="Lock User" />
-
-                                        </div>
                              </div>
+                         </div>
                     </div>
                     </fieldset>
                     <fieldset>
@@ -114,7 +109,7 @@
                      
                                 <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtSubscriberNumber">
-                                        <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number: *" />
+                                        <asp:Localize ID="locSubscriberNumber" runat="server" meta:resourcekey="locSubscriberNumber" Text="Account Number:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                             <asp:TextBox ID="txtSubscriberNumber" runat="server" CssClass="form-control"></asp:TextBox>
@@ -123,7 +118,7 @@
                          
                                 <div class="row mb-3">
                                     <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtExternalEmailAddress">
-                                        <asp:Localize ID="locExternalEmailAddress" runat="server" meta:resourcekey="locExternalEmailAddress" Text="E-mail Address: *" />
+                                        <asp:Localize ID="locExternalEmailAddress" runat="server" meta:resourcekey="locExternalEmailAddress" Text="E-mail Address:" />
                                     </asp:Label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
@@ -256,7 +251,7 @@
                                             <asp:Label runat="server" CssClass="form-label col-sm-2" AssociatedControlID="txtJobTitle">
                                                 <asp:Localize ID="locManager" runat="server" meta:resourcekey="locManager" Text="Manager:" />
                                             </asp:Label>
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-10 fcp-manager-selector-wrap">
                                                 <fcp:UserSelector ID="manager" IncludeMailboxes="true" runat="server" />
                                             </div>
                                         </div>

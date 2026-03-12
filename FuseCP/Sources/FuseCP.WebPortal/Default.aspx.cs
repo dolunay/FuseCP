@@ -254,10 +254,67 @@ namespace FuseCP.WebPortal
 
         private void ApplyThemePaletteVariables()
         {
-            ApplyThemePaletteVariablesFromCookie(THEME_PALETTE_LIGHT_COOKIE, LightPaletteCssVars, (_, __) => true);
-            ApplyThemePaletteVariablesFromCookie(THEME_PALETTE_DARK_COOKIE, DarkPaletteCssVars, (_, __) => true);
-            ApplyThemePaletteVariablesFromCookie(THEME_BUTTONS_LIGHT_COOKIE, LightButtonCssVars, IsButtonValueValid);
-            ApplyThemePaletteVariablesFromCookie(THEME_BUTTONS_DARK_COOKIE, DarkButtonCssVars, IsButtonValueValid);
+            bool isDarkThemeActive = IsDarkThemeActive();
+            bool isLightThemeActive = IsLightThemeActive();
+
+            if (isDarkThemeActive)
+            {
+                ApplyThemePaletteVariablesFromCookie(
+                    THEME_PALETTE_DARK_COOKIE,
+                    DarkPaletteCssVars,
+                    LightPaletteCssVars,
+                    (_, __) => true);
+            }
+            else if (isLightThemeActive)
+            {
+                ApplyThemePaletteVariablesFromCookie(
+                    THEME_PALETTE_LIGHT_COOKIE,
+                    LightPaletteCssVars,
+                    LightPaletteCssVars,
+                    (_, __) => true);
+            }
+
+            ApplyThemePaletteVariablesFromCookie(THEME_PALETTE_DARK_COOKIE, DarkPaletteCssVars, DarkPaletteCssVars, (_, __) => true);
+
+            if (isDarkThemeActive)
+            {
+                ApplyThemePaletteVariablesFromCookie(
+                    THEME_BUTTONS_DARK_COOKIE,
+                    DarkButtonCssVars,
+                    LightButtonCssVars,
+                    IsButtonValueValid);
+            }
+            else if (isLightThemeActive)
+            {
+                ApplyThemePaletteVariablesFromCookie(
+                    THEME_BUTTONS_LIGHT_COOKIE,
+                    LightButtonCssVars,
+                    LightButtonCssVars,
+                    IsButtonValueValid);
+            }
+
+            ApplyThemePaletteVariablesFromCookie(THEME_BUTTONS_DARK_COOKIE, DarkButtonCssVars, DarkButtonCssVars, IsButtonValueValid);
+        }
+
+        private bool IsDarkThemeActive()
+        {
+            return IsThemeClassPresent("dark-theme");
+        }
+
+        private bool IsLightThemeActive()
+        {
+            return IsThemeClassPresent("light-theme");
+        }
+
+        private bool IsThemeClassPresent(string themeClass)
+        {
+            string themeClasses = BuildThemeClassValue();
+            if (String.IsNullOrWhiteSpace(themeClasses))
+                return false;
+
+            return themeClasses
+                .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Any(token => token.Equals(themeClass, StringComparison.OrdinalIgnoreCase));
         }
 
         private static bool IsButtonValueValid(string cssVariable, string value)
@@ -270,29 +327,32 @@ namespace FuseCP.WebPortal
             return PaletteHexColorRegex.IsMatch(value);
         }
 
-        private void ApplyThemePaletteVariablesFromCookie(string cookieName, string[] cssVariables, Func<string, string, bool> validator)
+        private void ApplyThemePaletteVariablesFromCookie(string cookieName, string[] sourceCssVariables, string[] targetCssVariables, Func<string, string, bool> validator, bool shouldApply = true)
         {
+            if (!shouldApply)
+                return;
+
             HttpCookie paletteCookie = Request.Cookies[cookieName];
             if (paletteCookie == null || String.IsNullOrWhiteSpace(paletteCookie.Value))
                 return;
 
             string decodedValue = HttpUtility.UrlDecode(paletteCookie.Value) ?? String.Empty;
             string[] values = decodedValue.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            if (values.Length != cssVariables.Length)
+            if (values.Length != sourceCssVariables.Length || targetCssVariables == null || targetCssVariables.Length != sourceCssVariables.Length)
                 return;
 
-            for (int i = 0; i < cssVariables.Length; i++)
+            for (int i = 0; i < sourceCssVariables.Length; i++)
             {
                 string normalizedValue = values[i].Trim();
-                if (!validator(cssVariables[i], normalizedValue))
+                if (!validator(sourceCssVariables[i], normalizedValue))
                     return;
 
                 values[i] = normalizedValue;
             }
 
-            for (int i = 0; i < cssVariables.Length; i++)
+            for (int i = 0; i < targetCssVariables.Length; i++)
             {
-                htmltheme.Style[cssVariables[i]] = values[i];
+                htmltheme.Style[targetCssVariables[i]] = values[i];
             }
         }
 

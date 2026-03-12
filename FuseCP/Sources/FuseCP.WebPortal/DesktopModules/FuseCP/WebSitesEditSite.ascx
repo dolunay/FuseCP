@@ -99,7 +99,7 @@
 <ajaxToolkit:ModalPopupExtender ID="WDeployRebuildPublishingProfileWizardModal" runat="server"
     TargetControlID="WDeployRebuildPubProfileLinkButton" PopupControlID="WDeployBuildPublishingProfileWizardPanel"
     BackgroundCssClass="modalBackground" DropShadow="false" CancelControlID="PubProfileWizardCancelButton" />
-<div class="card-body form-horizontal">
+<div class="card-body form-horizontal fcp-modern-page">
     <fcp:SimpleMessageBox ID="messageBox" runat="server" EnableViewState="false" />
     <div class="row">
         <div class="col-md-8">
@@ -231,28 +231,30 @@
             </div>
         </div>
     </div>
-    <ul class="nav nav-tabs">
-        <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="dlTabs_SelectedIndexChanged"
-            RepeatLayout="Flow" DataKeyField="ViewId">
-            <ItemStyle Wrap="False" />
-            <ItemTemplate>
-                <li role="presentation">
-                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="Tab">
-                                    <%# Eval("Name") %>
-                    </asp:LinkButton>
-                </li>
-            </ItemTemplate>
-            <SelectedItemStyle Wrap="False" />
-            <SelectedItemTemplate>
-                <li role="presentation" class="active">
-                    <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="ActiveTab">
-                                    <%# Eval("Name") %>
-                    </asp:LinkButton>
-                </li>
-            </SelectedItemTemplate>
+    <div class="fcp-modern-tabs">
+        <ul class="fcp-modern-nav-tabs nav nav-tabs" role="tablist">
+            <asp:DataList ID="dlTabs" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="dlTabs_SelectedIndexChanged"
+                RepeatLayout="Flow" DataKeyField="ViewId">
+                <ItemStyle Wrap="False" />
+                <ItemTemplate>
+                    <li class="nav-item" role="presentation">
+                        <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link">
+                                        <%# Eval("Name") %>
+                        </asp:LinkButton>
+                    </li>
+                </ItemTemplate>
+                <SelectedItemStyle Wrap="False" />
+                <SelectedItemTemplate>
+                    <li class="nav-item" role="presentation">
+                        <asp:LinkButton ID="cmdSelectTab" runat="server" CommandName="select" CssClass="nav-link active" aria-current="page">
+                                        <%# Eval("Name") %>
+                        </asp:LinkButton>
+                    </li>
+                </SelectedItemTemplate>
 
-        </asp:DataList>
-    </ul>
+            </asp:DataList>
+        </ul>
+    </div>
     <div class="card tab-content">
 
         <div class="card-body form-horizontal">

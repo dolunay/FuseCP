@@ -18,10 +18,8 @@
                     <asp:Literal ID="litOrganizationName" runat="server" Text="Organization" />
                         </h3>
                 </div>
-                <div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
+                <div class="card-body form-horizontal fcp-modern-page">
                     <fcp:CollectionTabs ID="tabs" runat="server" SelectedTab="organization_settings_general_settings" />
-                    </div>
                     <div class="card tab-content">
                     <fcp:SimpleMessageBox ID="messageBox" runat="server" />
                             <fcp:CollapsiblePanel ID="colGeneralSettings" runat="server" TargetControlID="panelGeneralSettings" meta:ResourceKey="colGeneralSettings" Text="General settings"></fcp:CollapsiblePanel>

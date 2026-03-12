@@ -73,15 +73,39 @@
         <div class="col-6 fcp-login-select-group">
             <asp:Label ID="lblTheme" runat="server" CssClass="form-label mb-1 fcp-login-select-label" meta:resourcekey="lblTheme" Text="Theme mode:" AssociatedControlID="ddlTheme"></asp:Label>
             <span class="fcp-login-select-icon bi bi-palette" aria-hidden="true"></span>
-            <asp:DropDownList ID="ddlTheme" runat="server" CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="ddlTheme_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="ddlTheme" runat="server" CssClass="form-select"></asp:DropDownList>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
     (function () {
+        var themeCookieName = 'UserThemeMode';
+
         function byIdSuffix(idSuffix) {
             return document.querySelector('[id$="' + idSuffix + '"]');
+        }
+
+        function setCookie(name, value, days) {
+            var expires = '';
+            if (typeof days === 'number') {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = '; expires=' + date.toUTCString();
+            }
+            document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax';
+        }
+
+        function clearCookie(name) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+        }
+
+        function applyThemeMode(mode) {
+            var html = document.documentElement;
+            html.classList.remove('light-theme', 'dark-theme');
+            if (mode === 'light-theme' || mode === 'dark-theme') {
+                html.classList.add(mode);
+            }
         }
 
         function wireEnterToClick(inputSuffix, buttonSuffix) {
@@ -99,10 +123,33 @@
             });
         }
 
+        function wireThemeMode() {
+            var themeSelect = byIdSuffix('ddlTheme');
+            if (!themeSelect) return;
+
+            themeSelect.addEventListener('change', function () {
+                var selectedMode = (themeSelect.value || '').toLowerCase();
+
+                if (selectedMode === 'auto') {
+                    clearCookie(themeCookieName);
+                    applyThemeMode('');
+                } else if (selectedMode === 'dark-theme' || selectedMode === 'light-theme') {
+                    setCookie(themeCookieName, selectedMode, 60);
+                    applyThemeMode(selectedMode);
+                } else {
+                    setCookie(themeCookieName, 'light-theme', 60);
+                    applyThemeMode('light-theme');
+                }
+
+                window.location.reload();
+            });
+        }
+
         function init() {
             wireEnterToClick('txtUsername', 'btnLogin');
             wireEnterToClick('txtPassword', 'btnLogin');
             wireEnterToClick('txtPin', 'StyleButton2');
+            wireThemeMode();
         }
 
         if (document.readyState === 'loading') {

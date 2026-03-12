@@ -31,6 +31,8 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
     public partial class PublicFolderTabs : FuseCPControlBase
     {
         private string selectedTab;
+        private int selectedTabIndex;
+
         public string SelectedTab
         {
             get { return selectedTab; }
@@ -66,10 +68,20 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
                     break;
                 idx++;
             }
-            dlTabs.SelectedIndex = idx;
+            selectedTabIndex = idx;
 
-            dlTabs.DataSource = tabsList;
-            dlTabs.DataBind();
+            rptTabs.DataSource = tabsList;
+            rptTabs.DataBind();
+        }
+
+        protected string GetTabCssClass(int index)
+        {
+            return IsSelectedTab(index) ? "nav-link active" : "nav-link";
+        }
+
+        protected bool IsSelectedTab(int index)
+        {
+            return index == selectedTabIndex;
         }
 
         private Tab CreateTab(string id, string text)

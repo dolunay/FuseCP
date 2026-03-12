@@ -57,7 +57,49 @@ AI-generated changes must meet the same quality standard as human-authored code:
 * When asked to create an upstream PR, use `FuseCP/Tools/Create-Upstream-PR.ps1` so `PR_DRAFT.md` is cleared only after successful PR creation
 * For GitHub Actions artifact publishing, never use raw commit/PR text directly as `actions/upload-artifact` name; sanitize dynamic names to remove/replace invalid characters (`"`, `:`, `<`, `>`, `|`, `*`, `?`, `\r`, `\n`, `\\`, `/`) before upload
 
-## 5. Legal and Licensing
+## 5. UI Styling — LESS/CSS Workflow
+
+The portal theme is authored in LESS source files, not directly in the compiled CSS output.
+
+* **Source files** (edit these):
+  * `FuseCP/Sources/FuseCP.WebPortal/App_Themes/Default/Styles/main.less` — all main theme rules
+  * `FuseCP/Sources/FuseCP.WebPortal/App_Themes/Default/Styles/Menus.less` — navigation and menu rules
+  * `FuseCP/Sources/FuseCP.WebPortal/App_Themes/Default/Styles/defaultVariables.less` — shared LESS variables
+  * `FuseCP/Sources/FuseCP.WebPortal/App_Themes/Default/Styles/defaultTheme.less` — root entry point that imports the above
+* **Compiled output** (never edit directly): `main.css`
+* **Recompile command** (run from the Styles directory):
+  ```
+  cd FuseCP/Sources/FuseCP.WebPortal/App_Themes/Default/Styles
+  npm run build:css
+  ```
+* Every CSS change must start in the relevant `.less` source file. Direct edits to `main.css` will be overwritten on the next recompile and must not be committed.
+* When recompiling, verify that the output contains your expected rule before committing both files together.
+
+## 6. Database Schema Changes — Entity Framework Workflow
+
+FuseCP uses Entity Framework (EF Core 8 on .NET 10, EF 6 on .NET Framework) for database access. Schema changes must follow this workflow:
+
+### Updating the schema
+
+1. Edit Entity classes in `FuseCP/Sources/FuseCP.EnterpriseServer.Data/Entities/` (e.g. add/remove properties).
+2. Update the corresponding Fluent API configuration in `FuseCP/Sources/FuseCP.EnterpriseServer.Data/Configuration/` if needed for cross-DB type mapping.
+3. Create a migration:
+   ```
+   cd FuseCP/Sources/FuseCP.EnterpriseServer.Data
+   MigrationAdd.bat   # or run individual lines for a single DB flavor
+   ```
+4. Verify the generated migration files under `Migrations/` look correct.
+5. For raw SQL-based changes (legacy path via `FuseCP/Database/update_db.sql`), also apply `update_db.sql` to a fresh DB, re-scaffold, diff the `Entities/Sources/` output against `Entities/`, and manually port changes to the Entity and Configuration classes before raising a migration.
+
+### Rules
+
+* Never modify `main.css` directly — same discipline applies: never alter auto-generated EF model snapshot files by hand; let `dotnet ef` maintain them.
+* EF migrations are executed with EF Core only (NET 10); the installer applies SQL scripts for .NET Framework environments.
+* Squash development-only intermediate migrations into one before a release using the `MigrationRemove.bat` / snapshot-revert approach documented in `FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md`.
+* Always update `FuseCP/Database/update_db.sql` when a schema migration is added so the legacy SQL path stays in sync.
+* Reference: `FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md` for scaffolding, connection strings, and multi-DB type-mapping patterns.
+
+## 7. Legal and Licensing
 
 Contributions must comply with repository licensing and third-party license
 requirements. Do not submit generated code or content if you cannot verify legal
@@ -68,7 +110,7 @@ Copyright header policy:
 * For source/project files that use copyright headers/metadata, enforce exact text format: `Copyright (C) 2026 FuseCP`
 * Keep the year current when annual updates occur, including generator inputs and generated outputs (notably `FuseCP/build.xml`, `FuseCP/Sources/VersionInfo.cs`, `FuseCP/Sources/VersionInfo.vb`, and installer `VersionInfo.cs` files)
 
-## 6. Disallowed Uses
+## 8. Disallowed Uses
 
 AI tools must not be used to:
 
@@ -76,7 +118,7 @@ AI tools must not be used to:
 * Fabricate test results, benchmarks, incident data, or release notes
 * Bypass review, approval, or security controls
 
-## 7. Maintainer Enforcement
+## 9. Maintainer Enforcement
 
 Maintainers may request edits, additional testing, provenance details, or reject
 changes that do not comply with these directives.

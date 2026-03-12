@@ -31,28 +31,9 @@
             <asp:RequiredFieldValidator ID="valRequireConfirmPassword" runat="server" meta:resourcekey="valRequireConfirmPassword" Text="" ErrorMessage="Confirm password" ControlToValidate="txtConfirmPassword" SetFocusOnError="True" Display="Dynamic" CssClass="fcp-validation-message"></asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
-            <div class="fcp-password-tools d-flex align-items-center gap-2 flex-wrap mb-3">
-                <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
-                    PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="fcp-password-strength-text" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
-                    RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
-                    StrengthStyles="alert alert-danger;alert alert-warning;alert alert-default;alert alert-success;alert alert-success" CalculationWeightings="50;15;15;20" />
-                <asp:HyperLink ID="lnkGenerate" runat="server" NavigateUrl="#" meta:resourcekey="lnkGenerate" CssClass="btn btn-outline-primary btn-sm" Visible="true">
-                    Generate Random Password
-                </asp:HyperLink>
-            </div>
-            <asp:CompareValidator ID="valRequireEqualPassword" runat="server" ControlToCompare="txtPassword" Text="" ErrorMessage="Both passwords should be identical" Display="Dynamic" ControlToValidate="txtConfirmPassword" meta:resourcekey="valRequireEqualPassword" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CompareValidator>
-            <asp:CustomValidator ID="valCorrectLength" runat="server" ControlToValidate="txtPassword" ErrorMessage="len" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordLength" OnServerValidate="valCorrectLength_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
-            <asp:CustomValidator ID="valRequireNumbers" runat="server" ControlToValidate="txtPassword" ErrorMessage="num" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordNumbers" OnServerValidate="valRequireNumbers_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
-            <asp:CustomValidator ID="valRequireUppercase" runat="server" ControlToValidate="txtPassword" ErrorMessage="upp" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordUppercase" OnServerValidate="valRequireUppercase_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
-            <asp:CustomValidator ID="valRequireSymbols" runat="server" ControlToValidate="txtPassword" ErrorMessage="sym" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordSymbols" OnServerValidate="valRequireSymbols_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
-        </div>
-    </div>
-
     <% if (ValidationEnabled)
         {%>
-    <div class="row mb-0">
+    <div class="row mb-3">
         <div class="col-sm-10 offset-sm-2">
             <div class="fcp-password-policy" id="password-hint-popup">
                 <h3>Password requirements</h3>
@@ -77,4 +58,23 @@
         </div>
     </div>
     <% }%>
+
+    <div class="row mb-0">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="fcp-password-tools d-flex align-items-center gap-2 flex-wrap">
+                <ajaxToolkit:PasswordStrength ID="PS" runat="server" TargetControlID="txtPassword" DisplayPosition="RightSide" StrengthIndicatorType="Text"
+                    PreferredPasswordLength="10" PrefixText="Strength:" TextCssClass="fcp-password-strength-text" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
+                    RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"
+                    StrengthStyles="alert alert-danger;alert alert-warning;alert alert-default;alert alert-success;alert alert-success" CalculationWeightings="50;15;15;20" />
+                <asp:HyperLink ID="lnkGenerate" runat="server" NavigateUrl="#" meta:resourcekey="lnkGenerate" CssClass="btn btn-outline-primary btn-sm" Visible="true">
+                    Generate Random Password
+                </asp:HyperLink>
+            </div>
+            <asp:CompareValidator ID="valRequireEqualPassword" runat="server" ControlToCompare="txtPassword" Text="" ErrorMessage="Both passwords should be identical" Display="Dynamic" ControlToValidate="txtConfirmPassword" meta:resourcekey="valRequireEqualPassword" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CompareValidator>
+            <asp:CustomValidator ID="valCorrectLength" runat="server" ControlToValidate="txtPassword" ErrorMessage="len" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordLength" OnServerValidate="valCorrectLength_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
+            <asp:CustomValidator ID="valRequireNumbers" runat="server" ControlToValidate="txtPassword" ErrorMessage="num" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordNumbers" OnServerValidate="valRequireNumbers_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
+            <asp:CustomValidator ID="valRequireUppercase" runat="server" ControlToValidate="txtPassword" ErrorMessage="upp" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordUppercase" OnServerValidate="valRequireUppercase_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
+            <asp:CustomValidator ID="valRequireSymbols" runat="server" ControlToValidate="txtPassword" ErrorMessage="sym" Display="Dynamic" Enabled="false" ClientValidationFunction="fcpValidatePasswordSymbols" OnServerValidate="valRequireSymbols_ServerValidate" SetFocusOnError="True" CssClass="fcp-validation-message"></asp:CustomValidator>
+        </div>
+    </div>
 </div>

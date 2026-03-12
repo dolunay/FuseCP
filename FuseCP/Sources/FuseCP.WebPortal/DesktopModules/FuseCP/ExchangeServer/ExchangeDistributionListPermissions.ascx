@@ -19,10 +19,8 @@
 					<asp:Literal ID="litDisplayName" runat="server" Text="John Smith" />
                         </h3>
                 </div>
-				<div class="card-body form-horizontal">
-                    <div class="nav nav-tabs pb-2">
-                    <fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_permissions" />	
-                    </div>
+				<div class="card-body form-horizontal fcp-modern-page">
+				<fcp:DistributionListTabs id="tabs" runat="server" SelectedTab="dlist_permissions" />	
                     <div class="card tab-content">
 					<fcp:SimpleMessageBox id="messageBox" runat="server" />
 					
