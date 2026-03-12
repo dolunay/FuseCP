@@ -49,6 +49,7 @@
 .content-footer {
     padding: 10px;
     border-top: solid 1px @gray-light;
+    margin-top: auto;
 }
 
     .content-footer a {
@@ -3680,7 +3681,7 @@ hr {
     margin-left: 220px;
     background-color: @body-bg;
     background-repeat: repeat;
-    overflow:hidden;
+    overflow-x: clip;
     min-height: calc(100vh - var(--fcp-topbar-height, 64px));
     display: flex;
     flex-direction: column;
@@ -12108,7 +12109,7 @@ html.dark-theme .fcp-exchange-title-icon {
     width: 100%;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
     .mailbox-actions-right {
         justify-content: flex-start;
     }
@@ -12226,6 +12227,93 @@ html.dark-theme .fcp-exchange-title-icon {
 #Footer,
 .content-footer {
     margin-top: auto;
+}
+
+/* Keep page footer at bottom and prevent late duplicate blocks from collapsing layout. */
+#col-right {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - var(--fcp-topbar-height, 64px));
+}
+
+#SkinContent {
+    flex: 1 0 auto;
+}
+
+/* Exchange mailbox toolbar: keep controls on one line on desktop, wrap on narrower screens. */
+@media (min-width: 992px) {
+    .mailbox-actions-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-left {
+        flex: 0 0 auto;
+        width: 250px;
+        max-width: 250px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right > .mb-0 {
+        flex: 0 0 auto;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right > .mb-0:nth-child(1) {
+        flex-basis: 88px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right > .mb-0:nth-child(2) {
+        flex-basis: 190px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right > .mb-0:nth-child(1) .input-group,
+    .mailbox-actions-row > .mailbox-actions-right > .mb-0:nth-child(2) .input-group {
+        width: 100%;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right .mailbox-search-input {
+        flex: 1 1 220px;
+        min-width: 180px;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right .mailbox-search-input .input-group {
+        flex-wrap: nowrap;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right .mailbox-search-options,
+    .mailbox-actions-row > .mailbox-actions-right .mailbox-search-submit {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 991px) {
+    .mailbox-actions-row > .mailbox-actions-left,
+    .mailbox-actions-row > .mailbox-actions-right {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .mailbox-actions-row > .mailbox-actions-right .mailbox-search-input {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
 }
 
 /* Stacked cards for standard GridView tables with JS-provided header labels. */
