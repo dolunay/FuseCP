@@ -6061,27 +6061,5 @@ DELIMITER ;
 CALL MigrationsScript();
 DROP PROCEDURE MigrationsScript;
 
-DELETE FROM `PackageQuotas` WHERE `QuotaID` IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM `HostingPlanQuotas` WHERE `QuotaID` IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM `Quotas` WHERE `QuotaID` IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-
-DELETE FROM `ServiceDefaultProperties` WHERE `ProviderID` IN (201, 1201, 1202, 1205, 1206);
-DELETE FROM `Providers`
-WHERE `ProviderID` IN (201, 1201, 1202, 1205, 1206)
-    AND NOT EXISTS (SELECT 1 FROM `Services` AS s WHERE s.`ProviderID` = `Providers`.`ProviderID`);
-
-DELETE FROM `ResourceGroups`
-WHERE `GroupID` IN (21, 24)
-    AND NOT EXISTS (SELECT 1 FROM `Providers` AS p WHERE p.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `Quotas` AS q WHERE q.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `HostingPlanResources` AS hpr WHERE hpr.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `PackageResources` AS pr WHERE pr.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `PackagesBandwidth` AS pb WHERE pb.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `PackagesDiskspace` AS pd WHERE pd.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `ServiceItemTypes` AS sit WHERE sit.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `VirtualGroups` AS vg WHERE vg.`GroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `Servers` AS srv WHERE srv.`PrimaryGroupID` = `ResourceGroups`.`GroupID`)
-    AND NOT EXISTS (SELECT 1 FROM `StorageSpaceLevelResourceGroups` AS slrg WHERE slrg.`GroupId` = `ResourceGroups`.`GroupID`);
-
 COMMIT;
 

@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net48;net10.0</TargetFrameworks>
+		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<LangVersion>11</LangVersion>
 		<DefineConstants>$(DefineConstants);Client</DefineConstants>
@@ -29,11 +29,6 @@
         <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.Server\FuseCP.Server.csproj" Condition="'$(AnyServices)' == ''"
 			ReferenceOutputAssembly="false" PrivateAssets="All" />
     </ItemGroup>
-	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-		<Reference Include="System.ServiceModel" />
-		<Reference Include="System.ServiceModel.Web" />
-		<Reference Include="System.DirectoryServices" />
-	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
 		<PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
 		<PackageReference Include="System.DirectoryServices" Version="10.0.0" />

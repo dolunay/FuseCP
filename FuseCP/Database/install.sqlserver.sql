@@ -76563,27 +76563,6 @@ BEGIN
     VALUES (N'20251113211343_Run_Migrate_msSQL_Script', N'9.0.9');
 END;
 
-DELETE FROM [dbo].[PackageQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM [dbo].[HostingPlanQuotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM [dbo].[Quotas] WHERE [QuotaID] IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-
-DELETE FROM [dbo].[ServiceDefaultProperties] WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206);
-DELETE FROM [dbo].[Providers] WHERE [ProviderID] IN (201, 1201, 1202, 1205, 1206)
-    AND NOT EXISTS (SELECT 1 FROM [dbo].[Services] AS s WHERE s.[ProviderID] = [Providers].[ProviderID]);
-
-DELETE FROM [dbo].[ResourceGroups]
-WHERE [GroupID] IN (21, 24)
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[Providers] AS p WHERE p.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[Quotas] AS q WHERE q.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[HostingPlanResources] AS hpr WHERE hpr.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackageResources] AS pr WHERE pr.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesBandwidth] AS pb WHERE pb.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[PackagesDiskspace] AS pd WHERE pd.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[ServiceItemTypes] AS sit WHERE sit.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[VirtualGroups] AS vg WHERE vg.[GroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[Servers] AS srv WHERE srv.[PrimaryGroupID] = [ResourceGroups].[GroupID])
-  AND NOT EXISTS (SELECT 1 FROM [dbo].[StorageSpaceLevelResourceGroups] AS slrg WHERE slrg.[GroupID] = [ResourceGroups].[GroupID]);
-
 COMMIT;
 GO
 

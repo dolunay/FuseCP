@@ -7421,27 +7421,5 @@ BEGIN
     VALUES ('20251113211940_RemovedOldWindowsProviders', '9.0.9');
     END IF;
 END $EF$;
-
-DELETE FROM public."PackageQuotas" WHERE "QuotaID" IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM public."HostingPlanQuotas" WHERE "QuotaID" IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-DELETE FROM public."Quotas" WHERE "QuotaID" IN (209, 210, 460, 461, 462, 463, 464, 465, 466, 467);
-
-DELETE FROM public."ServiceDefaultProperties" WHERE "ProviderID" IN (201, 1201, 1202, 1205, 1206);
-DELETE FROM public."Providers"
-WHERE "ProviderID" IN (201, 1201, 1202, 1205, 1206)
-    AND NOT EXISTS (SELECT 1 FROM public."Services" AS s WHERE s."ProviderID" = "Providers"."ProviderID");
-
-DELETE FROM public."ResourceGroups"
-WHERE "GroupID" IN (21, 24)
-    AND NOT EXISTS (SELECT 1 FROM public."Providers" AS p WHERE p."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."Quotas" AS q WHERE q."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."HostingPlanResources" AS hpr WHERE hpr."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."PackageResources" AS pr WHERE pr."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."PackagesBandwidth" AS pb WHERE pb."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."PackagesDiskspace" AS pd WHERE pd."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."ServiceItemTypes" AS sit WHERE sit."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."VirtualGroups" AS vg WHERE vg."GroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."Servers" AS srv WHERE srv."PrimaryGroupID" = "ResourceGroups"."GroupID")
-    AND NOT EXISTS (SELECT 1 FROM public."StorageSpaceLevelResourceGroups" AS slrg WHERE slrg."GroupId" = "ResourceGroups"."GroupID");
 COMMIT;
 
