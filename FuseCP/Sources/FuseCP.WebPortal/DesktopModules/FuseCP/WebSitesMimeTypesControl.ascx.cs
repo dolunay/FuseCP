@@ -93,7 +93,7 @@ namespace FuseCP.Portal
         }
         protected void gvMimeTypes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            StyleButton cmdDelete = (StyleButton)e.Row.FindControl("cmdDeleteMime");
+            LinkButton cmdDelete = (LinkButton)e.Row.FindControl("cmdDeleteMime");
             if (cmdDelete != null)
                 cmdDelete.CommandArgument = e.Row.RowIndex.ToString();
         }

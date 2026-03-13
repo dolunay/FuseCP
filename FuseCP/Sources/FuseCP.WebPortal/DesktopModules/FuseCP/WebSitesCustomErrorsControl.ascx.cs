@@ -153,7 +153,7 @@ namespace FuseCP.Portal
                 ddlHandlerType.SelectedValue = ((HttpError)e.Row.DataItem).HandlerType;
             }
 
-            StyleButton cmdDelete = (StyleButton)e.Row.FindControl("cmdDelete");
+            LinkButton cmdDelete = (LinkButton)e.Row.FindControl("cmdDelete");
             if (cmdDelete != null)
                 cmdDelete.CommandArgument = e.Row.RowIndex.ToString();
         }

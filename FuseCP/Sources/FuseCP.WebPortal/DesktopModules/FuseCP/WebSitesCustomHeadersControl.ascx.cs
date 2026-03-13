@@ -94,7 +94,7 @@ namespace FuseCP.Portal
         }
         protected void gvCustomHeaders_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            StyleButton cmdDelete = (StyleButton)e.Row.FindControl("cmdDelete");
+            LinkButton cmdDelete = (LinkButton)e.Row.FindControl("cmdDelete");
             if (cmdDelete != null)
                 cmdDelete.CommandArgument = e.Row.RowIndex.ToString();
         }

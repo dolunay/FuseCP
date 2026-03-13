@@ -75,10 +75,6 @@
         <Folder Include="WebServices\FuseCP.Build\FuseCP.Build.WebServices\" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Analyzer Include="..\FuseCP.Build\bin\$(Configuration)\netstandard2.0\RazorBlade.dll" />
-    </ItemGroup>
-
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
       <Content Update="wwwroot\img\logo.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -151,7 +151,7 @@ namespace FuseCP.Portal.ProviderControls
 
         protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            StyleButton cmdDelete = (StyleButton)e.Row.FindControl("cmdDelete");
+            LinkButton cmdDelete = (LinkButton)e.Row.FindControl("cmdDelete");
             CheckBox chkAdmin = (CheckBox)e.Row.FindControl("chkAdmin");
 
             if (cmdDelete != null)

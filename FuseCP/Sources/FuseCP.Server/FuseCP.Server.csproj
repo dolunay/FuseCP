@@ -62,9 +62,6 @@
             IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />-->
     </ItemGroup>
     <ItemGroup>
-        <Analyzer Include="..\FuseCP.Build\bin\$(Configuration)\netstandard2.0\RazorBlade.dll" />
-    </ItemGroup>
-    <ItemGroup>
         <Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
     </ItemGroup>
     <ItemGroup>
