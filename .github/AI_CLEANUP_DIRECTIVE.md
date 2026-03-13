@@ -58,6 +58,14 @@ When removing a feature, technology, provider, or component from FuseCP:
    - [ ] These are auto-generated but should be validated after cleanup to confirm component removal
    - [ ] Note: Some reports may be stale and should be regenerated or safely ignored per project docs
 
+10. **Server Module Provider Verification** (REQUIRED for provider logic changes)
+   - [ ] If a server/provider module is changed, run a targeted build for the provider project (`dotnet build ...Providers...csproj`)
+   - [ ] Verify no provider contract drift: interface and externally consumed method signatures must remain intact unless explicitly requested
+   - [ ] Verify EnterpriseServer service entry points still map correctly to the provider
+   - [ ] Verify WebPortal call paths still target the same EnterpriseServer methods/contracts
+   - [ ] If execution strategy changes (for example AppDomain removal), confirm behavior parity for normal and error paths
+   - [ ] Record validation evidence in commit/PR notes (what was built, what was checked, known warnings)
+
 ### Example: CRM Cleanup (Completed 2026-03-13)
 
 **Commits involved (or pending):**

@@ -30,20 +30,33 @@ namespace FuseCP.Providers.HostedSolution
     /// </summary>
     public class HostedSharePointServerImpl : MarshalByRefObject
     {
+        private static T RunAsCurrentIdentity<T>(Func<T> action)
+        {
+            using (var identity = WindowsIdentity.GetCurrent())
+            {
+                return WindowsIdentity.RunImpersonated(identity.AccessToken, action);
+            }
+        }
+
+        private static void RunAsCurrentIdentity(Action action)
+        {
+            using (var identity = WindowsIdentity.GetCurrent())
+            {
+                WindowsIdentity.RunImpersonated(identity.AccessToken, action);
+            }
+        }
+
         /// <summary>
         /// Gets list of supported languages by this installation of SharePoint.
         /// </summary>
         /// <returns>List of supported languages</returns>
         public int[] GetSupportedLanguages(string languagePacksPath)
         {
-            List<int> languages = new List<int>();
-
             try
             {
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                return RunAsCurrentIdentity(() =>
                 {
+                    List<int> languages = new List<int>();
                     SPLanguageCollection installedLanguages = SPRegionalSettings.GlobalInstalledLanguages;
 
                     foreach (SPLanguage lang in installedLanguages)
@@ -52,12 +65,7 @@ namespace FuseCP.Providers.HostedSolution
                     }
 
                     return languages.ToArray();
-
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -67,66 +75,52 @@ namespace FuseCP.Providers.HostedSolution
 
         public long GetSiteCollectionSize(Uri root, string url)
         {
-            WindowsImpersonationContext wic = null;
-
             try
             {
-                wic = WindowsIdentity.GetCurrent().Impersonate();
+                return RunAsCurrentIdentity(() =>
+                {
+                    SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
+                    SPSite site = rootWebApplication.Sites[url];
+                    if (site != null)
+                        site.RecalculateStorageUsed();
+                    else
+                        throw new ApplicationException(string.Format("SiteCollection {0} does not exist", url));
 
-                SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
-                SPSite site = rootWebApplication.Sites[url];
-                if (site != null)
-                    site.RecalculateStorageUsed();
-                else
-                    throw new ApplicationException(string.Format("SiteCollection {0} does not exist", url));
-
-                return site.Usage.Storage;
+                    return site.Usage.Storage;
+                });
             }
             catch (Exception ex)
             {
                 HostedSolutionLog.LogError(ex);
                 throw;
             }
-            finally
-            {
-                if (wic != null)
-                    wic.Undo();
-            }
-
         }
 
         public SharePointSiteDiskSpace[] CalculateSiteCollectionDiskSpace(Uri root, string[] urls)
         {
-            WindowsImpersonationContext wic = null;
-
             try
             {
-                wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
-
-                List<SharePointSiteDiskSpace> ret = new List<SharePointSiteDiskSpace>();
-                foreach (string url in urls)
+                return RunAsCurrentIdentity(() =>
                 {
-                    SharePointSiteDiskSpace siteDiskSpace = new SharePointSiteDiskSpace();
-                    rootWebApplication.Sites[url].RecalculateStorageUsed();
-                    siteDiskSpace.Url = url;
-                    siteDiskSpace.DiskSpace = (long)Math.Round(rootWebApplication.Sites[url].Usage.Storage / 1024.0 / 1024.0);
-                    ret.Add(siteDiskSpace);
-                }
-                return ret.ToArray();
+                    SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
+
+                    List<SharePointSiteDiskSpace> ret = new List<SharePointSiteDiskSpace>();
+                    foreach (string url in urls)
+                    {
+                        SharePointSiteDiskSpace siteDiskSpace = new SharePointSiteDiskSpace();
+                        rootWebApplication.Sites[url].RecalculateStorageUsed();
+                        siteDiskSpace.Url = url;
+                        siteDiskSpace.DiskSpace = (long)Math.Round(rootWebApplication.Sites[url].Usage.Storage / 1024.0 / 1024.0);
+                        ret.Add(siteDiskSpace);
+                    }
+                    return ret.ToArray();
+                });
             }
             catch (Exception ex)
             {
                 HostedSolutionLog.LogError(ex);
                 throw;
             }
-            finally
-            {
-                if (wic != null)
-                    wic.Undo();
-            }
-
         }
 
 
@@ -139,9 +133,7 @@ namespace FuseCP.Providers.HostedSolution
         {
             try
             {
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                return RunAsCurrentIdentity(() =>
                 {
                     SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
 
@@ -155,11 +147,7 @@ namespace FuseCP.Providers.HostedSolution
                     }
 
                     return siteCollections.ToArray();
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -177,9 +165,7 @@ namespace FuseCP.Providers.HostedSolution
         {
             try
             {
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                return RunAsCurrentIdentity(() =>
                 {
                     SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
                     string siteCollectionUrl = String.Format("{0}:{1}", url, rootWebApplicationUri.Port);
@@ -192,11 +178,7 @@ namespace FuseCP.Providers.HostedSolution
                         return loadedSiteCollection;
                     }
                     return null;
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -216,41 +198,33 @@ namespace FuseCP.Providers.HostedSolution
 
         public void UpdateQuotas(Uri root, string url, long maxStorage, long warningStorage)
         {
-            WindowsImpersonationContext wic = null;
-
             try
             {
-                wic = WindowsIdentity.GetCurrent().Impersonate();
+                RunAsCurrentIdentity(() =>
+                {
+                    SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
 
-                SPWebApplication rootWebApplication = SPWebApplication.Lookup(root);
-
-                SPQuota quota = new SPQuota();
-                if (maxStorage != -1)
-                    quota.StorageMaximumLevel = maxStorage * 1024 * 1024;
-                else
-                    quota.StorageMaximumLevel = 0;
+                    SPQuota quota = new SPQuota();
+                    if (maxStorage != -1)
+                        quota.StorageMaximumLevel = maxStorage * 1024 * 1024;
+                    else
+                        quota.StorageMaximumLevel = 0;
 
 
-                if (warningStorage != -1 && maxStorage != -1)
-                    quota.StorageWarningLevel = Math.Min(warningStorage, maxStorage) * 1024 * 1024;
-                else
-                    quota.StorageWarningLevel = 0;
+                    if (warningStorage != -1 && maxStorage != -1)
+                        quota.StorageWarningLevel = Math.Min(warningStorage, maxStorage) * 1024 * 1024;
+                    else
+                        quota.StorageWarningLevel = 0;
 
-                rootWebApplication.GrantAccessToProcessIdentity(WindowsIdentity.GetCurrent().Name);
-                rootWebApplication.Sites[url].Quota = quota;
-
+                    rootWebApplication.GrantAccessToProcessIdentity(WindowsIdentity.GetCurrent().Name);
+                    rootWebApplication.Sites[url].Quota = quota;
+                });
             }
             catch (Exception ex)
             {
                 HostedSolutionLog.LogError(ex);
                 throw;
             }
-            finally
-            {
-                if (wic != null)
-                    wic.Undo();
-            }
-
         }
 
         /// <summary>
@@ -261,21 +235,21 @@ namespace FuseCP.Providers.HostedSolution
         /// <exception cref="InvalidOperationException">Is thrown in case requested operation fails for any reason.</exception>
         public void CreateSiteCollection(Uri rootWebApplicationUri, SharePointSiteCollection siteCollection)
         {
-            WindowsImpersonationContext wic = null;
             HostedSolutionLog.LogStart("CreateSiteCollection");
 
             try
             {
-                wic = WindowsIdentity.GetCurrent().Impersonate();
-                SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
-                string siteCollectionUrl = String.Format("{0}:{1}", siteCollection.Url, rootWebApplicationUri.Port);
+                RunAsCurrentIdentity(() =>
+                {
+                    SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
+                    string siteCollectionUrl = String.Format("{0}:{1}", siteCollection.Url, rootWebApplicationUri.Port);
 
-                HostedSolutionLog.DebugInfo("rootWebApplicationUri: {0}", rootWebApplicationUri);
-                HostedSolutionLog.DebugInfo("siteCollectionUrl: {0}", siteCollectionUrl);
+                    HostedSolutionLog.DebugInfo("rootWebApplicationUri: {0}", rootWebApplicationUri);
+                    HostedSolutionLog.DebugInfo("siteCollectionUrl: {0}", siteCollectionUrl);
 
-                SPQuota spQuota;
+                    SPQuota spQuota;
 
-                SPSite spSite = rootWebApplication.Sites.Add(siteCollectionUrl,
+                    SPSite spSite = rootWebApplication.Sites.Add(siteCollectionUrl,
                                                              siteCollection.Title, siteCollection.Description,
                                                              (uint)siteCollection.LocaleId, String.Empty,
                                                              siteCollection.OwnerLogin, siteCollection.OwnerName,
@@ -312,14 +286,14 @@ namespace FuseCP.Providers.HostedSolution
                     throw;
                 }
 
-                rootWebApplication.Update(true);
+                    rootWebApplication.Update(true);
 
-                try
-                {
-                    if (siteCollection.RootWebApplicationInteralIpAddress != string.Empty)
+                    try
                     {
-                        string dirPath = FileUtils.EvaluateSystemVariables(@"%windir%\system32\drivers\etc");
-                        string path = dirPath + "\\hosts";
+                        if (siteCollection.RootWebApplicationInteralIpAddress != string.Empty)
+                        {
+                            string dirPath = FileUtils.EvaluateSystemVariables(@"%windir%\system32\drivers\etc");
+                            string path = dirPath + "\\hosts";
 
                         if (FileUtils.FileExists(path))
                         {
@@ -375,13 +349,14 @@ namespace FuseCP.Providers.HostedSolution
 
 
                         }
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    HostedSolutionLog.LogError(ex);
+                    catch (Exception ex)
+                    {
+                        HostedSolutionLog.LogError(ex);
 
-                }
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -390,9 +365,6 @@ namespace FuseCP.Providers.HostedSolution
             }
             finally
             {
-                if (wic != null)
-                    wic.Undo();
-
                 HostedSolutionLog.LogEnd("CreateSiteCollection");
             }
         }
@@ -407,10 +379,7 @@ namespace FuseCP.Providers.HostedSolution
         {
             try
             {
-                WindowsIdentity identity = WindowsIdentity.GetCurrent();
-                WindowsImpersonationContext wic = identity.Impersonate();
-
-                try
+                RunAsCurrentIdentity(() =>
                 {
                     SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
                     string siteCollectionUrl = String.Format("{0}:{1}", siteCollection.Url, rootWebApplicationUri.Port);
@@ -492,11 +461,7 @@ namespace FuseCP.Providers.HostedSolution
                     }
 
 
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -518,9 +483,7 @@ namespace FuseCP.Providers.HostedSolution
         {
             try
             {
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                return RunAsCurrentIdentity(() =>
                 {
                     SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
                     string siteCollectionUrl = String.Format("{0}:{1}", url, rootWebApplicationUri.Port);
@@ -544,11 +507,7 @@ namespace FuseCP.Providers.HostedSolution
                         backupFileName = zipFile;
                     }
                     return backupFileName;
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {
@@ -568,10 +527,7 @@ namespace FuseCP.Providers.HostedSolution
             string url = siteCollection.Url;
             try
             {
-
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                RunAsCurrentIdentity(() =>
                 {
                     SPWebApplication rootWebApplication = SPWebApplication.Lookup(rootWebApplicationUri);
                     string siteCollectionUrl = String.Format("{0}:{1}", url, rootWebApplicationUri.Port);
@@ -617,11 +573,7 @@ namespace FuseCP.Providers.HostedSolution
 
                     // Delete expanded file.
                     FileUtils.DeleteFile(expandedFile);
-                }
-                finally
-                {
-                    wic.Undo();
-                }
+                });
             }
             catch (Exception ex)
             {

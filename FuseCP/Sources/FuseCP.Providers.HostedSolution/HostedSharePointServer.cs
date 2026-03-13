@@ -279,7 +279,7 @@ namespace FuseCP.Providers.HostedSolution
 		}
 
 		/// <summary>
-		/// Executes supplied action within separate application domain.
+		/// Executes supplied action within application.
 		/// </summary>
 		/// <param name="action">Action to be executed.</param>
 		/// <returns>Any object that results from action execution or null if nothing is supposed to be returned.</returns>
@@ -291,31 +291,10 @@ namespace FuseCP.Providers.HostedSolution
 				throw new ArgumentNullException("action");
 			}
 
-			AppDomain domain = null;
-			try
-			{
-				// Create instance of server implementation in a separate application domain for 
-				// security and isolation purposes.
-				Type type = typeof(HostedSharePointServerImpl);
-				AppDomainSetup info = new AppDomainSetup();
-				info.ApplicationBase = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory);
-				info.PrivateBinPath = "bin; bin/debug";
-				domain = AppDomain.CreateDomain("WSS30", null, info);
-
-				HostedSharePointServerImpl impl =
-					 (HostedSharePointServerImpl)
-					 domain.CreateInstanceAndUnwrap(type.Assembly.FullName, type.FullName);
-
-				// Execute requested action within created application domain.
-				return action(impl);
-			}
-			finally
-			{
-				if (domain != null)
-				{
-					AppDomain.Unload(domain);
-				}
-			}
+			// appDomains are not supported in .NET Core/.NET.
+			// Execute directly against implementation.
+			var impl = new HostedSharePointServerImpl();
+			return action(impl);
 		}
 
 		public void UpdateQuotas(string url, long maxStorage, long warningStorage)
