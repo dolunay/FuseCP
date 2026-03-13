@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
-        <TargetFrameworks>net10.0;net48</TargetFrameworks>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>disable</Nullable>
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <CompilerGeneratedFilesOutputPath>WebServices</CompilerGeneratedFilesOutputPath>
@@ -16,12 +16,6 @@
         <OutputPath>bin_dotnet</OutputPath>
         <StartupObject>FuseCP.Server.Program</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
-        <OutputPath>bin</OutputPath>
-        <OutputType>Library</OutputType>
-        <ImplicitUsings>disable</ImplicitUsings>
-        <NoWarn>$(NoWarn);MSB3277</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -41,13 +35,6 @@
         <Compile Remove="Default.aspx.cs" />
     </ItemGroup>
  
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-        <Content Remove="Pages\Index.cshtml" />
-        <Compile Remove="Pages\Index.cshtml.cs" />
-        <None Include="Pages\Index.cshtml" />
-        <None Include="Pages\Index.cshtml.cs" />
-    </ItemGroup>
- 
     <ItemGroup>
         <Content Remove="wwwroot\img\logo.png" />
         <None Include="wwwroot\img\logo.png">
@@ -65,27 +52,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.4" />
-        <PackageReference Include="System.Text.Json" Version="10.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    </ItemGroup>
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-        <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
-        <PackageReference Include="System.Memory" Version="4.6.3" />
-        <Reference Include="Microsoft.CSharp" />
-        <Reference Include="System" />
-        <Reference Include="System.Configuration" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Runtime.Serialization" />
-        <Reference Include="System.ServiceModel" />
-        <Reference Include="System.ServiceModel.Web" />
-        <Reference Include="System.Web" />
-        <Reference Include="System.Net" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="System.Runtime.Remoting" />
-        <Reference Include="SwaggerWcf">
-            <HintPath>..\..\Lib\SwaggerWcf.dll</HintPath>
-        </Reference>
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
         <PackageReference Include="CoreWCF.Primitives" Version="1.8.0" />
@@ -104,51 +71,6 @@
         <Folder Include="WebServices\FuseCP.Build\FuseCP.Build.WebServices\" />
     </ItemGroup>
     
-    <Target Name="DeleteUnusedDlls" AfterTargets="Build" Condition="'$(TargetFramework)' == 'net48'">
-        <Message Text="Delete unused dll files" Importance="high" />
-        <ItemGroup>
-            <FilesToDelete Include="bin\WebServices\**\*.*" />
-            <FilesToMove Include="bin\FuseCP.Server.Utils.*" />
-            <FilesToMove Include="bin\Ionic.Zip.Reduced.*" />
-            <FilesToMove Include="bin\DotNetZip.*" />
-            <FilesToMove Include="bin\Newtonsoft.Json.*" />
-            <FilesToMove Include="bin\Microsoft.Win32.Registry.*" />
-            <FilesToMove Include="bin\Microsoft.Web.*" />
-            <FilesToMove Include="bin\Microsoft.CodeAnalysis.*" />
-            <FilesToMove Include="bin\Microsoft.Bcl.*" />
-            <FilesToMove Include="bin\System.*" />
-            <FilesToMove Include="bin\Renci.SshNet.*" />
-            <FilesToMove Include="bin\RazorBlade.*" />
-            <FilesToMove Include="bin\FuseCP.Build.*" />
-            <FilesToMove Include="bin\Microsoft.Web.Administration.*" />
-            <FilesToMove Include="bin\SwaggerWcf.*" />
-            <FilesToMove Include="bin\FuseCP.Providers.*" />
-            <FilesToMove Include="bin\Microsoft.SharePoint.*" />
-            <FilesToMove Include="bin\Microsoft.Identity.*" />
-            <FilesToMove Include="bin\Microsoft.IdentityModel.*" />
-            <FilesToMove Include="bin\Microsoft.Practices.*" />
-            <FilesToMove Include="bin\Mono.Posix.*" />
-			<FilesToMove Include="bin\Mono.Unix.*" />
-			<FilesToMove Include="bin\MySql.*" />
-            <FilesToMove Include="bin\Microsoft.Extensions.*" />
-            <FilesToMove Include="bin\FuseCP.Server.WPIService.*" />
-            <FilesToMove Include="bin\WPIServiceContract.*" />
-            <FilesToMove Include="bin\Azure.*" />
-            <FilesToMove Include="bin\BouncyCastle.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\System.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\Renci.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\Newtonsoft.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\Microsoft.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\BouncyCastle.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\AntiXSSLibrary.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\HtmlSanitizationLibrary.*" />
-            <FilesToDelete Include="bin\ProvidersLegacy\Mono.Posix.*" />
-        </ItemGroup>
-        <Delete Files="@(FilesToDelete)" ContinueOnError="true" />
-        <Move SourceFiles="@(FilesToMove)" DestinationFolder="bin\Providers" ContinueOnError="true" />
-        <RemoveDir Directories="bin\bin_dotnet;bin\WebServices" ContinueOnError="true" />
-    </Target>
-
     <!--<Target Name="CopySystemManagement" AfterTargets="Build">
         <ItemGroup>
             <Dll Include="$(PkgSystem_Managemenet)\runtimes\win\lib\net10.0\System.Management.dll" />

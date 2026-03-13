@@ -15,12 +15,14 @@
 
 using System;
 using System.Management;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Utils
 {
     /// <summary>
     /// Summary description for WmiHelper.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class WmiHelper
     {
         // namespace

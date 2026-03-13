@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Management;
 using System.Linq;
+using System.Runtime.Versioning;
 using FuseCP.Providers.OS;
 using Mono.Unix;
 
@@ -264,13 +265,13 @@ namespace FuseCP.Providers.Utils
                 i++;
             }
 
-            if (OSInfo.IsWindows) {
+            if (OperatingSystem.IsWindows()) {
 			    // Set permissions
 			    // We decided to inherit NTFS permissions from the parent folder to comply with with the native security schema in Windows,
 			    // when a user decides on his own how to implement security practices for NTFS permissions schema and harden the server.
 			    SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.ADMINISTRATORS, NTFSPermission.FullControl, true, true);
 			    SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.SYSTEM, NTFSPermission.FullControl, true, true);
-			} else if (OSInfo.IsUnix)
+            } else if (OSInfo.IsUnix)
             {
                 if (!UnixGroupInfo.GetLocalGroups().Any(group => group.GroupName == "fusecp"))
                 {
@@ -401,15 +402,13 @@ namespace FuseCP.Providers.Utils
             if (!File.Exists(path))
                 return null;
 
-            FileStream stream = new FileStream(path, FileMode.Open);
-            if (stream == null)
-                return null;
-
-            long length = stream.Length;
-            byte[] content = new byte[length];
-            stream.Read(content, 0, (int)length);
-            stream.Close();
-            return content;
+            using (FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                long length = stream.Length;
+                byte[] content = new byte[length];
+                stream.ReadExactly(content, 0, (int)length);
+                return content;
+            }
         }
 
 		/// <summary>
@@ -643,7 +642,7 @@ namespace FuseCP.Providers.Utils
             }
 
             // reset NTFS permissions on destination file/folder
-            if (OSInfo.IsWindows) SecurityUtils.ResetNtfsPermissions(destinationPath);
+            if (OperatingSystem.IsWindows()) SecurityUtils.ResetNtfsPermissions(destinationPath);
         }
 
         public static void CopyFile(string sourcePath, string destinationPath)
@@ -662,7 +661,7 @@ namespace FuseCP.Providers.Utils
             }
 
             // reset NTFS permissions on destination file/folder
-            if (OSInfo.IsWindows) SecurityUtils.ResetNtfsPermissions(destinationPath);
+            if (OperatingSystem.IsWindows()) SecurityUtils.ResetNtfsPermissions(destinationPath);
         }
 
         public static void CopyDirectory(string sourceDir, string destinationDir)
@@ -966,6 +965,7 @@ namespace FuseCP.Providers.Utils
             return size;
         }
 
+        [SupportedOSPlatform("windows")]
         public static void CreateAccessDatabase(string databasePath)
         {
             if (String.IsNullOrEmpty(databasePath))
@@ -1015,6 +1015,7 @@ namespace FuseCP.Providers.Utils
             }
         }
 
+        [SupportedOSPlatform("windows")]
         public static void SetQuotaLimitOnFolder(string folderPath, string shareNameDrive, string quotaLimit, int mode, string wmiUserName, string wmiPassword)
         {
 

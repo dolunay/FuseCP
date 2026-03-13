@@ -21,6 +21,7 @@ using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Runtime.Versioning;
 
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
@@ -1500,6 +1501,7 @@ namespace FuseCP.Providers.Database
 			return itemsDiskspace.ToArray();
 		}
 
+		[SupportedOSPlatform("windows")]
 		protected bool IsStringRegistryValueStartWith(string path, string paramName, string paramValue)
 		{
 			string value = string.Empty;
@@ -1515,6 +1517,7 @@ namespace FuseCP.Providers.Database
 			return res;
 		}
 
+		[SupportedOSPlatform("windows")]
 		protected virtual bool CheckWindowsVersion(string version)
 		{
 			bool res = IsStringRegistryValueStartWith("SOFTWARE\\Microsoft\\MSSQLServer\\MSSQLServer\\CurrentVersion", "CurrentVersion", version);
@@ -1570,11 +1573,34 @@ namespace FuseCP.Providers.Database
 
 		}
 
+		protected virtual bool TryCheckServerVersionByQuery(string version)
+		{
+			try
+			{
+				DataTable dt = ExecuteQuery("SELECT CAST(SERVERPROPERTY('ProductVersion') AS nvarchar(128))").Tables[0];
+				if (dt.Rows.Count == 0)
+					return false;
+
+				string productVersion = dt.Rows[0][0]?.ToString();
+				return !String.IsNullOrEmpty(productVersion) &&
+					productVersion.StartsWith(version, StringComparison.Ordinal);
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
 		protected virtual bool CheckUnixVersion(string version) => false;
 		protected virtual bool CheckVersion(string version)
 		{
-			if (OS.OSInfo.IsWindows) return CheckWindowsVersion(version);
-			else return CheckUnixVersion(version);
+			if (TryCheckServerVersionByQuery(version))
+				return true;
+
+			if (OperatingSystem.IsWindows())
+				return CheckWindowsVersion(version);
+
+			return CheckUnixVersion(version);
 		}
 
 		public override bool IsInstalled()
