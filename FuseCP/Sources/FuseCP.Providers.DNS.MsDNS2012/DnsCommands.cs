@@ -419,23 +419,19 @@ namespace FuseCP.Providers.DNS
 
             if (recordData == null) return;
 
-            if (ExpireLimit != null)
-                recordData.CimInstanceProperties["ExpireLimit"].Value = ExpireLimit;
+            recordData.CimInstanceProperties["ExpireLimit"].Value = ExpireLimit;
 
-            if (MinimumTimeToLive != null)
-                recordData.CimInstanceProperties["MinimumTimeToLive"].Value = MinimumTimeToLive;
+            recordData.CimInstanceProperties["MinimumTimeToLive"].Value = MinimumTimeToLive;
 
             if (PrimaryServer != null)
                 recordData.CimInstanceProperties["PrimaryServer"].Value = PrimaryServer;
 
-            if (RefreshInterval != null)
-                recordData.CimInstanceProperties["RefreshInterval"].Value = RefreshInterval;
+            recordData.CimInstanceProperties["RefreshInterval"].Value = RefreshInterval;
 
             if (ResponsiblePerson != null)
                 recordData.CimInstanceProperties["ResponsiblePerson"].Value = ResponsiblePerson;
 
-            if (RetryDelay != null)
-                recordData.CimInstanceProperties["RetryDelay"].Value = RetryDelay;
+            recordData.CimInstanceProperties["RetryDelay"].Value = RetryDelay;
 
             if (PSComputerName != null)
                 recordData.CimInstanceProperties["PSComputerName"].Value = PSComputerName;
