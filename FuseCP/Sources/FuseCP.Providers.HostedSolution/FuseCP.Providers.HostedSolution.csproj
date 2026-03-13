@@ -10,8 +10,6 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 		<LangVersion>11</LangVersion>
 		<Nullable>disable</Nullable>
-		<!-- Exclude CRM files from build (not compatible with .NET 10) -->
-		<DefaultItemExcludes>$(DefaultItemExcludes);CRMProxy.cs;CRMProvider.cs</DefaultItemExcludes>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugType>portable</DebugType>
@@ -94,7 +92,6 @@
 		</Reference>
 		<Reference Include="System.ServiceModel" />
 		<Reference Include="System.Web" />
-		<!-- System.Web.Services removed: not available in .NET 10, and CRMProxy.cs is excluded from build -->
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
