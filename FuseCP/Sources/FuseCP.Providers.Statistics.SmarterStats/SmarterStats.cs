@@ -16,7 +16,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Web.Services.Protocols;
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
 using Microsoft.Win32;
@@ -26,6 +25,8 @@ namespace FuseCP.Providers.Statistics
 {
     public class SmarterStats : HostingServiceProviderBase, IStatisticsServer
     {
+        private ISmarterStatsAutomationClient automationClient;
+
         #region Properties
         protected string SmarterUrl
         {
@@ -81,15 +82,41 @@ namespace FuseCP.Providers.Statistics
 		{
 			get { return ProviderSettings["StatisticsUrl"]; }
 		}
+
+        protected string AutomationTransport
+        {
+            get
+            {
+                string transport = ProviderSettings["AutomationTransport"];
+                return String.IsNullOrWhiteSpace(transport) ? "Soap" : transport.Trim();
+            }
+        }
+
+        protected string ModernAutomationEndpoint
+        {
+            get
+            {
+                string endpoint = ProviderSettings["ModernAutomationEndpoint"];
+                return String.IsNullOrWhiteSpace(endpoint) ? SmarterUrl : endpoint.Trim();
+            }
+        }
+
+        protected ISmarterStatsAutomationClient AutomationClient
+        {
+            get
+            {
+                if (automationClient == null)
+                    automationClient = CreateAutomationClient();
+
+                return automationClient;
+            }
+        }
         #endregion
 
         #region IStatistics methods
         public virtual StatsServer[] GetServers()
         {
-            ServerAdmin srvAdmin = new ServerAdmin();
-            PrepareProxy(srvAdmin);
-
-            ServerInfoArrayResult result = srvAdmin.GetServers(Username, Password);
+            ServerInfoArrayResult result = AutomationClient.GetServers(Username, Password);
             if (result.Servers == null)
                 return new StatsServer[] { };
 
@@ -107,10 +134,7 @@ namespace FuseCP.Providers.Statistics
 
         public virtual string GetSiteId(string siteName)
         {
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
-            SiteInfoArrayResult result = stAdmin.GetAllSites(Username, Password, false);
+            SiteInfoArrayResult result = AutomationClient.GetAllSites(Username, Password, false);
             if (result.Sites == null)
                 return null;
 
@@ -127,10 +151,7 @@ namespace FuseCP.Providers.Statistics
         {
             List<string> sites = new List<string>();
 
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
-            SiteInfoArrayResult result = stAdmin.GetAllSites(Username, Password, false);
+            SiteInfoArrayResult result = AutomationClient.GetAllSites(Username, Password, false);
             if (result.Sites == null)
                 return sites.ToArray();
 
@@ -142,11 +163,8 @@ namespace FuseCP.Providers.Statistics
 
         public virtual StatsSite GetSite(string siteId)
         {
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
             int sid = Int32.Parse(siteId);
-            SiteInfoResult result = stAdmin.GetSite(Username, Password, sid);
+            SiteInfoResult result = AutomationClient.GetSite(Username, Password, sid);
             if (result.Site == null)
                 return null;
 
@@ -167,10 +185,7 @@ namespace FuseCP.Providers.Statistics
 			}
 
             // get site users
-            UserAdmin usrAdmin = new UserAdmin();
-            PrepareProxy(usrAdmin);
-
-            UserInfoResultArray usrResult = usrAdmin.GetUsers(Username, Password, sid);
+            UserInfoResultArray usrResult = AutomationClient.GetUsers(Username, Password, sid);
             if (usrResult.user != null)
             {
                 site.Users = new StatsUser[usrResult.user.Length];
@@ -212,14 +227,11 @@ namespace FuseCP.Providers.Statistics
             //    FileUtils.CreateDirectory(site.LogDirectory);
 
             // add site
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
             if (site.Users == null || site.Users.Length == 0)
                 throw new Exception("At least one user (site owner) should be specified when creating new statistics site");
 
             string ownerUsername = site.Users[0].Username.ToLower();
-            GenericResult1 result = stAdmin.AddSite(Username, Password,
+            GenericResult1 result = AutomationClient.AddSite(Username, Password,
                 site.Users[0].Username, site.Users[0].Password, site.Users[0].FirstName, site.Users[0].LastName,
                 ServerId, 0, site.Name, site.LogDirectory, LogFormat, LogWildcard, LogDeleteDays,
                 SmarterLogsPath, SmarterLogDeleteMonths, "", "", TimeZoneId);
@@ -232,14 +244,12 @@ namespace FuseCP.Providers.Statistics
             int iSiteId = Int32.Parse(siteId);
 
             // add other users
-            UserAdmin usrAdmin = new UserAdmin();
-            PrepareProxy(usrAdmin);
             foreach (StatsUser user in site.Users)
             {
                 if (user.Username.ToLower() != ownerUsername)
                 {
                     // add user
-                    GenericResult2 r = usrAdmin.AddUser(Username, Password, iSiteId,
+                    GenericResult2 r = AutomationClient.AddUser(Username, Password, iSiteId,
                         user.Username, user.Password, user.FirstName, user.LastName, user.IsAdmin);
                     if (!r.Result)
                         throw new Exception("Error adding site user: " + r.Message);
@@ -251,21 +261,17 @@ namespace FuseCP.Providers.Statistics
 
         public virtual void UpdateSite(StatsSite site)
         {
-            // update site
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
             int siteId = Int32.Parse(site.SiteId);
 
             // get original site
-            SiteInfoResult siteResult = stAdmin.GetSite(Username, Password, siteId);
+            SiteInfoResult siteResult = AutomationClient.GetSite(Username, Password, siteId);
             if (siteResult.Site == null)
                 return;
 
             SiteInfo origSite = siteResult.Site;
 
             // update site with only required properties
-            GenericResult1 result = stAdmin.UpdateSite(Username, Password, siteId, site.Name, origSite.LogDirectory,
+            GenericResult1 result = AutomationClient.UpdateSite(Username, Password, siteId, site.Name, origSite.LogDirectory,
                 origSite.LogFormat, origSite.LogWildcard, origSite.LogDaysBeforeDelete,
                 origSite.SmarterLogDirectory, origSite.SmarterLogMonthsBeforeDelete, origSite.ExportPath, origSite.ExportPathURL,
                 origSite.TimeZoneID);
@@ -274,16 +280,13 @@ namespace FuseCP.Providers.Statistics
                 throw new Exception("Error updating statistics site: " + result.Message);
 
             // update site users
-            UserAdmin usrAdmin = new UserAdmin();
-            PrepareProxy(usrAdmin);
-
             // get original users
             if (site.Users != null)
             {
                 List<string> origUsers = new List<string>();
                 List<string> newUsers = new List<string>();
                 string ownerUsername = null;
-                UserInfoResultArray usrResult = usrAdmin.GetUsers(Username, Password, siteId);
+                UserInfoResultArray usrResult = AutomationClient.GetUsers(Username, Password, siteId);
                 foreach (UserInfo user in usrResult.user)
                 {
                     // add to original users
@@ -300,7 +303,7 @@ namespace FuseCP.Providers.Statistics
                     if (!origUsers.Contains(user.Username.ToLower()))
                     {
                         // add user
-                        GenericResult2 r = usrAdmin.AddUser(Username, Password, siteId,
+                        GenericResult2 r = AutomationClient.AddUser(Username, Password, siteId,
                             user.Username, user.Password, user.FirstName, user.LastName, user.IsAdmin);
                         if (!r.Result)
                             throw new Exception("Error adding site user: " + r.Message);
@@ -308,7 +311,7 @@ namespace FuseCP.Providers.Statistics
                     else
                     {
                         // update user
-                        GenericResult2 r = usrAdmin.UpdateUser(Username, Password, siteId,
+                        GenericResult2 r = AutomationClient.UpdateUser(Username, Password, siteId,
                             user.Username, user.Password, user.FirstName, user.LastName, user.IsAdmin);
                         if (!r.Result)
                             throw new Exception("Error updating site user: " + r.Message);
@@ -324,7 +327,7 @@ namespace FuseCP.Providers.Statistics
                     if (!newUsers.Contains(username) && username != ownerUsername)
                     {
                         // delete user
-                        GenericResult2 r = usrAdmin.DeleteUser(Username, Password, siteId, username);
+                        GenericResult2 r = AutomationClient.DeleteUser(Username, Password, siteId, username);
                     }
                 }
             }
@@ -332,13 +335,9 @@ namespace FuseCP.Providers.Statistics
 
         public virtual void DeleteSite(string siteId)
         {
-            // delete site
-            SiteAdmin stAdmin = new SiteAdmin();
-            PrepareProxy(stAdmin);
-
             int sid = Int32.Parse(siteId);
 
-            GenericResult1 result = stAdmin.DeleteSite(Username, Password, sid, true);
+            GenericResult1 result = AutomationClient.DeleteSite(Username, Password, sid, true);
             if (!result.Result)
                 throw new Exception("Error deleting statistics site: " + result.Message);
         }
@@ -366,17 +365,18 @@ namespace FuseCP.Providers.Statistics
         #endregion
 
         #region Helper Methods
-        public void PrepareProxy(SoapHttpClientProtocol proxy)
+        protected virtual ISmarterStatsAutomationClient CreateAutomationClient()
         {
-            string smarterUrl = SmarterUrl;
+            if (String.Equals(AutomationTransport, "Soap", StringComparison.OrdinalIgnoreCase))
+                return new SmarterStatsSoapAutomationClient(SmarterUrl);
 
-            int idx = proxy.Url.LastIndexOf("/");
+            if (String.Equals(AutomationTransport, "Modern", StringComparison.OrdinalIgnoreCase))
+                return new SmarterStatsModernAutomationClient(ModernAutomationEndpoint);
 
-            // strip the last slash if any
-            if (smarterUrl[smarterUrl.Length - 1] == '/')
-                smarterUrl = smarterUrl.Substring(0, smarterUrl.Length - 1);
-
-            proxy.Url = smarterUrl + proxy.Url.Substring(idx);
+            throw new NotSupportedException(
+                String.Format(
+                    "Unsupported SmarterStats automation transport '{0}'. Supported values: Soap, Modern.",
+                    AutomationTransport));
         }
         #endregion
 

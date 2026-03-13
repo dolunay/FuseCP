@@ -9,15 +9,7 @@
 		<UseEntityFramework>true</UseEntityFramework>
 		<IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
 		<LangVersion>13</LangVersion>
-        <EntityFramework6>6.5</EntityFramework6> <!-- Use EntityFramework 6.4 or 6.5 -->
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
-        <OutputPath>..\FuseCP.EnterpriseServer\bin\Code</OutputPath>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net48' AND '$(EntityFramework6)' == '6.4'">
-        <DefineConstants>$(DefineConstants);EF64</DefineConstants>
+		<EntityFramework6>6.5</EntityFramework6>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
@@ -25,17 +17,13 @@
         <UseRidGraph>true</UseRidGraph>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <OutputPath>..\FuseCP.EnterpriseServer\bin\netstandard</OutputPath>
-    </PropertyGroup>
-
     <PropertyGroup Condition="'$(UseSkia)' == 'true'">
         <DefineConstants>$(DefineConstants);UseSkia</DefineConstants>
     </PropertyGroup>
 
-	<PropertyGroup Condition="'$(UseEntityFramework)' == 'true'">
-		<DefineConstants>$(DefineConstants);UseEntityFramework</DefineConstants>
-	</PropertyGroup>
+    <PropertyGroup Condition="'$(UseEntityFramework)' == 'true'">
+        <DefineConstants>$(DefineConstants);UseEntityFramework</DefineConstants>
+    </PropertyGroup>
 
     <ItemGroup>
         <Content Include="..\FuseCP.EnterpriseServer.Data\Migrations\SqlServer\StoredProcedures\**\*.sql">
@@ -66,27 +54,11 @@
         <PackageReference Include="MimeKit" Version="4.15.1" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48' AND '$(EntityFramework6)' == '6.5'">
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
-        <PackageReference Include="Azure.Identity" Version="1.17.1" />
-        <PackageReference Include="EntityFramework.DynamicLinq" Version="1.6.10" />
-    </ItemGroup>
-        
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48' AND '$(EntityFramework6)' == '6.4'">
-        <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-        <PackageReference Include="EntityFramework.DynamicLinq" Version="1.6.10" />
-    </ItemGroup>
-
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
         <PackageReference Include="Azure.Identity" Version="1.17.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="9.6.10" />
         <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
-        <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Core" Version="2.3.6" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
     <!-- hack for SkiaSharp, so the native dlls go in the right place -->

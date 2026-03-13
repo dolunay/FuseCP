@@ -18,7 +18,7 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <NoWarn>$(NoWarn);NU1701;NETSDK1187</NoWarn>
     </PropertyGroup>
-    <PropertyGroup Condition="$(TargetFramework) != 'net48'">
+    <PropertyGroup>
         <OutputPath>bin_dotnet\</OutputPath>
         <OutputType>Exe</OutputType>
         <UseRidGraph>true</UseRidGraph>
@@ -175,7 +175,7 @@
         <Content Remove="Properties\PublishProfiles\**" />
     </ItemGroup>
 
-    <Target Name="ChangeAliasesOfNugetRefs" Condition="$(TargetFramework) != 'net48'" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
+    <Target Name="ChangeAliasesOfNugetRefs" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
         <ItemGroup>
             <!-- Do not import System.Configuration.ConfigurationManager version 8 -->
             <ReferencePath Remove="%(Identity)" Condition="'%(FileName)' == 'System.Configuration.ConfigurationManager' AND $([System.Text.RegularExpressions.Regex]::IsMatch(%(Identity),'\\8\.0\..\\'))" />
@@ -231,16 +231,14 @@
       <Message Text="Ensuring FuseCP.Providers.Base.dll is in bin folder for TargetFramework $(TargetFramework)" Importance="high" />
       <MakeDir Directories="$(ProjectDir)bin" />
     <ItemGroup>
-        <!-- For net10.0, copy from bin_dotnet; for net48, also ensure it's in bin (fallback) -->
+        <!-- For net10.0, copy from bin_dotnet. Also restore from bin\Lazy in case it was moved there by mistake. -->
         <FilesToCopy Include="bin_dotnet\FuseCP.Providers.Base.*" Condition="'$(TargetFramework)' == 'net10.0'" />
-        <FilesToCopy Include="..\..\Bin\FuseCP.Providers.Base.*" Condition="'$(TargetFramework)' == 'net48'" />
-                <!-- Also restore from bin\Lazy in case it was moved there by mistake -->
-                <FilesToCopy Include="bin\Lazy\FuseCP.Providers.Base.*" />
+        <FilesToCopy Include="bin\Lazy\FuseCP.Providers.Base.*" />
     </ItemGroup>
       <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="bin" SkipUnchangedFiles="true" /> 
     </Target>
 
-    <!--<Target Name="CopyDepsJson" Condition="$(TargetFramework) != 'net48'" AfterTargets="Build">
+    <!--<Target Name="CopyDepsJson" AfterTargets="Build">
         
         <ItemGroup>
             <DepsJson Include="FuseCP.WebPortal.deps.json" />

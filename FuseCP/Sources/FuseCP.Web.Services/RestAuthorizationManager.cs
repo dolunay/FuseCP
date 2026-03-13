@@ -18,13 +18,8 @@ using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-#if NETFRAMEWORK
-using System.ServiceModel;
-using System.ServiceModel.Web;
-#else
 using CoreWCF;
 using CoreWCF.Web;
-#endif
 
 namespace FuseCP.Web.Services {
 	public class RestAuthorizationManager : ServiceAuthorizationManager
@@ -34,20 +29,12 @@ namespace FuseCP.Web.Services {
 		/// <summary>  
 		/// Method source sample taken from here: http://bit.ly/1hUa1LR  
 		/// </summary>  
-#if NETFRAMEWORK
-		protected override bool CheckAccessCore(OperationContext operationContext)
-#else
 		protected override async ValueTask<bool> CheckAccessCoreAsync(OperationContext operationContext)
-#endif
 		{
 			string endpointUri = operationContext.EndpointDispatcher.EndpointAddress.Uri.AbsolutePath;
 			if (WebOperationContext.Current == null || !HasApi(endpointUri, "api"))
 			{
-#if NETFRAMEWORK
-				return base.CheckAccessCore(operationContext);
-#else
 				return await base.CheckAccessCoreAsync(operationContext);
-#endif
 			}
 
 			var match = Regex.Match(endpointUri, "(?<=/api/)[a-zA-Z0-9_]+(?=\\?|$)", RegexOptions.Singleline);
@@ -77,11 +64,7 @@ namespace FuseCP.Web.Services {
 				validator.Policy = policy;
 				try
 				{
-#if NETFRAMEWORK
-					validator.Validate(user.Name, user.Password);
-#else
-					validator.ValidateAsync(user.Name, user.Password).AsTask().Wait();
-#endif
+					await validator.ValidateAsync(user.Name, user.Password);
 					return true;
 
 				} catch (Exception)

@@ -28,11 +28,7 @@
         <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.EnterpriseServer.Base\FuseCP.EnterpriseServer.Base.csproj" />
         <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.Web.Clients\FuseCP.Web.Clients.csproj" />
         <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\FuseCP.EnterpriseServer\FuseCP.EnterpriseServer.csproj"
-            ReferenceOutputAssembly="false" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net48' OR '$(AnyServices)' == ''" />
-    </ItemGroup>
-    <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-        <Reference Include="System.ServiceModel" />
-        <Reference Include="System.DirectoryServices" />
+            ReferenceOutputAssembly="false" PrivateAssets="All" Condition="'$(AnyServices)' == ''" />
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
         <PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />

@@ -146,11 +146,7 @@ namespace FuseCP.Web.Services
 				if (hpos < 0) throw new FaultException("No anonymous access allowed.");
 				var header = request.Headers.GetHeader<Credentials>(hpos);
 				var validator = new UserNamePasswordValidator() { Policy = policy };
-#if NETFRAMEWORK
-				validator.Validate(header.Username, header.Password);
-#else
 				validator.ValidateAsync(header.Username, header.Password).AsTask().Wait();
-#endif
 			}
             return null;
 		}

@@ -18,12 +18,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-#if NETFRAMEWORK
-using System.ServiceModel;
-using System.Configuration;
-#else
 using CoreWCF;
-#endif
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,11 +46,7 @@ namespace FuseCP.Web.Services
 			{
 				if (exposeWebServices == null)
 				{
-#if NETFRAMEWORK
-					exposeWebServices = (ConfigurationManager.AppSettings["ExposeWebServices"] ?? "").ToLower();
-#else
 					exposeWebServices = Configuration.ExposeWebServices.ToLower();
-#endif
 				}
 				return exposeWebServices;
 			}

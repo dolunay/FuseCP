@@ -18,31 +18,18 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Reflection;
-#if NETFRAMEWORK
-using System.ServiceModel;
-#else
 using CoreWCF;
-#endif
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FuseCP.Web.Services
 {
-#if NETFRAMEWORK
-	public class UserNamePasswordValidator: System.IdentityModel.Selectors.UserNamePasswordValidator
-#else
 	public class UserNamePasswordValidator : CoreWCF.IdentityModel.Selectors.UserNamePasswordValidator
-#endif
 	{
 
 		public PolicyAttribute Policy;
 
-#if NETFRAMEWORK
-		public override void Validate(string userName, string password)
-#else
 		public override ValueTask ValidateAsync(string userName, string password)
-
-#endif
 		{
 			if (Policy != null)
 			{
@@ -59,9 +46,7 @@ namespace FuseCP.Web.Services
 				
 			}
 
-#if !NETFRAMEWORK
 			return ValueTask.CompletedTask;
-#endif
 		}
 
 		public static Func<string, bool> ValidateServer;

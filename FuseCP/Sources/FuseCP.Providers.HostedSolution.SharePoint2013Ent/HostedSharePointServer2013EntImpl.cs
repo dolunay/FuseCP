@@ -64,10 +64,8 @@ namespace FuseCP.Providers.HostedSolution
 
             try
             {
-                using (WindowsIdentity.GetCurrent().Impersonate())
-                {
-                    languages.AddRange(from SPLanguage lang in SPRegionalSettings.GlobalInstalledLanguages select lang.LCID);
-                }
+                WindowsIdentity.RunImpersonated(WindowsIdentity.GetCurrent().AccessToken,
+                    () => { languages.AddRange(from SPLanguage lang in SPRegionalSettings.GlobalInstalledLanguages select lang.LCID); });
             }
             catch (Exception ex)
             {
@@ -257,16 +255,18 @@ namespace FuseCP.Providers.HostedSolution
 
             try
             {
-                using (WindowsIdentity.GetCurrent().Impersonate())
-                {
-                    runspace = OpenRunspace();
-                    CreateCollection(runspace, rootWebApplicationUri, siteCollection);
-                }
+                WindowsIdentity.RunImpersonated(WindowsIdentity.GetCurrent().AccessToken,
+                    () =>
+                    {
+                        runspace = OpenRunspace();
+                        CreateCollection(runspace, rootWebApplicationUri, siteCollection);
+                    });
             }
             finally
             {
                 CloseRunspace(runspace);
                 HostedSolutionLog.LogEnd("CreateSiteCollection");
+            }
         }
 
         /// <summary> Creates site collection within predefined root web application.</summary>

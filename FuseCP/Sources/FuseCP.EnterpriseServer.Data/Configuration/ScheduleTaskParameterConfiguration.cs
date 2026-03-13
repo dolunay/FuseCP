@@ -89,7 +89,6 @@ public partial class ScheduleTaskParameterConfiguration: EntityTypeConfiguration
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_FTP_FILES", ParameterId = "FTP_PASSWORD", DataTypeId = "String", ParameterOrder = 4 },
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_FTP_FILES", ParameterId = "FTP_SERVER", DataTypeId = "String", DefaultValue = "ftp.myserver.com", ParameterOrder = 2 },
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_FTP_FILES", ParameterId = "FTP_USERNAME", DataTypeId = "String", ParameterOrder = 3 },
-            new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_HOSTED_SOLUTION_REPORT", ParameterId = "CRM_REPORT", DataTypeId = "Boolean", DefaultValue = "true", ParameterOrder = 6 },
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_HOSTED_SOLUTION_REPORT", ParameterId = "EMAIL", DataTypeId = "String", ParameterOrder = 1 },
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_HOSTED_SOLUTION_REPORT", ParameterId = "EXCHANGE_REPORT", DataTypeId = "Boolean", DefaultValue = "true", ParameterOrder = 2 },
             new ScheduleTaskParameter() { TaskId = "SCHEDULE_TASK_HOSTED_SOLUTION_REPORT", ParameterId = "LYNC_REPORT", DataTypeId = "Boolean", DefaultValue = "true", ParameterOrder = 4 },

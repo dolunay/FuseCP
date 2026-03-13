@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml;
 using Microsoft.Win32;
 using FuseCP.Providers.SharePoint;

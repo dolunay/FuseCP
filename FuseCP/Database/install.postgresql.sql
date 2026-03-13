@@ -2315,13 +2315,11 @@ BEGIN
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
     VALUES (20, 'FuseCP.EnterpriseServer.HostedSharePointServerController', 'Sharepoint Foundation Server', 14, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
-    VALUES (21, NULL, 'Hosted CRM', 16, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
     VALUES (22, 'FuseCP.EnterpriseServer.DatabaseServerController', 'MsSQL2008', 9, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
     VALUES (23, 'FuseCP.EnterpriseServer.DatabaseServerController', 'MsSQL2012', 10, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
-    VALUES (24, NULL, 'Hosted CRM2013', 16, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
     VALUES (30, NULL, 'VPS', 19, TRUE);
     INSERT INTO public."ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
@@ -2659,7 +2657,6 @@ BEGIN
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (200, NULL, 'Hosted Windows SharePoint Services 3.0', 'HostedSharePoint30', 20, 'HostedSharePoint30', 'FuseCP.Providers.HostedSolution.HostedSharePointServer, FuseCP.Providers.HostedSolution');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (201, NULL, 'Hosted MS CRM 4.0', 'CRM', 21, 'CRM', 'FuseCP.Providers.HostedSolution.CRMProvider, FuseCP.Providers.HostedSolution');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (202, NULL, 'Microsoft SQL Server 2008', 'MSSQL', 22, 'MsSQL', 'FuseCP.Providers.Database.MsSqlServer2008, FuseCP.Providers.Database.SqlServer');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
@@ -2717,15 +2714,11 @@ BEGIN
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (700, NULL, 'Storage Spaces Windows 2012', 'StorageSpaceServices', 49, 'StorageSpace2012', 'FuseCP.Providers.StorageSpaces.Windows2012, FuseCP.Providers.StorageSpaces.Windows2012');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (1201, NULL, 'Hosted MS CRM 2011', 'CRM2011', 21, 'CRM', 'FuseCP.Providers.HostedSolution.CRMProvider2011, FuseCP.Providers.HostedSolution.CRM2011');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (1202, NULL, 'Hosted MS CRM 2013', 'CRM2011', 24, 'CRM', 'FuseCP.Providers.HostedSolution.CRMProvider2013, FuseCP.Providers.HostedSolution.Crm2013');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (1203, NULL, 'Microsoft SQL Server 2014', 'MSSQL', 46, 'MsSQL', 'FuseCP.Providers.Database.MsSqlServer2014, FuseCP.Providers.Database.SqlServer');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (1205, NULL, 'Hosted MS CRM 2015', 'CRM2011', 24, 'CRM', 'FuseCP.Providers.HostedSolution.CRMProvider2015, FuseCP.Providers.HostedSolution.Crm2015');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (1206, NULL, 'Hosted MS CRM 2016', 'CRM2011', 24, 'CRM', 'FuseCP.Providers.HostedSolution.CRMProvider2016, FuseCP.Providers.HostedSolution.Crm2016');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (1301, NULL, 'Hosted SharePoint Foundation 2013', 'HostedSharePoint30', 20, 'HostedSharePoint2013', 'FuseCP.Providers.HostedSolution.HostedSharePointServer2013, FuseCP.Providers.HostedSolution.SharePoint2013');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
@@ -2991,9 +2984,7 @@ BEGIN
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
     VALUES (208, 20, NULL, NULL, NULL, 'Max site storage, MB', 'HostedSharePoint.MaxStorage', 2.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (209, 21, NULL, NULL, 1, 'Full licenses per organization', 'HostedCRM.Users', 2.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (210, 21, NULL, NULL, NULL, 'CRM Organization', 'HostedCRM.Organization', 1.0, 1, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
     VALUES (213, 22, NULL, NULL, NULL, 'Max Database Size', 'MsSQL2008.MaxDatabaseSize', 3.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
@@ -3203,21 +3194,13 @@ BEGIN
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
     VALUES (453, 45, NULL, NULL, NULL, 'Disable user from removing server', 'RDS.DisableUserDeleteServer', 3.0, 1, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (460, 21, NULL, NULL, NULL, 'Max Database Size, MB', 'HostedCRM.MaxDatabaseSize', 5.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (461, 21, NULL, NULL, 1, 'Limited licenses per organization', 'HostedCRM.LimitedUsers', 3.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (462, 21, NULL, NULL, 1, 'ESS licenses per organization', 'HostedCRM.ESSUsers', 4.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (463, 24, NULL, NULL, NULL, 'CRM Organization', 'HostedCRM2013.Organization', 1.0, 1, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (464, 24, NULL, NULL, NULL, 'Max Database Size, MB', 'HostedCRM2013.MaxDatabaseSize', 5.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (465, 24, NULL, NULL, 1, 'Essential licenses per organization', 'HostedCRM2013.EssentialUsers', 2.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (466, 24, NULL, NULL, 1, 'Basic licenses per organization', 'HostedCRM2013.BasicUsers', 3.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-    VALUES (467, 24, NULL, NULL, 1, 'Professional licenses per organization', 'HostedCRM2013.ProfessionalUsers', 4.0, 3, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
     VALUES (468, 45, NULL, NULL, NULL, 'Use Drive Maps', 'EnterpriseStorage.DriveMaps', 2.0, 1, FALSE);
     INSERT INTO public."Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
@@ -3571,7 +3554,6 @@ BEGIN
     INSERT INTO public."ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
     VALUES ('FTP_USERNAME', 'SCHEDULE_TASK_FTP_FILES', 'String', NULL, 3);
     INSERT INTO public."ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
-    VALUES ('CRM_REPORT', 'SCHEDULE_TASK_HOSTED_SOLUTION_REPORT', 'Boolean', 'true', 6);
     INSERT INTO public."ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
     VALUES ('EMAIL', 'SCHEDULE_TASK_HOSTED_SOLUTION_REPORT', 'String', NULL, 1);
     INSERT INTO public."ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")

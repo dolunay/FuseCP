@@ -7,7 +7,7 @@
     <PublishUrl>publish\</PublishUrl>
     <Product>FuseCP.Providers.Base</Product>
     <WarningsAsErrors>618</WarningsAsErrors>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <LangVersion>13.0</LangVersion>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>

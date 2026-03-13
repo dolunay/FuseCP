@@ -23,15 +23,9 @@ using System.Threading.Tasks;
 
 namespace FuseCP.Web.Services
 {
-#if NETFRAMEWORK
-    public interface ITunnelHandler: System.Web.IHttpHandler
-#else
     public interface ITunnelHandler
-#endif
     {
         string Route { get; }
-#if !NETFRAMEWORK
         void Init(Microsoft.AspNetCore.Builder.WebApplication app);
-#endif
     }
 }

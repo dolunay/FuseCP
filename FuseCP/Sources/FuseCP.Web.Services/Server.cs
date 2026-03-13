@@ -17,20 +17,15 @@ using System;
 using System.Collections.Generic;
 using FuseCP.Providers.OS;
 
-#if !NETFRAMEWORK
 using CoreWCF;
 using CoreWCF.Channels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-#else
-using System.Web;
-#endif
 
 namespace FuseCP.Web.Services
 {
 	public static class Server
 	{
-#if !NETFRAMEWORK
 		public static string WebRoot { get; set; } = null;
 		public static string ContentRoot { get; set; } = null;
 		public static string MapPath(string path) => path.Replace("~", ContentRoot);
@@ -55,18 +50,6 @@ namespace FuseCP.Web.Services
 		public static Action<WebApplication> ConfigureApp = null;
 		public static Action ConfigurationComplete = null;
 		public static Action<WebApplicationBuilder> ConfigureBuilder = null;
-#else
-		public static string UserHostAddress {
-			get {
-				try {
-					return System.Web.HttpContext.Current.Request.UserHostAddress;
-				} catch {
-					return "127.0.0.1";
-				}
-			}
-		}
-		public static string MapPath(string path) => System.Web.Hosting.HostingEnvironment.MapPath(path);
-#endif
 
 		public static readonly Dictionary<string, object> Cache = new Dictionary<string, object>();
 	}

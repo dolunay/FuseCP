@@ -24,22 +24,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using FuseCP.Providers;
 using FuseCP.Providers.OS;
-#if !NETFRAMEWORK
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-#else
-using System.Web;
-using System.Web.Routing;
-using System.Web.WebSockets;
-#endif
 
 namespace FuseCP.Web.Services
 {
 
     public class TunnelHandlerBase
-#if NETFRAMEWORK
-        : HttpTaskAsyncHandler
-#endif
     {
         public string Route => "Tunnel";
 
@@ -68,13 +59,8 @@ namespace FuseCP.Web.Services
         }
 
         public async Task<byte[]> ReadArgumentsAsync(TunnelSocket listener) => (await listener.ReceiveData()).ToArray();
-
-#if NETFRAMEWORK
-        public override Task ProcessRequestAsync(HttpContext context) => throw new NotImplementedException();
-#endif
     }
 
-#if !NETFRAMEWORK
     public class TunnelHandlerCore : TunnelHandlerBase, ITunnelHandler
     {
         static bool WebSocketsInitialized = false;
@@ -133,57 +119,4 @@ namespace FuseCP.Web.Services
             }
         }
     }
-#else
-    public class TunnelHandlerNetFX : TunnelHandlerBase, IHttpHandler, IRouteHandler, ITunnelHandler
-    {
-        public override void ProcessRequest(HttpContext context) => throw new NotSupportedException("Handler cannot execute synchronously");
-
-        public override async Task ProcessRequestAsync(HttpContext context)
-        {
-            if (context.IsWebSocketRequest)
-            {
-                string caller, method;
-                caller = context.Request.QueryString["caller"];
-                method = context.Request.QueryString["method"];
-                if (string.IsNullOrEmpty(caller) || string.IsNullOrEmpty(method))
-                {
-                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return;
-                }
-
-                context.AcceptWebSocketRequest(async webSocketContext =>
-                {
-                    var tunnel = new TunnelSocket(webSocketContext.WebSocket);
-
-                    try
-                    {
-                        var args = await ReadArgumentsAsync(tunnel);
-
-                        var dest = await GetTunnel(caller, method, args);
-                        if (dest != null)
-                        {
-                            await Transmit(tunnel, dest);
-                        }
-                        else
-                        {
-                            await tunnel.CloseAsync(WebSocketCloseStatus.InternalServerError, "Cannot get a tunnel");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        await tunnel.CloseAsync(WebSocketCloseStatus.InternalServerError, $"{ex.Message}\n{ex.StackTrace}");
-                    }
-
-                });
-            }
-            else
-            {
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            }
-        }
-
-        public IHttpHandler GetHttpHandler(RequestContext requestContext) => this;
-        public override bool IsReusable => true;
-    }
-#endif
 }
