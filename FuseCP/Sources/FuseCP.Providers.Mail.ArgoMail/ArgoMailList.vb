@@ -93,7 +93,7 @@ Friend Class ArgoMailLists
             Dim sFile As String = _mailListPath + item.Name
             AddListItem(item, sFile)
         Catch ex As Exception
-            Throw ex
+            Throw
         End Try
     End Sub 'Add
 
@@ -103,7 +103,7 @@ Friend Class ArgoMailLists
             Dim sFile As String = _mailListPath + item.Name
             AddListItem(item, sFile)
         Catch ex As Exception
-            Throw ex
+            Throw
         End Try
     End Sub 'Update
 
@@ -310,7 +310,7 @@ Friend Class ArgoMailLists
             End If
         Catch ex As Exception
 
-            Throw ex
+            Throw
         Finally
             If Not (writer Is Nothing) Then
                 writer.Close()

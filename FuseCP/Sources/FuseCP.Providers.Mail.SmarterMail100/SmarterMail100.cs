@@ -32,6 +32,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Runtime.Versioning;
+using System.Security.Authentication;
 using static System.Net.Mime.MediaTypeNames;
 using FileUtils = FuseCP.Providers.Utils.FileUtils;
 
@@ -163,12 +164,20 @@ namespace FuseCP.Providers.Mail
 
 		#region Connection
 
+		private HttpClient CreateHttpClient()
+		{
+			var handler = new HttpClientHandler
+			{
+				ServerCertificateCustomValidationCallback = (_, _, _, _) => true,
+				SslProtocols = SslProtocols.Tls12
+			};
+
+			return new HttpClient(handler, disposeHandler: true);
+		}
+
 		public async Task<AuthToken> GetAccessToken()
 		{
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var loginData = new { 
 				username = AdminUsername, 
 				password = AdminPassword
@@ -188,11 +197,7 @@ namespace FuseCP.Providers.Mail
 		public async Task<AuthToken> GetDomainAccessToken(string domain)
 		{
 			AuthToken authToken = await GetAccessToken();
-
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var domainData = new { };
 			var domainDatajson = JsonConvert.SerializeObject(domainData);
 			var authinput_post = new StringContent(domainDatajson, Encoding.UTF8, "application/json");
@@ -217,11 +222,7 @@ namespace FuseCP.Providers.Mail
 		public async Task<AuthToken> GetUserAccessToken(string email)
 		{
 			AuthToken authToken = await GetAccessToken();
-
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var UserData = new { };
 			var UserDatajson = JsonConvert.SerializeObject(UserData);
 			var authinput_post = new StringContent(UserDatajson, Encoding.UTF8, "application/json");
@@ -249,11 +250,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken auth = await GetAccessToken();
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + auth.accessToken);
 			var commandresponse = await client.GetAsync(commandurl);
 			var commandresult = await commandresponse.Content.ReadAsStringAsync();
@@ -269,11 +266,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken authToken = await GetAccessToken();
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var commandparamjson = JsonConvert.SerializeObject(param);
 			var commandinput_post = new StringContent(commandparamjson, Encoding.UTF8, "application/json");
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authToken.accessToken);
@@ -291,10 +284,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken auth = await GetDomainAccessToken(domain);
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + auth.accessToken);
 			var commandresponse = await client.GetAsync(commandurl);
 			var commandresult = await commandresponse.Content.ReadAsStringAsync();
@@ -310,11 +300,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken authToken = await GetDomainAccessToken(domain);
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var commandparamjson = JsonConvert.SerializeObject(param);
 			var commandinput_post = new StringContent(commandparamjson, Encoding.UTF8, "application/json");
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authToken.accessToken);
@@ -333,10 +319,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken auth = await GetUserAccessToken(email);
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + auth.accessToken);
 			var commandresponse = await client.GetAsync(commandurl);
 			var commandresult = await commandresponse.Content.ReadAsStringAsync();
@@ -352,10 +335,7 @@ namespace FuseCP.Providers.Mail
 			AuthToken authToken = await GetUserAccessToken(email);
 
 			var commandurl = ServiceUrl + "/api/v1/" + command;
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
-			HttpClient client = new HttpClient();
+HttpClient client = CreateHttpClient();
 			var commandparamjson = JsonConvert.SerializeObject(param);
 			var commandinput_post = new StringContent(commandparamjson, Encoding.UTF8, "application/json");
 			client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authToken.accessToken);

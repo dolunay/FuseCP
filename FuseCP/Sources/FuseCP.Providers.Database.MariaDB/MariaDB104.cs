@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System.IO;
@@ -32,6 +33,7 @@ using FuseCP.Providers.Database;
 
 namespace FuseCP.Providers.Database
 {
+    [SupportedOSPlatform("windows")]
     public class MariaDB104 : MariaDB103
     {
         public MariaDB104(): base() { }

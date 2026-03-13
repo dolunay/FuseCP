@@ -399,8 +399,11 @@ namespace FuseCP.Providers.FTP
             byte[] bytes = ue.GetBytes(str);
 
             // encrypt bytes
-            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            byte[] hashBytes = md5.ComputeHash(bytes);
+            byte[] hashBytes;
+            using (var md5 = System.Security.Cryptography.MD5.Create())
+            {
+                hashBytes = md5.ComputeHash(bytes);
+            }
 
             // Convert the encrypted bytes back to a string (base 16)
             string hashString = "";

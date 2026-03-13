@@ -272,7 +272,6 @@ namespace FuseCP.Providers.Virtualization
                         api = new ApiClient(this);
 
                         //ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
                         api.Login(User);
                     }
                     return api;

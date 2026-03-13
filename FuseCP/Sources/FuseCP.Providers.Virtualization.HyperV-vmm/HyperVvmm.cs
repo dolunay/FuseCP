@@ -1232,13 +1232,13 @@ namespace FuseCP.Providers.Virtualization
                 
                 return diskInfo;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // unmount disk
                 UnmountVirtualHardDisk(vhdPath);
 
                 // throw error
-                throw ex;
+                throw;
             }
         }
 

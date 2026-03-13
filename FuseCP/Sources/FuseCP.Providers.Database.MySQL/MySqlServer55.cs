@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 //using MySql.Data.MySqlClient;
 using FuseCP.Providers.OS;
@@ -25,6 +26,7 @@ using System.Reflection;
 
 namespace FuseCP.Providers.Database
 {
+    [SupportedOSPlatform("windows")]
     public class MySqlServer55 : MySqlServer51
 	{
 		public MySqlServer55(): base() { }

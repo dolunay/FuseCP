@@ -1601,13 +1601,13 @@ exit", Convert.ToInt32(objDisk["Index"])));
                 info.DiskVolumes = volumes.ToArray();
                 return info;
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 // unmount disk
                 UnmountVirtualHardDisk(vhdPath);
 
                 // throw error
-                throw ex;
+                throw;
             }
         }
 

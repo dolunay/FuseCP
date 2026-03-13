@@ -14,10 +14,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Microsoft.Win32;
+using System.Runtime.Versioning;
 using FuseCP.Providers.OS;
 
 namespace FuseCP.Providers.Database
 {
+	[SupportedOSPlatform("windows")]
 	public class MySqlServer51 : MySqlServer50
 	{
 

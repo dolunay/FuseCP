@@ -156,7 +156,7 @@ namespace FuseCP.Providers.Virtualization
                 //TODO: Add the packing of the command as "asJob"?
                 //HostedSolutionLog.LogWarning("This command doesn't support native Async, try it in another way (asJobScript)");     
                 HostedSolutionLog.LogError("TryExecuteAsJob", ex);
-                throw ex;
+                throw;
             }
             return results;
         }

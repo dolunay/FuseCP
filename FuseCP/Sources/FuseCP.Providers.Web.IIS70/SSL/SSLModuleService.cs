@@ -264,7 +264,7 @@ namespace FuseCP.Providers.Web.Iis
             if (CheckCertificate(website))
                 oldcert = GetCurrentSiteCertificate(website);
             //
-            X509Certificate2 x509Cert = new X509Certificate2(certificate, password);
+            X509Certificate2 x509Cert = X509CertificateLoader.LoadPkcs12(certificate, password);
 
             #region Step 1: Register X.509 certificate in the store
             // Trying to keep X.509 store open as less as possible
@@ -296,7 +296,7 @@ namespace FuseCP.Providers.Web.Iis
                 {
                     Hostname = x509Cert.GetNameInfo(X509NameType.SimpleName, false),
                     FriendlyName = x509Cert.FriendlyName,
-                    CSRLength = Convert.ToInt32(x509Cert.PublicKey.Key.KeySize.ToString()),
+                    CSRLength = x509Cert.GetRSAPublicKey()?.KeySize ?? x509Cert.GetECDsaPublicKey()?.KeySize ?? 0,
                     Installed = true,
                     DistinguishedName = x509Cert.Subject,
                     Hash = x509Cert.GetCertHash(),
@@ -488,7 +488,7 @@ namespace FuseCP.Providers.Web.Iis
 
 					certificate.Hostname = x509Cert.GetNameInfo(X509NameType.SimpleName, false);
 					certificate.FriendlyName = x509Cert.FriendlyName;
-					certificate.CSRLength = Convert.ToInt32(x509Cert.PublicKey.Key.KeySize.ToString());
+                    certificate.CSRLength = x509Cert.GetRSAPublicKey()?.KeySize ?? x509Cert.GetECDsaPublicKey()?.KeySize ?? 0;
 					certificate.Installed = true;
 					certificate.DistinguishedName = x509Cert.Subject;
 					certificate.Hash = x509Cert.GetCertHash();

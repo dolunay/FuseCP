@@ -525,7 +525,7 @@ namespace FuseCP.Providers.Web
 			{
 				SecurityUtils.CreateUser(user, ServerSettings, UsersOU, GroupsOU);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				// the possible reason the account already exists
 				// check this
@@ -549,7 +549,7 @@ namespace FuseCP.Providers.Web
 				}
 				else
 				{
-					throw ex;
+					throw;
 				}
 			}
 

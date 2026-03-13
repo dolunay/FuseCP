@@ -1918,7 +1918,7 @@ namespace FuseCP.Providers.HostedSolution
             catch (Exception ex)
             {
                 ExchangeLog.LogError(ex);
-                throw ex;
+                throw;
             }
             finally
             {
@@ -5050,7 +5050,7 @@ namespace FuseCP.Providers.HostedSolution
             catch (Exception ex)
             {
                 ExchangeLog.LogError(ex);
-                throw ex;
+                throw;
             }
             finally
             {

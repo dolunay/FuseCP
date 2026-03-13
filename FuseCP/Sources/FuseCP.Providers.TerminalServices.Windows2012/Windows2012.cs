@@ -1638,7 +1638,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             try
             {
                 var guid = Guid.NewGuid();                
-                var x509Cert = new X509Certificate2(certificate, password, X509KeyStorageFlags.Exportable);                                
+                var x509Cert = X509CertificateLoader.LoadPkcs12(certificate, password, X509KeyStorageFlags.Exportable);                                
                 var filePath = SaveCertificate(certificate, guid);
                 runspace = RdsRunspaceExtensions.OpenRunspace();
 

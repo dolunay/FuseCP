@@ -43,6 +43,7 @@ Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 
 #Region "Internal classes"
+<SupportedOSPlatform("windows")>
 Friend Class Service
     Public ComObject As Object
     Public Succeed As Boolean

@@ -585,7 +585,7 @@ namespace FuseCP.Providers.Web
 			{
 				SecurityUtils.CreateUser(user, ServerSettings, UsersOU, GroupsOU);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				// the possible reason the account already exists
 				// check this
@@ -609,7 +609,7 @@ namespace FuseCP.Providers.Web
 				}
 				else
 				{
-					throw ex;
+					throw;
 				}
 			}
 		}
@@ -853,7 +853,7 @@ namespace FuseCP.Providers.Web
 			{
 				Log.WriteError(String.Format("Failed to read ASP.NET settings from {0}.", vdir.Name), ex);
 				// Re-throw
-				throw (ex);
+				throw;
 			}
 		}
 
@@ -887,7 +887,7 @@ namespace FuseCP.Providers.Web
 			catch (Exception ex)
 			{
 				Log.WriteError(ex);
-				throw (ex);
+				throw;
 			}
 		}
 
