@@ -280,7 +280,7 @@ namespace FuseCP.Providers.HostedSolution
             return (String.Compare(spVal, "installed", true) == 0);
         }
 
-        /// <summary>Executes supplied action within separate application domain.</summary>
+/// <summary>Executes supplied action within application.</summary>
         /// <param name="action">Action to be executed.</param>
         /// <returns>Any object that results from action execution or null if nothing is supposed to be returned.</returns>
         /// <exception cref="ArgumentNullException">Is thrown in case supplied action is null.</exception>
@@ -291,26 +291,10 @@ namespace FuseCP.Providers.HostedSolution
                 throw new ArgumentNullException("action");
             }
 
-            AppDomain domain = null;
-
-            try
-            {
-                Type type = typeof(HostedSharePointServer2016EntImpl);
-                var info = new AppDomainSetup { ApplicationBase = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), PrivateBinPath = GetPrivateBinPath() };
-                domain = AppDomain.CreateDomain("WSS30", null, info);
-                var impl = (HostedSharePointServer2016EntImpl)domain.CreateInstanceAndUnwrap(type.Assembly.FullName, type.FullName);
-
-                return action(impl);
-            }
-            finally
-            {
-                if (domain != null)
-                {
-                    AppDomain.Unload(domain);
-                }
-            }
-
-            throw new ArgumentNullException("action");
+            // appDomains are not supported in .NET Core/.NET Framework
+            // Create impl directly and execute action
+            var impl = new HostedSharePointServer2016EntImpl();
+            return action(impl);
         }
 
         /// <summary> Getting PrivatePath from web.config. </summary>

@@ -64,15 +64,9 @@ namespace FuseCP.Providers.HostedSolution
 
             try
             {
-                WindowsImpersonationContext wic = WindowsIdentity.GetCurrent().Impersonate();
-
-                try
+                using (WindowsIdentity.GetCurrent().Impersonate())
                 {
-                    languages.AddRange(from SPLanguage lang in SPRegionalSettings.GlobalInstalledLanguages select lang.LCID);                    
-                }
-                finally
-                {
-                    wic.Undo();
+                    languages.AddRange(from SPLanguage lang in SPRegionalSettings.GlobalInstalledLanguages select lang.LCID);
                 }
             }
             catch (Exception ex)
@@ -259,25 +253,20 @@ namespace FuseCP.Providers.HostedSolution
         public void CreateSiteCollection(Uri rootWebApplicationUri, SharePointSiteCollection siteCollection)
         {
             HostedSolutionLog.LogStart("CreateSiteCollection");
-            WindowsImpersonationContext wic = null;
             Runspace runspace = null;
 
             try
             {
-                wic = WindowsIdentity.GetCurrent().Impersonate();
-                runspace = OpenRunspace();
-                CreateCollection(runspace, rootWebApplicationUri, siteCollection);
+                using (WindowsIdentity.GetCurrent().Impersonate())
+                {
+                    runspace = OpenRunspace();
+                    CreateCollection(runspace, rootWebApplicationUri, siteCollection);
+                }
             }
             finally
             {
                 CloseRunspace(runspace);
                 HostedSolutionLog.LogEnd("CreateSiteCollection");
-
-                if (wic != null)
-                {
-                    wic.Undo();
-                }
-            }
         }
 
         /// <summary> Creates site collection within predefined root web application.</summary>
