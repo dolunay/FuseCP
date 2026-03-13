@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Security.Principal;
@@ -28,6 +29,7 @@ using FuseCP.Providers.Utils;
 
 namespace FuseCP.Providers.HostedSolution
 {
+    [SupportedOSPlatform("windows")]
     public class HostedSharePointServer2013EntImpl : MarshalByRefObject
     {
         #region Fields

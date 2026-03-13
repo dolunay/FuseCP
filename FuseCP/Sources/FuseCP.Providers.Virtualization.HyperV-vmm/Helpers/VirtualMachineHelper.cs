@@ -20,11 +20,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public static class VirtualMachineHelper
     {
         public static OperationalStatus GetVMHeartBeatStatus(PowerShellManager powerShell, string name)

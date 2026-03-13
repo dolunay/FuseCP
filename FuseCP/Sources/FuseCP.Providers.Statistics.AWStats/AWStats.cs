@@ -17,6 +17,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Versioning;
 
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
@@ -24,6 +25,7 @@ using Microsoft.Win32;
 
 namespace FuseCP.Providers.Statistics
 {
+    [SupportedOSPlatform("windows")]
     public class AWStats : HostingServiceProviderBase, IStatisticsServer
     {
         #region Properties

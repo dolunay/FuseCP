@@ -26,6 +26,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Reflection;
 using System.Globalization;
+using System.Runtime.Versioning;
 using System.Xml;
 using System.Linq;
 
@@ -43,6 +44,7 @@ using Vds = Microsoft.Storage.Vds;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public class HyperVvmm : HostingServiceProviderBase, IVirtualizationServer2012
     {
         #region Provider Settings

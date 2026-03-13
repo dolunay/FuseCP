@@ -23,12 +23,14 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using FuseCP.Server.Utils;
+using System.Runtime.Versioning;
 
 using Vds = Microsoft.Storage.Vds;
 using System.Configuration;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public class HyperV : HostingServiceProviderBase, IVirtualizationServer
     {
         #region Constants

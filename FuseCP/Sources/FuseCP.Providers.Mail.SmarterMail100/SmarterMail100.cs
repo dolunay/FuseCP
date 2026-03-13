@@ -31,12 +31,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Runtime.Versioning;
 using static System.Net.Mime.MediaTypeNames;
 using FileUtils = FuseCP.Providers.Utils.FileUtils;
 
 namespace FuseCP.Providers.Mail
 {
-    class SmarterMail100 : HostingServiceProviderBase, IMailServer
+	[SupportedOSPlatform("windows")]
+	class SmarterMail100 : HostingServiceProviderBase, IMailServer
 	{
 
 		#region Public Properties

@@ -22,6 +22,7 @@ using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Linq;
+using System.Runtime.Versioning;
 using CertEnrollInterop;
 using System.Security.Cryptography.X509Certificates;
 using FuseCP.Providers.Web.Iis.Common;
@@ -31,7 +32,8 @@ using System.DirectoryServices;
 
 namespace FuseCP.Providers.Web.Iis
 {
-	public class SSLModuleService : ConfigurationModuleService
+    [SupportedOSPlatform("windows")]
+    public class SSLModuleService : ConfigurationModuleService
 	{
 		public void GenerateCsr(SSLCertificate cert)
 		{

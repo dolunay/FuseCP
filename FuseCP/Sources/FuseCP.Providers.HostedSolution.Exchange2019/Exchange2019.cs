@@ -22,6 +22,7 @@ using System.Text;
 using System.Reflection;
 using System.Globalization;
 using System.Collections;
+using System.Runtime.Versioning;
 
 using System.DirectoryServices;
 using System.Security;
@@ -49,6 +50,7 @@ using Microsoft.Web.Administration;
 
 namespace FuseCP.Providers.HostedSolution
 {
+    [SupportedOSPlatform("windows")]
     public class Exchange2019 : HostingServiceProviderBase, IExchangeServer
     {
 

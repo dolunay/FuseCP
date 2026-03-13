@@ -24,6 +24,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Versioning;
 using FuseCP.Providers.FTP.IIs100;
 using FuseCP.Providers.FTP.IIs100.Authorization;
 using FuseCP.Providers.FTP.IIs100.Config;
@@ -36,6 +37,7 @@ using IisSite = Microsoft.Web.Administration.Site;
 
 namespace FuseCP.Providers.FTP
 {
+    [SupportedOSPlatform("windows")]
     public class MsFTP100 : HostingServiceProviderBase, IFtpServer
     {
 

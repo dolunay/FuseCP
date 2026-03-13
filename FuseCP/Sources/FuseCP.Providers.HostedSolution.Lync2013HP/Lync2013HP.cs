@@ -19,6 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Runtime.Versioning;
 using System.Reflection;
 using System.Globalization;
 using System.DirectoryServices;
@@ -41,6 +42,7 @@ using Microsoft.Rtc.Management.WritableConfig.Settings.SimpleUrl;
 
 namespace FuseCP.Providers.HostedSolution
 {
+    [SupportedOSPlatform("windows")]
     public class Lync2013HP : HostingServiceProviderBase, ILyncServer
     {
 

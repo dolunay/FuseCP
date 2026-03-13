@@ -23,6 +23,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Runtime.Versioning;
 
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
@@ -33,6 +34,7 @@ using System.Data.Common;
 
 namespace FuseCP.Providers.Database
 {
+	[SupportedOSPlatform("windows")]
 	public class MariaDB101 : HostingServiceProviderBase, IDatabaseServer
 	{
 

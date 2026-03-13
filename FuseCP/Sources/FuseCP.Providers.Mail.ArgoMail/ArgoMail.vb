@@ -39,6 +39,7 @@ Imports System.Text
 Imports System.Collections
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 
 #Region "Internal classes"
@@ -78,6 +79,7 @@ End Class
 #End Region
 
 
+<SupportedOSPlatform("windows")>
 Public Class ArgoMail
     Inherits HostingServiceProviderBase
     Implements IMailServer

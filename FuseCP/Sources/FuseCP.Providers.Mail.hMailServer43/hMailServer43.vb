@@ -36,9 +36,11 @@ Imports System.Collections
 Imports System.Collections.Specialized
 Imports System.IO
 Imports System.Text
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 Imports FuseCP.Server.Utils
 
+<SupportedOSPlatform("windows")>
 Public Class hMailServer43
 	Inherits hMailServer
 

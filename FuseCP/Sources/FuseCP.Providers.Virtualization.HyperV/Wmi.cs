@@ -18,9 +18,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Management;
 using System.Diagnostics;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     internal class Wmi
     {
         string nameSpace = null;

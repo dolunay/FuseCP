@@ -36,10 +36,12 @@ Imports System.Collections.Specialized
 Imports System.IO
 Imports System.Text
 Imports System.Diagnostics
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 Imports FuseCP.Providers.Utils
 Imports FuseCP.Server.Utils
 
+<SupportedOSPlatform("windows")>
 Public Class Merak
     Inherits HostingServiceProviderBase
     Implements IMailServer

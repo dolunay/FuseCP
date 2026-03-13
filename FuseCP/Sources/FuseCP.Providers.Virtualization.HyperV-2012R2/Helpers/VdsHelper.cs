@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Threading;
 using System.Threading.Tasks;
 using Path = System.IO.Path;
@@ -31,6 +32,7 @@ using Path = System.IO.Path;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public class VdsHelper
     {
         private MiManager _miCim;

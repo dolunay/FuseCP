@@ -33,8 +33,10 @@
 Imports Microsoft.Win32
 Imports System.IO
 Imports System.Security.AccessControl
+Imports System.Runtime.Versioning
 
 
+<SupportedOSPlatform("windows")>
 Friend Class ArgoMailLists
     Private _mailListPath As String = ""
     Private mailListItems As New List(Of ArgoMailListItem)

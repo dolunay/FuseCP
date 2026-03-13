@@ -17,12 +17,14 @@ using Microsoft.Web.Administration;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Versioning;
 using FuseCP.Providers.Common;
 using FuseCP.Providers.Web.Iis;
 using FuseCP.Providers.ResultObjects;
 
 namespace FuseCP.Providers.Web
 {
+	[SupportedOSPlatform("windows")]
 	public class IIs80 : IIs70
 	{
 		private SslFlags SSLFlags

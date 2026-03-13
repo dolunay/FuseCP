@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Management;
 using System.Diagnostics;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Virtualization
 {
@@ -25,6 +26,7 @@ namespace FuseCP.Providers.Virtualization
     /// DEPRECATED: This class will be removed in the next release (after 2025?).
     /// Please use <c>MiManager</c> instead.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     internal class Wmi
     {
         string nameSpace = null;
@@ -191,7 +193,7 @@ namespace FuseCP.Providers.Virtualization
 
             datetime = new System.DateTime(year, month, day, hour, minute, second, 0);
             datetime = datetime.AddTicks(ticks);
-            System.TimeSpan tickOffset = System.TimeZone.CurrentTimeZone.GetUtcOffset(datetime);
+            System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(datetime);
             int UTCOffset = 0;
             int OffsetToBeAdjusted = 0;
             long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
@@ -217,7 +219,7 @@ namespace FuseCP.Providers.Virtualization
         internal string ToDmtfDateTime(System.DateTime date)
         {
             string utcString = string.Empty;
-            System.TimeSpan tickOffset = System.TimeZone.CurrentTimeZone.GetUtcOffset(date);
+            System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(date);
             long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
             if ((System.Math.Abs(OffsetMins) > 999))
             {

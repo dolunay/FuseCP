@@ -23,6 +23,7 @@ using System.DirectoryServices.ActiveDirectory;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Runtime.Versioning;
 using FuseCP.Providers.HostedSolution;
 using FuseCP.Providers.OS;
 using FuseCP.Providers.ResultObjects;
@@ -336,6 +337,7 @@ namespace FuseCP.Providers.Web
 		public int RequiresWindowsCredentials { get; set; }
 	}
 
+	[SupportedOSPlatform("windows")]
 	public class IIs70 : IIs60, IWebServer
 	{
 		private WebObjectsModuleService webObjectsSvc;

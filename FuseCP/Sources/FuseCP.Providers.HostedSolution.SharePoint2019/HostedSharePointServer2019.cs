@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Versioning;
 using System.Xml;
 using Microsoft.Win32;
 using FuseCP.Providers.SharePoint;
@@ -27,6 +28,7 @@ namespace FuseCP.Providers.HostedSolution
     /// <summary>
     /// Provides hosted SharePoint server functionality implementation.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class HostedSharePointServer2019 : HostingServiceProviderBase, IHostedSharePointServerEnt
     {
         #region Delegate

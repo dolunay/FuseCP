@@ -23,6 +23,7 @@ using FuseCP.Server.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Web.Administration;
 using System.Management.Automation;
@@ -31,6 +32,7 @@ using System.DirectoryServices;
 
 namespace FuseCP.Providers.Web.Iis
 {
+    [SupportedOSPlatform("windows")]
     public class SSLModuleService80 : SSLModuleService
     {
         private const string CertificateStoreName = "WebHosting";
@@ -76,7 +78,10 @@ namespace FuseCP.Providers.Web.Iis
                 X509CertificateCollection existCerts2 = storeMy.Certificates.Find(X509FindType.FindBySerialNumber, servercert.SerialNumber, false);
                 var certData = existCerts2[0].Export(X509ContentType.Pfx);
                 storeMy.Close();
-                var x509Cert = new X509Certificate2(certData, string.Empty, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+                var x509Cert = X509CertificateLoader.LoadPkcs12(
+                    certData,
+                    string.Empty,
+                    X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
 
                 if (UseCCS)
                 {
@@ -209,7 +214,7 @@ namespace FuseCP.Providers.Web.Iis
             if (CheckCertificate(website))
                 oldcert = GetCurrentSiteCertificate(website);
             //
-            X509Certificate2 x509Cert = new X509Certificate2(certificate, password);
+            X509Certificate2 x509Cert = X509CertificateLoader.LoadPkcs12(certificate, password);
 
             #region Step 1: Register X.509 certificate in the store
             // Trying to keep X.509 store open as less as possible
@@ -241,7 +246,7 @@ namespace FuseCP.Providers.Web.Iis
                 {
                     Hostname = x509Cert.GetNameInfo(X509NameType.SimpleName, false),
                     FriendlyName = x509Cert.FriendlyName,
-                    CSRLength = Convert.ToInt32(x509Cert.PublicKey.Key.KeySize.ToString()),
+                    CSRLength = GetPublicKeySize(x509Cert),
                     Installed = true,
                     DistinguishedName = x509Cert.Subject,
                     Hash = x509Cert.GetCertHash(),
@@ -332,8 +337,11 @@ namespace FuseCP.Providers.Web.Iis
 
                     // Read certificate data from file
                     var certData = new byte[fileStream.Length];
-                    fileStream.Read(certData, 0, (int)fileStream.Length);
-                    var convertedCert = new X509Certificate2(certData, CCSCommonPassword, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+                    fileStream.ReadExactly(certData, 0, (int)fileStream.Length);
+                    var convertedCert = X509CertificateLoader.LoadPkcs12(
+                        certData,
+                        CCSCommonPassword,
+                        X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
 
                     fileStream.Close();
 
@@ -520,8 +528,8 @@ namespace FuseCP.Providers.Web.Iis
 
                         // Read certificate data from file
                         var certData = new byte[fileStream.Length];
-                        fileStream.Read(certData, 0, (int)fileStream.Length);
-                        var cert = new X509Certificate2(certData, CCSCommonPassword);
+                        fileStream.ReadExactly(certData, 0, (int)fileStream.Length);
+                        var cert = X509CertificateLoader.LoadPkcs12(certData, CCSCommonPassword);
                         fileStream.Close();
                         return GetSSLCertificateFromX509Certificate2(cert);
                     }
@@ -573,7 +581,7 @@ namespace FuseCP.Providers.Web.Iis
             {
                 Hostname = cert.GetNameInfo(X509NameType.SimpleName, false),
                 FriendlyName = cert.FriendlyName,
-                CSRLength = Convert.ToInt32(cert.PublicKey.Key.KeySize.ToString(CultureInfo.InvariantCulture)),
+                CSRLength = GetPublicKeySize(cert),
                 Installed = true,
                 DistinguishedName = cert.Subject,
                 Hash = cert.GetCertHash(),
@@ -597,6 +605,29 @@ namespace FuseCP.Providers.Web.Iis
             {
                 return false;
             }
+        }
+
+        private static int GetPublicKeySize(X509Certificate2 certificate)
+        {
+            var rsa = certificate.GetRSAPublicKey();
+            if (rsa != null)
+            {
+                return rsa.KeySize;
+            }
+
+            var ecdsa = certificate.GetECDsaPublicKey();
+            if (ecdsa != null)
+            {
+                return ecdsa.KeySize;
+            }
+
+            var dsa = certificate.GetDSAPublicKey();
+            if (dsa != null)
+            {
+                return dsa.KeySize;
+            }
+
+            return 0;
         }
 
         private void HandleExceptionAndRollbackCertificate(X509Store store, X509Certificate2 x509Cert, SSLCertificate oldCert, WebSite webSite, string errorMessage, Exception ex)

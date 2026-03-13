@@ -19,11 +19,13 @@ using System.Linq;
 using System.Management;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public static class SnapshotHelper
     {
         public static VirtualMachineSnapshot GetFromPS(PSObject psObject, string runningSnapshotId = null)

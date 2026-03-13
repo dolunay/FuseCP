@@ -22,6 +22,7 @@ using FuseCP.Server.Utils;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Web.Administration;
 using System.Management.Automation;
@@ -30,6 +31,7 @@ using System.DirectoryServices;
 
 namespace FuseCP.Providers.Web.Iis
 {
+    [SupportedOSPlatform("windows")]
     public class SSLModuleService100 : SSLModuleService
     {
         private const string CertificateStoreName = "WebHosting";

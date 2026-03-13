@@ -40,9 +40,11 @@ Imports System.Text
 Imports System.Collections
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 
 
+<SupportedOSPlatform("windows")>
 Public Class MDaemon
     Inherits HostingServiceProviderBase
     Implements IMailServer

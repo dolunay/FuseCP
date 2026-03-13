@@ -19,11 +19,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 using System.Text;
 using Microsoft.Win32;
 
 namespace FuseCP.Providers.HostedSolution
 {
+    [SupportedOSPlatform("windows")]
     public class LyncBase : HostingServiceProviderBase, ILyncServer
     {
         #region Fields

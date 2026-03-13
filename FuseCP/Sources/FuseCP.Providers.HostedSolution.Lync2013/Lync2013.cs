@@ -20,10 +20,12 @@ using System.DirectoryServices;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 using Microsoft.Rtc.Management.WritableConfig.Settings.Edge;
 
 namespace FuseCP.Providers.HostedSolution
 {
+    [SupportedOSPlatform("windows")]
     public class Lync2013 : LyncBase
     {
         #region Constructor

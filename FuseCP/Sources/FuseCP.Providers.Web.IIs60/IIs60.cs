@@ -27,6 +27,7 @@ using System.Security.Policy;
 using System.Xml;
 using System.Web;
 using System.IO;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using Microsoft.Web.Deployment;
 using FuseCP.Providers.HostedSolution;
@@ -46,6 +47,7 @@ using Microsoft.Web.Management.Server;
 
 namespace FuseCP.Providers.Web
 {
+	[SupportedOSPlatform("windows")]
 	public class IIs60 : HostingServiceProviderBase, IWebServer
 	{
 		// Empty remote server settings are intended to emulate localhost settings.

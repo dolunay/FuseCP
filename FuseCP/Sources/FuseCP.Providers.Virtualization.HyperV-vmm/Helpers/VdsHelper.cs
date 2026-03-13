@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Management;
+using System.Runtime.Versioning;
 using System.Threading;
 using Microsoft.Storage.Vds;
 using Microsoft.Storage.Vds.Advanced;
@@ -27,6 +28,7 @@ using Path = System.IO.Path;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public static class VdsHelper
     {
         public static MountedDiskInfo GetMountedDiskInfo(string serverName, int driveNumber)

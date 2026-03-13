@@ -19,11 +19,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 using System.Text;
 using FuseCP.Providers.HostedSolution;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public class PowerShellManager : IDisposable
     {
         private readonly string _remoteComputerName;

@@ -30,10 +30,12 @@
 ' (INCLUDING NEGLIGENCE OR OTHERWISE)  ARISING  IN  ANY WAY OUT OF THE USE OF THIS
 ' SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Imports System.IO
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 
 Namespace FuseCP.Providers.Mail
 
+    <SupportedOSPlatform("windows")>
     Public Class MailEnableMailbox
         Inherits MarshalByRefObject
 

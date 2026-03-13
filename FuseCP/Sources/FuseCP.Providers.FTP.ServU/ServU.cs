@@ -17,6 +17,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Versioning;
 using System.Xml;
 using Microsoft.Win32;
 
@@ -27,6 +28,7 @@ using FuseCP.Server.Utils;
 
 namespace FuseCP.Providers.FTP
 {
+    [SupportedOSPlatform("windows")]
     public class ServU : HostingServiceProviderBase, IFtpServer
     {
         #region Constants

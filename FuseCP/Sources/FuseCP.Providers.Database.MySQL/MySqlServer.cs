@@ -22,6 +22,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 
@@ -33,6 +34,7 @@ using FuseCP.Providers;
 
 namespace FuseCP.Providers.Database
 {
+	[SupportedOSPlatform("windows")]
 	public class MySqlServer : HostingServiceProviderBase, IDatabaseServer
 	{
 		#region Properties

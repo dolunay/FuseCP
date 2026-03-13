@@ -44,9 +44,11 @@ using Microsoft.Management.Infrastructure;
 using Microsoft.Management.Infrastructure.Generic;
 using System.Linq.Expressions;
 using FuseCP.Providers.Common;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public class HyperV2012R2 : HostingServiceProviderBase, IVirtualizationServer2012
     {
         #region Provider Settings

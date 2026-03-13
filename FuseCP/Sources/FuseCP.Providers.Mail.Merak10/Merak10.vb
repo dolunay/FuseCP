@@ -36,6 +36,7 @@ Imports System.Collections.Specialized
 Imports System.IO
 Imports System.Text
 Imports System.Diagnostics
+Imports System.Runtime.Versioning
 Imports Microsoft.Win32
 
 
@@ -43,6 +44,7 @@ Imports Microsoft.Win32
 
 
 
+<SupportedOSPlatform("windows")>
 Public Class Merak10
     Inherits Merak
 

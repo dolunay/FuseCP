@@ -20,6 +20,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Runtime.Versioning;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Reflection;
@@ -45,6 +46,7 @@ using System.Security.AccessControl;
 
 namespace FuseCP.Providers.RemoteDesktopServices
 {
+    [SupportedOSPlatform("windows")]
     public class Windows2012 : HostingServiceProviderBase, IRemoteDesktopServices
     {
         #region Constants
