@@ -15,8 +15,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
 using System.Xml;
 using Microsoft.Win32;
 using FuseCP.Providers.SharePoint;
@@ -295,27 +293,6 @@ namespace FuseCP.Providers.HostedSolution
             // Create impl directly and execute action
             var impl = new HostedSharePointServer2013EntImpl();
             return action(impl);
-        }
-
-        /// <summary> Getting PrivatePath from web.config. </summary>
-        /// <returns> The PrivateBinPath.</returns>
-        private static string GetPrivateBinPath()
-        {
-            var lines = new List<string> { "bin", "bin/debug" };
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "web.config");
-
-            if (File.Exists(path))
-            {
-                using (var reader = new StreamReader(path))
-                {
-                    string content = reader.ReadToEnd();
-                    var pattern = new Regex(@"(?<=probing .*?privatePath\s*=\s*"")[^""]+(?="".*?>)");
-                    Match match = pattern.Match(content);
-                    lines.AddRange(match.Value.Split(';'));
-                }
-            }
-
-            return string.Join(Path.PathSeparator.ToString(), lines.ToArray());
         }
 
         #endregion
