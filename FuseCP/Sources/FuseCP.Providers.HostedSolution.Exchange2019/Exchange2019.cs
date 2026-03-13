@@ -3410,8 +3410,7 @@ namespace FuseCP.Providers.HostedSolution
                 string windowsEmail = null;
 
                 SmtpAddress smtpAddress = (SmtpAddress)GetPSObjectProperty(mailbox, "PrimarySmtpAddress");
-                if (smtpAddress != null)
-                    primaryEmail = smtpAddress.ToString();
+                primaryEmail = smtpAddress.ToString();
 
                 //SmtpAddress winAddress = (SmtpAddress)GetPSObjectProperty(mailbox, "WindowsEmailAddress");
                 windowsEmail = ObjToString(GetPSObjectProperty(mailbox, "CustomAttribute3"));
@@ -3756,8 +3755,7 @@ namespace FuseCP.Providers.HostedSolution
 
                 info.DisplayName = (string)GetPSObjectProperty(mailbox, "DisplayName");
                 SmtpAddress smtpAddress = (SmtpAddress)GetPSObjectProperty(mailbox, "PrimarySmtpAddress");
-                if (smtpAddress != null)
-                    info.PrimaryEmailAddress = smtpAddress.ToString();
+                info.PrimaryEmailAddress = smtpAddress.ToString();
 
                 info.MaxSize = ConvertUnlimitedToBytes((Unlimited<ByteQuantifiedSize>)GetPSObjectProperty(mailbox, "ProhibitSendReceiveQuota"));
                 DateTime? whenCreated = (DateTime?)GetPSObjectProperty(mailbox, "WhenCreated");
@@ -3832,7 +3830,7 @@ namespace FuseCP.Providers.HostedSolution
                     {
                         PSObject statistics = result[0];
                         ByteQuantifiedSize totalItemSize = (ByteQuantifiedSize)GetPSObjectProperty(statistics, "FolderAndSubfolderSize");
-                        info.LitigationHoldTotalSize = (totalItemSize == null) ? 0 : ConvertUnlimitedToBytes(totalItemSize);
+                        info.LitigationHoldTotalSize = ConvertUnlimitedToBytes(totalItemSize);
 
                         Int32 itemCount = (Int32)GetPSObjectProperty(statistics, "ItemsInFolder");
                         info.LitigationHoldTotalItems = (itemCount == 0) ? 0 : itemCount;
@@ -4886,8 +4884,7 @@ namespace FuseCP.Providers.HostedSolution
                 string windowsEmail = null;
 
                 SmtpAddress smtpAddress = (SmtpAddress)GetPSObjectProperty(group, "PrimarySmtpAddress");
-                if (smtpAddress != null)
-                    primaryEmail = smtpAddress.ToString();
+                primaryEmail = smtpAddress.ToString();
 
                 //SmtpAddress winAddress = (SmtpAddress)GetPSObjectProperty(group, "WindowsEmailAddress");
                 //if (winAddress != null)
@@ -5846,8 +5843,7 @@ namespace FuseCP.Providers.HostedSolution
                 string windowsEmail = null;
 
                 SmtpAddress smtpAddress = (SmtpAddress)GetPSObjectProperty(publicFolder, "PrimarySmtpAddress");
-                if (smtpAddress != null)
-                    primaryEmail = smtpAddress.ToString();
+                primaryEmail = smtpAddress.ToString();
 
                 windowsEmail = ObjToString(GetPSObjectProperty(publicFolder, "CustomAttribute3"));
 
@@ -8026,8 +8022,7 @@ namespace FuseCP.Providers.HostedSolution
         internal string SmtpAddressToString(SmtpAddress smtpAddress)
         {
             string ret = null;
-            if (smtpAddress != null)
-                ret = smtpAddress.ToString();
+            ret = smtpAddress.ToString();
             return ret;
         }
 

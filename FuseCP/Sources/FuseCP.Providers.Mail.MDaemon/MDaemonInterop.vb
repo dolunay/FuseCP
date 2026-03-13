@@ -190,20 +190,20 @@ Public Class MDaemonInterop
 #End Region
 
     <DllImport("kernel32", EntryPoint:="GetPrivateProfileSectionW", CharSet:=CharSet.Unicode, SetLastError:=True, ExactSpelling:=True)> _
-    Public Shared Function GetPrivateProfileSection(<MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpAppName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpReturnedString As String, ByVal nSize As Integer, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpFileName As String) As Integer
+    Public Shared Function GetPrivateProfileSection(<MarshalAs(UnmanagedType.LPWStr)> ByRef lpAppName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpReturnedString As String, ByVal nSize As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpFileName As String) As Integer
     End Function
 
 
     <DllImport("kernel32", EntryPoint:="GetPrivateProfileStringW", CharSet:=CharSet.Unicode, SetLastError:=True, ExactSpelling:=True)> _
-    Public Shared Function GetPrivateProfileString(<MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpApplicationName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpKeyName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpDefault As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpReturnedString As String, ByVal nSize As Integer, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpFileName As String) As Integer
+    Public Shared Function GetPrivateProfileString(<MarshalAs(UnmanagedType.LPWStr)> ByRef lpApplicationName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpKeyName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpDefault As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpReturnedString As String, ByVal nSize As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpFileName As String) As Integer
     End Function
 
 
     <DllImport("kernel32", EntryPoint:="WritePrivateProfileSectionA", CharSet:=CharSet.Unicode, SetLastError:=True, ExactSpelling:=True)> _
-    Public Shared Function WritePrivateProfileSection(<MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpAppName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpString As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpFileName As String) As Integer
+    Public Shared Function WritePrivateProfileSection(<MarshalAs(UnmanagedType.LPWStr)> ByRef lpAppName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpString As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpFileName As String) As Integer
     End Function
 
     <DllImport("kernel32", EntryPoint:="WritePrivateProfileStringW", CharSet:=CharSet.Unicode, SetLastError:=True, ExactSpelling:=True)> _
-    Public Shared Function WritePrivateProfileString(<MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpApplicationName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpKeyName As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpString As String, <MarshalAs(UnmanagedType.VBByRefStr)> ByRef lpFileName As String) As Integer
+    Public Shared Function WritePrivateProfileString(<MarshalAs(UnmanagedType.LPWStr)> ByRef lpApplicationName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpKeyName As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpString As String, <MarshalAs(UnmanagedType.LPWStr)> ByRef lpFileName As String) As Integer
     End Function
 End Class

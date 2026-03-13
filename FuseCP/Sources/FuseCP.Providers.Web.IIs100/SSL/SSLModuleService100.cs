@@ -330,7 +330,7 @@ namespace FuseCP.Providers.Web.Iis
 
                     // Read certificate data from file
                     var certData = new byte[fileStream.Length];
-                    fileStream.Read(certData, 0, (int)fileStream.Length);
+                    fileStream.ReadExactly(certData, 0, (int)fileStream.Length);
                     var convertedCert = X509CertificateLoader.LoadPkcs12(
                         certData,
                         CCSCommonPassword,
@@ -521,7 +521,7 @@ namespace FuseCP.Providers.Web.Iis
 
                         // Read certificate data from file
                         var certData = new byte[fileStream.Length];
-                        fileStream.Read(certData, 0, (int)fileStream.Length);
+                        fileStream.ReadExactly(certData, 0, (int)fileStream.Length);
                         var cert = X509CertificateLoader.LoadPkcs12(certData, CCSCommonPassword);
                         fileStream.Close();
                         return GetSSLCertificateFromX509Certificate2(cert);

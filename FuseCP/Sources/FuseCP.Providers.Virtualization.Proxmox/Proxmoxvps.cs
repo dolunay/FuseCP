@@ -473,7 +473,7 @@ namespace FuseCP.Providers.Virtualization
                 using (var res = assembly.GetManifestResourceStream(svgName))
                 {
                     var bytes = new byte[res.Length];
-                    res.Read(bytes, 0, (int)res.Length);
+                    res.ReadExactly(bytes, 0, (int)res.Length);
                     return new ImageFile()
                     {
                         MimeType = "image/svg+xml",
@@ -1263,7 +1263,7 @@ namespace FuseCP.Providers.Virtualization
                 using (var res = assembly.GetManifestResourceStream(svgName))
                 {
                     var bytes = new byte[res.Length];
-                    res.Read(bytes, 0, (int)res.Length);
+                    res.ReadExactly(bytes, 0, (int)res.Length);
                     return new ImageFile()
                     {
                         MimeType = "image/svg+xml",
