@@ -738,8 +738,12 @@ namespace FuseCP.Providers.OS
                         var url = Url;
                         if (IsWebSocketOverSsh) url = await GetSshWebSocketUrlAsync();
 
+#if NETSTANDARD2_0
                         var setValidationCallback = !ValidateCertificate && !SetRemoteValidationCallback();
                         if (setValidationCallback) ServicePointManager.ServerCertificateValidationCallback += AlwaysTrustCertificate;
+#else
+                        SetRemoteValidationCallback();
+#endif
 
                         try
                         {
@@ -751,7 +755,9 @@ namespace FuseCP.Providers.OS
                         }
                         finally
                         {
+#if NETSTANDARD2_0
                             if (setValidationCallback) ServicePointManager.ServerCertificateValidationCallback -= AlwaysTrustCertificate;
+#endif
                         }
                         if (Arguments != null) await SendData(Arguments);
 

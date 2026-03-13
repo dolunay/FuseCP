@@ -189,7 +189,7 @@ namespace FuseCP.Providers.Common
                 clear = clear.Substring(SHA_MAGIC_PREFIX.Length);
             }
 
-            SHA1 sha = new SHA1CryptoServiceProvider();
+            using SHA1 sha = SHA1.Create();
 
             string cr = Convert.ToBase64String(
                 sha.ComputeHash(Encoding.Default.GetBytes(clear))

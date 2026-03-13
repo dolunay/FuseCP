@@ -367,14 +367,22 @@ namespace System.Runtime.Remoting.Channels
 		public virtual byte[] ToArray()
 		{
 			int length = (int)Length; // this will throw if stream is closed
-			byte[] copy = new byte[Length];
+			byte[] copy = new byte[length];
 
 			MemoryChunk backupReadChunk = _readChunk;
 			int backupReadOffset = _readOffset;
 
 			_readChunk = _chunks;
 			_readOffset = 0;
-			Read(copy, 0, length);
+
+			int totalRead = 0;
+			while (totalRead < length)
+			{
+				int read = Read(copy, totalRead, length - totalRead);
+				if (read <= 0)
+					break;
+				totalRead += read;
+			}
 
 			_readChunk = backupReadChunk;
 			_readOffset = backupReadOffset;

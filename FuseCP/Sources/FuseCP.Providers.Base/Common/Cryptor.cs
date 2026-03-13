@@ -214,8 +214,21 @@ namespace FuseCP.Providers
             // Return the result.
             return Convert.ToBase64String(hashBytes);
         }
-        public static string SHA1(string plainText) => Hash(plainText, new SHA1Managed());
-        public static string SHA256(string plainText) => $"SHA256:{Hash(plainText, new SHA256Managed())}";
+        public static string SHA1(string plainText)
+        {
+            using (HashAlgorithm sha1 = System.Security.Cryptography.SHA1.Create())
+            {
+                return Hash(plainText, sha1);
+            }
+        }
+
+        public static string SHA256(string plainText)
+        {
+            using (HashAlgorithm sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                return $"SHA256:{Hash(plainText, sha256)}";
+            }
+        }
         public static bool IsSHA256(string hash) => hash.StartsWith("SHA256:");
 
         public static bool SHAEquals(string plainText, string hash)
@@ -227,7 +240,10 @@ namespace FuseCP.Providers
 		public static string CreateCryptoKey(int len)
 		{
 			byte[] bytes = new byte[len];
-			new RNGCryptoServiceProvider().GetBytes(bytes);
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(bytes);
+            }
 
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < bytes.Length; i++)
@@ -243,9 +259,11 @@ namespace FuseCP.Providers
 			string ptrn = "abcdefghjklmnpqrstwxyz0123456789";
 			StringBuilder sb = new StringBuilder();
 
-			byte[] randomBytes = new byte[4];
-			RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-			rng.GetBytes(randomBytes);
+            byte[] randomBytes = new byte[4];
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomBytes);
+            }
 
 			// Convert 4 bytes into a 32-bit integer value.
 			int seed = (randomBytes[0] & 0x7f) << 24 |
