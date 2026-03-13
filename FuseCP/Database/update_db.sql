@@ -20322,7 +20322,6 @@ BEGIN
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (9, N'RecordDefaultTTL', N'86400')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (24, N'RecordDefaultTTL', N'86400')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (28, N'RecordDefaultTTL', N'86400')
-	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (55, N'RecordDefaultTTL', N'86400')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (56, N'RecordDefaultTTL', N'86400')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (410, N'RecordDefaultTTL', N'86400')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (1703, N'RecordDefaultTTL', N'86400')
@@ -20338,7 +20337,6 @@ BEGIN
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (9, N'RecordMinimumTTL', N'3600')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (24, N'RecordMinimumTTL', N'3600')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (28, N'RecordMinimumTTL', N'3600')
-	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (55, N'RecordMinimumTTL', N'3600')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (56, N'RecordMinimumTTL', N'3600')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (410, N'RecordMinimumTTL', N'3600')
 	INSERT [dbo].[ServiceDefaultProperties] ([ProviderID], [PropertyName], [PropertyValue]) VALUES (1703, N'RecordMinimumTTL', N'3600')
@@ -20384,9 +20382,9 @@ END
 GO
 
 -- Add RecordDefaultTTL and RecordMinimumTTL property to existing DNS providers
-IF NOT EXISTS (Select * from [ServiceProperties] INNER JOIN Services ON ServiceProperties.ServiceID=Services.ServiceID Where Services.ProviderID IN (7, 9, 24, 28, 55, 56, 410, 1703, 1901, 1902, 1903) AND ServiceProperties.PropertyName = N'RecordMinimumTTL')
+IF NOT EXISTS (Select * from [ServiceProperties] INNER JOIN Services ON ServiceProperties.ServiceID=Services.ServiceID Where Services.ProviderID IN (7, 9, 24, 28, 56, 410, 1703, 1901, 1902, 1903) AND ServiceProperties.PropertyName = N'RecordMinimumTTL')
 BEGIN
-DECLARE service_cursor CURSOR FOR SELECT ServiceId FROM Services WHERE ProviderID IN (7, 9, 24, 28, 55, 56, 410, 1703, 1901, 1902, 1903)
+DECLARE service_cursor CURSOR FOR SELECT ServiceId FROM Services WHERE ProviderID IN (7, 9, 24, 28, 56, 410, 1703, 1901, 1902, 1903)
 DECLARE @ServiceID INT
 OPEN service_cursor
 FETCH NEXT FROM service_cursor INTO @ServiceID

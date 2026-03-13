@@ -97,6 +97,8 @@ FuseCP uses Entity Framework (EF Core 8 on .NET 10, EF 6 on .NET Framework) for 
 * EF migrations are executed with EF Core only (NET 10); the installer applies SQL scripts for .NET Framework environments.
 * Squash development-only intermediate migrations into one before a release using the `MigrationRemove.bat` / snapshot-revert approach documented in `FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md`.
 * Always update `FuseCP/Database/update_db.sql` when a schema migration is added so the legacy SQL path stays in sync.
+* When retiring a provider, add cleanup to `FuseCP/Database/update_db.sql` that is safe for upgraded installs: delete provider-owned defaults/properties first, then delete the provider row only when no `Services` rows reference it (never break FK integrity on existing tenants).
+* If provider cleanup is skipped due to active references, the script must emit an explicit operator action message explaining that services must be reassigned to a supported provider before final provider-row deletion.
 * Reference: `FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md` for scaffolding, connection strings, and multi-DB type-mapping patterns.
 
 ## 7. Legal and Licensing
