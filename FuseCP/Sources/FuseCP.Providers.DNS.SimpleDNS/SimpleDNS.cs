@@ -16,9 +16,11 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Collections.Generic;
 using System.Text;
-using System.Web;
+using System.Runtime.Versioning;
 
 using FuseCP.Server.Utils;
 using FuseCP.Providers.Utils;
@@ -925,7 +927,7 @@ namespace FuseCP.Providers.DNS
 					, ex
 				);
 
-				throw ex;
+				throw;
 			}
 		}
 
@@ -968,169 +970,178 @@ namespace FuseCP.Providers.DNS
 				return str.Substring(0, str.Length - 1);
 		}
 
+		private static string UrlEncodeData(string value)
+		{
+			return String.IsNullOrEmpty(value) ? String.Empty : Uri.EscapeDataString(value);
+		}
+
+		private static string BuildUrlEncodedPostData(string postData)
+		{
+			if (postData == null)
+			{
+				return null;
+			}
+
+			StringBuilder urlEncoded = new StringBuilder();
+			char[] reserved = { '?', '=', '&' };
+
+			int i = 0;
+			while (i < postData.Length)
+			{
+				int j = postData.IndexOfAny(reserved, i);
+				if (j == -1)
+				{
+					urlEncoded.Append(UrlEncodeData(postData.Substring(i, postData.Length - i)));
+					break;
+				}
+
+				urlEncoded.Append(UrlEncodeData(postData.Substring(i, j - i)));
+				urlEncoded.Append(postData.Substring(j, 1));
+				i = j + 1;
+			}
+
+			return urlEncoded.ToString();
+		}
+
 
         private string ExecuteDnsQuery(string command, string postData)
 		{
-			HttpWebResponse result = null;
 			StringBuilder sb = new StringBuilder();
 
-			try
+			string endpoint = SimpleDnsUrl + "/" + command;
+			HttpMethod method = postData == null ? HttpMethod.Get : HttpMethod.Post;
+
+			using HttpClient client = new HttpClient();
+			using HttpRequestMessage req = new HttpRequestMessage(method, endpoint);
+			req.Headers.UserAgent.ParseAdd("FuseCP-SimpleDNS-Provider/1.0");
+
+			if (!String.IsNullOrEmpty(SimpleDnsPassword))
 			{
-				HttpWebRequest req = (HttpWebRequest)WebRequest.Create(SimpleDnsUrl + "/" + command);
-				req.Method = (postData == null) ? "GET" : "POST";
-				req.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705)";
-				req.ContentType = "application/x-www-form-urlencoded";
-                if (!String.IsNullOrEmpty(SimpleDnsPassword))
-                {
-                    CredentialCache myCache = new CredentialCache();
-                    myCache.Add(new Uri(SimpleDnsUrl + "/" + command), "Basic",
-                                new NetworkCredential(AdminLogin, SimpleDnsPassword));
-                    req.Credentials = myCache;
-                }
-			    StringBuilder UrlEncoded = new StringBuilder();
-
-				Char[] reserved = { '?', '=', '&' };
-				byte[] SomeBytes = null;
-
-				if (postData != null)
-				{
-					int i = 0, j;
-					while (i < postData.Length)
-					{
-						j = postData.IndexOfAny(reserved, i);
-						if (j == -1)
-						{
-							UrlEncoded.Append(HttpUtility.UrlEncode(postData.Substring(i, postData.Length - i)));
-							break;
-						}
-						UrlEncoded.Append(HttpUtility.UrlEncode(postData.Substring(i, j - i)));
-						UrlEncoded.Append(postData.Substring(j, 1));
-						i = j + 1;
-					}
-					SomeBytes = Encoding.ASCII.GetBytes(UrlEncoded.ToString());
-					req.ContentLength = SomeBytes.Length;
-					Stream newStream = req.GetRequestStream();
-					newStream.Write(SomeBytes, 0, SomeBytes.Length);
-					newStream.Close();
-				}
-
-				// load document
-				result = (HttpWebResponse)req.GetResponse();
-				Stream ReceiveStream = result.GetResponseStream();
-				Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-				StreamReader sr = new StreamReader(ReceiveStream, encode);
-
-				//Console.WriteLine("\r\nResponse stream received");
-				Char[] read = new Char[256];
-				int count = sr.Read(read, 0, 256);
-
-				//Console.WriteLine("HTML...\r\n");
-				while (count > 0)
-				{
-					String str = new String(read, 0, count);
-					sb.Append(str);
-					count = sr.Read(read, 0, 256);
-				}
-
+				string authToken = Convert.ToBase64String(Encoding.ASCII.GetBytes(AdminLogin + ":" + SimpleDnsPassword));
+				req.Headers.Authorization = new AuthenticationHeaderValue("Basic", authToken);
 			}
-            //catch (WebException ex)
-            //{
-            //    response.Status = -1;
-            //    HttpWebResponse errorResp = (HttpWebResponse)ex.Response;
-            //    if (errorResp != null)
-            //    {
-            //        response.Status = (int)errorResp.StatusCode;
-            //    }
-            //    response.Content = ex.Status.ToString();
-            //    return response;
-            //}
-            //catch (Exception ex)
-            //{
-            //    //Debug.WriteLine(ex);
-            //    response.Status = -1;
-            //    response.Content = ex.ToString();
-            //    return response;
-            //}
-			finally
+
+			if (postData != null)
 			{
-				if (result != null)
-				{
-					result.Close();
-				}
+				string urlEncodedData = BuildUrlEncodedPostData(postData);
+				req.Content = new StringContent(urlEncodedData, Encoding.ASCII, "application/x-www-form-urlencoded");
+			}
+
+			using HttpResponseMessage result = client.Send(req);
+			result.EnsureSuccessStatusCode();
+			using Stream receiveStream = result.Content.ReadAsStream();
+			using StreamReader sr = new StreamReader(receiveStream, Encoding.UTF8);
+
+			//Console.WriteLine("\r\nResponse stream received");
+			Char[] read = new Char[256];
+			int count = sr.Read(read, 0, 256);
+
+			//Console.WriteLine("HTML...\r\n");
+			while (count > 0)
+			{
+				String str = new String(read, 0, count);
+				sb.Append(str);
+				count = sr.Read(read, 0, 256);
 			}
 
             return sb.ToString();
 		}
 		#endregion
 
+		private bool IsSimpleDnsApiAvailable()
+		{
+			try
+			{
+				ExecuteDnsQuery("zonelist", null);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		[SupportedOSPlatform("windows")]
+		private bool IsSimpleDnsVersion4InstalledOnWindows()
+		{
+			string productName = null;
+			string productVersion = null;
+
+			RegistryKey HKLM = Registry.LocalMachine;
+
+			RegistryKey key = HKLM.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+
+			if (key != null)
+			{
+				String[] names = key.GetSubKeyNames();
+
+				foreach (string s in names)
+				{
+					RegistryKey subkey = HKLM.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\" + s);
+					if (subkey != null)
+						if (!String.IsNullOrEmpty((string)subkey.GetValue("DisplayName")))
+						{
+							productName = (string)subkey.GetValue("DisplayName");
+						}
+					if (productName != null)
+						if (productName.Equals("Simple DNS Plus"))
+						{
+							if (subkey != null) productVersion = (string)subkey.GetValue("DisplayVersion");
+							break;
+						}
+				}
+
+				if (!String.IsNullOrEmpty(productVersion))
+				{
+					string[] split = productVersion.Split(new char[] { '.' });
+					return split[0].Equals("4");
+				}
+
+				//checking x64 platform
+				key = HKLM.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall");
+
+				if (key == null)
+				{
+					return false;
+				}
+
+				names = key.GetSubKeyNames();
+
+				foreach (string s in names)
+				{
+					RegistryKey subkey = HKLM.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\" + s);
+					if (subkey != null)
+						if (!String.IsNullOrEmpty((string)subkey.GetValue("DisplayName")))
+						{
+							productName = (string)subkey.GetValue("DisplayName");
+						}
+					if (productName != null)
+						if (productName.Equals("Simple DNS Plus"))
+						{
+							if (subkey != null) productVersion = (string)subkey.GetValue("DisplayVersion");
+							break;
+						}
+				}
+
+				if (!String.IsNullOrEmpty(productVersion))
+				{
+					string[] split = productVersion.Split(new[] { '.' });
+					return split[0].Equals("4");
+				}
+			}
+
+			return false;
+		}
+
         public override bool IsInstalled()
         {
-            string productName = null;
-            string productVersion = null;
+            if (IsSimpleDnsApiAvailable())
+                return true;
 
-            RegistryKey HKLM = Registry.LocalMachine;
+            if (!OperatingSystem.IsWindows())
+                return false;
 
-            RegistryKey key = HKLM.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
-
-            if (key != null)
-            {
-                String[] names = key.GetSubKeyNames();
-
-                foreach (string s in names)
-                {
-                    RegistryKey subkey = HKLM.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\" + s);
-                    if (subkey != null)
-                        if (!String.IsNullOrEmpty((string)subkey.GetValue("DisplayName")))
-                        {
-                            productName = (string)subkey.GetValue("DisplayName");
-                        }
-                    if (productName != null)
-                        if (productName.Equals("Simple DNS Plus"))
-                        {
-                            if (subkey != null) productVersion = (string)subkey.GetValue("DisplayVersion");
-                            break;
-                        }
-                }
-
-                if (!String.IsNullOrEmpty(productVersion))
-                {
-                    string[] split = productVersion.Split(new char[] { '.' });
-                    return split[0].Equals("4");
-                }
-
-                //checking x64 platform
-                key = HKLM.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall");
-                
-                if (key == null)
-                {
-                    return false;
-                }
-
-                names = key.GetSubKeyNames();
-
-                foreach (string s in names)
-                {
-                    RegistryKey subkey = HKLM.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\" + s);
-                    if (subkey != null)
-                        if (!String.IsNullOrEmpty((string)subkey.GetValue("DisplayName")))
-                        {
-                            productName = (string)subkey.GetValue("DisplayName");
-                        }
-                    if (productName != null)
-                        if (productName.Equals("Simple DNS Plus"))
-                        {
-                            if (subkey != null) productVersion = (string)subkey.GetValue("DisplayVersion");
-                            break;
-                        }
-                }
-
-                if (!String.IsNullOrEmpty(productVersion))
-                {
-                    string[] split = productVersion.Split(new[] { '.' });
-                    return split[0].Equals("4");
-                }
-            }
-            return false;
+            return IsSimpleDnsVersion4InstalledOnWindows();
         }
 
        
