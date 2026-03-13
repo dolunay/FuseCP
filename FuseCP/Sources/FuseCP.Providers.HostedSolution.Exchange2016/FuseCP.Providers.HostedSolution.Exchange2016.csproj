@@ -57,8 +57,6 @@
 			<SpecificVersion>False</SpecificVersion>
 			<Private>false</Private>
 		</Reference>
-		<Reference Include="System.Data.DataSetExtensions" />
-		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FuseCP.Providers.Base\FuseCP.Providers.Base.csproj" />

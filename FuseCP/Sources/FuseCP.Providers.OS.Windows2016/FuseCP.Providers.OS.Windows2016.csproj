@@ -29,10 +29,6 @@
       <HintPath>..\..\Lib\References\Microsoft\Windows2012\System.Management.Automation.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-	  <Reference Include="System.Runtime.Remoting" />
-	  <Reference Include="System.ServiceProcess" />
-	  <Reference Include="System.Web" />
-	  <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />

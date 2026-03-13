@@ -26,7 +26,6 @@
             <HintPath>..\..\Lib\References\Microsoft\Windows2012\System.Management.Automation.dll</HintPath>
             <SpecificVersion>False</SpecificVersion>
         </Reference>
-        <Reference Include="System.Data.DataSetExtensions" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />

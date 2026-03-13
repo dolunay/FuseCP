@@ -21,8 +21,6 @@
 		<Reference Include="Microsoft.SystemCenter.VirtualMachineManager">
 			<HintPath>..\..\Lib\References\Microsoft\Vmm2012r2\Microsoft.SystemCenter.VirtualMachineManager.dll</HintPath>
 		</Reference>
-		<Reference Include="System.Configuration" />
-		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="System.Management" />
 		<Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
 			<HintPath>..\..\Lib\References\Microsoft\Windows2012\System.Management.Automation.dll</HintPath>

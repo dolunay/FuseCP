@@ -22,7 +22,6 @@
 			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Storage.Vds.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
-		<Reference Include="System.configuration" />
 		<Reference Include="System.Management" />
 	</ItemGroup>
 	<ItemGroup>
