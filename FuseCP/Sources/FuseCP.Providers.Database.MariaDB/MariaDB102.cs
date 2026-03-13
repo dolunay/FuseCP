@@ -14,9 +14,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Microsoft.Win32;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Database
 {
+    [SupportedOSPlatform("windows")]
     public class MariaDB102 : MariaDB101
     {
         public MariaDB102(): base() { }

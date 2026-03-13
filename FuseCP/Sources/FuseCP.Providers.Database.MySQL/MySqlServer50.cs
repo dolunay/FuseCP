@@ -15,9 +15,11 @@
 
 using Microsoft.Win32;
 using FuseCP.Providers.OS;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Database
 {
+	[SupportedOSPlatform("windows")]
 	public class MySqlServer50 : MySqlServer
 	{
 		public MySqlServer50(): base() { }

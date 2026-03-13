@@ -14,9 +14,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Management.Automation.Runspaces;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.Virtualization
 {
+    [SupportedOSPlatform("windows")]
     public static class ReplicaHelper
     {
         public static void SetReplicaServer(PowerShellManager powerShell, bool enabled, string remoteServer, string thumbprint, string storagePath)

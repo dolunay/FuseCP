@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 //using MySql.Data.MySqlClient;
 using System.IO;
@@ -28,7 +29,8 @@ using MySql.Data.MySqlClient;
 
 namespace FuseCP.Providers.Database
 {
-    public class MySqlServer84: MySqlServer83
+	[SupportedOSPlatform("windows")]
+	public class MySqlServer84: MySqlServer83
 	{
 		public MySqlServer84(): base() {	}
 
