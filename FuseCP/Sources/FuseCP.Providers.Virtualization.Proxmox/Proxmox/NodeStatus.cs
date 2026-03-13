@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 
 namespace FuseCP.Providers.Virtualization.Proxmox
 {
+    #pragma warning disable CS8981 // Lowercase DTO name matches upstream payload naming.
     public class NodeStatus
     {
         public string data { get; set; }
@@ -33,5 +34,6 @@ namespace FuseCP.Providers.Virtualization.Proxmox
         public string model { get; set; }
         public string mhz { get; set; }
     }
+    #pragma warning restore CS8981
 
 }

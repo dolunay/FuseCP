@@ -2500,10 +2500,8 @@ HttpClient client = CreateHttpClient();
 							var files = Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly);
 							if (!files.Any(f => f.Contains("SmarterMail"))) continue;
 
-							var assembly = Assembly.ReflectionOnlyLoadFrom(dll);
-							var versionAttribute = assembly.GetCustomAttributes<AssemblyFileVersionAttribute>()
-								.FirstOrDefault();
-							if (versionAttribute != null && new Version(versionAttribute.Version).Major == 100) return true;
+							var assemblyName = AssemblyName.GetAssemblyName(dll);
+							if (assemblyName?.Version != null && assemblyName.Version.Major == 100) return true;
 							else return false;
 						}
 						catch { }
