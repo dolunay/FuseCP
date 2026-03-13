@@ -48,6 +48,14 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="RazorBlade" Version="0.10.0" GeneratePathProperty="true" PrivateAssets="all" ExcludeAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Analyzer Include="$(PkgRazorBlade)\lib\netstandard2.0\RazorBlade.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Remove="Core.Web.config" />
     </ItemGroup>
     
