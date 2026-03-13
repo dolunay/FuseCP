@@ -2876,7 +2876,6 @@ BEGIN
     (30, NULL, 'MySQL Server 5.1', 'MySQL', 11, 'MySQL', 'FuseCP.Providers.Database.MySqlServer51, FuseCP.Providers.Database.MySQL'),
     (31, NULL, 'SmarterStats 4.x', 'SmarterStats', 8, 'SmarterStats', 'FuseCP.Providers.Statistics.SmarterStats4, FuseCP.Providers.Statistics.SmarterStats'),
     (32, NULL, 'Hosted Microsoft Exchange Server 2010', 'Exchange', 12, 'Exchange2010', 'FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution'),
-    (55, TRUE, 'Nettica DNS', 'NetticaDNS', 7, 'NetticaDNS', 'FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica'),
     (56, TRUE, 'PowerDNS', 'PowerDNS', 7, 'PowerDNS', 'FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS'),
     (60, NULL, 'SmarterMail 6.x', 'SmarterMail60', 4, 'SmarterMail', 'FuseCP.Providers.Mail.SmarterMail6, FuseCP.Providers.Mail.SmarterMail6'),
     (61, NULL, 'Merak Mail Server 10.x', 'Merak', 4, 'Merak', 'FuseCP.Providers.Mail.Merak10, FuseCP.Providers.Mail.Merak10'),

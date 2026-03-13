@@ -6420,3 +6420,4 @@ namespace FuseCP.EnterpriseServer.Data.Migrations.SqlServer
         }
     }
 }
+

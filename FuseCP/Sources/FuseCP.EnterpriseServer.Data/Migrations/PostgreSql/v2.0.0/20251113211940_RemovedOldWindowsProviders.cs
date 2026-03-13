@@ -113,3 +113,4 @@ namespace FuseCP.EnterpriseServer.Data.Migrations.PostgreSql
         }
     }
 }
+

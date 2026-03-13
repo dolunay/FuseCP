@@ -5626,9 +5626,6 @@
             <Component Id="cmp40F32CF950C274A41B3823736285D132" Directory="dirBE0B001F00D756B8546D655258576D45" Guid="{93411A65-81FC-4A1A-A555-60F339A950BC}">
                 <File Id="filE8D5B17F8A3483842209914240B98BAF" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\MySQL_Settings.ascx" />
             </Component>
-            <Component Id="cmp70304C2A3D97543C22B8F656DF600C79" Directory="dirBE0B001F00D756B8546D655258576D45" Guid="{D8156920-1524-4C42-80DE-28499CAEE90F}">
-                <File Id="fil9D86AD4550D09A48E585F363109880EB" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\NetticaDNS_Settings.ascx" />
-            </Component>
             <Component Id="cmp774DF8A6208749801F266908A3253684" Directory="dirBE0B001F00D756B8546D655258576D45" Guid="{12713A44-6C4D-4AFF-A64C-39C9D6C27706}">
                 <File Id="filFCF06A8FA18F51A0ABB10D788EACD65B" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\OCS_EDGE_Settings.ascx" />
             </Component>
@@ -6291,12 +6288,6 @@
             </Component>
             <Component Id="cmp570E90F5150BC21D38CA8768F688E637" Directory="dir5C476D59E68D19EC2A7D6900C78B7D14" Guid="{1946A9CF-C42E-4963-B783-71EA742567A2}">
                 <File Id="filEEB2B26D038A7D3E994A0671C815A8D1" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\App_LocalResources\MySQL_Settings.ascx.resx" />
-            </Component>
-            <Component Id="cmp6AB32B39A7DD25E09B63469C63F4A707" Directory="dir5C476D59E68D19EC2A7D6900C78B7D14" Guid="{68EA89C5-12F8-4434-8B32-DAE86CC55030}">
-                <File Id="fil448ECAB3DBBDBDC7FC9CA628EECB2A77" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.de-DE.resx" />
-            </Component>
-            <Component Id="cmp46EC9C5F20E6F9075DBE2255F3159261" Directory="dir5C476D59E68D19EC2A7D6900C78B7D14" Guid="{A1E404B6-ABD0-4557-849D-6AE5C8F6637D}">
-                <File Id="filDFEDE122E111A8EBFFC3BCA2DE877FE8" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx" />
             </Component>
             <Component Id="cmp30B1F732EC98E71B82A435910EA06B12" Directory="dir5C476D59E68D19EC2A7D6900C78B7D14" Guid="{C492D254-04BD-4879-B699-B9386D6C6ED1}">
                 <File Id="fil5A888445EFE2B733919EBFB779F72F3E" KeyPath="yes" Source="!(wix.BUILDPPATH)\DesktopModules\FuseCP\ProviderControls\App_LocalResources\OCS_ADGE_Settings.ascx.resx" />

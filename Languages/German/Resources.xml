@@ -48939,22 +48939,17 @@ for your installation of ADO.NET Driver for MySQL (also known as MySQL Connector
     <Value>Beide Passwörter müssen identisch sein</Value>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>cbApplyDefaultTemplate.Text</Key>
     <DefaultValue>Apply Default Domain Template</DefaultValue>
     <Value>Standard-Domänenvorlage anwenden</Value>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>lblPassword.Text</Key>
     <DefaultValue>Password:</DefaultValue>
     <Value>Passwort:</Value>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>lblUserName.Text</Key>
-    <DefaultValue>Nettica Account Name:</DefaultValue>
-    <Value>Nettica Kontoname:</Value>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\OCS_Settings.ascx.resx</File>

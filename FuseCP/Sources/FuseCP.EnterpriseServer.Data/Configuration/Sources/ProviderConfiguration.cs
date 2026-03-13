@@ -75,8 +75,6 @@ public partial class ProviderConfiguration: EntityTypeConfiguration<Provider>
             new Provider() { ProviderId = 31, DisplayName = "SmarterStats 4.x", EditorControl = "SmarterStats", GroupId = 8, ProviderName = "SmarterStats", ProviderType = "FuseCP.Providers.Statistics.SmarterStats4, FuseCP.Providers.Statistics.Smarter" +
                 "Stats" },
             new Provider() { ProviderId = 32, DisplayName = "Hosted Microsoft Exchange Server 2010", EditorControl = "Exchange", GroupId = 12, ProviderName = "Exchange2010", ProviderType = "FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution" },
-            new Provider() { ProviderId = 55, DisableAutoDiscovery = true, DisplayName = "Nettica DNS", EditorControl = "NetticaDNS", GroupId = 7, ProviderName = "NetticaDNS",
-                ProviderType = "FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica" },
             new Provider() { ProviderId = 56, DisableAutoDiscovery = true, DisplayName = "PowerDNS", EditorControl = "PowerDNS", GroupId = 7, ProviderName = "PowerDNS",
                 ProviderType = "FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS" },
             new Provider() { ProviderId = 60, DisplayName = "SmarterMail 6.x", EditorControl = "SmarterMail60", GroupId = 4, ProviderName = "SmarterMail", ProviderType = "FuseCP.Providers.Mail.SmarterMail6, FuseCP.Providers.Mail.SmarterMail6" },

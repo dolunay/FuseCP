@@ -4271,18 +4271,7 @@ namespace FuseCP.EnterpriseServer.Data.Migrations.PostgreSql
                             GroupId = 12,
                             ProviderName = "Exchange2010",
                             ProviderType = "FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution"
-                        },
-                        new
-                        {
-                            ProviderId = 55,
-                            DisableAutoDiscovery = true,
-                            DisplayName = "Nettica DNS",
-                            EditorControl = "NetticaDNS",
-                            GroupId = 7,
-                            ProviderName = "NetticaDNS",
-                            ProviderType = "FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica"
-                        },
-                        new
+                        },                        new
                         {
                             ProviderId = 56,
                             DisableAutoDiscovery = true,
@@ -18242,3 +18231,6 @@ namespace FuseCP.EnterpriseServer.Data.Migrations.PostgreSql
         }
     }
 }
+
+
+

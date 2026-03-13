@@ -102,3 +102,4 @@ namespace FuseCP.EnterpriseServer.Data.Migrations.Sqlite
         }
     }
 }
+

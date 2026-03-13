@@ -157,9 +157,6 @@
             <Component Id="cmpF7F2ED92366521E864A7B10CB36CCE73" Directory="dirFE040D7A5771FED5DD77B7A4BED10E7F" Guid="{4BDBEEA9-147D-4D65-9372-4078FF141F0F}">
                 <File Id="filD7E96D72F19266117FAAB5AF0958E557" KeyPath="yes" Source="!(wix.BUILDSPATH)\bin\FuseCP.Providers.DNS.MsDNS.dll" />
             </Component>
-            <Component Id="cmp0AD792444D5EAF68BFFB4CBA9043E7A3" Directory="dirFE040D7A5771FED5DD77B7A4BED10E7F" Guid="{041D7DFD-C773-4709-AC04-AC9D185FE4FB}">
-                <File Id="fil488DADE7321BC7F1476C51F730517E0B" KeyPath="yes" Source="!(wix.BUILDSPATH)\bin\FuseCP.Providers.DNS.Nettica.dll" />
-            </Component>
             <Component Id="cmpC6A18BB25A996E7CB6FA5286BDC6CB51" Directory="dirFE040D7A5771FED5DD77B7A4BED10E7F" Guid="{EF03D124-7019-4C47-948E-1178A9A65EAC}">
                 <File Id="fil66B7F1A1C32F1D6E549E79D3B503CD11" KeyPath="yes" Source="!(wix.BUILDSPATH)\bin\FuseCP.Providers.DNS.PowerDNS.dll" />
             </Component>

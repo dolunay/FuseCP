@@ -28257,7 +28257,6 @@ INSERT [dbo].[Providers] ([ProviderID], [GroupID], [ProviderName], [DisplayName]
 GO
 INSERT [dbo].[Providers] ([ProviderID], [GroupID], [ProviderName], [DisplayName], [ProviderType], [EditorControl], [DisableAutoDiscovery]) VALUES (32, 12, N'Exchange2010', N'Hosted Microsoft Exchange Server 2010', N'FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution', N'Exchange', NULL)
 GO
-INSERT [dbo].[Providers] ([ProviderID], [GroupID], [ProviderName], [DisplayName], [ProviderType], [EditorControl], [DisableAutoDiscovery]) VALUES (55, 7, N'NetticaDNS', N'Nettica DNS', N'FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica', N'NetticaDNS', 1)
 GO
 INSERT [dbo].[Providers] ([ProviderID], [GroupID], [ProviderName], [DisplayName], [ProviderType], [EditorControl], [DisableAutoDiscovery]) VALUES (56, 7, N'PowerDNS', N'PowerDNS', N'FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS', N'PowerDNS', NULL)
 GO

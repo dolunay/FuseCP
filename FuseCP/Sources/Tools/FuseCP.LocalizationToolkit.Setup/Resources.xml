@@ -933,7 +933,7 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.AuthorizeNet.241</Key>
-    <DefaultValue>This transaction has been declined. Only merchants set up for the FraudScreen.Net service would receive this decline. This code will be returned if a given transaction’s fraud score is higher than the threshold set by the merchant.</DefaultValue>
+    <DefaultValue>This transaction has been declined. Only merchants set up for the FraudScreen.Net service would receive this decline. This code will be returned if a given transactionï¿½s fraud score is higher than the threshold set by the merchant.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -1088,7 +1088,7 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.AuthorizeNet.339</Key>
-    <DefaultValue>The supplied currency code is either invalid, not supported, not allowed for this merchant or doesn’t have an exchange rate.</DefaultValue>
+    <DefaultValue>The supplied currency code is either invalid, not supported, not allowed for this merchant or doesnï¿½t have an exchange rate.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -1815,12 +1815,12 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10548</Key>
-    <DefaultValue>This transaction cannot be processed. The merchant’s account is not able to process transactions. Please contact merchant</DefaultValue>
+    <DefaultValue>This transaction cannot be processed. The merchantï¿½s account is not able to process transactions. Please contact merchant</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10549</Key>
-    <DefaultValue>This transaction cannot be processed. The merchant’s account is not able to process transactions. Please contact merchant</DefaultValue>
+    <DefaultValue>This transaction cannot be processed. The merchantï¿½s account is not able to process transactions. Please contact merchant</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -1860,177 +1860,177 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10702</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid Address in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid Address in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10703</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid Address in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid Address in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10704</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid city in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid city in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10705</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10706</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10707</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid country in the billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid country in the billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10708</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a complete billing address.</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a complete billing address.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10709</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter an primary address in the billing address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter an primary address in the billing address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10710</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a city in the billing address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a city in the billing address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10711</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10712</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10713</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a country</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a country</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10714</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid primary address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid primary address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10715</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10716</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10717</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10718</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid city and state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid city and state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10719</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid shipping address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid shipping address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10720</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid primary address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid primary address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10721</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid secondary address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid secondary address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10722</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid city</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid city</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10723</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10724</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10725</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid country</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid country</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10726</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a complete shipping address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a complete shipping address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10727</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter an primary address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter an primary address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10728</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a city</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a city</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10729</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10730</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10731</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a country</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a country</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10732</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid primary address</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid primary address</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10733</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10734</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10735</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter your five digit postal code</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter your five digit postal code</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10736</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid city and state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid city and state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -2055,12 +2055,12 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10750</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10751</Key>
-    <DefaultValue>There’s an error with this transaction. Please enter a valid state</DefaultValue>
+    <DefaultValue>Thereï¿½s an error with this transaction. Please enter a valid state</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -2086,7 +2086,7 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalPro.10758</Key>
-    <DefaultValue>There’s been an error due to invalid API username and/or password</DefaultValue>
+    <DefaultValue>Thereï¿½s been an error due to invalid API username and/or password</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -2192,7 +2192,7 @@
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
     <Key>Error.PayPalStd.10409</Key>
-    <DefaultValue>You’re not authorized to access this info. Express Checkout token was issued for a merchant account other than yours.</DefaultValue>
+    <DefaultValue>Youï¿½re not authorized to access this info. Express Checkout token was issued for a merchant account other than yours.</DefaultValue>
   </Resource>
   <Resource>
     <File>App_GlobalResources\Ecommerce_SharedResources.ascx.resx</File>
@@ -8892,7 +8892,7 @@
   <Resource>
     <File>App_GlobalResources\FuseCP_SharedResources.ascx.resx</File>
     <Key>Error.EXCHANGE_SET_ORG_LIMITS_VALIDATION</Key>
-    <DefaultValue>"Issue warning at" should be less or equal to  "Prohibit send at" and "Prohibit Send at” should be less or equal than “Prohibit Send and Receive at”.
+    <DefaultValue>"Issue warning at" should be less or equal to  "Prohibit send at" and "Prohibit Send atï¿½ should be less or equal than ï¿½Prohibit Send and Receive atï¿½.
 </DefaultValue>
   </Resource>
   <Resource>
@@ -17975,7 +17975,7 @@ for your installation of ResellerClub .NET API Kit.&lt;/div&gt;</DefaultValue>
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\HostedSharePointEditSiteCollection.ascx.resx</File>
     <Key>FormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;Here you can create new SharePoint site collection. Choose URL from the list of domains you already own. Site URL like team.yourcompany.com should be added as domain in “Domain names” organization’s menu before SharePoint site collection creation.&lt;/p&gt;
+    <DefaultValue>&lt;p&gt;Here you can create new SharePoint site collection. Choose URL from the list of domains you already own. Site URL like team.yourcompany.com should be added as domain in ï¿½Domain namesï¿½ organizationï¿½s menu before SharePoint site collection creation.&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;Site owner&lt;/b&gt; is member of your organization who will be responsible for this SharePoint site collection administration: choosing site templates, adding other users, creating sub-sites.&lt;/p&gt;
 
@@ -17987,7 +17987,7 @@ for your installation of ResellerClub .NET API Kit.&lt;/div&gt;</DefaultValue>
 
 &lt;p&gt;After you create this site open it using owner login, and do at least 2 main steps:
 1.	Choose site template
-2.	Define who will be able to access this site. To add user from your hosted organization to SharePoint site, please copy/paste his or her e-mail from user's properties in FuseCP to SharePoint site collection’s Users/Groups field.&lt;/p&gt;</DefaultValue>
+2.	Define who will be able to access this site. To add user from your hosted organization to SharePoint site, please copy/paste his or her e-mail from user's properties in FuseCP to SharePoint site collectionï¿½s Users/Groups field.&lt;/p&gt;</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\App_LocalResources\HostedSharePointEditSiteCollection.ascx.resx</File>
@@ -27603,7 +27603,7 @@ ActiveSync mailbox policy allows you to apply a common set of security settings 
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeCreateMailbox.ascx.resx</File>
     <Key>HSFormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a “friendly” name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
+    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a ï¿½friendlyï¿½ name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;E-Mail Address&lt;/b&gt; is a User Principal Name (UPN). It is used as a logon name in Outlook, Outlook Web Access (OWA) or SharePoint.&lt;/p&gt;
 
@@ -27904,7 +27904,7 @@ ActiveSync mailbox policy allows you to apply a common set of security settings 
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeDistributionListPermissions.ascx.resx</File>
     <Key>FormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;When you grant &lt;b&gt;Full Access&lt;/b&gt; permission to a user, that user can open this mailbox and access all of its content.&lt;/p&gt; &lt;br&gt;&lt;p&gt;When you grant &lt;b&gt;Send As&lt;/b&gt; permission to a user, that user can send messages as this mailbox. &lt;/p&gt;&lt;br&gt;&lt;p&gt;We do not recommend to use this setting together “Send on behalf” (“Send as”) – it may work unpredictable.&lt;/p&gt;</DefaultValue>
+    <DefaultValue>&lt;p&gt;When you grant &lt;b&gt;Full Access&lt;/b&gt; permission to a user, that user can open this mailbox and access all of its content.&lt;/p&gt; &lt;br&gt;&lt;p&gt;When you grant &lt;b&gt;Send As&lt;/b&gt; permission to a user, that user can send messages as this mailbox. &lt;/p&gt;&lt;br&gt;&lt;p&gt;We do not recommend to use this setting together ï¿½Send on behalfï¿½ (ï¿½Send asï¿½) ï¿½ it may work unpredictable.&lt;/p&gt;</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeDistributionListPermissions.ascx.resx</File>
@@ -28414,7 +28414,7 @@ ActiveSync mailbox policy allows you to apply a common set of security settings 
 
 &lt;p&gt;You can always change your primary e-mail address on "E-Mail Addresses" tab of mailbox settings.&lt;/p&gt;
 
-&lt;p&gt;Note that deleting mailbox will not delete corresponding Active Directory account. You can delete Active Directory account on “Users” page.&lt;/p&gt;</DefaultValue>
+&lt;p&gt;Note that deleting mailbox will not delete corresponding Active Directory account. You can delete Active Directory account on ï¿½Usersï¿½ page.&lt;/p&gt;</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeMailboxes.ascx.resx</File>
@@ -28919,7 +28919,7 @@ ActiveSync mailbox policy allows you to apply a common set of security settings 
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeMailboxPermissions.ascx.resx</File>
     <Key>FormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;When you grant &lt;b&gt;Full Access&lt;/b&gt; permission to a user, that user can open this mailbox and access all of its content.&lt;/p&gt; &lt;br&gt;&lt;p&gt;When you grant &lt;b&gt;Send As&lt;/b&gt; permission to a user, that user can send messages as this mailbox. &lt;/p&gt;  &lt;br&gt;&lt;p&gt;We do not recommend to use this setting together “Send on behalf” (“Send as”) – it may work unpredictable&lt;/p&gt;</DefaultValue>
+    <DefaultValue>&lt;p&gt;When you grant &lt;b&gt;Full Access&lt;/b&gt; permission to a user, that user can open this mailbox and access all of its content.&lt;/p&gt; &lt;br&gt;&lt;p&gt;When you grant &lt;b&gt;Send As&lt;/b&gt; permission to a user, that user can send messages as this mailbox. &lt;/p&gt;  &lt;br&gt;&lt;p&gt;We do not recommend to use this setting together ï¿½Send on behalfï¿½ (ï¿½Send asï¿½) ï¿½ it may work unpredictable&lt;/p&gt;</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\ExchangeMailboxPermissions.ascx.resx</File>
@@ -29544,7 +29544,7 @@ ActiveSync mailbox policy allows you to apply a common set of security settings 
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationCreateUser.ascx.resx</File>
     <Key>HSFormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a “friendly” name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
+    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a ï¿½friendlyï¿½ name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;E-Mail Address&lt;/b&gt; is a User Principal Name (UPN). It is used as a logon name in Outlook, Outlook Web Access (OWA) or SharePoint.&lt;/p&gt;
 
@@ -29813,7 +29813,7 @@ Exchange-enabled organization has its own Global Address List (GAL) and Offline 
   <Resource>
     <File>DesktopModules\FuseCP\ExchangeServer\App_LocalResources\OrganizationUserGeneralSettings.ascx.resx</File>
     <Key>HSFormComments.Text</Key>
-    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a “friendly” name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
+    <DefaultValue>&lt;p&gt;&lt;b&gt;Display Name&lt;/b&gt; is a ï¿½friendlyï¿½ name used by other programs, such as Microsoft Exchange or SharePoint.&lt;/p&gt;
 
 &lt;p&gt;Make sure your password is strong enough, i.e. contains lower and capital letters, numbers and symbols.&lt;/p&gt;
 
@@ -30039,10 +30039,10 @@ Exchange-enabled organization has its own Global Address List (GAL) and Offline 
     <Key>HSFormComments.Text</Key>
     <DefaultValue>&lt;p&gt;Active Directory user accounts are used to:&lt;/p&gt;
 
-&lt;p&gt;•	Authenticate the identity of a user.&lt;br&gt;
-•	Authorize or deny access to domain resources.&lt;br&gt; 
-•	Administer other security principals.&lt;br&gt;
-•	Audit actions performed using the user account.&lt;/p&gt; 
+&lt;p&gt;ï¿½	Authenticate the identity of a user.&lt;br&gt;
+ï¿½	Authorize or deny access to domain resources.&lt;br&gt; 
+ï¿½	Administer other security principals.&lt;br&gt;
+ï¿½	Audit actions performed using the user account.&lt;/p&gt; 
 
 &lt;p&gt;Primary E-Mail Address is a User Principal Name (UPN). It is used as a logon name in Outlook, Outlook Web Access (OWA) or SharePoint.&lt;/p&gt;
  
@@ -30596,7 +30596,7 @@ Exchange-enabled organization has its own Global Address List (GAL) and Offline 
   <Resource>
     <File>DesktopModules\FuseCP\OCS\App_LocalResources\CreateOCSUser.ascx.resx</File>
     <Key>FormComments.Text</Key>
-    <DefaultValue>Select an existing Organization user and click the “Create” button to enable an individual user account for Office Communications Server.</DefaultValue>
+    <DefaultValue>Select an existing Organization user and click the ï¿½Createï¿½ button to enable an individual user account for Office Communications Server.</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\OCS\App_LocalResources\CreateOCSUser.ascx.resx</File>
@@ -30712,7 +30712,7 @@ Exchange-enabled organization has its own Global Address List (GAL) and Offline 
     <File>DesktopModules\FuseCP\OCS\App_LocalResources\OCSUsers.ascx.resx</File>
     <Key>FormComments.Text</Key>
     <DefaultValue>&lt;p&gt;Office Communications Server delivers streamlined communications to the users, including software-powered VoIP, Web and audio/video conferencing, and enterprise instant messaging.&lt;/p&gt;
-&lt;p&gt;Click the “Create OCS User” button to enable an individual user account for Office Communications Server. &lt;/p&gt;
+&lt;p&gt;Click the ï¿½Create OCS Userï¿½ button to enable an individual user account for Office Communications Server. &lt;/p&gt;
 &lt;p&gt;If you delete an account in Office Communications Server, the account is no longer available for use with Office Communications Server unless you enable the account again. When you delete an account, all Office Communications Server settings for the account are lost, so you must configure the account again after enabling.&lt;/p&gt;</DefaultValue>
   </Resource>
   <Resource>
@@ -33396,19 +33396,15 @@ for your installation of ADO.NET Driver for MySQL (also known as MySQL Connector
     <DefaultValue>Both passwords should be identical</DefaultValue>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>cbApplyDefaultTemplate.Text</Key>
     <DefaultValue>Apply Default Domain Template</DefaultValue>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>lblPassword.Text</Key>
     <DefaultValue>Password:</DefaultValue>
   </Resource>
   <Resource>
-    <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx</File>
     <Key>lblUserName.Text</Key>
-    <DefaultValue>Nettica Account Name:</DefaultValue>
   </Resource>
   <Resource>
     <File>DesktopModules\FuseCP\ProviderControls\App_LocalResources\OCS_Settings.ascx.resx</File>

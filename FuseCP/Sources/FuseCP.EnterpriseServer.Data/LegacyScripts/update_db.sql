@@ -14068,8 +14068,6 @@ UPDATE Providers SET ProviderType = N'FuseCP.Providers.Statistics.SmarterStats4,
 Go
 UPDATE Providers SET ProviderType = N'FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution' WHERE ProviderID = 32
 Go
-UPDATE Providers SET ProviderType = N'FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica' WHERE ProviderID = 55
-Go
 UPDATE Providers SET ProviderType = N'FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS' WHERE ProviderID = 56
 Go
 UPDATE Providers SET ProviderType = N'FuseCP.Providers.Mail.SmarterMail6, FuseCP.Providers.Mail.SmarterMail6' WHERE ProviderID = 60

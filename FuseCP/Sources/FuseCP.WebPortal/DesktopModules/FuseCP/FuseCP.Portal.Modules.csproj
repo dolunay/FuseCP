@@ -2863,13 +2863,6 @@
         <Compile Include="ExchangeServer\UserControls\HoursBox.ascx.designer.cs">
             <DependentUpon>HoursBox.ascx</DependentUpon>
         </Compile>
-        <Compile Include="ProviderControls\NetticaDNS_Settings.ascx.cs">
-            <DependentUpon>NetticaDNS_Settings.ascx</DependentUpon>
-            <SubType>ASPXCodeBehind</SubType>
-        </Compile>
-        <Compile Include="ProviderControls\NetticaDNS_Settings.ascx.designer.cs">
-            <DependentUpon>NetticaDNS_Settings.ascx</DependentUpon>
-        </Compile>
         <Compile Include="ProviderControls\SmarterMail_EditDomain_Features.ascx.cs">
             <DependentUpon>SmarterMail_EditDomain_Features.ascx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -6476,7 +6469,6 @@
         <Content Include="ProviderControls\App_LocalResources\MSSQL_Settings.ascx.de-DE.resx" />
         <Content Include="ProviderControls\App_LocalResources\MySQL_EditDatabase.ascx.de-DE.resx" />
         <Content Include="ProviderControls\App_LocalResources\MySQL_Settings.ascx.de-DE.resx" />
-        <Content Include="ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.de-DE.resx" />
         <Content Include="ProviderControls\App_LocalResources\OCS_Settings.ascx.de-DE.resx" />
         <Content Include="ProviderControls\App_LocalResources\Organizations_Settings.ascx.de-DE.resx" />
         <Content Include="ProviderControls\App_LocalResources\PowerDNS_Settings.ascx.de-DE.resx" />
@@ -8448,7 +8440,6 @@
         <Content Include="ProviderControls\SmarterMail50_Settings.ascx" />
         <Content Include="ProviderControls\Windows2008_Settings.ascx" />
         <Content Include="ProviderControls\IIS70_Settings.ascx" />
-        <Content Include="ProviderControls\NetticaDNS_Settings.ascx" />
         <Content Include="ProviderControls\SmarterMail_EditDomain_Features.ascx" />
         <Content Include="ProviderControls\SmarterMail_EditDomain_Sharing.ascx" />
         <Content Include="ProviderControls\SmarterMail_EditForwarding.ascx" />
@@ -8533,9 +8524,6 @@
             <SubType>Designer</SubType>
         </Content>
         <Content Include="BlackBerry\App_LocalResources\EditBlackBerryUser.ascx.resx">
-            <SubType>Designer</SubType>
-        </Content>
-        <Content Include="ProviderControls\App_LocalResources\NetticaDNS_Settings.ascx.resx">
             <SubType>Designer</SubType>
         </Content>
         <Content Include="ExchangeServer\App_LocalResources\OrganizationUserSetupInstructions.ascx.resx">

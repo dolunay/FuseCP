@@ -2976,10 +2976,6 @@ VALUES (32, NULL, 'Hosted Microsoft Exchange Server 2010', 'Exchange', 12, 'Exch
 SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-VALUES (55, 1, 'Nettica DNS', 'NetticaDNS', 7, 'NetticaDNS', 'FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica');
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
 VALUES (56, 1, 'PowerDNS', 'PowerDNS', 7, 'PowerDNS', 'FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS');
 SELECT changes();
 

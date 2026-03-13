@@ -2607,8 +2607,6 @@ BEGIN
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (32, NULL, 'Hosted Microsoft Exchange Server 2010', 'Exchange', 12, 'Exchange2010', 'FuseCP.Providers.HostedSolution.Exchange2010, FuseCP.Providers.HostedSolution');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-    VALUES (55, TRUE, 'Nettica DNS', 'NetticaDNS', 7, 'NetticaDNS', 'FuseCP.Providers.DNS.Nettica, FuseCP.Providers.DNS.Nettica');
-    INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (56, TRUE, 'PowerDNS', 'PowerDNS', 7, 'PowerDNS', 'FuseCP.Providers.DNS.PowerDNS, FuseCP.Providers.DNS.PowerDNS');
     INSERT INTO public."Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
     VALUES (60, NULL, 'SmarterMail 6.x', 'SmarterMail60', 4, 'SmarterMail', 'FuseCP.Providers.Mail.SmarterMail6, FuseCP.Providers.Mail.SmarterMail6');
