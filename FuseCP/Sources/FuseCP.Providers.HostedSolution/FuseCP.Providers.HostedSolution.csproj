@@ -10,6 +10,8 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 		<LangVersion>11</LangVersion>
 		<Nullable>disable</Nullable>
+		<!-- Exclude CRM files from build (not compatible with .NET 10) -->
+		<DefaultItemExcludes>$(DefaultItemExcludes);CRMProxy.cs;CRMProvider.cs</DefaultItemExcludes>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugType>portable</DebugType>
@@ -19,36 +21,16 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="AntiXSS" Version="4.3.0" />
+		<PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.6" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices.Protocols" Version="10.0.0" />
+		<PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
 		<PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
 	</ItemGroup>
+	<!-- CRM references removed: CRMProxy.cs and CRMProvider.cs excluded from net10.0-windows build -->
 	<ItemGroup>
-		<Reference Include="Microsoft.Crm">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Crm.Admin.AdminService">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.Admin.AdminService.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Crm.Setup.Common">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.Setup.Common.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Crm.Setup.DatabaseInstaller">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.Setup.DatabaseInstaller.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Crm.Setup.Server.Utility">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.Setup.Server.Utility.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Crm.Tools.Admin.DMSnapinLib">
-			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Crm.Tools.Admin.DMSnapinLib.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
 		<Reference Include="Microsoft.Exchange.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
 			<HintPath>..\..\Lib\References\Microsoft\Microsoft.Exchange.Common.dll</HintPath>
 			<Private>False</Private>
@@ -112,7 +94,7 @@
 		</Reference>
 		<Reference Include="System.ServiceModel" />
 		<Reference Include="System.Web" />
-		<Reference Include="System.Web.Services" />
+		<!-- System.Web.Services removed: not available in .NET 10, and CRMProxy.cs is excluded from build -->
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
