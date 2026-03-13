@@ -18,9 +18,11 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Server.Utils
 {
+    [SupportedOSPlatform("windows")]
     public class EventLogTraceListener : TraceListener
     {
         private EventLog eventLog;

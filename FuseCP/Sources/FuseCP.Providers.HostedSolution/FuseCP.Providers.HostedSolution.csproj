@@ -18,14 +18,12 @@
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="AntiXSS" Version="4.3.0" />
 		<PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.6" />
 		<PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="10.0.0" />
 		<PackageReference Include="System.DirectoryServices.Protocols" Version="10.0.0" />
 		<PackageReference Include="System.ServiceModel.Primitives" Version="10.0.652802" />
-		<PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
 	</ItemGroup>
 	<!-- CRM references removed: CRMProxy.cs and CRMProvider.cs excluded from net10.0-windows build -->
 	<ItemGroup>
@@ -80,10 +78,8 @@
 			<HintPath>..\..\Lib\References\Microsoft\Microsoft.SharePoint.dll</HintPath>
 			<Private>True</Private>
 		</Reference>
-		<Reference Include="System.configuration" />
 		<Reference Include="System.DirectoryServices" />
 		<Reference Include="System.DirectoryServices.AccountManagement" />
-		<Reference Include="System.EnterpriseServices" />
 		<Reference Include="System.Management" />
 		<Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
             <HintPath>..\..\Lib\References\Microsoft\Windows2012\System.Management.Automation.dll</HintPath>

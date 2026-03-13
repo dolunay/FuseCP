@@ -437,8 +437,7 @@ namespace FuseCP.Providers.HostedSolution
 
 				info.DisplayName = (string)GetPSObjectProperty(mailbox, "DisplayName");
 				SmtpAddress smtpAddress = (SmtpAddress)GetPSObjectProperty(mailbox, "PrimarySmtpAddress");
-				if (smtpAddress != null)
-					info.PrimaryEmailAddress = smtpAddress.ToString();
+				info.PrimaryEmailAddress = smtpAddress.ToString();
 
 				info.MaxSize = ConvertUnlimitedToBytes((Unlimited<ByteQuantifiedSize>)GetPSObjectProperty(mailbox, "ProhibitSendReceiveQuota"));
 				info.LitigationHoldMaxSize = ConvertUnlimitedToBytes((Unlimited<ByteQuantifiedSize>)GetPSObjectProperty(mailbox, "RecoverableItemsQuota"));
@@ -493,7 +492,7 @@ namespace FuseCP.Providers.HostedSolution
 					{
 						PSObject statistics = result[0];
 						ByteQuantifiedSize totalItemSize = (ByteQuantifiedSize)GetPSObjectProperty(statistics, "FolderAndSubfolderSize");
-						info.LitigationHoldTotalSize = (totalItemSize == null) ? 0 : ConvertUnlimitedToBytes(totalItemSize);
+						info.LitigationHoldTotalSize = ConvertUnlimitedToBytes(totalItemSize);
 
 						Int32 itemCount = (Int32)GetPSObjectProperty(statistics, "ItemsInFolder");
 						info.LitigationHoldTotalItems = (itemCount == 0) ? 0 : itemCount;
