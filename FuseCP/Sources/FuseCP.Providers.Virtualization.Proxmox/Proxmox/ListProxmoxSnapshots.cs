@@ -21,12 +21,11 @@ using System.Threading.Tasks;
 
 namespace FuseCP.Providers.Virtualization.Proxmox
 {
-    #pragma warning disable CS8981 // Lowercase DTO name matches upstream payload naming.
     public class ListProxmoxSnapshots
     {
-        public List<snapshotfields> data { get; set; }
+        public List<SnapshotFields> data { get; set; }
     }
-    public class snapshotfields
+    public class SnapshotFields
     {
         public string name { get; set; }
         public string description { get; set; }
@@ -35,5 +34,4 @@ namespace FuseCP.Providers.Virtualization.Proxmox
         public int vmstate { get; set; }
         public string digest { get; set; }
     }
-    #pragma warning restore CS8981
 }
