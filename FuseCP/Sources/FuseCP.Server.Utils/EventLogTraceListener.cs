@@ -18,11 +18,15 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+#if !NETSTANDARD2_0
 using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.Server.Utils
 {
+#if !NETSTANDARD2_0
     [SupportedOSPlatform("windows")]
+#endif
     public class EventLogTraceListener : TraceListener
     {
         private EventLog eventLog;

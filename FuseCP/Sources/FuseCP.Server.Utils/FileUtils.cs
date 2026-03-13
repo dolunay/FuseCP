@@ -403,8 +403,23 @@ namespace FuseCP.Providers.Utils
             {
                 long length = stream.Length;
                 byte[] content = new byte[length];
-                stream.ReadExactly(content, 0, (int)length);
+                ReadExactlyCompat(stream, content, 0, (int)length);
                 return content;
+            }
+        }
+
+        private static void ReadExactlyCompat(Stream stream, byte[] buffer, int offset, int count)
+        {
+            int totalRead = 0;
+            while (totalRead < count)
+            {
+                int read = stream.Read(buffer, offset + totalRead, count - totalRead);
+                if (read == 0)
+                {
+                    throw new EndOfStreamException("Unable to read the requested number of bytes from stream.");
+                }
+
+                totalRead += read;
             }
         }
 
@@ -962,7 +977,9 @@ namespace FuseCP.Providers.Utils
             return size;
         }
 
+    #if !NETSTANDARD2_0
         [SupportedOSPlatform("windows")]
+    #endif
         public static void CreateAccessDatabase(string databasePath)
         {
             if (String.IsNullOrEmpty(databasePath))
@@ -1012,7 +1029,9 @@ namespace FuseCP.Providers.Utils
             }
         }
 
+    #if !NETSTANDARD2_0
         [SupportedOSPlatform("windows")]
+    #endif
         public static void SetQuotaLimitOnFolder(string folderPath, string shareNameDrive, string quotaLimit, int mode, string wmiUserName, string wmiPassword)
         {
 

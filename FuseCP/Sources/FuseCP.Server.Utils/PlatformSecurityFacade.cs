@@ -14,7 +14,10 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Runtime.InteropServices;
+#if !NETSTANDARD2_0
 using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.Providers.Utils
 {
@@ -25,7 +28,7 @@ namespace FuseCP.Providers.Utils
     {
         public static void TryApplyDefaultPackageFolderPermissions(string path)
         {
-            if (!OperatingSystem.IsWindows())
+            if (!IsWindowsPlatform())
                 return;
 
             ApplyDefaultPackageFolderPermissionsWindows(path);
@@ -33,20 +36,36 @@ namespace FuseCP.Providers.Utils
 
         public static void TryResetInheritedFilePermissions(string path)
         {
-            if (!OperatingSystem.IsWindows())
+            if (!IsWindowsPlatform())
                 return;
 
             ResetInheritedFilePermissionsWindows(path);
         }
 
+    #if !NETSTANDARD2_0
+        [SupportedOSPlatformGuard("windows")]
+    #endif
+        private static bool IsWindowsPlatform()
+        {
+#if NET6_0_OR_GREATER
+            return OperatingSystem.IsWindows();
+#else
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+#endif
+        }
+
+    #if !NETSTANDARD2_0
         [SupportedOSPlatform("windows")]
+    #endif
         private static void ApplyDefaultPackageFolderPermissionsWindows(string path)
         {
             SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.ADMINISTRATORS, NTFSPermission.FullControl, true, true);
             SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.SYSTEM, NTFSPermission.FullControl, true, true);
         }
 
+    #if !NETSTANDARD2_0
         [SupportedOSPlatform("windows")]
+    #endif
         private static void ResetInheritedFilePermissionsWindows(string path)
         {
             SecurityUtils.ResetNtfsPermissions(path);

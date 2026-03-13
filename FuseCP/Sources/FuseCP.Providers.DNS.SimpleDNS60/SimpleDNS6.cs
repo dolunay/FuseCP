@@ -23,12 +23,14 @@ using JHSoftware.SimpleDNSPlus;
 using FuseCP.Server.Utils;
 using Microsoft.Win32;
 using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Providers.DNS
 {
 	public delegate void BuildDnsRecordDataEventHandler(string zoneName, ref string type,
 		DnsRecord record, List<string> data);
 
+	[SupportedOSPlatform("windows")]
 	public class SimpleDNS6 : DNS.SimpleDNS
 	{
 		#region Static ctor & assembly resolver
@@ -752,7 +754,7 @@ namespace FuseCP.Providers.DNS
 					, ex
 				);
 
-				throw ex;
+				throw;
 			}
 		}
 

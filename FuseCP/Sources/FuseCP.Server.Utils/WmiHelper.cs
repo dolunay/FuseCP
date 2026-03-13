@@ -15,14 +15,18 @@
 
 using System;
 using System.Management;
+#if !NETSTANDARD2_0
 using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.Providers.Utils
 {
     /// <summary>
     /// Summary description for WmiHelper.
     /// </summary>
+#if !NETSTANDARD2_0
     [SupportedOSPlatform("windows")]
+#endif
     public class WmiHelper
     {
         // namespace

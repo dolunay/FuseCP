@@ -21,7 +21,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 using System.IO;
+#if !NETSTANDARD2_0
 using System.Runtime.Versioning;
+#endif
 using System.Security;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -57,7 +59,9 @@ namespace FuseCP.Providers.Utils
     /// <summary>
     /// Summary description for SecurityUtils.
     /// </summary>
+#if !NETSTANDARD2_0
     [SupportedOSPlatform("windows")]
+#endif
     public class SecurityUtils
     {
         private static WmiHelper wmi = new WmiHelper("root\\cimv2");
