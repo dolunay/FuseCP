@@ -95,14 +95,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.FTP.VsFtp"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution", "FuseCP\Sources\FuseCP.Providers.HostedSolution\FuseCP.Providers.HostedSolution.csproj", "{373639BC-E127-430A-ACF7-7F1366C2EE70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Crm2011", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Crm2011\FuseCP.Providers.HostedSolution.Crm2011.csproj", "{54CEC259-F79A-421E-95A5-CD2F0F736FD9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Crm2013", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Crm2013\FuseCP.Providers.HostedSolution.Crm2013.csproj", "{330C6AF3-FDA1-4B4F-991D-E768EA3D72AD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Crm2015", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Crm2015\FuseCP.Providers.HostedSolution.Crm2015.csproj", "{008BBC8C-B3BD-43D6-A586-5F6D7AEC899D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Crm2016", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Crm2016\FuseCP.Providers.HostedSolution.Crm2016.csproj", "{BE0C4BAF-0827-4039-B72B-7DA43B05117D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Exchange2013", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Exchange2013\FuseCP.Providers.HostedSolution.Exchange2013.csproj", "{D7116C25-96D6-4534-B15C-FA8B51C2DAC9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.HostedSolution.Exchange2016", "FuseCP\Sources\FuseCP.Providers.HostedSolution.Exchange2016\FuseCP.Providers.HostedSolution.Exchange2016.csproj", "{C6D369FB-8482-4C0D-AD66-35412AEAF13E}"
