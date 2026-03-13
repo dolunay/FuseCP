@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
         <OutputPath>..\FuseCP.Server\bin\Providers\</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
@@ -15,13 +15,15 @@
         <DebugType>pdbonly</DebugType>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="System.Management" Version="10.0.0" />
+        <PackageReference Include="System.Data.OleDb" Version="10.0.0" />
+    </ItemGroup>
+    <ItemGroup>
         <Reference Include="Microsoft.Search.Interop">
             <HintPath>..\..\Lib\References\Microsoft\Microsoft.Search.Interop.dll</HintPath>
             <EmbedInteropTypes>True</EmbedInteropTypes>
         </Reference>
         <Reference Include="System.Management" />
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="Microsoft.CSharp" />
         <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
             <HintPath>..\..\Lib\References\Microsoft\Windows2012\System.Management.Automation.dll</HintPath>
             <SpecificVersion>false</SpecificVersion>
