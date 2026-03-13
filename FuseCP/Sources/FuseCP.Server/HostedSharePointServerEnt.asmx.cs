@@ -20,6 +20,7 @@ using FuseCP.Providers;
 using FuseCP.Providers.HostedSolution;
 using FuseCP.Providers.SharePoint;
 using FuseCP.Server.Utils;
+using System.Runtime.Versioning;
 
 namespace FuseCP.Server
 {
@@ -252,8 +253,14 @@ namespace FuseCP.Server
         /// <returns>Fully qualified netbios account name.</returns>
         private string AttachNetbiosDomainName(string accountName)
         {
+            if (!IsWindowsPlatform())
+                return accountName;
+
             string domainNetbiosName = String.Format("{0}\\", ActiveDirectoryUtils.GetNETBIOSDomainName(ServerSettings.ADRootDomain));
             return String.Format("{0}{1}", domainNetbiosName, accountName.Replace(domainNetbiosName, String.Empty));
         }
+
+        [SupportedOSPlatformGuard("windows")]
+        private static bool IsWindowsPlatform() => global::FuseCP.Providers.OS.OSInfo.IsWindows;
     }
 }

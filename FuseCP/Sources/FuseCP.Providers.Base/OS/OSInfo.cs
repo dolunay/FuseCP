@@ -21,6 +21,9 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+#if !NETSTANDARD2_0
+using System.Runtime.Versioning;
+#endif
 using System.IO;
 
 namespace FuseCP.Providers.OS
@@ -59,16 +62,21 @@ namespace FuseCP.Providers.OS
 		static OSFlavor flavor = OSFlavor.Unknown;
 		static Version version = new Version("0.0.0.0");
 
+#if !NETSTANDARD2_0
+		[SupportedOSPlatformGuard("windows")]
+#endif
+		private static bool IsWindowsPlatform() => IsWindows;
+
 		public static string NetVersion
 		{
 			get
 			{
 				if (IsMono || IsCore) return Regex.Match(FrameworkDescription, @"[0-9]+(\.[0-9]+)?").Value;
 
-				return WindowsOSInfo.NetFXVersion;
+				return IsWindowsPlatform() ? WindowsOSInfo.NetFXVersion : String.Empty;
 			}
 		}
-		public static string NetFXVersion => WindowsOSInfo.NetFXVersion;
+		public static string NetFXVersion => IsWindowsPlatform() ? WindowsOSInfo.NetFXVersion : String.Empty;
 
 		public static string NetDescription
 		{
@@ -170,7 +178,7 @@ namespace FuseCP.Providers.OS
 				else return fileVersion.Version;
 			}
 		}
-		public static WindowsVersion WindowsVersion => IsWindows ? WindowsOSInfo.GetVersion() : WindowsVersion.NonWindows;
+		public static WindowsVersion WindowsVersion => IsWindowsPlatform() ? WindowsOSInfo.GetVersion() : WindowsVersion.NonWindows;
 		public static string Description
 		{
 			get
@@ -255,7 +263,7 @@ namespace FuseCP.Providers.OS
 			{
 				if (os == null)
 				{
-					if (IsWindows)
+					if (IsWindowsPlatform())
 					{
 						var version = WindowsOSInfo.GetVersion();
 						switch (version)

@@ -265,13 +265,10 @@ namespace FuseCP.Providers.Utils
                 i++;
             }
 
-            if (OperatingSystem.IsWindows()) {
-			    // Set permissions
-			    // We decided to inherit NTFS permissions from the parent folder to comply with with the native security schema in Windows,
-			    // when a user decides on his own how to implement security practices for NTFS permissions schema and harden the server.
-			    SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.ADMINISTRATORS, NTFSPermission.FullControl, true, true);
-			    SecurityUtils.GrantNtfsPermissionsBySid(path, SystemSID.SYSTEM, NTFSPermission.FullControl, true, true);
-            } else if (OSInfo.IsUnix)
+            // Keep Windows ACL behavior, but isolate platform-specific implementation.
+            PlatformSecurityFacade.TryApplyDefaultPackageFolderPermissions(path);
+
+            if (OSInfo.IsUnix)
             {
                 if (!UnixGroupInfo.GetLocalGroups().Any(group => group.GroupName == "fusecp"))
                 {
@@ -642,7 +639,7 @@ namespace FuseCP.Providers.Utils
             }
 
             // reset NTFS permissions on destination file/folder
-            if (OperatingSystem.IsWindows()) SecurityUtils.ResetNtfsPermissions(destinationPath);
+            PlatformSecurityFacade.TryResetInheritedFilePermissions(destinationPath);
         }
 
         public static void CopyFile(string sourcePath, string destinationPath)
@@ -661,7 +658,7 @@ namespace FuseCP.Providers.Utils
             }
 
             // reset NTFS permissions on destination file/folder
-            if (OperatingSystem.IsWindows()) SecurityUtils.ResetNtfsPermissions(destinationPath);
+            PlatformSecurityFacade.TryResetInheritedFilePermissions(destinationPath);
         }
 
         public static void CopyDirectory(string sourceDir, string destinationDir)

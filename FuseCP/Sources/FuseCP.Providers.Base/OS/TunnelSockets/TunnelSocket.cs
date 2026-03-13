@@ -745,9 +745,9 @@ namespace FuseCP.Providers.OS
                         {
                             await clientWebSocket.ConnectAsync(new System.Uri(url), new CancellationTokenSource(ConnectTimeout).Token);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-                            throw ex;
+                            throw;
                         }
                         finally
                         {

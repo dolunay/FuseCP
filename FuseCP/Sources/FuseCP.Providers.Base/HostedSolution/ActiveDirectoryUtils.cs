@@ -22,9 +22,15 @@ using System.Security.Principal;
 using System.Globalization;
 using System.Text;
 using System.Linq;
+#if !NETSTANDARD2_0
+using System.Runtime.Versioning;
+#endif
 
 namespace FuseCP.Providers.HostedSolution
 {
+#if !NETSTANDARD2_0
+    [SupportedOSPlatform("windows")]
+#endif
     public class ActiveDirectoryUtils
     {
         public static DirectoryEntry GetADObject(string path)

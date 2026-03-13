@@ -17,6 +17,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
+#if !NETSTANDARD2_0
+using System.Runtime.Versioning;
+#endif
 using System.Security.Principal;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
@@ -51,6 +54,9 @@ namespace FuseCP.Providers.OS
         WindowsServer2025
     }
 
+#if !NETSTANDARD2_0
+    [SupportedOSPlatform("windows")]
+#endif
     public sealed class WindowsOSInfo
     {
         [StructLayout(LayoutKind.Sequential)]
