@@ -13,6 +13,12 @@ IF not defined SkipIISReset (
 	)
 )
 
+where dotnet >nul 2>&1
+IF NOT ERRORLEVEL 1 (
+	echo Shutting down dotnet build servers to clear stale file locks...
+	dotnet build-server shutdown >nul 2>&1
+)
+
 RMDIR /S /Q "Bin"
 IF not defined NoRebuild (
 	FOR /F "tokens=*" %%G IN ('DIR /B /AD /S bin') DO RMDIR /S /Q "%%G"
