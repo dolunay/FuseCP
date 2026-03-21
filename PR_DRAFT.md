@@ -62,3 +62,31 @@
 - Validation:
 	- Local TRX parse reports `TRX failed count: 0` for passing suites.
 	- Workflow now only fails on real failed tests, not inconclusive outcomes.
+
+## Migration
+
+- Commit: 0bdf7f8
+- Message: chore: migrate wpkg to net10
+- Impact:
+	- Retargets the `tools/wpkg` submodule from `net48` to `net10.0` and removes framework-only references now provided by the shared runtime.
+	- Fixes archive stream reads to consume the exact requested byte count so CA2022 warnings are resolved without changing behavior.
+- Validation:
+	- `dotnet build .\tools\wpkg\wpkg.csproj -c Release`
+
+- Commit: 99f6dc4
+- Message: chore: migrate ssl certificate maker to net10
+- Impact:
+	- Retargets the `SSL-Certificate-Maker` submodule to SDK-style `net10.0-windows` and keeps existing WinForms resource/designer metadata intact.
+	- Replaces `Thread.Abort()` cancellation with cooperative cancellation and adds Windows platform metadata to remove the remaining warning set.
+- Validation:
+	- `dotnet build .\FuseCP\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker\SSLCertificateMaker.csproj -c Release`
+
+- Message: chore: migrate remaining utilities to net10
+- Impact:
+	- Converts `FuseCP.HyperV.Utils`, `Setup.WIXBootstrapper`, and the `CryptSharp` utility projects to SDK-style .NET 10 targets.
+	- Updates the parent repository to reference the new `tools/wpkg` and `SSL-Certificate-Maker` submodule commits so the PR carries the migrated submodule state.
+- Validation:
+	- `dotnet build .\FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils\FuseCP.HyperV.Utils.csproj -c Release`
+	- `dotnet build .\FuseCP.Installer\Sources\Setup.WIXBootstrapper\Setup.WIXBootstrapper.csproj -c Release`
+	- `dotnet build .\FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.csproj -c Release`
+	- `dotnet build .\FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.SCryptSubset.csproj -c Release`
