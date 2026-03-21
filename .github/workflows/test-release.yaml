@@ -153,6 +153,7 @@ jobs:
 
     - name: Publish Unit Tests
       id: process-trx
+      continue-on-error: true  # fork PRs don't have write permission to create status checks or PR comments
       uses: im-open/process-dotnet-test-results@v3.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
