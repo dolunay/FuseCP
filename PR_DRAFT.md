@@ -90,3 +90,28 @@
 	- `dotnet build .\FuseCP.Installer\Sources\Setup.WIXBootstrapper\Setup.WIXBootstrapper.csproj -c Release`
 	- `dotnet build .\FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.csproj -c Release`
 	- `dotnet build .\FuseCP\Sources\FuseCP.Providers.FTP.VsFtp\CryptSharp\CryptSharp.SCryptSubset.csproj -c Release`
+
+## Legacy Provider Cleanup
+
+- Commit: fd97235bd
+- Message: chore: remove legacy aspv2 IIS providers (orphaned ASP.NET 2.0)
+- Impact:
+	- Removes three orphaned ASP.NET 2.0 IIS provider folders that were never referenced by any active solution or build process:
+	  - `FuseCP.Providers.Web.IIs100aspv2`
+	  - `FuseCP.Providers.Web.IIs80aspv2`
+	  - `FuseCP.Providers.Web.IIS70aspv2`
+	- Active IIS solutions already use the migrated `net10.0-windows` versions (IIs70, IIs80, IIs100).
+	- Verified no external project references before deletion.
+- Validation:
+	- Solution reference sweep confirmed no aspv2 references remain in any .sln file.
+	- Build paths unchanged; active providers (IIs70, IIs80, IIs100) still included and on net10.0-windows.
+
+- Commit: 8d2d68aa5
+- Message: chore: remove nested stale IIS70 v3.5 copy (dead code artifact)
+- Impact:
+	- Removes nested stale IIS70 v3.5 copy at `FuseCP/Sources/FuseCP.Providers.Web.IIS70/FuseCP.Providers.Web.IIS70/` which was an orphaned duplicate.
+	- The active IIS70 provider at `FuseCP/Sources/FuseCP.Providers.Web.IIS70/FuseCP.Providers.Web.IIs70.csproj` (net10.0-windows) is unaffected.
+	- Verified not referenced by any solution before deletion.
+- Validation:
+	- No solution files reference the nested path.
+	- Active IIS70 provider continues to build cleanly with zero warnings.
