@@ -3,7 +3,7 @@
     <RootNamespace>FuseCP.Providers</RootNamespace>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>FuseCP.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
     <PublishUrl>publish\</PublishUrl>
     <Product>FuseCP.Providers.Base</Product>
     <WarningsAsErrors>618</WarningsAsErrors>
@@ -35,11 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Virtualization\MemoryInfo.cs" />
+    <Compile Remove="Compatibility\SystemWebServicesCompat.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     <PackageReference Include="SSH.NET" Version="2025.0.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
     <PackageReference Include="System.DirectoryServices" Version="10.0.0" />
   </ItemGroup>
 </Project>

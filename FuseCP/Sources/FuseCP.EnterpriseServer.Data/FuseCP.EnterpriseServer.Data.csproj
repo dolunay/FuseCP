@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net10.0;net48;netstandard2.0</TargetFrameworks>
+        <TargetFramework>net10.0</TargetFramework>
         <LangVersion>13</LangVersion>
         <ImplicitUsings>disable</ImplicitUsings>
         <ScaffoldConnectionString>Server=(local);Initial Catalog=FuseCPFresh;uid=sa;pwd=Password12;TrustServerCertificate=true;Connection Timeout=300;command timeout=300</ScaffoldConnectionString>
@@ -120,7 +120,6 @@
         <!--<PackageReference Include="SQLite" Version="3.13.0" PrivateAssets="true" />-->
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
         <PackageReference Include="MySql.Data" Version="9.4.0" />
-        <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
@@ -174,6 +173,7 @@
         <Compile Remove="CodeTemplates\EFCore\Aliases.cs" />
         <Compile Remove="Migrations\MySql\v2.0.0\MySqlDbContextModelSnapshot_v2.0.0.cs" />
         <Compile Remove="Migrations\PostgreSql\v2.0.0\PostgreSqlDbContextModelSnapshot_v2.0.0.cs" />
+        <Compile Remove="Migrations\Sqlite\v2.0.0\SqliteDbContextModelSnapshot_RemovedOldWindowsProviders.cs" />
         <Compile Remove="Migrations\Sqlite\v2.0.0\SqliteDbContextModelSnapshot_v2.0.0.cs" />
         <Compile Remove="Migrations\SqlServer\InitialCreate.StoredProcedures.cs" />
         <Compile Remove="Migrations\SqlServer\v1.5.1\SqlServerDbContextModelSnapshot_v1.5.1.cs" />
@@ -183,6 +183,7 @@
         <None Include="DbContextBase.Source.cs" />
         <None Include="Migrations\MySql\v2.0.0\MySqlDbContextModelSnapshot_v2.0.0.cs" />
         <None Include="Migrations\PostgreSql\v2.0.0\PostgreSqlDbContextModelSnapshot_v2.0.0.cs" />
+        <None Include="Migrations\Sqlite\v2.0.0\SqliteDbContextModelSnapshot_RemovedOldWindowsProviders.cs" />
         <None Include="Migrations\Sqlite\v2.0.0\SqliteDbContextModelSnapshot_v2.0.0.cs" />
         <None Include="Migrations\SqlServer\v1.5.1\SqlServerDbContextModelSnapshot_v1.5.1.cs" />
         <None Include="Migrations\SqlServer\v2.0.0\SqlServerDbContextModelSnapshot_v2.0.0.cs" />
@@ -199,6 +200,7 @@
     </ItemGroup>
 
     <ItemGroup>
+            <None Remove="Migrations\SqlServer\v2.0.0\RemoveLegacyStorefrontArtifacts.sql" />
       <None Remove="Migrations\SqlServer\v2.0.0\Migrate_msSQL.sql" />
     </ItemGroup>
 
@@ -223,6 +225,8 @@
             <x86SQLiteFiles Include="$(PkgSQLitePCLRaw_lib_e_sqlite3)\runtimes\win-x86\native\*.dll" />
         </ItemGroup>
         <!--<Message Text="Copy native dlls: @(x64SQLiteFiles);@(x86SQLiteFiles)" Importance="high" />-->
+        <Copy SourceFiles="@(x64SQLiteFiles)" DestinationFolder="bin\$(Configuration)\native\x64" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(x86SQLiteFiles)" DestinationFolder="bin\$(Configuration)\native\x86" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(x64SQLiteFiles)" DestinationFolder="bin\$(Configuration)\net48\x64" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(x86SQLiteFiles)" DestinationFolder="bin\$(Configuration)\net48\x86" SkipUnchangedFiles="true" />
     </Target>

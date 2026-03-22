@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<RootNamespace>WpiServiceContract</RootNamespace>
 		<AssemblyName>WpiServiceContract</AssemblyName>
-		<TargetFramework>net48</TargetFramework>
+				<TargetFramework>net10.0</TargetFramework>
 		<OutputPath>bin\$(Configuration)\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
@@ -16,7 +16,4 @@
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DebugType>pdbonly</DebugType>
 	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="System.Data.DataSetExtensions" />
-	</ItemGroup>
 </Project>

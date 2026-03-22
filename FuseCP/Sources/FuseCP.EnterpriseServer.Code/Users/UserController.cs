@@ -27,6 +27,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Google.Authenticator;
 using FuseCP.EnterpriseServer.Data;
+using FuseCP.EnterpriseServer.Security;
 
 namespace FuseCP.EnterpriseServer
 {
@@ -36,6 +37,38 @@ namespace FuseCP.EnterpriseServer
 	public class UserController : ControllerBase
 	{
 		public UserController(ControllerBase provider) : base(provider) { }
+
+		private bool VerifyUserPassword(UserInfoInternal user, string providedPassword)
+		{
+			if (user == null)
+				return false;
+
+			if (PasswordHardeningService.Verify(user.Password, providedPassword))
+				return true;
+
+			// Backward compatibility for pre-hardening records.
+			if (CryptoUtils.SHAEquals(user.Password, providedPassword) || user.Password == providedPassword)
+				return true;
+
+			string normalizedProof = PasswordHardeningService.NormalizeClientPasswordProof(providedPassword);
+			if (!string.IsNullOrEmpty(normalizedProof) &&
+				(CryptoUtils.SHAEquals(user.Password, normalizedProof) || user.Password == normalizedProof))
+				return true;
+
+			return false;
+		}
+
+		private void TryUpgradeUserPasswordHash(UserInfoInternal user, string providedPassword)
+		{
+			if (user == null || string.IsNullOrEmpty(providedPassword))
+				return;
+
+			if (PasswordHardeningService.IsHardenedHash(user.Password))
+				return;
+
+			string hardenedPassword = PasswordHardeningService.HashClientPasswordProof(providedPassword);
+			Database.ChangeUserPassword(-1, user.UserId, CryptoUtils.Encrypt(hardenedPassword));
+		}
 
 		public bool UserExists(string username)
 		{
@@ -53,6 +86,14 @@ namespace FuseCP.EnterpriseServer
 			try
 			{
 				int result = 0;
+
+				// Check brute force protection: block requests from known-bad IPs.
+				var bruteForce = new BruteForceProtectionService(this);
+				if (!string.IsNullOrEmpty(ip) && bruteForce.IsIpBlocked(ip))
+				{
+					TaskManager.WriteWarning("IP address blocked by brute force protection");
+					return BusinessErrorCodes.ERROR_USER_IP_BLOCKED;
+				}
 
 				// try to get user from database
 				UserInfoInternal user = GetUserInternally(username);
@@ -96,11 +137,13 @@ namespace FuseCP.EnterpriseServer
 
 
 				// compare user passwords
-				if (CryptoUtils.SHAEquals(user.Password, password) || user.Password == password ||
+				if (VerifyUserPassword(user, password) ||
 					string.IsNullOrEmpty(user.Password) &&
 					(CryptoUtils.SHAEquals(user.Password, password) || string.IsNullOrEmpty(password)) &&
 					Database.IsFreshDatabase) // allow empty password on fresh database
 				{
+					TryUpgradeUserPasswordHash(user, password);
+
 					if (string.IsNullOrEmpty(user.Password) && (CryptoUtils.SHAEquals(user.Password, password) || string.IsNullOrEmpty(password)))
 					{
 						user.OneTimePasswordState = OneTimePasswordStates.Active;
@@ -123,10 +166,17 @@ namespace FuseCP.EnterpriseServer
 					if (lockOut >= 0)
 						Database.UpdateUserFailedLoginAttempt(user.UserId, lockOut, false);
 
+					// Record failed attempt for IP-level brute force protection.
+					bruteForce.RecordAttempt(ip, username, BruteForceProtectionService.Layers.Portal,
+						succeeded: false);
+
 					TaskManager.WriteWarning("Wrong password");
 					return BusinessErrorCodes.ERROR_USER_WRONG_PASSWORD;
 				}
 
+				// Record successful authentication to reset IP failure window.
+				bruteForce.RecordAttempt(ip, username, BruteForceProtectionService.Layers.Portal,
+					succeeded: true);
 				Database.UpdateUserFailedLoginAttempt(user.UserId, lockOut, true);
 
 				// check status
@@ -310,11 +360,13 @@ namespace FuseCP.EnterpriseServer
 				}
 
 				// compare user passwords
-				if (CryptoUtils.SHAEquals(user.Password, password) || user.Password == password ||
+				if (VerifyUserPassword(user, password) ||
 					string.IsNullOrEmpty(user.Password) &&
 					(CryptoUtils.SHAEquals(user.Password, password) || string.IsNullOrEmpty(password)) &&
 					Database.IsFreshDatabase)
 				{
+					TryUpgradeUserPasswordHash(user, password);
+
 					// Queue call to AuditLog for better speed in SOAP calls
 					if (log)
 					{
@@ -367,8 +419,9 @@ namespace FuseCP.EnterpriseServer
 				}
 
 				// change password
+				string hardenedPassword = PasswordHardeningService.HashClientPasswordProof(newPassword);
 				Database.ChangeUserPassword(-1, user.UserId,
-					CryptoUtils.Encrypt(newPassword));
+					CryptoUtils.Encrypt(hardenedPassword));
 
 				return 0;
 			}
@@ -534,7 +587,18 @@ namespace FuseCP.EnterpriseServer
 
 			if (user != null)
 			{
-				user.Password = CryptoUtils.Decrypt(user.Password);
+				try
+				{
+					user.Password = CryptoUtils.Decrypt(user.Password);
+				}
+				catch (System.Security.Cryptography.CryptographicException)
+				{
+					// Keep legacy/hash/plain values as-is when decrypt is not applicable.
+				}
+				catch (FormatException)
+				{
+					// Non-cipher payloads can appear in upgraded databases.
+				}
 			}
 
 			return user;
@@ -666,6 +730,8 @@ namespace FuseCP.EnterpriseServer
 			try
 			{
 				// add user to database
+				string hardenedPassword = PasswordHardeningService.HashClientPasswordProof(password);
+
 				int userId = Database.AddUser(
 					SecurityContext.User.UserId,
 					user.OwnerId,
@@ -677,7 +743,7 @@ namespace FuseCP.EnterpriseServer
 					user.IsPeer,
 					user.Comments,
 					user.Username.Trim(),
-					CryptoUtils.Encrypt(password),
+					CryptoUtils.Encrypt(hardenedPassword),
 					user.FirstName,
 					user.LastName,
 					user.Email,
@@ -898,8 +964,9 @@ namespace FuseCP.EnterpriseServer
 			try
 			{
 
+				string hardenedPassword = PasswordHardeningService.HashClientPasswordProof(password);
 				Database.ChangeUserPassword(SecurityContext.User.UserId, userId,
-					CryptoUtils.Encrypt(password));
+					CryptoUtils.Encrypt(hardenedPassword));
 
 				return 0;
 			}

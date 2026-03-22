@@ -42,6 +42,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Runtime.CompilerServices;
 
 namespace FuseCP.Web.Services
 {
@@ -145,6 +146,11 @@ namespace FuseCP.Web.Services
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			// Optional overlay for runtime-hardened security settings (e.g. Server.Password).
+			// Loaded after appsettings.json so its values take precedence.
+			// This file is written by HardenServerAuthentication and is never overwritten by builds.
+			builder.Configuration.AddJsonFile("appsettings.hardened.json", optional: true, reloadOnChange: true);
+
 			Configuration.Read(builder.Configuration, args);
 
 			HttpPort = Configuration.HttpPort;
@@ -215,11 +221,7 @@ namespace FuseCP.Web.Services
 
 			if (IsIIS)
 			{
-				builder.Services.Configure<IISServerOptions>(options =>
-				{
-					options.AllowSynchronousIO = true;
-				});
-				builder.WebHost.UseIIS();
+				ConfigureIISServices(builder);
 			}
 			else
 			{
@@ -296,6 +298,20 @@ namespace FuseCP.Web.Services
 			Server.ConfigureApp?.Invoke(app);
 
 			app.Run();
+		}
+
+		// Extracted into a separate NoInlining method so the JIT does not attempt to
+		// load IISServerOptions from Microsoft.AspNetCore.Server.IIS on Linux, where
+		// that type is absent from the assembly.
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		private static void ConfigureIISServices(WebApplicationBuilder builder)
+		{
+			builder.Services.Configure<IISServerOptions>(options =>
+			{
+				options.AllowSynchronousIO = true;
+				options.MaxRequestBodySize = MaxReceivedMessageSize;
+			});
+			builder.WebHost.UseIIS();
 		}
 
 		public static void ConfigureServices(IServiceCollection services)

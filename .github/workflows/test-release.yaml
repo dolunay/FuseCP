@@ -43,7 +43,10 @@ on:
   push:
     branches: [ "release", "main" ]
   pull_request:
-    branches: [ "release" ]
+    branches: [ "release", "main" ]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
 
@@ -59,7 +62,9 @@ jobs:
     permissions:
       checks: write
       contents: write
+      issues: write
       packages: write
+      pull-requests: write
 
     timeout-minutes: 60
 
@@ -70,19 +75,23 @@ jobs:
     steps:
 
     - name: Install WSL Ubuntu
-      uses: Vampire/setup-wsl@v5
-      with: 
-        wsl-version: 2
-        distribution: Ubuntu-24.04
-        additional-packages: dotnet-sdk-8.0
-        use-cache: 'false'
+      shell: pwsh
+      run: |
+        wsl --set-default-version 2
+        wsl --install -d Ubuntu-24.04 --no-launch
+        if ($LASTEXITCODE -ne 0) {
+          Write-Host "wsl --install returned $LASTEXITCODE (continuing; distro may already be installed)."
+        }
+        wsl --distribution Ubuntu-24.04 --user root bash -lc "apt-get update && apt-get install -y wget ca-certificates"
 
     - name: Install .NET SDK 10.0.200 in WSL
+      shell: pwsh
       run: |
         wsl wget https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.200/dotnet-sdk-10.0.200-linux-x64.tar.gz
-        wsl tar -xvzf dotnet-sdk-10.0.200-linux-x64.tar.gz -C /usr/lib/dotnet
-        wsl dotnet --info
-        wsl dotnet dev-certs https
+        $linuxTarPath = wsl wslpath -a dotnet-sdk-10.0.200-linux-x64.tar.gz
+        wsl --distribution Ubuntu-24.04 --user root bash -lc "mkdir -p /usr/lib/dotnet && tar -xvzf '$linuxTarPath' -C /usr/lib/dotnet"
+        wsl --distribution Ubuntu-24.04 /usr/lib/dotnet/dotnet --info
+        wsl --distribution Ubuntu-24.04 /usr/lib/dotnet/dotnet dev-certs https
 
     - name: Checkout
       uses: actions/checkout@v5
@@ -108,12 +117,25 @@ jobs:
       run: |
         pwsh -NoProfile -File .\FuseCP\Tools\check-sln-scope-sync.ps1
 
+    - name: Automated Database Workflow Verification
+      shell: pwsh
+      run: |
+        pwsh -NoProfile -File .\FuseCP\Tools\Orchestrate-Database-Workflow.ps1 -Mode Full -BlockBuildOnFailure -JsonOutputPath db-workflow-report.json
+
+    - name: Upload Database Verification Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Database-Workflow-Report
+        path: db-workflow-report.json
+        retention-days: 7
+
     - name: Build Server & EnterpriseServer
       working-directory: FuseCP\Sources
       run: |
-        dotnet build FuseCP.Server.sln
-        dotnet build FuseCP.EnterpriseServer.sln
-        dotnet build FuseCP.Tests.sln
+        dotnet build --configuration ${{ matrix.configuration }} FuseCP.Server.sln
+        dotnet build --configuration ${{ matrix.configuration }} FuseCP.EnterpriseServer.sln
+        dotnet build --configuration ${{ matrix.configuration }} FuseCP.Tests.sln
 
     - name: Run Unit Tests
       id: test
@@ -131,6 +153,7 @@ jobs:
 
     - name: Publish Unit Tests
       id: process-trx
+      continue-on-error: true  # fork PRs don't have write permission to create status checks or PR comments
       uses: im-open/process-dotnet-test-results@v3.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -143,7 +166,31 @@ jobs:
         comment-identifier: 'bff-tests'
         
     - name: Fail if Tests Failed
-      if: steps.test.outcome == 'failure'
+      shell: pwsh
       run: |
-        echo "Tests failed, failing the job"
-        exit 1
+        $trxFiles = Get-ChildItem -Path ./test-results -Filter *.trx -Recurse -ErrorAction SilentlyContinue
+        if (-not $trxFiles -or $trxFiles.Count -eq 0) {
+          Write-Error "No TRX files found. Treating this as a test infrastructure failure."
+          exit 1
+        }
+
+        [int]$failedCount = 0
+        foreach ($trx in $trxFiles) {
+          try {
+            [xml]$doc = Get-Content -Path $trx.FullName
+            $failed = @($doc.TestRun.Results.UnitTestResult | Where-Object { $_.outcome -eq 'Failed' }).Count
+            $failedCount += $failed
+          } catch {
+            Write-Error "Failed to parse TRX file: $($trx.FullName). $_"
+            exit 1
+          }
+        }
+
+        if ($failedCount -gt 0) {
+          Write-Host "Detected $failedCount failed test(s) across TRX results."
+          exit 1
+        }
+
+        Write-Host "No failed tests detected in TRX results."
+
+

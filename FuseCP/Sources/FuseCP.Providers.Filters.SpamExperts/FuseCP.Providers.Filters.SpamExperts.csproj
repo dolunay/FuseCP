@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<OutputPath>..\FuseCP.Server\bin\Filters\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
@@ -16,11 +16,6 @@
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DebugType>pdbonly</DebugType>
 	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="System.Net.Http" />
-		<Reference Include="System.Web" />
-	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
 	</ItemGroup>

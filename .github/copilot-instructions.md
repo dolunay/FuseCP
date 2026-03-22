@@ -25,19 +25,42 @@ These instructions guide AI coding assistants working in this repository.
 * Update docs when behavior, configuration, or deployment steps change.
 * For files that carry copyright headers/metadata, use exact text `Copyright (C) 2026 FuseCP` and keep generator-driven files in sync (for example `FuseCP/build.xml` and generated `VersionInfo.*` files).
 * **UI/CSS changes**: Always edit the LESS source files (`main.less`, `Menus.less`) — never `main.css` directly. Recompile with `npm run build:css` from the `App_Themes/Default/Styles/` directory and commit both the `.less` and the recompiled `.css`.
-* **Database schema changes**: Edit Entity classes under `FuseCP.EnterpriseServer.Data/Entities/`, update Configuration Fluent API if needed, then generate a migration with `MigrationAdd.bat`. Never edit EF model snapshot files by hand. See `FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md` and `AI_DIRECTIVES.md §6` for the full workflow.
+* **Database schema changes**: Edit Entity classes under `FuseCP.EnterpriseServer.Data/Entities/`, create corresponding Configuration class in `Configuration/`, then:
+  1. Add `ApplyConfiguration(model, new MyEntityConfiguration());` in `DbContextBase.OnModelCreating()`
+  2. Add DbSet property in `DbContext.Sets.cs`
+  3. Run `FuseCP/Sources/FuseCP.EnterpriseServer.Data/MigrationAdd.bat` to generate migrations for all 4 providers and regenerate `install.*.sql`
+  4. Commit Entity, Configuration, migration files, and regenerated `install.*.sql` files
+  5. **Database workflow verification is FULLY AUTOMATED**: Never manually run verification scripts - they execute automatically in CI, local validation, and pre-commit hooks. Treat `install.*.sql` as generated artifacts, not the source of truth. SQLite upgrades run through EF migrations. Never edit EF model snapshot files or migration files by hand. See `DATABASE_WORKFLOW_COMPLETE.md` for complete reference.
+
+## Exchange Provider Patterns
+
+* **Provider parity**: Exchange providers for 2013, 2016, and 2019 (`FuseCP.Providers.HostedSolution.Exchange2013/2016/2019`) share identical method structure. Any change to `GetMailbox*`, `SetMailbox*`, or shared helper methods must be applied to **all three providers in the same commit** and all three must be built to confirm no compile regressions.
+* **Remoted PSObject type variance**: Exchange PowerShell remoting returns PSObjects whose properties can have unexpected runtime shapes — e.g. `SmtpAddress` may arrive as a plain string, size properties may arrive as `Unlimited<ByteQuantifiedSize>` or as a formatted string, and boolean properties may arrive as non-bool objects. Never use direct casts (`(bool)`, `(Unlimited<int>)`, `(Unlimited<ByteQuantifiedSize>)`) on `GetPSObjectProperty()` results. Use the existing safe helpers: `ObjToBoolean`, `ConvertByteSizePropertyToKB`, `ConvertByteSizePropertyToMB`, `ConvertUnlimitedIntPropertyToInt32`.
+* **No-language runspace restrictions**: Exchange remoting runs in constrained/no-language mode. Setting `ConfirmPreference` and calling `Get-MailboxSearch` can throw "Script invocation is not supported in this session configuration" — always guard such calls with try-catch and provide a fallback code path.
+* **PSObject property access**: Prefer `PSObject.Properties["name"]` over `PSObject.Members["name"]` when reading remoted Exchange objects; `Members` can hit script-backed properties that fail in constrained sessions.
 
 ## Security and Data Handling
 
 * Never expose secrets, credentials, tokens, or private tenant data.
 * Avoid introducing insecure defaults.
 * Flag security-sensitive changes for maintainer review.
+* **Runtime-written server auth config**: when `FuseCP.Server` must persist hardened authentication settings at runtime, write them to `appsettings.hardened.json` as a narrow overlay loaded after `appsettings.json`. Do not make `bin_dotnet`, DLL folders, or the base `appsettings.json` writable just to persist runtime auth changes.
+* **Web.config policy**: Commit only required structural/runtime fixes (for example ANCM wiring, handler registration, section definitions, non-secret defaults). Never commit environment-specific secrets in `Web.config` (including real connection strings, usernames/passwords, machine keys, and private endpoints).
+* **When `Web.config` needs functional fixes**: create a sanitized commit-safe variant for git, then restore local secret-bearing values after commit and keep those local-only values out of source control (for example via local git index flags such as `skip-worktree` where appropriate).
 
 ## Testing and Verification
+
+* **Automated Database Verification** (NO MANUAL LAUNCHES): Database schema compliance is fully automated:
+  - Single entry point: `FuseCP/Tools/Orchestrate-Database-Workflow.ps1` (modes: Quick, Full, Verify, Fix, Report)
+  - Enforced at: CI (every PR/commit), local builds (before validation), pre-commit (if hook enabled)
+  - Automatically regenerates MySQL artifacts when migrations change
+  - Blocks builds that violate EF workflow (misaligned entities/configs, stale install scripts)
+  - Reference: `DATABASE_WORKFLOW_COMPLETE.md` for complete guide, developer workflows, troubleshooting
 
 * At the start of each new development day/session, run `FuseCP/Tools/Start-Of-Day.ps1` before making code changes.
 * If the task is docs-only or this check would be redundant in the same session, at minimum run `FuseCP/Tools/check-sln-scope-sync.ps1`.
 * Run the narrowest relevant build/tests first, then broaden if needed.
+* If a `FuseCP.Server`, `FuseCP.WebPortal`, or `DesktopModules/FuseCP` build fails because `bin_dotnet` outputs are locked by `w3wp`, stop the IIS worker processes first; use `FuseCP/Tools/Unlock-WebPortal-Build.ps1` when rebuilding the portal modules because it stops `w3wp` and can rerun the Portal Modules build with `-RunBuild`.
 * For broad validation, use repository orchestrators (`build.xml`, `build-debug.bat`, `build-release.bat`, `deploy-*.bat`) because independent solution order may be insufficient.
 * Prefer the scripted validation entrypoint `FuseCP/Tools/run-local-validation.ps1` to keep local verification consistent and efficient.
 * Prefer `run-local-validation.ps1 -ChangedOnly` for fast iteration when a path-based scope can be inferred safely.

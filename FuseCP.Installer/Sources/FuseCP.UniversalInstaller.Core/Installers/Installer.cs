@@ -13,7 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using Claunia.PropertyList;
 using Microsoft.Identity.Client;
 using Microsoft.Web.Administration;
 using Newtonsoft.Json;
@@ -25,6 +24,7 @@ using FuseCP.Providers.OS;
 using FuseCP.Providers.Utils;
 using FuseCP.Providers.Web;
 using FuseCP.UniversalInstaller.Core;
+using UnixFileMode = FuseCP.Providers.OS.UnixFileMode;
 using System;
 using System.Collections;
 using System.Data;

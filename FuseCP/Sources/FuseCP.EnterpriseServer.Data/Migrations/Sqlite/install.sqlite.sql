@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+﻿CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
     "ProductVersion" TEXT NOT NULL
 );
@@ -2480,17 +2480,11 @@ VALUES (20, 'FuseCP.EnterpriseServer.HostedSharePointServerController', 'Sharepo
 SELECT changes();
 
 INSERT INTO "ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
-SELECT changes();
-
-INSERT INTO "ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
 VALUES (22, 'FuseCP.EnterpriseServer.DatabaseServerController', 'MsSQL2008', 9, 1);
 SELECT changes();
 
 INSERT INTO "ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
 VALUES (23, 'FuseCP.EnterpriseServer.DatabaseServerController', 'MsSQL2012', 10, 1);
-SELECT changes();
-
-INSERT INTO "ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
 SELECT changes();
 
 INSERT INTO "ResourceGroups" ("GroupID", "GroupController", "GroupName", "GroupOrder", "ShowGroup")
@@ -3078,9 +3072,6 @@ VALUES (200, NULL, 'Hosted Windows SharePoint Services 3.0', 'HostedSharePoint30
 SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
 VALUES (202, NULL, 'Microsoft SQL Server 2008', 'MSSQL', 22, 'MsSQL', 'FuseCP.Providers.Database.MsSqlServer2008, FuseCP.Providers.Database.SqlServer');
 SELECT changes();
 
@@ -3102,10 +3093,6 @@ SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
 VALUES (208, NULL, 'Hosted SharePoint Foundation 2010', 'HostedSharePoint30', 20, 'HostedSharePoint2010', 'FuseCP.Providers.HostedSolution.HostedSharePointServer2010, FuseCP.Providers.HostedSolution');
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-VALUES (209, NULL, 'Microsoft SQL Server 2012', 'MSSQL', 23, 'MsSQL', 'FuseCP.Providers.Database.MsSqlServer2012, FuseCP.Providers.Database.SqlServer');
 SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
@@ -3193,19 +3180,7 @@ VALUES (700, NULL, 'Storage Spaces Windows 2012', 'StorageSpaceServices', 49, 'S
 SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
 VALUES (1203, NULL, 'Microsoft SQL Server 2014', 'MSSQL', 46, 'MsSQL', 'FuseCP.Providers.Database.MsSqlServer2014, FuseCP.Providers.Database.SqlServer');
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
-SELECT changes();
-
-INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
 SELECT changes();
 
 INSERT INTO "Providers" ("ProviderID", "DisableAutoDiscovery", "DisplayName", "EditorControl", "GroupID", "ProviderName", "ProviderType")
@@ -3726,12 +3701,6 @@ VALUES (208, 20, NULL, NULL, NULL, 'Max site storage, MB', 'HostedSharePoint.Max
 SELECT changes();
 
 INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
 VALUES (213, 22, NULL, NULL, NULL, 'Max Database Size', 'MsSQL2008.MaxDatabaseSize', 3.0, 3, 0);
 SELECT changes();
 
@@ -4145,30 +4114,6 @@ SELECT changes();
 
 INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
 VALUES (453, 45, NULL, NULL, NULL, 'Disable user from removing server', 'RDS.DisableUserDeleteServer', 3.0, 1, 0);
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
-SELECT changes();
-
-INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
 SELECT changes();
 
 INSERT INTO "Quotas" ("QuotaID", "GroupID", "HideQuota", "ItemTypeID", "PerOrganization", "QuotaDescription", "QuotaName", "QuotaOrder", "QuotaTypeID", "ServiceQuota")
@@ -4851,9 +4796,6 @@ SELECT changes();
 
 INSERT INTO "ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
 VALUES ('FTP_USERNAME', 'SCHEDULE_TASK_FTP_FILES', 'String', NULL, 3);
-SELECT changes();
-
-INSERT INTO "ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
 SELECT changes();
 
 INSERT INTO "ScheduleTaskParameters" ("ParameterID", "TaskID", "DataTypeID", "DefaultValue", "ParameterOrder")
@@ -6708,14 +6650,6 @@ VALUES ('TempDomain', 32, 'my-temp-domain.com');
 SELECT changes();
 
 INSERT INTO "ServiceDefaultProperties" ("PropertyName", "ProviderID", "PropertyValue")
-VALUES ('RecordDefaultTTL', 55, '86400');
-SELECT changes();
-
-INSERT INTO "ServiceDefaultProperties" ("PropertyName", "ProviderID", "PropertyValue")
-VALUES ('RecordMinimumTTL', 55, '3600');
-SELECT changes();
-
-INSERT INTO "ServiceDefaultProperties" ("PropertyName", "ProviderID", "PropertyValue")
 VALUES ('ExpireLimit', 56, '1209600');
 SELECT changes();
 
@@ -8274,6 +8208,78 @@ SELECT changes();
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20251113211755_RemovedOldWindowsProviders', '9.0.9');
+
+CREATE TABLE "BruteForceLogs" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_BruteForceLogs" PRIMARY KEY AUTOINCREMENT,
+    "IpAddress" TEXT NOT NULL,
+    "Username" TEXT NULL,
+    "Layer" TEXT NOT NULL,
+    "AttemptTime" TEXT NOT NULL,
+    "Succeeded" INTEGER NOT NULL,
+    "UserAgent" TEXT NULL
+);
+
+CREATE TABLE "IpSecurityPolicies" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_IpSecurityPolicies" PRIMARY KEY AUTOINCREMENT,
+    "IpRange" TEXT NOT NULL,
+    "IsWhitelist" INTEGER NOT NULL,
+    "CreatedDate" TEXT NOT NULL,
+    "ExpiresDate" TEXT NULL,
+    "Reason" TEXT NULL,
+    "IsActive" INTEGER NOT NULL,
+    "SeverityLevel" INTEGER NOT NULL,
+    "CreatedBy" TEXT NULL
+);
+
+CREATE INDEX "IX_BruteForceLogs_IpAddress_Layer_AttemptTime" ON "BruteForceLogs" ("IpAddress", "Layer", "AttemptTime");
+
+CREATE INDEX "IX_IpSecurityPolicies_IpRange_IsActive" ON "IpSecurityPolicies" ("IpRange", "IsActive");
+
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260318133000_AddBruteForceProtection', '9.0.9');
+
+PRAGMA foreign_keys = OFF;
+DROP TABLE IF EXISTS "ecTopLevelDomainsCycles";
+DROP TABLE IF EXISTS "ecTopLevelDomains";
+DROP TABLE IF EXISTS "ecTaxations";
+DROP TABLE IF EXISTS "ecSystemTriggers";
+DROP TABLE IF EXISTS "ecSvcsUsageLog";
+DROP TABLE IF EXISTS "ecSupportedPlugins";
+DROP TABLE IF EXISTS "ecSupportedPluginLog";
+DROP TABLE IF EXISTS "ecStoreSettings";
+DROP TABLE IF EXISTS "ecStoreDefaultSettings";
+DROP TABLE IF EXISTS "ecServiceHandlersResponses";
+DROP TABLE IF EXISTS "ecService";
+DROP TABLE IF EXISTS "ecProductTypeControls";
+DROP TABLE IF EXISTS "ecProductType";
+DROP TABLE IF EXISTS "ecProductsHighlights";
+DROP TABLE IF EXISTS "ecProductCategories";
+DROP TABLE IF EXISTS "ecProduct";
+DROP TABLE IF EXISTS "ecPluginsProperties";
+DROP TABLE IF EXISTS "ecPaymentProfiles";
+DROP TABLE IF EXISTS "ecPaymentMethods";
+DROP TABLE IF EXISTS "ecInvoiceItems";
+DROP TABLE IF EXISTS "ecInvoice";
+DROP TABLE IF EXISTS "ecHostingPlansBillingCycles";
+DROP TABLE IF EXISTS "ecHostingPlans";
+DROP TABLE IF EXISTS "ecHostingPackageSvcsCycles";
+DROP TABLE IF EXISTS "ecHostingPackageSvcs";
+DROP TABLE IF EXISTS "ecHostingAddonSvcsCycles";
+DROP TABLE IF EXISTS "ecHostingAddonSvcs";
+DROP TABLE IF EXISTS "ecHostingAddonsCycles";
+DROP TABLE IF EXISTS "ecHostingAddons";
+DROP TABLE IF EXISTS "ecDomainSvcsCycles";
+DROP TABLE IF EXISTS "ecDomainSvcs";
+DROP TABLE IF EXISTS "ecCustomersPayments";
+DROP TABLE IF EXISTS "ecContracts";
+DROP TABLE IF EXISTS "ecCategory";
+DROP TABLE IF EXISTS "ecBillingCycles";
+DROP TABLE IF EXISTS "ecAddonProducts";
+PRAGMA foreign_keys = ON;
+
+
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260320130000_RemovedLegacyStorefrontArtifacts', '9.0.9');
 
 COMMIT;
 

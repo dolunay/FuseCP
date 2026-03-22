@@ -30,31 +30,29 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageReference Update="System.Web.Services.Description" ExcludeAssets="compile;runtime" PrivateAssets="all" />
     </ItemGroup>
     
     <ItemGroup>
 		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web" Version="1.4.6" />
         <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.30" />
+                <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.26" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Configuration" Version="1.4.6" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Build" Version="1.4.6" ExcludeAssets="runtime" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Mobile" Version="1.4.6" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.Web.Extensions" Version="1.4.6" />
         <PackageReference Include="EstrellasDeEsperanza.WebFormsForCore.AjaxControlToolkit" Version="1.4.6" />
-        <PackageReference Include="System.Web.Services.Description" Version="10.0.652802" Aliases="SD" ExcludeAssets="runtime" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
     </ItemGroup>
 
     <ItemGroup>
         <AspNetControls Remove="MailAccess.ascx" />
         <AspNetControls Remove="RDS\RdsLocalAdmins.ascx" />
-        <AspNetControls Remove="OverusageReport.ascx" />
         <AspNetControls Remove="VPS\VdcCreateServer.ascx" />
         <AspNetControls Remove="VPS2012\VdcCreateServer.ascx" />
         <AspNetControls Remove="VPSForPC\VdcCreateServer.ascx" />
         <AspNetControls Remove="Proxmox\VdcCreateServer.ascx" />
-        <AspNetControls Remove="VPSForPC\VpsMonitoring.ascx" />
-        <AspNetControls Remove="VPSForPC\MonitoringPage.aspx" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\..\..\VersionInfo.cs">
@@ -197,7 +195,7 @@
         <Compile Include="Code\ReportingServices\EmbeddedReportLocalizer.cs" />
         <Compile Include="Code\ReportingServices\FileSystemReportLocalizer.cs" />
         <Compile Include="Code\ReportingServices\IResourceStorage.cs" />
-        <Compile Include="Code\ReportingServices\ReportingServicesUtils.cs" />
+        <!-- ReportingServicesUtils.cs removed: dead code (guarded by #if Reporting, never called; WebForms ReportViewer control replaced by LocalReport/ReportViewerCore.NETCore in OverusageReport.ascx.cs) -->
         <Compile Include="Code\UserControls\Tab.cs" />
         <Compile Include="App_Code\IPAddressExtensions.cs" />
         <Compile Include="ExchangeServer\EnterpriseStorageSpaces.ascx.cs">
@@ -3619,6 +3617,13 @@
         <Compile Include="SettingsFuseCPPolicy.ascx.designer.cs">
             <DependentUpon>SettingsFuseCPPolicy.ascx</DependentUpon>
         </Compile>
+        <Compile Include="SettingsAppearanceBranding.ascx.cs">
+            <DependentUpon>SettingsAppearanceBranding.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="SettingsAppearanceBranding.ascx.designer.cs">
+            <DependentUpon>SettingsAppearanceBranding.ascx</DependentUpon>
+        </Compile>
         <Compile Include="SettingsOperatingSystemPolicy.ascx.cs">
             <DependentUpon>SettingsOperatingSystemPolicy.ascx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -4760,6 +4765,13 @@
         <Compile Include="UserAccountMailTemplateSettings.ascx.designer.cs">
             <DependentUpon>UserAccountMailTemplateSettings.ascx</DependentUpon>
         </Compile>
+        <Compile Include="UserAccountAppearanceSettings.ascx.cs">
+            <DependentUpon>UserAccountAppearanceSettings.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="UserAccountAppearanceSettings.ascx.designer.cs">
+            <DependentUpon>UserAccountAppearanceSettings.ascx</DependentUpon>
+        </Compile>
         <Compile Include="UserAccountMenu.ascx.cs">
             <DependentUpon>UserAccountMenu.ascx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -5585,10 +5597,39 @@
         <Compile Include="PhoneNumbersEditPhoneNumber.ascx.designer.cs">
             <DependentUpon>PhoneNumbersEditPhoneNumber.ascx</DependentUpon>
         </Compile>
+        <Compile Include="SecurityBruteForceAttempts.ascx.cs">
+            <DependentUpon>SecurityBruteForceAttempts.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="SecurityBruteForceAttempts.ascx.designer.cs">
+            <DependentUpon>SecurityBruteForceAttempts.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="SecurityIpSecurityPolicies.ascx.cs">
+            <DependentUpon>SecurityIpSecurityPolicies.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="SecurityIpSecurityPolicies.ascx.designer.cs">
+            <DependentUpon>SecurityIpSecurityPolicies.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="SecurityPortalAuthentication.ascx.cs">
+            <DependentUpon>SecurityPortalAuthentication.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="SecurityPortalAuthentication.ascx.designer.cs">
+            <DependentUpon>SecurityPortalAuthentication.ascx</DependentUpon>
+        </Compile>
+        <Compile Include="SecurityPasswordLifecycle.ascx.cs">
+            <DependentUpon>SecurityPasswordLifecycle.ascx</DependentUpon>
+            <SubType>ASPXCodeBehind</SubType>
+        </Compile>
+        <Compile Include="SecurityPasswordLifecycle.ascx.designer.cs">
+            <DependentUpon>SecurityPasswordLifecycle.ascx</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <Content Include="ApplyEnableHardQuotaFeature.ascx" />
         <Content Include="AutoUpdateServers.ascx" />
+        <Content Include="SecurityPasswordLifecycle.ascx" />
         <Content Include="ExchangeServer\EnterpriseStorageSpaces.ascx" />
         <Content Include="ExchangeServer\ExchangeCreateJournalingMailbox.ascx" />
         <Content Include="ExchangeServer\ExchangeMailboxAutoReply.ascx" />
@@ -5656,6 +5697,15 @@
         <Content Include="ProviderControls\MailCleaner_Settings.ascx" />
         <Content Include="ProviderControls\SfB_Settings.ascx" />
         <Content Include="ScheduleTaskControls\AuditLogReportView.ascx" />
+        <Content Include="SecurityBruteForceAttempts.ascx" />
+        <Content Include="SecurityIpSecurityPolicies.ascx" />
+        <Content Include="SecurityPortalAuthentication.ascx" />
+        <Content Include="App_LocalResources\SecurityBruteForceAttempts.ascx.resx" />
+        <Content Include="App_LocalResources\SecurityBruteForceAttempts.ascx.de-DE.resx" />
+        <Content Include="App_LocalResources\SecurityBruteForceAttempts.ascx.ar-AE.resx" />
+        <Content Include="App_LocalResources\SecurityIpSecurityPolicies.ascx.resx" />
+        <Content Include="App_LocalResources\SecurityIpSecurityPolicies.ascx.de-DE.resx" />
+        <Content Include="App_LocalResources\SecurityIpSecurityPolicies.ascx.ar-AE.resx" />
         <Content Include="ServerVLANsControl.ascx" />
         <Content Include="SettingsVerificationCodeLetter.ascx" />
         <Content Include="SkinControls\BootstrapDropDownList.ascx" />
@@ -5799,7 +5849,6 @@
         <Content Include="VPS2012\App_LocalResources\VpsDetailsAddDmzAddress.ascx.resx" />
         <Content Include="VPS2012\App_LocalResources\VpsDetailsAddDmzAddress.ascx.de-DE.resx" />
         <None Include="App.config" />
-        <None Include="packages.config" />
         <None Include="Resources\PlusSign.ico" />
         <Content Include="SettingsMariaDBPolicy.ascx" />
         <Content Include="SettingsSfBUserPlansPolicy.ascx" />
@@ -7765,6 +7814,7 @@
         <Content Include="App_LocalResources\SettingsEditor.ascx.resx">
             <SubType>Designer</SubType>
         </Content>
+        <Content Include="SettingsAppearanceBranding.ascx" />
         <Content Include="SettingsFuseCPPolicy.ascx" />
         <Content Include="SettingsOperatingSystemPolicy.ascx" />
         <Content Include="SettingsSharePointPolicy.ascx" />
@@ -9017,6 +9067,7 @@
         <Content Include="UserAccountChangePassword.ascx" />
         <Content Include="UserAccountDetails.ascx" />
         <Content Include="UserAccountEditDetails.ascx" />
+        <Content Include="UserAccountAppearanceSettings.ascx" />
         <Content Include="UserAccountMailTemplateSettings.ascx" />
         <Content Include="UserAccountMenu.ascx" />
         <Content Include="UserAccountNotes.ascx" />

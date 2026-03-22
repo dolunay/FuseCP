@@ -62,13 +62,27 @@ namespace FuseCP.Tests
 
 				testdllpath = Paths.Wsl(testdllpath);
 				testprojpath = Paths.Wsl(testprojpath);
-				//workingDir = Paths.Wsl(workingDir);
 				dll = Paths.Wsl(dll);
 				pfx = Paths.Wsl(pfx);
 			}
 			var distro = (wslDistro?.ToString() ?? "Windows");
 
-			var exe = shell.Find("dotnet");
+			var exe = wslDistro != null ? "/usr/lib/dotnet/dotnet" : shell.Find("dotnet");
+			if (wslDistro != null)
+			{
+				var dotnetExists = shell.Exec($"test -x \"{exe}\" && echo ok").Output().Result.Trim() == "ok";
+				if (!dotnetExists)
+				{
+					var discoveredExe = shell.Find("dotnet");
+					if (!string.IsNullOrWhiteSpace(discoveredExe)) exe = discoveredExe;
+				}
+			}
+			if (string.IsNullOrWhiteSpace(exe))
+			{
+				throw new FileNotFoundException(wslDistro != null
+					? "Could not find dotnet in WSL. Expected /usr/lib/dotnet/dotnet or a PATH entry for dotnet."
+					: "Could not find dotnet in PATH.");
+			}
 			shell.LogFile = log;
 			shell.LogCommand += msg =>
 			{
@@ -108,25 +122,48 @@ namespace FuseCP.Tests
 
 			if (WslDistro == null && process.HasExited) throw new Exception($"Kestrel exited with code {process.ExitCode}");
 
-			// wait for the server to be ready
-			bool done = false;
-			int n = 0;
-			const int max = 20;
-            do
-            {
-                try
-                {
-					var response = Servers.HttpClient.GetAsync(HttpsUrl).Result;
-                    done = true;
-                }
-				catch (Exception) { }
+			// Wait for at least one HTTP endpoint to respond before continuing.
+			const int maxRetries = 30;
+			var isReady = false;
+			for (var n = 0; n < maxRetries; n++)
+			{
+				if (process.HasExited)
+				{
+					throw new Exception($"Kestrel process terminated before readiness check completed (exit code {process.ExitCode}).");
+				}
 
-                if (!done) Thread.Sleep(2000);
-				if (process.HasExited) done = true; //throw new Exception("Server has terminated.");
-				if (n++ >= max) done = true;
+				if (TryProbe(HttpUrl) || TryProbe(HttpsUrl))
+				{
+					isReady = true;
+					break;
+				}
 
-            } while (!done) ;
+				Thread.Sleep(2000);
+			}
+
+			if (!isReady)
+			{
+				throw new TimeoutException($"Kestrel endpoint readiness timed out for component '{component}'. Probed URLs: {HttpUrl}, {HttpsUrl}");
+			}
         }
+
+		static bool TryProbe(string url)
+		{
+			if (string.IsNullOrWhiteSpace(url))
+			{
+				return false;
+			}
+
+			try
+			{
+				var response = Servers.HttpClient.GetAsync(url).Result;
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
 
 		public void Dispose()
 		{

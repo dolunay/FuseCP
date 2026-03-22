@@ -1,8 +1,12 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
 	<PropertyGroup>
-		<Version>$(Version)</Version>
-		<FileVersion>$(BUILD_NUMBER)</FileVersion>
-		<VersionLabel>$(BUILD_NUMBER)</VersionLabel>
+		<Version Condition="'$(Version)' == ''">2.0.0</Version>
+		<Version Condition="'$(Version)' != ''">$(Version)</Version>
+		<FileVersion Condition="'$(FileVersion)' == '' and '$(BUILD_NUMBER)' == ''">2.0.0.0</FileVersion>
+		<FileVersion Condition="'$(FileVersion)' == '' and '$(BUILD_NUMBER)' != ''">$(BUILD_NUMBER)</FileVersion>
+		<FileVersion Condition="'$(FileVersion)' != ''">$(FileVersion)</FileVersion>
+		<VersionLabel Condition="'$(VersionLabel)' == ''">$(FileVersion)</VersionLabel>
+		<VersionLabel Condition="'$(VersionLabel)' != ''">$(VersionLabel)</VersionLabel>
 		<ReleaseDate>2024-12-17</ReleaseDate>
 		<BuildConfiguration></BuildConfiguration>
 		<RootFolder>..</RootFolder>
@@ -39,7 +43,6 @@
 		<ImportEnterpriseSrc>$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise\bin\$(BuildConfiguration)</ImportEnterpriseSrc>
 		<CertMakerSrc>$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker\bin\$(BuildConfiguration)</CertMakerSrc>
 		<AWStatsViewerSrc>$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer</AWStatsViewerSrc>
-		<FCPTransportAgentSrc>$(TrunkFolder)\Sources\Tools\FCPTransportAgent</FCPTransportAgentSrc>
 		<FuseCP-Configuration-ToolSrc>$(TrunkFolder)\Sources\Tools\FuseCP-Configuration-Tool</FuseCP-Configuration-ToolSrc>
 		<MSPtoFCPSrc>$(TrunkFolder)\Sources\Tools\MSPtoFCP</MSPtoFCPSrc>
 		<MailTemplatesSrc>$(TrunkFolder)\Sources\Tools\MailTemplates</MailTemplatesSrc>
@@ -81,7 +84,6 @@
 		<ImportEnterpriseBuild>$(BuildFolder)\Import.Enterprise</ImportEnterpriseBuild>
 		<CertMakerBuild>$(BuildFolder)\CertificateMaker</CertMakerBuild>
 		<AWStatsViewerBuild>$(BuildFolder)\AWStats.Viewer</AWStatsViewerBuild>
-		<FCPTransportAgentBuild>$(BuildFolder)\FCPTransportAgent</FCPTransportAgentBuild>
 		<LocalizationToolkitBuild>$(BuildFolder)\LocalizationToolkit</LocalizationToolkitBuild>
 		<InstallerBuild>$(BuildFolder)\Installer</InstallerBuild>
 		<FixDefaultPublicFolderMailboxBuild>$(BuildFolder)\FixDefaultPublicFolderMailbox</FixDefaultPublicFolderMailboxBuild>
@@ -95,8 +97,12 @@
 		<!-- Use aspnet_compiler to precompile WebPortal if set to true (This also checks all ascx and aspx files for errors) -->
 		<UseAspNetPrecompile Condition="'$(UseAspNetPrecompile)' == ''">false</UseAspNetPrecompile>
 
+		<!-- Legacy packaging mode is deprecated while migration moves to net10-only artifacts. -->
+		<BuildLegacyPackaging Condition="'$(BuildLegacyPackaging)' == ''">false</BuildLegacyPackaging>
+
 		<!-- Build Linux install deb & rpm packages (This requires a WSL distro with rpmbuild installed) -->
-		<BuildLinuxInstallPackages Condition="'$(BuildLinuxInstallPackages)' == ''">true</BuildLinuxInstallPackages>
+		<BuildLinuxInstallPackages Condition="'$(BuildLinuxInstallPackages)' == '' and '$(BuildLegacyPackaging)' == 'true'">true</BuildLinuxInstallPackages>
+		<BuildLinuxInstallPackages Condition="'$(BuildLinuxInstallPackages)' == ''">false</BuildLinuxInstallPackages>
 
 		<!-- WebDavPortal is still net48 and currently incompatible with net10-only shared projects. -->
 		<BuildWebDavPortal Condition="'$(BuildWebDavPortal)' == ''">false</BuildWebDavPortal>
@@ -106,8 +112,8 @@
 		<BuildInstallerSolution Condition="'$(BuildInstallerSolution)' == ''">false</BuildInstallerSolution>
 
 		<!-- Build legacy MSI package (.vdproj) with devenv.com (requires full Visual Studio + Installer Projects extension) -->
-		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == '' and Exists('$(DevEnv)')">true</BuildInstallerMsi>
-		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == '' and !Exists('$(DevEnv)')">false</BuildInstallerMsi>
+		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == '' and '$(BuildInstallerSolution)' == 'true' and Exists('$(DevEnv)')">true</BuildInstallerMsi>
+		<BuildInstallerMsi Condition="'$(BuildInstallerMsi)' == ''">false</BuildInstallerMsi>
 
 		<!-- Build legacy database sql script from install_db.sql & update_db.sql -->
 		<BuildLegacyDatabaseScript Condition="'$(BuildLegacyDatabaseScript)' == ''">false</BuildLegacyDatabaseScript>
@@ -132,10 +138,12 @@
 		<Message Text="VersionLabel: $(VersionLabel)" Importance="High" />
 		<Message Text="IncludeReleasePdbs: $(IncludeReleasePdbs)" Importance="High" />
 		<Message Text="UseAspNetPrecompile: $(UseAspNetPrecompile)" Importance="High" />
+		<Message Text="BuildLegacyPackaging: $(BuildLegacyPackaging)" Importance="High" />
 		<Message Text="BuildLinuxInstallPackages: $(BuildLinuxInstallPackages)" Importance="High" />
 		<Message Text="BuildLegacyDatabaseScript: $(BuildLegacyDatabaseScript)" Importance="High" />
 		<Message Text="HighCompression: $(HighCompression)" Importance="High" />
 		<Message Text="MsBuildSwitches: $(MsBuildSwitches)" Importance="High" />
+		<Warning Condition="'$(BuildLegacyPackaging)' == 'true'" Text="BuildLegacyPackaging=true is deprecated and will be removed after migration completion. Prefer net10-only deploy artifacts." />
 		<Message Text="UseDebugWebService: $(UseDebugWebService)" Importance="High" Condition="$(UseDebugWebService) != ''" />
 		<Message Text="UseDebugWebService: true" Importance="High" Condition="$(UseDebugWebService) == ''" />
 	</Target>
@@ -153,7 +161,6 @@
 		<Exec Command="&quot;$(TrunkFolder)\Sources\.nuget\NuGet.exe&quot; restore &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; -PackagesDirectory &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages&quot;" />
 		<Exec Command="if exist &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; (if not exist &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2&quot; mkdir &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2&quot; &amp; copy /Y &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2\Microsoft.Build.Utilities.v4.0.dll&quot;)" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" />
-		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 	</Target>
 
@@ -213,7 +220,6 @@
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; &quot;/p:$(CommonBuildProperties)&quot; $(MsBuildSwitches)" />
-		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FCPTransportAgent.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
  	</Target>
 
@@ -230,7 +236,6 @@
 		<RemoveDir Directories="$(VMConfigBuild)"/>
 		<RemoveDir Directories="$(HyperVUtilsBuild)"/>
 		<RemoveDir Directories="$(AWStatsViewerBuild)"/>
-		<RemoveDir Directories="$(FCPTransportAgentBuild)"/>
 		<RemoveDir Directories="$(LocalizationToolkitBuild)"/>
 		<RemoveDir Directories="$(InstallerBuild)"/>
 	    <RemoveDir Directories="$(FixDefaultPublicFolderMailboxBuild)"/>
@@ -248,7 +253,6 @@
 		<MakeDir Directories="$(ImportEnterpriseBuild)"/>
 		<MakeDir Directories="$(CertMakerBuild)"/>
 		<MakeDir Directories="$(AWStatsViewerBuild)"/>
-		<MakeDir Directories="$(FCPTransportAgentBuild)"/>
 		<MakeDir Directories="$(LocalizationToolkitBuild)"/>
 		<MakeDir Directories="$(InstallerBuild)"/>
     	<MakeDir Directories="$(FixDefaultPublicFolderMailboxBuild)"/>
@@ -347,6 +351,11 @@
 		</ItemGroup>
 
 		<Copy SourceFiles="@(PortalBuildFiles)" DestinationFolder="$(PortalBuild)\%(RecursiveDir)" Condition=" '$(UseAspNetPrecompile)' != 'true' " />
+
+		<!-- net10 host: root Web.config should boot AspNetCoreModule against bin_dotnet output -->
+		<Copy SourceFiles="$(PortalBuild)\bin_dotnet\Web.config" DestinationFiles="$(PortalBuild)\Web.config" OverwriteReadOnlyFiles="true" Condition="Exists('$(PortalBuild)\bin_dotnet\Web.config')" />
+		<Exec Command="powershell &quot;$p='$(PortalBuild)\Web.config'; $c=[System.IO.File]::ReadAllText($p); $c=$c.Replace('arguments=&quot;.\FuseCP.WebPortal.dll&quot;','arguments=&quot;.\bin_dotnet\FuseCP.WebPortal.dll&quot;'); $c=$c.Replace('stdoutLogFile=&quot;..\App_Data\logs\stdout&quot;','stdoutLogFile=&quot;.\App_Data\logs\stdout&quot;'); [System.IO.File]::WriteAllText($p,$c)&quot;" Condition="Exists('$(PortalBuild)\Web.config')" />
+		<Delete Files="$(PortalBuild)\Global.asax" Condition="Exists('$(PortalBuild)\Global.asax')" />
 
 		<!-- Use aspnet_compiler to percompile WebPortal if UseAspNetPrecompile is set to true -->
 		<MSBuild Projects="$(TrunkFolder)\Sources\FuseCP.WebPortal\FuseCP.WebPortal.csproj" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform)" Targets="DeployWithPrecompile" 
@@ -467,29 +476,7 @@
 		<Copy SourceFiles="@(AWStatsViewerBuildFiles)" DestinationFolder="$(AWStatsViewerBuild)\%(RecursiveDir)" />
 	</Target>
 
-	<Target Name="CreateFCPTransportAgentBuild" DependsOnTargets="CreateAWStatsViewerBuild">
-		<ItemGroup>
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\ref\**" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\.svn\**" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\obj\**" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\bin\*.xml" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.cache" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\microsoft.*" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\app.config" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.txt" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.pdb" Condition=" '$(BuildConfiguration)' == 'Release' And !$(IncludeReleasePdbs) " />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.user" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.suo" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.cs" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.csproj" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\Code\**" />
-				<FCPTransportAgentBuildExclude Include="$(FCPTransportAgentSrc)\**\*.publish.xml" />
-				<FCPTransportAgentBuildFiles Include="$(FCPTransportAgentSrc)\**\*.*" Exclude="@(FCPTransportAgentBuildExclude)" />
-		</ItemGroup>
-		<Copy SourceFiles="@(FCPTransportAgentBuildFiles)" DestinationFolder="$(FCPTransportAgentBuild)\%(RecursiveDir)" />
-	</Target>
-
-	<Target Name="CreateLocalizationToolkitBuild" DependsOnTargets="CreateFCPTransportAgentBuild">
+	<Target Name="CreateLocalizationToolkitBuild" DependsOnTargets="CreateAWStatsViewerBuild">
 		<Exec Command="dotnet restore /p:BuildWithNetFrameworkHostedCompiler=true $(TrunkFolder)\Sources\Tools\FuseCP.LocalizationToolkit.sln" />
 
 		<!-- compile toolkit -->
@@ -500,7 +487,7 @@
 		</MSBuild>
 
 		<!-- generate default resources -->
-		<Exec Command="@(LocalizationToolkitExe) -L $(PortalSrc)"/>
+		<Exec Command="dotnet &quot;$(TrunkFolder)\Sources\Tools\FuseCP.LocalizationToolkit\bin\$(BuildConfiguration)\LocalizationToolkit.dll&quot; -L &quot;$(PortalSrc)&quot;"/>
 
 		<!-- build MSI package -->
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.LocalizationToolkit.Wix\FuseCP.LocalizationToolkit.Wix.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform);DefineSolutionProperties=false">
@@ -540,11 +527,12 @@
 
         <!-- build MSI package -->
 		<Error Condition="'$(BuildInstallerMsi)' == 'true' and !Exists('$(DevEnv)')" Text="BuildInstallerMsi=true but devenv.com was not found at '$(DevEnv)'. Install full Visual Studio with the Installer Projects extension, or set /p:BuildInstallerMsi=false." />
-		<Warning Condition="'$(BuildInstallerMsi)' != 'true'" Text="Skipping MSI package build (.vdproj). Full Visual Studio + Installer Projects extension is required. Set /p:BuildInstallerMsi=true to force MSI packaging." />
-		<Exec Condition="'$(BuildInstallerMsi)' == 'true'" Command="&quot;$(DevEnv)&quot; &quot;$(InstallerProjectRoot)FuseCP.UniversalInstaller.Msi.sln&quot; /build &quot;$(BuildConfiguration)|$(Platform)&quot;" />
+		<Message Importance="normal" Condition="'$(BuildInstallerMsi)' != 'true'" Text="Skipping MSI package build (.vdproj). Full Visual Studio + Installer Projects extension is required. Set /p:BuildInstallerMsi=true to force MSI packaging." />
+		<Exec Condition="'$(BuildInstallerMsi)' == 'true'" Command="&quot;$(DevEnv)&quot; &quot;$(InstallerProjectRoot)FuseCP.Installer.sln&quot; /build &quot;$(BuildConfiguration)|$(Platform)&quot; /project &quot;FuseCP.UniversalInstaller.Msi&quot;" />
 		<ItemGroup Condition="'$(BuildInstallerMsi)' == 'true'">
 			<InstallerMsi Include="$(InstallerProjectRoot)\FuseCP.UniversalInstaller.Msi\$(BuildConfiguration)\*.msi" />
 		</ItemGroup>
+		<Error Condition="'$(BuildInstallerMsi)' == 'true' and '@(InstallerMsi)' == ''" Text="BuildInstallerMsi=true but no MSI was produced under '$(InstallerProjectRoot)\FuseCP.UniversalInstaller.Msi\$(BuildConfiguration)'. Ensure the Visual Studio Installer Projects extension is installed and able to load FuseCP.UniversalInstaller.Msi.vdproj." />
 		<Copy Condition="'$(BuildInstallerMsi)' == 'true'" SourceFiles="@(InstallerMsi)" DestinationFolder="$(BuildFolder)" />
 
 	</Target>
@@ -634,7 +622,6 @@
 		<ImportEnterpriseInstall>$(ToolsFolder)\Import.Enterprise</ImportEnterpriseInstall>
 		<AWStatsViewerInstall>$(ToolsFolder)\AWStats.Viewer</AWStatsViewerInstall>
 		<CertMakerInstall>$(ToolsFolder)\CertificateMaker</CertMakerInstall>
-		<FCPTransportAgentInstall>$(ToolsFolder)\FCPTransportAgent</FCPTransportAgentInstall>
 		<FuseCP-Configuration-ToolInstall>$(ToolsFolder)\FuseCP-Configuration-Tool</FuseCP-Configuration-ToolInstall>
 		<MSPtoFCPInstall>$(ToolsFolder)\MSPtoFCP</MSPtoFCPInstall>
 		<MailTemplatesInstall>$(ToolsFolder)\MailTemplates</MailTemplatesInstall>
@@ -747,17 +734,7 @@
 		<Copy SourceFiles="$(RootFolder)\LICENSE" DestinationFolder="$(CertMakerInstall)" />
 	</Target>
 	
-	<Target Name="CreateFCPTransportAgentInstall" DependsOnTargets="CreateCertMakerInstall">
-		<ItemGroup>
-			<FCPTransportAgentDeployFiles Include="$(FCPTransportAgentBuild)\**\*.*" />
-		</ItemGroup>
-		<RemoveDir Directories="$(FCPTransportAgentInstall)"/>
-		<MakeDir Directories="$(FCPTransportAgentInstall)"/>
-		<Copy SourceFiles="@(FCPTransportAgentDeployFiles)" DestinationFolder="$(FCPTransportAgentInstall)\%(RecursiveDir)" />
-		<Copy SourceFiles="$(RootFolder)\LICENSE" DestinationFolder="$(FCPTransportAgentInstall)" />
-	</Target>
-
-	<Target Name="CreateAWStatsViewerInstall" DependsOnTargets="CreateFCPTransportAgentInstall">
+	<Target Name="CreateAWStatsViewerInstall" DependsOnTargets="CreateCertMakerInstall">
 		<ItemGroup>
 			<AWStatsViewerDeployFiles Include="$(AWStatsViewerBuild)\**\*.*" />
 		</ItemGroup>
@@ -955,6 +932,10 @@
 
 	<!-- Compile and deploy Setup.dll -->
 	<Target Name="CopySetupDLL" DependsOnTargets="PublishSqlInstallScripts">
+		<PropertyGroup>
+			<SetupDllPath>$(SetupBuildFolder)\Setup2.dll</SetupDllPath>
+		</PropertyGroup>
+		<Warning Condition="!Exists('$(SetupDllPath)')" Text="Skipping Setup2.dll copy because '$(SetupDllPath)' was not found. Build installer artifacts first or enable /p:BuildInstallerSolution=true." />
         <!-- Restore -->
         <!--<Exec Command="dotnet restore $(InstallerProjectRoot)\FuseCP.Installer.sln" />-->
         <!-- Compile Setup.dll -->
@@ -963,36 +944,36 @@
 		<!-- Copy Setup.dll -->
 		<MakeDir Directories="$(ServerInstall)\Setup" />
 		<MakeDir Directories="$(ServerUpdate)\Setup" />
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(ServerInstall)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(ServerInstall)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(ServerInstall)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(ServerUpdate)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(ServerUpdate)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(ServerUpdate)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
 
 		<MakeDir Directories="$(EnterpriseServerInstall)\Setup" />
 		<MakeDir Directories="$(EnterpriseServerUpdate)\Setup" />
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(EnterpriseServerInstall)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(EnterpriseServerInstall)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(EnterpriseServerInstall)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(EnterpriseServerUpdate)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(EnterpriseServerUpdate)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(EnterpriseServerUpdate)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
 
 		<MakeDir Directories="$(PortalInstall)\Setup"/>
 		<MakeDir Directories="$(PortalUpdate)\Setup"/>
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(PortalInstall)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(PortalInstall)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(PortalInstall)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(PortalUpdate)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(PortalUpdate)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(PortalUpdate)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
 
 		<MakeDir Directories="$(WebDavPortalInstall)\Setup"/>
 		<MakeDir Directories="$(WebDavPortalUpdate)\Setup"/>
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(WebDavPortalInstall)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(WebDavPortalInstall)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(WebDavPortalInstall)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(WebDavPortalUpdate)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(WebDavPortalUpdate)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(WebDavPortalUpdate)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
 
 		<RemoveDir Directories="$(StandaloneInstall)"/>
 		<MakeDir Directories="$(StandaloneInstall)"/>
 		<MakeDir Directories="$(StandaloneInstall)\Setup"/>
-		<Copy SourceFiles="$(SetupBuildFolder)\Setup2.dll" DestinationFolder="$(StandaloneInstall)\Setup" />
+		<Copy SourceFiles="$(SetupDllPath)" DestinationFolder="$(StandaloneInstall)\Setup" Condition="Exists('$(SetupDllPath)')" />
 		<!--<Copy SourceFiles="$(SetupBuildFolder)\Setup2.pdb" DestinationFolder="$(StandaloneInstall)\Setup" Condition=" '$(BuildConfiguration)' == 'Debug' Or $(IncludeReleasePdbs) " />-->
     </Target>
 
@@ -1041,7 +1022,6 @@
 			<VMConfigInstallFiles Include="$(VMConfigInstall)\**\*.*" />
 			<ImportEnterpriseInstallFiles Include="$(ImportEnterpriseInstall)\**\*.*" />
 			<AWStatsViewerInstallFiles Include="$(AWStatsViewerInstall)\**\*.*" />
-			<FCPTransportAgentInstallFiles Include="$(FCPTransportAgentInstall)\**\*.*" />
 			-->
 		</ItemGroup>
 
@@ -1068,7 +1048,8 @@
         
         <!-- Zip Setup2.dll to DeployFolder -->
 		<Message Text="Zip Setup2.dll" Importance="high" />
-        <Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(DeployFolder)\Setup2.dll$(ZipExt)&quot; &quot;$(SetupBuildFolder)\Setup2.dll&quot;" />
+		<Warning Condition="!Exists('$(SetupBuildFolder)\Setup2.dll')" Text="Skipping Setup2.dll archive because '$(SetupBuildFolder)\Setup2.dll' was not found." />
+        <Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(DeployFolder)\Setup2.dll$(ZipExt)&quot; &quot;$(SetupBuildFolder)\Setup2.dll&quot;" Condition="Exists('$(SetupBuildFolder)\Setup2.dll')" />
 	</Target>
     
 	<Target Name="ZipPortal" DependsOnTargets="ZipSetupDll">
@@ -1102,6 +1083,7 @@
 			<InstallerMsiFile Include="$(BuildFolder)\*.msi" />
 		</ItemGroup>
 		
+		<Copy SourceFiles="@(InstallerMsiFile)" DestinationFolder="$(DeployFolder)" />
 		<Copy SourceFiles="@(InstallerMsiFile)" DestinationFiles="$(DeployFolder)\FuseCP.Installer-$(Version).msi" />
 	</Target>
 
@@ -1132,7 +1114,12 @@
 
 	<Target Name="ZipInstaller" DependsOnTargets="ZipUpdates">
 		<Message Text="Zip Installer" Importance="high" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(DeployFolder)\FuseCP-Installer.zip&quot; &quot;$(InstallerBuild)\*&quot;" />
+		<ItemGroup>
+			<InstallerBuildFiles Include="$(InstallerBuild)\**\*.*" />
+		</ItemGroup>
+		<Delete Files="$(DeployFolder)\FuseCP-Installer.zip" Condition="'@(InstallerBuildFiles)' == '' and Exists('$(DeployFolder)\FuseCP-Installer.zip')" />
+		<Warning Condition="'@(InstallerBuildFiles)' == ''" Text="Skipping installer archive because no installer files were produced in '$(InstallerBuild)'. Enable /p:BuildInstallerSolution=true (and optionally /p:BuildInstallerMsi=true) to package installer artifacts." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(DeployFolder)\FuseCP-Installer.zip&quot; &quot;$(InstallerBuild)\*&quot;" Condition="'@(InstallerBuildFiles)' != ''" />
 
 		<!-- zip tools
 		<Zip Files="@(ImportCsvInstallFiles)" ZipFileName="$(ToolsFolder)\FuseCP-Import-CsvBulk-$(Version).zip" WorkingDirectory="$(ImportCsvInstall)" />
@@ -1140,28 +1127,38 @@
 		<Zip Files="@(VMConfigInstallFiles)" ZipFileName="$(ToolsFolder)\FuseCP-VMConfig-$(Version).zip" WorkingDirectory="$(VMConfigInstall)" />
 		<Zip Files="@(ImportEnterpriseInstallFiles)" ZipFileName="$(ToolsFolder)\FuseCP-Import-Enterprise-$(Version).zip" WorkingDirectory="$(ImportEnterpriseInstall)" />
 		<Zip Files="@(AWStatsViewerInstallFiles)" ZipFileName="$(ToolsFolder)\FuseCP-AWStatsViewer-$(Version).zip" WorkingDirectory="$(AWStatsViewerInstall)" />
-		<Zip Files="@(FCPTransportAgentInstallFiles)" ZipFileName="$(ToolsFolder)\FuseCP-FCPTransportAgent-$(Version).zip" WorkingDirectory="$(FCPTransportAgentInstall)" />
 		-->
 	</Target>
 
 	<Target Name="ZipTools" DependsOnTargets="ZipInstaller">
 		<Message Text="Zip Tools" Importance="high" />
-        <Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Import-CsvBulk$(ZipExt)&quot; &quot;$(ImportCsvInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-HyperVUtils$(ZipExt)&quot; &quot;$(HyperVUtilsInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-VMConfig$(ZipExt)&quot; &quot;$(VMConfigInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Import-Enterprise$(ZipExt)&quot; &quot;$(ImportEnterpriseInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-AWStatsViewer$(ZipExt)&quot; &quot;$(AWStatsViewerInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-FCPTransportAgent$(ZipExt)&quot; &quot;$(FCPTransportAgentInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-FixDefaultPublicFolderMailbox$(ZipExt)&quot; &quot;$(FixDefaultPublicFolderMailboxInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Configuration-Tool$(ZipExt)&quot; &quot;$(FuseCP-Configuration-ToolInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-CertificateMaker$(ZipExt)&quot; &quot;$(CertMakerInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\MSPtoFCP$(ZipExt)&quot; &quot;$(MSPtoFCPInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\MailTemplates$(ZipExt)&quot; &quot;$(MailTemplatesInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Auto-Upgrade-Tool$(ZipExt)&quot; &quot;$(FuseCP-Auto-Upgrade-ToolInstall)\*&quot;" />
-		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-dSHeuristics$(ZipExt)&quot; &quot;$(FuseCP-dSHeuristicsInstall)\*&quot;" />
+		<Warning Condition="!Exists('$(ImportCsvInstall)')" Text="Skipping archive because '$(ImportCsvInstall)' was not found." />
+        <Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Import-CsvBulk$(ZipExt)&quot; &quot;$(ImportCsvInstall)\*&quot;" Condition="Exists('$(ImportCsvInstall)')" />
+		<Warning Condition="!Exists('$(HyperVUtilsInstall)')" Text="Skipping archive because '$(HyperVUtilsInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-HyperVUtils$(ZipExt)&quot; &quot;$(HyperVUtilsInstall)\*&quot;" Condition="Exists('$(HyperVUtilsInstall)')" />
+		<Warning Condition="!Exists('$(VMConfigInstall)')" Text="Skipping archive because '$(VMConfigInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-VMConfig$(ZipExt)&quot; &quot;$(VMConfigInstall)\*&quot;" Condition="Exists('$(VMConfigInstall)')" />
+		<Warning Condition="!Exists('$(ImportEnterpriseInstall)')" Text="Skipping archive because '$(ImportEnterpriseInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Import-Enterprise$(ZipExt)&quot; &quot;$(ImportEnterpriseInstall)\*&quot;" Condition="Exists('$(ImportEnterpriseInstall)')" />
+		<Warning Condition="!Exists('$(AWStatsViewerInstall)')" Text="Skipping archive because '$(AWStatsViewerInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-AWStatsViewer$(ZipExt)&quot; &quot;$(AWStatsViewerInstall)\*&quot;" Condition="Exists('$(AWStatsViewerInstall)')" />
+		<Warning Condition="!Exists('$(FixDefaultPublicFolderMailboxInstall)')" Text="Skipping archive because '$(FixDefaultPublicFolderMailboxInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-FixDefaultPublicFolderMailbox$(ZipExt)&quot; &quot;$(FixDefaultPublicFolderMailboxInstall)\*&quot;" Condition="Exists('$(FixDefaultPublicFolderMailboxInstall)')" />
+		<Warning Condition="!Exists('$(FuseCP-Configuration-ToolInstall)')" Text="Skipping archive because '$(FuseCP-Configuration-ToolInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Configuration-Tool$(ZipExt)&quot; &quot;$(FuseCP-Configuration-ToolInstall)\*&quot;" Condition="Exists('$(FuseCP-Configuration-ToolInstall)')" />
+		<Warning Condition="!Exists('$(CertMakerInstall)')" Text="Skipping archive because '$(CertMakerInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-CertificateMaker$(ZipExt)&quot; &quot;$(CertMakerInstall)\*&quot;" Condition="Exists('$(CertMakerInstall)')" />
+		<Warning Condition="!Exists('$(MSPtoFCPInstall)')" Text="Skipping archive because '$(MSPtoFCPInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\MSPtoFCP$(ZipExt)&quot; &quot;$(MSPtoFCPInstall)\*&quot;" Condition="Exists('$(MSPtoFCPInstall)')" />
+		<Warning Condition="!Exists('$(MailTemplatesInstall)')" Text="Skipping archive because '$(MailTemplatesInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\MailTemplates$(ZipExt)&quot; &quot;$(MailTemplatesInstall)\*&quot;" Condition="Exists('$(MailTemplatesInstall)')" />
+		<Warning Condition="!Exists('$(FuseCP-Auto-Upgrade-ToolInstall)')" Text="Skipping archive because '$(FuseCP-Auto-Upgrade-ToolInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-Auto-Upgrade-Tool$(ZipExt)&quot; &quot;$(FuseCP-Auto-Upgrade-ToolInstall)\*&quot;" Condition="Exists('$(FuseCP-Auto-Upgrade-ToolInstall)')" />
+		<Warning Condition="!Exists('$(FuseCP-dSHeuristicsInstall)')" Text="Skipping archive because '$(FuseCP-dSHeuristicsInstall)' was not found." />
+		<Exec Command="$(ZipCmd)$(ZipLevel) a &quot;$(ToolsFolder)\FuseCP-dSHeuristics$(ZipExt)&quot; &quot;$(FuseCP-dSHeuristicsInstall)\*&quot;" Condition="Exists('$(FuseCP-dSHeuristicsInstall)')" />
   </Target>
 
-  <Target Name="Deploy" DependsOnTargets="CreateInstallPackages" />
+	<Target Name="Deploy" DependsOnTargets="ZipTools;CreateInstallPackages" />
 	
   <Target Name="uploadwebpi" DependsOnTargets="BuildWebPlatformInstallerFeed">
 		  <FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCPFeed-$(Version).xml" LocalFile="$(DeployFolder)\FuseCPFeed.xml" />
@@ -1248,7 +1245,6 @@
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-Import-Enterprise$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-Import-Enterprise$(ZipExt)" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-CertificateMaker$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-CertificateMaker$(ZipExt)" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-AWStatsViewer$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-AWStatsViewer$(ZipExt)" />
-	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-FCPTransportAgent$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-FCPTransportAgent$(ZipExt)" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP.LocalizationToolkit.msi" LocalFile="$(ToolsFolder)\FuseCP.LocalizationToolkit.msi" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP.Installer-$(Version).msi" LocalFile="$(DeployFolder)\FuseCP.Installer-$(Version).msi" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCPInstaller.exe" LocalFile="$(DeployFolder)\FuseCP.Installer.exe" />
@@ -1256,7 +1252,7 @@
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-VMConfig$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-VMConfig$(ZipExt)" />
 	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/Manual-Update$(ZipExt)" LocalFile="$(DeployFolder)\Manual-Update$(ZipExt)" />
     <FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/FuseCP-FixDefaultPublicFolderMailbox$(ZipExt)" LocalFile="$(ToolsFolder)\FuseCP-FixDefaultPublicFolderMailbox$(ZipExt)" />
-    <FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/Setup2.dll$(ZipExt)" LocalFile="$(DeployFolder)\Setup2.dll$(ZipExt)" />
+	<FtpUpload Username="$(ftpUsername)" password="$(ftpPassword)" RemoteUri="ftp://$(ftphost)/Setup2.dll$(ZipExt)" LocalFile="$(DeployFolder)\Setup2.dll$(ZipExt)" Condition="Exists('$(DeployFolder)\Setup2.dll$(ZipExt)')" />
   </Target>
 
   <Import Project="$(RootFolder)\tools\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>

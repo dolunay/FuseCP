@@ -36,6 +36,9 @@ namespace FuseCP.Portal
 {
 	public partial class ServersEditServer : FuseCPModuleBase
 	{
+		private static readonly TimeSpan NonCriticalLoadTimeout = TimeSpan.FromSeconds(8);
+		private const string DiagnosticsUnavailableText = "Server unavailable";
+
 		int ServerId;
 		Task<ServerInfo> serverInfo = null;
 		async Task<ServerInfo> ServerInfo()
@@ -69,12 +72,11 @@ namespace FuseCP.Portal
 				try
 				{
 					ServerId = PanelRequest.ServerId;
+					await Task.WhenAll(BindTools(), BindServer());
 					await Task.WhenAll(
-						BindTools(),
-						BindServer(),
-						BindServerMemory(),
-						BindServerVersion(),
-						BindServerFilepath());
+						LoadNonCriticalAsync(BindServerMemory, SetMemoryDiagnosticsUnavailable),
+						LoadNonCriticalAsync(BindServerVersion, () => SetDiagnosticsText(fcpVersion, DiagnosticsUnavailableText)),
+						LoadNonCriticalAsync(BindServerFilepath, () => SetDiagnosticsText(fcpFilepath, DiagnosticsUnavailableText)));
 				}
 				catch (Exception ex)
 				{
@@ -83,6 +85,46 @@ namespace FuseCP.Portal
 				}
 
 				IPAddressesHeader.IsCollapsed = IsIpAddressesCollapsed;
+			}
+		}
+
+		private async Task LoadNonCriticalAsync(Func<Task> action, Action onFailure)
+		{
+			try
+			{
+				await WithTimeoutAsync(action());
+			}
+			catch (Exception)
+			{
+				onFailure?.Invoke();
+			}
+		}
+
+		private static async Task WithTimeoutAsync(Task task)
+		{
+			Task completedTask = await Task.WhenAny(task, Task.Delay(NonCriticalLoadTimeout));
+			if (completedTask != task)
+				throw new TimeoutException();
+
+			await task;
+		}
+
+		private void SetMemoryDiagnosticsUnavailable()
+		{
+			SetDiagnosticsText(freeMemory, "N/A");
+			SetDiagnosticsText(totalMemory, "N/A");
+		}
+
+		private static void SetDiagnosticsText(WebControl control, string value)
+		{
+			if (control is null)
+				return;
+
+			switch (control)
+			{
+				case Label label:
+					label.Text = value;
+					break;
 			}
 		}
 		//protected void rbUsersCreationMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,23 +167,37 @@ namespace FuseCP.Portal
 		{
 			try
 			{
-				lnkTerminalSessions.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_termservices");
+				if (lnkTerminalSessions != null)
+					lnkTerminalSessions.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_termservices");
 
-				lnkWindowsServices.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_winservices");
-				lnkUnixServices.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_winservices");
-				lnkWindowsProcesses.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_processes");
-				lnkEventViewer.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_eventviewer");
-				lnkPlatformInstaller.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_platforminstaller");
-				lnkServerReboot.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_reboot");
+				if (lnkWindowsServices != null)
+					lnkWindowsServices.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_winservices");
+				if (lnkUnixServices != null)
+					lnkUnixServices.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_winservices");
+				if (lnkWindowsProcesses != null)
+					lnkWindowsProcesses.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_processes");
+				if (lnkEventViewer != null)
+					lnkEventViewer.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_eventviewer");
+				if (lnkServerReboot != null)
+				{
+					lnkServerReboot.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "edit_reboot");
+					lnkServerReboot.Visible = true;
+				}
 
-				lnkBackup.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "backup");
-				lnkRestore.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "restore");
+				if (lnkBackup != null)
+					lnkBackup.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "backup");
+				if (lnkRestore != null)
+					lnkRestore.NavigateUrl = EditUrl("ServerID", ServerId.ToString(), "restore");
 
-				lnkBackup.Visible = lnkRestore.Visible = PortalUtils.PageExists("Backup");
+				bool hasBackupPage = PortalUtils.PageExists("Backup");
+				if (lnkBackup != null) lnkBackup.Visible = hasBackupPage;
+				if (lnkRestore != null) lnkRestore.Visible = hasBackupPage;
 
 				var serverInfo = await ServerInfo();
-				pnPlatformPanel.Visible = pnTerminalPanel.Visible = pnWindowsServices.Visible = serverInfo.OSPlatform == OSPlatform.Windows;
-				pnUnixServices.Visible = serverInfo.OSPlatform != OSPlatform.Windows;
+				bool isWindows = serverInfo.OSPlatform == OSPlatform.Windows;
+				if (pnTerminalPanel != null) pnTerminalPanel.Visible = isWindows;
+				if (pnWindowsServices != null) pnWindowsServices.Visible = isWindows;
+				if (pnUnixServices != null) pnUnixServices.Visible = !isWindows;
 			}
 			catch (Exception)
 			{
@@ -178,6 +234,20 @@ namespace FuseCP.Portal
 
 			// Preview Domain
 			txtPreviewDomain.Text = server.InstantDomainAlias;
+
+			bool hasStoredCredential = !string.IsNullOrWhiteSpace(server.Password);
+			string credentialMode = server.PasswordIsSHA256 ? "SHA-256" : "legacy SHA-1";
+			lblServerCredentialState.Text = hasStoredCredential
+				? $"Stored {credentialMode} credential present"
+				: "No stored credential";
+			lblServerCredentialState.CssClass = !hasStoredCredential
+				? "badge bg-danger"
+				: server.PasswordIsSHA256
+					? "badge bg-success"
+					: "badge bg-warning text-dark";
+			lblServerCredentialGuidance.Text = hasStoredCredential
+				? "Portal only edits the server URL. Direct GUI and web API password reset is disabled. Rotate the secret on the server host, then reconcile Enterprise with Recover-ServerCredential.ps1."
+				: "Portal only edits the server URL. FuseCP does not currently have a stored server credential. Recover on the server host, then reconcile Enterprise with Recover-ServerCredential.ps1.";
 		}
 
 		private async Task BindServerVersion()
@@ -316,29 +386,14 @@ namespace FuseCP.Portal
 			}
 		}
 
-		protected void btnChangeServerPassword_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				int result = ES.Services.Servers.UpdateServerConnectionPassword(
-					 PanelRequest.ServerId, serverPassword.Password);
-				if (result < 0)
-				{
-					ShowResultMessage(result);
-					return;
-				}
-
-				ShowSuccessMessage("SERVER_UPDATE_SERVER_PSW");
-			}
-			catch (Exception ex)
-			{
-				ShowErrorMessage("SERVER_UPDATE_SERVER_PSW", ex);
-				return;
-			}
-		}
-
 		protected void btnChangeADPassword_Click(object sender, EventArgs e)
 		{
+			Page.Validate("ADPassword");
+			if (!Page.IsValid)
+			{
+				return;
+			}
+
 			try
 			{
 				int result = ES.Services.Servers.UpdateServerADPassword(

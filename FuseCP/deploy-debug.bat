@@ -1,4 +1,7 @@
 @echo off
+setlocal
+pushd "%~dp0"
+
 :: forced output into English
 set DOTNET_CLI_UI_LANGUAGE=en-US
 set VSLANG=1033
@@ -28,8 +31,12 @@ IF not defined NoRebuild (
 
 IF not defined MsBuildSwitches ( Set MsBuildSwitches=/v:n /nr:false)
 IF not defined FuseCPVersion ( Set FuseCPVersion=2.0.0)
-IF not defined FuseCPFileVersion ( Set FuseCPFileVersion=2.0.0)
+IF not defined FuseCPFileVersion ( Set FuseCPFileVersion=2.0.0.0)
 IF not defined Configuration ( Set Configuration=Debug)
+IF not defined BuildLegacyPackaging ( Set BuildLegacyPackaging=false)
+IF not defined BuildLinuxInstallPackages ( Set BuildLinuxInstallPackages=true)
+IF not defined BuildInstallerSolution ( Set BuildInstallerSolution=true)
+IF not defined BuildInstallerMsi ( Set BuildInstallerMsi=false)
 
 IF EXIST "%ProgramFiles%\Microsoft Visual Studio\18\Community\MSBuild\Current\bin\MSBuild.exe" (
 	Set FCPMSBuild="%ProgramFiles%\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe"
@@ -138,7 +145,14 @@ dotnet msbuild build.xml /target:Deploy ^
 	/p:Version="%FuseCPVersion%" ^
 	/p:FileVersion="%FuseCPFileVersion%" ^
 	/p:VersionLabel="%FuseCPFileVersion%" ^
+	/p:BuildLegacyPackaging=%BuildLegacyPackaging% ^
+	/p:BuildLinuxInstallPackages=%BuildLinuxInstallPackages% ^
+	/p:BuildInstallerSolution=%BuildInstallerSolution% ^
+	/p:BuildInstallerMsi=%BuildInstallerMsi% ^
 	%MsBuildSwitches% ^
 	/fileLogger ^
 	/flp:verbosity=normal ^
 	/p:VisualStudioVersion=%FCPVSVer%
+set ERR=%ERRORLEVEL%
+popd
+endlocal & exit /b %ERR%

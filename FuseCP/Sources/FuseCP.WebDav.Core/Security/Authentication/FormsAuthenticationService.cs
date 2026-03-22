@@ -15,10 +15,10 @@
 
 using System;
 using System.DirectoryServices.AccountManagement;
+using System.Security.Claims;
 using System.Threading;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.Security;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using FuseCP.EnterpriseServer.Base.HostedSolution;
 using FuseCP.Server.Utils;
 using FuseCP.WebDav.Core.Config;
@@ -31,18 +31,24 @@ namespace FuseCP.WebDav.Core.Security.Authentication
 {
     public class FormsAuthenticationService : IAuthenticationService
     {
+        private const string AuthCookieName = "FuseCP.WebDav.Auth";
         private readonly ICryptography _cryptography;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly PrincipalContext _principalContext;
 
-        public FormsAuthenticationService(ICryptography cryptography)
+        public FormsAuthenticationService(ICryptography cryptography, IHttpContextAccessor httpContextAccessor = null)
         {
             Log.WriteStart("FormsAuthenticationService");
 
             _cryptography = cryptography;
+            _httpContextAccessor = httpContextAccessor;
 
             try
             {
-                _principalContext = new PrincipalContext(ContextType.Domain, WebDavAppConfigManager.Instance.UserDomain);
+                if (OperatingSystem.IsWindows())
+                {
+                    _principalContext = new PrincipalContext(ContextType.Domain, WebDavAppConfigManager.Instance.UserDomain);
+                }
             }
             catch (Exception ex)
             {
@@ -75,9 +81,13 @@ namespace FuseCP.WebDav.Core.Security.Authentication
             principal.AccountName = exchangeAccount.AccountName;
             principal.EncryptedPassword = _cryptography.Encrypt(password);
 
-            if (HttpContext.Current != null)
+            if (_httpContextAccessor?.HttpContext != null)
             {
-                HttpContext.Current.User = principal;
+                _httpContextAccessor.HttpContext.User = new ClaimsPrincipal(
+                    new ClaimsIdentity(new[]
+                    {
+                        new Claim(ClaimTypes.Name, principal.Identity.Name ?? string.Empty)
+                    }, "FuseCP"));
             }
 
             Thread.CurrentPrincipal = principal;
@@ -89,27 +99,28 @@ namespace FuseCP.WebDav.Core.Security.Authentication
 
         public void CreateAuthenticationTicket(ScpPrincipal principal)
         {
-            var serializer = new JavaScriptSerializer();
-            string userData = serializer.Serialize(principal);
-
-            var authTicket = new FormsAuthenticationTicket(1, principal.Identity.Name, DateTime.Now, DateTime.Now.Add(FormsAuthentication.Timeout),
-                FormsAuthentication.SlidingExpiration, userData);
-
-            var encTicket = FormsAuthentication.Encrypt(authTicket);
-
-            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
-
-            if (FormsAuthentication.SlidingExpiration)
+            if (_httpContextAccessor?.HttpContext == null)
             {
-                cookie.Expires = authTicket.Expiration;
+                return;
             }
 
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            var userData = JsonConvert.SerializeObject(principal);
+            var cookieValue = _cryptography.Encrypt(userData);
+
+            _httpContextAccessor.HttpContext.Response.Cookies.Append(AuthCookieName, cookieValue, new CookieOptions
+            {
+                HttpOnly = true,
+                IsEssential = true,
+                Expires = DateTimeOffset.UtcNow.AddMinutes(30)
+            });
         }
 
         public void LogOut()
         {
-            FormsAuthentication.SignOut();
+            if (_httpContextAccessor?.HttpContext != null)
+            {
+                _httpContextAccessor.HttpContext.Response.Cookies.Delete(AuthCookieName);
+            }
         }
 
         public bool ValidateAuthenticationData(string login, string password)
@@ -117,6 +128,12 @@ namespace FuseCP.WebDav.Core.Security.Authentication
             Log.WriteStart("ValidateAuthenticationData");
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+
+            // AD-backed authentication is only available on Windows.
+            if (!OperatingSystem.IsWindows() || _principalContext == null)
             {
                 return false;
             }

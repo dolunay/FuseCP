@@ -258,6 +258,51 @@ FuseCP uses EF Core 8 on .NET 10 and EF 6 on .NET Framework, with a single share
 4. Review the generated files under `Migrations/`.
 5. Also update `FuseCP/Database/update_db.sql` to keep the legacy SQL path in sync.
 
+### Apply pending EF migrations to your local database
+
+When code includes new entities/tables (for example `IpSecurityPolicies`), update your local DB before running the portal/server.
+
+1. Open PowerShell in repository root.
+2. Change directory to the EF data project.
+3. Run `dotnet ef database update` with the provider/connection you use locally.
+
+#### Finding your connection details
+
+Your local database name and credentials are in `FuseCP/Sources/FuseCP.WebPortal/Web.config` under the `<connectionStrings>` section:
+
+```xml
+<add name="EnterpriseServer"
+     connectionString="DbType=SqlServer;Server=(local);Database=YOUR_DB;uid=YOUR_USER;pwd=YOUR_PASSWORD;TrustServerCertificate=true"
+     providerName="System.Data.EntityClient" />
+```
+
+Use those values (database name, uid, pwd) in the commands below.
+
+#### Windows Integrated Authentication (recommended for local dev):
+
+```powershell
+Set-Location "FuseCP/Sources/FuseCP.EnterpriseServer.Data"
+dotnet ef database update --framework net10.0 --context SqlServerDbContext -- "DbType=SqlServer;Server=(local);Initial Catalog=YOUR_DB;Integrated Security=True;TrustServerCertificate=true"
+```
+
+#### SQL Login authentication (if your local SQL instance uses SQL users):
+
+```powershell
+Set-Location "FuseCP/Sources/FuseCP.EnterpriseServer.Data"
+dotnet ef database update --framework net10.0 --context SqlServerDbContext -- "DbType=SqlServer;Server=(local);Initial Catalog=YOUR_DB;Uid=YOUR_USER;Pwd=YOUR_PASSWORD;TrustServerCertificate=true"
+```
+
+Replace `YOUR_DB`, `YOUR_USER`, and `YOUR_PASSWORD` with the values from your `Web.config`.
+
+#### Optional verification (shows migration chain known to EF):
+
+```powershell
+Set-Location "FuseCP/Sources/FuseCP.EnterpriseServer.Data"
+dotnet ef migrations list --framework net10.0 --context SqlServerDbContext -- "DbType=SqlServer;Server=(local);Initial Catalog=YOUR_DB;Integrated Security=True;TrustServerCertificate=true"
+```
+
+If update fails with a login error, switch authentication mode (Integrated Security vs SQL login) and retry with credentials that can modify schema in the target database.
+
 For scaffolding from an existing database or porting raw SQL changes, see the full guide in [`FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md`](FuseCP/Sources/FuseCP.EnterpriseServer.Data/README.md).
 
 **Never edit EF model snapshot (`.cs`) files by hand** — always let `dotnet ef` maintain them.
