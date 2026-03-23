@@ -19,9 +19,11 @@ using System.DirectoryServices.ActiveDirectory;
 using System.Collections.Generic;
 using System.Text;
 using System.Management;
+using System.Runtime.Versioning;
 
 namespace FuseCP.VmConfig
 {
+	[SupportedOSPlatform("windows")]
 	class ChangeAdministratorPasswordModule : IProvisioningModule
 	{
 		#region IProvisioningModule Members

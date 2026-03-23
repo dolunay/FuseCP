@@ -15,6 +15,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,7 @@ using System.Text;
 
 namespace FuseCP.VmConfig
 {
+	[SupportedOSPlatform("windows")]
 	class ChangeComputerNameModule : IProvisioningModule
 	{
 		//P/Invoke signature

@@ -18,9 +18,11 @@ using System.Management;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Runtime.Versioning;
 
 namespace FuseCP.VmConfig
 {
+	[SupportedOSPlatform("windows")]
 	public class SetupNetworkAdapterModule : IProvisioningModule
 	{
 		internal const string RegistryKey = @"SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}";

@@ -17,10 +17,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
+using System.Runtime.Versioning;
 
 namespace FuseCP.VmConfig
 {
 	[Serializable]
+	[SupportedOSPlatform("windows")]
 	public sealed class ExecutionContext
 	{
 		public string ActivityID { get; set; }

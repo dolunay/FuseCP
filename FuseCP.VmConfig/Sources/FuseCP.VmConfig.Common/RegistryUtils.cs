@@ -15,12 +15,14 @@
 
 using System;
 using Microsoft.Win32;
+using System.Runtime.Versioning;
 
 namespace FuseCP.VmConfig
 {
 	/// <summary>
 	/// Registry helper class.
 	/// </summary>
+	[SupportedOSPlatform("windows")]
 	public sealed class RegistryUtils
 	{
 		/// <summary>

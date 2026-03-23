@@ -16,7 +16,6 @@
     <ItemGroup Condition="$(TargetFramework) != 'net48'">
         <PackageReference Include="System.DirectoryServices" Version="9.0.4" />
         <PackageReference Include="System.Management" Version="9.0.4" />
-        <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\VersionInfo.cs" Link="VersionInfo.cs" />
