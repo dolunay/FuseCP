@@ -9680,8 +9680,6 @@ namespace FuseCP.EnterpriseServer
 
 		public int CalculatePackageDiskspace(int packageId)
 		{
-			const long MB = 1024 * 1024;
-
 			int diskspace = (int)(((PackagesTreeCaches
 				.Where(t => t.ParentPackageId == packageId)
 				.Join(Packages, t => t.PackageId, p => p.PackageId, (t, p) => p)
@@ -9699,8 +9697,6 @@ namespace FuseCP.EnterpriseServer
 
 		public int CalculatePackageBandwidth(int packageId)
 		{
-			const long MB = 1024 * 1024;
-
 			var today = DateTime.Now.Date;
 			var startDate = today.AddDays(-today.Day + 1);
 			var endDate = startDate.AddMonths(1);

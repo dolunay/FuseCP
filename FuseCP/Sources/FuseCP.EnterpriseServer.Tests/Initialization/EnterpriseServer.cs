@@ -98,15 +98,15 @@ public class EnterpriseServer : IDisposable
 		if (CreateClone) Console.WriteLine($"Cloning EnterpriseServer to {Path}");
 	}
 
-	public static void CloneTo(string path)
+	public static void CloneTo(string local_path)
 	{
-		DeleteDirectory(IO.Path.GetDirectoryName(path));
+		DeleteDirectory(IO.Path.GetDirectoryName(local_path));
 
 		var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 
 		Console.WriteLine($"Cloning {IO.Path.GetFileName(EnterpriseServerPath)} ...");
-		FuseCP.Providers.Utils.FileUtils.CopyDirectory(esserver, path);
+		FuseCP.Providers.Utils.FileUtils.CopyDirectory(esserver, local_path);
 	}
 
 	public void Dispose() => Delete();
@@ -129,12 +129,12 @@ public class EnterpriseServer : IDisposable
 
 	static void DeleteDirectory(string dir) => Directory.Delete($@"\\?\{dir}", true);
 	
-	public static string SetupDatabase(DbType dbType = DbType.SqlServer)
+	public static string SetupDatabase(DbType local_dbType = DbType.SqlServer)
 	{
 		string connectionString;
-		if (dbType == DbType.SqlServer) connectionString = SetupLocalDb();
-		else if (dbType == DbType.Sqlite) connectionString = SetupSqliteDb();
-		else throw new NotSupportedException($"Database type {dbType} is not supported");
+		if (local_dbType == DbType.SqlServer) connectionString = SetupLocalDb();
+		else if (local_dbType == DbType.Sqlite) connectionString = SetupSqliteDb();
+		else throw new NotSupportedException($"Database type {local_dbType} is not supported");
 
 		ConfigureDatabase(connectionString);
 
@@ -295,10 +295,10 @@ public class EnterpriseServer : IDisposable
 	public static string SqlServerConnectionString => sqlServerConnectionString ??= SetupDatabase(DbType.SqlServer);
 	public static string SqliteConnectionString => sqliteConnectionString ??= SetupDatabase(DbType.Sqlite);
 
-	public static string ConnectionString(DbType dbType = DbType.SqlServer) =>
-		dbType == DbType.SqlServer ? SqlServerConnectionString :
-		dbType == DbType.Sqlite ? SqliteConnectionString :
-		throw new NotSupportedException($"Database type {dbType} is not supported");
+	public static string ConnectionString(DbType local_dbType = DbType.SqlServer) =>
+		local_dbType == DbType.SqlServer ? SqlServerConnectionString :
+		local_dbType == DbType.Sqlite ? SqliteConnectionString :
+		throw new NotSupportedException($"Database type {local_dbType} is not supported");
 
 	public static void DeleteDatabases()
 	{

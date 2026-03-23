@@ -712,10 +712,10 @@ namespace FuseCP.Providers.OS
                 if (IsSocket)
                 {
                     ProtocolType protocol = ProtocolType.Tcp;
-                    var url = Url;
-                    if (url.StartsWith("tcp://")) protocol = ProtocolType.Tcp;
-                    else if (url.StartsWith("udp://")) protocol = ProtocolType.Udp;
-                    else throw new NotSupportedException("This url scheme is not supported");
+                    var local_url = Url;
+                    if (local_url.StartsWith("tcp://")) protocol = ProtocolType.Tcp;
+                    else if (local_url.StartsWith("udp://")) protocol = ProtocolType.Udp;
+                    else throw new NotSupportedException("This local_url scheme is not supported");
                     var ip = DnsService.GetFirstIPAddress(Uri.Host);
 
                     if (ip == default) throw new IOException($"Could not resolve host {Uri.Host}");
@@ -735,8 +735,8 @@ namespace FuseCP.Providers.OS
                 {
                     if (BaseWebSocket is ClientWebSocket clientWebSocket)
                     {
-                        var url = Url;
-                        if (IsWebSocketOverSsh) url = await GetSshWebSocketUrlAsync();
+                        var local_url = Url;
+                        if (IsWebSocketOverSsh) local_url = await GetSshWebSocketUrlAsync();
 
 #if NETSTANDARD2_0
                         var setValidationCallback = !ValidateCertificate && !SetRemoteValidationCallback();
@@ -747,7 +747,7 @@ namespace FuseCP.Providers.OS
 
                         try
                         {
-                            await clientWebSocket.ConnectAsync(new System.Uri(url), new CancellationTokenSource(ConnectTimeout).Token);
+                            await clientWebSocket.ConnectAsync(new System.Uri(local_url), new CancellationTokenSource(ConnectTimeout).Token);
                         }
                         catch (Exception)
                         {

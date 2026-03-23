@@ -143,11 +143,11 @@ namespace FuseCP.Providers.OS
 						if (Enum.TryParse<OSFlavor>(name, out f)) flavor = f;
 						else
 						{
-							for (var os = OSFlavor.Min; os <= OSFlavor.Max; os++)
+							for (var local_os = OSFlavor.Min; local_os <= OSFlavor.Max; local_os++)
 							{
-								if (Regex.IsMatch(name, $"(?<=^|\\s){Regex.Escape(Enum.GetName(typeof(OSFlavor), os))}(?=\\s|$)", RegexOptions.IgnoreCase))
+								if (Regex.IsMatch(name, $"(?<=^|\\s){Regex.Escape(Enum.GetName(typeof(OSFlavor), local_os))}(?=\\s|$)", RegexOptions.IgnoreCase))
 								{
-									flavor = os;
+									flavor = local_os;
 									break;
 								}
 							}
@@ -161,7 +161,7 @@ namespace FuseCP.Providers.OS
 		{
 			get
 			{
-				var flavor = OSFlavor;
+				var local_flavor = OSFlavor;
 				return version;
 			}
 		}
@@ -281,8 +281,8 @@ namespace FuseCP.Providers.OS
 				{
 					if (IsWindowsPlatform())
 					{
-						var version = WindowsOSInfo.GetVersion();
-						switch (version)
+						var local_version = WindowsOSInfo.GetVersion();
+						switch (local_version)
 						{
 							case WindowsVersion.WindowsServer2025:
 								os = CreateOperatingSystem(

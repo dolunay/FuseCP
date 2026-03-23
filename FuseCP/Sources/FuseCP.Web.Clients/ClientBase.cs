@@ -107,42 +107,42 @@ namespace FuseCP.Web.Clients
 			}
 		}
 
-		public void SetProtocol(string url, ref Protocols protocol)
+		public void SetProtocol(string local_url, ref Protocols local_protocol)
 		{
-			if (url.StartsWith("https://"))
+			if (local_url.StartsWith("https://"))
 			{
-				switch (protocol)
+				switch (local_protocol)
 				{
-					case Protocols.BasicHttp: protocol = Protocols.BasicHttps; break;
-					case Protocols.NetHttp: protocol = Protocols.NetHttps; break;
-					case Protocols.WSHttp: protocol = Protocols.WSHttps; break;
-					case Protocols.gRPC: protocol = Protocols.gRPCSsl; break;
-					case Protocols.gRPCWeb: protocol = Protocols.gRPCWebSsl; break;
+					case Protocols.BasicHttp: local_protocol = Protocols.BasicHttps; break;
+					case Protocols.NetHttp: local_protocol = Protocols.NetHttps; break;
+					case Protocols.WSHttp: local_protocol = Protocols.WSHttps; break;
+					case Protocols.gRPC: local_protocol = Protocols.gRPCSsl; break;
+					case Protocols.gRPCWeb: local_protocol = Protocols.gRPCWebSsl; break;
 					default: break;
 				}
 			}
-			else if (url.StartsWith("http://"))
+			else if (local_url.StartsWith("http://"))
 			{
-				switch (protocol)
+				switch (local_protocol)
 				{
-					case Protocols.BasicHttps: protocol = Protocols.BasicHttp; break;
-					case Protocols.NetHttps: protocol = Protocols.NetHttp; break;
-					case Protocols.WSHttps: protocol = Protocols.WSHttp; break;
-					case Protocols.gRPCSsl: protocol = Protocols.gRPC; break;
-					case Protocols.gRPCWebSsl: protocol = Protocols.gRPCWeb; break;
+					case Protocols.BasicHttps: local_protocol = Protocols.BasicHttp; break;
+					case Protocols.NetHttps: local_protocol = Protocols.NetHttp; break;
+					case Protocols.WSHttps: local_protocol = Protocols.WSHttp; break;
+					case Protocols.gRPCSsl: local_protocol = Protocols.gRPC; break;
+					case Protocols.gRPCWebSsl: local_protocol = Protocols.gRPCWeb; break;
 					default: break;
 				}
 			}
-			else if (url.StartsWith("ssh://"))
+			else if (local_url.StartsWith("ssh://"))
 			{
-				switch (protocol)
+				switch (local_protocol)
 				{
-					case Protocols.BasicHttps: protocol = Protocols.BasicHttp; break;
-					case Protocols.NetHttps: protocol = Protocols.NetHttp; break;
-					case Protocols.WSHttps: protocol = Protocols.WSHttp; break;
-					case Protocols.gRPCSsl: protocol = Protocols.gRPC; break;
-					case Protocols.gRPCWebSsl: protocol = Protocols.gRPCWeb; break;
-					case Protocols.NetTcpSsl: protocol = Protocols.NetTcp; break;
+					case Protocols.BasicHttps: local_protocol = Protocols.BasicHttp; break;
+					case Protocols.NetHttps: local_protocol = Protocols.NetHttp; break;
+					case Protocols.WSHttps: local_protocol = Protocols.WSHttp; break;
+					case Protocols.gRPCSsl: local_protocol = Protocols.gRPC; break;
+					case Protocols.gRPCWebSsl: local_protocol = Protocols.gRPCWeb; break;
+					case Protocols.NetTcpSsl: local_protocol = Protocols.NetTcp; break;
 					default: break;
 				}
 			}
@@ -232,30 +232,30 @@ namespace FuseCP.Web.Clients
 			}
 		}
 
-		public Protocols ToHttp(Protocols protocol)
+		public Protocols ToHttp(Protocols local_protocol)
 		{
-			switch (protocol)
+			switch (local_protocol)
 			{
 				case Protocols.WSHttps: return Protocols.WSHttp;
 				case Protocols.NetHttps: return Protocols.NetHttp;
 				case Protocols.BasicHttps: return Protocols.BasicHttp;
 				case Protocols.RESTHttps: return Protocols.RESTHttp;
 				case Protocols.gRPCWebSsl: return Protocols.gRPCWeb;
-				default: return protocol;
+				default: return local_protocol;
 			}
 		}
 		public Protocols ToHttp() => Protocol = ToHttp(Protocol);
 
-		public Protocols ToHttps(Protocols protocol)
+		public Protocols ToHttps(Protocols local_protocol)
 		{
-			switch (protocol)
+			switch (local_protocol)
 			{
 				case Protocols.BasicHttp: return Protocols.BasicHttps;
 				case Protocols.NetHttp: return Protocols.NetHttps;
 				case Protocols.WSHttp: return Protocols.WSHttps;
 				case Protocols.RESTHttp: return Protocols.RESTHttps;
 				case Protocols.gRPCWeb: return Protocols.gRPCWebSsl;
-				default: return protocol;
+				default: return local_protocol;
 			}
 		}
 		public Protocols ToHttps() => Protocol = ToHttps(Protocol);

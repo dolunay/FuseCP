@@ -102,12 +102,12 @@ namespace FuseCP.Web.Services
 
         public static IEnumerable<Type> GetWebServices()
 		{
-			var types = ExposedAssemblies
+			var local_types = ExposedAssemblies
 				.SelectMany(a => {
 					var attrTypes = a.GetCustomAttribute<WCFServiceTypesAttribute>()?.Types;
 					return attrTypes ?? new Type[0];
 				});
-			return types;
+			return local_types;
 		}
 
 		protected override string GetKeyForItem(ServiceType type) => type.Service.Name;

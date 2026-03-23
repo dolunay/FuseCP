@@ -2123,10 +2123,10 @@ namespace FuseCP.Providers.Virtualization
         {
             SystemMemoryInfo memory = new SystemMemoryInfo();
 
-            using (var _mi = string.IsNullOrEmpty(ClusterNode)
+            using (var local__mi = string.IsNullOrEmpty(ClusterNode)
                 ? new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE) //reuse session if possible
                 : new MiManager(ClusterNode, this.CimSessionMode, Constants.WMI_CIMV2_NAMESPACE))
-            using (CimInstance item = _mi.GetCimInstance("Win32_OperatingSystem"))
+            using (CimInstance item = local__mi.GetCimInstance("Win32_OperatingSystem"))
             {
                 memory.FreePhysicalKB = Convert.ToUInt64(item.CimInstanceProperties["FreePhysicalMemory"].Value);
                 memory.TotalVisibleSizeKB = Convert.ToUInt64(item.CimInstanceProperties["TotalVisibleMemorySize"].Value);
@@ -2143,9 +2143,9 @@ namespace FuseCP.Providers.Virtualization
         {
             int coreCount = 0;
 
-            using (var _mi = new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE))
+            using (var local__mi = new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE))
             {
-                foreach (CimInstance item in _mi.EnumerateCimInstances("Win32_Processor"))
+                foreach (CimInstance item in local__mi.EnumerateCimInstances("Win32_Processor"))
                 {
                     using (item)
                         coreCount += int.Parse(item.CimInstanceProperties["NumberOfLogicalProcessors"].Value.ToString());

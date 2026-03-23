@@ -1660,14 +1660,14 @@ exit", Convert.ToInt32(objDisk["Index"])));
 
         public JobResult ExpandVirtualHardDisk(string vhdPath, UInt64 sizeGB)
         {
-            const UInt64 Size1G = 0x40000000;
+            const UInt64 local_Size1G = 0x40000000;
 
             ManagementObject objImgSvc = GetImageManagementService();
 
             // get method params
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("ExpandVirtualHardDisk");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
-            inParams["MaxInternalSize"] = sizeGB * Size1G;
+            inParams["MaxInternalSize"] = sizeGB * local_Size1G;
 
             ManagementBaseObject outParams = objImgSvc.InvokeMethod("ExpandVirtualHardDisk", inParams, null);
             return CreateJobResultFromWmiMethodResults(outParams);

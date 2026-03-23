@@ -317,13 +317,13 @@ namespace FuseCP.Providers.HostedSolution
             }
         }
 
-        public string GetdSHeuristicsOU(string RootDomain)
+        public string GetdSHeuristicsOU(string local_RootDomain)
         {
             StringBuilder sb = new StringBuilder();
             AppendProtocol(sb);
             AppendParentDomainController(sb);
             sb.Append("CN=Directory Service,CN= Windows NT,CN= Services,CN= Configuration,");
-            AppendDomainPath(sb, RootDomain);
+            AppendDomainPath(sb, local_RootDomain);
 
             return sb.ToString();
         }

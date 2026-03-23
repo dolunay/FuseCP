@@ -119,9 +119,9 @@ namespace FuseCP.Providers
                 foreach (string pair in value)
                 {
                     int idx = pair.IndexOf('=');
-                    string name = pair.Substring(0, idx);
+                    string local_name = pair.Substring(0, idx);
                     string val = pair.Substring(idx + 1);
-                    propsHash.Add(name, val);
+                    propsHash.Add(local_name, val);
                 }
             }
         }

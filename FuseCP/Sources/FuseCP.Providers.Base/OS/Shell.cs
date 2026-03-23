@@ -115,11 +115,11 @@ namespace FuseCP.Providers.OS
 				{
 					machine = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine);
 					user = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User);
-					var process = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
+					var localProcess = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
 					sources = new string[] {
 						System.Environment.GetFolderPath(System.Environment.SpecialFolder.System),
 						System.Environment.GetFolderPath(System.Environment.SpecialFolder.SystemX86),
-						process, machine, user };
+						localProcess, machine, user };
 				}
 				else sources = new string[] { proc };
 

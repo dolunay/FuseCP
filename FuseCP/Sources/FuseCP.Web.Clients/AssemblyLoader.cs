@@ -242,13 +242,13 @@ namespace FuseCP.Web.Clients
 #endif
 		}
 
-		static void AddEnvironmentPaths(IEnumerable<string> paths)
+		static void AddEnvironmentPaths(IEnumerable<string> local_paths)
 		{
 			var path = new[] { Environment.GetEnvironmentVariable("PATH") ?? string.Empty };
 
-			paths = paths.Where(p => !string.IsNullOrEmpty(p));
+			local_paths = local_paths.Where(p => !string.IsNullOrEmpty(p));
 
-			string newPath = string.Join(Path.PathSeparator.ToString(), path.Concat(paths));
+			string newPath = string.Join(Path.PathSeparator.ToString(), path.Concat(local_paths));
 
 			Environment.SetEnvironmentVariable("PATH", newPath);
 		}

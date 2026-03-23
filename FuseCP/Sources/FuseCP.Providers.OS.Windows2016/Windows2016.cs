@@ -1003,13 +1003,13 @@ namespace FuseCP.Providers.OS
 
                     if (username != "")
                     {
-                        TerminalSession session = new TerminalSession();
+                        TerminalSession local_session = new TerminalSession();
                         //
-                        session.SessionId = Int32.Parse(matches[2].Value.Trim());
-                        session.Username = username;
-                        session.Status = matches[3].Value.Trim();
+                        local_session.SessionId = Int32.Parse(matches[2].Value.Trim());
+                        local_session.Username = username;
+                        local_session.Status = matches[3].Value.Trim();
 
-                        sessions.Add(session);
+                        sessions.Add(local_session);
                     }
                     //
                     lineIndex++;
@@ -1278,9 +1278,9 @@ namespace FuseCP.Providers.OS
                 {
                     Collection<PSObject> result = null;
                     //this command doesn't support WSMan protocol, if that important, then we can use WMIv2 to get this data. Or use Invoke-Command
-                    var cmd = new Command("Get-Counter");
-                    cmd.Parameters.Add("Counter", @"\Processor(_Total)\% Processor Time");
-                    result = _powerShell.Execute(cmd, true, true);
+                    var local_cmd = new Command("Get-Counter");
+                    local_cmd.Parameters.Add("Counter", @"\Processor(_Total)\% Processor Time");
+                    result = _powerShell.Execute(local_cmd, true, true);
 
                     if (result != null && result.Count > 0)
                     {
@@ -1592,9 +1592,9 @@ namespace FuseCP.Providers.OS
 
                 if (folderPath.IndexOfAny(Path.GetInvalidPathChars()) == -1)
                 {
-                    Command cmd = new Command("Get-FsrmQuota");
-                    cmd.Parameters.Add("Path", folderPath);
-                    var result = ExecuteShellCommand(runSpace, cmd, false);
+                    Command local_cmd = new Command("Get-FsrmQuota");
+                    local_cmd.Parameters.Add("Path", folderPath);
+                    var result = ExecuteShellCommand(runSpace, local_cmd, false);
 
                     if (result.Count > 0)
                     {
@@ -1635,10 +1635,10 @@ namespace FuseCP.Providers.OS
             {
                 runSpace = OpenRunspace();
 
-                Command cmd = new Command("Get-FsrmQuota");
+                Command local_cmd = new Command("Get-FsrmQuota");
 
-                cmd.Parameters.Add("Path", folderPath + "\\*");
-                var result = ExecuteShellCommand(runSpace, cmd, false);                
+                local_cmd.Parameters.Add("Path", folderPath + "\\*");
+                var result = ExecuteShellCommand(runSpace, local_cmd, false);                
 
                 if (result.Count > 0)
                 {
@@ -1722,9 +1722,9 @@ namespace FuseCP.Providers.OS
                 runSpace = OpenRunspace();
                 if (!string.IsNullOrEmpty(path))
                 {
-                    Command cmd = new Command("Remove-FsrmQuota");
-                    cmd.Parameters.Add("Path", path);
-                    ExecuteShellCommand(runSpace, cmd, false);
+                    Command local_cmd = new Command("Remove-FsrmQuota");
+                    local_cmd.Parameters.Add("Path", path);
+                    ExecuteShellCommand(runSpace, local_cmd, false);
                 }
             }
             catch { /* do nothing */ }
@@ -1732,16 +1732,16 @@ namespace FuseCP.Providers.OS
 
         public void ChangeQuotaOnFolder(Runspace runSpace, string command, string path, QuotaType quotaType, UInt64 quota)
         {
-            Command cmd = new Command(command);
-            cmd.Parameters.Add("Path", path);
-            cmd.Parameters.Add("Size", quota);
+            Command local_cmd = new Command(command);
+            local_cmd.Parameters.Add("Path", path);
+            local_cmd.Parameters.Add("Size", quota);
 
             if (quotaType == QuotaType.Soft)
             {
-                cmd.Parameters.Add("SoftLimit", true);
+                local_cmd.Parameters.Add("SoftLimit", true);
             }
 
-            ExecuteShellCommand(runSpace, cmd, false);
+            ExecuteShellCommand(runSpace, local_cmd, false);
         }
 
         public virtual bool InstallFsrmService()
@@ -1753,11 +1753,11 @@ namespace FuseCP.Providers.OS
             {
                 runSpace = OpenRunspace();
 
-                Command cmd = new Command("Install-WindowsFeature");
-                cmd.Parameters.Add("Name", "FS-Resource-Manager");
-                cmd.Parameters.Add("IncludeManagementTools", true);
+                Command local_cmd = new Command("Install-WindowsFeature");
+                local_cmd.Parameters.Add("Name", "FS-Resource-Manager");
+                local_cmd.Parameters.Add("IncludeManagementTools", true);
 
-                ExecuteShellCommand(runSpace, cmd, false);
+                ExecuteShellCommand(runSpace, local_cmd, false);
             }
             catch (Exception ex)
             {
@@ -1811,9 +1811,9 @@ namespace FuseCP.Providers.OS
             }
         }
 
-        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd)
+        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command local_cmd)
         {
-            return ExecuteShellCommand(runSpace, cmd, true);
+            return ExecuteShellCommand(runSpace, local_cmd, true);
         }
 
         protected Collection<PSObject> ExecuteLocalScript(Runspace runSpace,  List<string> scripts, out object[] errors, params string[] moduleImports)
@@ -1842,25 +1842,25 @@ namespace FuseCP.Providers.OS
             return ExecuteShellCommand(runSpace, invokeCommand, false, out errors);
         }
 
-        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController)
+        protected Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command local_cmd, bool useDomainController)
         {
             object[] errors;
-            return ExecuteShellCommand(runSpace, cmd, useDomainController, out errors);
+            return ExecuteShellCommand(runSpace, local_cmd, useDomainController, out errors);
         }
 
-        internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, out object[] errors)
+        internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command local_cmd, out object[] errors)
         {
-            return ExecuteShellCommand(runSpace, cmd, true, out errors);
+            return ExecuteShellCommand(runSpace, local_cmd, true, out errors);
         }
 
-        internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command cmd, bool useDomainController, out object[] errors)
+        internal Collection<PSObject> ExecuteShellCommand(Runspace runSpace, Command local_cmd, bool useDomainController, out object[] errors)
         {
             Log.WriteStart("ExecuteShellCommand");
 
             // 05.09.2015 roland.breitschaft@x-company.de
             // New: Add LogInfo
-            Log.WriteInfo("Command              : {0}", cmd.CommandText);
-            foreach (var par in cmd.Parameters)            
+            Log.WriteInfo("Command              : {0}", local_cmd.CommandText);
+            foreach (var par in local_cmd.Parameters)            
                 Log.WriteInfo("Parameter            : Name {0}, Value {1}", par.Name, par.Value);
             Log.WriteInfo("UseDomainController  : {0}", useDomainController);
 
@@ -1869,9 +1869,9 @@ namespace FuseCP.Providers.OS
             if (useDomainController)
             {
                 CommandParameter dc = new CommandParameter("DomainController", PrimaryDomainController);
-                if (!cmd.Parameters.Contains(dc))
+                if (!local_cmd.Parameters.Contains(dc))
                 {
-                    cmd.Parameters.Add(dc);
+                    local_cmd.Parameters.Add(dc);
                 }
             }
 
@@ -1881,7 +1881,7 @@ namespace FuseCP.Providers.OS
             using (pipeLine)
             {
                 // Add the command
-                pipeLine.Commands.Add(cmd);
+                pipeLine.Commands.Add(local_cmd);
                 // Execute the pipeline and save the objects returned.
                 results = pipeLine.Invoke();
 

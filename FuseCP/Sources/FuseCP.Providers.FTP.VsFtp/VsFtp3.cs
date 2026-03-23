@@ -174,13 +174,13 @@ namespace FuseCP.Providers.FTP
 				Unix.ChangeUnixFileOwner(account.Folder, FuseCPUser, VsftpdGroup);
 			}
 
-			// Create user's config file
+			// Create user's local_config file
 			var configFile = $"{UsersConfigFolder}/{account.Name}";
-			var config = new VsFtpConfig(configFile);
-			config.LocalRoot = account.Folder;
-			config.WriteEnable = account.CanWrite;
-			config.DownloadEnable = account.CanRead;
-			config.Save();
+			var local_config = new VsFtpConfig(configFile);
+			local_config.LocalRoot = account.Folder;
+			local_config.WriteEnable = account.CanWrite;
+			local_config.DownloadEnable = account.CanRead;
+			local_config.Save();
 			account.CreatedDate = File.GetCreationTime(configFile);
 
 			SetPassword(account);
@@ -213,12 +213,12 @@ namespace FuseCP.Providers.FTP
 				Unix.ChangeUnixFileOwner(account.Folder, VsftpdUser, VsftpdGroup);
 			}
 
-			// Update user's config file
-			var config = new VsFtpConfig($"{UsersConfigFolder}/{account.Name}");
-			config.LocalRoot = account.Folder;
-			config.WriteEnable = account.CanWrite;
-			config.DownloadEnable = account.CanRead;
-			config.Save();
+			// Update user's local_config file
+			var local_config = new VsFtpConfig($"{UsersConfigFolder}/{account.Name}");
+			local_config.LocalRoot = account.Folder;
+			local_config.WriteEnable = account.CanWrite;
+			local_config.DownloadEnable = account.CanRead;
+			local_config.Save();
 
 			SetPassword(account);
 

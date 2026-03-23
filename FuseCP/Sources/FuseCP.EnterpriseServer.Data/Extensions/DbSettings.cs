@@ -148,22 +148,22 @@ namespace FuseCP.EnterpriseServer.Data
 			(OSInfo.IsNetFX ? ConnectionStringNetFX : ConnectionStringNetCore);
 		public static string NativeConnectionString => GetNativeConnectionString(ConnectionString);
 
-        public static string GetNativeConnectionString(string connectionString)
+        public static string GetNativeConnectionString(string local_connectionString)
         {
-			if (string.IsNullOrWhiteSpace(connectionString))
+			if (string.IsNullOrWhiteSpace(local_connectionString))
 				return string.Empty;
 
-            return Regex.Replace(connectionString, @$"^\s*{nameof(DbType)}\s*=[^;$]*;|;\s*{nameof(DbType)}\s*=[^;$]*", "", RegexOptions.IgnoreCase);
+            return Regex.Replace(local_connectionString, @$"^\s*{nameof(DbType)}\s*=[^;$]*;|;\s*{nameof(DbType)}\s*=[^;$]*", "", RegexOptions.IgnoreCase);
 		}
-		public static DbType GetDbType(string connectionString)
+		public static DbType GetDbType(string local_connectionString)
         {
-			if (string.IsNullOrWhiteSpace(connectionString))
+			if (string.IsNullOrWhiteSpace(local_connectionString))
 				return DbType.Unknown;
 
-            DbType dbType = DbType.Unknown;
-            var dbTypeName = Regex.Match(connectionString, @$"(?<=(?:;|^)\s*{nameof(DbType)}\s*=\s*)[^;$]*", RegexOptions.IgnoreCase)?.Value.Trim();
-			if (!string.IsNullOrEmpty(dbTypeName) && !Enum.TryParse<DbType>(dbTypeName, true, out dbType)) dbType = DbType.Other;
-            return dbType;
+            DbType local_dbType = DbType.Unknown;
+            var dbTypeName = Regex.Match(local_connectionString, @$"(?<=(?:;|^)\s*{nameof(DbType)}\s*=\s*)[^;$]*", RegexOptions.IgnoreCase)?.Value.Trim();
+			if (!string.IsNullOrEmpty(dbTypeName) && !Enum.TryParse<DbType>(dbTypeName, true, out local_dbType)) local_dbType = DbType.Other;
+            return local_dbType;
 		}
 
         static DbType dbType = DbType.Unknown;
