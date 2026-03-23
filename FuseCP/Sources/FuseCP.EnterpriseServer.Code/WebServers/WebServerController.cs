@@ -172,7 +172,7 @@ namespace FuseCP.EnterpriseServer
             System.Net.IPAddress ip;
             if (System.Net.IPAddress.TryParse(addr, out ip)) 
             {
-                return ((ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6) |
+                return ((ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6) ||
                         (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork));
             }
             else 
@@ -917,7 +917,7 @@ namespace FuseCP.EnterpriseServer
 
 
                 AddWebSitePointer(siteItemId,
-                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) |
+                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) ||
                     (domain.DomainName == parentZone))
                     ? "" : domain.DomainName.Replace("." + parentZone, "")
                     , ZoneInfo.DomainId, true, true, true);
@@ -935,7 +935,7 @@ namespace FuseCP.EnterpriseServer
                     ZoneInfo = ServerController.GetDomain(pointerParentZone);
 
                     AddWebSitePointer(siteItemId,
-                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone)  |
+                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone)  ||
                         (pointer.DomainName == pointerParentZone))
                         ? "" : pointer.DomainName.Replace("." + pointerParentZone, "")
                         , ZoneInfo.DomainId, true, true, true);
@@ -954,8 +954,8 @@ namespace FuseCP.EnterpriseServer
 
                 foreach (ServerBinding b in web.GetSiteBindings(siteItem.SiteId))
                 {
-                    if (!((b.Host == srvBinding.Host) &
-                        (b.IP == srvBinding.IP) &
+                    if (!((b.Host == srvBinding.Host) &&
+                        (b.IP == srvBinding.IP) &&
                         (b.Port == srvBinding.Port)))
                         newBindings.Add(b);
                 }
@@ -1114,7 +1114,7 @@ namespace FuseCP.EnterpriseServer
                 }
 
                 AddWebSitePointer(siteItemId,
-                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) |
+                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) ||
                     (domain.DomainName == parentZone))
                     ? "" : domain.DomainName.Replace("." + parentZone, "")
                     , ZoneInfo.DomainId, true, true, true);
@@ -1132,7 +1132,7 @@ namespace FuseCP.EnterpriseServer
                     ZoneInfo = ServerController.GetDomain(pointerParentZone);
 
                     AddWebSitePointer(siteItemId,
-                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone) |
+                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone) ||
                         (pointer.DomainName == pointerParentZone))
                         ? "" : pointer.DomainName.Replace("." + pointerParentZone, "")
                         , ZoneInfo.DomainId, true, true, true);
@@ -1202,7 +1202,7 @@ namespace FuseCP.EnterpriseServer
                 }
             }
             
-            if ((bindings.Count == bindingsCount) | (bindings.Count == 0))
+            if ((bindings.Count == bindingsCount) || (bindings.Count == 0))
             {
                 AddBinding(bindings, new ServerBinding(ipAddr, "80", string.IsNullOrEmpty(hostName) ? domainName : string.IsNullOrEmpty(domainName) ? hostName : hostName + "." + domainName));
             }
@@ -1573,7 +1573,7 @@ namespace FuseCP.EnterpriseServer
                     {
                         foreach (GlobalDnsRecord r in dnsRecords)
                         {
-                            if ((r.RecordName == "[host_name]") | ((r.RecordName + (string.IsNullOrEmpty(r.RecordName) ? domain.ZoneName : "." + domain.ZoneName)) == domain.DomainName))
+                            if ((r.RecordName == "[host_name]") || ((r.RecordName + (string.IsNullOrEmpty(r.RecordName) ? domain.ZoneName : "." + domain.ZoneName)) == domain.DomainName))
                                 tmpDnsRecords.Add(r);
                         }
                     }

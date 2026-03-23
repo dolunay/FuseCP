@@ -824,7 +824,7 @@ namespace FuseCP.EnterpriseServer
 				string remoteBackupFile = sql.BackupDatabase(item.Name, backupName, true);
 
 				// download remote backup
-				string localBackupPath = Path.Combine(tempFolder, backupName);
+                string localBackupPath = Path.Combine(Path.GetFullPath(tempFolder), backupName);
 
 				byte[] buffer = null;
 				FileStream stream = new FileStream(localBackupPath, FileMode.Create, FileAccess.Write);

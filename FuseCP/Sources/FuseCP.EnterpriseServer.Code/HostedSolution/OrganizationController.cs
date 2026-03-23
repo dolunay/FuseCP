@@ -1177,7 +1177,7 @@ namespace FuseCP.EnterpriseServer
 
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -1185,7 +1185,7 @@ namespace FuseCP.EnterpriseServer
 
                             orgs = ExchangeServerController.GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.Count > 0))
+                            if ((orgs != null) && (orgs.Count > 0))
                             {
                                 foreach (Organization o in orgs)
                                 {

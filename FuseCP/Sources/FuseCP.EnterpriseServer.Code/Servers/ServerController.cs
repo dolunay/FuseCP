@@ -684,10 +684,18 @@ namespace FuseCP.EnterpriseServer
 			OS.OperatingSystem os = new OS.OperatingSystem();
 			ServiceProviderProxy.Init(os, serviceId);
 			Dictionary<int, string> res = new Dictionary<int, string>();
+			zipFileName = Path.GetFileName(zipFileName ?? String.Empty);
+			if (String.IsNullOrWhiteSpace(zipFileName))
+			{
+				res.Add(serverId, "Invalid zip file name");
+				return res;
+			}
+
 			string downloadPath = Path.Combine(
 				Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
 				"FuseCP", "Downloads");
-			string unpackedZipDirectory = downloadPath + zipFileName.Replace(".zip", "");
+			string unpackedZipDirectory = Path.Combine(downloadPath,
+				Path.GetFileNameWithoutExtension(zipFileName));
 			string ipAddress = os.Url.Split('/')[2].Split(':')[0];
 
 			string targetPath = @"\\" + ipAddress + @"\" + ServerController.GetServerFilePath(serverId).Replace(":", "$").Replace(@"\\", @"\");
@@ -698,7 +706,8 @@ namespace FuseCP.EnterpriseServer
 				{
 					Directory.CreateDirectory(downloadPath);
 				}
-				FileStream stream = File.Create(downloadPath + zipFileName);
+				string zipFullPath = Path.Combine(downloadPath, zipFileName);
+				FileStream stream = File.Create(zipFullPath);
 				stream.Close();
 				using (System.IO.MemoryStream zipFileContent = new System.IO.MemoryStream(zipFile))
 				{
@@ -709,14 +718,14 @@ namespace FuseCP.EnterpriseServer
 						int c;
 						while ((c = reader.Read(chunk, 0, chunk.Length)) != 0)
 						{
-							FileStream s = new FileStream(downloadPath + zipFileName, FileMode.Append, FileAccess.Write);
+							FileStream s = new FileStream(zipFullPath, FileMode.Append, FileAccess.Write);
 							s.Write(chunk, 0, chunk.Length);
 							s.Close();
 						}
 					}
 				}
 
-				FileUtils.UnzipFiles(downloadPath + zipFileName, unpackedZipDirectory);
+				FileUtils.UnzipFiles(zipFullPath, unpackedZipDirectory);
 				FileUtils.CopyDirectoryContentUNC(unpackedZipDirectory, targetPath);
 				res.Add(0, "");
 			}
@@ -2992,7 +3001,7 @@ namespace FuseCP.EnterpriseServer
 		{
 			foreach (DnsRecord d in domainRecords)
 			{
-				if ((record.RecordName.ToLower() == d.RecordName.ToLower()) &
+				if ((record.RecordName.ToLower() == d.RecordName.ToLower()) &&
 					(record.RecordType == d.RecordType))
 				{
 					return true;
@@ -3376,7 +3385,7 @@ namespace FuseCP.EnterpriseServer
 								List<Organization> orgsLync = OrganizationController.GetOrganizations(domain.PackageId, false);
 								foreach (Organization o in orgsLync)
 								{
-									if ((o.DefaultDomain.ToLower() == domain.DomainName.ToLower()) &
+									if ((o.DefaultDomain.ToLower() == domain.DomainName.ToLower()) &&
 										 (o.LyncTenantId != null))
 									{
 										bFound = true;
@@ -3392,7 +3401,7 @@ namespace FuseCP.EnterpriseServer
 								List<Organization> orgsSfB = OrganizationController.GetOrganizations(domain.PackageId, false);
 								foreach (Organization o in orgsSfB)
 								{
-									if ((o.DefaultDomain.ToLower() == domain.DomainName.ToLower()) &
+									if ((o.DefaultDomain.ToLower() == domain.DomainName.ToLower()) &&
 										 (o.SfBTenantId != null))
 									{
 										bFound = true;
@@ -3518,7 +3527,7 @@ namespace FuseCP.EnterpriseServer
 				if (domain.WebSiteId > 0)
 				{
 					WebServerController.AddWebSitePointer(domain.WebSiteId,
-															((domain.DomainName.Replace("." + parentZone, "") == parentZone) |
+															((domain.DomainName.Replace("." + parentZone, "") == parentZone) ||
 															(domain.DomainName == parentZone))
 															? "" : domain.DomainName.Replace("." + parentZone, ""),
 															previewDomain.DomainId);
@@ -3533,7 +3542,7 @@ namespace FuseCP.EnterpriseServer
 					if (d.WebSiteId > 0)
 					{
 						WebServerController.AddWebSitePointer(d.WebSiteId,
-																((d.DomainName.Replace("." + parentZone, "") == parentZone) |
+																((d.DomainName.Replace("." + parentZone, "") == parentZone) ||
 																(d.DomainName == parentZone))
 																? "" : d.DomainName.Replace("." + parentZone, ""),
 																previewDomain.DomainId);

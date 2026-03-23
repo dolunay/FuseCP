@@ -35,6 +35,32 @@ namespace FuseCP.EnterpriseServer
 		private const int FILE_BUFFER_LENGTH = 5000000; // ~5MB
 		private const string RSA_SETTINGS_KEY = "RSA_KEY";
 
+		private static string NormalizeAbsolutePath(string path)
+		{
+			if (String.IsNullOrWhiteSpace(path))
+				throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+
+			if (path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+				throw new ArgumentException("Path contains invalid characters.", nameof(path));
+
+			return Path.GetFullPath(path);
+		}
+
+		private static string EnsureSafeRelativePath(string path)
+		{
+			if (String.IsNullOrWhiteSpace(path))
+				throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+
+			if (Path.IsPathRooted(path))
+				throw new ArgumentException("Relative path expected.", nameof(path));
+
+			string normalized = path.Replace('/', '\\');
+			if (normalized.Contains("..\\") || normalized.StartsWith("..", StringComparison.Ordinal))
+				throw new ArgumentException("Relative path contains traversal segments.", nameof(path));
+
+			return normalized.TrimStart('\\');
+		}
+
 		public BackupController(ControllerBase provider) : base(provider) { }
 
         public int Backup(bool async, string taskId, int userId, int packageId, int serviceId, int serverId,
@@ -272,7 +298,7 @@ namespace FuseCP.EnterpriseServer
 					// copy to local folder or UNC
 					try
 					{
-						string destFile = Path.Combine(storeServerFolder, backupFileName);
+						string destFile = Path.Combine(NormalizeAbsolutePath(storeServerFolder), backupFileName);
 						File.Copy(backupFileNamePath, destFile, true);
 					}
 					catch (Exception ex)
@@ -447,7 +473,7 @@ namespace FuseCP.EnterpriseServer
 			{
 				try
 				{
-					if (!File.Exists(storeServerBackupPath))
+					if (!File.Exists(NormalizeAbsolutePath(storeServerBackupPath)))
 						return BusinessErrorCodes.ERROR_RESTORE_BACKUP_SOURCE_NOT_FOUND;
 				}
 				catch
@@ -536,7 +562,7 @@ namespace FuseCP.EnterpriseServer
 				}
 				else
 				{
-					backupFileNamePath = storeServerBackupPath;
+					backupFileNamePath = NormalizeAbsolutePath(storeServerBackupPath);
 				}
 
 				try
@@ -768,7 +794,7 @@ namespace FuseCP.EnterpriseServer
 		{
 			try
 			{
-				string tempFile = Path.Combine(path, "check");
+				string tempFile = Path.Combine(NormalizeAbsolutePath(path), "check");
 				StreamWriter writer = File.CreateText(tempFile);
 				writer.Close();
 				File.Delete(tempFile);
@@ -784,6 +810,8 @@ namespace FuseCP.EnterpriseServer
 		{
 			try
 			{
+				string safeRelativePath = EnsureSafeRelativePath(path);
+
 				// copy to space folder
 				int osServiceId = PackageController.GetPackageServiceId(packageId, ResourceGroups.Os);
 				if (osServiceId > 0)
@@ -792,7 +820,7 @@ namespace FuseCP.EnterpriseServer
 					ServiceProviderProxy.Init(os, osServiceId);
 
 					string remoteServerPathCheck = FilesController.GetFullPackagePath(packageId,
-						Path.Combine(path, "check.txt"));
+						Path.Combine(safeRelativePath, "check.txt"));
 
 					//
 					os.CreateFile(remoteServerPathCheck);

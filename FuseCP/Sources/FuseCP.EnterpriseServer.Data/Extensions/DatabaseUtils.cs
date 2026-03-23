@@ -408,7 +408,7 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
 				SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
@@ -428,7 +428,7 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
 				SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
@@ -493,6 +493,24 @@ namespace FuseCP.EnterpriseServer.Data
 			Enum.TryParse(dbTypeName, out dbType);
 			nativeConnectionString = csb.ToString();
 		}
+
+		/// <summary>
+		/// Normalizes a SQL Server connection string to ensure transport encryption is
+		/// explicitly configured. Defaults to encrypted with certificate trust, which
+		/// matches the behaviour of pre-existing deployments while preventing cleartext
+		/// credential transport across the network.
+		/// </summary>
+		private static string EnsureSqlServerEncryption(string connectionString)
+		{
+			var builder = new SqlConnectionStringBuilder(connectionString);
+			if (!builder.ContainsKey("Encrypt") || !(bool)builder["Encrypt"])
+			{
+				builder.Encrypt = true;
+				if (!builder.TrustServerCertificate)
+					builder.TrustServerCertificate = true;
+			}
+			return builder.ConnectionString;
+		}
 		public static DataSet ExecuteQuery(string connectionString, string commandText)
 		{
 			Data.DbType dbType;
@@ -516,7 +534,7 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
 				conn.Open();
 				SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
 				DataSet ds = new DataSet();
@@ -1395,7 +1413,7 @@ LOG ON(
 		}
 		public static System.Data.Common.DbConnection SqlServerConnection(string connectionString)
 		{
-			return new SqlConnection(connectionString);
+			return new SqlConnection(EnsureSqlServerEncryption(connectionString));
 		}
 		public static System.Data.Common.DbConnection MySqlConnection(string connectionString)
 		{

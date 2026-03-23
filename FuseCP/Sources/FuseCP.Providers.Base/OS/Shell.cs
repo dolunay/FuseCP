@@ -185,6 +185,11 @@ namespace FuseCP.Providers.OS
 		public virtual StreamWriter StandardInput => process.StandardInput;
 		public virtual Shell ExecAsync(string cmd, Encoding encoding = null, Dictionary<string, string> environment = null)
 		{
+			if (string.IsNullOrWhiteSpace(cmd))
+				throw new ArgumentException("Command cannot be null or empty.", nameof(cmd));
+			if (cmd.IndexOf('\0') >= 0 || cmd.IndexOf('\r') >= 0 || cmd.IndexOf('\n') >= 0)
+				throw new ArgumentException("Command contains invalid control characters.", nameof(cmd));
+
 			LogCommand?.Invoke(cmd);
 
 			// separate command from arguments
@@ -221,6 +226,9 @@ namespace FuseCP.Providers.OS
 				}
 				else arguments = "";
 			}
+
+			if (arguments.IndexOf('\0') >= 0 || arguments.IndexOf('\r') >= 0 || arguments.IndexOf('\n') >= 0)
+				throw new ArgumentException("Arguments contain invalid control characters.", nameof(cmd));
 
 			var cmdWithPath = Find(cmd);
 			if (cmdWithPath != null)

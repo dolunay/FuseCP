@@ -655,7 +655,7 @@ namespace FuseCP.EnterpriseServer
                 CreateBackupZip(item.PackageId, backupName);
 
                 // download zipped file
-                string localBackupPath = Path.Combine(tempFolder, backupName);
+                string localBackupPath = Path.Combine(Path.GetFullPath(tempFolder), backupName);
 
                 byte[] buffer = null;
                 FileStream stream = new FileStream(localBackupPath, FileMode.Create, FileAccess.Write);

@@ -23,6 +23,19 @@ namespace FuseCP.EnterpriseServer;
 
     public class FileUtils
     {
+	private static string EnsurePathUnderRoot(string rootPath, string relativePath)
+	{
+		string normalizedRoot = Path.GetFullPath(rootPath);
+		string candidate = Path.GetFullPath(Path.Combine(normalizedRoot, relativePath ?? String.Empty));
+		if (!candidate.StartsWith(normalizedRoot.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar,
+			StringComparison.OrdinalIgnoreCase) &&
+			!String.Equals(candidate, normalizedRoot, StringComparison.OrdinalIgnoreCase))
+		{
+			throw new InvalidOperationException("Path escapes the allowed root directory.");
+		}
+		return candidate;
+	}
+
 	#region Zip/Unzip Methods
 
 	public static void ZipFiles(string zipFile, string rootPath, string[] files)
@@ -32,7 +45,7 @@ namespace FuseCP.EnterpriseServer;
 		{
 			foreach (string file in files)
 			{
-				string fullPath = Path.Combine(rootPath, file);
+				string fullPath = EnsurePathUnderRoot(rootPath, file);
 				if (Directory.Exists(fullPath))
 				{
 					//add directory with the same directory name
@@ -59,15 +72,19 @@ namespace FuseCP.EnterpriseServer;
 
 	#region Copy
 	public static void CopyDirectoryContentUNC(string sourceDirectory, string destinationDirectory) {
+			sourceDirectory = Path.GetFullPath(sourceDirectory);
+			destinationDirectory = Path.GetFullPath(destinationDirectory);
             foreach(string dir in Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories)) {
-                string destinationPath = dir.Replace(sourceDirectory, destinationDirectory);
+				string relativePath = Path.GetRelativePath(sourceDirectory, dir);
+				string destinationPath = EnsurePathUnderRoot(destinationDirectory, relativePath);
                 if(!Directory.Exists(destinationPath)) { 
                     Directory.CreateDirectory(destinationPath);
                 }
             }
             
             foreach(string file in Directory.GetFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)) {
-                string destinationPath = file.Replace(sourceDirectory, destinationDirectory);
+				string relativePath = Path.GetRelativePath(sourceDirectory, file);
+				string destinationPath = EnsurePathUnderRoot(destinationDirectory, relativePath);
                 File.Copy(file, destinationPath, true);
             }
         }

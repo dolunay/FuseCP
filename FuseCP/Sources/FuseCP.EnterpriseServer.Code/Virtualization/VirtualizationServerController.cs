@@ -2968,7 +2968,7 @@ namespace FuseCP.EnterpriseServer
             if (addresses != null)
             {
                 foreach(var address in addresses)
-                    Trace.TraceInformation("addresses[n]: {0}", address);
+                        Trace.TraceInformation("addresses[n]: {0}", address?.Replace("\r", "").Replace("\n", ""));
             }
 
             ResultObject res = new ResultObject();

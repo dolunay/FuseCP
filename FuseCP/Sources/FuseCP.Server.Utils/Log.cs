@@ -16,6 +16,7 @@
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Text;
 
 namespace FuseCP.Server.Utils
@@ -26,6 +27,7 @@ namespace FuseCP.Server.Utils
     public sealed class Log
     {
         private static TraceSwitch logSeverity = new TraceSwitch("Log", "General trace switch");
+        private static readonly Regex SensitivePairRegex = new Regex("(?i)(password|pwd|token|apikey|secret|connectionstring)\\s*[=:]\\s*([^;\\s]+)", RegexOptions.Compiled);
         private Log()
         {
         }
@@ -48,9 +50,9 @@ namespace FuseCP.Server.Utils
                 {
                     StringBuilder txt = new StringBuilder();
                     txt.Append($"[{DateTime.Now:G}] ERROR: ");
-                    txt.AppendLine(message);
+                    txt.AppendLine(SanitizeLogText(message));
                     while (ex != null) {
-                        txt.AppendLine(ex.ToString());
+                        txt.AppendLine(SanitizeLogText(ex.ToString()));
                         ex = ex.InnerException;
                         if (ex != null)
                         {
@@ -146,13 +148,35 @@ namespace FuseCP.Server.Utils
 
         private static string FormatIncomingMessage(string message, string tag, params object[] args)
         {
-            //
-            if (args.Length > 0)
+            if (message == null)
             {
-                message = String.Format(message, args);
+                message = String.Empty;
             }
-            //
-            return String.Concat(String.Format("[{0:G}] {1}: ", DateTime.Now, tag), message);
+
+            if (args != null && args.Length > 0)
+            {
+                try
+                {
+                    message = String.Format(message, args);
+                }
+                catch (FormatException)
+                {
+                    message = message + " | args=" + String.Join(", ", args);
+                }
+            }
+
+            return String.Concat(String.Format("[{0:G}] {1}: ", DateTime.Now, tag), SanitizeLogText(message));
+        }
+
+        private static string SanitizeLogText(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            string sanitized = input.Replace("\r", String.Empty).Replace("\n", " ");
+            return SensitivePairRegex.Replace(sanitized, "$1=[REDACTED]");
         }
 
 

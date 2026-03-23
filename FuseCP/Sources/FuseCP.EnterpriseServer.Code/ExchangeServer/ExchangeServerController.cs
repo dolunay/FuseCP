@@ -220,7 +220,7 @@ namespace FuseCP.EnterpriseServer
                     UserInfo user = ObjectUtils.FillObjectFromDataReader<UserInfo>(Database.GetUserByExchangeOrganizationIdInternally(org.Id));
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -228,7 +228,7 @@ namespace FuseCP.EnterpriseServer
 
                             orgs = GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.Count > 0))
+                            if ((orgs != null) && (orgs.Count > 0))
                             {
                                 foreach (Organization o in orgs)
                                 {
@@ -3594,7 +3594,7 @@ namespace FuseCP.EnterpriseServer
                 {
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         orgs = GetExchangeOrganizationsInternal(Packages[0].PackageId, false);
                     }
@@ -3606,7 +3606,7 @@ namespace FuseCP.EnterpriseServer
 
                 int OrgId = -1;
                 if (itemId > 0) OrgId = itemId;
-                else if ((orgs != null) & (orgs.Count > 0)) OrgId = orgs[0].Id;
+                else if ((orgs != null) && (orgs.Count > 0)) OrgId = orgs[0].Id;
 
 
                 if (OrgId != -1)
@@ -3675,12 +3675,12 @@ namespace FuseCP.EnterpriseServer
 
                 if (org.PackageId > 1)
                 {
-                    mailboxPlan.EnableActiveSync = mailboxPlan.EnableActiveSync & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ACTIVESYNCALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableIMAP = mailboxPlan.EnableIMAP & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_IMAPALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableMAPI = mailboxPlan.EnableMAPI & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_MAPIALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableOWA = mailboxPlan.EnableOWA & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_OWAALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnablePOP = mailboxPlan.EnablePOP & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_POP3ALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableAutoReply = mailboxPlan.EnableAutoReply & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2013_AUTOREPLY].QuotaAllocatedValue);
+                    mailboxPlan.EnableActiveSync = mailboxPlan.EnableActiveSync && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ACTIVESYNCALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableIMAP = mailboxPlan.EnableIMAP && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_IMAPALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableMAPI = mailboxPlan.EnableMAPI && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_MAPIALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableOWA = mailboxPlan.EnableOWA && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_OWAALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnablePOP = mailboxPlan.EnablePOP && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_POP3ALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableAutoReply = mailboxPlan.EnableAutoReply && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2013_AUTOREPLY].QuotaAllocatedValue);
 
                     if (cntx.Quotas[Quotas.EXCHANGE2007_KEEPDELETEDITEMSDAYS].QuotaAllocatedValue != -1)
                         if (mailboxPlan.KeepDeletedItemsDays > cntx.Quotas[Quotas.EXCHANGE2007_KEEPDELETEDITEMSDAYS].QuotaAllocatedValue)
@@ -3713,7 +3713,7 @@ namespace FuseCP.EnterpriseServer
 
                     if (Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ISCONSUMER].QuotaAllocatedValue)) mailboxPlan.HideFromAddressBook = true;
 
-                    mailboxPlan.AllowLitigationHold = mailboxPlan.AllowLitigationHold & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ALLOWLITIGATIONHOLD].QuotaAllocatedValue);
+                    mailboxPlan.AllowLitigationHold = mailboxPlan.AllowLitigationHold && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ALLOWLITIGATIONHOLD].QuotaAllocatedValue);
 
                     if (cntx.Quotas[Quotas.EXCHANGE2007_RECOVERABLEITEMSSPACE].QuotaAllocatedValuePerOrganization != -1)
                         if (mailboxPlan.RecoverableItemsSpace > cntx.Quotas[Quotas.EXCHANGE2007_RECOVERABLEITEMSSPACE].QuotaAllocatedValuePerOrganization)
@@ -3767,12 +3767,12 @@ namespace FuseCP.EnterpriseServer
 
                 if (org.PackageId > 1)
                 {
-                    mailboxPlan.EnableActiveSync = mailboxPlan.EnableActiveSync & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ACTIVESYNCALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableIMAP = mailboxPlan.EnableIMAP & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_IMAPALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableMAPI = mailboxPlan.EnableMAPI & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_MAPIALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableOWA = mailboxPlan.EnableOWA & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_OWAALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnablePOP = mailboxPlan.EnablePOP & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_POP3ALLOWED].QuotaAllocatedValue);
-                    mailboxPlan.EnableAutoReply = mailboxPlan.EnableAutoReply & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2013_AUTOREPLY].QuotaAllocatedValue);
+                    mailboxPlan.EnableActiveSync = mailboxPlan.EnableActiveSync && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ACTIVESYNCALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableIMAP = mailboxPlan.EnableIMAP && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_IMAPALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableMAPI = mailboxPlan.EnableMAPI && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_MAPIALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableOWA = mailboxPlan.EnableOWA && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_OWAALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnablePOP = mailboxPlan.EnablePOP && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_POP3ALLOWED].QuotaAllocatedValue);
+                    mailboxPlan.EnableAutoReply = mailboxPlan.EnableAutoReply && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2013_AUTOREPLY].QuotaAllocatedValue);
 
                     if (cntx.Quotas[Quotas.EXCHANGE2007_KEEPDELETEDITEMSDAYS].QuotaAllocatedValue != -1)
                         if (mailboxPlan.KeepDeletedItemsDays > cntx.Quotas[Quotas.EXCHANGE2007_KEEPDELETEDITEMSDAYS].QuotaAllocatedValue)
@@ -3796,7 +3796,7 @@ namespace FuseCP.EnterpriseServer
 
                     if (Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ISCONSUMER].QuotaAllocatedValue)) mailboxPlan.HideFromAddressBook = true;
 
-                    mailboxPlan.AllowLitigationHold = mailboxPlan.AllowLitigationHold & Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ALLOWLITIGATIONHOLD].QuotaAllocatedValue);
+                    mailboxPlan.AllowLitigationHold = mailboxPlan.AllowLitigationHold && Convert.ToBoolean(cntx.Quotas[Quotas.EXCHANGE2007_ALLOWLITIGATIONHOLD].QuotaAllocatedValue);
 
                     if (cntx.Quotas[Quotas.EXCHANGE2007_RECOVERABLEITEMSSPACE].QuotaAllocatedValuePerOrganization != -1)
                         if (mailboxPlan.RecoverableItemsSpace > cntx.Quotas[Quotas.EXCHANGE2007_RECOVERABLEITEMSSPACE].QuotaAllocatedValuePerOrganization)
@@ -3978,7 +3978,7 @@ namespace FuseCP.EnterpriseServer
                 {
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         orgs = GetExchangeOrganizationsInternal(Packages[0].PackageId, false);
                     }
@@ -3990,7 +3990,7 @@ namespace FuseCP.EnterpriseServer
 
                 int OrgId = -1;
                 if (itemId > 0) OrgId = itemId;
-                else if ((orgs != null) & (orgs.Count > 0)) OrgId = orgs[0].Id;
+                else if ((orgs != null) && (orgs.Count > 0)) OrgId = orgs[0].Id;
 
 
                 if (OrgId != -1)

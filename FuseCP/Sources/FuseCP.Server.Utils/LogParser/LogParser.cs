@@ -118,7 +118,7 @@ namespace FuseCP.Providers.Utils.LogParser
 						catch (Exception ex)
 						{
 							// Handle an exception
-							Log.WriteError(String.Format("LogParser: Failed to instantiate monthly stats file '{0}' at '{0}' path", statsName, statsDir), ex);
+							Log.WriteError(String.Format("LogParser: Failed to instantiate monthly stats file '{0}' at '{1}' path", statsName, statsDir), ex);
 							// SKIP OVER THE NEXT ITERATION
 							continue;
 						}
