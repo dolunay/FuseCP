@@ -1477,7 +1477,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
             try
             {
-                var entry = new DirectoryEntry(GetOrganizationPath(organizationId));
+                using var entry = new DirectoryEntry(GetOrganizationPath(organizationId));
                 var distinguishedName = string.Format("\"{0}\"", ActiveDirectoryUtils.GetADObjectProperty(entry, "DistinguishedName"));
 
                 Command cmd = new Command("New-GPO");
@@ -2083,7 +2083,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersRootOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
+                    using DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2114,7 +2114,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, collectionOUName))
                 {
-                    DirectoryEntry group = new DirectoryEntry(collectionOUPath);
+                    using DirectoryEntry group = new DirectoryEntry(collectionOUPath);
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2173,7 +2173,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(tenantComputerGroupPath);
+                    using DirectoryEntry group = new DirectoryEntry(tenantComputerGroupPath);
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2205,7 +2205,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 
                 if (ActiveDirectoryUtils.AdObjectExists(GetComputersRootPath()) && !string.IsNullOrEmpty(ComputersRootOU) && !ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersRootOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
+                    using DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2241,7 +2241,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         public bool CheckServerAvailability(string hostName)
         {
-            var ping = new Ping();
+            using var ping = new Ping();
 
             var ipAddress = GetServerIp(hostName);
 
@@ -2530,7 +2530,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         private DirectoryEntry GetComputerObject(string computerName)
         {
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter = string.Format("(&(objectCategory=computer)(name={0}))", computerName)
             };
@@ -3123,7 +3123,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         private bool CheckRDSServerAvaliability(string serverName)
         {            
-            var ping = new Ping();
+            using var ping = new Ping();
             var reply = ping.Send(serverName, 1000);
 
             if (reply.Status == IPStatus.Success)

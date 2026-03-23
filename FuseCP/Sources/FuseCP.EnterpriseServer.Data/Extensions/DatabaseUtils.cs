@@ -358,7 +358,7 @@ namespace FuseCP.EnterpriseServer.Data
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				SqlCommand cmd = new SqlCommand();
+				using SqlCommand cmd = new SqlCommand();
 				cmd.CommandType = CommandType.StoredProcedure;
 				cmd.CommandText = name;
 				cmd.Connection = connection;
@@ -409,7 +409,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
-				SqlCommand cmd = new SqlCommand(commandText, conn);
+				using SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				int ret = cmd.ExecuteNonQuery();
@@ -429,7 +429,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
-				SqlCommand cmd = new SqlCommand(commandText, conn);
+				using SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				object ret = cmd.ExecuteScalar();
@@ -449,7 +449,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new MySqlConnection(connectionString);
-				MySqlCommand cmd = new MySqlCommand(commandText, conn);
+				using MySqlCommand cmd = new MySqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				int ret = cmd.ExecuteNonQuery();
@@ -536,7 +536,7 @@ namespace FuseCP.EnterpriseServer.Data
 			{
 				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
 				conn.Open();
-				SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
+				using SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
 				DataSet ds = new DataSet();
 				adapter.Fill(ds);
 				return ds;
@@ -555,7 +555,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new MySqlConnection(connectionString);
-				MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
+				using MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
 				DataSet ds = new DataSet();
 				conn.Open();
 				adapter.Fill(ds);

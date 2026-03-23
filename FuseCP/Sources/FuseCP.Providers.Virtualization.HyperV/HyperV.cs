@@ -1616,7 +1616,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             advancedDisk = null;
             diskPack = null;
 
-            Vds.ServiceLoader serviceLoader = new Vds.ServiceLoader();
+            using Vds.ServiceLoader serviceLoader = new Vds.ServiceLoader();
             Vds.Service vds = serviceLoader.LoadService(ServerNameSettings);
             vds.WaitForServiceReady();
 

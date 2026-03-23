@@ -231,7 +231,7 @@ namespace FuseCP.EnterpriseServer
                     }
                 };
 
-                var httpClient = new HttpClient(httpClientHandler);
+                using var httpClient = new HttpClient(httpClientHandler);
                 httpResponse = await httpClient.SendAsync(new HttpRequestMessage(httpMethod, url));
             }
             catch (Exception e)

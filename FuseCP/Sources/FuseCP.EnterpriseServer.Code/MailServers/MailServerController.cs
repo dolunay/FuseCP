@@ -1778,7 +1778,7 @@ namespace FuseCP.EnterpriseServer
 					new XmlNodeReader(itemNode.SelectSingleNode("MailDomain")));
 
 				// create mail domain if required
-				List<string> domains = new List<string>();
+				using List<string> domains = new List<string>();
 				if (!mail.DomainExists(domain.Name))
 				{
 					mail.CreateDomain(domain);

@@ -737,11 +737,11 @@ namespace FuseCP.Providers.HostedSolution
             try
             {
                 string path = ConvertDomainName(RootDomain);
-                DirectoryEntry entry = new DirectoryEntry(path, username, password);
+                using DirectoryEntry entry = new DirectoryEntry(path, username, password);
                 //Bind to the native AdsObject to force authentication.
                 object obj = entry.NativeObject;
 
-                DirectorySearcher search = new DirectorySearcher(entry);
+                using DirectorySearcher search = new DirectorySearcher(entry);
 
                 search.Filter = string.Format("(userPrincipalName={0})", username);
                 search.PropertiesToLoad.Add("cn");
@@ -6863,7 +6863,7 @@ namespace FuseCP.Providers.HostedSolution
             string defaultContext = GetADObjectProperty(rootDSE, "defaultNamingContext").ToString();
             DirectoryEntry partitions = GetADObject("LDAP://cn=Partitions," + contextPath);
 
-            DirectorySearcher searcher = new DirectorySearcher();
+            using DirectorySearcher searcher = new DirectorySearcher();
             searcher.SearchRoot = partitions;
             searcher.Filter = string.Format("(&(objectCategory=crossRef)(nCName={0}))", defaultContext);
             searcher.SearchScope = SearchScope.OneLevel;
@@ -6985,11 +6985,11 @@ namespace FuseCP.Providers.HostedSolution
 
             if (connectionInfo == null)
             {
-                ServerManager mgr = new ServerManager();
+                using ServerManager mgr = new ServerManager();
                 string poolName = Environment.GetEnvironmentVariable("APP_POOL_ID", EnvironmentVariableTarget.Process);
                 ApplicationPool myAppPool = mgr.ApplicationPools[poolName];
 
-                SecureString password = new SecureString();
+                using SecureString password = new SecureString();
                 string str_password = myAppPool.ProcessModel.Password;
                 string username = myAppPool.ProcessModel.UserName;
 

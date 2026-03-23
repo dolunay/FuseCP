@@ -487,7 +487,7 @@ namespace FuseCP.Providers.Virtualization
             SKImage thumb = SKImage.Create(thumbinfo);
             image?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 
-            MemoryStream stream = new MemoryStream();
+            using MemoryStream stream = new MemoryStream();
 
             using (var data = thumb.Encode(SKEncodedImageFormat.Png, 100))
             {
@@ -1239,7 +1239,7 @@ namespace FuseCP.Providers.Virtualization
                 SKImage thumb = SKImage.Create(thumbinfo);
                 img?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 
-                MemoryStream stream = new MemoryStream();
+                using MemoryStream stream = new MemoryStream();
 
                 using (var data = thumb.Encode(SKEncodedImageFormat.Png, 100))
                 {
