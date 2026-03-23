@@ -599,12 +599,11 @@ namespace FuseCP.Providers.HostedSolution
 		{
 			foreach (ServiceProviderItem item in items)
 			{
-				if (item is Organization)
+				if (item is Organization org)
 				{
 					try
 					{
-						// make E2K7 mailboxes disabled
-						Organization org = item as Organization;
+
 						ChangeOrganizationState(org.DistinguishedName, enabled);
 					}
 					catch (Exception ex)
@@ -621,9 +620,8 @@ namespace FuseCP.Providers.HostedSolution
 			{
 				try
 				{
-					if (item is Organization)
+					if (item is Organization org)
 					{
-						Organization org = item as Organization;
 						DeleteOrganization(org.OrganizationId, org.DistinguishedName, org.GlobalAddressList,
 							 org.AddressList, org.RoomsAddressList, org.OfflineAddressBook, org.SecurityGroup, org.AddressBookPolicy, null);
 					}
@@ -646,12 +644,12 @@ namespace FuseCP.Providers.HostedSolution
 			// update items with diskspace
 			foreach (ServiceProviderItem item in items)
 			{
-				if (item is Organization)
+				if (item is Organization org)
 				{
 					try
 					{
 						Log.WriteStart(String.Format("Calculating '{0}' disk space", item.Name));
-						Organization org = item as Organization;
+
 						// calculate disk space
 						ServiceProviderItemDiskSpace diskspace = new ServiceProviderItemDiskSpace();
 						diskspace.ItemId = item.Id;
@@ -1532,7 +1530,7 @@ namespace FuseCP.Providers.HostedSolution
 
 			var onBehalfs = GetPSObjectProperty(result, "GrantSendOnBehalfTo") as IEnumerable;
 
-			foreach (object current in onBehalfs)
+			foreach (object current in onBehalfs ?? System.Linq.Enumerable.Empty<object>())
 			{
 				string user = current.ToString();
 

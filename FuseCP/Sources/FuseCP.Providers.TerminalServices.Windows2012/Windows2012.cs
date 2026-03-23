@@ -195,7 +195,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return new string[]{};
@@ -247,7 +247,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -276,7 +276,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -393,7 +393,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }                   
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -448,7 +448,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -464,7 +464,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -492,7 +492,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -508,7 +508,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return existingServers;
@@ -527,7 +527,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return collection;
@@ -591,7 +591,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -657,7 +657,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -701,7 +701,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -735,7 +735,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -773,7 +773,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result.ToArray();
@@ -821,7 +821,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -850,7 +850,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return startApps;
@@ -879,7 +879,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return remoteApps;
@@ -921,7 +921,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -959,7 +959,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -1158,7 +1158,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }                       
         }
 
@@ -1246,7 +1246,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -1556,7 +1556,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -1669,7 +1669,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }  
  
@@ -1789,7 +1789,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -1861,7 +1861,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -2053,7 +2053,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return installationResult;
@@ -2233,7 +2233,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return isInstalled;
@@ -2955,7 +2955,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -2974,7 +2974,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -3002,7 +3002,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -3028,7 +3028,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
