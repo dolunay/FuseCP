@@ -673,9 +673,12 @@ namespace FuseCP.Providers.Web
 		{
 			get
 			{
-				if (string.IsNullOrEmpty(authType) && !string.IsNullOrEmpty(Password))
+				if (string.IsNullOrEmpty(authType))
 				{
+					if (!string.IsNullOrEmpty(Password))
 					{
+						authType = HtaccessFolder.RE_DIGEST_PASSWORD.IsMatch(Password) ? HtaccessFolder.AUTH_TYPE_DIGEST : HtaccessFolder.AUTH_TYPE_BASIC;
+					}
 				}
 
 				return authType;

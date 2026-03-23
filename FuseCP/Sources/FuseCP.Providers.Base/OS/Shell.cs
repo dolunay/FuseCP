@@ -402,7 +402,7 @@ namespace FuseCP.Providers.OS
 		{
 			script = script.Trim();
 			// adjust new lines to OS type
-			readonly script = Regex.Replace(script, @"\r?\n", System.Environment.NewLine);
+			script = Regex.Replace(script, @"\r?\n", System.Environment.NewLine);
 			var file = ToTempFile(script.Trim());
 			var cmd = new StringBuilder();
 			cmd.Append(ShellExe);
