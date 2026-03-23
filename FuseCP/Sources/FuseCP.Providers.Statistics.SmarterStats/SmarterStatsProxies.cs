@@ -36,6 +36,7 @@ namespace FuseCP.Providers.Statistics
     using System.Xml.Serialization;
 
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -57,30 +58,38 @@ namespace FuseCP.Providers.Statistics
 
         private System.Threading.SendOrPostCallback UpdateServerOperationCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public ServerAdmin()
         {
             this.Url = "http://127.0.0.1:9999/services/serveradmin.asmx";
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetGlobalDefaultsCompletedEventHandler GetGlobalDefaultsCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetServersCompletedEventHandler GetServersCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event PingServerCompletedEventHandler PingServerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event AddServerCompletedEventHandler AddServerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event DeleteServerCompletedEventHandler DeleteServerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event UpdateServerCompletedEventHandler UpdateServerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/GetGlobalDefaults", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GlobalDefaultsResult GetGlobalDefaults(string authUserName, string authPassword)
@@ -91,6 +100,7 @@ namespace FuseCP.Providers.Statistics
             return ((GlobalDefaultsResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetGlobalDefaults(string authUserName, string authPassword, System.AsyncCallback callback, object asyncState)
         {
@@ -99,6 +109,7 @@ namespace FuseCP.Providers.Statistics
                         authPassword}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GlobalDefaultsResult EndGetGlobalDefaults(System.IAsyncResult asyncResult)
         {
@@ -106,12 +117,14 @@ namespace FuseCP.Providers.Statistics
             return ((GlobalDefaultsResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetGlobalDefaultsAsync(string authUserName, string authPassword)
         {
             this.GetGlobalDefaultsAsync(authUserName, authPassword, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetGlobalDefaultsAsync(string authUserName, string authPassword, object userState)
         {
@@ -133,6 +146,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/GetServers", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ServerInfoArrayResult GetServers(string authUserName, string authPassword)
@@ -143,6 +157,7 @@ namespace FuseCP.Providers.Statistics
             return ((ServerInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetServers(string authUserName, string authPassword, System.AsyncCallback callback, object asyncState)
         {
@@ -151,6 +166,7 @@ namespace FuseCP.Providers.Statistics
                         authPassword}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public ServerInfoArrayResult EndGetServers(System.IAsyncResult asyncResult)
         {
@@ -158,12 +174,14 @@ namespace FuseCP.Providers.Statistics
             return ((ServerInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetServersAsync(string authUserName, string authPassword)
         {
             this.GetServersAsync(authUserName, authPassword, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetServersAsync(string authUserName, string authPassword, object userState)
         {
@@ -185,6 +203,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/PingServer", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult PingServer(string authUserName, string authPassword, int ServerID)
@@ -196,6 +215,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginPingServer(string authUserName, string authPassword, int ServerID, System.AsyncCallback callback, object asyncState)
         {
@@ -205,6 +225,7 @@ namespace FuseCP.Providers.Statistics
                         ServerID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult EndPingServer(System.IAsyncResult asyncResult)
         {
@@ -212,12 +233,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void PingServerAsync(string authUserName, string authPassword, int ServerID)
         {
             this.PingServerAsync(authUserName, authPassword, ServerID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void PingServerAsync(string authUserName, string authPassword, int ServerID, object userState)
         {
@@ -240,6 +263,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/AddServer", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult AddServer(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName)
@@ -253,6 +277,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginAddServer(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName, System.AsyncCallback callback, object asyncState)
         {
@@ -264,6 +289,7 @@ namespace FuseCP.Providers.Statistics
                         ServerName}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult EndAddServer(System.IAsyncResult asyncResult)
         {
@@ -271,12 +297,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddServerAsync(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName)
         {
             this.AddServerAsync(authUserName, authPassword, ServerID, ServerIP, ServerName, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddServerAsync(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName, object userState)
         {
@@ -301,6 +329,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/DeleteServer", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult DeleteServer(string authUserName, string authPassword, int ServerID)
@@ -312,6 +341,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginDeleteServer(string authUserName, string authPassword, int ServerID, System.AsyncCallback callback, object asyncState)
         {
@@ -321,6 +351,7 @@ namespace FuseCP.Providers.Statistics
                         ServerID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult EndDeleteServer(System.IAsyncResult asyncResult)
         {
@@ -328,12 +359,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteServerAsync(string authUserName, string authPassword, int ServerID)
         {
             this.DeleteServerAsync(authUserName, authPassword, ServerID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteServerAsync(string authUserName, string authPassword, int ServerID, object userState)
         {
@@ -356,6 +389,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/ServerAdmin.asmx/UpdateServer", RequestNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/ServerAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult UpdateServer(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName)
@@ -369,6 +403,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginUpdateServer(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName, System.AsyncCallback callback, object asyncState)
         {
@@ -380,6 +415,7 @@ namespace FuseCP.Providers.Statistics
                         ServerName}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult EndUpdateServer(System.IAsyncResult asyncResult)
         {
@@ -387,12 +423,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateServerAsync(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName)
         {
             this.UpdateServerAsync(authUserName, authPassword, ServerID, ServerIP, ServerName, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateServerAsync(string authUserName, string authPassword, int ServerID, string ServerIP, string ServerName, object userState)
         {
@@ -417,6 +455,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public new void CancelAsync(object userState)
         {
@@ -424,6 +463,7 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -433,118 +473,156 @@ namespace FuseCP.Providers.Statistics
     public partial class GlobalDefaultsResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string SmarterStatsAdmin;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string SmarterStatsPassword;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultMaxMonthsHistory;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultMaxSpaceMegs;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string DefaultSMTPServer;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultCustomReportItemLimit;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultStandardReportDayRange;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultCustomReportDayRange;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string FromEmailAddress;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] PageExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] DynamicPageExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] DownloadExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] DocumentExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] HackAttemptExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public object[] ImageExtensions;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int StandardFontSize;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultLogFileDays;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultSmarterLogFileMonths;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultNumberOfIPToResolve;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultNumberOfMiliSecondsToTryResolveIP;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int MaxThreadsToResolveAtOnce;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int DefaultLengthToKeepDNSCache;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int EmailReportsSleepTime;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int EmailReportsSendInterval;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool EmailReportsSendErrorEmails;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool EmailReportsSendOverTimeEmail;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string EmailReportsTotalTimeToProcess;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int EmailReportsThreadsToRunAtOnce;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int EmailReportsMaxRowsToReturn;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ProblemEmailAddress;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ProblemSMTPServer;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string RowOptionsList;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string LicenseKey;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ActivationKey;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -554,16 +632,20 @@ namespace FuseCP.Providers.Statistics
     public partial class GenericResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -573,16 +655,20 @@ namespace FuseCP.Providers.Statistics
     public partial class ServerInfo
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ServerID;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string IP;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Name;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -592,24 +678,30 @@ namespace FuseCP.Providers.Statistics
     public partial class ServerInfoArrayResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
         public ServerInfo[] Servers;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetGlobalDefaultsCompletedEventHandler(object sender, GetGlobalDefaultsCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -626,6 +718,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GlobalDefaultsResult Result
         {
@@ -637,10 +730,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetServersCompletedEventHandler(object sender, GetServersCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -657,6 +752,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public ServerInfoArrayResult Result
         {
@@ -668,10 +764,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void PingServerCompletedEventHandler(object sender, PingServerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -688,6 +786,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult Result
         {
@@ -699,10 +798,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void AddServerCompletedEventHandler(object sender, AddServerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -719,6 +820,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult Result
         {
@@ -730,10 +832,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void DeleteServerCompletedEventHandler(object sender, DeleteServerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -750,6 +854,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult Result
         {
@@ -761,10 +866,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void UpdateServerCompletedEventHandler(object sender, UpdateServerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -781,6 +888,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult Result
         {
@@ -792,6 +900,7 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -820,42 +929,54 @@ namespace FuseCP.Providers.Statistics
 
         private System.Threading.SendOrPostCallback MoveSiteOperationCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteAdmin()
         {
             this.Url = "http://127.0.0.1:9999/services/siteadmin.asmx";
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event AddSiteCompletedEventHandler AddSiteCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event AddSiteWithFTPCompletedEventHandler AddSiteWithFTPCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event UpdateSiteCompletedEventHandler UpdateSiteCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event DeleteSiteCompletedEventHandler DeleteSiteCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event DeleteSiteByNameCompletedEventHandler DeleteSiteByNameCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetAllSitesCompletedEventHandler GetAllSitesCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetSitesForServerCompletedEventHandler GetSitesForServerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetSiteCompletedEventHandler GetSiteCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetSiteStatusCompletedEventHandler GetSiteStatusCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event MoveSiteCompletedEventHandler MoveSiteCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/AddSite", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 AddSite(
@@ -900,6 +1021,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginAddSite(
                     string authUserName,
@@ -944,6 +1066,7 @@ namespace FuseCP.Providers.Statistics
                         TimeZoneID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndAddSite(System.IAsyncResult asyncResult)
         {
@@ -951,6 +1074,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddSiteAsync(
                     string authUserName,
@@ -975,6 +1099,7 @@ namespace FuseCP.Providers.Statistics
             this.AddSiteAsync(authUserName, authPassword, soUserName, soPassword, soFirstName, soLastName, ServerID, SiteID, DomainName, LogDirectory, LogFormat, LogWildcard, LogDaysBeforeDelete, SmarterLogDirectory, SmarterLogMonthsBeforeDelete, ExportPath, ExportPathURL, TimeZoneID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddSiteAsync(
                     string authUserName,
@@ -1031,6 +1156,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/AddSiteWithFTP", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 AddSiteWithFTP(
@@ -1095,6 +1221,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginAddSiteWithFTP(
                     string authUserName,
@@ -1159,6 +1286,7 @@ namespace FuseCP.Providers.Statistics
                         IntervalHours}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndAddSiteWithFTP(System.IAsyncResult asyncResult)
         {
@@ -1166,6 +1294,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddSiteWithFTPAsync(
                     string authUserName,
@@ -1200,6 +1329,7 @@ namespace FuseCP.Providers.Statistics
             this.AddSiteWithFTPAsync(authUserName, authPassword, soUserName, soPassword, soFirstName, soLastName, ServerID, SiteID, DomainName, LogFormat, LogWildcard, LogDaysBeforeDelete, SmarterLogDirectory, SmarterLogMonthsBeforeDelete, ExportPath, ExportPathURL, TimeZoneID, Directory, ProxyType, ProxyAddress, ProxyPort, ProxyUserName, ProxyPassword, Server, Port, Username, Password, IntervalHours, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddSiteWithFTPAsync(
                     string authUserName,
@@ -1276,6 +1406,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/UpdateSite", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 UpdateSite(string authUserName, string authPassword, int SiteID, string DomainName, string LogDirectory, string LogFormat, string LogWildcard, int LogDaysBeforeDelete, string SmarterLogDirectory, int SmarterLogMonthsBeforeDelete, string ExportPath, string ExportPathURL, int TimeZoneID)
@@ -1297,6 +1428,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginUpdateSite(string authUserName, string authPassword, int SiteID, string DomainName, string LogDirectory, string LogFormat, string LogWildcard, int LogDaysBeforeDelete, string SmarterLogDirectory, int SmarterLogMonthsBeforeDelete, string ExportPath, string ExportPathURL, int TimeZoneID, System.AsyncCallback callback, object asyncState)
         {
@@ -1316,6 +1448,7 @@ namespace FuseCP.Providers.Statistics
                         TimeZoneID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndUpdateSite(System.IAsyncResult asyncResult)
         {
@@ -1323,12 +1456,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateSiteAsync(string authUserName, string authPassword, int SiteID, string DomainName, string LogDirectory, string LogFormat, string LogWildcard, int LogDaysBeforeDelete, string SmarterLogDirectory, int SmarterLogMonthsBeforeDelete, string ExportPath, string ExportPathURL, int TimeZoneID)
         {
             this.UpdateSiteAsync(authUserName, authPassword, SiteID, DomainName, LogDirectory, LogFormat, LogWildcard, LogDaysBeforeDelete, SmarterLogDirectory, SmarterLogMonthsBeforeDelete, ExportPath, ExportPathURL, TimeZoneID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateSiteAsync(string authUserName, string authPassword, int SiteID, string DomainName, string LogDirectory, string LogFormat, string LogWildcard, int LogDaysBeforeDelete, string SmarterLogDirectory, int SmarterLogMonthsBeforeDelete, string ExportPath, string ExportPathURL, int TimeZoneID, object userState)
         {
@@ -1361,6 +1496,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/DeleteSite", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 DeleteSite(string authUserName, string authPassword, int SiteID, bool DeleteFiles)
@@ -1373,6 +1509,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginDeleteSite(string authUserName, string authPassword, int SiteID, bool DeleteFiles, System.AsyncCallback callback, object asyncState)
         {
@@ -1383,6 +1520,7 @@ namespace FuseCP.Providers.Statistics
                         DeleteFiles}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndDeleteSite(System.IAsyncResult asyncResult)
         {
@@ -1390,12 +1528,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteSiteAsync(string authUserName, string authPassword, int SiteID, bool DeleteFiles)
         {
             this.DeleteSiteAsync(authUserName, authPassword, SiteID, DeleteFiles, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteSiteAsync(string authUserName, string authPassword, int SiteID, bool DeleteFiles, object userState)
         {
@@ -1419,6 +1559,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/DeleteSiteByName", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 DeleteSiteByName(string authUserName, string authPassword, string SiteName, bool DeleteFiles)
@@ -1431,6 +1572,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginDeleteSiteByName(string authUserName, string authPassword, string SiteName, bool DeleteFiles, System.AsyncCallback callback, object asyncState)
         {
@@ -1441,6 +1583,7 @@ namespace FuseCP.Providers.Statistics
                         DeleteFiles}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndDeleteSiteByName(System.IAsyncResult asyncResult)
         {
@@ -1448,12 +1591,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteSiteByNameAsync(string authUserName, string authPassword, string SiteName, bool DeleteFiles)
         {
             this.DeleteSiteByNameAsync(authUserName, authPassword, SiteName, DeleteFiles, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteSiteByNameAsync(string authUserName, string authPassword, string SiteName, bool DeleteFiles, object userState)
         {
@@ -1477,6 +1622,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/GetAllSites", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public SiteInfoArrayResult GetAllSites(string authUserName, string authPassword, bool IncludeDetails)
@@ -1488,6 +1634,7 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetAllSites(string authUserName, string authPassword, bool IncludeDetails, System.AsyncCallback callback, object asyncState)
         {
@@ -1497,6 +1644,7 @@ namespace FuseCP.Providers.Statistics
                         IncludeDetails}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoArrayResult EndGetAllSites(System.IAsyncResult asyncResult)
         {
@@ -1504,12 +1652,14 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetAllSitesAsync(string authUserName, string authPassword, bool IncludeDetails)
         {
             this.GetAllSitesAsync(authUserName, authPassword, IncludeDetails, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetAllSitesAsync(string authUserName, string authPassword, bool IncludeDetails, object userState)
         {
@@ -1532,6 +1682,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/GetSitesForServer", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public SiteInfoArrayResult GetSitesForServer(string authUserName, string authPassword, int ServerID, bool IncludeDetails)
@@ -1544,6 +1695,7 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetSitesForServer(string authUserName, string authPassword, int ServerID, bool IncludeDetails, System.AsyncCallback callback, object asyncState)
         {
@@ -1554,6 +1706,7 @@ namespace FuseCP.Providers.Statistics
                         IncludeDetails}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoArrayResult EndGetSitesForServer(System.IAsyncResult asyncResult)
         {
@@ -1561,12 +1714,14 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoArrayResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSitesForServerAsync(string authUserName, string authPassword, int ServerID, bool IncludeDetails)
         {
             this.GetSitesForServerAsync(authUserName, authPassword, ServerID, IncludeDetails, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSitesForServerAsync(string authUserName, string authPassword, int ServerID, bool IncludeDetails, object userState)
         {
@@ -1590,6 +1745,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/GetSite", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public SiteInfoResult GetSite(string authUserName, string authPassword, int SiteID)
@@ -1601,6 +1757,7 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetSite(string authUserName, string authPassword, int SiteID, System.AsyncCallback callback, object asyncState)
         {
@@ -1610,6 +1767,7 @@ namespace FuseCP.Providers.Statistics
                         SiteID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoResult EndGetSite(System.IAsyncResult asyncResult)
         {
@@ -1617,12 +1775,14 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSiteAsync(string authUserName, string authPassword, int SiteID)
         {
             this.GetSiteAsync(authUserName, authPassword, SiteID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSiteAsync(string authUserName, string authPassword, int SiteID, object userState)
         {
@@ -1645,6 +1805,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/GetSiteStatus", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public SiteInfoResult GetSiteStatus(string authUserName, string authPassword, int SiteID)
@@ -1656,6 +1817,7 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetSiteStatus(string authUserName, string authPassword, int SiteID, System.AsyncCallback callback, object asyncState)
         {
@@ -1665,6 +1827,7 @@ namespace FuseCP.Providers.Statistics
                         SiteID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoResult EndGetSiteStatus(System.IAsyncResult asyncResult)
         {
@@ -1672,12 +1835,14 @@ namespace FuseCP.Providers.Statistics
             return ((SiteInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSiteStatusAsync(string authUserName, string authPassword, int SiteID)
         {
             this.GetSiteStatusAsync(authUserName, authPassword, SiteID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetSiteStatusAsync(string authUserName, string authPassword, int SiteID, object userState)
         {
@@ -1700,6 +1865,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/SiteAdmin.asmx/MoveSite", RequestNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/SiteAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult1 MoveSite(string authUserName, string authPassword, int SiteID, int DestServerID, string DestSmarterLogPath, string DestLogFilePath, string DestExportPath, string DestExportPathURL, bool CopyFiles)
@@ -1717,6 +1883,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginMoveSite(string authUserName, string authPassword, int SiteID, int DestServerID, string DestSmarterLogPath, string DestLogFilePath, string DestExportPath, string DestExportPathURL, bool CopyFiles, System.AsyncCallback callback, object asyncState)
         {
@@ -1732,6 +1899,7 @@ namespace FuseCP.Providers.Statistics
                         CopyFiles}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 EndMoveSite(System.IAsyncResult asyncResult)
         {
@@ -1739,12 +1907,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult1)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void MoveSiteAsync(string authUserName, string authPassword, int SiteID, int DestServerID, string DestSmarterLogPath, string DestLogFilePath, string DestExportPath, string DestExportPathURL, bool CopyFiles)
         {
             this.MoveSiteAsync(authUserName, authPassword, SiteID, DestServerID, DestSmarterLogPath, DestLogFilePath, DestExportPath, DestExportPathURL, CopyFiles, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void MoveSiteAsync(string authUserName, string authPassword, int SiteID, int DestServerID, string DestSmarterLogPath, string DestLogFilePath, string DestExportPath, string DestExportPathURL, bool CopyFiles, object userState)
         {
@@ -1773,6 +1943,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public new void CancelAsync(object userState)
         {
@@ -1780,6 +1951,7 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -1789,16 +1961,20 @@ namespace FuseCP.Providers.Statistics
     public partial class GenericResult1
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -1808,19 +1984,24 @@ namespace FuseCP.Providers.Statistics
     public partial class SiteInfoResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfo Site;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -1830,82 +2011,108 @@ namespace FuseCP.Providers.Statistics
     public partial class SiteInfo
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ServerID;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int SiteID;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string DomainName;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string LogDirectory;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string LogFormat;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string LogWildcard;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int LogDaysBeforeDelete;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string SmarterLogDirectory;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int SmarterLogMonthsBeforeDelete;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ExportPath;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ExportPathURL;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int TimeZoneID;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string SiteStatus;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool ftp_Enabled;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_Server;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ftp_port;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_Username;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_Password;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ftp_Interval;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_Directory;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_ProxyType;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_ProxyAddress;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ftp_ProxyPort;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_ProxyUsername;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string ftp_ProxyPassword;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -1915,24 +2122,30 @@ namespace FuseCP.Providers.Statistics
     public partial class SiteInfoArrayResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
         public SiteInfo[] Sites;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void AddSiteCompletedEventHandler(object sender, AddSiteCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1949,6 +2162,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -1960,10 +2174,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void AddSiteWithFTPCompletedEventHandler(object sender, AddSiteWithFTPCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1980,6 +2196,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -1991,10 +2208,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void UpdateSiteCompletedEventHandler(object sender, UpdateSiteCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2011,6 +2230,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -2022,10 +2242,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void DeleteSiteCompletedEventHandler(object sender, DeleteSiteCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2042,6 +2264,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -2053,10 +2276,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void DeleteSiteByNameCompletedEventHandler(object sender, DeleteSiteByNameCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2073,6 +2298,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -2084,10 +2310,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetAllSitesCompletedEventHandler(object sender, GetAllSitesCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2104,6 +2332,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoArrayResult Result
         {
@@ -2115,10 +2344,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetSitesForServerCompletedEventHandler(object sender, GetSitesForServerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2135,6 +2366,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoArrayResult Result
         {
@@ -2146,10 +2378,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetSiteCompletedEventHandler(object sender, GetSiteCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2166,6 +2400,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoResult Result
         {
@@ -2177,10 +2412,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetSiteStatusCompletedEventHandler(object sender, GetSiteStatusCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2197,6 +2434,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public SiteInfoResult Result
         {
@@ -2208,10 +2446,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void MoveSiteCompletedEventHandler(object sender, MoveSiteCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2228,6 +2468,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult1 Result
         {
@@ -2239,6 +2480,7 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2261,33 +2503,42 @@ namespace FuseCP.Providers.Statistics
 
         private System.Threading.SendOrPostCallback ValidateLoginOperationCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserAdmin()
         {
             this.Url = "http://127.0.0.1:9999/services/useradmin.asmx";
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event AddUserCompletedEventHandler AddUserCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event UpdateUserCompletedEventHandler UpdateUserCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event DeleteUserCompletedEventHandler DeleteUserCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetUserCompletedEventHandler GetUserCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event GetUsersCompletedEventHandler GetUsersCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event SetSiteOwnerCompletedEventHandler SetSiteOwnerCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public event ValidateLoginCompletedEventHandler ValidateLoginCompleted;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/AddUser", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult2 AddUser(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin)
@@ -2304,6 +2555,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginAddUser(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin, System.AsyncCallback callback, object asyncState)
         {
@@ -2318,6 +2570,7 @@ namespace FuseCP.Providers.Statistics
                         IsAdmin}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 EndAddUser(System.IAsyncResult asyncResult)
         {
@@ -2325,12 +2578,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddUserAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin)
         {
             this.AddUserAsync(authUserName, authPassword, SiteID, UserName, Password, FirstName, LastName, IsAdmin, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void AddUserAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin, object userState)
         {
@@ -2358,6 +2613,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/UpdateUser", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult2 UpdateUser(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin)
@@ -2374,6 +2630,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginUpdateUser(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin, System.AsyncCallback callback, object asyncState)
         {
@@ -2388,6 +2645,7 @@ namespace FuseCP.Providers.Statistics
                         IsAdmin}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 EndUpdateUser(System.IAsyncResult asyncResult)
         {
@@ -2395,12 +2653,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateUserAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin)
         {
             this.UpdateUserAsync(authUserName, authPassword, SiteID, UserName, Password, FirstName, LastName, IsAdmin, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void UpdateUserAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password, string FirstName, string LastName, bool IsAdmin, object userState)
         {
@@ -2428,6 +2688,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/DeleteUser", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult2 DeleteUser(string authUserName, string authPassword, int SiteID, string UserName)
@@ -2440,6 +2701,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginDeleteUser(string authUserName, string authPassword, int SiteID, string UserName, System.AsyncCallback callback, object asyncState)
         {
@@ -2450,6 +2712,7 @@ namespace FuseCP.Providers.Statistics
                         UserName}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 EndDeleteUser(System.IAsyncResult asyncResult)
         {
@@ -2457,12 +2720,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteUserAsync(string authUserName, string authPassword, int SiteID, string UserName)
         {
             this.DeleteUserAsync(authUserName, authPassword, SiteID, UserName, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void DeleteUserAsync(string authUserName, string authPassword, int SiteID, string UserName, object userState)
         {
@@ -2486,6 +2751,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/GetUser", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public UserInfoResult GetUser(string authUserName, string authPassword, int SiteID, string UserName)
@@ -2498,6 +2764,7 @@ namespace FuseCP.Providers.Statistics
             return ((UserInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetUser(string authUserName, string authPassword, int SiteID, string UserName, System.AsyncCallback callback, object asyncState)
         {
@@ -2508,6 +2775,7 @@ namespace FuseCP.Providers.Statistics
                         UserName}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserInfoResult EndGetUser(System.IAsyncResult asyncResult)
         {
@@ -2515,12 +2783,14 @@ namespace FuseCP.Providers.Statistics
             return ((UserInfoResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetUserAsync(string authUserName, string authPassword, int SiteID, string UserName)
         {
             this.GetUserAsync(authUserName, authPassword, SiteID, UserName, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetUserAsync(string authUserName, string authPassword, int SiteID, string UserName, object userState)
         {
@@ -2544,6 +2814,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/GetUsers", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public UserInfoResultArray GetUsers(string authUserName, string authPassword, int SiteID)
@@ -2555,6 +2826,7 @@ namespace FuseCP.Providers.Statistics
             return ((UserInfoResultArray)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginGetUsers(string authUserName, string authPassword, int SiteID, System.AsyncCallback callback, object asyncState)
         {
@@ -2564,6 +2836,7 @@ namespace FuseCP.Providers.Statistics
                         SiteID}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserInfoResultArray EndGetUsers(System.IAsyncResult asyncResult)
         {
@@ -2571,12 +2844,14 @@ namespace FuseCP.Providers.Statistics
             return ((UserInfoResultArray)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetUsersAsync(string authUserName, string authPassword, int SiteID)
         {
             this.GetUsersAsync(authUserName, authPassword, SiteID, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void GetUsersAsync(string authUserName, string authPassword, int SiteID, object userState)
         {
@@ -2599,6 +2874,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/SetSiteOwner", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public GenericResult2 SetSiteOwner(string authUserName, string authPassword, int SiteID, string UserName)
@@ -2611,6 +2887,7 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginSetSiteOwner(string authUserName, string authPassword, int SiteID, string UserName, System.AsyncCallback callback, object asyncState)
         {
@@ -2621,6 +2898,7 @@ namespace FuseCP.Providers.Statistics
                         UserName}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 EndSetSiteOwner(System.IAsyncResult asyncResult)
         {
@@ -2628,12 +2906,14 @@ namespace FuseCP.Providers.Statistics
             return ((GenericResult2)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void SetSiteOwnerAsync(string authUserName, string authPassword, int SiteID, string UserName)
         {
             this.SetSiteOwnerAsync(authUserName, authPassword, SiteID, UserName, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void SetSiteOwnerAsync(string authUserName, string authPassword, int SiteID, string UserName, object userState)
         {
@@ -2657,6 +2937,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.smartertools.com/smarterstats/UserAdmin.asmx/ValidateLogin", RequestNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", ResponseNamespace = "http://www.smartertools.com/smarterstats/UserAdmin.asmx", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public LoginResult ValidateLogin(string authUserName, string authPassword, int SiteID, string UserName, string Password)
@@ -2670,6 +2951,7 @@ namespace FuseCP.Providers.Statistics
             return ((LoginResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public System.IAsyncResult BeginValidateLogin(string authUserName, string authPassword, int SiteID, string UserName, string Password, System.AsyncCallback callback, object asyncState)
         {
@@ -2681,6 +2963,7 @@ namespace FuseCP.Providers.Statistics
                         Password}, callback, asyncState);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public LoginResult EndValidateLogin(System.IAsyncResult asyncResult)
         {
@@ -2688,12 +2971,14 @@ namespace FuseCP.Providers.Statistics
             return ((LoginResult)(results[0]));
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void ValidateLoginAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password)
         {
             this.ValidateLoginAsync(authUserName, authPassword, SiteID, UserName, Password, null);
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public void ValidateLoginAsync(string authUserName, string authPassword, int SiteID, string UserName, string Password, object userState)
         {
@@ -2718,6 +3003,7 @@ namespace FuseCP.Providers.Statistics
             }
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public new void CancelAsync(object userState)
         {
@@ -2725,6 +3011,7 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -2734,16 +3021,20 @@ namespace FuseCP.Providers.Statistics
     public partial class GenericResult2
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -2753,16 +3044,20 @@ namespace FuseCP.Providers.Statistics
     public partial class LoginResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -2772,20 +3067,25 @@ namespace FuseCP.Providers.Statistics
     public partial class UserInfoResultArray
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
         public UserInfo[] user;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -2795,28 +3095,36 @@ namespace FuseCP.Providers.Statistics
     public partial class UserInfo
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int SiteID;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string UserName;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Password;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string FirstName;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string LastName;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool IsAdmin;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool IsSiteOwner;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.SerializableAttribute()]
@@ -2826,23 +3134,29 @@ namespace FuseCP.Providers.Statistics
     public partial class UserInfoResult
     {
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public bool Result;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public int ResultCode;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public string Message;
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserInfo user;
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void AddUserCompletedEventHandler(object sender, AddUserCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2859,6 +3173,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 Result
         {
@@ -2870,10 +3185,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void UpdateUserCompletedEventHandler(object sender, UpdateUserCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2890,6 +3207,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 Result
         {
@@ -2901,10 +3219,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void DeleteUserCompletedEventHandler(object sender, DeleteUserCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2921,6 +3241,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 Result
         {
@@ -2932,10 +3253,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetUserCompletedEventHandler(object sender, GetUserCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2952,6 +3275,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserInfoResult Result
         {
@@ -2963,10 +3287,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void GetUsersCompletedEventHandler(object sender, GetUsersCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2983,6 +3309,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public UserInfoResultArray Result
         {
@@ -2994,10 +3321,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void SetSiteOwnerCompletedEventHandler(object sender, SetSiteOwnerCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3014,6 +3343,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public GenericResult2 Result
         {
@@ -3025,10 +3355,12 @@ namespace FuseCP.Providers.Statistics
         }
     }
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     public delegate void ValidateLoginCompletedEventHandler(object sender, ValidateLoginCompletedEventArgs e);
 
+    /// <summary>TODO</summary>
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3045,6 +3377,7 @@ namespace FuseCP.Providers.Statistics
             this.results = results;
         }
 
+        /// <summary>TODO</summary>
         /// <remarks/>
         public LoginResult Result
         {

@@ -126,7 +126,7 @@ namespace FuseCP.Providers.DNS
 			Custom, Domain, Forest, Legacy
 		} */
 
-        /// <summary></summary>
+        /// <summary>Adds a primary DNS server zone using the specified PowerShell helper.</summary>
         /// <param name="ps"></param>
         /// <param name="zoneName"></param>
         /// <param name="replicationScope">Specifies a partition on which to store an Active Directory-integrated zone.</param>
