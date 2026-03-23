@@ -65,7 +65,7 @@ namespace FuseCP.Portal.ExchangeServer
                 if (user != null)
                 {
                     
-                    if ((user.Role == UserRole.User) & (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, Cntx)))
+                    if ((user.Role == UserRole.User) && (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, Cntx)))
                     {
                         chkHideAddressBook.Visible = false;
                         chkDisable.Visible = false;

@@ -40,7 +40,7 @@ namespace FuseCP.Portal
                 if (user != null)
                 {
                     PackageContext cntx = PackagesHelper.GetCachedPackageContext(PanelSecurity.PackageId);
-                    if ((user.Role == UserRole.User) & (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, cntx)))
+                    if ((user.Role == UserRole.User) && (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, cntx)))
                     {
                         lnkSummaryLetter.Visible = false;
                     }
