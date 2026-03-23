@@ -1142,7 +1142,7 @@ namespace FuseCP.EnterpriseServer
                     }
                 }
             }
-            catch { }
+            catch { _ = 0; }
 
             result.PageItems = accounts.ToArray();
             return result;

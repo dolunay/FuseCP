@@ -69,7 +69,7 @@ public class ScheduleWorker: BackgroundService
 					GC.Collect();
 				}
 			}
-			catch { }
+			catch { _ = 0; }
 
 			await Task.Delay(5000, stoppingToken);
 		}

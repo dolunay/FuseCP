@@ -763,7 +763,7 @@ namespace FuseCP.Providers.Virtualization
                     if (vm != null)
                         isExist = true;
                 }
-                catch { }    
+                catch { _ = 0; }
                 finally
                 {
                     if (!isExist)

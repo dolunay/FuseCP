@@ -1070,6 +1070,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
             }
             catch (Exception)
             {
+                _ = 0;
             }
             finally
             {

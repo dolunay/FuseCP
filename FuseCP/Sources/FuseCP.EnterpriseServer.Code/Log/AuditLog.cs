@@ -131,7 +131,7 @@ namespace FuseCP.EnterpriseServer
                 using (var database = new DataProvider()) database.AddAuditLogRecord(recordId, severityId, userId, username, packageId, itemId, itemName,
                     startDate, finishDate, sourceName, taskName, executionLog);
             }
-            catch { }
+            catch { _ = 0; }
         }
 
         private DateTime GetStartDate(DateTime d)

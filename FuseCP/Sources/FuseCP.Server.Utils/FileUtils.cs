@@ -798,7 +798,7 @@ namespace FuseCP.Providers.Utils
                         }
                     }
                 }
-                catch { }
+                catch { _ = 0; }
 
             }
             return list_files;

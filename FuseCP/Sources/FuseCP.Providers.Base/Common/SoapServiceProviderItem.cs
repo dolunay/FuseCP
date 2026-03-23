@@ -106,7 +106,7 @@ namespace FuseCP.Providers
                             propInfo.SetValue(item, Cast(val, propInfo.PropertyType), null);
                         }
                     }
-                    catch { }
+                    catch { _ = 0; }
                 }
             }
 

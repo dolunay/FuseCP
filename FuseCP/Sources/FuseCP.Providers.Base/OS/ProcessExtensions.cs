@@ -81,7 +81,7 @@ namespace FuseCP.Providers.OS
 							var info = m.Invoke(null, new object[] { procexe, true }) as FileSystemInfo;
 							return info.FullName;
 						}
-						catch { }
+						catch { _ = 0; }
 					}
 				}
 				else if (Shell.Default.Find("ps") != null)

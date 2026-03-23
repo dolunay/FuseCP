@@ -924,7 +924,7 @@ namespace FuseCP.Providers.Web
 							return ver;
 						}
 					}
-					catch { }
+					catch { _ = 0; }
 				}
 			}
 			return "";

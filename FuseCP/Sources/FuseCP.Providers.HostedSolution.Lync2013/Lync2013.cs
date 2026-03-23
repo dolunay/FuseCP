@@ -160,6 +160,7 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
+                    _ = 0;
                 }
 
                 try
@@ -168,6 +169,7 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
+                    _ = 0;
                 }
 
                 try
@@ -176,6 +178,7 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
+                    _ = 0;
                 }
 
                 try
@@ -184,6 +187,7 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
+                    _ = 0;
                 }
 
                 var command = new Command("Invoke-CsManagementStoreReplication");
@@ -277,7 +281,7 @@ namespace FuseCP.Providers.HostedSolution
                     {
                         PlanSet = SetLyncUserPlanInternal(organizationId, userUpn, plan, runspace);
                     }
-                    catch { }
+                    catch { _ = 0; }
                     if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
                 }
 

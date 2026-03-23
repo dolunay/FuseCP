@@ -484,7 +484,7 @@ namespace FuseCP.Providers.OS
 
                 return currentBuild >= 22000;
             }
-            catch { }
+            catch { _ = 0; }
             return false;
         }
         public static int GetReleaseId()

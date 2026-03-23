@@ -6689,6 +6689,7 @@ namespace FuseCP.Providers.HostedSolution
 				}
 				catch (Exception)
 				{
+				    _ = 0;
 				}
 
 				if (result != null)
@@ -6840,6 +6841,7 @@ namespace FuseCP.Providers.HostedSolution
 				}
 				catch (Exception)
 				{
+				    _ = 0;
 				}
 
 				if (result != null)

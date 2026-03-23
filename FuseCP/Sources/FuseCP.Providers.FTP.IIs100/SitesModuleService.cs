@@ -126,6 +126,7 @@ namespace FuseCP.Providers.FTP.IIs100
             }
             catch
             {
+                _ = 0;
             }
         }
 
@@ -242,6 +243,7 @@ namespace FuseCP.Providers.FTP.IIs100
             }
             catch
             {
+                _ = 0;
             }
             return SitesHelper.SerializeSite(site);
         }

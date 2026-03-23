@@ -620,7 +620,7 @@ namespace FuseCP.EnterpriseServer
                         scheduledTasks.Add(task.ScheduleId, task);
                 }
             }
-            catch { }
+            catch { _ = 0; }
 
             return scheduledTasks;
         }

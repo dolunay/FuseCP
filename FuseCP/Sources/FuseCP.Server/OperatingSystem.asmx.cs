@@ -47,7 +47,7 @@ namespace FuseCP.Server
 				{
 					return base.Provider;
 				}
-				catch { }
+				catch { _ = 0; }
 				return (IHostingServiceProvider)OSInfo.Current;
 			}
 		}

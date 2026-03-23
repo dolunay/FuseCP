@@ -600,6 +600,7 @@ namespace FuseCP.Providers.OS
                 catch (Exception)
                 {
 
+                    _ = 0;
                 }
                 if (UpgradeTunnelSocket.IsConnected)
                 {

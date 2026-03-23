@@ -1128,10 +1128,10 @@ namespace FuseCP.Providers.DNS
                             if (version.Split(';').Any(v => ver.StartsWith(v))) return true;
                         }
                     }
-                    catch (IOException) { }
-                    catch (UnauthorizedAccessException) { }
-                    catch (InvalidOperationException) { }
-                    catch (AggregateException) { }
+                    catch (IOException) { _ = 0; }
+                    catch (UnauthorizedAccessException) { _ = 0; }
+                    catch (InvalidOperationException) { _ = 0; }
+                    catch (AggregateException) { _ = 0; }
                 }
             }
             return false;

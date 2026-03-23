@@ -165,7 +165,7 @@ namespace FuseCP.Web.Clients
                         {
                             Directory.Delete(dir);
                         }
-                        catch { }
+                        catch { _ = 0; }
                     }
                 }
             }
@@ -208,7 +208,7 @@ namespace FuseCP.Web.Clients
                         }
                     }
                 }
-                catch (Exception) { }
+                catch (Exception) { _ = 0; }
 
                 try
                 {
@@ -220,7 +220,7 @@ namespace FuseCP.Web.Clients
                         init.Invoke(null, new object[0]);
                     }
                 }
-                catch (Exception) { }
+                catch (Exception) { _ = 0; }
 
 #if NETFRAMEWORK
 				exposeWebServices = exposeWebServices ?? ConfigurationManager.AppSettings["ExposeWebServices"];

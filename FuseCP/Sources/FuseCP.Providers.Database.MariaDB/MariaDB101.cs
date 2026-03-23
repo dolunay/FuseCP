@@ -949,7 +949,7 @@ namespace FuseCP.Providers.Database
 							if (ver.StartsWith(version)) return true;
 						}
 					}
-					catch { }
+					catch { _ = 0; }
 				}
 			}
 			return false;

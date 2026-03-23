@@ -235,6 +235,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 			}
 			catch (Exception)
 			{
+			    _ = 0;
 			}
 			return writer;
 		}

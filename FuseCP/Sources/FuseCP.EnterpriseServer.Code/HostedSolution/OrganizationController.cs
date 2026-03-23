@@ -3299,7 +3299,7 @@ namespace FuseCP.EnterpriseServer
                 // load account
                 account = GetAccount(itemId, accountId, false);
             }
-            catch (Exception) { }
+            catch (Exception) { _ = 0; }
 
             try
             {
@@ -3325,7 +3325,7 @@ namespace FuseCP.EnterpriseServer
 
                 return retUser;
             }
-            catch { }
+            catch { _ = 0; }
             finally
             {
                 //TaskManager.CompleteTask();
@@ -3349,7 +3349,7 @@ namespace FuseCP.EnterpriseServer
                 // load account
                 account = GetAccount(itemId, accountId);
             }
-            catch (Exception) { }
+            catch (Exception) { _ = 0; }
 
             try
             {
@@ -3375,7 +3375,7 @@ namespace FuseCP.EnterpriseServer
 
                 return retUser;
             }
-            catch { }
+            catch { _ = 0; }
 
             return (account);
         }

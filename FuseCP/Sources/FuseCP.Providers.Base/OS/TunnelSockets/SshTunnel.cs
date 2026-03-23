@@ -253,7 +253,7 @@ namespace FuseCP.Providers.OS
                     {
                         ForwardedPort.Stop();
                     }
-                    catch { }
+                    catch { _ = 0; }
                 }
                 if (Client.IsConnected)
                 {
@@ -261,7 +261,7 @@ namespace FuseCP.Providers.OS
                     {
                         Client.Disconnect();
                     }
-                    catch { }
+                    catch { _ = 0; }
                 }
             }
         }
