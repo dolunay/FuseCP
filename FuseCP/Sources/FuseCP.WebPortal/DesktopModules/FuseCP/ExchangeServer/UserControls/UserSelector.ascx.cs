@@ -208,9 +208,9 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
                 {
                     bool addUser = false;
                     if (account.ExternalEmail != string.Empty) addUser = true;
-                    if ((account.IsBlackBerryUser) & (ExcludeBESUsers)) addUser = false;
-                    if ((account.IsLyncUser) & (ExcludeLyncUsers)) addUser = false;
-                    if ((account.IsSfBUser) & (ExcludeSfBUsers)) addUser = false;
+                    if ((account.IsBlackBerryUser) && (ExcludeBESUsers)) addUser = false;
+                    if ((account.IsLyncUser) && (ExcludeLyncUsers)) addUser = false;
+                    if ((account.IsSfBUser) && (ExcludeSfBUsers)) addUser = false;
 
                     if (addUser) updatedAccounts.Add(account);
                 }
@@ -225,10 +225,10 @@ namespace FuseCP.Portal.ExchangeServer.UserControls
                     foreach (OrganizationUser account in accounts)
                     {
                         bool addUser = true;
-                        if ((account.IsOCSUser) & (ExcludeOCSUsers)) addUser = false;
-                        if ((account.IsLyncUser) & (ExcludeLyncUsers)) addUser = false;
-                    if ((account.IsSfBUser) & (ExcludeSfBUsers)) addUser = false;
-                    if ((account.IsBlackBerryUser) & (ExcludeBESUsers)) addUser = false;
+                        if ((account.IsOCSUser) && (ExcludeOCSUsers)) addUser = false;
+                        if ((account.IsLyncUser) && (ExcludeLyncUsers)) addUser = false;
+                    if ((account.IsSfBUser) && (ExcludeSfBUsers)) addUser = false;
+                    if ((account.IsBlackBerryUser) && (ExcludeBESUsers)) addUser = false;
 
                         if (addUser) updatedAccounts.Add(account);
                     }

@@ -109,7 +109,7 @@ namespace FuseCP.Portal.SfB
                 bool enterpriseVoiceQuota = Utils.CheckQouta(Quotas.SFB_ENTERPRISEVOICE, cntx);
 
                 string lineUri = "";
-                if ((enterpriseVoiceQuota) & (ddlPhoneNumber.Items.Count != 0)) lineUri = ddlPhoneNumber.SelectedItem.Text + ":" + tbPin.Text;
+                if ((enterpriseVoiceQuota) && (ddlPhoneNumber.Items.Count != 0)) lineUri = ddlPhoneNumber.SelectedItem.Text + ":" + tbPin.Text;
 
                 //#1
                 SfBUser sfbUser = ES.Services.SfB.GetSfBUserGeneralSettings(PanelRequest.ItemID, accountId);
