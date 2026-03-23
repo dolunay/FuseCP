@@ -2875,7 +2875,7 @@ namespace FuseCP.Providers.HostedSolution
             string currentStep = "opening Exchange runspace";
             try
             {
-                currentStep = "opening Exchange runspace";
+
                 runSpace = OpenRunspace();
                 currentStep = "opening Exchange litigation runspace";
                 runSpaceEx = OpenRunspaceEx();
@@ -2957,7 +2957,7 @@ namespace FuseCP.Providers.HostedSolution
                 runSpace = OpenRunspace();
 
                 Collection<PSObject> result = GetMailboxObject(runSpace, accountName);
-                PSObject mailbox = result[0];
+
 
                 string id = GetResultObjectDN(result);
                 string path = AddADPrefix(id);
@@ -3113,7 +3113,7 @@ namespace FuseCP.Providers.HostedSolution
             string currentStep = "opening Exchange runspace";
             try
             {
-                currentStep = "opening Exchange runspace";
+
                 runSpace = OpenRunspace();
 
                 currentStep = "loading mailbox object";
