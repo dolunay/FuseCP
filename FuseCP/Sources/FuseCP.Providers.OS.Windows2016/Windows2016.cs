@@ -1899,7 +1899,6 @@ namespace FuseCP.Providers.OS
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd("ExecuteShellCommand");
             return results;

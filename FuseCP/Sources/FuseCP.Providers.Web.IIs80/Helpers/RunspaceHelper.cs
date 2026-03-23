@@ -127,7 +127,6 @@ namespace FuseCP.Providers.Web
                     }
                 }
             }
-            pipeline = null;
             errors = objs.ToArray();
             Log.WriteEnd("ExecuteShellCommand", new object[0]);
             return pSObjects;

@@ -207,7 +207,6 @@ namespace FuseCP.Providers.EnterpriseStorage
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd("ExecuteShellCommand");
             return results;

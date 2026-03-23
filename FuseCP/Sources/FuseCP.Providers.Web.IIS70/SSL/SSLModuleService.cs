@@ -682,7 +682,6 @@ namespace FuseCP.Providers.Web.Iis
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd("ExecuteShellCommand");
             return results;

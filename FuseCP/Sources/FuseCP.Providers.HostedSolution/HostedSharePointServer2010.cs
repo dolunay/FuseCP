@@ -134,7 +134,6 @@ namespace FuseCP.Providers.HostedSolution
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             HostedSolutionLog.LogEnd("ExecuteShellCommand");
             return results;

@@ -314,7 +314,6 @@ namespace FuseCP.Providers.RemoteDesktopServices
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd($"ExecuteShellCommand with errors: {JsonUtils.ConvertToJsonForLogging(errorList)}");
             return results;

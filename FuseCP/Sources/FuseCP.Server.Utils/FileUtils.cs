@@ -996,7 +996,6 @@ namespace FuseCP.Providers.Utils
                 null, cat, null);
             adoxType.InvokeMember("Close", BindingFlags.Instance | BindingFlags.Public | BindingFlags.InvokeMethod, null,
                 conn, null);
-            cat = null;
         }
 
         public static void DeleteDirectoryRecursive(string rootPath)

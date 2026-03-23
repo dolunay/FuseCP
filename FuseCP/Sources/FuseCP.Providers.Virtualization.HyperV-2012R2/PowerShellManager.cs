@@ -234,7 +234,6 @@ namespace FuseCP.Providers.Virtualization
                     }
                 }
             }
-            pipeLine = null;
 
             if (withExceptions)
                 ExceptionIfErrors(errorList);

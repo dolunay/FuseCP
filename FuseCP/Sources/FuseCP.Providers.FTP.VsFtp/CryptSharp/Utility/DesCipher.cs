@@ -177,7 +177,6 @@ namespace CryptSharp.Utility
                 SKER |= S[i][n] << ((7 - i) * 4);
                 B = 0; n = 0;
             }
-            KER = 0;
 
             uint f = (uint)Permute(P, (ulong)SKER, 32);
             SKER = 0; return f;
@@ -204,19 +203,15 @@ namespace CryptSharp.Utility
 
             uint cn = (uint)(kp >> 28);
             uint dn = (uint)(kp & 0xfffffff);
-            kp = 0;
 
             for (int i = 0; i < c.Length; i++) { c[i] = cn = R(cn, rotations[i]); }
-            cn = 0;
 
             for (int i = 0; i < c.Length; i++) { d[i] = dn = R(dn, rotations[i]); }
-            dn = 0;
 
             for (int i = 0; i < kex.Length; i++)
             {
                 ulong cd = (ulong)c[i] << 28 | d[i];
                 kex[i] = Permute(PC2, cd, 56);
-                cd = 0;
             }
             Security.Clear(c); Security.Clear(d);
 

@@ -135,7 +135,6 @@ namespace FuseCP.Server.Utils
                     }
                 }
             }
-            pipeLine = null;
 
             if (withExceptions)
                 ExceptionIfErrors(errorList);

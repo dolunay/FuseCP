@@ -6146,7 +6146,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 				}
 			}
-			pipeLine = null;
 			errors = errorList.ToArray();
 			ExchangeLog.LogEnd("ExecuteShellCommand");
 			return results;

@@ -368,7 +368,6 @@ namespace FuseCP.Providers.EnterpriseStorage
 
             if (searchPaths.Any(string.IsNullOrEmpty))
             {
-                isRootSearch = true;
                 searchPaths = searchPaths.Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
 
