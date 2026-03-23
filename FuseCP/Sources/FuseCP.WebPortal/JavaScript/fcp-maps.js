@@ -7,7 +7,7 @@ $(document).ready(function(){
 	/********************************************/
 
 	if($('.zoom-map').length > 0 ) {
-		$mapZoom = $(".zoom-map");
+		var $mapZoom = $(".zoom-map");
 		$mapZoom.mapael({
 			map : {
 				name: "france_departments",

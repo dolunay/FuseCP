@@ -51,8 +51,8 @@ $(document).ready(function(){
 		$('.headline a').click( function(e) {
 			e.preventDefault();
 
-			$tabId = $(this).attr('href');
-			$chartId = $(this).attr('data-cid');
+			var $tabId = $(this).attr('href');
+			var $chartId = $(this).attr('data-cid');
 			
 			/* adjust tab nav status */
 			$('.headline li').removeClass('active');
@@ -100,8 +100,8 @@ $(document).ready(function(){
 	$('#dashboard-stat-tab a').click( function(e) {
 		e.preventDefault();
 
-		$tabId = $(this).attr('href');
-		$chartId = $(this).attr('data-cid');
+		var $tabId = $(this).attr('href');
+		var $chartId = $(this).attr('data-cid');
 
 		$('#dashboard-stat-tab li').removeClass('active');
 		$(this).parents('li').addClass('active');
