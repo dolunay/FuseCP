@@ -51,7 +51,7 @@ $(document).ready(function(){
 		});
 
 		/* data export */
-		var exportTable = $('#datatable-data-export').DataTable({
+		$('#datatable-data-export').DataTable({
 			sDom: "T<'clearfix'>" +
 				"<'row'<'col-sm-6'l><'col-sm-6'f>r>"+
 				"t"+

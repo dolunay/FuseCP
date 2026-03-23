@@ -176,7 +176,7 @@ $(document).ready(function(){
 
 		$('.label-slider').text( theSlider.getValue() );
 
-		var theStepSlider = $('.bootstrap-slider-step')
+		$('.bootstrap-slider-step')
 			.slider({
 				min: 0,
 				max: 500,
