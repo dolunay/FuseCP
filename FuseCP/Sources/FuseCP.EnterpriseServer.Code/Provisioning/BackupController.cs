@@ -61,6 +61,21 @@ namespace FuseCP.EnterpriseServer
 			return normalized.TrimStart('\\');
 		}
 
+		private static string EnsureSafeFileName(string fileName)
+		{
+			if (String.IsNullOrWhiteSpace(fileName))
+				throw new ArgumentException("File name cannot be null or empty.", nameof(fileName));
+
+			string normalized = Path.GetFileName(fileName.Trim());
+			if (String.IsNullOrWhiteSpace(normalized))
+				throw new ArgumentException("File name cannot be null or empty.", nameof(fileName));
+
+			if (normalized.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+				throw new ArgumentException("File name contains invalid characters.", nameof(fileName));
+
+			return normalized;
+		}
+
 		public BackupController(ControllerBase provider) : base(provider) { }
 
         public int Backup(bool async, string taskId, int userId, int packageId, int serviceId, int serverId,
@@ -133,6 +148,7 @@ namespace FuseCP.EnterpriseServer
 			try
 			{
                 TaskManager.StartTask(taskId, "BACKUP", "BACKUP", backupFileName, SecurityContext.User.UserId);
+				backupFileName = EnsureSafeFileName(backupFileName);
 
                 // Set Ending .fcpak
                 if (!backupFileName.EndsWith(".fcpak"))
@@ -515,6 +531,7 @@ namespace FuseCP.EnterpriseServer
 				// copy backup from remote or local server
 				string backupFileName = (storePackageId > 0)
 					? Path.GetFileName(storePackageBackupPath) : Path.GetFileName(storeServerBackupPath);
+				backupFileName = EnsureSafeFileName(backupFileName);
 
                 TaskManager.StartTask(taskId, "BACKUP", "RESTORE", backupFileName, SecurityContext.User.UserId);
 

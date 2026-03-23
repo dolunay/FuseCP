@@ -62,7 +62,27 @@ namespace FuseCP.EnterpriseServer;
 
 	public static List<string> UnzipFiles(string zipFile, string destFolder)
 	{
-		ZipFile.ExtractToDirectory(zipFile, destFolder);
+		string normalizedDestination = Path.GetFullPath(destFolder);
+		Directory.CreateDirectory(normalizedDestination);
+
+		using (ZipArchive archive = ZipFile.OpenRead(zipFile))
+		{
+			foreach (ZipArchiveEntry entry in archive.Entries)
+			{
+				string destinationPath = EnsurePathUnderRoot(normalizedDestination, entry.FullName.Replace('/', Path.DirectorySeparatorChar));
+				if (String.IsNullOrEmpty(entry.Name))
+				{
+					Directory.CreateDirectory(destinationPath);
+					continue;
+				}
+
+				string destinationDirectory = Path.GetDirectoryName(destinationPath);
+				if (!String.IsNullOrEmpty(destinationDirectory))
+					Directory.CreateDirectory(destinationDirectory);
+
+				entry.ExtractToFile(destinationPath, true);
+			}
+		}
 
 		// return extracted files names
 		return GetFileNames(destFolder);
