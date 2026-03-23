@@ -167,7 +167,7 @@ namespace System.Web.Services.Protocols
 
             var envelope = $"<s:Envelope xmlns:s=\"{envelopeNs}\"><s:Body>{bodyPayload}</s:Body></s:Envelope>";
 
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, Url)
+            using var requestMessage = new HttpRequestMessage(HttpMethod.Post, Url)
             {
                 Content = new StringContent(envelope, Encoding.UTF8,
                     SoapVersion == SoapProtocolVersion.Soap12 ? "application/soap+xml" : "text/xml")

@@ -106,7 +106,7 @@ namespace FuseCP.Providers
         public virtual ICryptoTransform Encryptor()
         {
             // Rihndael class.
-            SymmetricAlgorithm cipher = Aes.Create();
+            using SymmetricAlgorithm cipher = Aes.Create();
 
             // We are using salt to make it harder to guess our key
             // using a dictionary attack.
@@ -114,7 +114,7 @@ namespace FuseCP.Providers
 
             // The (Secret Key) will be generated from the specified 
             // password and salt.
-            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
+            using PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
 
             var key = SecretKey.GetBytes(32);
             var iv = SecretKey.GetBytes(16);
@@ -138,12 +138,12 @@ namespace FuseCP.Providers
 
             byte[] Salt = Encoding.ASCII.GetBytes(CryptoKey.Length.ToString());
 
-            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
+            using PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
 
             var key = SecretKey.GetBytes(32);
             var iv = SecretKey.GetBytes(16);
 
-            var cipher = Aes.Create();
+            using var cipher = Aes.Create();
 
             cipher.KeySize = 256;
             cipher.Key = key;

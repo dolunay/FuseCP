@@ -2372,7 +2372,7 @@ namespace FuseCP.EnterpriseServer
 
         public string EvaluateTemplate(string template, Hashtable items)
         {
-            StringWriter writer = new StringWriter();
+            using StringWriter writer = new StringWriter();
 
             try
             {

@@ -484,7 +484,7 @@ namespace FuseCP.Providers.Virtualization
                 }
             }
 
-            SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
+            using SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
             SKImage thumb = SKImage.Create(thumbinfo);
             image?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 
@@ -1236,7 +1236,7 @@ namespace FuseCP.Providers.Virtualization
             if (File.Exists(screenshotFile))
             {
                 var img = SKImage.FromEncodedData(screenshotFile);
-                SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
+                using SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
                 SKImage thumb = SKImage.Create(thumbinfo);
                 img?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 

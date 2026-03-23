@@ -61,7 +61,7 @@ namespace FuseCP.Templates.AST
             tmpContext.Templates = context.Templates;
 
             // evaluate inner statements
-            StringWriter innerWriter = new StringWriter();
+            using StringWriter innerWriter = new StringWriter();
             foreach (Statement stm in Statements)
                 stm.Eval(context, innerWriter);
             tmpContext.Variables["innerText"] = innerWriter.ToString();

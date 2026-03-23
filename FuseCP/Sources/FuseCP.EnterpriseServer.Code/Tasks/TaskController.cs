@@ -212,7 +212,7 @@ namespace FuseCP.EnterpriseServer
                 param.TypeName = type.FullName;
 
                 XmlSerializer serializer = new XmlSerializer(type);
-                MemoryStream ms = new MemoryStream();
+                using MemoryStream ms = new MemoryStream();
                 serializer.Serialize(ms, param.Value);
 
                 ms.Position = 0;
@@ -229,7 +229,7 @@ namespace FuseCP.EnterpriseServer
             foreach (BackgroundTaskParameter param in parameters)
             {
                 XmlSerializer deserializer = new XmlSerializer(Type.GetType(param.TypeName));
-                StringReader sr = new StringReader(param.SerializerValue);
+                using StringReader sr = new StringReader(param.SerializerValue);
 
                 param.Value = deserializer.Deserialize(sr);
             }

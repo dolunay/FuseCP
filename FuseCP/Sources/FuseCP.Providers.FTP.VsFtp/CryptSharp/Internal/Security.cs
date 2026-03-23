@@ -48,7 +48,7 @@ namespace CryptSharp.Internal
         {
 			Check.Range("count", count, 0, int.MaxValue);
 
-            RandomNumberGenerator rng = RandomNumberGenerator.Create();
+            using RandomNumberGenerator rng = RandomNumberGenerator.Create();
 			byte[] bytes = new byte[count]; rng.GetBytes(bytes); return bytes;
         }
     }

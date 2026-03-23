@@ -7003,7 +7003,7 @@ namespace FuseCP.EnterpriseServer
                     using (var scaledImage = SKImage.FromBitmap(scaledBitmap))
                     using (var encodedImage = scaledImage.Encode(SKEncodedImageFormat.Jpeg, 50))
                     {
-                        var stream = new MemoryStream();
+                        using var stream = new MemoryStream();
                         encodedImage.SaveTo(stream);
                         stream.Seek(0, SeekOrigin.Begin);
                         return stream.ToArray();

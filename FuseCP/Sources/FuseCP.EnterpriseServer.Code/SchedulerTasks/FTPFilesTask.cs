@@ -67,7 +67,7 @@ namespace FuseCP.EnterpriseServer
 
             // build FTP command file
             StringBuilder sb = new StringBuilder();
-            StringWriter writer = new StringWriter(sb);
+            using StringWriter writer = new StringWriter(sb);
 
             // FTP server
             writer.WriteLine("open " + ftpServer);

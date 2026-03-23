@@ -41,7 +41,7 @@ namespace FuseCP.Providers.Web.Apache
 
 			public override string ToString()
 			{
-				var w = new StringWriter();
+				using var w = new StringWriter();
 				Write(w);
 				return w.ToString();
 			}
@@ -165,7 +165,7 @@ namespace FuseCP.Providers.Web.Apache
 		}
 		IEnumerable<LineInfo> ParseLines(string configuration)
 		{
-			var reader = new StringReader(configuration);
+			using var reader = new StringReader(configuration);
 			string line;
 			int lineno = 1;
 			StringBuilder sb = new StringBuilder();
@@ -319,7 +319,7 @@ namespace FuseCP.Providers.Web.Apache
 		public ConfigFile ConfigFile => (this is ConfigFile file) ? file : Parent.ConfigFile;
 		public override string ToString()
 		{
-			var w = new StringWriter();
+			using var w = new StringWriter();
 			Write(w);
 			return w.ToString();
 		}

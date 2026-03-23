@@ -893,7 +893,7 @@ namespace FuseCP.Providers.OS
             if (String.IsNullOrEmpty(logName))
                 return entries;
 
-            EventLog log = new EventLog(logName);
+            using EventLog log = new EventLog(logName);
             EventLogEntryCollection logEntries = log.Entries;
             int count = logEntries.Count;
 
@@ -916,7 +916,7 @@ namespace FuseCP.Providers.OS
                 return result;
             }
 
-            EventLog log = new EventLog(logName);
+            using EventLog log = new EventLog(logName);
             EventLogEntryCollection logEntries = log.Entries;
             int count = logEntries.Count;
             result.Count = count;

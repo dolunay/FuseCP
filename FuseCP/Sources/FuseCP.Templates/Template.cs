@@ -81,7 +81,7 @@ namespace FuseCP.Templates
         public string Evaluate()
         {
             // create writer to hold result
-            StringWriter writer = new StringWriter();
+            using StringWriter writer = new StringWriter();
 
             // evaluate
             Evaluate(writer);

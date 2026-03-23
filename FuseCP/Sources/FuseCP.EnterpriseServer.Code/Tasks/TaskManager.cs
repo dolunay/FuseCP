@@ -421,8 +421,8 @@ namespace FuseCP.EnterpriseServer
 
         string FormatExecutionLog(BackgroundTask task)
         {
-            StringWriter sw = new StringWriter();
-            XmlWriter writer = new XmlTextWriter(sw);
+            using StringWriter sw = new StringWriter();
+            using XmlWriter writer = new XmlTextWriter(sw);
 
             writer.WriteStartElement("log");
 

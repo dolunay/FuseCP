@@ -503,7 +503,7 @@ namespace FuseCP.Providers.Virtualization
             {
                 // fill grey rectangle
                 Graphics g = Graphics.FromImage(bmp);
-                SolidBrush brush = new SolidBrush(Color.LightGray);
+                using SolidBrush brush = new SolidBrush(Color.LightGray);
                 g.FillRectangle(brush, 0, 0, width, height);
             }
 

@@ -703,7 +703,7 @@ namespace FuseCP.Providers.DNS
         private List<DnsRecord> ParseZoneFileToArrayList(string zoneName, string zf)
         {
             List<DnsRecord> records = new List<DnsRecord>();
-            StringReader reader = new StringReader(zf);
+            using StringReader reader = new StringReader(zf);
             string zfLine = null;
 
             DnsSOARecord soa = null;

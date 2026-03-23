@@ -4296,7 +4296,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 WebServer web = GetWebServer(serviceId);
 
                 // restore web site
-                XmlSerializer serializer = new XmlSerializer(typeof(WebSite));
+                using XmlSerializer serializer = new XmlSerializer(typeof(WebSite));
                 WebSite site = (WebSite)serializer.Deserialize(
                     new XmlNodeReader(itemNode.SelectSingleNode("WebSite")));
 
@@ -4349,7 +4349,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 WebServer web = GetWebServer(serviceId);
 
                 // extract meta item
-                XmlSerializer serializer = new XmlSerializer(typeof(SharedSSLFolder));
+                using XmlSerializer serializer = new XmlSerializer(typeof(SharedSSLFolder));
                 SharedSSLFolder sslFolder = (SharedSSLFolder)serializer.Deserialize(
                     new XmlNodeReader(itemNode.SelectSingleNode("SharedSSLFolder")));
 

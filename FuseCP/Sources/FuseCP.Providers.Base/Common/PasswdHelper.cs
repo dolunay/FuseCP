@@ -63,7 +63,7 @@ namespace FuseCP.Providers.Common
 
         public static byte[] getMD5HashHex(string s)
         {
-            MD5 md5 = MD5.Create();
+            using MD5 md5 = MD5.Create();
             return md5.ComputeHash(Encoding.ASCII.GetBytes(s));
         }
 
@@ -206,7 +206,7 @@ namespace FuseCP.Providers.Common
 
         public static string DigestEncode(string username, string realm, string passwd)
         {
-            MD5 md5 = MD5.Create();
+            using MD5 md5 = MD5.Create();
 
             byte[] b = md5.ComputeHash(Encoding.ASCII.GetBytes(
                                            string.Format("{0}:{1}:{2}", username, realm, passwd)

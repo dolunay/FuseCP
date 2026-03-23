@@ -84,7 +84,7 @@ namespace FuseCP.Web.Clients
             // Convert plain text into a byte array.
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-            HashAlgorithm hash = SHA1.Create();
+            using HashAlgorithm hash = SHA1.Create();
 
             // Compute hash value of our plain text with appended salt.
             byte[] hashBytes = hash.ComputeHash(plainTextBytes);

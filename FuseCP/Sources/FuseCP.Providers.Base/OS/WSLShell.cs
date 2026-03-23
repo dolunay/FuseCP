@@ -342,7 +342,7 @@ namespace FuseCP.Providers.OS
 				var match = Regex.Match(configTxt, @"(?<trivia>^.*?)(?<body>(?<=^|\n)\[[^]\n]\].*$)", RegexOptions.Singleline);
 				leadingTrivia = match.Groups["trivia"].Value;
 				var sections = match.Groups["body"].Value;
-				var reader = new StringReader(sections);
+				using var reader = new StringReader(sections);
 				var line = reader.ReadLine();
 				ConfigurationSection section = null;
 				while (line != null)

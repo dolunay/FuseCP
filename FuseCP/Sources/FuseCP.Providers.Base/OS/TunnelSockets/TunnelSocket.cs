@@ -333,7 +333,7 @@ namespace FuseCP.Providers.OS
             var destResult = new WebSocketReceiveResult(0, WebSocketMessageType.Binary, true);
             var listenerResult = new WebSocketReceiveResult(0, WebSocketMessageType.Binary, true);
 
-            var Lock = new SemaphoreSlim(1, 1);
+            using var Lock = new SemaphoreSlim(1, 1);
 
             Task closeDestTask = null;
             Exception destException = null, exception = null;
@@ -473,7 +473,7 @@ namespace FuseCP.Providers.OS
             if (!IsWebSocket) throw new NotSupportedException("ReceiveMessageAsync is only supported on WebSockets");
             const int BufferSize = 1024;
             var buffer = new byte[BufferSize];
-            var mem = new MemoryStream();
+            using var mem = new MemoryStream();
             WebSocketReceiveResult result = await BaseWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), new CancellationTokenSource(IdleTimeout).Token);
             await mem.WriteAsync(buffer, 0, result.Count);
             while (!result.CloseStatus.HasValue && !result.EndOfMessage && result.MessageType == WebSocketMessageType.Text)
@@ -511,7 +511,7 @@ namespace FuseCP.Providers.OS
 
         public static T Deserialize<T>(byte[] data, IEnumerable<Type> knownTypes = null) where T : class
         {
-            var mem = new MemoryStream(data);
+            using var mem = new MemoryStream(data);
             return Deserialize<T>(mem, knownTypes);
         }
         public static T Deserialize<T>(Stream stream, IEnumerable<Type> knownTypes = null) where T : class
@@ -547,7 +547,7 @@ namespace FuseCP.Providers.OS
 
         public static byte[] Serialize<T>(T obj, IEnumerable<Type> knownTypes = null)
         {
-            var mem = new MemoryStream();
+            using var mem = new MemoryStream();
             Serialize<T>(obj, mem, knownTypes);
             return mem.ToArray();
         }

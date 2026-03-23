@@ -204,7 +204,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
         public bool CheckRDSServerAvaliable(string hostname)
         {
             bool result = false;
-            var ping = new Ping();
+            using var ping = new Ping();
             var reply = ping.Send(hostname, 1000);
 
             if (reply.Status == IPStatus.Success)

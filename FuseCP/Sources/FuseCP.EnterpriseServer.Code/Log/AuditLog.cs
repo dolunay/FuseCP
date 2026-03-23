@@ -147,8 +147,8 @@ namespace FuseCP.EnterpriseServer
         //extremely simple and dummy creating XML string.
         private string DummyFormatExecutionLog(DateTime startDate, int severityId, string[] values)
         {
-            StringWriter sw = new StringWriter();
-            XmlWriter writer = new XmlTextWriter(sw);
+            using StringWriter sw = new StringWriter();
+            using XmlWriter writer = new XmlTextWriter(sw);
 
             writer.WriteStartElement("log");
 

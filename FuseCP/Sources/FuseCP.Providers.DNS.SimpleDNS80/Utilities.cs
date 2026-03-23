@@ -36,7 +36,7 @@ namespace FuseCP.Providers.DNS.SimpleDNS80
         public static async Task<HttpResponseMessage> PatchAsync(this HttpClient client, Uri requestUri, HttpContent iContent)
         {
             var method = new HttpMethod("PATCH");
-            var request = new HttpRequestMessage(method, requestUri)
+            using var request = new HttpRequestMessage(method, requestUri)
             {
                 Content = iContent
             };
