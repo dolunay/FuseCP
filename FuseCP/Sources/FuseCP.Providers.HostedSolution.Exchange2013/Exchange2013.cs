@@ -3349,7 +3349,7 @@ namespace FuseCP.Providers.HostedSolution
                 cmd = new Command("Get-MailboxSearch");
                 cmd.Parameters.Add("Identity", accountName);
                 result = ExecuteShellCommandEx(runSpaceEx, cmd);
-                if ((result != null) & (result.Count > 0))
+                if ((result != null) && (result.Count > 0))
                 {
                     mailbox = result[0];
                     info.EnableLitigationHold = (bool)GetPSObjectProperty(mailbox, "InPlaceHoldEnabled");
