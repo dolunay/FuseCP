@@ -131,7 +131,7 @@ namespace FuseCP.EnterpriseServer {
 				}
 			}
 			if (IsSubnet && !(IsMask && V4)) {
-				s.Append('/'); s.Append(Cidr.ToString());
+				s.Append('/'); s.Append(Cidr);
 			}
 			return s.ToString();
 		}

@@ -1064,7 +1064,7 @@ namespace FuseCP.Providers.OS
                         try
                         {
                             string[] methodParams = new string[2];
-                            m.InvokeMethod("GetOwner", (object[])methodParams);
+                            m.InvokeMethod("GetOwner", methodParams);
                             username = methodParams[0];
                         }
                         catch { }
@@ -1701,7 +1701,7 @@ namespace FuseCP.Providers.OS
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes/ OneGb);
+            return ;
         }
 
         public int ConvertBytesToMB(long bytes)

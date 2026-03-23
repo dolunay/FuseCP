@@ -139,7 +139,7 @@ namespace FuseCP.Providers.WebAppGallery
 #if DEBUG
         public override string ToString()
         {
-            return String.Format("{0}=\"{1}\", Tags={2}", Name, Value, WellKnownTags.ToString());
+            return String.Format("{0}=\"{1}\", Tags={2}", Name, Value, WellKnownTags);
         }
 #endif
 

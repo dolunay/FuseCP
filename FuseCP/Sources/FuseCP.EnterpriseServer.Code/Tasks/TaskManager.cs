@@ -500,7 +500,7 @@ namespace FuseCP.EnterpriseServer
                         foreach (BackgroundTask task in tasks)
                         {
                             if (task.MaximumExecutionTime != -1
-                                && ((TimeSpan)(DateTime.Now - task.StartDate)).TotalSeconds > task.MaximumExecutionTime)
+                                && ().TotalSeconds > task.MaximumExecutionTime)
                             {
                                 task.Status = BackgroundTaskStatus.Stopping;
 

@@ -81,7 +81,7 @@ namespace FuseCP.Templates.AST
             sb.Append("{").Append(templateName);
 
             foreach (string name in parameters.Keys)
-                sb.Append(" ").Append(name).Append("=\"").Append(parameters[name].ToString()).Append("\"");
+                sb.Append(" ").Append(name).Append("=\"").Append(parameters[name]).Append("\"");
 
             sb.Append(" /}");
             return sb.ToString();

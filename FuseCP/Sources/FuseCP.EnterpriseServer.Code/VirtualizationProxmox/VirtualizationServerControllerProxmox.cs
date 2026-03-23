@@ -412,7 +412,7 @@ namespace FuseCP.EnterpriseServer
 
                 int maxAddresses = ServerController.GetPackageUnassignedIPAddresses(packageId, IPAddressPool.VpsExternalNetwork).Count;
                 if (externalNetworkEnabled && externalAddressesNumber > maxAddresses)
-                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses.ToString());
+                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses);
 
                 // check private addresses number
                 if (!randomPrivateAddresses && privateAddresses != null)
@@ -3321,7 +3321,7 @@ namespace FuseCP.EnterpriseServer
                 var addr = IPAddress.Parse(ip.IPAddress);
                 sortedIps.Add(addr, ip.IPAddress);
 
-                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr.ToString());
+                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr);
             }
             Trace.TraceInformation("Leaving GetSortedNormalizedIPAddresses()");
             return sortedIps;

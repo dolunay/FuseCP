@@ -160,7 +160,7 @@ namespace FuseCP.Providers.Virtualization
                 tempString = dmtf.Substring(15, 6);
                 if (("******" != tempString))
                 {
-                    ticks = (long.Parse(tempString) * ((long)((System.TimeSpan.TicksPerMillisecond / 1000))));
+                    ticks = (long.Parse(tempString) * ()));
                 }
                 if (((((((((year < 0)
                             || (month < 0))
@@ -193,7 +193,7 @@ namespace FuseCP.Providers.Virtualization
             System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(datetime);
             int UTCOffset = 0;
             int OffsetToBeAdjusted = 0;
-            long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
+            long OffsetMins = ());
             tempString = dmtf.Substring(22, 3);
             if ((tempString != "******"))
             {
@@ -217,7 +217,7 @@ namespace FuseCP.Providers.Virtualization
         {
             string utcString = string.Empty;
             System.TimeSpan tickOffset = System.TimeZoneInfo.Local.GetUtcOffset(date);
-            long OffsetMins = ((long)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute)));
+            long OffsetMins = ());
             if ((System.Math.Abs(OffsetMins) > 999))
             {
                 date = date.ToUniversalTime();
@@ -227,26 +227,26 @@ namespace FuseCP.Providers.Virtualization
             {
                 if ((tickOffset.Ticks >= 0))
                 {
-                    utcString = string.Concat("+", ((System.Int64)((tickOffset.Ticks / System.TimeSpan.TicksPerMinute))).ToString().PadLeft(3, '0'));
+                    utcString = string.Concat("+", ()).ToString().PadLeft(3, '0'));
                 }
                 else
                 {
-                    string strTemp = ((System.Int64)(OffsetMins)).ToString();
+                    string strTemp = ().ToString();
                     utcString = string.Concat("-", strTemp.Substring(1, (strTemp.Length - 1)).PadLeft(3, '0'));
                 }
             }
-            string dmtfDateTime = ((System.Int32)(date.Year)).ToString().PadLeft(4, '0');
-            dmtfDateTime = string.Concat(dmtfDateTime, ((System.Int32)(date.Month)).ToString().PadLeft(2, '0'));
-            dmtfDateTime = string.Concat(dmtfDateTime, ((System.Int32)(date.Day)).ToString().PadLeft(2, '0'));
-            dmtfDateTime = string.Concat(dmtfDateTime, ((System.Int32)(date.Hour)).ToString().PadLeft(2, '0'));
-            dmtfDateTime = string.Concat(dmtfDateTime, ((System.Int32)(date.Minute)).ToString().PadLeft(2, '0'));
-            dmtfDateTime = string.Concat(dmtfDateTime, ((System.Int32)(date.Second)).ToString().PadLeft(2, '0'));
+            string dmtfDateTime = ().ToString().PadLeft(4, '0');
+            dmtfDateTime = string.Concat(dmtfDateTime, ().ToString().PadLeft(2, '0'));
+            dmtfDateTime = string.Concat(dmtfDateTime, ().ToString().PadLeft(2, '0'));
+            dmtfDateTime = string.Concat(dmtfDateTime, ().ToString().PadLeft(2, '0'));
+            dmtfDateTime = string.Concat(dmtfDateTime, ().ToString().PadLeft(2, '0'));
+            dmtfDateTime = string.Concat(dmtfDateTime, ().ToString().PadLeft(2, '0'));
             dmtfDateTime = string.Concat(dmtfDateTime, ".");
             System.DateTime dtTemp = new System.DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, 0);
-            long microsec = ((long)((((date.Ticks - dtTemp.Ticks)
+            long microsec = (((((date.Ticks - dtTemp.Ticks)
                         * 1000)
                         / System.TimeSpan.TicksPerMillisecond)));
-            string strMicrosec = ((System.Int64)(microsec)).ToString();
+            string strMicrosec = ().ToString();
             if ((strMicrosec.Length > 6))
             {
                 strMicrosec = strMicrosec.Substring(0, 6);

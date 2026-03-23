@@ -80,7 +80,7 @@ namespace  FuseCP.Providers.FTP.IIs100
             }
             else
             {
-                name = (string) ConvertStringToPair(name).Second;
+                name = ConvertStringToPair(name).Second;
                 flag = false;
             }
             if (flag)

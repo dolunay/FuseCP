@@ -127,9 +127,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     sb.AppendLine("<tr>");
                     // Started
-                    sb.AppendFormat("<td>{0}</td>", log["StartDate"].ToString());
+                    sb.AppendFormat("<td>{0}</td>", log["StartDate"]);
                     // Finished
-                    sb.AppendFormat("<td>{0}</td>", log["FinishDate"].ToString());
+                    sb.AppendFormat("<td>{0}</td>", log["FinishDate"]);
                     // Severity
                     sb.AppendFormat("<td>{0}</td>", GetAuditLogRecordSeverityName((int)log["SeverityID"]));
                     // Username
@@ -154,7 +154,7 @@ namespace FuseCP.EnterpriseServer
 
             // send mail message
             int res = MailHelper.SendMessage(mailFrom, mailTo, mailSubject, sb.ToString(), true);
-            if (res != 0) TaskManager.WriteError("SMTP Error. Code: " + res.ToString());
+            if (res != 0) TaskManager.WriteError("SMTP Error. Code: " + res);
         }
 
         private string FormatPlainTextExecutionLog(string xmlLog)

@@ -143,9 +143,9 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("(")
-                .Append(LeftExpression.ToString()).Append(" ")
+                .Append(LeftExpression).Append(" ")
                 .Append(Operator).Append(" ")
-                .Append(RightExpression.ToString()).Append(")");
+                .Append(RightExpression).Append(")");
             return sb.ToString();
         }
     }

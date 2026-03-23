@@ -2588,7 +2588,7 @@ namespace FuseCP.Providers.HostedSolution
 				Command cmd = new Command("Set-Mailbox");
 				cmd.Parameters.Add("Identity", accountName);
 				object capacity = null;
-				if (resourceSettings.ResourceCapacity >= 0) capacity = (Int32)resourceSettings.ResourceCapacity;
+				if (resourceSettings.ResourceCapacity >= 0) capacity = resourceSettings.ResourceCapacity;
 				cmd.Parameters.Add("ResourceCapacity", capacity);
 				ExecuteShellCommand(runSpace, cmd);
 

@@ -25,7 +25,7 @@ namespace FuseCP.Providers.OS
 	{
 		// Constants for host_statistics
 		const int HOST_CPU_LOAD_INFO = 3;
-		const int HOST_CPU_LOAD_INFO_COUNT = (int)(CPU_STATE_MAX);
+		const int HOST_CPU_LOAD_INFO_COUNT = ;
 
 		const int CPU_STATE_USER = 0;
 		const int CPU_STATE_SYSTEM = 1;

@@ -2356,7 +2356,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByExchangeOrganizationIdInternally",
 					 new SqlParameter("@ItemID", itemId));
 			}
@@ -2409,7 +2409,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByIdInternally",
 					 new SqlParameter("@UserID", userId));
 			}
@@ -2462,7 +2462,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByUsernameInternally",
 					 new SqlParameter("@Username", username));
 			}
@@ -2553,7 +2553,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserById",
 					 new SqlParameter("@ActorId", actorId),
 					 new SqlParameter("@UserID", userId));
@@ -2613,7 +2613,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByUsername",
 					 new SqlParameter("@ActorId", actorId),
 					 new SqlParameter("@Username", username));
@@ -3076,7 +3076,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserPackagesServerUrls",
 					 new SqlParameter("@UserId", userId));
 			}
@@ -3267,7 +3267,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServer",
 					 new SqlParameter("@actorId", actorId),
 					 new SqlParameter("@ServerID", serverId),
@@ -3294,7 +3294,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerShortDetails",
 					 new SqlParameter("@ServerID", serverId));
 			}
@@ -3333,7 +3333,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerByName",
 					 new SqlParameter("@actorId", actorId),
 					 new SqlParameter("@ServerName", serverName));
@@ -3372,7 +3372,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerInternal",
 					 new SqlParameter("@ServerID", serverId));
 			}
@@ -3626,7 +3626,7 @@ namespace FuseCP.EnterpriseServer
 						.DefaultIfEmpty(),
 						(g, vg) => new
 						{
-							VirtualGroupId = (int?)(vg != null ? vg.VirtualGroupId : null),
+							VirtualGroupId = ,
 							g.GroupId,
 							g.GroupName,
 							g.GroupOrder,
@@ -4089,7 +4089,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetPrivateNetworVLAN",
 					 new SqlParameter("@VlanID", vlanId));
 			}
@@ -4453,7 +4453,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "GetIPAddress",
 					new SqlParameter("@AddressID", ipAddressId));
 			}
@@ -6259,7 +6259,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString,
+				return SqlHelper.ExecuteReader(NativeConnectionString,
 					CommandType.StoredProcedure,
 					ObjectQualifier + "GetService",
 					new SqlParameter("@actorId", actorId),
@@ -6462,7 +6462,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString,
+				return SqlHelper.ExecuteReader(NativeConnectionString,
 					CommandType.StoredProcedure,
 					ObjectQualifier + "GetServiceProperties",
 					new SqlParameter("@actorId", actorId),
@@ -8425,7 +8425,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "GetHostingPlan",
 					new SqlParameter("@actorId", actorId),
 					new SqlParameter("@PlanId", planId));
@@ -8880,7 +8880,7 @@ namespace FuseCP.EnterpriseServer
 					p.Addon.Quantity
 				})
 				.Where(p => p.QuotaId == quotaId && p.StatusId == 1 /* active */)
-				.Sum(p => (int?)(p.QuotaValue * p.Quantity)) ?? 0;
+				.Sum(p => ) ?? 0;
 
 			/*
 			usedQuantity = Packages

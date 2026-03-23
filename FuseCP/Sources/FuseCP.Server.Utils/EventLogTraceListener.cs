@@ -123,7 +123,7 @@ namespace FuseCP.Server.Utils
                         }
                         if (data[num] != null)
                         {
-                            builder.Append(data[num].ToString());
+                            builder.Append(data[num]);
                         }
                     }
                 }

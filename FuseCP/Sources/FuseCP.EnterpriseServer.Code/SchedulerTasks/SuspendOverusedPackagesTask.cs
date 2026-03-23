@@ -34,7 +34,7 @@ namespace FuseCP.EnterpriseServer
 
             // get the list of all packages
             List<PackageInfo> packages = PackageController.GetPackagePackages(topTask.PackageId, false);
-            TaskManager.Write("Packages to verify: " + packages.Count.ToString());
+            TaskManager.Write("Packages to verify: " + packages.Count);
 
             bool checkDiskspace = (String.Compare((string)topTask.GetParamValue("DISKSPACE_OVERUSED"), "true", true) == 0);
             bool checkBandwidth = (String.Compare((string)topTask.GetParamValue("BANDWIDTH_OVERUSED"), "true", true) == 0);
@@ -156,13 +156,13 @@ namespace FuseCP.EnterpriseServer
                     }
                     catch (Exception ex)
                     {
-                        TaskManager.WriteError("Error while changing space status: " + ex.ToString());
+                        TaskManager.WriteError("Error while changing space status: " + ex);
                     }
                 }
             }
 
             // log results
-            TaskManager.Write("Total packages suspended: " + suspendedPackages.ToString());
+            TaskManager.Write("Total packages suspended: " + suspendedPackages);
         }
 
 		private string ReplaceVariables(string content, string threshold, string usage, string spaceName, string customerName)

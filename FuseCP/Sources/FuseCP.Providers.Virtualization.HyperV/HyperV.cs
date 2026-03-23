@@ -1174,7 +1174,7 @@ namespace FuseCP.Providers.Virtualization
             ManagementBaseObject inParams = objNetworkSvc.GetMethodParameters("DeleteSwitch");
             inParams["VirtualSwitch"] = objSwitch.Path.Path;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objNetworkSvc.InvokeMethod("DeleteSwitch", inParams, null);
+            ManagementBaseObject outParams = objNetworkSvc.InvokeMethod("DeleteSwitch", inParams, null);
             return (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
         }
         #endregion
@@ -1424,7 +1424,7 @@ namespace FuseCP.Providers.Virtualization
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
             // execute method
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("GetVirtualHardDiskInfo", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("GetVirtualHardDiskInfo", inParams, null);
             ReturnCode result = (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
             if (result == ReturnCode.OK)
             {
@@ -1461,7 +1461,7 @@ namespace FuseCP.Providers.Virtualization
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("Mount");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("Mount", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("Mount", inParams, null);
             JobResult result = CreateJobResultFromWmiMethodResults(outParams);
 
             // load storage job
@@ -1654,7 +1654,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("Unmount");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("Unmount", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("Unmount", inParams, null);
             return (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
         }
 
@@ -1669,7 +1669,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
             inParams["MaxInternalSize"] = sizeGB * Size1G;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("ExpandVirtualHardDisk", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("ExpandVirtualHardDisk", inParams, null);
             return CreateJobResultFromWmiMethodResults(outParams);
         }
 
@@ -1695,7 +1695,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             inParams["DestinationPath"] = destinationPath;
             inParams["Type"] = (UInt16)diskType;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("ConvertVirtualHardDisk", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("ConvertVirtualHardDisk", inParams, null);
             return CreateJobResultFromWmiMethodResults(outParams);
         }
 

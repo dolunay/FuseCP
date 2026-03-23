@@ -6391,7 +6391,7 @@ namespace FuseCP.EnterpriseServer
             }
             catch (Exception ex)
             {
-                res += " Error " + ex.ToString();
+                res += " Error " + ex;
             }
 
             return res;

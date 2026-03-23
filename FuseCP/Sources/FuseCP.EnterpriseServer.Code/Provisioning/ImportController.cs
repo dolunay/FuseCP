@@ -260,7 +260,7 @@ namespace FuseCP.EnterpriseServer
                             int result = WebServerController.ImporHostHeader(int.Parse(sParts[2],0), int.Parse(sParts[3],0), int.Parse(sParts[5],0));
 
                             if (result < 0)
-                                TaskManager.WriteError(String.Format("Failed to Import {0} ,error: {1}: ", sParts[4], result.ToString()));
+                                TaskManager.WriteError(String.Format("Failed to Import {0} ,error: {1}: ", sParts[4], result));
                             
                         break;
                     }
@@ -296,7 +296,7 @@ namespace FuseCP.EnterpriseServer
                             List<WebSite> webSites = WebServerController.GetWebSites(package.PackageId, false);
                             foreach (WebSite webSite in webSites)
                             {
-                                items.Add(user.Username+"|"+user.UserId.ToString()+"|"+package.PackageId.ToString()+"|"+webSite.SiteId+"|"+webSite.Id);
+                                items.Add(user.Username+"|"+user.UserId+"|"+package.PackageId+"|"+webSite.SiteId+"|"+webSite.Id);
                             }
                         }
                     }

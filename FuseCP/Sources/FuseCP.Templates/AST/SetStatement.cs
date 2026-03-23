@@ -51,7 +51,7 @@ namespace FuseCP.Templates.AST
             StringBuilder sb = new StringBuilder();
             sb.Append("{set name=\"")
                 .Append(Name).Append("\" value=\"")
-                .Append(ValueExpression.ToString())
+                .Append(ValueExpression)
                 .Append("\"/}");
             return sb.ToString();
         }

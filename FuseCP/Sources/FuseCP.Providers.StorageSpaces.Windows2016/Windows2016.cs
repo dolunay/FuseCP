@@ -244,7 +244,7 @@ namespace FuseCP.Providers.StorageSpaces
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes / OneGb);
+            return ;
         }
 
         public new int ConvertBytesToMB(long bytes)

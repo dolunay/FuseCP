@@ -493,8 +493,8 @@ namespace FuseCP.Providers.Utils
                     // fill user
                     SystemUser user = new SystemUser();
                     user.Name = GetObjectProperty(objUser, "cn").ToString();
-                    user.FullName = (GetObjectProperty(objUser, "givenName").ToString() + " " +
-                        GetObjectProperty(objUser, "sn").ToString()).Trim();
+                    user.FullName = (GetObjectProperty(objUser, "givenName") + " " +
+                        GetObjectProperty(objUser, "sn")).Trim();
                     user.Description = GetObjectProperty(objUser, "description").ToString();
 
                     ADAccountOptions userFlags = (ADAccountOptions)objUser.Properties["userAccountControl"].Value;
@@ -1726,7 +1726,7 @@ namespace FuseCP.Providers.Utils
             try
             {
                 // Add SID revision.
-                strSid.Append(sidBytes[0].ToString());
+                strSid.Append(sidBytes[0]);
                 // Next six bytes are SID authority value.
                 if (sidBytes[6] != 0 || sidBytes[5] != 0)
                 {
@@ -1744,11 +1744,11 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     Int64 iVal = (Int32)(sidBytes[1]) +
-                        (Int32)(sidBytes[2] << 8) +
-                        (Int32)(sidBytes[3] << 16) +
-                        (Int32)(sidBytes[4] << 24);
+                        +
+                        +
+                        ;
                     strSid.Append("-");
-                    strSid.Append(iVal.ToString());
+                    strSid.Append(iVal);
                 }
 
                 // Get sub authority count...
@@ -1759,7 +1759,7 @@ namespace FuseCP.Providers.Utils
                     idxAuth = 8 + i * 4;
                     UInt32 iSubAuth = BitConverter.ToUInt32(sidBytes, idxAuth);
                     strSid.Append("-");
-                    strSid.Append(iSubAuth.ToString());
+                    strSid.Append(iSubAuth);
                 }
             }
             catch

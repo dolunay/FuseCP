@@ -116,7 +116,7 @@ namespace FuseCP.EnterpriseServer
                         }
                         if (data[num1] != null)
                         {
-                            builder1.Append(data[num1].ToString());
+                            builder1.Append(data[num1]);
                         }
                     }
                 }

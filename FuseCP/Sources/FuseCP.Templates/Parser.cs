@@ -48,7 +48,7 @@ namespace FuseCP.Templates
 			current = lexer.Next();
 
 			if (old.TokenType != type)
-				throw new ParserException("Unexpected token: " + current.TokenType.ToString() + ". Was expecting: " + type,
+				throw new ParserException("Unexpected token: " + current.TokenType + ". Was expecting: " + type,
                     current.Line, current.Column);
 
 			return old;
@@ -106,7 +106,7 @@ namespace FuseCP.Templates
                     Consume();
                     return text;
                 default:
-                    throw new ParserException("Invalid token: " + Current.TokenType.ToString(), Current.Line, Current.Column);
+                    throw new ParserException("Invalid token: " + Current.TokenType, Current.Line, Current.Column);
             }
         }
 

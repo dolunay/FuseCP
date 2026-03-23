@@ -60,7 +60,7 @@ namespace FuseCP.Providers.HostedSolution
             get
             {
                 Regex r = new Regex(@"[^A-Za-z0-9]");
-                return "FCPDisclaimer" + ExchangeDisclaimerId.ToString() + "_" + r.Replace(DisclaimerName, "");
+                return "FCPDisclaimer" + ExchangeDisclaimerId + "_" + r.Replace(DisclaimerName, "");
             }
         }
 

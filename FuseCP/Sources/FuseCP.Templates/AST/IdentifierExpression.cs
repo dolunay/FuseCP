@@ -169,7 +169,7 @@ namespace FuseCP.Templates.AST
                     propsList.Append(p.Name);
                 }
                 throw new ParserException("Public property could not be found: " + propName + "."
-                    + " Supported properties: " + propsList.ToString(), Line, Column);
+                    + " Supported properties: " + propsList, Line, Column);
             }
 
             // read property
@@ -235,7 +235,7 @@ namespace FuseCP.Templates.AST
                     methodsList.Append(mi.Name);
                 }
                 throw new ParserException("Public method could not be found: " + methodName + "."
-                    + " Available methods: " + methodsList.ToString(), Line, Column);
+                    + " Available methods: " + methodsList, Line, Column);
             }
 
             // call method

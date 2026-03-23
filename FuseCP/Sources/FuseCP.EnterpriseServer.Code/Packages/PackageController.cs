@@ -381,7 +381,7 @@ namespace FuseCP.EnterpriseServer
                 quota.QuotaId = (int)dr["QuotaId"];
                 quota.GroupId = (int)dr["GroupId"];
                 quota.QuotaName = (string)dr["QuotaName"];
-                quota.QuotaDescription = ((object)dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
+                quota.QuotaDescription = (dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
                 quota.QuotaTypeId = (int)dr["QuotaTypeId"];
                 quota.QuotaAllocatedValue = (int)dr["QuotaValue"];
                 quota.QuotaAllocatedValuePerOrganization = (int)dr["QuotaValuePerOrganization"];
@@ -429,7 +429,7 @@ namespace FuseCP.EnterpriseServer
                 quota.QuotaId = (int)dr["QuotaId"];
                 quota.GroupId = (int)dr["GroupId"];
                 quota.QuotaName = (string)dr["QuotaName"];
-                quota.QuotaDescription = ((object)dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
+                quota.QuotaDescription = (dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
                 quota.QuotaTypeId = (int)dr["QuotaTypeId"];
                 quota.QuotaAllocatedValue = (int)dr["QuotaValue"];
                 quota.QuotaAllocatedValuePerOrganization = (int)dr["QuotaValuePerOrganization"];
@@ -1692,7 +1692,7 @@ namespace FuseCP.EnterpriseServer
             DataView dvItems = dsItems.Tables[itemsTablePosition].DefaultView;
             foreach (DataRowView drItem in dvItems)
             {
-                DataView dvProps = new DataView(dsItems.Tables[itemsTablePosition + 1], "ItemID=" + drItem["ItemID"].ToString(),
+                DataView dvProps = new DataView(dsItems.Tables[itemsTablePosition + 1], "ItemID=" + drItem["ItemID"],
                     "", DataViewRowState.CurrentRows);
                 items.Add(CreateServiceItem(drItem, dvProps));
             }
@@ -1770,7 +1770,7 @@ namespace FuseCP.EnterpriseServer
 
             foreach (DataRow drItem in dtItems.Rows)
             {
-                DataView dvProps = new DataView(dtProps, "ItemID=" + drItem["ItemID"].ToString(),
+                DataView dvProps = new DataView(dtProps, "ItemID=" + drItem["ItemID"],
                     "", DataViewRowState.CurrentRows);
 
                 foreach (DataRowView drProp in dvProps)

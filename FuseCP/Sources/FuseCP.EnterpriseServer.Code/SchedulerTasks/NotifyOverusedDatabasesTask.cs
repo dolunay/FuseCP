@@ -35,7 +35,7 @@ namespace FuseCP.EnterpriseServer
 
             // get the list of all packages
             List<PackageInfo> packages = PackageController.GetPackagePackages(topTask.PackageId, false);
-            TaskManager.Write("Packages to verify: " + packages.Count.ToString());
+            TaskManager.Write("Packages to verify: " + packages.Count);
 
             bool checkMSSQL = (String.Compare((string)topTask.GetParamValue("MSSQL_OVERUSED"), "true", true) == 0);
             bool checkMySQL = (String.Compare((string)topTask.GetParamValue("MYSQL_OVERUSED"), "true", true) == 0);
@@ -213,7 +213,7 @@ namespace FuseCP.EnterpriseServer
             }
 
             // log results
-            TaskManager.Write("Total packages overused: " + overusedPackages.ToString());
+            TaskManager.Write("Total packages overused: " + overusedPackages);
         }
 
 		private string ReplaceVariables(string content, string threshold, string usage, string spaceName, string customerName)

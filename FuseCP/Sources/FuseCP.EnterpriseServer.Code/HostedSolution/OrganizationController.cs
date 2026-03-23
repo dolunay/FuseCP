@@ -3117,7 +3117,7 @@ namespace FuseCP.EnterpriseServer
                 os.SetQuotaLimitOnFolder(
                     Path.Combine(GetDirectory(path), folderName),
                     GetLocationDrive(path), quotaType,
-                    quotaInfo.QuotaAllocatedValuePerOrganization.ToString() + unit,
+                    quotaInfo.QuotaAllocatedValuePerOrganization + unit,
                     0, String.Empty, String.Empty);
             }
         }

@@ -17,10 +17,10 @@ public partial class @(Class.Identifier)AssemblyClient: FuseCP.Web.Clients.Clien
        .Select(m => new
        {
            Method = m,
-           Normal = (MemberDeclarationSyntax)MethodDeclaration(m.ReturnType, m.Identifier)
+           Normal = MethodDeclaration(m.ReturnType, m.Identifier)
                    .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
                    .WithParameterList(m.ParameterList),
-           Async = (MemberDeclarationSyntax)MethodDeclaration(ParseTypeName(
+           Async = MethodDeclaration(ParseTypeName(
                            (m.ReturnType is PredefinedTypeSyntax && ((PredefinedTypeSyntax)m.ReturnType).Keyword.IsKind(SyntaxKind.VoidKeyword)) ?
                            "System.Threading.Tasks.Task" : $"System.Threading.Tasks.Task<{m.ReturnType}>"),
                            $"{m.Identifier}Async")

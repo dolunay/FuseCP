@@ -2282,9 +2282,9 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 else
                 {
                     Int64 iVal = (Int32)(sidBytes[1]) +
-                        (Int32)(sidBytes[2] << 8) +
-                        (Int32)(sidBytes[3] << 16) +
-                        (Int32)(sidBytes[4] << 24);
+                        +
+                        +
+                        ;
                     strSid.Append("-");
                     strSid.Append(iVal.ToString());
                 }

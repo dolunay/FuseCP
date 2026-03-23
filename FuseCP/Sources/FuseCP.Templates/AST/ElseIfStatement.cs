@@ -50,7 +50,7 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{elseif ")
-                .Append(Condition.ToString()).Append("}");
+                .Append(Condition).Append("}");
             foreach (Statement stm in TrueStatements)
             {
                 sb.Append(stm);

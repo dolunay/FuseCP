@@ -1934,7 +1934,7 @@ namespace FuseCP.EnterpriseServer
 
                         #endregion
 
-                        os.SetQuotaLimitOnFolder(orgFolder, curSetting.LocationDrive, quotaType, quotaSize.ToString() + unit, 0, String.Empty, String.Empty);
+                        os.SetQuotaLimitOnFolder(orgFolder, curSetting.LocationDrive, quotaType, quotaSize + unit, 0, String.Empty, String.Empty);
                     }
                     catch (Exception ex)
                     {
@@ -2563,7 +2563,7 @@ namespace FuseCP.EnterpriseServer
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes / OneGb);
+            return ;
         }
 
         public int ConvertBytesToMB(long bytes)

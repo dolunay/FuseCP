@@ -88,7 +88,7 @@ namespace FuseCP.EnterpriseServer.Data
 						str.AppendLine();
 						str.AppendLine();
 					}
-					Console.WriteLine(str.ToString());
+					Console.WriteLine(str);
 				}
 			}
 			Console.ReadKey();

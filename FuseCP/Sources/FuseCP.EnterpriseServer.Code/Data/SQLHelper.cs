@@ -350,7 +350,7 @@ namespace Microsoft.ApplicationBlocks.Data
             // Create a command and prepare it for execution
             SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
-            PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+            PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     		
             // Finally, execute the command
             int retval = cmd.ExecuteNonQuery();
@@ -614,7 +614,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     			
 			// Create the DataAdapter & DataSet
 			using( SqlDataAdapter da = new SqlDataAdapter(cmd) )
@@ -1213,7 +1213,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			SqlCommand cmd = new SqlCommand();
 
 			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     			
 			// Execute the command & return the results
 			object retval = cmd.ExecuteScalar();
@@ -1396,7 +1396,7 @@ namespace Microsoft.ApplicationBlocks.Data
             SqlCommand cmd = new SqlCommand();
 			try
 			{
-				PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+				PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
 			
 				// Create the DataAdapter & DataSet
 				XmlReader retval = cmd.ExecuteXmlReader();
@@ -1858,7 +1858,7 @@ namespace Microsoft.ApplicationBlocks.Data
 					{
 						if( tableNames[index] == null || tableNames[index].Length == 0 ) throw new ArgumentException( "The tableNames parameter must contain a list of tables, a value was provided as null or empty string.", "tableNames" );
 						dataAdapter.TableMappings.Add(tableName, tableNames[index]);
-						tableName += (index + 1).ToString();
+						tableName += (index + 1);
 					}
 				}
                 

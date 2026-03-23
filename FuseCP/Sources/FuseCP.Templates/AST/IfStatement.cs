@@ -100,7 +100,7 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{if ")
-                .Append(Condition.ToString()).Append("}");
+                .Append(Condition).Append("}");
 
             // true statements
             foreach (Statement stm in TrueStatements)

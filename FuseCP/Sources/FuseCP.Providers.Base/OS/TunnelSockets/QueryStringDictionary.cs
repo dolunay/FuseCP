@@ -42,7 +42,7 @@ namespace FuseCP.Providers.OS
                 {
                     if (str.Length > 0) str.Append("&");
                     str.Append(Uri.EscapeDataString(par.Key));
-                    if ((string)par.Value != "")
+                    if (par.Value != "")
                     {
                         str.Append("=");
                         str.Append(Uri.EscapeDataString(par.Value));

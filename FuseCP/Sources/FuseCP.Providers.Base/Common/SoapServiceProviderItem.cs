@@ -68,7 +68,7 @@ namespace FuseCP.Providers
             List<string> wrProps = new List<string>();
             foreach (string key in props.Keys)
             {
-                wrProps.Add(key + "=" + props[key].ToString());
+                wrProps.Add(key + "=" + props[key]);
             }
 
             sobj.Properties = wrProps.ToArray();

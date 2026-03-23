@@ -2859,7 +2859,7 @@ namespace FuseCP.EnterpriseServer
                 StringDictionary webSettings = ServerController.GetServiceSettings(item.ServiceId);
                 if (!String.IsNullOrEmpty(webSettings["WmSvc.NETBIOS"]))
                 {
-                    accountName = webSettings["WmSvc.NETBIOS"].ToString() + "\\" + accountName;
+                    accountName = webSettings["WmSvc.NETBIOS"] + "\\" + accountName;
                 }
 
 				// Most part of the functionality used to enable Web Deploy publishing correspond to those created for Web Management purposes,
@@ -3680,7 +3680,7 @@ namespace FuseCP.EnterpriseServer
                 StringDictionary webSettings = ServerController.GetServiceSettings(item.ServiceId);
                 if (!String.IsNullOrEmpty(webSettings["WmSvc.NETBIOS"]))
                 {
-                    accountName = webSettings["WmSvc.NETBIOS"].ToString() + "\\" + accountName;
+                    accountName = webSettings["WmSvc.NETBIOS"] + "\\" + accountName;
                 }
 
 				//
@@ -3803,7 +3803,7 @@ namespace FuseCP.EnterpriseServer
 				TaskManager.WriteParameter("SiteItemId", siteItemId);
 
 				//
-				WebSite item = GetWebSite(siteItemId) as WebSite;
+				WebSite item = GetWebSite(siteItemId);
 
 				//
 				if (item == null)
@@ -4390,7 +4390,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Hostname", certificate.Hostname);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 WebServer server = GetWebServer(item.ServiceId);
@@ -4404,7 +4404,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
 
 
-                certificate.FriendlyName = String.Format("{0}_{1}", certificate.Hostname, ticks.ToString());
+                certificate.FriendlyName = String.Format("{0}_{1}", certificate.Hostname, ticks);
                 certificate = server.GenerateCSR(certificate);
                 certificate.id = Database.AddSSLRequest(SecurityContext.User.UserId, item.PackageId,
                     certificate.SiteID, certificate.UserID, certificate.FriendlyName, certificate.Hostname,
@@ -4435,7 +4435,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Hostname", certificate.Hostname);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 WebServer server = GetWebServer(item.ServiceId);
                 TaskManager.WriteParameter("item.ServiceId", item.ServiceId);
@@ -4486,7 +4486,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Email", email);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 //WebServer server = GetWebServer(item.ServiceId);
                 TaskManager.WriteParameter("item.ServiceId", item.ServiceId);
@@ -4522,7 +4522,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.StartTask(LOG_SOURCE_WEB, "installPFX");
                 TaskManager.WriteParameter("SiteItemId", siteItemId);
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
 
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
@@ -4571,7 +4571,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public List<SSLCertificate> GetPendingCertificates(int siteItemId)
         {
-            WebSite item = GetWebSite(siteItemId) as WebSite;
+            WebSite item = GetWebSite(siteItemId);
             List<SSLCertificate> certificates = new List<SSLCertificate>();
             return ObjectUtils.CreateListFromDataSet<SSLCertificate>(
                 Database.GetPendingCertificates(SecurityContext.User.UserId, item.PackageId, item.Id, false));
@@ -4603,7 +4603,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public List<SSLCertificate> GetCertificatesForSite(int siteId)
         {
-            WebSite item = GetWebSite(siteId) as WebSite;
+            WebSite item = GetWebSite(siteId);
             List<SSLCertificate> certificates = new List<SSLCertificate>();
             return ObjectUtils.CreateListFromDataSet<SSLCertificate>(
                 Database.GetCertificatesForSite(SecurityContext.User.UserId, item.PackageId, item.Id));
@@ -4611,7 +4611,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public byte[] ExportCertificate(int siteId, string serialNumber, string password)
         {
-            WebSite item = GetWebSite(siteId) as WebSite;
+            WebSite item = GetWebSite(siteId);
 
             WebServer server = GetWebServer(item.ServiceId);
             return server.ExportCertificate(serialNumber, password);
@@ -4624,7 +4624,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
             try
             {
                 TaskManager.StartTask(LOG_SOURCE_WEB, "DeleteCertificate");
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 result = server.DeleteCertificate(certificate, item);
                 if (result.IsSuccess)
@@ -4659,7 +4659,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
             {
                 TaskManager.StartTask(LOG_SOURCE_WEB, "ImportCertificate");
 
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
                 SSLCertificate certificate = server.ImportCertificate(item);
@@ -4696,7 +4696,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
             try
             {
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 serverResult = server.CheckCertificate(item);
                 if (serverResult && !Database.CheckSSLExistsForWebsite(siteId))

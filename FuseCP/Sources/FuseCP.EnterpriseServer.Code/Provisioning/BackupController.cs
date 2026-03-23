@@ -623,7 +623,7 @@ namespace FuseCP.EnterpriseServer
 					packages.AddRange(PackageController.GetPackages(userId));
 					List<string> parts = new List<string>();
 					foreach (PackageInfo package in packages)
-						parts.Add("@packageId = " + package.PackageId.ToString());
+						parts.Add("@packageId = " + package.PackageId);
 					condition = "[" + String.Join(" or ", parts.ToArray()) + "]";
 				}
 				else if (packageId > 0)

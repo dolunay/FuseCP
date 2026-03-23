@@ -245,7 +245,7 @@ namespace FuseCP.Providers.OS
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes/ OneGb);
+            return ;
         }
 
         public new int ConvertBytesToMB(long bytes)

@@ -179,7 +179,7 @@ namespace FuseCP.Build
 					clientNS = NamespaceDeclaration(IdentifierName("FuseCP.Client"));
 
 					serverTree = CompilationUnit()
-						.WithUsings(((CompilationUnitSyntax)oldTree).Usings)
+						.WithUsings((oldTree).Usings)
 						.AddUsings(
 							UsingDirective(ParseName("System.ServiceModel"))
 								.WithLeadingTrivia(Trivia(IfDirectiveTrivia(IdentifierName("NETFRAMEWORK"), true, true, true))),
@@ -218,7 +218,7 @@ namespace FuseCP.Build
 						.WithExterns(oldNS.Externs);
 
 					serverTree = CompilationUnit()
-						.WithUsings(((CompilationUnitSyntax)oldTree).Usings)
+						.WithUsings((oldTree).Usings)
 						.AddUsings(UsingDirective(oldNS.Name))
 						.AddUsings(
 							UsingDirective(ParseName("System.ServiceModel"))

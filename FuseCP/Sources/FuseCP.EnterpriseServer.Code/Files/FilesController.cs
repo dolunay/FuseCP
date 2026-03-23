@@ -58,7 +58,7 @@ public class FilesController: ControllerBase
     public string GetHomeFolder(int packageId)
     {            
         // check context
-        string key = "HomeFolder" + packageId.ToString();
+        string key = "HomeFolder" + packageId;
         string path;
 
 #if NETFRAMEWORK
@@ -1010,7 +1010,7 @@ public class FilesController: ControllerBase
 
             OS.OperatingSystem os = GetOS(packageId);
 
-            os.SetQuotaLimitOnFolder(path, driveName, QuotaType.Hard, diskSpaceQuota.QuotaAllocatedValue.ToString() + unit, 0, String.Empty, String.Empty);
+            os.SetQuotaLimitOnFolder(path, driveName, QuotaType.Hard, diskSpaceQuota.QuotaAllocatedValue + unit, 0, String.Empty, String.Empty);
 
             return 0;
         }
