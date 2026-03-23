@@ -33,8 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.EnterpriseServer.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Web.Services", "FuseCP.Web.Services\FuseCP.Web.Services.csproj", "{32DF2D89-0A09-4A46-9A2A-340A8E9D515A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Providers.Virtualization.NoVNC", "..\Lib\novnc-fusecp\FuseCP.Providers.Virtualization.NoVNC.csproj", "{E715A042-FB64-4606-9759-9C56CC9AF07A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.WebPortal", "FuseCP.WebPortal\FuseCP.WebPortal.csproj", "{A0B623E2-199C-42AD-BEF4-73A8A7910399}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuseCP.Portal.Modules", "FuseCP.WebPortal\DesktopModules\FuseCP\FuseCP.Portal.Modules.csproj", "{6D5E301C-A53B-46C9-8CF0-F37E0C2E62EE}"
@@ -77,10 +75,6 @@ Global
 		{32DF2D89-0A09-4A46-9A2A-340A8E9D515A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32DF2D89-0A09-4A46-9A2A-340A8E9D515A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32DF2D89-0A09-4A46-9A2A-340A8E9D515A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E715A042-FB64-4606-9759-9C56CC9AF07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E715A042-FB64-4606-9759-9C56CC9AF07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E715A042-FB64-4606-9759-9C56CC9AF07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E715A042-FB64-4606-9759-9C56CC9AF07A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0B623E2-199C-42AD-BEF4-73A8A7910399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0B623E2-199C-42AD-BEF4-73A8A7910399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B623E2-199C-42AD-BEF4-73A8A7910399}.Release|Any CPU.ActiveCfg = Release|Any CPU
