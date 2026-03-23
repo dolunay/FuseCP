@@ -69,7 +69,7 @@ namespace FuseCP.Web.Services
 					{
 						eserver = Assembly.Load("FuseCP.EnterpriseServer");
 					}
-					catch { _ = 0; }
+					catch { }
 				}
 
 				if (ExposeWebServices == "" || ExposeWebServices == "all" || ExposeWebServices == "true" ||
@@ -79,7 +79,7 @@ namespace FuseCP.Web.Services
 					{
 						server = Assembly.Load("FuseCP.Server");
 					}
-					catch { _ = 0; }
+					catch { }
 				}
 
 				assemblies = new Assembly[]

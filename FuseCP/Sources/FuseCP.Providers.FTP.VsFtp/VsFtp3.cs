@@ -351,7 +351,7 @@ namespace FuseCP.Providers.FTP
 								if (version.Major == 3) return true;
 							}
 						}
-						catch { _ = 0; }
+						catch { }
 					}
 				}
 			}

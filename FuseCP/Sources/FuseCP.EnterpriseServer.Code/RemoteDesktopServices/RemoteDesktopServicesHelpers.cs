@@ -401,7 +401,6 @@ namespace FuseCP.EnterpriseServer
             }
             catch
             {
-                _ = 0;
             }
 
             return new List<System.Net.IPAddress>();

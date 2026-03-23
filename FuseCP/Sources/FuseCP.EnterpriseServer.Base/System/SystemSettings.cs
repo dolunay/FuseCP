@@ -131,7 +131,6 @@ namespace FuseCP.EnterpriseServer
 	        }
 	        catch
 	        {
-	            _ = 0;
 	        }
 
 	        return defaultValue;

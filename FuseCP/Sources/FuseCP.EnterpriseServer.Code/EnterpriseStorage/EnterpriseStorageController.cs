@@ -357,7 +357,6 @@ namespace FuseCP.EnterpriseServer
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
             }
         }
@@ -397,7 +396,6 @@ namespace FuseCP.EnterpriseServer
                     }
                     catch (Exception)
                     {
-                        _ = 0;
                     }
                 }
 
@@ -432,7 +430,6 @@ namespace FuseCP.EnterpriseServer
                     }
                     catch (Exception)
                     {
-                        _ = 0;
                     }
                 }
 

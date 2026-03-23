@@ -877,7 +877,6 @@ namespace FuseCP.EnterpriseServer
                 catch (Exception)
                 {
 
-                    _ = 0;
                 }
 
                 List<WebSite> sites = WebServerController.GetWebSites(domain.PackageId, false);
@@ -1063,7 +1062,6 @@ namespace FuseCP.EnterpriseServer
                 catch (Exception)
                 {
 
-                    _ = 0;
                 }
 
 

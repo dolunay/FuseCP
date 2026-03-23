@@ -228,7 +228,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
                         break;
                     }
             }
-            catch { _ = 0; }
+            catch { }
             items["os_template"] = osTemplate;
 
             // load service settings

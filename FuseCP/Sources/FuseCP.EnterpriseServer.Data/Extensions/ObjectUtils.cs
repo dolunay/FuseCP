@@ -331,11 +331,11 @@ namespace FuseCP.EnterpriseServer.Data
 											string strVal = propVal.ToString();
 											props[i].SetValue(obj, Cast(strVal, props[i].PropertyType), null);
 										}
-										catch { _ = 0; }
+										catch { }
 									}
 								}
 							}
-							catch { _ = 0; }
+							catch { } // just skip
 						} // for properties
 					}
 				}
@@ -404,7 +404,7 @@ namespace FuseCP.EnterpriseServer.Data
 							}
 						}
 					}
-					catch { _ = 0; }
+					catch { } // just skip
 				} // for properties
 			}
 
@@ -470,7 +470,7 @@ namespace FuseCP.EnterpriseServer.Data
 						}
 					}
 				}
-				catch { _ = 0; }
+				catch { } // just skip
 			} // for properties
 
 			return obj;
@@ -613,7 +613,7 @@ namespace FuseCP.EnterpriseServer.Data
 								}
 							}
 						}
-						catch { _ = 0; }
+						catch { } // just skip
 					} // for properties
 				}
 			}

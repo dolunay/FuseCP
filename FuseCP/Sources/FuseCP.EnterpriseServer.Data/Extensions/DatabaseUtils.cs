@@ -325,7 +325,6 @@ namespace FuseCP.EnterpriseServer.Data
 				}
 				catch
 				{
-				    _ = 0;
 				}
 				finally
 				{
@@ -1177,7 +1176,6 @@ LOG ON(
 				}
 				catch (SqlException)
 				{
-				    _ = 0;
 				}
 			}
 		}

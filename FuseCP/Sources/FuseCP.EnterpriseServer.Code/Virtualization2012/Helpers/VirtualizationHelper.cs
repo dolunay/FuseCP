@@ -174,7 +174,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012
                     if (serviceId != oldServiceId && CheckVmService(serviceId, itemId, vm.VirtualMachineId)) return serviceId;
                 }
             }
-            catch (Exception) { _ = 0; }
+            catch (Exception) { }
 
             return -1;
         }
@@ -191,7 +191,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012
                     return true;
                 }
             }
-            catch (Exception) { _ = 0; }
+            catch (Exception) { }
             return false;
         }
 

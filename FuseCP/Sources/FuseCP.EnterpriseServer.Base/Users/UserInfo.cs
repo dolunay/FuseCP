@@ -360,7 +360,7 @@ namespace FuseCP.EnterpriseServer
                         return result;
                     }
                 }
-                catch { _ = 0; }
+                catch { }
                 return result;
             }
         }

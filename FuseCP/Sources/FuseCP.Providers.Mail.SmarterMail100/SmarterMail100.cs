@@ -2504,7 +2504,7 @@ HttpClient client = CreateHttpClient();
 							if (assemblyName?.Version != null && assemblyName.Version.Major == 100) return true;
 							else return false;
 						}
-						catch { _ = 0; }
+						catch { }
                     }
                 }
             }

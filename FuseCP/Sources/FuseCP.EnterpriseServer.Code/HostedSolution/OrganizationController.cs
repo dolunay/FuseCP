@@ -3299,7 +3299,7 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
                 // load account
                 account = GetAccount(itemId, accountId, false);
             }
-            catch (Exception) { _ = 0; }
+            catch (Exception) { }
 
             try
             {
@@ -3325,7 +3325,7 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
 
                 return retUser;
             }
-            catch { _ = 0; }
+            catch { }
             finally
             {
                 //TaskManager.CompleteTask();
@@ -3349,7 +3349,7 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
                 // load account
                 account = GetAccount(itemId, accountId);
             }
-            catch (Exception) { _ = 0; }
+            catch (Exception) { }
 
             try
             {
@@ -3375,7 +3375,7 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
 
                 return retUser;
             }
-            catch { _ = 0; }
+            catch { }
 
             return (account);
         }

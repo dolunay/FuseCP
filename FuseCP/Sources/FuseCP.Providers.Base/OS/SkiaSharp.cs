@@ -34,7 +34,6 @@ namespace FuseCP.Providers.OS
             }
             catch
             {
-                _ = 0;
             }
 
             if (!string.IsNullOrWhiteSpace(codeBase) && Uri.TryCreate(codeBase, UriKind.Absolute, out var codeBaseUri) && codeBaseUri.IsFile)

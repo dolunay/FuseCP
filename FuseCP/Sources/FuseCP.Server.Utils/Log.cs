@@ -62,7 +62,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceError(txt.ToString());
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace FuseCP.Server.Utils
                     WriteError(ex.Message, ex);
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "INFO", args));
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceWarning(FormatIncomingMessage(message, "WARNING", args));
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "START", args));
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "END", args));
                 }
             }
-            catch { _ = 0; }
+            catch { }
         }
 
         private static string FormatIncomingMessage(string message, string tag, params object[] args)

@@ -160,7 +160,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 try
@@ -169,7 +168,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 try
@@ -178,7 +176,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 try
@@ -187,7 +184,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 var command = new Command("Invoke-CsManagementStoreReplication");
@@ -281,7 +277,7 @@ namespace FuseCP.Providers.HostedSolution
                     {
                         PlanSet = SetSfBUserPlanInternal(organizationId, userUpn, plan, runspace);
                     }
-                    catch { _ = 0; }
+                    catch { }
                     if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
                 }
 

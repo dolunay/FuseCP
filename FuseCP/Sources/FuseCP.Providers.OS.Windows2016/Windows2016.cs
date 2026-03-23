@@ -1067,7 +1067,7 @@ namespace FuseCP.Providers.OS
                             m.InvokeMethod("GetOwner", methodParams);
                             username = methodParams[0];
                         }
-                        catch { _ = 0; }
+                        catch { }
 
                         var args = m["CommandLine"] as string ?? "";
                         string cmd = "";

@@ -345,7 +345,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 					catch (Exception)
 					{
-					    _ = 0;
 					}
 
 					try
@@ -354,7 +353,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 					catch (Exception)
 					{
-					    _ = 0;
 					}
 
 					try
@@ -363,7 +361,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 					catch (Exception)
 					{
-					    _ = 0;
 					}
 
 					try
@@ -372,7 +369,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 					catch (Exception)
 					{
-					    _ = 0;
 					}
 
 					try
@@ -381,7 +377,6 @@ namespace FuseCP.Providers.HostedSolution
 					}
 					catch (Exception)
 					{
-					    _ = 0;
 					}
 				}
 
@@ -508,7 +503,7 @@ namespace FuseCP.Providers.HostedSolution
 						{
 							PlanSet = SetLyncUserPlanInternal(organizationId, userUpn, plan, runSpace);
 						}
-						catch { _ = 0; }
+						catch { }
 						if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
 					}
 

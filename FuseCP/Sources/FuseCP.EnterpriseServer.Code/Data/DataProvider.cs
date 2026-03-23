@@ -94,7 +94,6 @@ namespace FuseCP.EnterpriseServer
 											.ConfigureAwait(false))?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false; 
 									} catch (Exception)
 									{
-									    _ = 0;
 									}
 								}
 							});

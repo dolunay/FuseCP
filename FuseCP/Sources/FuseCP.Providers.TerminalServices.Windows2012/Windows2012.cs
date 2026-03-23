@@ -732,7 +732,6 @@ namespace FuseCP.Providers.RemoteDesktopServices
             catch (AmbiguousMatchException)
             {
 
-                _ = 0;
             }
             finally
             {
@@ -1890,7 +1889,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 runSpace.ExecuteShellCommand(cmd, false, PrimaryDomainController);
             }
-            catch (Exception) { _ = 0; }
+            catch (Exception) { }
         }
 
         private bool ExistRdsServerInDeployment(Runspace runSpace, RdsServer server)
@@ -2141,7 +2140,6 @@ namespace FuseCP.Providers.RemoteDesktopServices
             catch (AmbiguousMatchException)
             {
                 
-                _ = 0;
             }
 
             return Errors.OK;
@@ -2374,7 +2372,6 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             catch
             {
-                _ = 0;
             }
 
             return new List<IPAddress>();

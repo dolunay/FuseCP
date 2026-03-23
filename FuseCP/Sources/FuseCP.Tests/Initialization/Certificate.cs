@@ -80,7 +80,7 @@ namespace FuseCP.Tests
 					{
 						mystore.Add(cert);
 					}
-					catch { _ = 0; }
+					catch { }
 				}
 			}
 

@@ -107,7 +107,7 @@ namespace FuseCP.Providers.Virtualization
 					return match.Groups["version"].Value;
 				}
 			}
-			catch { _ = 0; }
+			catch { }
 
 			return "";
 		}

@@ -511,7 +511,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
 
                         try
@@ -520,7 +519,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
 
                         try
@@ -529,7 +527,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
                     }
 
@@ -2596,7 +2593,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
 
                         try
@@ -2605,7 +2601,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
 
                         try
@@ -2614,7 +2609,6 @@ namespace FuseCP.Providers.HostedSolution
                         }
                         catch (Exception)
                         {
-                            _ = 0;
                         }
                     }
                 }
@@ -7701,7 +7695,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 if (result != null)
@@ -7853,7 +7846,6 @@ namespace FuseCP.Providers.HostedSolution
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
 
                 if (result != null)

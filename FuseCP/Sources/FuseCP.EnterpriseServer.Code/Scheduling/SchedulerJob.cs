@@ -107,7 +107,6 @@ namespace FuseCP.EnterpriseServer
                 }
                 catch (Exception)
                 {
-                    _ = 0;
                 }
             }
         }

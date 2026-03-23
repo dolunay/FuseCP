@@ -325,7 +325,7 @@ namespace FuseCP.Providers.Virtualization
                     terminateResult = await Task.Run(() => _miCim.InvokeMethod(processToKill, "Terminate"));
                 }
             }
-            catch { _ = 0; }
+            catch { }
             finally
             {
                 processToKill?.Dispose();

@@ -220,7 +220,6 @@ namespace FuseCP.EnterpriseServer
             }
             catch (ThreadAbortException)
             {
-                _ = 0;
             }
             catch (WebException ex)
             {

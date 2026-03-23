@@ -123,7 +123,6 @@ namespace FuseCP.Providers.Virtualization
                     catch (Exception)
                     {
 
-                        _ = 0;
                     }
                 }
                 return node;

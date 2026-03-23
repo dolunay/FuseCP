@@ -109,7 +109,7 @@ namespace FuseCP.Providers.Web
                     return true;
                 }
             }
-            catch { _ = 0; }
+            catch {  }
             return false;
         }
 
@@ -133,7 +133,7 @@ namespace FuseCP.Providers.Web
                     }
                 }
             }
-            catch { _ = 0; }
+            catch { }
 
             return rules.ToArray();
         }

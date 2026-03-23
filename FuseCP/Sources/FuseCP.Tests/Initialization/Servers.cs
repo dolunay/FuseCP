@@ -125,7 +125,7 @@ public class Servers
 					init.Invoke(null, new object[0]);
 				}
 			}
-			catch (Exception) { _ = 0; }
+			catch (Exception) { }
 
 		try
 		{
@@ -137,7 +137,7 @@ public class Servers
 				init.Invoke(null, new object[0]);
 			}
 		}
-		catch (Exception) { _ = 0; }
+		catch (Exception) { }
 	}
 	public static WSLShell.WSLDistro WslDistro(Os os)
 	{

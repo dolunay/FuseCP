@@ -727,7 +727,6 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 		}
 		catch (Exception)
 		{
-		    _ = 0;
 		}
 	}
 
