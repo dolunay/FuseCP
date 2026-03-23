@@ -25,7 +25,7 @@ namespace FuseCP.Templates.AST
         string elementIdentifier;
         string indexIdentifier;
         Expression collection;
-        List<Statement> statements = new List<Statement>();
+        readonly List<Statement> statements = new List<Statement>();
 
         public ForeachStatement(int line, int column)
             : base(line, column)

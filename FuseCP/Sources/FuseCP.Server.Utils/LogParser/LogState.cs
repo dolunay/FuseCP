@@ -26,7 +26,7 @@ namespace FuseCP.Providers.Utils.LogParser
 	{
 		private long lastAccessed = 0;
 		private long line = 0;
-		private string siteFileName = null;
+		private readonly string siteFileName = null;
 
 		public LogState(string logName)
 		{

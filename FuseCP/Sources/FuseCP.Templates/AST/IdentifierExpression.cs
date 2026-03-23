@@ -23,7 +23,7 @@ namespace FuseCP.Templates.AST
 {
     internal class IdentifierExpression : Expression
     {
-        List<IdentifierPart> parts = new List<IdentifierPart>();
+        readonly List<IdentifierPart> parts = new List<IdentifierPart>();
 
         public IdentifierExpression(int line, int column)
             : base(line, column)

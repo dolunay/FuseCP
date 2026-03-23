@@ -2430,7 +2430,7 @@ namespace Microsoft.ApplicationBlocks.Data
 		//instances from being created with "new SqlHelperParameterCache()"
 		private SqlHelperParameterCache() {}
 
-		private static Hashtable paramCache = Hashtable.Synchronized(new Hashtable());
+		private static readonly Hashtable paramCache = Hashtable.Synchronized(new Hashtable());
 
         /// <summary>
         /// Resolve at run time the appropriate set of SqlParameters for a stored procedure

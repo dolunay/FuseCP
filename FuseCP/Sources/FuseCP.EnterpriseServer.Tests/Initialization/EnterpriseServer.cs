@@ -60,7 +60,7 @@ public class EnterpriseServer : IDisposable
 #endif
 	}
 
-	static object Lock = new object();
+	static readonly object Lock = new object();
 
 	static string path = null;
 

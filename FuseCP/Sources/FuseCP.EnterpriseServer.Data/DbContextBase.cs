@@ -273,7 +273,7 @@ namespace FuseCP.EnterpriseServer.Context
 		public virtual DbSet<TempId> TempIds { get; set; }
 
 #if NetCore
-		static ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
+		static readonly ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
 
 		protected void UseSqlServer(DbContextOptionsBuilder builder, string connectionString) => builder.UseSqlServer(connectionString);
 		protected void UseSqlite(DbContextOptionsBuilder builder, string connectionString) => builder.UseSqlite(connectionString);

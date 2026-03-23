@@ -22,8 +22,8 @@ namespace FuseCP.Templates.AST
 {
     internal abstract class Statement
     {
-        int line;
-        int column;
+        readonly int line;
+        readonly int column;
 
         public Statement(int line, int column)
         {

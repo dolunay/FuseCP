@@ -26,7 +26,7 @@ namespace FuseCP.Providers
     {
         public class TypedCollection<U>: ICollection<U>
         {
-            ICollection BaseCollection;
+            readonly ICollection BaseCollection;
             public TypedCollection(ICollection baseCollection) { BaseCollection = baseCollection; }
 
             public int Count => BaseCollection.Count;

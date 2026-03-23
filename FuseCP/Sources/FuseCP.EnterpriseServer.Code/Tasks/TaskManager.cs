@@ -36,9 +36,9 @@ namespace FuseCP.EnterpriseServer
     {
         private Hashtable eventHandlers = null;
         //using id instead of guid
-        private ConcurrentDictionary<int, Thread> _taskThreadsDictionary = new ConcurrentDictionary<int, Thread>();
+        private readonly ConcurrentDictionary<int, Thread> _taskThreadsDictionary = new ConcurrentDictionary<int, Thread>();
 
-		static object Lock = new object();
+		static readonly object Lock = new object();
 		// purge timer, used for killing old tasks from the hash
 		static Timer purgeTimer = null;
         static int timers = 0;

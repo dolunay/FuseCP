@@ -122,7 +122,7 @@ namespace FuseCP.Web.Clients
             }
         }
 
-        static object disposeLock = new object();
+        static readonly object disposeLock = new object();
         public static void Dispose()
         {
             lock (disposeLock)
@@ -280,7 +280,7 @@ namespace FuseCP.Web.Clients
             AddEnvironmentPaths(new[] { Path.GetDirectoryName(file) });
         }
 
-        static ConcurrentDictionary<string, string> OriginalFiles = new ConcurrentDictionary<string, string>();
+        static readonly ConcurrentDictionary<string, string> OriginalFiles = new ConcurrentDictionary<string, string>();
 	    static void LoadNativeDlls(Assembly a)
         {
             if (a.IsDynamic) return;
@@ -337,8 +337,8 @@ namespace FuseCP.Web.Clients
                 ProbingPaths.Replace('\\', Path.DirectorySeparatorChar)
                 .Split(';'));
 
-        static Dictionary<string, Assembly> LoadedAssemblies = new Dictionary<string, Assembly>();
-        static ConcurrentDictionary<string, object> Locks = new ConcurrentDictionary<string, object>();
+        static readonly Dictionary<string, Assembly> LoadedAssemblies = new Dictionary<string, Assembly>();
+        static readonly ConcurrentDictionary<string, object> Locks = new ConcurrentDictionary<string, object>();
 
         public static Assembly Resolve(object sender, ResolveEventArgs args)
         {

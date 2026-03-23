@@ -42,7 +42,7 @@ namespace System.Runtime.Remoting.Channels
 
 		// state
 		private MemoryChunk _chunks = null;      // data
-		private IByteBufferPool _bufferPool = null;  // pool of byte buffers to use
+		private readonly IByteBufferPool _bufferPool = null;  // pool of byte buffers to use
 
 		private bool _bClosed = false;   // has the stream been closed.        
 

@@ -28,7 +28,7 @@ namespace FuseCP.Providers.Common
         private static readonly string itoa64 =         /* 0 ... 63 => ASCII - 64 */
             "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-        private static Random _random;
+        private static readonly Random _random;
 
         static PasswdHelper()
         {

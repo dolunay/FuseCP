@@ -30,7 +30,7 @@ namespace FuseCP.Providers.Utils
     public class WmiHelper
     {
         // namespace
-        string ns = null;
+        readonly string ns = null;
         ManagementScope scope = null;
 
         public WmiHelper(string ns)

@@ -30,7 +30,7 @@ namespace FuseCP.Providers.OS
     /// </summary>
     public class DnsService
     {
-        static ConcurrentDictionary<string, Task<IPAddress[]>> ipforhost = new ConcurrentDictionary<string, Task<IPAddress[]>>();
+        static readonly ConcurrentDictionary<string, Task<IPAddress[]>> ipforhost = new ConcurrentDictionary<string, Task<IPAddress[]>>();
         public static async Task<IPAddress> GetFirstIPAddressAsync(string host) => (await GetIPAddressesAsync(host))
                 .OrderBy(ip => ip.AddressFamily) // Get IPv4 address first
                 .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork || ip.AddressFamily == AddressFamily.InterNetworkV6);

@@ -21,12 +21,12 @@ namespace FuseCP.Templates.AST
 {
     internal class IdentifierPart
     {
-        string name;
+        readonly string name;
         Expression index;
         bool isMethod;
-        List<Expression> methodParameters = new List<Expression>();
-        int line;
-        int column;
+        readonly List<Expression> methodParameters = new List<Expression>();
+        readonly int line;
+        readonly int column;
 
         public IdentifierPart(string name, int line, int column)
         {

@@ -22,10 +22,10 @@ namespace FuseCP.Templates
     internal class Token
     {
         TokenType tokenType;
-        int line;
-        int column;
-        int position;
-        int length;
+        readonly int line;
+        readonly int column;
+        readonly int position;
+        readonly int length;
         string data;
 
         public Token(TokenType tokenType, string data, int line, int column, int position, int length)

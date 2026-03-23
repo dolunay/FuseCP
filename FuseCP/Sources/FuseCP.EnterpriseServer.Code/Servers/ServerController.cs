@@ -48,7 +48,7 @@ namespace FuseCP.EnterpriseServer
 	{
 		private const string LOG_SOURCE_SERVERS = "SERVERS";
 
-		private List<string> _createdDatePatterns = new List<string> { @"Creation Date:(.+)", // base
+		private readonly List<string> _createdDatePatterns = new List<string> { @"Creation Date:(.+)", // base
                                                                                 @"created:(.+)",
 																				@"Created On:(.+) UTC",
 																				@"Created On:(.+)",
@@ -56,7 +56,7 @@ namespace FuseCP.EnterpriseServer
 																				@"Domain Create Date:(.+)",
 																				@"Registered on:(.+)"};
 
-		private List<string> _expiredDatePatterns = new List<string> {   @"Expiration Date:(.+) UTC", //base UTC
+		private readonly List<string> _expiredDatePatterns = new List<string> {   @"Expiration Date:(.+) UTC", //base UTC
                                                                                 @"Expiration Date:(.+)", // base
                                                                                 @"Registry Expiry Date:(.+)", //.org
                                                                                 @"paid-till:(.+)", //.ru
@@ -68,13 +68,13 @@ namespace FuseCP.EnterpriseServer
                                                                                 @"expires:(.+)" //.fi 
                                                                               };
 
-		private List<string> _registrarNamePatterns = new List<string>   {
+		private readonly List<string> _registrarNamePatterns = new List<string>   {
 																				@"Created by Registrar:(.+)",
 																				@"Registrar:(.+)",
 																				@"Registrant Name:(.+)"
 																			};
 
-		private List<string> _datePatterns = new List<string> {   @"ddd MMM dd HH:mm:ss G\MT yyyy",
+		private readonly List<string> _datePatterns = new List<string> {   @"ddd MMM dd HH:mm:ss G\MT yyyy",
 																								 @"yyyymmdd"
 																										};
 		public ServerController(ControllerBase provider) : base(provider) { }

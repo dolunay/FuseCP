@@ -46,7 +46,7 @@ public static class MigrationBuilderExtension
 	}
 
 #if NetCore
-	static ConditionalWeakTable<MigrationBuilder, CountObject> SafeSqlCount = new ConditionalWeakTable<MigrationBuilder, CountObject>();
+	static readonly ConditionalWeakTable<MigrationBuilder, CountObject> SafeSqlCount = new ConditionalWeakTable<MigrationBuilder, CountObject>();
 	public static OperationBuilder<SqlOperation> SafeSql(this MigrationBuilder builder,
 		string query, bool suppressTransaction = false)
 	{

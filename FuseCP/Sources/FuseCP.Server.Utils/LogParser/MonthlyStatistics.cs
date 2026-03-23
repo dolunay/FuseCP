@@ -24,8 +24,8 @@ namespace FuseCP.Providers.Utils.LogParser
 	/// </summary>
 	public class MonthlyStatistics
 	{
-		private string statsFile = null;
-		private Hashtable days = new Hashtable();
+		private readonly string statsFile = null;
+		private readonly Hashtable days = new Hashtable();
 
 
 		public MonthlyStatistics(string statsFile)

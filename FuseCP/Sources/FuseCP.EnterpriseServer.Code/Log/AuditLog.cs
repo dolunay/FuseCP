@@ -97,7 +97,7 @@ namespace FuseCP.EnterpriseServer
             AddAuditLogRecord(2, sourceName, taskName, itemName, executionValues);
         }
 
-        static ConcurrentDictionary<int, string> UsersCache = new ConcurrentDictionary<int, string>(); 
+        static readonly ConcurrentDictionary<int, string> UsersCache = new ConcurrentDictionary<int, string>(); 
         public void AddAuditLogRecord(int severityId, string sourceName, string taskName, string itemName,
             string[] executionValues, int packageId = 0, int itemId = 0)
         {

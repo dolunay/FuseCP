@@ -251,11 +251,11 @@ namespace FuseCP.EnterpriseServer
 
     internal class DatabaseQuota
     {
-        private string providerName = string.Empty;
-        private int spaceUsed = 0;
-        private int spaceAllocated = 0;
-        private bool belowWarningThreshold = false;
-        private bool belowUsageThreshold = false;
+        private readonly string providerName = string.Empty;
+        private readonly int spaceUsed = 0;
+        private readonly int spaceAllocated = 0;
+        private readonly bool belowWarningThreshold = false;
+        private readonly bool belowUsageThreshold = false;
         public DatabaseQuota(string ProviderName, int SpaceUsed, int SpaceAllocated, bool BelowWarningThreshold, bool BelowUsageThreshold)
         {
             providerName = ProviderName;

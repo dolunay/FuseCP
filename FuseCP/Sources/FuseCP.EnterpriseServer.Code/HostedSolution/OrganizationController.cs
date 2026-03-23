@@ -52,7 +52,7 @@ namespace FuseCP.EnterpriseServer
     {
         public const string TemporyDomainName = "TempDomain";
         public const string UseStorageSpaces = "UseStorageSpaces";
-        private OrganizationFoldersManager foldersManager;
+        private readonly OrganizationFoldersManager foldersManager;
 
         public OrganizationController() : this(null) { }
         public OrganizationController(ControllerBase provider): base(provider)

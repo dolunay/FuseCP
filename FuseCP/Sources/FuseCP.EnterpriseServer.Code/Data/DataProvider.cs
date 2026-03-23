@@ -122,7 +122,7 @@ namespace FuseCP.EnterpriseServer
 		public const bool UseEntityFramework = false;
 #endif
 
-		ControllerBase Provider;
+		readonly ControllerBase Provider;
 		ServerController serverController;
 		protected ServerController ServerController => serverController ??= new ServerController(Provider);
 

@@ -24,7 +24,7 @@ namespace FuseCP.Templates.AST
         string indexIdentifier;
         Expression startIndex;
         Expression endIndex;
-        List<Statement> statements = new List<Statement>();
+        readonly List<Statement> statements = new List<Statement>();
 
         public ForStatement(int line, int column)
             : base(line, column)

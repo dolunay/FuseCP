@@ -251,7 +251,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 
 		static readonly bool Prefetch = true;
 
-		static Dictionary<string, string> entityTypes = new Dictionary<string, string>();
+		static readonly Dictionary<string, string> entityTypes = new Dictionary<string, string>();
 
 		static void ParseData(string data)
 		{

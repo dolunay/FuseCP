@@ -22,7 +22,7 @@ namespace FuseCP.EnterpriseServer.MailTemplates
 {
 	public class TemplateHashtable : Hashtable, IDisposable
 	{
-		ControllerBase Provider;
+		readonly ControllerBase Provider;
 		UserController userController;
 		protected UserController UserController => userController ??= new UserController(Provider);
 		public TemplateHashtable(ControllerBase provider) { Provider = provider; }

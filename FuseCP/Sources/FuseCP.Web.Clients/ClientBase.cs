@@ -389,8 +389,8 @@ namespace FuseCP.Web.Clients
 		}
 
 
-		static ConcurrentDictionary<string, SshTunnel> SshTunnels = new ConcurrentDictionary<string, SshTunnel>();
-		static object SshLock = new object();
+		static readonly ConcurrentDictionary<string, SshTunnel> SshTunnels = new ConcurrentDictionary<string, SshTunnel>();
+		static readonly object SshLock = new object();
 		static bool SshDisposed = false;
 
 		public static SshTunnel StartSshTunnel(string url)

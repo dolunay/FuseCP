@@ -22,7 +22,7 @@ namespace FuseCP.Templates.AST
     internal class TemplateStatement : Statement
     {
         public string name;
-        List<Statement> statements = new List<Statement>();
+        readonly List<Statement> statements = new List<Statement>();
 
         public TemplateStatement(int line, int column)
             : base(line, column)

@@ -22,7 +22,7 @@ namespace FuseCP.Templates.AST
     internal class ElseIfStatement : Statement
     {
         Expression condition;
-        List<Statement> trueStatements = new List<Statement>();
+        readonly List<Statement> trueStatements = new List<Statement>();
 
         public ElseIfStatement(int line, int column)
             : base(line, column)

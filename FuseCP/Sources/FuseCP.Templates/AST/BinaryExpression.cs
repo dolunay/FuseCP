@@ -23,7 +23,7 @@ namespace FuseCP.Templates.AST
     {
         Expression lhs;
         Expression rhs;
-        TokenType op;
+        readonly TokenType op;
 
         public BinaryExpression(int line, int column, Expression lhs, TokenType op, Expression rhs)
             : base(line, column)

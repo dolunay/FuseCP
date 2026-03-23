@@ -188,7 +188,7 @@ namespace FuseCP.Providers
 
         public virtual byte[] Decrypt(byte[] InputData) => Decrypt(new ArraySegment<byte>(InputData));
 
-        byte[] buffer = new byte[1024];
+        readonly byte[] buffer = new byte[1024];
         public virtual byte[] Decrypt(ArraySegment<byte> InputData)
         {
             if (!EncryptionEnabled || InputData == null || InputData.Count == 0)

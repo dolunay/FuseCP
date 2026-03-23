@@ -20,7 +20,7 @@ namespace FuseCP.Providers.HostedSolution
 {
     public abstract class BaseReport<T> where T : BaseStatistics
 	{
-		private List<T> items = new List<T>();
+		private readonly List<T> items = new List<T>();
 
 		public List<T> Items
 		{

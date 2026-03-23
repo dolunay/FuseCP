@@ -26,8 +26,8 @@ namespace FuseCP.EnterpriseServer
         private PackageInfo package;
         private HostingPlanGroupInfo[] groupsArray;
         private QuotaValueInfo[] quotasArray;
-        private Dictionary<string, HostingPlanGroupInfo> groups = new Dictionary<string, HostingPlanGroupInfo>();
-        private Dictionary<string, QuotaValueInfo> quotas = new Dictionary<string, QuotaValueInfo>();
+        private readonly Dictionary<string, HostingPlanGroupInfo> groups = new Dictionary<string, HostingPlanGroupInfo>();
+        private readonly Dictionary<string, QuotaValueInfo> quotas = new Dictionary<string, QuotaValueInfo>();
 
         public PackageInfo Package
         {

@@ -245,8 +245,8 @@ namespace FuseCP.EnterpriseServer
 
         private class CheckCertificateResult
         {
-            private X509Certificate2 certificate;
-            private string errorMessage;
+            private readonly X509Certificate2 certificate;
+            private readonly string errorMessage;
 
             public X509Certificate2 Certificate {
                 get

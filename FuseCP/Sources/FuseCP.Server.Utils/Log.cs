@@ -26,7 +26,7 @@ namespace FuseCP.Server.Utils
     /// </summary>
     public sealed class Log
     {
-        private static TraceSwitch logSeverity = new TraceSwitch("Log", "General trace switch");
+        private static readonly TraceSwitch logSeverity = new TraceSwitch("Log", "General trace switch");
         private static readonly Regex SensitivePairRegex = new Regex("(?i)(password|pwd|token|apikey|secret|connectionstring)\\s*[=:]\\s*([^;\\s]+)", RegexOptions.Compiled);
         private Log()
         {

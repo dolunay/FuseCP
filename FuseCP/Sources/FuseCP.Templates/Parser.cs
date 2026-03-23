@@ -25,9 +25,9 @@ namespace FuseCP.Templates
 {
     internal class Parser
     {
-        Lexer lexer;
+        readonly Lexer lexer;
 		Token current;
-		List<Statement> statements;
+		readonly List<Statement> statements;
 
 		public Parser(Lexer lexer)
 		{

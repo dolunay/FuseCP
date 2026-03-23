@@ -27,7 +27,7 @@ namespace FuseCP.Providers
 	public class SoapServiceProviderItem
 	{
         // static fields
-        private static Hashtable typeProperties = new Hashtable();
+        private static readonly Hashtable typeProperties = new Hashtable();
 
 		private string[] properties;
 		private string typeName;

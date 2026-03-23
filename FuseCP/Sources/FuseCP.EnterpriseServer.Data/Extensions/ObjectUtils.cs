@@ -625,7 +625,7 @@ namespace FuseCP.EnterpriseServer.Data
 			return obj;
 		}
 
-		private static Hashtable propertiesCache = new Hashtable();
+		private static readonly Hashtable propertiesCache = new Hashtable();
 
 		public static object CreateObjectFromDataTable(Type type, DataTable table,
 			string nameColumn, string valueColumn, bool persistentOnly)
@@ -1095,7 +1095,7 @@ namespace FuseCP.EnterpriseServer.Data
 				type.Attributes.HasFlag(TypeAttributes.NotPublic);
 		}
 
-		private static Hashtable typeProperties = new Hashtable();
+		private static readonly Hashtable typeProperties = new Hashtable();
 
 		public static PropertyInfo[] GetTypeProperties(Type type)
 		{

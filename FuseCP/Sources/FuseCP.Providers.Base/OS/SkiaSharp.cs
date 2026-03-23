@@ -60,7 +60,7 @@ namespace FuseCP.Providers.OS
 
         static readonly SkiaSharp Current = new SkiaSharp(); 
 
-        static Dictionary<string, IntPtr> loadedNativeDlls = new Dictionary<string, IntPtr>();
+        static readonly Dictionary<string, IntPtr> loadedNativeDlls = new Dictionary<string, IntPtr>();
         public IntPtr SkiaDllImportResolver(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
         {
             if (libraryName.Contains("SkiaSharp"))

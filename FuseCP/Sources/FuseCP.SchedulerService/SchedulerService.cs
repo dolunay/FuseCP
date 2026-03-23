@@ -35,7 +35,7 @@ public class ServiceBase {
 
 public partial class SchedulerService : ServiceBase
 {
-    private Timer _Timer;
+    private readonly Timer _Timer;
     private static object _isRuninng;
     #region Construcor
 

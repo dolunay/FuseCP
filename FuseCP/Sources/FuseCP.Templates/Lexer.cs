@@ -33,10 +33,10 @@ namespace FuseCP.Templates
         const char EOF = (char)0;
 
         // private fields
-        static Dictionary<string, TokenType> keywords;
-        static Dictionary<string, TokenType> startTags;
-        static Dictionary<string, TokenType> closingTags;
-        string data;
+        static readonly Dictionary<string, TokenType> keywords;
+        static readonly Dictionary<string, TokenType> startTags;
+        static readonly Dictionary<string, TokenType> closingTags;
+        readonly string data;
         int pos;
         int column;
         int line;

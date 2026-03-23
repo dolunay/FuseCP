@@ -60,27 +60,27 @@ namespace FuseCP.Server.Utils
 
     public class BsdDES
     {
-        byte[] IP = new byte[64] {
+        readonly byte[] IP = new byte[64] {
 	        58, 50, 42, 34, 26, 18, 10,  2, 60, 52, 44, 36, 28, 20, 12,  4,
 	        62, 54, 46, 38, 30, 22, 14,  6, 64, 56, 48, 40, 32, 24, 16,  8,
 	        57, 49, 41, 33, 25, 17,  9,  1, 59, 51, 43, 35, 27, 19, 11,  3,
 	        61, 53, 45, 37, 29, 21, 13,  5, 63, 55, 47, 39, 31, 23, 15,  7
         };
 
-        byte[] inv_key_perm = new byte[64];
-        byte[] key_perm = new byte[56] {
+        readonly byte[] inv_key_perm = new byte[64];
+        readonly byte[] key_perm = new byte[56] {
 	        57, 49, 41, 33, 25, 17,  9,  1, 58, 50, 42, 34, 26, 18,
 	        10,  2, 59, 51, 43, 35, 27, 19, 11,  3, 60, 52, 44, 36,
 	        63, 55, 47, 39, 31, 23, 15,  7, 62, 54, 46, 38, 30, 22,
 	        14,  6, 61, 53, 45, 37, 29, 21, 13,  5, 28, 20, 12,  4
         };
 
-        byte[] key_shifts = new byte[16] {
+        readonly byte[] key_shifts = new byte[16] {
 	        1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1
         };
 
-        byte[] inv_comp_perm = new byte[56];
-        byte[] comp_perm = new byte[48] {
+        readonly byte[] inv_comp_perm = new byte[56];
+        readonly byte[] comp_perm = new byte[48] {
 	        14, 17, 11, 24,  1,  5,  3, 28, 15,  6, 21, 10,
 	        23, 19, 12,  4, 26,  8, 16,  7, 27, 20, 13,  2,
 	        41, 52, 31, 37, 47, 55, 30, 40, 51, 45, 33, 48,
@@ -91,8 +91,8 @@ namespace FuseCP.Server.Utils
          *	No E box is used, as it's replaced by some ANDs, shifts, and ORs.
          */
 
-        byte[,] u_sbox = new byte[8, 64];
-        byte[,] sbox = new byte[8, 64] {
+        readonly byte[,] u_sbox = new byte[8, 64];
+        readonly byte[,] sbox = new byte[8, 64] {
 	        {
 		        14,  4, 13,  1,  2, 15, 11,  8,  3, 10,  6, 12,  5,  9,  0,  7,
 		         0, 15,  7,  4, 14,  2, 13,  1, 10,  6, 12, 11,  9,  5,  3,  8,
@@ -144,13 +144,13 @@ namespace FuseCP.Server.Utils
         };
 
 
-        byte[] un_pbox = new byte[32];
-        byte[] pbox = new byte[32] {
+        readonly byte[] un_pbox = new byte[32];
+        readonly byte[] pbox = new byte[32] {
 	        16,  7, 20, 21, 29, 12, 28, 17,  1, 15, 23, 26,  5, 18, 31, 10,
 	         2,  8, 24, 14, 32, 27,  3,  9, 19, 13, 30,  6, 22, 11,  4, 25
         };
 
-        uint[] bits32 = new uint[32]
+        readonly uint[] bits32 = new uint[32]
         {
 	        0x80000000, 0x40000000, 0x20000000, 0x10000000,
 	        0x08000000, 0x04000000, 0x02000000, 0x01000000,
@@ -162,9 +162,9 @@ namespace FuseCP.Server.Utils
 	        0x00000008, 0x00000004, 0x00000002, 0x00000001
         };
 
-        byte[] bits8 = new byte[8] { 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01 };
+        readonly byte[] bits8 = new byte[8] { 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01 };
 
-        byte[] ascii64 = System.Text.ASCIIEncoding.ASCII.GetBytes(
+        readonly byte[] ascii64 = System.Text.ASCIIEncoding.ASCII.GetBytes(
              "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
         /*	  0000000000111111111122222222223333333333444444444455555555556666 */
         /*	  0123456789012345678901234567890123456789012345678901234567890123 */
@@ -172,15 +172,15 @@ namespace FuseCP.Server.Utils
         bool des_initialised = false;
         uint saltbits;
         uint old_salt;
-        byte[] init_perm = new byte[64], final_perm = new byte[64];
-        uint[] en_keysl = new uint[16], en_keysr = new uint[16];
-        uint[] de_keysl = new uint[16], de_keysr = new uint[16];
-        byte[,] m_sbox = new byte[4, 4096];
-        uint[,] psbox = new uint[4, 256];
-        uint[,] ip_maskl = new uint[8, 256], ip_maskr = new uint[8, 256];
-        uint[,] fp_maskl = new uint[8, 256], fp_maskr = new uint[8, 256];
-        uint[,] key_perm_maskl = new uint[8, 128], key_perm_maskr = new uint[8, 128];
-        uint[,] comp_maskl = new uint[8, 128], comp_maskr = new uint[8, 128];
+        readonly byte[] init_perm = new byte[64], final_perm = new byte[64];
+        readonly uint[] en_keysl = new uint[16], en_keysr = new uint[16];
+        readonly uint[] de_keysl = new uint[16], de_keysr = new uint[16];
+        readonly byte[,] m_sbox = new byte[4, 4096];
+        readonly uint[,] psbox = new uint[4, 256];
+        readonly uint[,] ip_maskl = new uint[8, 256], ip_maskr = new uint[8, 256];
+        readonly uint[,] fp_maskl = new uint[8, 256], fp_maskr = new uint[8, 256];
+        readonly uint[,] key_perm_maskl = new uint[8, 128], key_perm_maskr = new uint[8, 128];
+        readonly uint[,] comp_maskl = new uint[8, 128], comp_maskr = new uint[8, 128];
         uint old_rawkey0, old_rawkey1;
 
 

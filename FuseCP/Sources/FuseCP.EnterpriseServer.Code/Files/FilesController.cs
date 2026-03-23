@@ -54,7 +54,7 @@ public class FilesController: ControllerBase
         return os;
     }
 
-    Dictionary<string, string> HomeFolders = new();
+    readonly Dictionary<string, string> HomeFolders = new();
     public string GetHomeFolder(int packageId)
     {            
         // check context

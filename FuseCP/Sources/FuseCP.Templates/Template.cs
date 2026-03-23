@@ -28,11 +28,11 @@ namespace FuseCP.Templates
     /// </summary>
     public class Template
     {
-        string data;
+        readonly string data;
         Lexer lexer = null;
         Parser parser = null;
         List<AST.Statement> statements = null;
-        TemplateContext context = new TemplateContext();
+        readonly TemplateContext context = new TemplateContext();
 
         /// <summary>
         /// Initializes a new instance of Template with specified template text.

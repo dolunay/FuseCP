@@ -132,7 +132,7 @@ namespace FuseCP.EnterpriseServer.Data
 			}
 		}
 
-		static ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
+		static readonly ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
 		public void Setup(DbContextOptionsBuilder builder)
 		{
 			DbContext context = null;

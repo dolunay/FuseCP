@@ -675,7 +675,7 @@ namespace FuseCP.Providers.OS
 
         bool isConnected = false;
 
-        SemaphoreSlim ConnectLock = new SemaphoreSlim(1, 1);
+        readonly SemaphoreSlim ConnectLock = new SemaphoreSlim(1, 1);
         public bool HasConnectBeenCalled
         {
             get

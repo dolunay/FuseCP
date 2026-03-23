@@ -30,7 +30,7 @@ namespace FuseCP.EnterpriseServer
 {
     public class EnterpriseServerTunnelService: EnterpriseServerTunnelServiceBase
     {
-        Controllers Controllers = new Controllers();
+        readonly Controllers Controllers = new Controllers();
         PackageController PackageController => Controllers.PackageController;
         ServerController ServerController => Controllers.ServerController;
         UserController UserController => Controllers.UserController;

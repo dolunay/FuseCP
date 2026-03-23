@@ -23,7 +23,7 @@ namespace FuseCP.Templates
 {
     internal class TemplateContext
     {
-        Dictionary<string, object> variables = new Dictionary<string, object>(StringComparer.InvariantCultureIgnoreCase);
+        readonly Dictionary<string, object> variables = new Dictionary<string, object>(StringComparer.InvariantCultureIgnoreCase);
         Dictionary<string, TemplateStatement> templates = new Dictionary<string, TemplateStatement>(StringComparer.InvariantCultureIgnoreCase);
 
         public TemplateContext ParentContext { get; set; }

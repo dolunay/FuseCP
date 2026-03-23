@@ -36,9 +36,9 @@ namespace FuseCP.Tests
 		public string HttpUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.Http).Url;
 		public string HttpsUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.Https).Url;
 		public string NetTcpUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.NetTcp).Url;
-		Component component;
-		WSLShell.WSLDistro WslDistro;
-		static List<Kestrel> instances = new List<Kestrel>();
+		readonly Component component;
+		readonly WSLShell.WSLDistro WslDistro;
+		static readonly List<Kestrel> instances = new List<Kestrel>();
 		public Kestrel(Component component, (Scheme, string)[] urls = null, WSLShell.WSLDistro wslDistro = null)
 		{
 			Urls = urls;

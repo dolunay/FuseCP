@@ -69,7 +69,7 @@ public class Servers
 	public const int StartPort = 9000;
 	public const int IISExpressSslStartPort = 44300;
 	static List<int> occupiedPorts = null;
-	static HttpClientHandler handler = new HttpClientHandler
+	static readonly HttpClientHandler handler = new HttpClientHandler
 	{
 		ServerCertificateCustomValidationCallback =
 			(HttpRequestMessage message, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslErrors) => true
@@ -182,7 +182,7 @@ public class Servers
 		return distro;
 	}
 	
-	static Dictionary<string, IDisposable> Processes = new Dictionary<string, IDisposable>();
+	static readonly Dictionary<string, IDisposable> Processes = new Dictionary<string, IDisposable>();
 	public static void Start((Component Component, Framework Framework, Os Os, Scheme Protocol) type)
 	{
 		if (type.Protocol == Scheme.Assembly) return;

@@ -64,7 +64,7 @@ namespace FuseCP.Providers.Utils
 #endif
     public class SecurityUtils
     {
-        private static WmiHelper wmi = new WmiHelper("root\\cimv2");
+        private static readonly WmiHelper wmi = new WmiHelper("root\\cimv2");
 
         #region NTFS permissions
         public static void GrantNtfsPermissions(string path, string accountName,

@@ -1734,7 +1734,7 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         ///</summary>
         public partial class HostingSpaceRow : global::System.Data.DataRow {
             
-            private HostingSpaceDataTable tableHostingSpace;
+            private readonly HostingSpaceDataTable tableHostingSpace;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2148,7 +2148,7 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         ///</summary>
         public partial class BandwidthOverusageRow : global::System.Data.DataRow {
             
-            private BandwidthOverusageDataTable tableBandwidthOverusage;
+            private readonly BandwidthOverusageDataTable tableBandwidthOverusage;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2280,7 +2280,7 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         ///</summary>
         public partial class DiskspaceOverusageRow : global::System.Data.DataRow {
             
-            private DiskspaceOverusageDataTable tableDiskspaceOverusage;
+            private readonly DiskspaceOverusageDataTable tableDiskspaceOverusage;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2412,7 +2412,7 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         ///</summary>
         public partial class OverusageDetailsRow : global::System.Data.DataRow {
             
-            private OverusageDetailsDataTable tableOverusageDetails;
+            private readonly OverusageDetailsDataTable tableOverusageDetails;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2567,9 +2567,9 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class HostingSpaceRowChangeEvent : global::System.EventArgs {
             
-            private HostingSpaceRow eventRow;
+            private readonly HostingSpaceRow eventRow;
             
-            private global::System.Data.DataRowAction eventAction;
+            private readonly global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2601,9 +2601,9 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class BandwidthOverusageRowChangeEvent : global::System.EventArgs {
             
-            private BandwidthOverusageRow eventRow;
+            private readonly BandwidthOverusageRow eventRow;
             
-            private global::System.Data.DataRowAction eventAction;
+            private readonly global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2635,9 +2635,9 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class DiskspaceOverusageRowChangeEvent : global::System.EventArgs {
             
-            private DiskspaceOverusageRow eventRow;
+            private readonly DiskspaceOverusageRow eventRow;
             
-            private global::System.Data.DataRowAction eventAction;
+            private readonly global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2669,9 +2669,9 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class OverusageDetailsRowChangeEvent : global::System.EventArgs {
             
-            private OverusageDetailsRow eventRow;
+            private readonly OverusageDetailsRow eventRow;
             
-            private global::System.Data.DataRowAction eventAction;
+            private readonly global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]

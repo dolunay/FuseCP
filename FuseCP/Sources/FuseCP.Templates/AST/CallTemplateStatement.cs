@@ -23,8 +23,8 @@ namespace FuseCP.Templates.AST
     internal class CallTemplateStatement : Statement
     {
         public string templateName;
-        public Dictionary<string, Expression> parameters = new Dictionary<string, Expression>();
-        List<Statement> statements = new List<Statement>();
+        public readonly Dictionary<string, Expression> parameters = new Dictionary<string, Expression>();
+        readonly List<Statement> statements = new List<Statement>();
 
         public CallTemplateStatement(int line, int column)
             : base(line, column)
