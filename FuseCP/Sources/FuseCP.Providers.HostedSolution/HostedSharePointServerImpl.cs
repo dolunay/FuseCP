@@ -312,7 +312,7 @@ namespace FuseCP.Providers.HostedSolution
                                         bool bSeperator = false;
                                         foreach (char c in s)
                                         {
-                                            if ((c != ' ') & (c != '\t'))
+                                            if ((c != ' ') && (c != '\t'))
                                             {
                                                 if (bSeperator)
                                                     hostName += c;
@@ -428,7 +428,7 @@ namespace FuseCP.Providers.HostedSolution
                                             bool bSeperator = false;
                                             foreach (char c in s)
                                             {
-                                                if ((c != ' ') & (c != '\t'))
+                                                if ((c != ' ') && (c != '\t'))
                                                 {
                                                     if (bSeperator)
                                                         hostName += c;
