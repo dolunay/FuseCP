@@ -2607,7 +2607,7 @@ namespace FuseCP.EnterpriseServer
         /// <returns> True - if organization id should be appended. </returns>
         private UserFormatType GetUserFormatType(StringDictionary serviceSettings)
         {
-            if (!serviceSettings.ContainsKey("usernameformat"))
+if (!serviceSettings.TryGetValue("usernameformat", out var _ckv))
             {
                 return UserFormatType.AppendLongCounter;
             }
@@ -2999,7 +2999,7 @@ namespace FuseCP.EnterpriseServer
                 return false;
             }
 
-            if (!settings.ContainsKey(UseStorageSpaces))
+if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
             {
                 return false;
             }

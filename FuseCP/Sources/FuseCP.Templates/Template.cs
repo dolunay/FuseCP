@@ -161,7 +161,7 @@ namespace FuseCP.Templates
         /// <returns>Returns the value of the context variable.</returns>
         public object this[string name]
         {
-            get { return context.Variables.ContainsKey(name) ? context.Variables[name] : null; }
+            get { return context.Variables.TryGetValue(name, out var _ckv) ? _ckv : null; }
             set { context.Variables[name] = value; }
         }
     }

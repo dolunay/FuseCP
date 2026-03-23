@@ -76,9 +76,9 @@ namespace FuseCP.Templates.AST
 
             while (lookupContext != null)
             {
-                if (lookupContext.Variables.ContainsKey(variable.Name))
+if (lookupContext.Variables.TryGetValue(variable.Name, out var _ckv))
                 {
-                    val = lookupContext.Variables[variable.Name];
+                    val = _ckv;
                     break; // found local scope var - stop looking
                 }
 

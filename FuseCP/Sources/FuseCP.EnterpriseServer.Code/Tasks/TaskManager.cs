@@ -672,18 +672,18 @@ namespace FuseCP.EnterpriseServer
 
         private void StopProcess(BackgroundTask task)
         {
-                if (_taskThreadsDictionary.ContainsKey(task.Id))
+if (_taskThreadsDictionary.TryGetValue(task.Id, out var _ckv))
                 {
-                    if (_taskThreadsDictionary[task.Id] != null)
-                        if (_taskThreadsDictionary[task.Id].IsAlive)
+                    if (_ckv != null)
+                        if (_ckv.IsAlive)
                         {
                             if (!task.Completed)
 #if NETFRAMEWORK
-                                _taskThreadsDictionary[task.Id].Abort();
+                                _ckv.Abort();
 #else
-                                _taskThreadsDictionary[task.Id].Interrupt();
+                                _ckv.Interrupt();
 #endif
-                            _taskThreadsDictionary[task.Id] = null;
+                            _ckv = null;
                         }
                     Thread deleted;
                     _taskThreadsDictionary.TryRemove(task.Id, out deleted);

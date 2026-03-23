@@ -2182,9 +2182,9 @@ namespace FuseCP.EnterpriseServer
 			int number = 0;
 
 			PackageContext cntx = PackageController.GetPackageContext(packageId);
-			if (cntx.Quotas.ContainsKey(quotaName))
+if (cntx.Quotas.TryGetValue(quotaName, out var _ckv))
 			{
-				number = cntx.Quotas[quotaName].QuotaAllocatedValue;
+				number = _ckv.QuotaAllocatedValue;
 				if (number == -1)
 				{
 					// unlimited
@@ -2222,9 +2222,9 @@ namespace FuseCP.EnterpriseServer
 			}
 
 			PackageContext cntx = PackageController.GetPackageContext(packageId);
-			if (cntx.Quotas.ContainsKey(quotaName))
+if (cntx.Quotas.TryGetValue(quotaName, out var _ckv))
             {
-                if (cntx.Quotas[quotaName].QuotaAllocatedValue == -1)
+                if (_ckv.QuotaAllocatedValue == -1)
                 {
                     // unlimited
                     //number = maxAvailableVLANs; // assign max available server VLANs

@@ -202,8 +202,8 @@ namespace FuseCP.Templates
             string name = ReadTagName();
 
             // check for standard tags
-            if (startTags.ContainsKey(name))
-                return CreateToken(startTags[name], name);
+if (startTags.TryGetValue(name, out var _ckv))
+                return CreateToken(_ckv, name);
 
             return CreateToken(TokenType.OpenTag, name);
         }
@@ -219,8 +219,8 @@ namespace FuseCP.Templates
             if (LA(0) == '>')
             {
                 Consume();
-                if (closingTags.ContainsKey(name))
-                    return CreateToken(closingTags[name], name);
+if (closingTags.TryGetValue(name, out var _ckv))
+                    return CreateToken(_ckv, name);
                 else
                     return CreateToken(TokenType.CloseTag, name);
             }
@@ -510,8 +510,8 @@ namespace FuseCP.Templates
 
             string tokenData = data.Substring(savePos, pos - savePos);
 
-            if (keywords.ContainsKey(tokenData))
-                return CreateToken(keywords[tokenData]);
+if (keywords.TryGetValue(tokenData, out var _ckv))
+                return CreateToken(_ckv);
             else
                 return CreateToken(TokenType.Identifier, tokenData);
         }

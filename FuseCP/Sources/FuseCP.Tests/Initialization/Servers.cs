@@ -219,9 +219,9 @@ public class Servers
 
 		foreach (var u in urls)
 		{
-			if (Processes.ContainsKey(u.Url))
+if (Processes.TryGetValue(u.Url, out var _ckv))
 			{
-				Processes[u.Url].Dispose();
+				_ckv.Dispose();
 				Processes.Remove(u.Url);
 			}
 			Processes.Add(u.Url, server);

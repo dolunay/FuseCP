@@ -50,10 +50,10 @@ namespace FuseCP.Templates.AST
         public override void Eval(TemplateContext context, System.IO.StringWriter writer)
         {
             // locate template
-            if (!context.Templates.ContainsKey(templateName))
+if (!context.Templates.TryGetValue(templateName, out var _ckv))
                 throw new ParserException(String.Format("Custom template \"{0}\" is not defined", templateName), Line, Column);
 
-            TemplateStatement tmp = context.Templates[templateName];
+            TemplateStatement tmp = _ckv;
 
             // create template-specific context
             TemplateContext tmpContext = new TemplateContext();

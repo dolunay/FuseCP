@@ -1108,10 +1108,10 @@ namespace FuseCP.EnterpriseServer
 
         private void CheckQuotaValue(PackageContext cntx, List<string> errors, string quotaName, int currentVal, int val, string messageKey)
         {
-            if (!cntx.Quotas.ContainsKey(quotaName))
+if (!cntx.Quotas.TryGetValue(quotaName, out var _ckv))
                 return;
 
-            QuotaValueInfo quota = cntx.Quotas[quotaName];
+            QuotaValueInfo quota = _ckv;
 
             if(val == -1 && quota.QuotaExhausted) // check if quota already reached
             {

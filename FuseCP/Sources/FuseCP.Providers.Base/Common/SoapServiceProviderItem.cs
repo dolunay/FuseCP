@@ -99,10 +99,10 @@ namespace FuseCP.Providers
                         int idx = pair.IndexOf('=');
                         string name = pair.Substring(0, idx);
                         string val = pair.Substring(idx + 1);
-                        if (hash.ContainsKey(name))
+if (hash.TryGetValue(name, out var _ckv))
                         {
                             // set value
-                            PropertyInfo propInfo = hash[name];
+                            PropertyInfo propInfo = _ckv;
                             propInfo.SetValue(item, Cast(val, propInfo.PropertyType), null);
                         }
                     }

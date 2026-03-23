@@ -2766,8 +2766,8 @@ namespace FuseCP.EnterpriseServer
             {
                 int serviceId = item.ServiceId;
                 List<ServiceProviderItem> serviceItems = null;
-                if (orderedItems.ContainsKey(serviceId))
-                    serviceItems = orderedItems[serviceId];
+if (orderedItems.TryGetValue(serviceId, out var _ckv))
+                    serviceItems = _ckv;
                 else
                 {
                     serviceItems = new List<ServiceProviderItem>();
