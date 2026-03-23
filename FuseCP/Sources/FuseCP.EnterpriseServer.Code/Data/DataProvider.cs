@@ -1887,7 +1887,7 @@ namespace FuseCP.EnterpriseServer
 									ExternalIp = pkip != null ? pkip.ExternalIp : null
 								})
 								.GroupJoin(PrivateIpAddresses
-									.Where(ip => ip.IsPrimary == true),
+									.Where(ip => ip.IsPrimary),
 									p => p.SI.ItemId, pip => pip.ItemId, (p, pips) => new
 									{
 										p.P,
@@ -5619,7 +5619,7 @@ namespace FuseCP.EnterpriseServer
 							ServerId = serverId != 0 ? d.Zone.Service.Server.ServerId : 0,
 							ServerName = serverId != 0 ? d.Zone.Service.Server.ServerName : "",
 							ServerComments = serverId != 0 ? d.Zone.Service.Server.Comments : "",
-							VirtualServer = serverId != 0 ? d.Zone.Service.Server.VirtualServer : false,
+							VirtualServer = serverId != 0 && d.Zone.Service.Server.VirtualServer,
 							d.Package.UserId,
 							d.Package.User.Username,
 							d.Package.User.FirstName,
@@ -6472,7 +6472,7 @@ namespace FuseCP.EnterpriseServer
 
 		public void UpdateServiceProperties(int serviceId, string xml)
 		{
-			if (true || UseEntityFramework) // always use EF since StoredProcedure is very slow
+			if (truece StoredProcedure is very slow
 			{
 				var properties = XElement.Parse(xml)
 					.Elements()
@@ -8265,7 +8265,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = pl.Plan.ServerId != null ? pl.Plan.ServerId : 0,
 						ServerName = pl.Plan.Server != null ? pl.Plan.Server.ServerName : "None",
 						ServerComments = pl.Plan.Server != null ? pl.Plan.Server.Comments : "",
-						VirtualServer = pl.Plan.Server != null ? pl.Plan.Server.VirtualServer : true,
+						VirtualServer = !(pl.Plan.Server != null) || pl.Plan.Server.VirtualServer,
 						// package
 						PackageName = p != null ? p.PackageName : "None"
 					})
@@ -9116,7 +9116,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = p.ServerId ?? 0,
 						ServerName = p.Server != null ? p.Server.ServerName : "None",
 						ServerComments = p.Server != null ? p.Server.Comments : "",
-						VirtualServer = p.Server != null ? p.Server.VirtualServer : true,
+						VirtualServer = !(p.Server != null) || p.Server.VirtualServer,
 						// hosting plan
 						p.HostingPlan.PlanName,
 						// user
@@ -9186,7 +9186,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = p.ServerId != null ? p.ServerId : 0,
 						ServerName = p.Server != null ? p.Server.ServerName : "None",
 						ServerComments = p.Server != null ? p.Server.Comments : "",
-						VirtualServer = p.Server != null ? p.Server.VirtualServer : true,
+						VirtualServer = !(p.Server != null) || p.Server.VirtualServer,
 						// hosting plan
 						p.PlanId,
 						p.HostingPlan.PlanName,
@@ -15120,7 +15120,7 @@ namespace FuseCP.EnterpriseServer
 			{
 				var plans = ExchangeMailboxPlans
 					.Where(p => p.ItemId == itemId &&
-						(p.Archiving == archiving || (archiving == false && p.Archiving == null)))
+						(p.Archiving == archiving || (!(archiving) && p.Archiving == null)))
 					.OrderBy(p => p.MailboxPlan)
 					.Select(p => new
 					{

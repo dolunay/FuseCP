@@ -321,7 +321,7 @@ namespace FuseCP.EnterpriseServer
 				if (cntx != null && cntx.Package != null)
                     maxSize = GetParentMaxMailBoxSize(cntx.Package.ParentPackageId, item);
 			}
-			else if (item.MaxMailboxSize != 0 && maxMailboxSizeChangeable == false)
+			else if (item.MaxMailboxSize != 0 && !(maxMailboxSizeChangeable))
 			{
                 maxSize = GetParentMaxMailBoxSize(cntx.Package.ParentPackageId, item);
 			}
@@ -1090,7 +1090,7 @@ namespace FuseCP.EnterpriseServer
 			cntx.Quotas.TryGetValue(Quotas.MAIL_ALLOWACCESSCONTROLS, out quotaValue);
 			mailaccesscontrols = quotaValue?.QuotaAllocatedValue == 1;
 			
-			if (mailaccesscontrols == false)
+			if (!(mailaccesscontrols))
 			{
                 mailPolicy["AcessAuthTypePolicy"] = "1";
                 mailPolicy["AccessSelectedCountry"] = "";
@@ -1681,28 +1681,28 @@ namespace FuseCP.EnterpriseServer
 
 			// in current scenario of importing we import domains until the quota exceeded
 			// in other words let's examine whether quota will be exeeded if we will add +1 domain.
-			if (skipOsDomains == false)
+			if (!(skipOsDomains))
 			{
 				quotaExceeded = VerifyIfQuotaWillBeExceeded(packageId, Quotas.OS_DOMAINS, 1);
 				result.IsExceeded = quotaExceeded;
 				result.Message = "Mail_Domain";
 			}
 			// Step #3
-			if (quotaExceeded == false)
+			if (!(quotaExceeded))
 			{
 				quotaExceeded = VerifyIfQuotaWillBeExceeded(packageId, Quotas.MAIL_ACCOUNTS, mailServer.GetAccounts(domainName).Length);
 				result.IsExceeded = quotaExceeded;
 				result.Message = "Mail_Account";
 			}
 			// Step #4
-			if (quotaExceeded == false)
+			if (!(quotaExceeded))
 			{
 				quotaExceeded = VerifyIfQuotaWillBeExceeded(packageId, Quotas.MAIL_GROUPS, mailServer.GetGroups(domainName).Length);
 				result.IsExceeded = quotaExceeded;
 				result.Message = "Mail_Group";
 			}
 			// Step #5
-			if (quotaExceeded == false)
+			if (!(quotaExceeded))
 			{
 				quotaExceeded = VerifyIfQuotaWillBeExceeded(packageId, Quotas.MAIL_LISTS, mailServer.GetLists(domainName).Length);
 				result.IsExceeded = quotaExceeded;

@@ -1016,7 +1016,7 @@ namespace FuseCP.EnterpriseServer.Data
 		{
 			var member = expression.Body as MemberExpression;
 
-			if (member == null || member.Member is PropertyInfo == false)
+			if (member == null || !(member.Member is PropertyInfo))
 				throw new ArgumentException("Expression is not a Property", "expression");
 
 			return (PropertyInfo)member.Member;

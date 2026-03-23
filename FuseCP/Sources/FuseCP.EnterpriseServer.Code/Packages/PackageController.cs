@@ -1124,7 +1124,7 @@ namespace FuseCP.EnterpriseServer
 
             //Get operating system settings
             StringDictionary osSesstings = ServerController.GetServiceSettings(osId);
-            bool diskQuotaEnabled = (osSesstings["EnableHardQuota"] != null) ? bool.Parse(osSesstings["EnableHardQuota"]) : false;
+            bool diskQuotaEnabled = (osSesstings["EnableHardQuota"] != null) && bool.Parse(osSesstings["EnableHardQuota"]);
             string driveName = osSesstings["LocationDrive"];
 
             if (!diskQuotaEnabled)
@@ -1790,7 +1790,7 @@ namespace FuseCP.EnterpriseServer
                     if (columnType == typeof(long))
                         propValue = (sVal != "") ? Int64.Parse(sVal) : 0;
                     if (columnType == typeof(bool))
-                        propValue = (sVal != "") ? Boolean.Parse(sVal) : false;
+                        propValue = (sVal != "") && Boolean.Parse(sVal);
                     if (columnType == typeof(Guid))
                         propValue = (!string.IsNullOrEmpty(sVal)) ? new Guid(sVal) : Guid.Empty;
 					if (columnType.IsEnum)

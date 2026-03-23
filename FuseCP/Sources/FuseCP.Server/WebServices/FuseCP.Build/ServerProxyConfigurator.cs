@@ -179,12 +179,12 @@ namespace FuseCP.Server.Client
 			if (proxy.IsDefaultApi)
 			{
 				if (UseMessageSecurityOverHttp && proxy.IsHttp && proxy.IsEncrypted && !proxy.IsLocal &&
-					(UseMessageSecurityOnCore || IsCore.HasValue && IsCore.Value == false))
+					(UseMessageSecurityOnCore || IsCore.HasValue && !(IsCore.Value)))
 				{
 					proxy.Protocol = Web.Clients.Protocols.WSHttp;
 				}
 				else if (UseNetHttpAsDefaultProtocol &&
-					(UseNetHttpOnCore || IsCore.HasValue && IsCore.Value == false))
+					(UseNetHttpOnCore || IsCore.HasValue && !(IsCore.Value)))
 				{
 					if (proxy.IsHttp) proxy.Protocol = Web.Clients.Protocols.NetHttp;
 					else if (proxy.IsHttps) proxy.Protocol = Web.Clients.Protocols.NetHttps;

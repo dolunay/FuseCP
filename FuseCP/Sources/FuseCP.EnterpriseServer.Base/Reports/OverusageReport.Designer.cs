@@ -221,25 +221,25 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
             this.tableHostingSpace = ((HostingSpaceDataTable)(base.Tables["HostingSpace"]));
-            if ((initTable == true)) {
+            if ((initTable)) {
                 if ((this.tableHostingSpace != null)) {
                     this.tableHostingSpace.InitVars();
                 }
             }
             this.tableBandwidthOverusage = ((BandwidthOverusageDataTable)(base.Tables["BandwidthOverusage"]));
-            if ((initTable == true)) {
+            if ((initTable)) {
                 if ((this.tableBandwidthOverusage != null)) {
                     this.tableBandwidthOverusage.InitVars();
                 }
             }
             this.tableDiskspaceOverusage = ((DiskspaceOverusageDataTable)(base.Tables["DiskspaceOverusage"]));
-            if ((initTable == true)) {
+            if ((initTable)) {
                 if ((this.tableDiskspaceOverusage != null)) {
                     this.tableDiskspaceOverusage.InitVars();
                 }
             }
             this.tableOverusageDetails = ((OverusageDetailsDataTable)(base.Tables["OverusageDetails"]));
-            if ((initTable == true)) {
+            if ((initTable)) {
                 if ((this.tableOverusageDetails != null)) {
                     this.tableOverusageDetails.InitVars();
                 }

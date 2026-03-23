@@ -461,7 +461,7 @@ namespace FuseCP.Providers.OS
         {
             get
             {
-                var tunnelConnected = IsSshTunnel ? BaseSshTunnel.Client.IsConnected && BaseSshTunnel.ForwardedPort.IsStarted : true;
+                var tunnelConnected = !(IsSshTunnel) || BaseSshTunnel.Client.IsConnected && BaseSshTunnel.ForwardedPort.IsStarted;
                 if (IsSocket) return BaseSocket.Connected && tunnelConnected;
                 if (IsWebSocket) return BaseWebSocket?.State == WebSocketState.Open && tunnelConnected;
                 return false;

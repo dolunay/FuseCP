@@ -858,14 +858,14 @@ namespace FuseCP.EnterpriseServer
 
                 //Cleanup Enterprise storage
 
-                if (EnterpriseStorageController.DeleteEnterpriseStorage(org.PackageId, itemId).IsSuccess == false)
+                if (!(EnterpriseStorageController.DeleteEnterpriseStorage(org.PackageId, itemId).IsSuccess))
                 {
                     successful = false;
                 }
 
                 //Cleanup RDS
 
-                if (RemoteDesktopServicesController.DeleteRemoteDesktopService(itemId).IsSuccess == false)
+                if (!(RemoteDesktopServicesController.DeleteRemoteDesktopService(itemId).IsSuccess))
                 {
                     successful = false;
                 }
@@ -885,7 +885,7 @@ namespace FuseCP.EnterpriseServer
                 //Cleanup OrganizationFolders
                 try
                 {
-                    if (foldersManager.DeleteFolders(itemId).IsSuccess == false)
+                    if (!(foldersManager.DeleteFolders(itemId).IsSuccess))
                     {
                         successful = false;
                     }
@@ -2220,7 +2220,7 @@ namespace FuseCP.EnterpriseServer
                 return string.Empty;
             }
 
-            if (string.IsNullOrEmpty(resetUrl) == false)
+            if (!(string.IsNullOrEmpty(resetUrl)))
             {
                 return resetUrl;
             }
@@ -2238,7 +2238,7 @@ namespace FuseCP.EnterpriseServer
             var resultUrl = webdavPortalUrl.Append(passwordResetUrlFormat)
                 .Append(token.AccessTokenGuid.ToString("n"));
 
-            if (string.IsNullOrEmpty(pincode) == false)
+            if (!(string.IsNullOrEmpty(pincode)))
             {
                 resultUrl = resultUrl.Append(pincode);
             }

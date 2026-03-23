@@ -2543,7 +2543,7 @@ namespace FuseCP.EnterpriseServer
 
             //get site
             WebSite site = GetWebSite(webSiteId);
-            bool updateRequired = (site != null) && (site.Name.Equals(sslDomain, StringComparison.InvariantCulture) != true);
+            bool updateRequired = (site != null) && (!(site.Name.Equals(sslDomain, StringComparison.InvariantCulture)));
 
             // place log record
             TaskManager.StartTask("WEB_SITE", "ADD_SSL_FOLDER", sslDomain);
@@ -2787,7 +2787,7 @@ namespace FuseCP.EnterpriseServer
 				}
 
 				//
-				if (profileIntegritySucceeded == true)
+				if (profileIntegritySucceeded)
 				{
 					// Build service items list
 					item.WebDeploySitePublishingProfile = String.Join(",", Array.ConvertAll<int, string>(serviceItemIds, (int x) => { return x.ToString(); }));
