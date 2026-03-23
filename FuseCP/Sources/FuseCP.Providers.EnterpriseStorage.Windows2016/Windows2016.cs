@@ -383,7 +383,7 @@ namespace FuseCP.Providers.EnterpriseStorage
 
                     conn.Open();
 
-                    var cmd = new OleDbCommand(wsSql, conn);
+                    using var cmd = new OleDbCommand(wsSql, conn);
 
                     using (OleDbDataReader reader = cmd.ExecuteReader())
                     {

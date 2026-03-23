@@ -13671,7 +13671,7 @@ namespace FuseCP.EnterpriseServer
 
 		private DataSet ExecuteLongDataSet(string commandText, CommandType commandType, params SqlParameter[] parameters)
 		{
-			SqlConnection conn = new SqlConnection(NativeConnectionString);
+			using SqlConnection conn = new SqlConnection(NativeConnectionString);
 			SqlCommand cmd = new SqlCommand(commandText, conn);
 			cmd.CommandType = commandType;
 			cmd.CommandTimeout = 300;
@@ -13701,7 +13701,7 @@ namespace FuseCP.EnterpriseServer
 
 		private void ExecuteLongNonQuery(string spName, params SqlParameter[] parameters)
 		{
-			SqlConnection conn = new SqlConnection(NativeConnectionString);
+			using SqlConnection conn = new SqlConnection(NativeConnectionString);
 			SqlCommand cmd = new SqlCommand(spName, conn);
 			cmd.CommandType = CommandType.StoredProcedure;
 			cmd.CommandTimeout = 300;

@@ -166,7 +166,7 @@ namespace FuseCP.Providers.Virtualization
                     if (objFile == null)
                         throw new Exception("Source file does not exists: " + sourceFileName);
 
-                    var inParams = new CimMethodParametersCollection
+                    using var inParams = new CimMethodParametersCollection
                     {
                         CimMethodParameter.Create(
                             "FileName",
@@ -261,7 +261,7 @@ namespace FuseCP.Providers.Virtualization
         {
             TimeSpan effectiveTimeout = timeout ?? TimeSpan.FromSeconds(20);
 
-            var methodParams = new CimMethodParametersCollection
+            using var methodParams = new CimMethodParametersCollection
             {
                 CimMethodParameter.Create("CommandLine", command, Microsoft.Management.Infrastructure.CimType.String, CimFlags.In)
             };

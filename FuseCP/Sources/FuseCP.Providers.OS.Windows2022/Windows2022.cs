@@ -374,7 +374,7 @@ namespace FuseCP.Providers.OS
                 invokeCommand.Parameters.Add("ComputerName", hostName);
             }
 
-            RunspaceInvoke invoke = new RunspaceInvoke();
+            using RunspaceInvoke invoke = new RunspaceInvoke();
             string commandString = moduleImports.Any() ? string.Format("import-module {0};", string.Join(",", moduleImports)) : string.Empty;
 
             commandString = string.Format("{0};{1}", commandString, string.Join(";", scripts.ToArray()));

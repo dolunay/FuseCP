@@ -439,7 +439,7 @@ namespace FuseCP.Providers.Utils
                 DirectoryEntry objRoot = GetUsersRoot(serverSettings, usersOU);
 
                 //create instance fo the direcory searcher
-                DirectorySearcher deSearch = new DirectorySearcher();
+                using DirectorySearcher deSearch = new DirectorySearcher();
 
                 deSearch.SearchRoot = objRoot;
                 deSearch.Filter = "(objectClass=user)";
@@ -513,7 +513,7 @@ namespace FuseCP.Providers.Utils
                 {
                     // LOCAL mode
                     SystemUser userInfo = null;
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     // get user entry
@@ -548,7 +548,7 @@ namespace FuseCP.Providers.Utils
                     object groups = user.Invoke("Groups", null);
                     foreach (object nGroup in (IEnumerable)groups)
                     {
-                        DirectoryEntry objGroup = new DirectoryEntry(nGroup);
+                        using DirectoryEntry objGroup = new DirectoryEntry(nGroup);
                         userGroups.Add(objGroup.Name);
                     }
 
@@ -644,7 +644,7 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     // LOCAL mode
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     //check is user name less than 20 symbols
@@ -754,7 +754,7 @@ namespace FuseCP.Providers.Utils
                 {
                     // LOCAL mode
                     // get user entry
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     // get group entry
@@ -775,7 +775,7 @@ namespace FuseCP.Providers.Utils
                     object groups = objUser.Invoke("Groups", null);
                     foreach (object nGroup in (IEnumerable)groups)
                     {
-                        DirectoryEntry objGroup = new DirectoryEntry(nGroup);
+                        using DirectoryEntry objGroup = new DirectoryEntry(nGroup);
                         objGroup.Invoke("Remove", new object[] { objUser.Path });
                     }
 
@@ -822,7 +822,7 @@ namespace FuseCP.Providers.Utils
                 {
                     // LOCAL mode
                     // find user entry
-                    DirectoryEntry machine = new DirectoryEntry(
+                    using DirectoryEntry machine = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     DirectoryEntry objUser = machine.Children.Find(username, "user");
@@ -857,7 +857,7 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     // LOCAL mode
-                    DirectoryEntry machine = new DirectoryEntry(
+                    using DirectoryEntry machine = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     DirectoryEntry objUser = machine.Children.Find(username, "user");
@@ -932,7 +932,7 @@ namespace FuseCP.Providers.Utils
             foreach (object group in (IEnumerable)groups)
             {
                 // Get the Directory Entry.
-                DirectoryEntry objGroup = new DirectoryEntry(group);
+                using DirectoryEntry objGroup = new DirectoryEntry(group);
                 string groupFullName = GetObjectProperty(objGroup, "distinguishedName").ToString();
                 int startPos = groupFullName.IndexOf("CN=") + 3;
                 int endPos = groupFullName.IndexOf(",", startPos);
@@ -1002,7 +1002,7 @@ namespace FuseCP.Providers.Utils
             RemoteServerSettings serverSettings)
         {
             //create instance fo the direcory searcher
-            DirectorySearcher deSearch = new DirectorySearcher();
+            using DirectorySearcher deSearch = new DirectorySearcher();
             // get user name without domain name
             string accountName = GetUserName(userName, serverSettings);
             deSearch.SearchRoot = objRoot;
@@ -1207,7 +1207,7 @@ namespace FuseCP.Providers.Utils
                 DirectoryEntry objRoot = GetGroupsRoot(serverSettings, groupsOU);
 
                 //create instance fo the direcory searcher
-                DirectorySearcher deSearch = new DirectorySearcher();
+                using DirectorySearcher deSearch = new DirectorySearcher();
 
                 deSearch.SearchRoot = objRoot;
                 deSearch.Filter = "(objectClass=group)";
@@ -1259,7 +1259,7 @@ namespace FuseCP.Providers.Utils
 
                     SystemGroup groupInfo = null;
 
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     // get group entry
@@ -1277,7 +1277,7 @@ namespace FuseCP.Providers.Utils
                     foreach (object nUser in (IEnumerable)users)
                     {
                         // Get the Directory Entry.
-                        DirectoryEntry objUser = new DirectoryEntry(nUser);
+                        using DirectoryEntry objUser = new DirectoryEntry(nUser);
                         groupMembers.Add(objUser.Name);
                     }
 
@@ -1326,7 +1326,7 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     // LOCAL mode
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     // create group
@@ -1403,7 +1403,7 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     // LOCAL mode
-                    DirectoryEntry computer = new DirectoryEntry(
+                    using DirectoryEntry computer = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     // get group entry
@@ -1419,7 +1419,7 @@ namespace FuseCP.Providers.Utils
                     object users = objGroup.Invoke("Members", null);
                     foreach (object nUser in (IEnumerable)users)
                     {
-                        DirectoryEntry objUser = new DirectoryEntry(nUser);
+                        using DirectoryEntry objUser = new DirectoryEntry(nUser);
                         objGroup.Invoke("Remove", new object[] { objUser.Path });
                     }
 
@@ -1461,7 +1461,7 @@ namespace FuseCP.Providers.Utils
                 else
                 {
                     // LOCAL mode
-                    DirectoryEntry machine = new DirectoryEntry(
+                    using DirectoryEntry machine = new DirectoryEntry(
                         String.Format("WinNT://{0}", Environment.MachineName));
 
                     DirectoryEntry objGroup = machine.Children.Find(groupName, "group");
@@ -1531,7 +1531,7 @@ namespace FuseCP.Providers.Utils
             RemoteServerSettings serverSettings)
         {
             //create instance fo the direcory searcher
-            DirectorySearcher deSearch = new DirectorySearcher();
+            using DirectorySearcher deSearch = new DirectorySearcher();
 
             deSearch.SearchRoot = objRoot;
             deSearch.Filter = "(&(objectClass=group)(cn=" + groupName + "))";
@@ -1580,7 +1580,7 @@ namespace FuseCP.Providers.Utils
             {
                 // find OU
                 //create instance fo the direcory searcher
-                DirectorySearcher deSearch = new DirectorySearcher();
+                using DirectorySearcher deSearch = new DirectorySearcher();
 
                 deSearch.SearchRoot = objUpperOU;
                 //set the search filter

@@ -114,7 +114,7 @@ namespace FuseCP.Web.Services
 			{
 				if (!string.IsNullOrEmpty(CertificateName))
 				{
-					X509Store store = new X509Store(StoreName, StoreLocation);
+					using X509Store store = new X509Store(StoreName, StoreLocation);
 					store.Open(OpenFlags.ReadOnly);
 					Certificate = store.Certificates.Find(FindType, CertificateName, false).FirstOrDefault();
 					if (Certificate != null) Log($"Use certificate {Certificate.GetNameInfo(X509NameType.SimpleName, false)} {Certificate.FriendlyName} found in {StoreName} at {StoreLocation}");

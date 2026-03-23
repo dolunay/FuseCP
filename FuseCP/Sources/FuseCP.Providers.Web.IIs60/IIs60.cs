@@ -1105,7 +1105,7 @@ namespace FuseCP.Providers.Web
 			// MS SharedTools folder
 			string sharedToolsFolder = GetMicrosoftSharedFolderPath();
 
-			DirectoryEntry objSite = new DirectoryEntry(GetVirtualDirectoryADSIPath(siteId, ""));
+			using DirectoryEntry objSite = new DirectoryEntry(GetVirtualDirectoryADSIPath(siteId, ""));
 			foreach (DirectoryEntry objVirtDir in objSite.Children)
 			{
 				if (objVirtDir.SchemaClassName == "IIsWebVirtualDir" &&
@@ -1333,7 +1333,7 @@ namespace FuseCP.Providers.Web
 			// MS SharedTools folder
 			string sharedToolsFolder = GetMicrosoftSharedFolderPath();
 
-			DirectoryEntry objSite = new DirectoryEntry(GetAppVirtualDirectoryADSIPath(siteId, ""));
+			using DirectoryEntry objSite = new DirectoryEntry(GetAppVirtualDirectoryADSIPath(siteId, ""));
 			foreach (DirectoryEntry objVirtDir in objSite.Children)
 			{
 				if (objVirtDir.SchemaClassName == "IIsWebVirtualDir" &&

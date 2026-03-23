@@ -96,10 +96,10 @@ namespace FuseCP.EnterpriseServer.Data
 			var length = streams
 				.Sum(stream => stream.Length);
 			var mem = new MemoryStream((int)length + 512);
-			var writer = new StreamWriter(mem, Encoding.UTF8);
+			using var writer = new StreamWriter(mem, Encoding.UTF8);
 			foreach (var stream in streams)
 			{
-				var text = new StreamReader(stream).ReadToEnd();
+				using var text = new StreamReader(stream).ReadToEnd();
 				writer.WriteLine(text);
 			}
 			writer.Flush();
@@ -274,7 +274,7 @@ namespace FuseCP.EnterpriseServer.Data
 				SqlConnection conn = new SqlConnection(nativeConnectionString);
 				try
 				{
-					SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('productversion')", conn);
+					using SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('productversion')", conn);
 					conn.Open();
 					SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 					string version = "unknown";
@@ -312,7 +312,7 @@ namespace FuseCP.EnterpriseServer.Data
 				int mode = 0;
 				try
 				{
-					SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('IsIntegratedSecurityOnly')", conn);
+					using SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('IsIntegratedSecurityOnly')", conn);
 					conn.Open();
 					SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 

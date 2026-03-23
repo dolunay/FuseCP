@@ -222,7 +222,7 @@ namespace FuseCP.EnterpriseServer
             HttpResponseMessage httpResponse = null;
             try
             {
-                var httpClientHandler = new HttpClientHandler
+                using var httpClientHandler = new HttpClientHandler
                 {
                     ServerCertificateCustomValidationCallback = (sender, cert, chain, error) =>
                     {

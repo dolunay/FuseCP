@@ -216,7 +216,7 @@ namespace FuseCP.EnterpriseServer
                 serializer.Serialize(ms, param.Value);
 
                 ms.Position = 0;
-                StreamReader sr = new StreamReader(ms);
+                using StreamReader sr = new StreamReader(ms);
 
                 param.SerializerValue = sr.ReadToEnd();
             }

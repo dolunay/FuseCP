@@ -1902,7 +1902,7 @@ namespace FuseCP.Providers.Virtualization
                     //settingsInstance.CimInstanceProperties["LogicalSectorSize"].Value = 0;
                     //settingsInstance.CimInstanceProperties["PhysicalSectorSize"].Value = 0;
 
-                    var inParams = new CimMethodParametersCollection
+                    using var inParams = new CimMethodParametersCollection
                     {
                         CimMethodParameter.Create(
                             "SourcePath",

@@ -1107,7 +1107,7 @@ namespace FuseCP.Providers.Utils
 
                     ObjectGetOptions objectGetOptions = new ObjectGetOptions();
                     ManagementPath managementPath = new ManagementPath("Win32_Process");
-                    ManagementClass processClass = new ManagementClass(manScope, managementPath, objectGetOptions);
+                    using ManagementClass processClass = new ManagementClass(manScope, managementPath, objectGetOptions);
 
                     ManagementBaseObject inParams = processClass.GetMethodParameters("Create");
                     inParams["CommandLine"] = cmdFilePath;

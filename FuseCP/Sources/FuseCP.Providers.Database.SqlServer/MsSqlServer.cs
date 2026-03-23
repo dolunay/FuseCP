@@ -163,7 +163,7 @@ namespace FuseCP.Providers.Database
 				// iterate through "GO" delimited command text
 				StringReader reader = new StringReader(commandText);
 
-				SqlCommand command = new SqlCommand();
+				using SqlCommand command = new SqlCommand();
 
 				connection.Open();
 				command.Connection = connection;

@@ -1492,7 +1492,7 @@ namespace FuseCP.Providers.OS
         public virtual bool CheckFileServicesInstallation()
         {
 
-            ManagementClass objMC = new ManagementClass("Win32_ServerFeature");
+            using ManagementClass objMC = new ManagementClass("Win32_ServerFeature");
             ManagementObjectCollection objMOC = objMC.GetInstances();
 
             // 01.09.2015 roland.breitschaft@x-company.de
@@ -1830,7 +1830,7 @@ namespace FuseCP.Providers.OS
                 invokeCommand.Parameters.Add("ComputerName", hostName);
             }
 
-            RunspaceInvoke invoke = new RunspaceInvoke();
+            using RunspaceInvoke invoke = new RunspaceInvoke();
             string commandString = moduleImports.Any() ? string.Format("import-module {0};", string.Join(",", moduleImports)) : string.Empty;
 
             commandString = string.Format("{0};{1}", commandString, string.Join(";", scripts.ToArray()));

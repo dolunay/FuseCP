@@ -348,7 +348,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 
             // Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
             PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     		
@@ -437,7 +437,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
     			
@@ -807,7 +807,7 @@ namespace Microsoft.ApplicationBlocks.Data
 
 			bool mustCloseConnection = false;
             // Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			try
 			{
 				PrepareCommand(cmd, connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
@@ -1210,7 +1210,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
@@ -1302,7 +1302,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
     			
@@ -1393,7 +1393,7 @@ namespace Microsoft.ApplicationBlocks.Data
 
 			bool mustCloseConnection = false;
 			// Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			try
 			{
 				PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
@@ -1489,7 +1489,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
 			
@@ -2444,7 +2444,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 			if( spName == null || spName.Length == 0 ) throw new ArgumentNullException( "spName" );
 
-			SqlCommand cmd = new SqlCommand(spName, connection);
+			using SqlCommand cmd = new SqlCommand(spName, connection);
 			cmd.CommandType = CommandType.StoredProcedure;
 
 			connection.Open();

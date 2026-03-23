@@ -48,7 +48,7 @@ namespace FuseCP.Providers.Virtualization
             if (args != null && args.Length > 0)
                 query = String.Format(query, args);
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(GetScope(),
+            using ManagementObjectSearcher searcher = new ManagementObjectSearcher(GetScope(),
                 new ObjectQuery(query));
             return searcher.Get();
         }

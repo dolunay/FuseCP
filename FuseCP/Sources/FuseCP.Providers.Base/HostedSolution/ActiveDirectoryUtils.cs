@@ -49,7 +49,7 @@ namespace FuseCP.Providers.HostedSolution
         {
             List<string> rets = new List<string>();  
 
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter =
                     "(&(objectClass=" + objectType + "))"
@@ -89,7 +89,7 @@ namespace FuseCP.Providers.HostedSolution
 
         public static DirectoryEntry GetGroupPolicyContainer(string displayName)
         {
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter =
                     ("(&(objectClass=groupPolicyContainer)(displayName=" + displayName + "))")
@@ -104,7 +104,7 @@ namespace FuseCP.Providers.HostedSolution
         public static bool IsUserInGroup(string samAccountName, string group)
         {
             bool res = false;
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter =
                     ("(&(objectClass=user)(samaccountname=" + samAccountName + "))")
@@ -129,7 +129,7 @@ namespace FuseCP.Providers.HostedSolution
         public static bool IsComputerInGroup(string samAccountName, string group)
         {
             bool res = false;
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter =
                     ("(&(objectClass=computer)(samaccountname=" + samAccountName + "))")
@@ -369,7 +369,7 @@ namespace FuseCP.Providers.HostedSolution
             string defaultContext = GetADObjectProperty(rootDSE, "defaultNamingContext").ToString();
             DirectoryEntry partitions = GetADObject("LDAP://cn=Partitions," + contextPath);
 
-            DirectorySearcher searcher = new DirectorySearcher();
+            using DirectorySearcher searcher = new DirectorySearcher();
             searcher.SearchRoot = partitions;
             searcher.Filter = string.Format("(&(objectCategory=crossRef)(nCName={0}))", defaultContext);
             searcher.SearchScope = SearchScope.OneLevel;
@@ -396,7 +396,7 @@ namespace FuseCP.Providers.HostedSolution
 
         public static string CreateUser(string path, string upn, string user, string displayName, string password, bool enabled)
         {
-            DirectoryEntry currentADObject = new DirectoryEntry(path);
+            using DirectoryEntry currentADObject = new DirectoryEntry(path);
 
             string cn = string.Empty;
             if (string.IsNullOrEmpty(upn)) cn = user; else cn = upn;
@@ -416,7 +416,7 @@ namespace FuseCP.Providers.HostedSolution
 
         public static void CreateGroup(string path, string group)
         {
-            DirectoryEntry currentADObject = new DirectoryEntry(path);
+            using DirectoryEntry currentADObject = new DirectoryEntry(path);
 
             DirectoryEntry newGroupObject = currentADObject.Children.Add("CN=" + group, "Group");
 
@@ -429,8 +429,8 @@ namespace FuseCP.Providers.HostedSolution
 
         public static void AddObjectToGroup(string objectPath, string groupPath)
         {
-            DirectoryEntry obj = new DirectoryEntry(objectPath);
-            DirectoryEntry group = new DirectoryEntry(groupPath);
+            using DirectoryEntry obj = new DirectoryEntry(objectPath);
+            using DirectoryEntry group = new DirectoryEntry(groupPath);
 
             group.Invoke("Add", obj.Path);
 
@@ -439,8 +439,8 @@ namespace FuseCP.Providers.HostedSolution
 
         public static void RemoveObjectFromGroup(string obejctPath, string groupPath)
         {
-            DirectoryEntry obj = new DirectoryEntry(obejctPath);
-            DirectoryEntry group = new DirectoryEntry(groupPath);
+            using DirectoryEntry obj = new DirectoryEntry(obejctPath);
+            using DirectoryEntry group = new DirectoryEntry(groupPath);
 
             group.Invoke("Remove", obj.Path);
 
@@ -623,7 +623,7 @@ namespace FuseCP.Providers.HostedSolution
 
         public static void DisableInheritance(string objectPath)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             obj.ObjectSecurity.SetAccessRuleProtection(true, true);
             obj.CommitChanges();
             CanonicalizeDacl(objectPath);
@@ -631,7 +631,7 @@ namespace FuseCP.Providers.HostedSolution
 
         private static void CanonicalizeDacl(string objectPath)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             ActiveDirectorySecurity objectSecurity = obj.ObjectSecurity;
             if (objectSecurity == null) { throw new ArgumentNullException("objectSecurity"); }
             if (objectSecurity.AreAccessRulesCanonical) { return; }
@@ -696,25 +696,25 @@ namespace FuseCP.Providers.HostedSolution
 
         public static bool IsIdentityAllowed(string objectPath, IdentityReference identity)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             return GetRules(obj.ObjectSecurity, identity).Any();
         }
 
         public static int GetIdentityAllowedCount(string objectPath, IdentityReference identity)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             return GetRules(obj.ObjectSecurity, identity).Count();
         }
 
         public static bool IsIdentityExistsNotInherited(string objectPath, IdentityReference identity)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             return GetRules(obj.ObjectSecurity, identity).Any(r => !r.IsInherited);
         }
 
         public static void RemoveIdentityAllows(string objectPath, IdentityReference identity)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             //obj.ObjectSecurity.PurgeAccessRules(identity);
             var rulesForDelete = GetRules(obj.ObjectSecurity, identity).ToList();
             rulesForDelete.ForEach(r => obj.ObjectSecurity.RemoveAccessRule(r));
@@ -723,7 +723,7 @@ namespace FuseCP.Providers.HostedSolution
 
         public static void RemoveIdentityNotInheritedRules(string objectPath, IdentityReference identity)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             var rulesForDelete = GetRules(obj.ObjectSecurity, identity).Where(r => !r.IsInherited).ToList();
             rulesForDelete.ForEach(r => obj.ObjectSecurity.RemoveAccessRule(r));
             obj.CommitChanges();
@@ -731,13 +731,13 @@ namespace FuseCP.Providers.HostedSolution
 
         public static bool HasPermission(string objectPath, IdentityReference identity, ActiveDirectoryRights permission)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             return GetRules(obj.ObjectSecurity, identity).Any(r => r.ActiveDirectoryRights == permission);
         }
 
         public static void AddPermission(string objectPath, IdentityReference identity, ActiveDirectoryRights permission, ActiveDirectorySecurityInheritance inheritance = ActiveDirectorySecurityInheritance.All)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             var rule = new ActiveDirectoryAccessRule(identity, permission, AccessControlType.Allow, inheritance);
             obj.ObjectSecurity.AddAccessRule(rule);
             obj.CommitChanges();
@@ -745,13 +745,13 @@ namespace FuseCP.Providers.HostedSolution
 
         public static bool HasPropertyAccess(string objectPath, IdentityReference identity, string propertyGuid)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             return GetRules(obj.ObjectSecurity, identity).Any(r => r.ActiveDirectoryRights == ActiveDirectoryRights.ReadProperty && r.ObjectType == new Guid(propertyGuid));
         }
 
         public static void AddPropertyAccess(string objectPath, IdentityReference identity, string propertyGuid)
         {
-            var obj = new DirectoryEntry(objectPath);
+            using var obj = new DirectoryEntry(objectPath);
             var rule = new ActiveDirectoryAccessRule(identity, ActiveDirectoryRights.ReadProperty, AccessControlType.Allow, new Guid(propertyGuid), ActiveDirectorySecurityInheritance.All);
             obj.ObjectSecurity.AddAccessRule(rule);
             obj.CommitChanges();

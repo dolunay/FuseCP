@@ -1099,7 +1099,7 @@ namespace FuseCP.Providers.Virtualization
             foreach (ManagementObject objConnection in objConnections)
             {
                 // check LAN andpoint
-                ManagementObject objLanEndpoint = new ManagementObject(new ManagementPath((string)objConnection["Dependent"]));
+                using ManagementObject objLanEndpoint = new ManagementObject(new ManagementPath((string)objConnection["Dependent"]));
                 string endpointName = (string)objLanEndpoint["Name"];
 
                 if (!endpointName.StartsWith("/DEVICE/"))
@@ -1110,7 +1110,7 @@ namespace FuseCP.Providers.Virtualization
                 if (adapters.ContainsKey(endpointName))
                 {
                     // get switch port
-                    ManagementObject objPort = new ManagementObject(new ManagementPath((string)objConnection["Antecedent"]));
+                    using ManagementObject objPort = new ManagementObject(new ManagementPath((string)objConnection["Antecedent"]));
                     string switchId = (string)objPort["SystemName"];
                     if (switches.ContainsKey(switchId))
                         continue;
@@ -2431,7 +2431,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
 
             // Initialize an event watcher and subscribe to events 
             // that match this query
-            ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
+            using ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
             // times out watcher.WaitForNextEvent in 20 seconds
             watcher.Options.Timeout = new TimeSpan(0, 0, 20);
 

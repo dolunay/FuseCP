@@ -47,7 +47,7 @@ namespace FuseCP.Providers.HostedSolution
             string dSHeuristicsOU = orgProvider.GetdSHeuristicsOU(dSHeuristicsDomain);
             Log.WriteInfo("dSHeuristicsOU: {0}", dSHeuristicsOU);
 
-            DirectoryEntry GetdSHeuristicspath = new DirectoryEntry(dSHeuristicsOU);
+            using DirectoryEntry GetdSHeuristicspath = new DirectoryEntry(dSHeuristicsOU);
             object DSObject = ActiveDirectoryUtils.GetADObjectProperty(GetdSHeuristicspath, "dSHeuristics") ?? "notset";
             string dSHeuristics = DSObject.ToString();
             Log.WriteInfo("dSHeuristics is : {0}", dSHeuristics);

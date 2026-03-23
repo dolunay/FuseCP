@@ -84,7 +84,7 @@ namespace FuseCP.Providers.Web
             {
                 command.Parameters.Add("ComputerName", hostName);
             }
-            RunspaceInvoke runspaceInvoke = new RunspaceInvoke();
+            using RunspaceInvoke runspaceInvoke = new RunspaceInvoke();
             string str = (moduleImports.Any<string>() ? string.Format("import-module {0};", string.Join(",", moduleImports)) : string.Empty);
             str = string.Format("{0};{1}", str, string.Join(";", scripts.ToArray()));
             ScriptBlock baseObject = runspaceInvoke.Invoke(string.Format("{{{0}}}", str))[0].BaseObject as ScriptBlock;
