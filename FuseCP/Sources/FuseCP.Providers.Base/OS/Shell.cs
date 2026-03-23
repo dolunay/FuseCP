@@ -152,6 +152,46 @@ namespace FuseCP.Providers.OS
 			return file;
 		}
 
+		static IEnumerable<string> TokenizeArguments(string arguments)
+		{
+			if (string.IsNullOrWhiteSpace(arguments))
+				yield break;
+
+			foreach (Match match in Regex.Matches(arguments, @"(?:[^\s\""']+|\""(?:\\.|[^\""])*\""|'(?:\\.|[^'])*')+"))
+			{
+				var token = match.Value;
+				if (token.Length >= 2 && ((token[0] == '"' && token[token.Length - 1] == '"') || (token[0] == '\'' && token[token.Length - 1] == '\'')))
+					token = token.Substring(1, token.Length - 2);
+				yield return token;
+			}
+		}
+
+		static string QuoteArgument(string argument)
+		{
+			if (string.IsNullOrEmpty(argument))
+				return "\"\"";
+			if (!argument.Any(char.IsWhiteSpace) && argument.IndexOf('"') < 0)
+				return argument;
+			return "\"" + argument.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
+		}
+
+		static void ApplyArguments(ProcessStartInfo startInfo, string arguments)
+		{
+			var tokens = TokenizeArguments(arguments).ToList();
+			var argumentListProperty = typeof(ProcessStartInfo).GetProperty("ArgumentList");
+			if (argumentListProperty != null)
+			{
+				if (argumentListProperty.GetValue(startInfo) is IList argumentList)
+				{
+					foreach (var token in tokens)
+						argumentList.Add(token);
+					return;
+				}
+			}
+
+			startInfo.Arguments = string.Join(" ", tokens.Select(QuoteArgument));
+		}
+
 		protected virtual string ToTempFile(string script)
 		{
 			var file = Path.GetTempFileName();
@@ -237,7 +277,7 @@ namespace FuseCP.Providers.OS
 				var process = new Process();
 				child.Process = process;
 				process.StartInfo.FileName = cmdWithPath;
-				process.StartInfo.Arguments = arguments;
+				ApplyArguments(process.StartInfo, arguments);
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = CreateNoWindow;
 				process.StartInfo.WindowStyle = WindowStyle;
