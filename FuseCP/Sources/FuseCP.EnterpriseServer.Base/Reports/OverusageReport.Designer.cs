@@ -221,28 +221,24 @@ namespace FuseCP.EnterpriseServer.Base.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
             this.tableHostingSpace = ((HostingSpaceDataTable)(base.Tables["HostingSpace"]));
-            if ((initTable)) {
-                if ((this.tableHostingSpace != null)) {
+            if ((initTable) && (this.tableHostingSpace != null))
+            {
                     this.tableHostingSpace.InitVars();
-                }
             }
             this.tableBandwidthOverusage = ((BandwidthOverusageDataTable)(base.Tables["BandwidthOverusage"]));
-            if ((initTable)) {
-                if ((this.tableBandwidthOverusage != null)) {
+            if ((initTable) && (this.tableBandwidthOverusage != null))
+            {
                     this.tableBandwidthOverusage.InitVars();
-                }
             }
             this.tableDiskspaceOverusage = ((DiskspaceOverusageDataTable)(base.Tables["DiskspaceOverusage"]));
-            if ((initTable)) {
-                if ((this.tableDiskspaceOverusage != null)) {
+            if ((initTable) && (this.tableDiskspaceOverusage != null))
+            {
                     this.tableDiskspaceOverusage.InitVars();
-                }
             }
             this.tableOverusageDetails = ((OverusageDetailsDataTable)(base.Tables["OverusageDetails"]));
-            if ((initTable)) {
-                if ((this.tableOverusageDetails != null)) {
+            if ((initTable) && (this.tableOverusageDetails != null))
+            {
                     this.tableOverusageDetails.InitVars();
-                }
             }
             this.relationHostingSpace_BandwidthOverusage = this.Relations["HostingSpace_BandwidthOverusage"];
             this.relationHostingSpace_DiskspaceOverusage = this.Relations["HostingSpace_DiskspaceOverusage"];

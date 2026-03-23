@@ -365,13 +365,9 @@ namespace FuseCP.EnterpriseServer
                 }
 
                 DomainInfo domain = ServerController.GetDomain(domainId);
-                if (domain != null)
+                if (domain != null && domain.ZoneItemId != 0)
                 {
-                    if (domain.ZoneItemId != 0)
                     {
-                        ServerController.AddServiceDNSRecords(org.PackageId, ResourceGroups.HostedOrganizations, domain, "");
-                        ServerController.AddServiceDNSRecords(org.PackageId, ResourceGroups.HostedCRM, domain, "");
-                    }
                 }
 
 
@@ -514,12 +510,9 @@ namespace FuseCP.EnterpriseServer
                 LogExtension.SetItemName(domain.DomainName);
                 LogExtension.WriteObject(domain);
 
-                if (!string.IsNullOrEmpty(org.GlobalAddressList))
+                if (!string.IsNullOrEmpty(org.GlobalAddressList) && Database.CheckDomainUsedByHostedOrganization(domain.DomainName) == 1)
                 {
-                    if (Database.CheckDomainUsedByHostedOrganization(domain.DomainName) == 1)
                     {
-                        return -1;
-                    }
                 }
 
                 // unregister domain
@@ -3533,9 +3526,8 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
                         }
                     }
 
-                    if (!userPrincipalNameOwned)
+                    if (!userPrincipalNameOwned && EmailAddressExists(userPrincipalName, false))
                     {
-                        if (EmailAddressExists(userPrincipalName, false))
                             return BusinessErrorCodes.ERROR_EXCHANGE_EMAIL_EXISTS;
                     }
                 }
@@ -3557,12 +3549,9 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
                     }
                     else
                     {
-                        if (user.IsLyncUser)
+                        if (user.IsLyncUser && !Database.LyncUserExists(accountId, userPrincipalName.ToLower()))
                         {
-                            if (!Database.LyncUserExists(accountId, userPrincipalName.ToLower()))
                             {
-                                LyncController.SetLyncUserGeneralSettings(itemId, accountId, userPrincipalName.ToLower(), null);
-                            }
                         }
                         if (user.IsSfBUser)
                         {

@@ -135,10 +135,8 @@ namespace FuseCP.EnterpriseServer
 
         public int CheckAccount(DemandAccount demand)
         {
-            if ((demand & DemandAccount.NotDemo) == DemandAccount.NotDemo)
+            if ((demand & DemandAccount.NotDemo) == DemandAccount.NotDemo && User.IsDemo)
             {
-                // should make a check if the account is not in demo mode
-                if (User.IsDemo)
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_DEMO;
             }
 
@@ -153,47 +151,35 @@ namespace FuseCP.EnterpriseServer
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_CANCELLED;
             }
 
-            if ((demand & DemandAccount.IsAdmin) == DemandAccount.IsAdmin)
+            if ((demand & DemandAccount.IsAdmin) == DemandAccount.IsAdmin && !User.IsInRole(ROLE_ADMINISTRATOR))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_ADMINISTRATOR))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_SHOULD_BE_ADMINISTRATOR;
             }
 
-            if ((demand & DemandAccount.IsReseller) == DemandAccount.IsReseller)
+            if ((demand & DemandAccount.IsReseller) == DemandAccount.IsReseller && !User.IsInRole(ROLE_RESELLER))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_RESELLER))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_NOT_ENOUGH_PERMISSIONS;
             }
 
-            if ((demand & DemandAccount.IsPlatformCSR) == DemandAccount.IsPlatformCSR)
+            if ((demand & DemandAccount.IsPlatformCSR) == DemandAccount.IsPlatformCSR && !User.IsInRole(ROLE_PLATFORMCSR))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_PLATFORMCSR))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_NOT_ENOUGH_PERMISSIONS;
             }
 
-            if ((demand & DemandAccount.IsPlatformHelpdesk) == DemandAccount.IsPlatformHelpdesk)
+            if ((demand & DemandAccount.IsPlatformHelpdesk) == DemandAccount.IsPlatformHelpdesk && !User.IsInRole(ROLE_PLATFORMHELPDESK))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_PLATFORMHELPDESK))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_NOT_ENOUGH_PERMISSIONS;
             }
 
 
-            if ((demand & DemandAccount.IsResellerHelpdesk) == DemandAccount.IsResellerHelpdesk)
+            if ((demand & DemandAccount.IsResellerHelpdesk) == DemandAccount.IsResellerHelpdesk && !User.IsInRole(ROLE_RESELLERHELPDESK))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_RESELLERHELPDESK))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_NOT_ENOUGH_PERMISSIONS;
             }
 
 
-            if ((demand & DemandAccount.IsResellerCSR) == DemandAccount.IsResellerCSR)
+            if ((demand & DemandAccount.IsResellerCSR) == DemandAccount.IsResellerCSR && !User.IsInRole(ROLE_RESELLERCSR))
             {
-                // should make a check if the account has Admin role
-                if (!User.IsInRole(ROLE_RESELLERCSR))
                     return BusinessErrorCodes.ERROR_USER_ACCOUNT_NOT_ENOUGH_PERMISSIONS;
             }
 

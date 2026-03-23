@@ -120,20 +120,9 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
                 vmItem.RootFolderPath = realVm.RootFolderPath;
                 update = true;
             }
-            if (realVm.VirtualHardDrivePath != null && realVm.VirtualHardDrivePath.Length > 0)
+            if ((realVm.VirtualHardDrivePath != null && realVm.VirtualHardDrivePath.Length > 0) && !realVm.VirtualHardDrivePath.SequenceEqual(vmItem.VirtualHardDrivePath))
             {
-                if (!realVm.VirtualHardDrivePath.SequenceEqual(vmItem.VirtualHardDrivePath))
                 {
-                    // we also need to update the HddSize array to match the paths
-                    VirtualMachine extVm = vps.GetVirtualMachineEx(vmItem.VirtualMachineId);
-                    if (extVm.VirtualHardDrivePath != null && extVm.VirtualHardDrivePath.Length > 0 
-                        && extVm.HddSize != null && extVm.VirtualHardDrivePath.Length == extVm.HddSize.Length)
-                    {
-                        vmItem.VirtualHardDrivePath = extVm.VirtualHardDrivePath;
-                        vmItem.HddSize = extVm.HddSize;
-                        update = true;
-                    }
-                }
             }
             if (update) PackageController.UpdatePackageItem(vmItem);
         }

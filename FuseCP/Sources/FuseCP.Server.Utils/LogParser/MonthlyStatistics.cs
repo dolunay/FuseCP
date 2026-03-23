@@ -39,16 +39,9 @@ namespace FuseCP.Providers.Utils.LogParser
 			// save file name
 			this.statsFile = statsFile;
 			//
-			if (load)
+			if (load && File.Exists(statsFile))
 			{
-			    if (File.Exists(statsFile))
 			    {
-			        Load();
-			    }
-				//else
-				//{
-				//    throw new ArgumentException(String.Format("File with specified name doesn't exist: {0}", statsFile), "statsFile");
-				//}
 			}
 		}
 

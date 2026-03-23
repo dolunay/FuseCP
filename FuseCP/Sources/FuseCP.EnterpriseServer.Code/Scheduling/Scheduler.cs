@@ -55,12 +55,9 @@ namespace FuseCP.EnterpriseServer
 
             nextSchedule = SchedulerController.GetNextSchedule();
 
-            if (nextSchedule != null)
+            if (nextSchedule != null && nextSchedule.ScheduleInfo.NextRun <= DateTime.Now)
             {
-                if (nextSchedule.ScheduleInfo.NextRun <= DateTime.Now)
                 {
-                    RunNextSchedule(null);
-                }
             }
         }
 

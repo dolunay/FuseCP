@@ -331,9 +331,8 @@ namespace FuseCP.EnterpriseServer
                 if (record.RecordType == "MX")
                     rr.MxPriority = record.MxPriority;
 
-                if (!String.IsNullOrEmpty(rr.RecordData))
+                if (!String.IsNullOrEmpty(rr.RecordData) && rr.RecordName != "[host_name]")
                 {
-                    if (rr.RecordName != "[host_name]")
                         zoneRecords.Add(rr);
                 }
             }

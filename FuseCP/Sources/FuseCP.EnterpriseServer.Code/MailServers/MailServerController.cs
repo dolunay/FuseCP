@@ -1328,12 +1328,9 @@ namespace FuseCP.EnterpriseServer
 				mail.AddDomainAlias(mailDomain.Name, domain.DomainName);
 
 
-                if (domain != null)
+                if (domain != null && domain.ZoneItemId != 0)
                 {
-                    if (domain.ZoneItemId != 0)
                     {
-                        ServerController.AddServiceDNSRecords(domain.PackageId, ResourceGroups.Mail, domain, "");
-                    }
                 }
 
 

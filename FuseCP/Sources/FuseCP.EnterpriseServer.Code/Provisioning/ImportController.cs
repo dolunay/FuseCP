@@ -87,9 +87,8 @@ namespace FuseCP.EnterpriseServer
                     string serviceItemName = (string)dr["ItemName"];
                     int serviceItemTypeId = (int)dr["ItemTypeId"];
 
-                    if (serviceItemTypeId == itemTypeId)
+                    if (serviceItemTypeId == itemTypeId && !ignorelist.Contains(serviceItemName))
                     {
-                        if (!ignorelist.Contains(serviceItemName))
                             ignorelist.Add(serviceItemName.ToLower());
                     }
                 }
@@ -98,9 +97,8 @@ namespace FuseCP.EnterpriseServer
                     string packageItemName = (string)dr["ItemName"];
                     int packageItemTypeId = (int)dr["ItemTypeId"];
 
-                    if (packageItemTypeId == itemTypeId)
+                    if (packageItemTypeId == itemTypeId && !ignorelist.Contains(packageItemName))
                     {
-                        if (!ignorelist.Contains(packageItemName))
                             ignorelist.Add(packageItemName.ToLower());
                     }
                 }

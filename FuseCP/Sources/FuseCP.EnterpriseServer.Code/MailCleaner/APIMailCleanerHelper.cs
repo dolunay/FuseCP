@@ -164,9 +164,8 @@ namespace FuseCP.EnterpriseServer
             String lstMessage = String.Empty;
             foreach (XmlNode lxmNode in xmlResult.ChildNodes)
             {
-                if (lxmNode.Name == "response")
+                if (lxmNode.Name == "response" && lxmNode.FirstChild.Name == "message")
                 {
-                    if (lxmNode.FirstChild.Name == "message")
                         lstMessage = lxmNode.FirstChild.InnerText;
                 }
             }

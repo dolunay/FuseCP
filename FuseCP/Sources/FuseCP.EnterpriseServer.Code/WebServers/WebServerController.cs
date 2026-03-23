@@ -1333,9 +1333,8 @@ namespace FuseCP.EnterpriseServer
                 return BusinessErrorCodes.ERROR_DOMAIN_PACKAGE_ITEM_NOT_FOUND;
 
             // check if the web site already exists
-            if (!rebuild)
+            if (!rebuild && Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(hostName) ? domain.DomainName : hostName + "." + domain.DomainName, true) != 0)
             {
-                if (Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(hostName) ? domain.DomainName : hostName + "." + domain.DomainName, true) != 0)
                     return BusinessErrorCodes.ERROR_WEB_SITE_ALREADY_EXISTS;
             }
 
@@ -1397,10 +1396,8 @@ namespace FuseCP.EnterpriseServer
                     {
                         foreach (DnsRecord r in resourceRecords)
                         {
-                            if (r.RecordName != "*")
+                            if (r.RecordName != "*" && Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(r.RecordName) ? domain.DomainName : r.RecordName + "." + domain.DomainName, true) != 0)
                             {
-                                // check if the web site already exists
-                                if (Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(r.RecordName) ? domain.DomainName : r.RecordName + "." + domain.DomainName, true) != 0)
                                     return BusinessErrorCodes.ERROR_WEB_SITE_ALREADY_EXISTS;
                             }
                         }

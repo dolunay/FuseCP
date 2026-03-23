@@ -850,14 +850,9 @@ namespace FuseCP.EnterpriseServer
 				UserInfo currentUser = GetUser(user.UserId);
 
 				//prevent downgrade reseller with child accounts to user role
-				if (currentUser.RoleId.Equals(2))
+				if (currentUser.RoleId.Equals(2) && (user.RoleId.Equals(3) && GetUsers(currentUser.UserId, false).Count > 0))
 				{
-					if (user.RoleId.Equals(3))
 					{
-						// check if user has child accounts (It happens when Reseller has child accounts and admin changes his role to User)
-						if (GetUsers(currentUser.UserId, false).Count > 0)
-							return BusinessErrorCodes.ERROR_USER_HAS_USERS;
-					}
 				}
 
 

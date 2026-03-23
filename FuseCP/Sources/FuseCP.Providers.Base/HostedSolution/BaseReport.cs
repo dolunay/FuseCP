@@ -37,9 +37,8 @@ namespace FuseCP.Providers.HostedSolution
 		protected static string ToCsvString(string source)
 		{
 			string ret = source;
-			if (!string.IsNullOrEmpty(source))
+			if (!string.IsNullOrEmpty(source) && (source.IndexOf(',') >= 0 || source.IndexOf('"') >= 0))
 			{
-				if (source.IndexOf(',') >= 0 || source.IndexOf('"') >= 0)
 					ret = "\"" + source.Replace("\"", "\"\"") + "\"";
 			}
 			return ret;
