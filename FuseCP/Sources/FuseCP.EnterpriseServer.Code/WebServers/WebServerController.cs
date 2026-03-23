@@ -4217,7 +4217,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
         {
             int domainId = 0;
             int counter = 0;
-            while ((header.IndexOf(".") != -1) & (counter < 2))
+            while ((header.IndexOf(".") != -1) && (counter < 2))
             {
 
                 foreach (DomainInfo d in domains)
