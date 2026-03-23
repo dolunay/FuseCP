@@ -154,10 +154,10 @@ namespace FuseCP.Providers.Utils
             foreach (UserPermission permission in users)
             {
                 SecurityIdentifier identity = null;
-                if (String.Compare(permission.AccountName, "network service", true) == 0)
-                    identity = new SecurityIdentifier(SystemSID.NETWORK_SERVICE);
-                else
-                    identity = new SecurityIdentifier(GetAccountSid(permission.AccountName, serverSettings, usersOU, groupsOU));
+                identity = String.Compare(permission.AccountName, "network service", true) == 0 ? new SecurityIdentifier(SystemSID.NETWORK_SERVICE) : new SecurityIdentifier(GetAccountSid(permission.AccountName, serverSettings, usersOU, groupsOU));
+
+
+
 
                 foreach (FileSystemAccessRule rule in rules)
                 {
@@ -189,10 +189,10 @@ namespace FuseCP.Providers.Utils
             foreach (UserPermission permission in users)
             {
                 SecurityIdentifier identity = null;
-                if (String.Compare(permission.AccountName, "network service", true) == 0)
-                    identity = new SecurityIdentifier(SystemSID.NETWORK_SERVICE);
-                else
-                    identity = new SecurityIdentifier(GetAccountSid(permission.AccountName, serverSettings, usersOU, groupsOU));
+                identity = String.Compare(permission.AccountName, "network service", true) == 0 ? new SecurityIdentifier(SystemSID.NETWORK_SERVICE) : new SecurityIdentifier(GetAccountSid(permission.AccountName, serverSettings, usersOU, groupsOU));
+
+
+
 
                 // remove explicit permissions
                 security.RemoveAccessRuleAll(new FileSystemAccessRule(identity,
@@ -989,10 +989,10 @@ namespace FuseCP.Providers.Utils
             if (userName.Contains("\\"))
             {
                 string[] tmp = userName.Split('\\');
-                if (tmp.Length > 1)
-                    return tmp[1];
-                else
-                    return tmp[0];
+                return tmp.Length > 1 ? tmp[1] : tmp[0];
+
+
+
             }
             else
                 return userName;
@@ -1067,10 +1067,10 @@ namespace FuseCP.Providers.Utils
                 {
                     string userObjPath = "WinNT://{0}/{1}";
                     //
-                    if (serverSettings.ADEnabled)
-                        userObjPath = String.Format(userObjPath, serverSettings.ADRootDomain, userName);
-                    else
-                        userObjPath = String.Format(userObjPath, Environment.MachineName, userName);
+                    userObjPath = serverSettings.ADEnabled ? String.Format(userObjPath, serverSettings.ADRootDomain, userName) : String.Format(userObjPath, Environment.MachineName, userName);
+
+
+
                     //
                     try
                     {
@@ -1161,10 +1161,10 @@ namespace FuseCP.Providers.Utils
                 {
                     string userObjPath = "WinNT://{0}/{1}";
                     //
-                    if (serverSettings.ADEnabled)
-                        userObjPath = String.Format(userObjPath, serverSettings.ADRootDomain, userName);
-                    else
-                        userObjPath = String.Format(userObjPath, Environment.MachineName, userName);
+                    userObjPath = serverSettings.ADEnabled ? String.Format(userObjPath, serverSettings.ADRootDomain, userName) : String.Format(userObjPath, Environment.MachineName, userName);
+
+
+
                     //
                     try
                     {
@@ -1624,10 +1624,10 @@ namespace FuseCP.Providers.Utils
 
         internal static object GetObjectProperty(DirectoryEntry entry, string propertyName)
         {
-            if (entry.Properties.Contains(propertyName))
-                return entry.Properties[propertyName][0];
-            else
-                return String.Empty;
+            return entry.Properties.Contains(propertyName) ? entry.Properties[propertyName][0] : String.Empty;
+
+
+
         }
 
         internal static DirectoryEntry GetDirectoryObject(string path, RemoteServerSettings serverSettings)

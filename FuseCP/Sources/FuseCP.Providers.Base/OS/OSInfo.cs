@@ -174,8 +174,8 @@ namespace FuseCP.Providers.OS
 				var entryAssembly = AppDomain.CurrentDomain.GetAssemblies()
 					.FirstOrDefault(a => entryAssemblies.Any(name => a.GetName().Name == name)) ?? Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
 				var fileVersion = entryAssembly.GetCustomAttribute<AssemblyFileVersionAttribute>();
-				if (fileVersion == null) return "";
-				else return fileVersion.Version;
+				return fileVersion == null ? "" : fileVersion.Version;
+
 			}
 		}
 		public static WindowsVersion WindowsVersion => IsWindowsPlatform() ? WindowsOSInfo.GetVersion() : WindowsVersion.NonWindows;

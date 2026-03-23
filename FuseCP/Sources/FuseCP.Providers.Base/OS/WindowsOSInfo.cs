@@ -397,28 +397,28 @@ namespace FuseCP.Providers.OS
                             switch (ver.Minor)
                             {
                                 case 0:
-                                    if (info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION)
-                                        ret = WindowsVersion.Vista;
-                                    else
-                                        ret = WindowsVersion.WindowsServer2008;
+                                    ret = info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION ? WindowsVersion.Vista : WindowsVersion.WindowsServer2008;
+
+
+
                                     break;
                                 case 1:
-                                    if (info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION)
-                                        ret = WindowsVersion.Windows7;
-                                    else
-                                        ret = WindowsVersion.WindowsServer2008R2;
+                                    ret = info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION ? WindowsVersion.Windows7 : WindowsVersion.WindowsServer2008R2;
+
+
+
                                     break;
                                 case 2:
-                                    if (info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION)
-                                        ret = WindowsVersion.Windows8;
-                                    else
-                                        ret = WindowsVersion.WindowsServer2012;
+                                    ret = info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION ? WindowsVersion.Windows8 : WindowsVersion.WindowsServer2012;
+
+
+
                                     break;
                                 case 3:
-                                    if (info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION)
-                                        ret = WindowsVersion.Windows81;
-                                    else
-                                        ret = WindowsVersion.WindowsServer2012R2;
+                                    ret = info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION ? WindowsVersion.Windows81 : WindowsVersion.WindowsServer2012R2;
+
+
+
                                     break;
                             }
                             break;
@@ -443,13 +443,13 @@ namespace FuseCP.Providers.OS
                                     }
                                     else if (currentBuild >= 20348 && info.wProductType != (byte)WinPlatform.VER_NT_WORKSTATION)
                                     {
-                                        if (currentBuild >= 26000) ret = WindowsVersion.WindowsServer2025;
-                                        else ret = WindowsVersion.WindowsServer2022;
+                                        ret = currentBuild >= 26000 ? WindowsVersion.WindowsServer2025 : WindowsVersion.WindowsServer2022;
+
                                     }
                                     else
                                     {
-                                        if (info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION) ret = WindowsVersion.Windows10;
-                                        else ret = WindowsVersion.WindowsServer2019;
+                                        ret = info.wProductType == (byte)WinPlatform.VER_NT_WORKSTATION ? WindowsVersion.Windows10 : WindowsVersion.WindowsServer2019;
+
                                     }
                                 }
                                 else
@@ -460,8 +460,8 @@ namespace FuseCP.Providers.OS
                                     }
                                     else if (currentBuild >= 20348 && info.wProductType != (byte)WinPlatform.VER_NT_WORKSTATION)
                                     {
-										if (currentBuild >= 26000) ret = WindowsVersion.WindowsServer2025;
-										else ret = WindowsVersion.WindowsServer2022;
+										ret = currentBuild >= 26000 ? WindowsVersion.WindowsServer2025 : WindowsVersion.WindowsServer2022;
+
 									}
 								}
                             }

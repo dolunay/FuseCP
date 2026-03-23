@@ -497,10 +497,10 @@ namespace FuseCP.EnterpriseServer
 
 
                 // dynamic memory
-                if (otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled)
-                    vm.DynamicMemory = otherSettings.DynamicMemory;
-                else
-                    vm.DynamicMemory = null;
+                vm.DynamicMemory = otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled ? otherSettings.DynamicMemory : null;
+
+
+
 
                 // networking
                 vm.ExternalNetworkEnabled = externalNetworkEnabled;
@@ -2090,10 +2090,10 @@ namespace FuseCP.EnterpriseServer
                 vm.PrivateNetworkEnabled = privateNetworkEnabled;
 
                 // dynamic memory
-                if (otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled)
-                    vm.DynamicMemory = otherSettings.DynamicMemory;
-                else
-                    vm.DynamicMemory = null;
+                vm.DynamicMemory = otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled ? otherSettings.DynamicMemory : null;
+
+
+
 
                 // load service settings
                 StringDictionary settings = ServerController.GetServiceSettings(vm.ServiceId);

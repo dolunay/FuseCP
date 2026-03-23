@@ -1040,10 +1040,10 @@ namespace FuseCP.EnterpriseServer
 		public MailDomain GetMailDomain(int packageId, string mailDomainName)
 		{
 			ServiceProviderItem mailDomain = PackageController.GetPackageItemByName(packageId, mailDomainName, typeof(MailDomain));
-			if (mailDomain != null)
-				return GetMailDomain(mailDomain.Id);
-			else
-				return null;
+			return mailDomain != null ? GetMailDomain(mailDomain.Id) : null;
+
+
+
 		}
 
 		public MailDomain GetMailDomain(int itemId)

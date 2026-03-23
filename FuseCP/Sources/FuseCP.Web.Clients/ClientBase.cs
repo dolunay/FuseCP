@@ -382,8 +382,8 @@ namespace FuseCP.Web.Clients
             if (!OperatingSystem.IsWindows()) throw new PlatformNotSupportedException("net.pipe binding only supported on Windows.");
 #endif
             NetNamedPipeBinding pipe;
-			if (secure) pipe = new NetNamedPipeBinding(NetNamedPipeSecurityMode.Transport);
-			else pipe = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
+			pipe = secure ? new NetNamedPipeBinding(NetNamedPipeSecurityMode.Transport) : new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
+
 			pipe.MaxReceivedMessageSize = MaximumMessageSize;
 			return pipe;
 		}

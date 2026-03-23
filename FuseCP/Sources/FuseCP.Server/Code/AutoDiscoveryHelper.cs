@@ -84,10 +84,10 @@ namespace FuseCP.Server.Code
         public static string GetServerVersion()
         {
             object[] attrs = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyFileVersionAttribute), true);
-            if (attrs.Length > 0)
-                return ((AssemblyFileVersionAttribute)attrs[0]).Version;
-            else
-			    return typeof(AutoDiscoveryHelper).Assembly.GetName().Version.ToString(3);
+            return attrs.Length > 0 ? ((AssemblyFileVersionAttribute)attrs[0]).Version : typeof(AutoDiscoveryHelper).Assembly.GetName().Version.ToString(3);
+
+
+
         }
         public static string OS => OSInfo.IsWindows ? "Windows" :
 			(OSInfo.IsMac ? "Mac" :

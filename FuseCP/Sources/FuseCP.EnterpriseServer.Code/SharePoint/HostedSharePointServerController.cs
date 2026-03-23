@@ -818,10 +818,10 @@ namespace FuseCP.EnterpriseServer.Code.SharePoint
         {
             if (parentSize == -1)
             {
-                if (realSize == -1 || realSize == 0)
-                    return -1;
-                else
-                    return realSize;
+                return realSize == -1 || realSize == 0 ? -1 : realSize;
+
+
+
             }
 
 

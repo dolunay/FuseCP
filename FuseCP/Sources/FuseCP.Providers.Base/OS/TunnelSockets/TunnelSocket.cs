@@ -192,8 +192,8 @@ namespace FuseCP.Providers.OS
                         var alwaysTrust = Delegate.CreateDelegate(delegateType, this, method);
 
                         Delegate validateDelegate = (Delegate)remoteCertificateValidationCallback?.GetValue(clientWebSocket.Options);
-                        if (validateDelegate == null) validateDelegate = alwaysTrust;
-                        else validateDelegate = Delegate.Combine(validateDelegate, alwaysTrust);
+                        validateDelegate = validateDelegate == null ? alwaysTrust : Delegate.Combine(validateDelegate, alwaysTrust);
+
 
                         remoteCertificateValidationCallback?.SetValue(clientWebSocket.Options, validateDelegate);
                         validateCertificateSet = true;
@@ -838,8 +838,8 @@ namespace FuseCP.Providers.OS
             if (ip == default) throw new IOException($"Cannot resolve host {uri.Host}");
 
             var port = uri.Port;
-            if (port != 0) return await ListenAsync(ip, port);
-            else return await ListenAsync(ip);
+            return port != 0 ? await ListenAsync(ip, port) : await ListenAsync(ip);
+
         }
 
         bool isDisposed = false;

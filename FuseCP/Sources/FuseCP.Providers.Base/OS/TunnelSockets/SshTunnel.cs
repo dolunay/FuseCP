@@ -100,8 +100,8 @@ namespace FuseCP.Providers.OS
                 Client = new SshClient(sshhost, Uri.Port != -1 ? Uri.Port : 22, Uri.Username, Uri.Password);
             }
 
-            if (Uri.LocalForwardPort == 0) ForwardedPort = new ForwardedPortLocal(Loopback.ToString(), remotehost, Uri.RemoteForwardPort);
-            else ForwardedPort = new ForwardedPortLocal(Loopback.ToString(), Uri.LocalForwardPort, remotehost, Uri.RemoteForwardPort);
+            ForwardedPort = Uri.LocalForwardPort == 0 ? new ForwardedPortLocal(Loopback.ToString(), remotehost, Uri.RemoteForwardPort) : new ForwardedPortLocal(Loopback.ToString(), Uri.LocalForwardPort, remotehost, Uri.RemoteForwardPort);
+
 
             return uri;
         }
@@ -140,8 +140,8 @@ namespace FuseCP.Providers.OS
                 Client = new SshClient(sshhost, Uri.Port != -1 ? Uri.Port : 22, Uri.Username, Uri.Password);
             }
 
-            if (Uri.LocalForwardPort == 0) ForwardedPort = new ForwardedPortLocal(Loopback.ToString(), remotehost, Uri.RemoteForwardPort);
-            else ForwardedPort = new ForwardedPortLocal(Loopback.ToString(), Uri.LocalForwardPort, remotehost, Uri.RemoteForwardPort);
+            ForwardedPort = Uri.LocalForwardPort == 0 ? new ForwardedPortLocal(Loopback.ToString(), remotehost, Uri.RemoteForwardPort) : new ForwardedPortLocal(Loopback.ToString(), Uri.LocalForwardPort, remotehost, Uri.RemoteForwardPort);
+
 
             return Uri;
         }

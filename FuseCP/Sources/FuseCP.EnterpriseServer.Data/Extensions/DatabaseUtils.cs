@@ -79,8 +79,8 @@ namespace FuseCP.EnterpriseServer.Data
 					return sortExpression;
 				})
 				.Where(name => {
-					if (scriptName.StartsWith("!")) return Regex.IsMatch(name, scriptName.Substring(1));
-					else return name.EndsWith(scriptName);
+					return scriptName.StartsWith("!") ? Regex.IsMatch(name, scriptName.Substring(1)) : name.EndsWith(scriptName);
+
 				})
 				.ToList();
 
@@ -158,8 +158,8 @@ namespace FuseCP.EnterpriseServer.Data
 				if (!database.Contains(Path.DirectorySeparatorChar.ToString()))
 				{
 					if (!database.Contains(".")) database = $"{database}.sqlite";
-					if (integrated) database = Path.Combine(enterpriseServerPath, "App_Data", database);
-					else database = Path.Combine("App_Data", database);
+					database = integrated ? Path.Combine(enterpriseServerPath, "App_Data", database) : Path.Combine("App_Data", database);
+
 				}
 				database = Path.GetFullPath(Path.Combine(installationFolder, database));
 			}
@@ -172,8 +172,8 @@ namespace FuseCP.EnterpriseServer.Data
 			{
 				if (!database.Contains(".")) database = $"{database}.sqlite";
 				//var integrated = vars.EmbedEnterpriseServer;
-				if (integrated) database = Path.Combine(enterpriseServerPath, "App_Data", database);
-				else database = Path.Combine("App_Data", database);
+				database = integrated ? Path.Combine(enterpriseServerPath, "App_Data", database) : Path.Combine("App_Data", database);
+
 			}
 			return $"DbType=Sqlite;Data Source={database}";
 		}

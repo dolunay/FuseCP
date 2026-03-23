@@ -724,10 +724,10 @@ namespace FuseCP.Providers.Database
 				{
 					string name = backupFiles[i][0];
 					string path = backupFiles[i][1];
-					if (Path.GetExtension(path).ToLower() == ".mdf")
-						path = database.DataPath;
-					else
-						path = database.LogPath;
+					path = Path.GetExtension(path).ToLower() == ".mdf" ? database.DataPath : database.LogPath;
+
+
+
 
 					movings[i] = String.Format("MOVE '{0}' TO '{1}'", EscapeSql(name), EscapeSql(path));
 				}

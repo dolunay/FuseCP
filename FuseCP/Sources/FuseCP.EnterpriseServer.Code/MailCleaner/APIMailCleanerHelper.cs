@@ -113,10 +113,10 @@ namespace FuseCP.EnterpriseServer
             String l_URL = string.Empty;
             try
             {
-                if (f_iPlanID == 0)
-                    l_URL = GetServiceURLFromPackageId(packageId);
-                else
-                    l_URL = GetServiceURL(f_iPlanID);
+                l_URL = f_iPlanID == 0 ? GetServiceURLFromPackageId(packageId) : GetServiceURL(f_iPlanID);
+
+
+
             }
             catch (Exception)
             {

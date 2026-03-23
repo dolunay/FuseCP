@@ -59,8 +59,8 @@ namespace FuseCP.Web.Clients
         static char ToChar(byte b)
         {
             b = (byte)(b & 0x1F);
-            if (b < 10) return (char)(b + (byte)'0');
-            else return (char)(b - 10 + (byte)'a');
+            return b < 10 ? (char)(b + (byte)'0') : (char)(b - 10 + (byte)'a');
+
         }
         public static IEnumerable<char> ToName(IEnumerable<byte> bytes)
         {
@@ -258,13 +258,13 @@ namespace FuseCP.Web.Clients
             string file;
             if (arch == Architecture.X64)
             {
-                if (archExtension) file = Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x64.dll"));
-                else file = Path.Combine(assemblyPath, "x64", dllName);
+                file = archExtension ? Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x64.dll")) : Path.Combine(assemblyPath, "x64", dllName);
+
             }
             else if (arch == Architecture.X86)
             {
-				if (archExtension) file = Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x86.dll"));
-				else file = Path.Combine(assemblyPath, "x86", dllName);
+				file = archExtension ? Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x86.dll")) : Path.Combine(assemblyPath, "x86", dllName);
+
 				file = Path.Combine(assemblyPath, "x86", dllName);
             }
             else throw new NotSupportedException($"Architecture {arch} not supported.");

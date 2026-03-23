@@ -40,8 +40,8 @@ namespace FuseCP.Providers
 
             // First we need to turn the input strings into a byte array.
             byte[] PlainText;
-            if (legacy) PlainText = Encoding.Unicode.GetBytes(InputText);
-            else PlainText = Encoding.UTF8.GetBytes(InputText);
+            PlainText = legacy ? Encoding.Unicode.GetBytes(InputText) : Encoding.UTF8.GetBytes(InputText);
+
 
             var CipherBytes = Encrypt(PlainText);
             // Convert encrypted data into a base64-encoded string.
@@ -180,8 +180,8 @@ namespace FuseCP.Providers
             byte[] DecryptedData = Decrypt(EncryptedData);
 
             string DecryptedText;
-            if (useUTF8) DecryptedText = Encoding.UTF8.GetString(DecryptedData);
-            else DecryptedText = Encoding.Unicode.GetString(DecryptedData);
+            DecryptedText = useUTF8 ? Encoding.UTF8.GetString(DecryptedData) : Encoding.Unicode.GetString(DecryptedData);
+
             // Return decrypted string.
             return DecryptedText;
         }
@@ -233,8 +233,8 @@ namespace FuseCP.Providers
 
         public static bool SHAEquals(string plainText, string hash)
         {
-            if (IsSHA256(hash)) return SHA256(plainText) == hash;
-            else return SHA1(plainText) == hash;
+            return IsSHA256(hash) ? SHA256(plainText) == hash : SHA1(plainText) == hash;
+
         }
 
 		public static string CreateCryptoKey(int len)

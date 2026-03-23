@@ -3216,8 +3216,8 @@ if (!cntx.Quotas.TryGetValue(quotaName, out var _ckv))
 
         private string GetPrivateNetworkSubnetMask(string cidr, bool v6)
         {
-			if (v6) return "/" + cidr;
-			else return IPAddress.Parse("/" + cidr).ToV4MaskString();
+			return v6 ? "/" + cidr : IPAddress.Parse("/" + cidr).ToV4MaskString();
+
         }
 
 		private string GetSubnetMaskCidr(string subnetMask) {

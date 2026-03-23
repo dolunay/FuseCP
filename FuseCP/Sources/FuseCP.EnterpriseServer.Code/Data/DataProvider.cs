@@ -554,8 +554,8 @@ namespace FuseCP.EnterpriseServer
 		public string ColumnName(string sortColumn)
 		{
 			var i = sortColumn.LastIndexOf('.');
-			if (i >= 0) return sortColumn.Substring(i + 1);
-			else return sortColumn;
+			return i >= 0 ? sortColumn.Substring(i + 1) : sortColumn;
+
 		}
 
 		public DataSet GetUsersPaged(int actorId, int userId, string filterColumn, string filterValue,
@@ -4172,8 +4172,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = vlans.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) vlans = vlans.OrderBy(ColumnName(sortColumn));
-					else vlans = vlans.OrderBy(v => v.Vlan);
+					vlans = !string.IsNullOrEmpty(sortColumn) ? vlans.OrderBy(ColumnName(sortColumn)) : vlans.OrderBy(v => v.Vlan);
+
 
 					vlans = vlans.Skip(startRow).Take(maximumRows);
 
@@ -4409,8 +4409,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = vlans.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) vlans = vlans.OrderBy(ColumnName(sortColumn));
-					else vlans = vlans.OrderBy(v => v.Vlan);
+					vlans = !string.IsNullOrEmpty(sortColumn) ? vlans.OrderBy(ColumnName(sortColumn)) : vlans.OrderBy(v => v.Vlan);
+
 
 					vlans = vlans.Skip(startRow).Take(maximumRows);
 
@@ -4670,8 +4670,8 @@ namespace FuseCP.EnterpriseServer
 
 				var count = addresses.Count();
 
-				if (string.IsNullOrEmpty(sortColumn)) addresses = addresses.OrderBy(a => a.ExternalIp);
-				else addresses = addresses.OrderBy(ColumnName(sortColumn));
+				addresses = string.IsNullOrEmpty(sortColumn) ? addresses.OrderBy(a => a.ExternalIp) : addresses.OrderBy(ColumnName(sortColumn));
+
 
 				addresses = addresses.Skip(startRow).Take(maximumRows);
 
@@ -5653,8 +5653,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = domains.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) domains = domains.OrderBy(ColumnName(sortColumn));
-					else domains = domains.OrderBy(d => d.DomainName);
+					domains = !string.IsNullOrEmpty(sortColumn) ? domains.OrderBy(ColumnName(sortColumn)) : domains.OrderBy(d => d.DomainName);
+
 
 					domains = domains.Skip(startRow).Take(maximumRows);
 
@@ -6810,8 +6810,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = items.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) items = items.OrderBy(ColumnName(sortColumn));
-					else items = items.OrderBy(i => i.ItemName);
+					items = !string.IsNullOrEmpty(sortColumn) ? items.OrderBy(ColumnName(sortColumn)) : items.OrderBy(i => i.ItemName);
+
 
 					items = items.Skip(startRow).Take(maximumRows);
 

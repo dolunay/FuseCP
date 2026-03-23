@@ -219,10 +219,10 @@ if (startTags.TryGetValue(name, out var _ckv))
             if (LA(0) == '>')
             {
                 Consume();
-if (closingTags.TryGetValue(name, out var _ckv))
-                    return CreateToken(_ckv, name);
-                else
-                    return CreateToken(TokenType.CloseTag, name);
+return closingTags.TryGetValue(name, out var _ckv) ? CreateToken(_ckv, name) : CreateToken(TokenType.CloseTag, name);
+
+
+
             }
 
             return CreateToken(TokenType.Text);
@@ -510,10 +510,10 @@ if (closingTags.TryGetValue(name, out var _ckv))
 
             string tokenData = data.Substring(savePos, pos - savePos);
 
-if (keywords.TryGetValue(tokenData, out var _ckv))
-                return CreateToken(_ckv);
-            else
-                return CreateToken(TokenType.Identifier, tokenData);
+return keywords.TryGetValue(tokenData, out var _ckv) ? CreateToken(_ckv) : CreateToken(TokenType.Identifier, tokenData);
+
+
+
         }
 
         private Token ReadNumber()

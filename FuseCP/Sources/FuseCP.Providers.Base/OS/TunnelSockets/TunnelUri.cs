@@ -126,8 +126,8 @@ namespace FuseCP.Providers.OS
                         scheme = uri.Scheme;
                         var userInfo = uri.UserInfo.Split(':');
                         Username = userInfo[0];
-                        if (userInfo.Length > 1) Password = userInfo[1];
-                        else Password = null;
+                        Password = userInfo.Length > 1 ? userInfo[1] : null;
+
                         Host = uri.Host;
                         DnsSafeHost = uri.DnsSafeHost;
                         IdnHost = uri.IdnHost;
