@@ -35,11 +35,7 @@
         <PackageReference Include="System.Management" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
         <PackageReference Include="Mono.Posix" Version="7.1.0-final.1.21458.1" GeneratePathProperty="true" />
 		<PackageReference Include="Mono.Unix" Version="7.1.0-final.1.21458.1" GeneratePathProperty="true" />
-		<PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
-        <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
-        <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
         <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
-        <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
         <PackageReference Include="Microsoft.Data.SqlClient.SNI" Version="6.0.2" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
         <PackageReference Include="Microsoft.Data.SqlClient.SNI.Runtime" Version="6.0.2" GeneratePathProperty="true" IncludeAssets="None" ExcludeAssets="All" PrivateAssets="None" />
@@ -78,10 +74,6 @@
         <EmbeddedResource Include="$(PkgSystem_Management)\runtimes\win\lib\net10.0\System.Management.dll">
             <LogicalName>DllsNetCore/System.Management.dll</LogicalName>
             <Link>DllsNetCore\System.Management.dll</Link>
-        </EmbeddedResource>
-        <EmbeddedResource Include="$(PkgMicrosoft_Win32_Registry)\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll">
-            <LogicalName>Dlls/Microsoft.Win32.Registry.dll</LogicalName>
-            <Link>Dlls\Microsoft.Win32.Registry.dll</Link>
         </EmbeddedResource>
         <EmbeddedResource Include="$(PkgMono_Unix)\runtimes\**\*.dll;$(PkgMono_Unix)\runtimes\**\*.so;$(PkgMono_Unix)\runtimes\**\*.dylib">
             <LogicalName>Dlls/runtimes/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>

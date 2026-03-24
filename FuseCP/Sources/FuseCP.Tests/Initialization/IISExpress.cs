@@ -111,7 +111,7 @@ namespace FuseCP.Tests
 
 			try
 			{
-				Servers.HttpClient.GetAsync(url).Result;
+				_ = Servers.HttpClient.GetAsync(url).Result;
 				return true;
 			}
 			catch

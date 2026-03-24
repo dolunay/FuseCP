@@ -47,7 +47,7 @@ namespace FuseCP.Server
 				{
 					return base.Provider;
 				}
-				catch { }
+				catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				return (IHostingServiceProvider)OSInfo.Current;
 			}
 		}

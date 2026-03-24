@@ -360,7 +360,7 @@ namespace FuseCP.EnterpriseServer
                         return result;
                     }
                 }
-                catch { }
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 return result;
             }
         }

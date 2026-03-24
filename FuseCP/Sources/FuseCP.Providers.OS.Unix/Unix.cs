@@ -725,8 +725,9 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 			var process = Process.GetProcessById(pid);
 			if (process != null) process.Kill();
 		}
-		catch (Exception)
+		catch (Exception swallowedEx)
 		{
+		    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 		}
 	}
 

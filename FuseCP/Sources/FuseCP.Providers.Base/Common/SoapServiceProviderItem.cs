@@ -106,7 +106,7 @@ if (hash.TryGetValue(name, out var _ckv))
                             propInfo.SetValue(item, Cast(val, propInfo.PropertyType), null);
                         }
                     }
-                    catch { }
+                    catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
             }
 

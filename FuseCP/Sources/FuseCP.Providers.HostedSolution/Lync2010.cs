@@ -343,40 +343,45 @@ namespace FuseCP.Providers.HostedSolution
 					{
 						DeleteConferencingPolicy(runSpace, organizationId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteExternalAccessPolicy(runSpace, organizationId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteMobilityPolicy(runSpace, organizationId + " EnableOutSideVoice");
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteMobilityPolicy(runSpace, organizationId + " DisableOutSideVoice");
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteSimpleUrl(runSpace, sipDomain, tenantId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 				}
 
@@ -503,7 +508,7 @@ namespace FuseCP.Providers.HostedSolution
 						{
 							PlanSet = SetLyncUserPlanInternal(organizationId, userUpn, plan, runSpace);
 						}
-						catch { }
+						catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 						if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
 					}
 

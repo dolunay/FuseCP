@@ -125,7 +125,7 @@ public class Servers
 					init.Invoke(null, new object[0]);
 				}
 			}
-			catch (Exception) { }
+			catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
 		try
 		{
@@ -137,7 +137,7 @@ public class Servers
 				init.Invoke(null, new object[0]);
 			}
 		}
-		catch (Exception) { }
+		catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 	}
 	public static WSLShell.WSLDistro WslDistro(Os os)
 	{

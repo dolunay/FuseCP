@@ -218,8 +218,9 @@ namespace FuseCP.EnterpriseServer
                 result.Text = sb.ToString();
 #endif
             }
-            catch (ThreadAbortException)
+            catch (ThreadAbortException swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
             catch (WebException ex)
             {

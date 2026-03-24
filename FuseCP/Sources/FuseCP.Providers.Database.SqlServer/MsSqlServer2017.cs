@@ -43,7 +43,7 @@ namespace FuseCP.Providers.Database
 							if (ver.StartsWith(version)) return true;
 						}
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 			}
 			return false;

@@ -6684,8 +6684,9 @@ namespace FuseCP.Providers.HostedSolution
 				{
 					result = ExecuteShellCommand(runSpace, cmd);
 				}
-				catch (Exception)
+				catch (Exception swallowedEx)
 				{
+				    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 				}
 
 				if (result != null)
@@ -6835,8 +6836,9 @@ namespace FuseCP.Providers.HostedSolution
 				{
 					result = ExecuteShellCommand(runSpace, cmd);
 				}
-				catch (Exception)
+				catch (Exception swallowedEx)
 				{
+				    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 				}
 
 				if (result != null)

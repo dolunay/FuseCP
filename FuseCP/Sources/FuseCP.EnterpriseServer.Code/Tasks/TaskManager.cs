@@ -500,7 +500,7 @@ namespace FuseCP.EnterpriseServer
                         foreach (BackgroundTask task in tasks)
                         {
                             if (task.MaximumExecutionTime != -1
-                                && ().TotalSeconds > task.MaximumExecutionTime)
+                                && (DateTime.Now - task.StartDate).TotalSeconds > task.MaximumExecutionTime)
                             {
                                 task.Status = BackgroundTaskStatus.Stopping;
 
@@ -620,7 +620,7 @@ namespace FuseCP.EnterpriseServer
                         scheduledTasks.Add(task.ScheduleId, task);
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             return scheduledTasks;
         }

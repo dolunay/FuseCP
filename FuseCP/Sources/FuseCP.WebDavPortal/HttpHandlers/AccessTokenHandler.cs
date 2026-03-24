@@ -59,8 +59,9 @@ namespace FuseCP.WebDavPortal.HttpHandlers
                             authenticationService.LogIn(user.UserPrincipalName, cryptography.Decrypt(token.AuthData));
                         }
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
             }

@@ -763,7 +763,7 @@ namespace FuseCP.Providers.Virtualization
                     if (vm != null)
                         isExist = true;
                 }
-                catch { }    
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 finally
                 {
                     if (!isExist)

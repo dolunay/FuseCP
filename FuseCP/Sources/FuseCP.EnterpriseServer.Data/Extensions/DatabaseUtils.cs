@@ -99,7 +99,7 @@ namespace FuseCP.EnterpriseServer.Data
 			using var writer = new StreamWriter(mem, Encoding.UTF8);
 			foreach (var stream in streams)
 			{
-				using var text = new StreamReader(stream).ReadToEnd();
+				var text = new StreamReader(stream).ReadToEnd();
 				writer.WriteLine(text);
 			}
 			writer.Flush();
@@ -323,8 +323,9 @@ namespace FuseCP.EnterpriseServer.Data
 						reader.Close();
 					}
 				}
-				catch
+				catch (Exception swallowedEx)
 				{
+				    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 				}
 				finally
 				{

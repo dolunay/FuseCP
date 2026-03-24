@@ -377,8 +377,9 @@ namespace FuseCP.Portal
                         return orgId;
                     }
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
 

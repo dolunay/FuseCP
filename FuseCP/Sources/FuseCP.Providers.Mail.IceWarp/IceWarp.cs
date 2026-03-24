@@ -1203,7 +1203,8 @@ namespace FuseCP.Providers.Mail
             var accountObject = GetAccountObject(mailAliasName);
 
             // Check if it has any other aliases
-            var otherAliases = (GetAliasListFromAccountObject(accountObject)).Where(a => a != GetEmailUser(mailAliasName)).ToArray();
+            var aliases = GetAliasListFromAccountObject(accountObject) as IEnumerable<string> ?? Array.Empty<string>();
+            var otherAliases = aliases.Where(a => a != GetEmailUser(mailAliasName)).ToArray();
             if (otherAliases.Any())
             {
                 accountObject.SetProperty("U_EmailAlias", string.Join(";", otherAliases));

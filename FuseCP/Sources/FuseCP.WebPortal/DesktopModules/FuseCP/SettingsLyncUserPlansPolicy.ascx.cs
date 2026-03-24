@@ -331,8 +331,9 @@ namespace FuseCP.Portal
 
                         break;
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
 
                     BindPlans();

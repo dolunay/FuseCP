@@ -1328,10 +1328,10 @@ namespace FuseCP.EnterpriseServer
 				mail.AddDomainAlias(mailDomain.Name, domain.DomainName);
 
 
-                if (domain != null && domain.ZoneItemId != 0)
-                {
-                    {
-                }
+				if (domain != null && domain.ZoneItemId != 0)
+				{
+					ServerController.AddServiceDNSRecords(domain.PackageId, ResourceGroups.Mail, domain, "");
+				}
 
 
 				// update domain
@@ -1778,7 +1778,7 @@ namespace FuseCP.EnterpriseServer
 					new XmlNodeReader(itemNode.SelectSingleNode("MailDomain")));
 
 				// create mail domain if required
-				using List<string> domains = new List<string>();
+				List<string> domains = new List<string>();
 				if (!mail.DomainExists(domain.Name))
 				{
 					mail.CreateDomain(domain);

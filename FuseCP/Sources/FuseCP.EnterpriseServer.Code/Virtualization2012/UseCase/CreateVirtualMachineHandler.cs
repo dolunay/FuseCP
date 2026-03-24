@@ -252,9 +252,13 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.UseCase
                 {
                     ServiceProviderItem item = PackageController.GetPackageItemByName(packageId, VMSettings.Name,
                                                                                       typeof(VirtualMachine));
-                    if (item != null && item.Id != VMSettings.Id)
+                    if (item != null)
                     {
+                        if (item.Id != VMSettings.Id)
                         {
+                            res.ErrorCodes.Add(VirtualizationErrorCodes.HOST_NAMER_IS_ALREADY_USED);
+                            return res;
+                        }
                     }
                 }
                 catch (Exception ex)

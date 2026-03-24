@@ -2112,8 +2112,9 @@ namespace FuseCP.EnterpriseServer
                     result = rds.GetRdsServerStatus(fqdnName);
                 }
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
 
             return result;

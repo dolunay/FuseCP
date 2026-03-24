@@ -355,8 +355,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     TaskManager.CompleteTask();
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
             }
         }
@@ -394,8 +395,9 @@ namespace FuseCP.EnterpriseServer
                     {
                         TaskManager.CompleteTask();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 
@@ -428,8 +430,9 @@ namespace FuseCP.EnterpriseServer
                     {
                         TaskManager.CompleteTask();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 
@@ -2558,12 +2561,10 @@ namespace FuseCP.EnterpriseServer
 
         public int ConvertMegaBytesToGB(int megabytes)
         {
-            int OneGb = 1024;
-
             if (megabytes == -1)
                 return megabytes;
 
-            return ;
+            return megabytes / 1024;
         }
 
         public int ConvertBytesToMB(long bytes)

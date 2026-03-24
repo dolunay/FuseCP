@@ -205,9 +205,12 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                         DomainInfo domain = ServerController.GetDomain(org.DefaultDomain);
 
                         //Add the service records
-                        if (domain != null && domain.ZoneItemId != 0)
+                        if (domain != null)
                         {
+                            if (domain.ZoneItemId != 0)
                             {
+                                ServerController.AddServiceDNSRecords(org.PackageId, ResourceGroups.SfB, domain, "");
+                            }
                         }
                         
                         PackageController.UpdatePackageItem(org);
@@ -401,10 +404,28 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     }
 
 
-                    if (!string.IsNullOrEmpty(sipAddress) && user.SipAddress != sipAddress)
+                    if (!string.IsNullOrEmpty(sipAddress))
                     {
+                        if (user.SipAddress != sipAddress)
                         {
+                            if (sipAddress != usr.UserPrincipalName)
+                            {
+                                if (Database.SfBUserExists(accountId, sipAddress))
+                                {
+                                    TaskManager.CompleteResultTask(res, SfBErrorCodes.ADDRESS_ALREADY_USED);
+                                    return res;
+                                }
+                            }
+
+                            user.SipAddress = sipAddress;
+                        }
                     }
+
+                    user.LineUri = lineUri;
+                    user.PIN = PIN;
+
+                    sfb.SetSfBUserGeneralSettings(org.OrganizationId, usr.UserPrincipalName, user);
+                }
             }
             catch (Exception ex)
             {
@@ -1046,8 +1067,9 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     ret = sfb.GetPolicyList(type, name);
                 }
             }
-            catch (Exception)
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
             finally
             {

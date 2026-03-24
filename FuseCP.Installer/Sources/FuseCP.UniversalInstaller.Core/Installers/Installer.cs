@@ -172,7 +172,7 @@ public abstract partial class Installer
 
 	public void ImportLegacySettings()
 	{
-		var exe = new Uri(Assembly.GetEntryAssembly().CodeBase).LocalPath;
+		var exe = GetEntryAssembly().Location;
 		var configFile = exe + ".config";
 		if (Settings.Installer.OldConfigImported || !File.Exists(configFile)) return;
 
@@ -885,7 +885,7 @@ public abstract partial class Installer
 					var mode = OSInfo.Unix.GetUnixPermissions(source);
 					OSInfo.Unix.GrantUnixPermissions(destination, mode);
 				}
-				else if (IsWindows)
+				else if (OperatingSystem.IsWindows())
 				{
 					var sourceInfo = new FileInfo(source);
 					var acl = sourceInfo.GetAccessControl();
@@ -927,7 +927,7 @@ public abstract partial class Installer
 				destInfo.SetOwner(srcInfo.OwnerUserId, srcInfo.OwnerGroupId);
 				destInfo.Refresh();
 			}
-			else if (IsWindows)
+			else if (OperatingSystem.IsWindows())
 			{
 				var sourceInfo = new DirectoryInfo(source);
 				var acl = sourceInfo.GetAccessControl();

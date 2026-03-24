@@ -503,14 +503,17 @@
 
 		<PropertyGroup>
 			<InstallerProjectRoot>$(RootFolder)\FuseCP.Installer\Sources\</InstallerProjectRoot>
-			<InstallerProjectBin>$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0</InstallerProjectBin>
+			<InstallerEntryProject>$(InstallerProjectRoot)FuseCP.UniversalInstaller\FuseCP.UniversalInstaller.csproj</InstallerEntryProject>
+			<InstallerProjectBin Condition="Exists('$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0\FuseCP.Installer.dll')">$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0</InstallerProjectBin>
+			<InstallerProjectBin Condition="'$(InstallerProjectBin)' == '' and Exists('$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0-windows\FuseCP.Installer.dll')">$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0-windows</InstallerProjectBin>
+			<InstallerProjectBin Condition="'$(InstallerProjectBin)' == ''">$(InstallerProjectRoot)FuseCP.UniversalInstaller\bin\$(BuildConfiguration)\net10.0-windows</InstallerProjectBin>
 		</PropertyGroup>
 
-		<Exec Command="dotnet restore /p:BuildWithNetFrameworkHostedCompiler=true $(InstallerProjectRoot)FuseCP.Installer.sln" Condition="'$(BuildInstallerSolution)' == 'true'" />
+		<Exec Command="dotnet restore /p:BuildWithNetFrameworkHostedCompiler=true &quot;$(InstallerEntryProject)&quot;" Condition="'$(BuildInstallerSolution)' == 'true'" />
 		<!--<Exec Command="dotnet restore /p:BuildWithNetFrameworkHostedCompiler=true $(InstallerProjectRoot)FuseCP.Installer.Legacy.sln" />-->
 
-		<!-- compile Installer -->
-		<MSBuild Projects="$(InstallerProjectRoot)FuseCP.Installer.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform);VisualStudioVersion=$(VisualStudioVersion)" Condition="'$(BuildInstallerSolution)' == 'true'" />
+		<!-- compile Installer in single-proc mode to avoid transient WinForms .resources file locks -->
+		<Exec Command="dotnet msbuild &quot;$(InstallerEntryProject)&quot; /m:1 /nr:false /p:&quot;Configuration=$(BuildConfiguration);Platform=$(Platform);VisualStudioVersion=$(VisualStudioVersion)&quot;" Condition="'$(BuildInstallerSolution)' == 'true'" />
 		<!--<MSBuild Projects="$(InstallerProjectRoot)FuseCP.Installer.Legacy.sln" Properties="Configuration=$(BuildConfiguration);Platform=$(Platform);VisualStudioVersion=17.12.4" />-->
 
 		<!-- copy installer binaries for upgrade -->

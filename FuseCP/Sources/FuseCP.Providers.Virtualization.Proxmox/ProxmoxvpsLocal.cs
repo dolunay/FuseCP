@@ -107,7 +107,7 @@ namespace FuseCP.Providers.Virtualization
 					return match.Groups["version"].Value;
 				}
 			}
-			catch { }
+			catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
 			return "";
 		}

@@ -365,9 +365,13 @@ namespace FuseCP.EnterpriseServer
                 }
 
                 DomainInfo domain = ServerController.GetDomain(domainId);
-                if (domain != null && domain.ZoneItemId != 0)
+                if (domain != null)
                 {
+                    if (domain.ZoneItemId != 0)
                     {
+                        ServerController.AddServiceDNSRecords(org.PackageId, ResourceGroups.HostedOrganizations, domain, "");
+                        ServerController.AddServiceDNSRecords(org.PackageId, ResourceGroups.HostedCRM, domain, "");
+                    }
                 }
 
 
@@ -510,9 +514,12 @@ namespace FuseCP.EnterpriseServer
                 LogExtension.SetItemName(domain.DomainName);
                 LogExtension.WriteObject(domain);
 
-                if (!string.IsNullOrEmpty(org.GlobalAddressList) && Database.CheckDomainUsedByHostedOrganization(domain.DomainName) == 1)
+                if (!string.IsNullOrEmpty(org.GlobalAddressList))
                 {
+                    if (Database.CheckDomainUsedByHostedOrganization(domain.DomainName) == 1)
                     {
+                        return -1;
+                    }
                 }
 
                 // unregister domain
@@ -2600,7 +2607,7 @@ namespace FuseCP.EnterpriseServer
         /// <returns> True - if organization id should be appended. </returns>
         private UserFormatType GetUserFormatType(StringDictionary serviceSettings)
         {
-if (!serviceSettings.TryGetValue("usernameformat", out var _ckv))
+            if (serviceSettings == null || !serviceSettings.ContainsKey("usernameformat"))
             {
                 return UserFormatType.AppendLongCounter;
             }
@@ -2992,7 +2999,7 @@ if (!serviceSettings.TryGetValue("usernameformat", out var _ckv))
                 return false;
             }
 
-if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
+            if (!settings.ContainsKey(UseStorageSpaces))
             {
                 return false;
             }
@@ -3549,9 +3556,12 @@ if (!settings.TryGetValue(UseStorageSpaces, out var _ckv))
                     }
                     else
                     {
-                        if (user.IsLyncUser && !Database.LyncUserExists(accountId, userPrincipalName.ToLower()))
+                        if (user.IsLyncUser)
                         {
+                            if (!Database.LyncUserExists(accountId, userPrincipalName.ToLower()))
                             {
+                                LyncController.SetLyncUserGeneralSettings(itemId, accountId, userPrincipalName.ToLower(), null);
+                            }
                         }
                         if (user.IsSfBUser)
                         {

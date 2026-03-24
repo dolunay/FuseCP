@@ -231,8 +231,9 @@ namespace FuseCP.Portal.RDS.UserControls
                 {
                     ShowInfo(e.CommandArgument.ToString());                 
                 }
-                catch (Exception)
-                {                    
+                catch (Exception swallowedEx)
+                {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
             else if (e.CommandName == "Restart")

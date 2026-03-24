@@ -62,7 +62,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceError(txt.ToString());
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace FuseCP.Server.Utils
                     WriteError(ex.Message, ex);
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "INFO", args));
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         /// <summary>
@@ -108,10 +108,10 @@ namespace FuseCP.Server.Utils
             {
                 if (logSeverity.TraceWarning)
                 {
-                    Trace.TraceWarning(FormatIncomingMessage(message, "WARNING", args));
+                    System.Diagnostics.Trace.TraceWarning(FormatIncomingMessage(message, "WARNING", args));
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "START", args));
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace FuseCP.Server.Utils
                     Trace.TraceInformation(FormatIncomingMessage(message, "END", args));
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         private static string FormatIncomingMessage(string message, string tag, params object[] args)

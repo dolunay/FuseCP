@@ -92,8 +92,9 @@ namespace FuseCP.EnterpriseServer
 											.Select(p => p.PropertyValue)
 											.FirstOrDefaultAsync()
 											.ConfigureAwait(false))?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false; 
-									} catch (Exception)
+									} catch (Exception swallowedEx)
 									{
+									    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 									}
 								}
 							});
@@ -3626,7 +3627,7 @@ namespace FuseCP.EnterpriseServer
 						.DefaultIfEmpty(),
 						(g, vg) => new
 						{
-							VirtualGroupId = ,
+							VirtualGroupId = (int?)(vg != null ? vg.VirtualGroupId : null),
 							g.GroupId,
 							g.GroupName,
 							g.GroupOrder,
@@ -6472,7 +6473,7 @@ namespace FuseCP.EnterpriseServer
 
 		public void UpdateServiceProperties(int serviceId, string xml)
 		{
-			if (truece StoredProcedure is very slow
+			if (true || UseEntityFramework) // always use EF since StoredProcedure is very slow
 			{
 				var properties = XElement.Parse(xml)
 					.Elements()
@@ -7532,9 +7533,25 @@ namespace FuseCP.EnterpriseServer
 				using (var transaction = Database.BeginTransaction())
 				{
 					// Fix to allow plans assigned to serveradmin
-					if (itemTypeName == "FuseCP.Providers.HostedSolution.Organization, FuseCP.Providers.Base" && !ServiceItems.Any(s => s.PackageId == 1))
+					if (itemTypeName == "FuseCP.Providers.HostedSolution.Organization, FuseCP.Providers.Base")
 					{
+						if (!ServiceItems.Any(s => s.PackageId == 1))
 						{
+							var serviceItem = new Data.Entities.ServiceItem()
+							{
+								PackageId = 1,
+								ItemTypeId = itemTypeId,
+								ServiceId = serviceId,
+								ItemName = "System",
+								CreatedDate = DateTime.Now
+							};
+							ServiceItems.Add(serviceItem);
+							ExchangeOrganizations.Add(new Data.Entities.ExchangeOrganization()
+							{
+								Item = serviceItem,
+								OrganizationId = "System"
+							});
+						}
 					}
 
 					// add item
@@ -8864,7 +8881,7 @@ namespace FuseCP.EnterpriseServer
 					p.Addon.Quantity
 				})
 				.Where(p => p.QuotaId == quotaId && p.StatusId == 1 /* active */)
-				.Sum(p => ) ?? 0;
+				.Sum(p => (int?)(p.QuotaValue * p.Quantity)) ?? 0;
 
 			/*
 			usedQuantity = Packages
@@ -10980,38 +10997,45 @@ namespace FuseCP.EnterpriseServer
 			{
 				var package = PackageAddons
 					.FirstOrDefault(a => a.PackageAddonId == packageAddonId);
-				if (package != null)
+				if (package == null)
 				{
-					if (!CheckActorPackageRights(actorId, package.PackageId))
-						throw new AccessViolationException("You are not allowed to access this package");
-
-					using (var transaction = Database.BeginTransaction())
-					{
-						var parentPackageId = Packages
-							.Where(p => p.PackageId == package.PackageId)
-							.Select(p => p.ParentPackageId)
-							.FirstOrDefault();
-
-						package.PlanId = planId;
-						package.Quantity = quantity;
-						package.PurchaseDate = purchaseDate;
-						package.StatusId = statusId;
-						package.Comments = comments;
-						SaveChanges();
-
-						var exceedingQuotas = GetPackageExceedingQuotas(parentPackageId)
-							.Where(q => q.QuotaValue > 0)
-							.ToList();
-
-						if (exceedingQuotas.Any()) transaction.Rollback();
-						else transaction.Commit();
-
-						return EntityDataSet(exceedingQuotas);
-					}
+					return EntityDataSet(Array.Empty<ExceedingQuota>());
 				}
-                else return EntityDataSet(Array.Empty<ExceedingQuota>());
-            }
-            else
+
+				if (!CheckActorPackageRights(actorId, package.PackageId))
+					throw new AccessViolationException("You are not allowed to access this package");
+
+				using (var transaction = Database.BeginTransaction())
+				{
+					var parentPackageId = Packages
+						.Where(p => p.PackageId == package.PackageId)
+						.Select(p => p.ParentPackageId)
+						.FirstOrDefault();
+
+					package.PlanId = planId;
+					package.Quantity = quantity;
+					package.PurchaseDate = purchaseDate;
+					package.StatusId = statusId;
+					package.Comments = comments;
+					SaveChanges();
+
+					var exceedingQuotas = GetPackageExceedingQuotas(parentPackageId)
+						.Where(q => q.QuotaValue > 0)
+						.ToList();
+
+					if (exceedingQuotas.Any())
+					{
+						transaction.Rollback();
+					}
+					else
+					{
+						transaction.Commit();
+					}
+
+					return EntityDataSet(exceedingQuotas);
+				}
+			}
+			else
 			{
 				return SqlHelper.ExecuteDataset(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "UpdatePackageAddon",

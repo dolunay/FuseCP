@@ -1067,7 +1067,7 @@ namespace FuseCP.Providers.OS
                             m.InvokeMethod("GetOwner", methodParams);
                             username = methodParams[0];
                         }
-                        catch { }
+                        catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
                         var args = m["CommandLine"] as string ?? "";
                         string cmd = "";
@@ -1701,7 +1701,7 @@ namespace FuseCP.Providers.OS
             if (megabytes == -1)
                 return megabytes;
 
-            return ;
+            return megabytes / OneGb;
         }
 
         public int ConvertBytesToMB(long bytes)

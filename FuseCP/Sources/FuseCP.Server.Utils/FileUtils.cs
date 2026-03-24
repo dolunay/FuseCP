@@ -798,7 +798,7 @@ namespace FuseCP.Providers.Utils
                         }
                     }
                 }
-                catch { }
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             }
             return list_files;

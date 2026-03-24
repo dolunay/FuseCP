@@ -509,24 +509,27 @@ namespace FuseCP.Providers.HostedSolution
                         {
                             DeleteAddressBookPolicy(runSpace, upn + " AP");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteGlobalAddressList(runSpace, upn + " GAL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteAddressList(runSpace, upn + " AL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
 
@@ -2589,24 +2592,27 @@ namespace FuseCP.Providers.HostedSolution
                         {
                             DeleteAddressBookPolicy(runSpace, upn + " AP");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteGlobalAddressList(runSpace, upn + " GAL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteAddressList(runSpace, upn + " AL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
                 }
@@ -7691,8 +7697,9 @@ namespace FuseCP.Providers.HostedSolution
                 {
                     result = ExecuteShellCommand(runSpace, cmd);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 if (result != null)
@@ -7842,8 +7849,9 @@ namespace FuseCP.Providers.HostedSolution
                 {
                     result = ExecuteShellCommand(runSpace, cmd);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 if (result != null)

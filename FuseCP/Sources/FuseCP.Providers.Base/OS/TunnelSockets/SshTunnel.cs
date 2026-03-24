@@ -253,7 +253,7 @@ namespace FuseCP.Providers.OS
                     {
                         ForwardedPort.Stop();
                     }
-                    catch { }
+                    catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
                 if (Client.IsConnected)
                 {
@@ -261,7 +261,7 @@ namespace FuseCP.Providers.OS
                     {
                         Client.Disconnect();
                     }
-                    catch { }
+                    catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
             }
         }

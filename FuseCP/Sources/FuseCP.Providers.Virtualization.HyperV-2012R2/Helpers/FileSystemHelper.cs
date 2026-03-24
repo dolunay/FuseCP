@@ -325,7 +325,7 @@ namespace FuseCP.Providers.Virtualization
                     terminateResult = await Task.Run(() => _miCim.InvokeMethod(processToKill, "Terminate"));
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
             finally
             {
                 processToKill?.Dispose();

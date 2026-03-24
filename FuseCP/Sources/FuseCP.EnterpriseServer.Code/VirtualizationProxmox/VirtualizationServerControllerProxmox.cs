@@ -3027,9 +3027,10 @@ namespace FuseCP.EnterpriseServer
                     var v6 = IPAddress.Parse(nic.NetworkFormat).V6;
                     nic.SubnetMask = GetPrivateNetworkSubnetMask(settings["PrivateSubnetMask"], v6);
                 }
-                catch
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
             }
             else

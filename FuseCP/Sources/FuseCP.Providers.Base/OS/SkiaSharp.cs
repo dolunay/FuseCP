@@ -32,8 +32,9 @@ namespace FuseCP.Providers.OS
             {
                 codeBase = assembly?.GetType().GetProperty("CodeBase")?.GetValue(assembly) as string;
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
 
             if (!string.IsNullOrWhiteSpace(codeBase) && Uri.TryCreate(codeBase, UriKind.Absolute, out var codeBaseUri) && codeBaseUri.IsFile)

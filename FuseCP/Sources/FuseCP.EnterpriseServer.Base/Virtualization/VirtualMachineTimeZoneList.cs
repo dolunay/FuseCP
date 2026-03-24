@@ -47,7 +47,7 @@ namespace FuseCP.EnterpriseServer.Base.Virtualization
                 TimeZoneInfo.FindSystemTimeZoneById(id);
                 exist = true;
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
             return exist;
         }
 

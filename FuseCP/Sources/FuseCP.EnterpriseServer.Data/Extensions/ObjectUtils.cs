@@ -49,8 +49,16 @@ namespace FuseCP.EnterpriseServer.Data
 			{
 				if ((dProps.ContainsKey(propName) && sProps[propName].Name != "Item") && sProps[propName].CanRead)
 				{
+					object val = sProps[propName].GetValue(so, null);
+					if (dProps[propName] != null)
 					{
+						if (val != null && dProps[propName].CanWrite)
+						{
+							dProps[propName].SetValue(dobj, val, null);
+						}
+					}
 				}
+			}
 			return dobj;
 		}
 

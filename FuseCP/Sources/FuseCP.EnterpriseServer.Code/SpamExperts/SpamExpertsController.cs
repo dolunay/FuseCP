@@ -120,7 +120,8 @@ namespace FuseCP.EnterpriseServer
 
             if (IsPackageServiceEnabled(packageId, serviceId) && Convert.ToBoolean(PackageController.GetPackageQuota(packageId, Quotas.FILTERS_ENABLE_EMAIL_USERS).QuotaAllocatedValue))
             {
-                {
+                Server.Client.SpamExperts server = GetServer(serviceId);
+                _ = server.DeleteEmailFilter(email);
             }
         }
 
@@ -130,7 +131,8 @@ namespace FuseCP.EnterpriseServer
 
             if (IsPackageServiceEnabled(packageId, serviceId) && Convert.ToBoolean(PackageController.GetPackageQuota(packageId, Quotas.FILTERS_ENABLE_EMAIL_USERS).QuotaAllocatedValue))
             {
-                {
+                Server.Client.SpamExperts server = GetServer(serviceId);
+                _ = server.SetEmailFilterUserPassword(email, password);
             }
         }
 

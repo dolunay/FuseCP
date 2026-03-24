@@ -2504,7 +2504,7 @@ HttpClient client = CreateHttpClient();
 							if (assemblyName?.Version != null && assemblyName.Version.Major == 100) return true;
 							else return false;
 						}
-						catch { }
+						catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                     }
                 }
             }

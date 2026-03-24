@@ -233,8 +233,9 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 					writer.Append(" }");
 				}
 			}
-			catch (Exception)
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 			}
 			return writer;
 		}

@@ -153,7 +153,7 @@ namespace FuseCP.Providers.WebAppGallery
                 {
                     wellKnownTags |= (DeploymentParameterWellKnownTag)Enum.Parse(typeof(DeploymentParameterWellKnownTag), tag, true);
                 }
-                catch(Exception){}
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 	        }
 
 	        WellKnownTags = wellKnownTags & DeploymentParameterWellKnownTag.AllKnown;

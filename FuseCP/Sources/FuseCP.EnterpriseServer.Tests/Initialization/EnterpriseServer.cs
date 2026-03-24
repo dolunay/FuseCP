@@ -49,14 +49,23 @@ public class EnterpriseServer : IDisposable
 		Web.Services.Configuration.ProbingPaths = @"..\..\..\..\FuseCP.EnterpriseServer\bin_dotnet;..\..\..\..\FuseCP.EnterpriseServer\bin\netstandard";
 		Web.Services.AssemblyLoaderNetCore.Init();
 
-        var eserver = Assembly.Load("FuseCP.EnterpriseServer");
-        if (eserver != null)
-        {
-            // init password validator
-            var validatorType = eserver.GetType("FuseCP.EnterpriseServer.UsernamePasswordValidator");
-            var init = validatorType.GetMethod("Init", BindingFlags.Public | BindingFlags.Static);
-            init.Invoke(null, new object[0]);
-        }
+		Assembly eserver = null;
+		try
+		{
+			eserver = Assembly.Load("FuseCP.EnterpriseServer");
+		}
+		catch
+		{
+			eserver = Assembly.Load("FuseCP.EnterpriseServer.Code");
+		}
+
+		if (eserver != null)
+		{
+			// init password validator when the type exists in the loaded assembly.
+			var validatorType = eserver.GetType("FuseCP.EnterpriseServer.UsernamePasswordValidator");
+			var init = validatorType?.GetMethod("Init", BindingFlags.Public | BindingFlags.Static);
+			init?.Invoke(null, new object[0]);
+		}
 #endif
 	}
 

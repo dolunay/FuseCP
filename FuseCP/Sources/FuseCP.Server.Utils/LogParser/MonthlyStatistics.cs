@@ -41,7 +41,7 @@ namespace FuseCP.Providers.Utils.LogParser
 			//
 			if (load && File.Exists(statsFile))
 			{
-			    {
+				Load();
 			}
 		}
 

@@ -36,7 +36,7 @@ namespace FuseCP.UniversalInstaller
 		public static ConsoleSettings Save()
 		{
 			ConsoleSettings settings = new ConsoleSettings();
-			if (OSInfo.IsWindows || OSInfo.IsMono) settings.CursorVisible = Console.CursorVisible;
+			if (OperatingSystem.IsWindows()) settings.CursorVisible = Console.CursorVisible;
 			settings.CursorX = Console.CursorLeft;
 			settings.CursorY = Console.CursorTop;
 			settings.BackgroundColor = Console.BackgroundColor;
@@ -56,7 +56,7 @@ namespace FuseCP.UniversalInstaller
 			Console.CursorTop = Y;
 			Console.BackgroundColor = backgroundColor;
 			Console.ForegroundColor = foregroundColor;
-			if (OSInfo.IsWindows || OSInfo.IsMono) Console.CursorVisible = visible;
+			if (OperatingSystem.IsWindows()) Console.CursorVisible = visible;
 			return con;
 		}
 	}

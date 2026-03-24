@@ -124,8 +124,9 @@ namespace FuseCP.Providers.FTP.IIs100
                 if (ftpSiteElement.ServerAutoStart)
                     ftpSiteElement.Start();
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
         }
 
@@ -240,8 +241,9 @@ namespace FuseCP.Providers.FTP.IIs100
                     ftpSiteElement.Start();
                 }
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
             return SitesHelper.SerializeSite(site);
         }

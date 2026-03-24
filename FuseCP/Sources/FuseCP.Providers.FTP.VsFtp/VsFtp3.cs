@@ -351,7 +351,7 @@ namespace FuseCP.Providers.FTP
 								if (version.Major == 3) return true;
 							}
 						}
-						catch { }
+						catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 					}
 				}
 			}

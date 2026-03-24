@@ -874,9 +874,10 @@ namespace FuseCP.EnterpriseServer
                 {
                     web.UpdateSiteBindings(siteItem.SiteId, newBindings.ToArray(), true);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
 
                 List<WebSite> sites = WebServerController.GetWebSites(domain.PackageId, false);
@@ -1059,9 +1060,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     web.UpdateSiteBindings(siteItem.SiteId, newBindings.ToArray(), true);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
-
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
 
@@ -4291,7 +4292,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 WebServer web = GetWebServer(serviceId);
 
                 // restore web site
-                using XmlSerializer serializer = new XmlSerializer(typeof(WebSite));
+                XmlSerializer serializer = new XmlSerializer(typeof(WebSite));
                 WebSite site = (WebSite)serializer.Deserialize(
                     new XmlNodeReader(itemNode.SelectSingleNode("WebSite")));
 
@@ -4344,7 +4345,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 WebServer web = GetWebServer(serviceId);
 
                 // extract meta item
-                using XmlSerializer serializer = new XmlSerializer(typeof(SharedSSLFolder));
+                XmlSerializer serializer = new XmlSerializer(typeof(SharedSSLFolder));
                 SharedSSLFolder sslFolder = (SharedSSLFolder)serializer.Deserialize(
                     new XmlNodeReader(itemNode.SelectSingleNode("SharedSSLFolder")));
 

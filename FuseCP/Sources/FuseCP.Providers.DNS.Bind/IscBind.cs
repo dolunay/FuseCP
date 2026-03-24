@@ -1128,10 +1128,10 @@ namespace FuseCP.Providers.DNS
                             if (version.Split(';').Any(v => ver.StartsWith(v))) return true;
                         }
                     }
-                    catch (IOException) { }
-                    catch (UnauthorizedAccessException) { }
-                    catch (InvalidOperationException) { }
-                    catch (AggregateException) { }
+                    catch (IOException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (UnauthorizedAccessException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (InvalidOperationException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (AggregateException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
             }
             return false;

@@ -484,7 +484,7 @@ namespace FuseCP.Providers.OS
 
                 return currentBuild >= 22000;
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
             return false;
         }
         public static int GetReleaseId()

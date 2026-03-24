@@ -69,7 +69,7 @@ public class ScheduleWorker: BackgroundService
 					GC.Collect();
 				}
 			}
-			catch { }
+			catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
 			await Task.Delay(5000, stoppingToken);
 		}

@@ -1080,7 +1080,10 @@ Configure Certificate Manually:
 				{
 					try
 					{
-						var cert = new X509Certificate2(settings.CertificateFile, settings.Password);
+						var cert = X509CertificateLoader.LoadPkcs12FromFile(
+							settings.CertificateFile,
+							settings.Password,
+							X509KeyStorageFlags.DefaultKeySet);
 						if (cert != null) return true;
 						else
 						{

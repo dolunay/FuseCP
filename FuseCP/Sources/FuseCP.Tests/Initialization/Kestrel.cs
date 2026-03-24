@@ -66,6 +66,7 @@ namespace FuseCP.Tests
 				pfx = Paths.Wsl(pfx);
 			}
 			var distro = (wslDistro?.ToString() ?? "Windows");
+			WriteTestOverlay(workingDir, pfx);
 
 			var exe = wslDistro != null ? "/usr/lib/dotnet/dotnet" : shell.Find("dotnet");
 			if (wslDistro != null)
@@ -147,6 +148,30 @@ namespace FuseCP.Tests
 			}
         }
 
+		static void WriteTestOverlay(string workingDir, string certificateFile)
+		{
+			if (!Directory.Exists(workingDir))
+			{
+				Directory.CreateDirectory(workingDir);
+			}
+
+			var overlayPath = Path.Combine(workingDir, "appsettings.hardened.json");
+			var escapedCertificateFile = certificateFile?.Replace("\\", "\\\\") ?? string.Empty;
+			const string testServerPassword = "cRDtpNCeBiql5KOQsKVyrA0sAiA=";
+			var overlay = "{\n" +
+				"  \"Server\": {\n" +
+				$"    \"Password\": \"{testServerPassword}\",\n" +
+				"    \"AllowLegacyPasswordAuthentication\": true\n" +
+				"  },\n" +
+				"  \"ServerCertificate\": {\n" +
+				$"    \"File\": \"{escapedCertificateFile}\",\n" +
+				$"    \"Password\": \"{Certificate.Password}\"\n" +
+				"  }\n" +
+				"}";
+
+			File.WriteAllText(overlayPath, overlay);
+		}
+
 		static bool TryProbe(string url)
 		{
 			if (string.IsNullOrWhiteSpace(url))
@@ -156,7 +181,7 @@ namespace FuseCP.Tests
 
 			try
 			{
-				Servers.HttpClient.GetAsync(url).Result;
+				_ = Servers.HttpClient.GetAsync(url).Result;
 				return true;
 			}
 			catch

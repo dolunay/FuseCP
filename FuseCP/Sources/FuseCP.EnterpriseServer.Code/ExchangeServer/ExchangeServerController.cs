@@ -1142,7 +1142,7 @@ namespace FuseCP.EnterpriseServer
                     }
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             result.PageItems = accounts.ToArray();
             return result;

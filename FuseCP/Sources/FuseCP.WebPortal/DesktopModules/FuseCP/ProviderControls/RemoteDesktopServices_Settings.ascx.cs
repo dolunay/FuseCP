@@ -42,8 +42,9 @@ namespace FuseCP.Portal.ProviderControls
                     if (!chkEnableHardQuota.Enabled)
                         lblFileServiceInfo.Visible = true;
                 }
-                catch
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
             //END

@@ -113,8 +113,9 @@ namespace FuseCP.WebPortal
 			{
 				xmlModuleData.LoadXml(xml);
 			}
-			catch
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 			}
 		}
     }

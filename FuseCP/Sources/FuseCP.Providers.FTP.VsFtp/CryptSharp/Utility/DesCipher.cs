@@ -240,10 +240,10 @@ namespace CryptSharp.Utility
 
         static void Salt(ref ulong E, int reversedSalt)
         {
-            ulong initial = local_E;
-            ulong H = (local_E >> 24) & (ulong)(uint)reversedSalt, L = local_E & (ulong)(uint)reversedSalt;
-            local_E &= ~((ulong)(uint)reversedSalt << 24 | (uint)reversedSalt);
-            local_E |= H | L << 24;
+            ulong initial = E;
+            ulong H = (E >> 24) & (ulong)(uint)reversedSalt, L = E & (ulong)(uint)reversedSalt;
+            E &= ~((ulong)(uint)reversedSalt << 24 | (uint)reversedSalt);
+            E |= H | L << 24;
         }
     }
 }

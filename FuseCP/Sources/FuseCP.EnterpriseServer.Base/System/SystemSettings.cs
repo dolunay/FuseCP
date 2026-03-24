@@ -129,8 +129,9 @@ namespace FuseCP.EnterpriseServer
 	        {
                 return (T)Convert.ChangeType(Settings[settingName], typeof(T));
 	        }
-	        catch
+	        catch (Exception swallowedEx)
 	        {
+	            System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 	        }
 
 	        return defaultValue;

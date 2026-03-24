@@ -597,9 +597,10 @@ namespace FuseCP.Providers.OS
                 {
                     await UpgradeTunnelSocket.ConnectAsync();
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
                 if (UpgradeTunnelSocket.IsConnected)
                 {

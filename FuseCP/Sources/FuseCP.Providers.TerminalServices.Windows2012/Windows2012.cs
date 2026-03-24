@@ -729,9 +729,10 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 runSpace.ExecuteShellCommand(cmd, false, PrimaryDomainController);
             }
-            catch (AmbiguousMatchException)
+            catch (AmbiguousMatchException swallowedEx)
             {
 
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
             finally
             {
@@ -1889,7 +1890,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 runSpace.ExecuteShellCommand(cmd, false, PrimaryDomainController);
             }
-            catch (Exception) { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         private bool ExistRdsServerInDeployment(Runspace runSpace, RdsServer server)
@@ -2282,9 +2283,9 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 else
                 {
                     Int64 iVal = (Int32)(sidBytes[1]) +
-                        +
-                        +
-                        ;
+                        (Int32)(sidBytes[2] << 8) +
+                        (Int32)(sidBytes[3] << 16) +
+                        (Int32)(sidBytes[4] << 24);
                     strSid.Append("-");
                     strSid.Append(iVal.ToString());
                 }
@@ -2370,8 +2371,9 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 var address = Dns.GetHostAddresses(hostname);
                 return address;
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
 
             return new List<IPAddress>();
