@@ -41,7 +41,7 @@
 		<HyperVUtilsSrc>$(RootFolder)\FuseCP.HyperV.Utils\Sources\FuseCP.HyperV.Utils\bin\$(BuildConfiguration)</HyperVUtilsSrc>
 		<VMConfigSrc>$(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig\bin\$(BuildConfiguration)</VMConfigSrc>
 		<ImportEnterpriseSrc>$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise\bin\$(BuildConfiguration)</ImportEnterpriseSrc>
-		<CertMakerSrc>$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker\bin\$(BuildConfiguration)</CertMakerSrc>
+		<CertMakerSrc>$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.WinForms\bin\$(BuildConfiguration)</CertMakerSrc>
 		<AWStatsViewerSrc>$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer</AWStatsViewerSrc>
 		<FuseCP-Configuration-ToolSrc>$(TrunkFolder)\Sources\Tools\FuseCP-Configuration-Tool</FuseCP-Configuration-ToolSrc>
 		<MSPtoFCPSrc>$(TrunkFolder)\Sources\Tools\MSPtoFCP</MSPtoFCPSrc>
@@ -158,9 +158,8 @@
 		<Exec Command="dotnet restore $(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
-		<Exec Command="&quot;$(TrunkFolder)\Sources\.nuget\NuGet.exe&quot; restore &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; -PackagesDirectory &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages&quot;" />
-		<Exec Command="if exist &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; (if not exist &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2&quot; mkdir &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2&quot; &amp; copy /Y &quot;%WINDIR%\Microsoft.NET\Framework\v4.0.30319\Microsoft.Build.Utilities.v4.0.dll&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\packages\Costura.Fody.1.6.2\Microsoft.Build.Utilities.v4.0.dll&quot;)" />
-		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln" />
+		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.slnx" />
+
 		<Exec Command="dotnet restore $(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 	</Target>
 
@@ -219,7 +218,7 @@
 		<MSBuild Projects="$(RootFolder)\FuseCP.VmConfig\Sources\FuseCP.VmConfig.sln" Properties="$(CommonBuildProperties)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.Import.Enterprise.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.AWStats.Viewer.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
-		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.sln&quot; &quot;/p:$(CommonBuildProperties)&quot; $(MsBuildSwitches)" />
+		<Exec Command="&quot;$(MsBuildExe)&quot; &quot;$(TrunkFolder)\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.slnx&quot; &quot;/p:$(CommonBuildProperties)&quot; $(MsBuildSwitches)" />
 		<MSBuild Projects="$(TrunkFolder)\Sources\Tools\FuseCP.FixDefaultPublicFolderMailbox.sln" Properties="$(CommonBuildProperties)" Condition="'$(BuildLegacyNet48Tools)' == 'true'" />
  	</Target>
 
