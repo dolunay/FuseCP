@@ -38,12 +38,14 @@ namespace FuseCP.Tests
 		public string NetTcpUrl => Urls.FirstOrDefault(u => u.Protocol == Scheme.NetTcp).Url;
 		readonly Component component;
 		readonly WSLShell.WSLDistro WslDistro;
+		readonly Scheme readinessProtocol;
 		static readonly List<Kestrel> instances = new List<Kestrel>();
-		public Kestrel(Component component, (Scheme, string)[] urls = null, WSLShell.WSLDistro wslDistro = null)
+		public Kestrel(Component component, (Scheme, string)[] urls = null, WSLShell.WSLDistro wslDistro = null, Scheme readinessProtocol = Scheme.Http)
 		{
 			Urls = urls;
 			this.component = component;
 			this.WslDistro = wslDistro;
+			this.readinessProtocol = readinessProtocol;
 			instances.Add(this);
 			var apppath = Paths.Path(component);
 			var testdllpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -66,7 +68,7 @@ namespace FuseCP.Tests
 				pfx = Paths.Wsl(pfx);
 			}
 			var distro = (wslDistro?.ToString() ?? "Windows");
-			WriteTestOverlay(workingDir, pfx);
+			WriteTestOverlay(workingDir, pfx, $"{HttpUrl};{HttpsUrl}");
 
 			var exe = wslDistro != null ? "/usr/lib/dotnet/dotnet" : shell.Find("dotnet");
 			if (wslDistro != null)
@@ -106,7 +108,6 @@ namespace FuseCP.Tests
 			shell.Environment = new Dictionary<string, string>()
 			{
 				{ "ASPNETCORE_ENVIRONMENT", "Development" },
-				//{ "ASPNETCORE_URLS", $"{HttpUrl};{HttpsUrl}" },
 				//{ "ASPNETCORE_Kestrel__Certificates__Default__Path", pfx },
 				//{ "ASPNETCORE_Kestrel__Certificates__Default__Password", Certificate.Password },
 				//{ "ServerCertificate__File", pfx },
@@ -119,36 +120,69 @@ namespace FuseCP.Tests
 			cert.Input.WriteLine("yes");
 			cert.Wait();*/
 
-			process = shell.ExecAsync($"\"{exe}\" \"{dll}\" --urls \"{HttpUrl};{HttpsUrl}\"").Process;
+			var launchCommand = wslDistro != null
+				? $"\"{exe}\" \"{dll}\""
+				: $"\"{exe}\" \"{dll}\" --urls \"{HttpUrl};{HttpsUrl}\"";
 
-			if (WslDistro == null && process.HasExited) throw new Exception($"Kestrel exited with code {process.ExitCode}");
+			process = shell.ExecAsync(launchCommand).Process;
 
-			// Wait for at least one HTTP endpoint to respond before continuing.
-			const int maxRetries = 30;
-			var isReady = false;
-			for (var n = 0; n < maxRetries; n++)
+			try
 			{
-				if (process.HasExited)
+				if (WslDistro == null && process.HasExited) throw new Exception($"Kestrel exited with code {process.ExitCode}");
+
+				// Wait for the protocol endpoint requested by the test row.
+				// This avoids racing into HTTPS requests while only HTTP is ready.
+				var readinessUrls = GetReadinessUrls();
+				const int maxRetries = 30;
+				var isReady = false;
+				for (var n = 0; n < maxRetries; n++)
 				{
-					throw new Exception($"Kestrel process terminated before readiness check completed (exit code {process.ExitCode}).");
+					if (process.HasExited)
+					{
+						throw new Exception($"Kestrel process terminated before readiness check completed (exit code {process.ExitCode}).");
+					}
+
+					if (readinessUrls.Any(TryProbe))
+					{
+						isReady = true;
+						break;
+					}
+
+					Thread.Sleep(2000);
 				}
 
-				if (TryProbe(HttpUrl) || TryProbe(HttpsUrl))
+				if (!isReady)
 				{
-					isReady = true;
-					break;
+					throw new TimeoutException($"Kestrel endpoint readiness timed out for component '{component}' and protocol '{readinessProtocol}'. Probed URLs: {string.Join(", ", readinessUrls)}");
 				}
-
-				Thread.Sleep(2000);
 			}
-
-			if (!isReady)
+			catch
 			{
-				throw new TimeoutException($"Kestrel endpoint readiness timed out for component '{component}'. Probed URLs: {HttpUrl}, {HttpsUrl}");
+				if (process != null && !process.HasExited)
+				{
+					process.Kill();
+				}
+				throw;
 			}
         }
 
-		static void WriteTestOverlay(string workingDir, string certificateFile)
+		string[] GetReadinessUrls()
+		{
+			var protocolUrl = Urls.FirstOrDefault(u => u.Protocol == readinessProtocol).Url;
+			if (!string.IsNullOrWhiteSpace(protocolUrl))
+			{
+				return new[] { protocolUrl };
+			}
+
+			if (!string.IsNullOrWhiteSpace(HttpUrl) || !string.IsNullOrWhiteSpace(HttpsUrl))
+			{
+				return new[] { HttpUrl, HttpsUrl }.Where(u => !string.IsNullOrWhiteSpace(u)).ToArray();
+			}
+
+			return Array.Empty<string>();
+		}
+
+		static void WriteTestOverlay(string workingDir, string certificateFile, string applicationUrls)
 		{
 			if (!Directory.Exists(workingDir))
 			{
@@ -157,8 +191,10 @@ namespace FuseCP.Tests
 
 			var overlayPath = Path.Combine(workingDir, "appsettings.hardened.json");
 			var escapedCertificateFile = certificateFile?.Replace("\\", "\\\\") ?? string.Empty;
+			var escapedApplicationUrls = applicationUrls?.Replace("\\", "\\\\") ?? string.Empty;
 			const string testServerPassword = "cRDtpNCeBiql5KOQsKVyrA0sAiA=";
 			var overlay = "{\n" +
+				$"  \"applicationUrls\": \"{escapedApplicationUrls}\",\n" +
 				"  \"Server\": {\n" +
 				$"    \"Password\": \"{testServerPassword}\",\n" +
 				"    \"AllowLegacyPasswordAuthentication\": true\n" +

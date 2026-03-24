@@ -205,14 +205,14 @@ public class Servers
 		type.Framework switch
 		{
 			Framework.NetFramework => type.Component == Component.Server
-				? new Kestrel(type.Component, urls)
+				? new Kestrel(type.Component, urls, readinessProtocol: type.Protocol)
 				: new IISExpress(type.Component, urls),
-			Framework.Core => new Kestrel(type.Component, urls),
+			Framework.Core => new Kestrel(type.Component, urls, readinessProtocol: type.Protocol),
 			_ => null
 		} :
 		type.Framework switch
 		{
-			Framework.Core => new Kestrel(type.Component, urls, WslDistro(type.Os)),
+			Framework.Core => new Kestrel(type.Component, urls, WslDistro(type.Os), type.Protocol),
 			_ => null
 		};
 		if (server == null) return;
