@@ -1,3 +1,89 @@
+## CI + Submodule Recovery (Latest Commit Chain)
+
+### Overview
+
+- Restored broken GitHub Actions checkout/build/test pipeline after submodule pointer drift and toolchain migration side-effects.
+- Repaired upstream submodule pointer integrity, updated all tracked submodules to FuseCP branch heads, fixed build orchestration for SSL-Certificate-Maker `.slnx`, restored missing installer packaging asset, and stabilized WSL test-host startup for HTTPS rows.
+
+### Commit Timeline
+
+- Commit: 235f6cf49
+- Message: chore: commit unsaved workspace changes
+- Impact:
+	- Captured warning-cleanup and safety fixes across a large set of provider/server files.
+	- Established baseline commit used for subsequent submodule pointer synchronization.
+
+- Commit: bff69e5fa
+- Message: chore: update submodule pointers after unsaved commits
+- Impact:
+	- Updated root repository to reference newly created submodule commit pointers.
+
+- Commit: e9cfeba67
+- Message: chore: align submodule pointers to FuseCP branches
+- Impact:
+	- Ensured root submodule pointers were aligned with the intended `FuseCP` branch lineage instead of detached/temporary states.
+
+- Commit: 9611a4829
+- Message: chore: update submodules to latest FuseCP branch commits
+- Impact:
+	- Advanced all tracked submodules to current `FuseCP` branch tips.
+
+- Commit: a58b35d3c
+- Message: fix: update WebFormsForCore pointer after upstream submodule fix
+- Impact:
+	- Resolved checkout failures in Actions caused by unreachable nested submodule SHA.
+	- Updated root pointer to upstream `FuseCP/WebFormsForCore` fix commit.
+
+- Commit: 59fc501f4
+- Message: fix: update SSL-Certificate-Maker build references from .sln to .slnx
+- Impact:
+	- Replaced unsupported `NuGet.exe restore` call targeting legacy `.sln` with `dotnet restore` on `.slnx`.
+	- Updated MSBuild invocation to `.slnx` and corrected CertMaker output source path.
+	- Removed obsolete restore/workaround path tied to legacy package layout.
+
+- Commit: da8957579
+- Message: fix: restore missing linux installer launcher script
+- Impact:
+	- Restored `FuseCP.Installer/Sources/FuseCP.InstallPackages/src/bin/fusecp-installer` required by packaging pipeline.
+	- Fixed `InstallPackages.proj` `Dos2Unix`/`wpkg` stage failure (`MSB3073` with wpkg exit code 500).
+
+- Commit: 3eb826435
+- Message: fix: stabilize WSL test host startup for CI HTTPS rows
+- Impact:
+	- Fixed Core+Ubuntu HTTPS test flakiness/failures in `FuseCP.Server.Tests`.
+	- Added protocol-specific readiness gating (do not proceed when only HTTP is ready for HTTPS rows).
+	- Wrote test-specific `applicationUrls` into hardened overlay so WSL-hosted server uses expected matrix ports.
+	- Avoided WSL shell URL argument splitting by removing inline `--urls` in WSL launch path.
+	- Added startup failure cleanup for spawned host processes.
+
+### Root Cause Summary
+
+- Actions checkout failures: nested submodule pointer referenced an unreachable SHA.
+- Build failures: legacy `.sln` path persisted after upstream move to `.slnx`; installer packaging script was missing.
+- Test failures: WSL startup/endpoint readiness mismatch caused Ubuntu HTTPS rows to hit closed ports.
+
+### Validation
+
+- Submodule and checkout integrity:
+	- Verified Actions checkout stage succeeds after pointer correction.
+
+- Build validation:
+	- `dotnet restore FuseCP\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.slnx`
+	- `dotnet build FuseCP\Sources\Tools\SSL-Certificate-Maker\SSLCertificateMaker.slnx -c Release --no-restore`
+	- `dotnet msbuild FuseCP.Installer\Sources\FuseCP.InstallPackages\InstallPackages.proj /t:Dos2Unix /p:Configuration=Release`
+
+- Test validation:
+	- Reproduced CI command locally:
+	  - `dotnet test --no-build -v n --logger trx -m:1 -p:BuildInParallel=false --configuration Release --results-directory ..\\..\\test-results FuseCP.Tests.sln`
+	- Before fix: 15 failed (Core Ubuntu HTTPS rows, localhost:9075 refused).
+	- After fix: 0 failed; `total: 131, succeeded: 127, skipped: 4`.
+
+### Risk Notes
+
+- Changes in `FuseCP.Tests` are test harness/runtime-startup orchestration only; no product runtime business logic altered.
+- SSL-Certificate-Maker build orchestration now matches current upstream project format (`.slnx` + SDK-style restore path).
+- Installer packaging fix restores expected source artifact used by existing packaging targets.
+
 ## Database
 
 - Commit: f0186ef22
