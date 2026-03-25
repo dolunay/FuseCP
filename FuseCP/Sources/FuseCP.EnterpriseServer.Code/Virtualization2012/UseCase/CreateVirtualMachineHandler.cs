@@ -127,7 +127,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.UseCase
 
 
                 if (VMSettings.ExternalNetworkEnabled && externalAddressesNumber > maxAddresses)
-                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses.ToString());
+                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses);
 
                 // check private addresses number
                 if (!randomPrivateAddresses && privateAddresses != null)
@@ -319,7 +319,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.UseCase
                                 throw new Exception("The generation of VM was not configured in the template");
                             vm.Generation = osTemplate.Generation;
                             vm.SecureBootTemplate = osTemplate.SecureBootTemplate;
-                            vm.EnableSecureBoot = osTemplate.Generation == 1 ? false : osTemplate.EnableSecureBoot;
+                            vm.EnableSecureBoot = !(osTemplate.Generation == 1) && osTemplate.EnableSecureBoot;
                             vm.OperatingSystemTemplate = osTemplate.Name;
                             vm.LegacyNetworkAdapter = osTemplate.LegacyNetworkAdapter;
                             vm.RemoteDesktopEnabled = osTemplate.RemoteDesktop;
@@ -359,11 +359,11 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.UseCase
 
                         long freePhysicalMemoryMB = (long)(memory.FreePhysicalKB / 1024);
                         long futureFreeMemoryMB = freePhysicalMemoryMB - (long)vm.RamSize; //futureFreeMemoryMB can be negative
-                        bool isEnoughRAM = futureFreeMemoryMB >= (long)ramReserve;
+                        bool isEnoughRAM = futureFreeMemoryMB >= ramReserve;
 
                         if (!isEnoughRAM)
                         {
-                            throw new Exception("Not enough Memory on the Node! Reserved: " + ramReserve.ToString() + " Available: " + freePhysicalMemoryMB.ToString());
+                            throw new Exception("Not enough Memory on the Node! Reserved: " + ramReserve + " Available: " + freePhysicalMemoryMB);
                         }
 
                     }

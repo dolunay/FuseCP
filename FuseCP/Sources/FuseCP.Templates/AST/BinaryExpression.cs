@@ -23,7 +23,7 @@ namespace FuseCP.Templates.AST
     {
         Expression lhs;
         Expression rhs;
-        TokenType op;
+        readonly TokenType op;
 
         public BinaryExpression(int line, int column, Expression lhs, TokenType op, Expression rhs)
             : base(line, column)
@@ -143,9 +143,9 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("(")
-                .Append(LeftExpression.ToString()).Append(" ")
+                .Append(LeftExpression).Append(" ")
                 .Append(Operator).Append(" ")
-                .Append(RightExpression.ToString()).Append(")");
+                .Append(RightExpression).Append(")");
             return sb.ToString();
         }
     }

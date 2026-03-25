@@ -120,9 +120,10 @@ namespace FuseCP.Providers.Virtualization
                         var term = ssh.RunCommand("hostname");
                         node = term.Result;
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
 
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                     }
                 }
                 return node;
@@ -483,11 +484,11 @@ namespace FuseCP.Providers.Virtualization
                 }
             }
 
-            SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
+            var thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
             SKImage thumb = SKImage.Create(thumbinfo);
             image?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 
-            MemoryStream stream = new MemoryStream();
+            using MemoryStream stream = new MemoryStream();
 
             using (var data = thumb.Encode(SKEncodedImageFormat.Png, 100))
             {
@@ -1235,11 +1236,11 @@ namespace FuseCP.Providers.Virtualization
             if (File.Exists(screenshotFile))
             {
                 var img = SKImage.FromEncodedData(screenshotFile);
-                SKImageInfo thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
+                var thumbinfo = new SKImageInfo(width, height, SKColorType.Bgra8888, SKAlphaType.Opaque);
                 SKImage thumb = SKImage.Create(thumbinfo);
                 img?.ScalePixels(thumb.PeekPixels(), SKSamplingOptions.Default);
 
-                MemoryStream stream = new MemoryStream();
+                using MemoryStream stream = new MemoryStream();
 
                 using (var data = thumb.Encode(SKEncodedImageFormat.Png, 100))
                 {

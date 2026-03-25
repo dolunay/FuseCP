@@ -583,9 +583,9 @@ public class PortalUtils
 		{
 			bResult = Convert.ToBoolean(PortalConfiguration.SiteSettings["HideThemeAndLocale"]);
 		}
-		catch (Exception)
+		catch (Exception swallowedEx)
 		{
-
+		    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 		}
 
 		return bResult;
@@ -599,9 +599,9 @@ public class PortalUtils
 		{
 			bResult = Convert.ToBoolean(PortalConfiguration.SiteSettings["HideDemoCheckbox"]);
 		}
-		catch (Exception)
+		catch (Exception swallowedEx)
 		{
-
+		    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 		}
 
 		return bResult;
@@ -893,8 +893,9 @@ public class PortalUtils
 
 				list.Items.AddRange(items.ToArray());
 			}
-			catch
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 			}
 		}
 	}
@@ -930,8 +931,9 @@ public class PortalUtils
 
 				list.Items.AddRange(items.ToArray());
 			}
-			catch
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 			}
 		}
 	}
@@ -985,8 +987,9 @@ public class PortalUtils
 				throw;
 			}
 #endif
-			catch
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 			}
 		}
 	}
@@ -1201,8 +1204,9 @@ public class PortalUtils
 				}
 				else generalControlKey = xmlNode.GetAttribute("key");
 			}
-			catch
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 			}
 		}
 		return generalControlKey;

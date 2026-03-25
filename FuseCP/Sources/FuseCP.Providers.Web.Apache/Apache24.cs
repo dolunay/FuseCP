@@ -924,7 +924,7 @@ namespace FuseCP.Providers.Web
 							return ver;
 						}
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 			}
 			return "";

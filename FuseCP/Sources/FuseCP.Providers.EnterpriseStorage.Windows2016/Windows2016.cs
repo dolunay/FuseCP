@@ -368,7 +368,6 @@ namespace FuseCP.Providers.EnterpriseStorage
 
             if (searchPaths.Any(string.IsNullOrEmpty))
             {
-                isRootSearch = true;
                 searchPaths = searchPaths.Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
 
@@ -383,7 +382,7 @@ namespace FuseCP.Providers.EnterpriseStorage
 
                     conn.Open();
 
-                    var cmd = new OleDbCommand(wsSql, conn);
+                    using var cmd = new OleDbCommand(wsSql, conn);
 
                     using (OleDbDataReader reader = cmd.ExecuteReader())
                     {

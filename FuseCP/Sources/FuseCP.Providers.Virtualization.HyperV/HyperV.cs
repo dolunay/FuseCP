@@ -291,7 +291,7 @@ namespace FuseCP.Providers.Virtualization
             {
                 // fill grey rectangle
                 Graphics g = Graphics.FromImage(bmp);
-                SolidBrush brush = new SolidBrush(Color.LightGray);
+                using SolidBrush brush = new SolidBrush(Color.LightGray);
                 g.FillRectangle(brush, 0, 0, width, height);
             }
 
@@ -1099,7 +1099,7 @@ namespace FuseCP.Providers.Virtualization
             foreach (ManagementObject objConnection in objConnections)
             {
                 // check LAN andpoint
-                ManagementObject objLanEndpoint = new ManagementObject(new ManagementPath((string)objConnection["Dependent"]));
+                using ManagementObject objLanEndpoint = new ManagementObject(new ManagementPath((string)objConnection["Dependent"]));
                 string endpointName = (string)objLanEndpoint["Name"];
 
                 if (!endpointName.StartsWith("/DEVICE/"))
@@ -1110,7 +1110,7 @@ namespace FuseCP.Providers.Virtualization
                 if (adapters.ContainsKey(endpointName))
                 {
                     // get switch port
-                    ManagementObject objPort = new ManagementObject(new ManagementPath((string)objConnection["Antecedent"]));
+                    using ManagementObject objPort = new ManagementObject(new ManagementPath((string)objConnection["Antecedent"]));
                     string switchId = (string)objPort["SystemName"];
                     if (switches.ContainsKey(switchId))
                         continue;
@@ -1174,7 +1174,7 @@ namespace FuseCP.Providers.Virtualization
             ManagementBaseObject inParams = objNetworkSvc.GetMethodParameters("DeleteSwitch");
             inParams["VirtualSwitch"] = objSwitch.Path.Path;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objNetworkSvc.InvokeMethod("DeleteSwitch", inParams, null);
+            ManagementBaseObject outParams = objNetworkSvc.InvokeMethod("DeleteSwitch", inParams, null);
             return (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
         }
         #endregion
@@ -1424,7 +1424,7 @@ namespace FuseCP.Providers.Virtualization
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
             // execute method
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("GetVirtualHardDiskInfo", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("GetVirtualHardDiskInfo", inParams, null);
             ReturnCode result = (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
             if (result == ReturnCode.OK)
             {
@@ -1461,7 +1461,7 @@ namespace FuseCP.Providers.Virtualization
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("Mount");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("Mount", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("Mount", inParams, null);
             JobResult result = CreateJobResultFromWmiMethodResults(outParams);
 
             // load storage job
@@ -1616,7 +1616,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             advancedDisk = null;
             diskPack = null;
 
-            Vds.ServiceLoader serviceLoader = new Vds.ServiceLoader();
+            using Vds.ServiceLoader serviceLoader = new Vds.ServiceLoader();
             Vds.Service vds = serviceLoader.LoadService(ServerNameSettings);
             vds.WaitForServiceReady();
 
@@ -1654,22 +1654,22 @@ exit", Convert.ToInt32(objDisk["Index"])));
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("Unmount");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("Unmount", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("Unmount", inParams, null);
             return (ReturnCode)Convert.ToInt32(outParams["ReturnValue"]);
         }
 
         public JobResult ExpandVirtualHardDisk(string vhdPath, UInt64 sizeGB)
         {
-            const UInt64 Size1G = 0x40000000;
+            const UInt64 local_Size1G = 0x40000000;
 
             ManagementObject objImgSvc = GetImageManagementService();
 
             // get method params
             ManagementBaseObject inParams = objImgSvc.GetMethodParameters("ExpandVirtualHardDisk");
             inParams["Path"] = FileUtils.EvaluateSystemVariables(vhdPath);
-            inParams["MaxInternalSize"] = sizeGB * Size1G;
+            inParams["MaxInternalSize"] = sizeGB * local_Size1G;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("ExpandVirtualHardDisk", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("ExpandVirtualHardDisk", inParams, null);
             return CreateJobResultFromWmiMethodResults(outParams);
         }
 
@@ -1695,7 +1695,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             inParams["DestinationPath"] = destinationPath;
             inParams["Type"] = (UInt16)diskType;
 
-            ManagementBaseObject outParams = (ManagementBaseObject)objImgSvc.InvokeMethod("ConvertVirtualHardDisk", inParams, null);
+            ManagementBaseObject outParams = objImgSvc.InvokeMethod("ConvertVirtualHardDisk", inParams, null);
             return CreateJobResultFromWmiMethodResults(outParams);
         }
 
@@ -2431,7 +2431,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
 
             // Initialize an event watcher and subscribe to events 
             // that match this query
-            ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
+            using ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
             // times out watcher.WaitForNextEvent in 20 seconds
             watcher.Options.Timeout = new TimeSpan(0, 0, 20);
 

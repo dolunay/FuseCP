@@ -26,6 +26,13 @@ public class SystemdServiceController : ServiceController
 {
 	public virtual string ServicesDirectory => "/lib/systemd/system";
 
+	static string ValidateServiceId(string serviceId)
+	{
+		if (string.IsNullOrWhiteSpace(serviceId) || !Regex.IsMatch(serviceId, @"^[A-Za-z0-9_.-]+$"))
+			throw new ArgumentException("Invalid service identifier.", nameof(serviceId));
+		return serviceId;
+	}
+
 	public override IEnumerable<OSService> All()
 	{
 		var text = Shell.Exec("systemctl --full --type=service --no-pager --all").Output().Result;
@@ -53,6 +60,7 @@ public class SystemdServiceController : ServiceController
 	}
 	public override OSService Info(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var output = Shell.Exec($"systemctl status {serviceId}.service --no-pager --full").Output().Result;
 		if (output == null) return null;
 
@@ -75,6 +83,7 @@ public class SystemdServiceController : ServiceController
 	}
 	public override void ChangeStatus(string serviceId, OSServiceStatus status)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var state = Info(serviceId);
 
 		if (state == null) return;
@@ -96,14 +105,16 @@ public class SystemdServiceController : ServiceController
 			}
 		}
 	}
-	public override void Restart(string serviceId) => Shell.Exec($"systemctl restart {serviceId}");
-	public override void Reload(string serviceId) => Shell.Exec($"systemctl reload {serviceId}");
+	public override void Restart(string serviceId) => Shell.Exec($"systemctl restart {ValidateServiceId(serviceId)}");
+	public override void Reload(string serviceId) => Shell.Exec($"systemctl reload {ValidateServiceId(serviceId)}");
 	public override void Disable(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		Shell.Exec($"systemctl disable {serviceId}.service");
 	}
 	public override void Enable(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		Shell.Exec($"systemctl enable {serviceId}.service");
 	}
 
@@ -116,6 +127,7 @@ public class SystemdServiceController : ServiceController
 	{
 		var desc = description as SystemdServiceDescription;
 		if (desc == null) throw new ArgumentException("Service description is not a SystemdServiceDescription.");
+		ValidateServiceId(desc.ServiceId);
 
 		var srvcFile = @"[Unit]
 Description=@description
@@ -210,6 +222,7 @@ WantedBy=multi-user.target
 
 	public override void Remove(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var file = Path.Combine(ServicesDirectory, $"{serviceId}.service");
 		if (File.Exists(file))
 		{

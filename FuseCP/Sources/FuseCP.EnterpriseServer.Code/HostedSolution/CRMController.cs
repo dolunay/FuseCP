@@ -733,7 +733,7 @@ namespace FuseCP.EnterpriseServer
                     PackageContext cntx = PackageController.GetPackageContext(packageId);
                     if (cntx.Groups.ContainsKey(ResourceGroups.HostedCRM2013))
                         errorCode += "2013_";
-                    errorCode += CALType.ToString();
+                    errorCode += CALType;
 
                     CompleteTask(ret, errorCode , null, "CRM user quota has been reached.");
                     return ret;
@@ -1054,7 +1054,7 @@ namespace FuseCP.EnterpriseServer
                     PackageContext cntx = PackageController.GetPackageContext(packageId);
                     if (cntx.Groups.ContainsKey(ResourceGroups.HostedCRM2013))
                         errorCode += "2013_";
-                    errorCode += CALType.ToString();
+                    errorCode += CALType;
 
                     CompleteTask(res, errorCode, null, "CRM user quota has been reached.");
                     return res;

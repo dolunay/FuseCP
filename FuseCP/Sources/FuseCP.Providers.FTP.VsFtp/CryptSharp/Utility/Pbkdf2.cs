@@ -201,7 +201,7 @@ namespace CryptSharp.Utility
                 }
 
                 int bytesSoFar = (int)(Position - _blockStart);
-                int bytesThisTime = (int)Math.Min(_digest.Length - bytesSoFar, count);
+                int bytesThisTime = Math.Min(_digest.Length - bytesSoFar, count);
                 Array.Copy(_digest, bytesSoFar, buffer, bytes, bytesThisTime);
                 count -= bytesThisTime; bytes += bytesThisTime; Position += bytesThisTime;
             }

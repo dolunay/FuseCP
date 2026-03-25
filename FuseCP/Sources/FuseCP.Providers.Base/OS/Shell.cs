@@ -115,11 +115,11 @@ namespace FuseCP.Providers.OS
 				{
 					machine = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine);
 					user = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User);
-					var process = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
+					var localProcess = System.Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
 					sources = new string[] {
 						System.Environment.GetFolderPath(System.Environment.SpecialFolder.System),
 						System.Environment.GetFolderPath(System.Environment.SpecialFolder.SystemX86),
-						process, machine, user };
+						localProcess, machine, user };
 				}
 				else sources = new string[] { proc };
 
@@ -150,6 +150,46 @@ namespace FuseCP.Providers.OS
 			}
 			NotFound = file == null;
 			return file;
+		}
+
+		static IEnumerable<string> TokenizeArguments(string arguments)
+		{
+			if (string.IsNullOrWhiteSpace(arguments))
+				yield break;
+
+			foreach (Match match in Regex.Matches(arguments, @"(?:[^\s\""']+|\""(?:\\.|[^\""])*\""|'(?:\\.|[^'])*')+"))
+			{
+				var token = match.Value;
+				if (token.Length >= 2 && ((token[0] == '"' && token[token.Length - 1] == '"') || (token[0] == '\'' && token[token.Length - 1] == '\'')))
+					token = token.Substring(1, token.Length - 2);
+				yield return token;
+			}
+		}
+
+		static string QuoteArgument(string argument)
+		{
+			if (string.IsNullOrEmpty(argument))
+				return "\"\"";
+			if (!argument.Any(char.IsWhiteSpace) && argument.IndexOf('"') < 0)
+				return argument;
+			return "\"" + argument.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
+		}
+
+		static void ApplyArguments(ProcessStartInfo startInfo, string arguments)
+		{
+			var tokens = TokenizeArguments(arguments).ToList();
+			var argumentListProperty = typeof(ProcessStartInfo).GetProperty("ArgumentList");
+			if (argumentListProperty != null)
+			{
+				if (argumentListProperty.GetValue(startInfo) is IList argumentList)
+				{
+					foreach (var token in tokens)
+						argumentList.Add(token);
+					return;
+				}
+			}
+
+			startInfo.Arguments = string.Join(" ", tokens.Select(QuoteArgument));
 		}
 
 		protected virtual string ToTempFile(string script)
@@ -185,6 +225,11 @@ namespace FuseCP.Providers.OS
 		public virtual StreamWriter StandardInput => process.StandardInput;
 		public virtual Shell ExecAsync(string cmd, Encoding encoding = null, Dictionary<string, string> environment = null)
 		{
+			if (string.IsNullOrWhiteSpace(cmd))
+				throw new ArgumentException("Command cannot be null or empty.", nameof(cmd));
+			if (cmd.IndexOf('\0') >= 0 || cmd.IndexOf('\r') >= 0 || cmd.IndexOf('\n') >= 0)
+				throw new ArgumentException("Command contains invalid control characters.", nameof(cmd));
+
 			LogCommand?.Invoke(cmd);
 
 			// separate command from arguments
@@ -222,6 +267,9 @@ namespace FuseCP.Providers.OS
 				else arguments = "";
 			}
 
+			if (arguments.IndexOf('\0') >= 0 || arguments.IndexOf('\r') >= 0 || arguments.IndexOf('\n') >= 0)
+				throw new ArgumentException("Arguments contain invalid control characters.", nameof(cmd));
+
 			var cmdWithPath = Find(cmd);
 			if (cmdWithPath != null)
 			{
@@ -229,7 +277,7 @@ namespace FuseCP.Providers.OS
 				var process = new Process();
 				child.Process = process;
 				process.StartInfo.FileName = cmdWithPath;
-				process.StartInfo.Arguments = arguments;
+				ApplyArguments(process.StartInfo, arguments);
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = CreateNoWindow;
 				process.StartInfo.WindowStyle = WindowStyle;

@@ -375,7 +375,7 @@ namespace FuseCP.Providers.Web.Iis
 
         public byte[] ExportPfx(string serialNumber, string password)
 		{
-			X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+			using X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
 			store.Open(OpenFlags.ReadOnly);
 			X509Certificate2 cert = store.Certificates.Find(X509FindType.FindBySerialNumber, serialNumber, false)[0];
 			byte[] exported = cert.Export(X509ContentType.Pfx, password);
@@ -613,7 +613,7 @@ namespace FuseCP.Providers.Web.Iis
                 invokeCommand.Parameters.Add("ComputerName", hostName);
             }
 
-            RunspaceInvoke invoke = new RunspaceInvoke();
+            using RunspaceInvoke invoke = new RunspaceInvoke();
             string commandString = moduleImports.Any() ? string.Format("import-module {0};", string.Join(",", moduleImports)) : string.Empty;
 
             commandString = string.Format("{0};{1}", commandString, string.Join(";", scripts.ToArray()));
@@ -682,7 +682,6 @@ namespace FuseCP.Providers.Web.Iis
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd("ExecuteShellCommand");
             return results;

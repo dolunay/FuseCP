@@ -503,7 +503,7 @@ namespace FuseCP.Providers.Virtualization
             {
                 // fill grey rectangle
                 Graphics g = Graphics.FromImage(bmp);
-                SolidBrush brush = new SolidBrush(Color.LightGray);
+                using SolidBrush brush = new SolidBrush(Color.LightGray);
                 g.FillRectangle(brush, 0, 0, width, height);
             }
 
@@ -763,7 +763,7 @@ namespace FuseCP.Providers.Virtualization
                     if (vm != null)
                         isExist = true;
                 }
-                catch { }    
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 finally
                 {
                     if (!isExist)
@@ -1902,7 +1902,7 @@ namespace FuseCP.Providers.Virtualization
                     //settingsInstance.CimInstanceProperties["LogicalSectorSize"].Value = 0;
                     //settingsInstance.CimInstanceProperties["PhysicalSectorSize"].Value = 0;
 
-                    var inParams = new CimMethodParametersCollection
+                    using var inParams = new CimMethodParametersCollection
                     {
                         CimMethodParameter.Create(
                             "SourcePath",
@@ -2123,10 +2123,10 @@ namespace FuseCP.Providers.Virtualization
         {
             SystemMemoryInfo memory = new SystemMemoryInfo();
 
-            using (var _mi = string.IsNullOrEmpty(ClusterNode)
+            using (var local__mi = string.IsNullOrEmpty(ClusterNode)
                 ? new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE) //reuse session if possible
                 : new MiManager(ClusterNode, this.CimSessionMode, Constants.WMI_CIMV2_NAMESPACE))
-            using (CimInstance item = _mi.GetCimInstance("Win32_OperatingSystem"))
+            using (CimInstance item = local__mi.GetCimInstance("Win32_OperatingSystem"))
             {
                 memory.FreePhysicalKB = Convert.ToUInt64(item.CimInstanceProperties["FreePhysicalMemory"].Value);
                 memory.TotalVisibleSizeKB = Convert.ToUInt64(item.CimInstanceProperties["TotalVisibleMemorySize"].Value);
@@ -2143,9 +2143,9 @@ namespace FuseCP.Providers.Virtualization
         {
             int coreCount = 0;
 
-            using (var _mi = new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE))
+            using (var local__mi = new MiManager(Mi, Constants.WMI_CIMV2_NAMESPACE))
             {
-                foreach (CimInstance item in _mi.EnumerateCimInstances("Win32_Processor"))
+                foreach (CimInstance item in local__mi.EnumerateCimInstances("Win32_Processor"))
                 {
                     using (item)
                         coreCount += int.Parse(item.CimInstanceProperties["NumberOfLogicalProcessors"].Value.ToString());

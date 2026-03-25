@@ -100,7 +100,7 @@ namespace FuseCP.Portal
                     }
                 }
 
-                if ((!String.IsNullOrEmpty(roles)) & display)
+                if ((!String.IsNullOrEmpty(roles)) && display)
                 {
                     display = false;
                     string[] arrRoles = roles.Split(',');

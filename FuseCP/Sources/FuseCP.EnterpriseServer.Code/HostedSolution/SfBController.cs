@@ -416,6 +416,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                                     return res;
                                 }
                             }
+
                             user.SipAddress = sipAddress;
                         }
                     }
@@ -424,8 +425,6 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     user.PIN = PIN;
 
                     sfb.SetSfBUserGeneralSettings(org.OrganizationId, usr.UserPrincipalName, user);
-
-                    Database.UpdateSfBUser(accountId, sipAddress);
                 }
             }
             catch (Exception ex)
@@ -698,7 +697,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 {
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         orgs = ExchangeServerController.GetExchangeOrganizationsInternal(Packages[0].PackageId, false);
                     }
@@ -710,7 +709,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
 
                 int OrgId = -1;
                 if (itemId > 0) OrgId = itemId;
-                else if ((orgs != null) & (orgs.Count > 0)) OrgId = orgs[0].Id;
+                else if ((orgs != null) && (orgs.Count > 0)) OrgId = orgs[0].Id;
 
                 if (OrgId != -1)
                 {
@@ -767,8 +766,8 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 // load package context
                 PackageContext cntx = PackageController.GetPackageContext(org.PackageId);
 
-                sfbUserPlan.Conferencing = sfbUserPlan.Conferencing & Convert.ToBoolean(cntx.Quotas[Quotas.SFB_CONFERENCING].QuotaAllocatedValue);
-                sfbUserPlan.EnterpriseVoice = sfbUserPlan.EnterpriseVoice & Convert.ToBoolean(cntx.Quotas[Quotas.SFB_ENTERPRISEVOICE].QuotaAllocatedValue);
+                sfbUserPlan.Conferencing = sfbUserPlan.Conferencing && Convert.ToBoolean(cntx.Quotas[Quotas.SFB_CONFERENCING].QuotaAllocatedValue);
+                sfbUserPlan.EnterpriseVoice = sfbUserPlan.EnterpriseVoice && Convert.ToBoolean(cntx.Quotas[Quotas.SFB_ENTERPRISEVOICE].QuotaAllocatedValue);
                 if (!sfbUserPlan.EnterpriseVoice)
                     sfbUserPlan.VoicePolicy = SfBVoicePolicyType.None;
                 sfbUserPlan.IM = true;
@@ -807,8 +806,8 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 // load package context
                 PackageContext cntx = PackageController.GetPackageContext(org.PackageId);
 
-                sfbUserPlan.Conferencing = sfbUserPlan.Conferencing & Convert.ToBoolean(cntx.Quotas[Quotas.SFB_CONFERENCING].QuotaAllocatedValue);
-                sfbUserPlan.EnterpriseVoice = sfbUserPlan.EnterpriseVoice & Convert.ToBoolean(cntx.Quotas[Quotas.SFB_ENTERPRISEVOICE].QuotaAllocatedValue);
+                sfbUserPlan.Conferencing = sfbUserPlan.Conferencing && Convert.ToBoolean(cntx.Quotas[Quotas.SFB_CONFERENCING].QuotaAllocatedValue);
+                sfbUserPlan.EnterpriseVoice = sfbUserPlan.EnterpriseVoice && Convert.ToBoolean(cntx.Quotas[Quotas.SFB_ENTERPRISEVOICE].QuotaAllocatedValue);
                 if (!sfbUserPlan.EnterpriseVoice)
                     sfbUserPlan.VoicePolicy = SfBVoicePolicyType.None;
                 sfbUserPlan.IM = true;
@@ -1068,8 +1067,9 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     ret = sfb.GetPolicyList(type, name);
                 }
             }
-            catch (Exception)
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
             finally
             {

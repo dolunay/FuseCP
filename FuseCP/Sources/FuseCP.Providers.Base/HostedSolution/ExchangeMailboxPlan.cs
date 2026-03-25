@@ -263,7 +263,7 @@ namespace FuseCP.Providers.HostedSolution
             get
             {
                 Regex r = new Regex(@"[^A-Za-z0-9]");
-                return "FCPPolicy" + MailboxPlanId.ToString() + "_" + r.Replace(MailboxPlan, "");
+                return "FCPPolicy" + MailboxPlanId + "_" + r.Replace(MailboxPlan, "");
             }
         }
     }

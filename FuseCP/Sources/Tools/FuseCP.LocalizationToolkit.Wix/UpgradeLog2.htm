@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
  <html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-16" http-equiv="Content-Type" /><title _locID="ConversionReport0">
           Migration Report
@@ -185,7 +185,7 @@
             function toggleTableRowsByName(name)
             {
                var allRows = document.getElementsByTagName('tr');
-               for (i=0; i < allRows.length; i++)
+               for (var i=0; i < allRows.length; i++)
                {
                   var currentName = allRows[i].getAttribute('name');
                   if(!!currentName && currentName.indexOf(name) == 0)
@@ -199,7 +199,7 @@
             function scrollToFirstVisibleRow(name) 
             {
                var allRows = document.getElementsByTagName('tr');
-               for (i=0; i < allRows.length; i++)
+               for (var i=0; i < allRows.length; i++)
                {
                   var currentName = allRows[i].getAttribute('name');
                   var isVisible = allRows[i].style.display == ''; 

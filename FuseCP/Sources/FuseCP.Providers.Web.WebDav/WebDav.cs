@@ -109,7 +109,7 @@ namespace FuseCP.Providers.Web
                     return true;
                 }
             }
-            catch {  }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
             return false;
         }
 
@@ -133,7 +133,7 @@ namespace FuseCP.Providers.Web
                     }
                 }
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             return rules.ToArray();
         }

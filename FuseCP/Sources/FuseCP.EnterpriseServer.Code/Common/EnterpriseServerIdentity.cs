@@ -23,7 +23,7 @@ namespace FuseCP.EnterpriseServer
 {
     public class EnterpriseServerIdentity : IIdentity
     {
-        string name;
+        readonly string name;
 
         public EnterpriseServerIdentity(string name)
         {

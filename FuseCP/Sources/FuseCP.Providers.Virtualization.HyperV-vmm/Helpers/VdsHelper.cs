@@ -171,7 +171,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
             advancedDisk = null;
             diskPack = null;
 
-            ServiceLoader serviceLoader = new ServiceLoader();
+            using ServiceLoader serviceLoader = new ServiceLoader();
             Service vds = serviceLoader.LoadService(serverName);
             vds.WaitForServiceReady();
 
@@ -273,7 +273,7 @@ exit", Convert.ToInt32(objDisk["Index"])));
 
             // Initialize an event watcher and subscribe to events 
             // that match this query
-            ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
+            using ManagementEventWatcher watcher = new ManagementEventWatcher(cimv2.GetScope(), query);
             // times out watcher.WaitForNextEvent in 20 seconds
             watcher.Options.Timeout = new TimeSpan(0, 0, 20);
 

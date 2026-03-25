@@ -80,7 +80,7 @@ namespace FuseCP.Providers.HostedSolution
             get
             {
                 Regex r = new Regex(@"[^A-Za-z0-9]");
-                return "FCPPolicyTag" + TagID.ToString() + "_" + r.Replace(TagName, "");
+                return "FCPPolicyTag" + TagID + "_" + r.Replace(TagName, "");
             }
         }
     }

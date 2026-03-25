@@ -55,7 +55,7 @@ namespace FuseCP.Providers.HostedSolution
 				sb.AppendFormat("{0},", ToCsvString(item.MailboxType));
                 sb.AppendFormat("{0},", ToCsvString(item.BlackberryEnabled));
                 sb.AppendFormat("{0}", ToCsvString(item.MailboxPlan));
-                mainBuilder.Append(sb.ToString());
+                mainBuilder.Append(sb);
             }
             return mainBuilder.ToString();
         }

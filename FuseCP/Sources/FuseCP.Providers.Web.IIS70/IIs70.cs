@@ -1549,7 +1549,7 @@ namespace FuseCP.Providers.Web
 			using (ServerManager srvman = webObjectsSvc.GetServerManager())
 			{
 				var appConfig = srvman.GetApplicationHostConfiguration();
-				ConfigurationSection handlersSection = appConfig.GetSection(Constants.HandlersSection, (site as WebAppVirtualDirectory).FullQualifiedPath);
+				ConfigurationSection handlersSection = appConfig.GetSection(Constants.HandlersSection, (site).FullQualifiedPath);
 
 				var handlersCollection = handlersSection.GetCollection();
 

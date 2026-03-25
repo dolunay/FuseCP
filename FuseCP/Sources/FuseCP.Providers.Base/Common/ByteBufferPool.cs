@@ -42,7 +42,7 @@ namespace System.IO
 	// This isn't actually a buffer pool. It always creates a new byte buffer.
 	class ByteBufferAllocator : IByteBufferPool
 	{
-		private int _bufferSize;
+		private readonly int _bufferSize;
 
 		public ByteBufferAllocator(int bufferSize)
 		{
@@ -63,13 +63,13 @@ namespace System.IO
 
 	public class ByteBufferPool : IByteBufferPool
 	{
-		private byte[][] _bufferPool = null;
+		private readonly byte[][] _bufferPool = null;
 
 		private int _current; // -1 for none
 		private int _last;
-		private int _max;     // maximum number of buffers to pool
+		private readonly int _max;     // maximum number of buffers to pool
 
-		private int _bufferSize;
+		private readonly int _bufferSize;
 
 		private Object _controlCookie = "cookie object";
 

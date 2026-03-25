@@ -77,10 +77,10 @@ namespace FuseCP.Providers.Utils.LogParser
 			this.Open(logsPath, 0, 0);
 		}
 
-		public void Open(string logsPath, long lastAccessed, long line)
+		public void Open(string logsPath, long lastAccessed, long local_line)
 		{
-			// save specified line
-			lineIndex = line;
+			// save specified local_line
+			lineIndex = local_line;
 
 			// get logs directory
 			DirectoryInfo logsDir = new DirectoryInfo(FileUtils.EvaluateSystemVariables(logsPath));

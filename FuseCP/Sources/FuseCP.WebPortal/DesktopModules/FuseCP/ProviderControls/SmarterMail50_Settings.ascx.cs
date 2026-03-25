@@ -111,8 +111,9 @@ namespace FuseCP.Portal.ProviderControls
                         gvSEDestinations.DataBind();
                         SaveSEDestinations();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
 
                     break;

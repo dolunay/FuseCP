@@ -35,7 +35,7 @@ namespace FuseCP.EnterpriseServer
 
             // get the list of all packages
             List<PackageInfo> packages = PackageController.GetPackagePackages(topTask.PackageId, false);
-            TaskManager.Write("Packages to verify: " + packages.Count.ToString());
+            TaskManager.Write("Packages to verify: " + packages.Count);
 
             bool checkMSSQL = (String.Compare((string)topTask.GetParamValue("MSSQL_OVERUSED"), "true", true) == 0);
             bool checkMySQL = (String.Compare((string)topTask.GetParamValue("MYSQL_OVERUSED"), "true", true) == 0);
@@ -213,7 +213,7 @@ namespace FuseCP.EnterpriseServer
             }
 
             // log results
-            TaskManager.Write("Total packages overused: " + overusedPackages.ToString());
+            TaskManager.Write("Total packages overused: " + overusedPackages);
         }
 
 		private string ReplaceVariables(string content, string threshold, string usage, string spaceName, string customerName)
@@ -251,11 +251,11 @@ namespace FuseCP.EnterpriseServer
 
     internal class DatabaseQuota
     {
-        private string providerName = string.Empty;
-        private int spaceUsed = 0;
-        private int spaceAllocated = 0;
-        private bool belowWarningThreshold = false;
-        private bool belowUsageThreshold = false;
+        private readonly string providerName = string.Empty;
+        private readonly int spaceUsed = 0;
+        private readonly int spaceAllocated = 0;
+        private readonly bool belowWarningThreshold = false;
+        private readonly bool belowUsageThreshold = false;
         public DatabaseQuota(string ProviderName, int SpaceUsed, int SpaceAllocated, bool BelowWarningThreshold, bool BelowUsageThreshold)
         {
             providerName = ProviderName;

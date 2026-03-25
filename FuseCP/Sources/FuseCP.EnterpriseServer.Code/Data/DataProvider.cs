@@ -92,8 +92,9 @@ namespace FuseCP.EnterpriseServer
 											.Select(p => p.PropertyValue)
 											.FirstOrDefaultAsync()
 											.ConfigureAwait(false))?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false; 
-									} catch (Exception)
+									} catch (Exception swallowedEx)
 									{
+									    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 									}
 								}
 							});
@@ -122,7 +123,7 @@ namespace FuseCP.EnterpriseServer
 		public const bool UseEntityFramework = false;
 #endif
 
-		ControllerBase Provider;
+		readonly ControllerBase Provider;
 		ServerController serverController;
 		protected ServerController ServerController => serverController ??= new ServerController(Provider);
 
@@ -554,8 +555,8 @@ namespace FuseCP.EnterpriseServer
 		public string ColumnName(string sortColumn)
 		{
 			var i = sortColumn.LastIndexOf('.');
-			if (i >= 0) return sortColumn.Substring(i + 1);
-			else return sortColumn;
+			return i >= 0 ? sortColumn.Substring(i + 1) : sortColumn;
+
 		}
 
 		public DataSet GetUsersPaged(int actorId, int userId, string filterColumn, string filterValue,
@@ -1887,7 +1888,7 @@ namespace FuseCP.EnterpriseServer
 									ExternalIp = pkip != null ? pkip.ExternalIp : null
 								})
 								.GroupJoin(PrivateIpAddresses
-									.Where(ip => ip.IsPrimary == true),
+									.Where(ip => ip.IsPrimary),
 									p => p.SI.ItemId, pip => pip.ItemId, (p, pips) => new
 									{
 										p.P,
@@ -2356,7 +2357,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByExchangeOrganizationIdInternally",
 					 new SqlParameter("@ItemID", itemId));
 			}
@@ -2409,7 +2410,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByIdInternally",
 					 new SqlParameter("@UserID", userId));
 			}
@@ -2462,7 +2463,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByUsernameInternally",
 					 new SqlParameter("@Username", username));
 			}
@@ -2553,7 +2554,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserById",
 					 new SqlParameter("@ActorId", actorId),
 					 new SqlParameter("@UserID", userId));
@@ -2613,7 +2614,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserByUsername",
 					 new SqlParameter("@ActorId", actorId),
 					 new SqlParameter("@Username", username));
@@ -3076,7 +3077,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetUserPackagesServerUrls",
 					 new SqlParameter("@UserId", userId));
 			}
@@ -3267,7 +3268,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServer",
 					 new SqlParameter("@actorId", actorId),
 					 new SqlParameter("@ServerID", serverId),
@@ -3294,7 +3295,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerShortDetails",
 					 new SqlParameter("@ServerID", serverId));
 			}
@@ -3333,7 +3334,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerByName",
 					 new SqlParameter("@actorId", actorId),
 					 new SqlParameter("@ServerName", serverName));
@@ -3372,7 +3373,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetServerInternal",
 					 new SqlParameter("@ServerID", serverId));
 			}
@@ -4089,7 +4090,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					 ObjectQualifier + "GetPrivateNetworVLAN",
 					 new SqlParameter("@VlanID", vlanId));
 			}
@@ -4172,8 +4173,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = vlans.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) vlans = vlans.OrderBy(ColumnName(sortColumn));
-					else vlans = vlans.OrderBy(v => v.Vlan);
+					vlans = !string.IsNullOrEmpty(sortColumn) ? vlans.OrderBy(ColumnName(sortColumn)) : vlans.OrderBy(v => v.Vlan);
+
 
 					vlans = vlans.Skip(startRow).Take(maximumRows);
 
@@ -4409,8 +4410,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = vlans.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) vlans = vlans.OrderBy(ColumnName(sortColumn));
-					else vlans = vlans.OrderBy(v => v.Vlan);
+					vlans = !string.IsNullOrEmpty(sortColumn) ? vlans.OrderBy(ColumnName(sortColumn)) : vlans.OrderBy(v => v.Vlan);
+
 
 					vlans = vlans.Skip(startRow).Take(maximumRows);
 
@@ -4453,7 +4454,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "GetIPAddress",
 					new SqlParameter("@AddressID", ipAddressId));
 			}
@@ -4670,8 +4671,8 @@ namespace FuseCP.EnterpriseServer
 
 				var count = addresses.Count();
 
-				if (string.IsNullOrEmpty(sortColumn)) addresses = addresses.OrderBy(a => a.ExternalIp);
-				else addresses = addresses.OrderBy(ColumnName(sortColumn));
+				addresses = string.IsNullOrEmpty(sortColumn) ? addresses.OrderBy(a => a.ExternalIp) : addresses.OrderBy(ColumnName(sortColumn));
+
 
 				addresses = addresses.Skip(startRow).Take(maximumRows);
 
@@ -5619,7 +5620,7 @@ namespace FuseCP.EnterpriseServer
 							ServerId = serverId != 0 ? d.Zone.Service.Server.ServerId : 0,
 							ServerName = serverId != 0 ? d.Zone.Service.Server.ServerName : "",
 							ServerComments = serverId != 0 ? d.Zone.Service.Server.Comments : "",
-							VirtualServer = serverId != 0 ? d.Zone.Service.Server.VirtualServer : false,
+							VirtualServer = serverId != 0 && d.Zone.Service.Server.VirtualServer,
 							d.Package.UserId,
 							d.Package.User.Username,
 							d.Package.User.FirstName,
@@ -5653,8 +5654,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = domains.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) domains = domains.OrderBy(ColumnName(sortColumn));
-					else domains = domains.OrderBy(d => d.DomainName);
+					domains = !string.IsNullOrEmpty(sortColumn) ? domains.OrderBy(ColumnName(sortColumn)) : domains.OrderBy(d => d.DomainName);
+
 
 					domains = domains.Skip(startRow).Take(maximumRows);
 
@@ -6259,7 +6260,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString,
+				return SqlHelper.ExecuteReader(NativeConnectionString,
 					CommandType.StoredProcedure,
 					ObjectQualifier + "GetService",
 					new SqlParameter("@actorId", actorId),
@@ -6462,7 +6463,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString,
+				return SqlHelper.ExecuteReader(NativeConnectionString,
 					CommandType.StoredProcedure,
 					ObjectQualifier + "GetServiceProperties",
 					new SqlParameter("@actorId", actorId),
@@ -6810,8 +6811,8 @@ namespace FuseCP.EnterpriseServer
 
 					var count = items.Count();
 
-					if (!string.IsNullOrEmpty(sortColumn)) items = items.OrderBy(ColumnName(sortColumn));
-					else items = items.OrderBy(i => i.ItemName);
+					items = !string.IsNullOrEmpty(sortColumn) ? items.OrderBy(ColumnName(sortColumn)) : items.OrderBy(i => i.ItemName);
+
 
 					items = items.Skip(startRow).Take(maximumRows);
 
@@ -8265,7 +8266,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = pl.Plan.ServerId != null ? pl.Plan.ServerId : 0,
 						ServerName = pl.Plan.Server != null ? pl.Plan.Server.ServerName : "None",
 						ServerComments = pl.Plan.Server != null ? pl.Plan.Server.Comments : "",
-						VirtualServer = pl.Plan.Server != null ? pl.Plan.Server.VirtualServer : true,
+						VirtualServer = !(pl.Plan.Server != null) || pl.Plan.Server.VirtualServer,
 						// package
 						PackageName = p != null ? p.PackageName : "None"
 					})
@@ -8425,7 +8426,7 @@ namespace FuseCP.EnterpriseServer
 			}
 			else
 			{
-				return (IDataReader)SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
+				return SqlHelper.ExecuteReader(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "GetHostingPlan",
 					new SqlParameter("@actorId", actorId),
 					new SqlParameter("@PlanId", planId));
@@ -9116,7 +9117,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = p.ServerId ?? 0,
 						ServerName = p.Server != null ? p.Server.ServerName : "None",
 						ServerComments = p.Server != null ? p.Server.Comments : "",
-						VirtualServer = p.Server != null ? p.Server.VirtualServer : true,
+						VirtualServer = !(p.Server != null) || p.Server.VirtualServer,
 						// hosting plan
 						p.HostingPlan.PlanName,
 						// user
@@ -9186,7 +9187,7 @@ namespace FuseCP.EnterpriseServer
 						ServerId = p.ServerId != null ? p.ServerId : 0,
 						ServerName = p.Server != null ? p.Server.ServerName : "None",
 						ServerComments = p.Server != null ? p.Server.Comments : "",
-						VirtualServer = p.Server != null ? p.Server.VirtualServer : true,
+						VirtualServer = !(p.Server != null) || p.Server.VirtualServer,
 						// hosting plan
 						p.PlanId,
 						p.HostingPlan.PlanName,
@@ -9696,8 +9697,6 @@ namespace FuseCP.EnterpriseServer
 
 		public int CalculatePackageDiskspace(int packageId)
 		{
-			const long MB = 1024 * 1024;
-
 			int diskspace = (int)(((PackagesTreeCaches
 				.Where(t => t.ParentPackageId == packageId)
 				.Join(Packages, t => t.PackageId, p => p.PackageId, (t, p) => p)
@@ -9715,8 +9714,6 @@ namespace FuseCP.EnterpriseServer
 
 		public int CalculatePackageBandwidth(int packageId)
 		{
-			const long MB = 1024 * 1024;
-
 			var today = DateTime.Now.Date;
 			var startDate = today.AddDays(-today.Day + 1);
 			var endDate = startDate.AddMonths(1);
@@ -11000,38 +10997,45 @@ namespace FuseCP.EnterpriseServer
 			{
 				var package = PackageAddons
 					.FirstOrDefault(a => a.PackageAddonId == packageAddonId);
-				if (package != null)
+				if (package == null)
 				{
-					if (!CheckActorPackageRights(actorId, package.PackageId))
-						throw new AccessViolationException("You are not allowed to access this package");
-
-					using (var transaction = Database.BeginTransaction())
-					{
-						var parentPackageId = Packages
-							.Where(p => p.PackageId == package.PackageId)
-							.Select(p => p.ParentPackageId)
-							.FirstOrDefault();
-
-						package.PlanId = planId;
-						package.Quantity = quantity;
-						package.PurchaseDate = purchaseDate;
-						package.StatusId = statusId;
-						package.Comments = comments;
-						SaveChanges();
-
-						var exceedingQuotas = GetPackageExceedingQuotas(parentPackageId)
-							.Where(q => q.QuotaValue > 0)
-							.ToList();
-
-						if (exceedingQuotas.Any()) transaction.Rollback();
-						else transaction.Commit();
-
-						return EntityDataSet(exceedingQuotas);
-					}
+					return EntityDataSet(Array.Empty<ExceedingQuota>());
 				}
-                else return EntityDataSet(Array.Empty<ExceedingQuota>());
-            }
-            else
+
+				if (!CheckActorPackageRights(actorId, package.PackageId))
+					throw new AccessViolationException("You are not allowed to access this package");
+
+				using (var transaction = Database.BeginTransaction())
+				{
+					var parentPackageId = Packages
+						.Where(p => p.PackageId == package.PackageId)
+						.Select(p => p.ParentPackageId)
+						.FirstOrDefault();
+
+					package.PlanId = planId;
+					package.Quantity = quantity;
+					package.PurchaseDate = purchaseDate;
+					package.StatusId = statusId;
+					package.Comments = comments;
+					SaveChanges();
+
+					var exceedingQuotas = GetPackageExceedingQuotas(parentPackageId)
+						.Where(q => q.QuotaValue > 0)
+						.ToList();
+
+					if (exceedingQuotas.Any())
+					{
+						transaction.Rollback();
+					}
+					else
+					{
+						transaction.Commit();
+					}
+
+					return EntityDataSet(exceedingQuotas);
+				}
+			}
+			else
 			{
 				return SqlHelper.ExecuteDataset(NativeConnectionString, CommandType.StoredProcedure,
 					ObjectQualifier + "UpdatePackageAddon",
@@ -13670,7 +13674,7 @@ namespace FuseCP.EnterpriseServer
 
 		private DataSet ExecuteLongDataSet(string commandText, CommandType commandType, params SqlParameter[] parameters)
 		{
-			SqlConnection conn = new SqlConnection(NativeConnectionString);
+			using SqlConnection conn = new SqlConnection(NativeConnectionString);
 			SqlCommand cmd = new SqlCommand(commandText, conn);
 			cmd.CommandType = commandType;
 			cmd.CommandTimeout = 300;
@@ -13700,7 +13704,7 @@ namespace FuseCP.EnterpriseServer
 
 		private void ExecuteLongNonQuery(string spName, params SqlParameter[] parameters)
 		{
-			SqlConnection conn = new SqlConnection(NativeConnectionString);
+			using SqlConnection conn = new SqlConnection(NativeConnectionString);
 			SqlCommand cmd = new SqlCommand(spName, conn);
 			cmd.CommandType = CommandType.StoredProcedure;
 			cmd.CommandTimeout = 300;
@@ -15120,7 +15124,7 @@ namespace FuseCP.EnterpriseServer
 			{
 				var plans = ExchangeMailboxPlans
 					.Where(p => p.ItemId == itemId &&
-						(p.Archiving == archiving || (archiving == false && p.Archiving == null)))
+						(p.Archiving == archiving || (!(archiving) && p.Archiving == null)))
 					.OrderBy(p => p.MailboxPlan)
 					.Select(p => new
 					{

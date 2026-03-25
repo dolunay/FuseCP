@@ -412,7 +412,7 @@ namespace FuseCP.EnterpriseServer
 
                 int maxAddresses = ServerController.GetPackageUnassignedIPAddresses(packageId, IPAddressPool.VpsExternalNetwork).Count;
                 if (externalNetworkEnabled && externalAddressesNumber > maxAddresses)
-                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses.ToString());
+                    quotaResults.Add(VirtualizationErrorCodes.QUOTA_EXCEEDED_EXTERNAL_ADDRESSES_NUMBER + ":" + maxAddresses);
 
                 // check private addresses number
                 if (!randomPrivateAddresses && privateAddresses != null)
@@ -497,10 +497,10 @@ namespace FuseCP.EnterpriseServer
 
 
                 // dynamic memory
-                if (otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled)
-                    vm.DynamicMemory = otherSettings.DynamicMemory;
-                else
-                    vm.DynamicMemory = null;
+                vm.DynamicMemory = otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled ? otherSettings.DynamicMemory : null;
+
+
+
 
                 // networking
                 vm.ExternalNetworkEnabled = externalNetworkEnabled;
@@ -2090,10 +2090,10 @@ namespace FuseCP.EnterpriseServer
                 vm.PrivateNetworkEnabled = privateNetworkEnabled;
 
                 // dynamic memory
-                if (otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled)
-                    vm.DynamicMemory = otherSettings.DynamicMemory;
-                else
-                    vm.DynamicMemory = null;
+                vm.DynamicMemory = otherSettings.DynamicMemory != null && otherSettings.DynamicMemory.Enabled ? otherSettings.DynamicMemory : null;
+
+
+
 
                 // load service settings
                 StringDictionary settings = ServerController.GetServiceSettings(vm.ServiceId);
@@ -3027,9 +3027,10 @@ namespace FuseCP.EnterpriseServer
                     var v6 = IPAddress.Parse(nic.NetworkFormat).V6;
                     nic.SubnetMask = GetPrivateNetworkSubnetMask(settings["PrivateSubnetMask"], v6);
                 }
-                catch
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
             }
             else
@@ -3321,7 +3322,7 @@ namespace FuseCP.EnterpriseServer
                 var addr = IPAddress.Parse(ip.IPAddress);
                 sortedIps.Add(addr, ip.IPAddress);
 
-                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr.ToString());
+                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr);
             }
             Trace.TraceInformation("Leaving GetSortedNormalizedIPAddresses()");
             return sortedIps;

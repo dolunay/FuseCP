@@ -38,8 +38,9 @@ namespace FuseCP.Portal
                 {
                     dt = DateTime.Parse(txtDate.Text);
                 }
-                catch
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
                 return dt;
             }

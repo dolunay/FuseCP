@@ -48,8 +48,9 @@ namespace FuseCP.Portal.UserControls
                         enablePolicyCheckBox.Checked = Utils.ParseBool(parts[0], false);
                         txtMaximumLength.Text = parts[1];
                     }
-                    catch
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 

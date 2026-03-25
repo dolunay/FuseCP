@@ -33,13 +33,13 @@ namespace FuseCP.Providers.Utils.LogParser
 	/// </summary>
 	public class LogParser
 	{
-		string serviceName;
-		string logName;
-		string logsPath;
-		string[] keyFields;
-		int keyFieldsLength;
-		Regex re_clean = new Regex("\\W+", RegexOptions.Compiled);
-        string[] _fields;
+		readonly string serviceName;
+		readonly string logName;
+		readonly string logsPath;
+		readonly string[] keyFields;
+		readonly int keyFieldsLength;
+		readonly Regex re_clean = new Regex("\\W+", RegexOptions.Compiled);
+        readonly string[] _fields;
 
 		public event ProcessKeyFieldsEventHandler ProcessKeyFields;
 		public event CalculateStatsLineEventHandler CalculateStatisticsLine;
@@ -118,7 +118,7 @@ namespace FuseCP.Providers.Utils.LogParser
 						catch (Exception ex)
 						{
 							// Handle an exception
-							Log.WriteError(String.Format("LogParser: Failed to instantiate monthly stats file '{0}' at '{0}' path", statsName, statsDir), ex);
+							Log.WriteError(String.Format("LogParser: Failed to instantiate monthly stats file '{0}' at '{1}' path", statsName, statsDir), ex);
 							// SKIP OVER THE NEXT ITERATION
 							continue;
 						}

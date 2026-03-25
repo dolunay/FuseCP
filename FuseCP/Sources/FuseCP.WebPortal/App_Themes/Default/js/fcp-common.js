@@ -158,7 +158,7 @@ $(document).ready(function () {
  	/*	MAIN NAVIGATION
  	/************************/
 
-    $mainMenu = $('.main-menu');
+    var $mainMenu = $('.main-menu');
 
     // init collapse first for browser without transition support (IE9) 
     if (window.bootstrap && window.bootstrap.Collapse) {
@@ -401,7 +401,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         $currentItemToggle = $(this);
-        $currentItem = $(this).parent();
+        var $currentItem = $(this).parent();
         $mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).removeClass('active');
         collapseAction($mainMenu.find('li').not($currentItem).not($currentItem.parents('li')).children('ul.show'), 'hide');
         $currentItem.toggleClass('active');
@@ -793,7 +793,7 @@ $(document).ready(function () {
     $('.chat-status a').click(function (e) {
         e.preventDefault();
 
-        $btnToggle = $(this).parents('ul').siblings('.dropdown-toggle');
+        var $btnToggle = $(this).parents('ul').siblings('.dropdown-toggle');
 
         $btnToggle
  		.html($(this).text() + ' <span class="caret"></span>')

@@ -52,7 +52,7 @@ namespace FuseCP.EnterpriseServer
     {
         public const string TemporyDomainName = "TempDomain";
         public const string UseStorageSpaces = "UseStorageSpaces";
-        private OrganizationFoldersManager foldersManager;
+        private readonly OrganizationFoldersManager foldersManager;
 
         public OrganizationController() : this(null) { }
         public OrganizationController(ControllerBase provider): base(provider)
@@ -858,14 +858,14 @@ namespace FuseCP.EnterpriseServer
 
                 //Cleanup Enterprise storage
 
-                if (EnterpriseStorageController.DeleteEnterpriseStorage(org.PackageId, itemId).IsSuccess == false)
+                if (!(EnterpriseStorageController.DeleteEnterpriseStorage(org.PackageId, itemId).IsSuccess))
                 {
                     successful = false;
                 }
 
                 //Cleanup RDS
 
-                if (RemoteDesktopServicesController.DeleteRemoteDesktopService(itemId).IsSuccess == false)
+                if (!(RemoteDesktopServicesController.DeleteRemoteDesktopService(itemId).IsSuccess))
                 {
                     successful = false;
                 }
@@ -885,7 +885,7 @@ namespace FuseCP.EnterpriseServer
                 //Cleanup OrganizationFolders
                 try
                 {
-                    if (foldersManager.DeleteFolders(itemId).IsSuccess == false)
+                    if (!(foldersManager.DeleteFolders(itemId).IsSuccess))
                     {
                         successful = false;
                     }
@@ -1177,7 +1177,7 @@ namespace FuseCP.EnterpriseServer
 
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -1185,7 +1185,7 @@ namespace FuseCP.EnterpriseServer
 
                             orgs = ExchangeServerController.GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.Count > 0))
+                            if ((orgs != null) && (orgs.Count > 0))
                             {
                                 foreach (Organization o in orgs)
                                 {
@@ -2220,7 +2220,7 @@ namespace FuseCP.EnterpriseServer
                 return string.Empty;
             }
 
-            if (string.IsNullOrEmpty(resetUrl) == false)
+            if (!(string.IsNullOrEmpty(resetUrl)))
             {
                 return resetUrl;
             }
@@ -2238,7 +2238,7 @@ namespace FuseCP.EnterpriseServer
             var resultUrl = webdavPortalUrl.Append(passwordResetUrlFormat)
                 .Append(token.AccessTokenGuid.ToString("n"));
 
-            if (string.IsNullOrEmpty(pincode) == false)
+            if (!(string.IsNullOrEmpty(pincode)))
             {
                 resultUrl = resultUrl.Append(pincode);
             }
@@ -2607,7 +2607,7 @@ namespace FuseCP.EnterpriseServer
         /// <returns> True - if organization id should be appended. </returns>
         private UserFormatType GetUserFormatType(StringDictionary serviceSettings)
         {
-            if (!serviceSettings.ContainsKey("usernameformat"))
+            if (serviceSettings == null || !serviceSettings.ContainsKey("usernameformat"))
             {
                 return UserFormatType.AppendLongCounter;
             }
@@ -3117,7 +3117,7 @@ namespace FuseCP.EnterpriseServer
                 os.SetQuotaLimitOnFolder(
                     Path.Combine(GetDirectory(path), folderName),
                     GetLocationDrive(path), quotaType,
-                    quotaInfo.QuotaAllocatedValuePerOrganization.ToString() + unit,
+                    quotaInfo.QuotaAllocatedValuePerOrganization + unit,
                     0, String.Empty, String.Empty);
             }
         }
@@ -3533,9 +3533,8 @@ namespace FuseCP.EnterpriseServer
                         }
                     }
 
-                    if (!userPrincipalNameOwned)
+                    if (!userPrincipalNameOwned && EmailAddressExists(userPrincipalName, false))
                     {
-                        if (EmailAddressExists(userPrincipalName, false))
                             return BusinessErrorCodes.ERROR_EXCHANGE_EMAIL_EXISTS;
                     }
                 }

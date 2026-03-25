@@ -172,7 +172,7 @@ namespace FuseCP.EnterpriseServer
             System.Net.IPAddress ip;
             if (System.Net.IPAddress.TryParse(addr, out ip)) 
             {
-                return ((ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6) |
+                return ((ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6) ||
                         (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork));
             }
             else 
@@ -874,9 +874,10 @@ namespace FuseCP.EnterpriseServer
                 {
                     web.UpdateSiteBindings(siteItem.SiteId, newBindings.ToArray(), true);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
 
                 List<WebSite> sites = WebServerController.GetWebSites(domain.PackageId, false);
@@ -917,7 +918,7 @@ namespace FuseCP.EnterpriseServer
 
 
                 AddWebSitePointer(siteItemId,
-                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) |
+                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) ||
                     (domain.DomainName == parentZone))
                     ? "" : domain.DomainName.Replace("." + parentZone, "")
                     , ZoneInfo.DomainId, true, true, true);
@@ -935,7 +936,7 @@ namespace FuseCP.EnterpriseServer
                     ZoneInfo = ServerController.GetDomain(pointerParentZone);
 
                     AddWebSitePointer(siteItemId,
-                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone)  |
+                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone)  ||
                         (pointer.DomainName == pointerParentZone))
                         ? "" : pointer.DomainName.Replace("." + pointerParentZone, "")
                         , ZoneInfo.DomainId, true, true, true);
@@ -954,8 +955,8 @@ namespace FuseCP.EnterpriseServer
 
                 foreach (ServerBinding b in web.GetSiteBindings(siteItem.SiteId))
                 {
-                    if (!((b.Host == srvBinding.Host) &
-                        (b.IP == srvBinding.IP) &
+                    if (!((b.Host == srvBinding.Host) &&
+                        (b.IP == srvBinding.IP) &&
                         (b.Port == srvBinding.Port)))
                         newBindings.Add(b);
                 }
@@ -1059,9 +1060,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     web.UpdateSiteBindings(siteItem.SiteId, newBindings.ToArray(), true);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
-
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
 
@@ -1114,7 +1115,7 @@ namespace FuseCP.EnterpriseServer
                 }
 
                 AddWebSitePointer(siteItemId,
-                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) |
+                    ((domain.DomainName.Replace("." + parentZone, "") == parentZone) ||
                     (domain.DomainName == parentZone))
                     ? "" : domain.DomainName.Replace("." + parentZone, "")
                     , ZoneInfo.DomainId, true, true, true);
@@ -1132,7 +1133,7 @@ namespace FuseCP.EnterpriseServer
                     ZoneInfo = ServerController.GetDomain(pointerParentZone);
 
                     AddWebSitePointer(siteItemId,
-                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone) |
+                        ((pointer.DomainName.Replace("." + pointerParentZone, "") == pointerParentZone) ||
                         (pointer.DomainName == pointerParentZone))
                         ? "" : pointer.DomainName.Replace("." + pointerParentZone, "")
                         , ZoneInfo.DomainId, true, true, true);
@@ -1202,7 +1203,7 @@ namespace FuseCP.EnterpriseServer
                 }
             }
             
-            if ((bindings.Count == bindingsCount) | (bindings.Count == 0))
+            if ((bindings.Count == bindingsCount) || (bindings.Count == 0))
             {
                 AddBinding(bindings, new ServerBinding(ipAddr, "80", string.IsNullOrEmpty(hostName) ? domainName : string.IsNullOrEmpty(domainName) ? hostName : hostName + "." + domainName));
             }
@@ -1333,9 +1334,8 @@ namespace FuseCP.EnterpriseServer
                 return BusinessErrorCodes.ERROR_DOMAIN_PACKAGE_ITEM_NOT_FOUND;
 
             // check if the web site already exists
-            if (!rebuild)
+            if (!rebuild && Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(hostName) ? domain.DomainName : hostName + "." + domain.DomainName, true) != 0)
             {
-                if (Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(hostName) ? domain.DomainName : hostName + "." + domain.DomainName, true) != 0)
                     return BusinessErrorCodes.ERROR_WEB_SITE_ALREADY_EXISTS;
             }
 
@@ -1397,10 +1397,8 @@ namespace FuseCP.EnterpriseServer
                     {
                         foreach (DnsRecord r in resourceRecords)
                         {
-                            if (r.RecordName != "*")
+                            if (r.RecordName != "*" && Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(r.RecordName) ? domain.DomainName : r.RecordName + "." + domain.DomainName, true) != 0)
                             {
-                                // check if the web site already exists
-                                if (Database.CheckDomain(domain.PackageId, string.IsNullOrEmpty(r.RecordName) ? domain.DomainName : r.RecordName + "." + domain.DomainName, true) != 0)
                                     return BusinessErrorCodes.ERROR_WEB_SITE_ALREADY_EXISTS;
                             }
                         }
@@ -1573,7 +1571,7 @@ namespace FuseCP.EnterpriseServer
                     {
                         foreach (GlobalDnsRecord r in dnsRecords)
                         {
-                            if ((r.RecordName == "[host_name]") | ((r.RecordName + (string.IsNullOrEmpty(r.RecordName) ? domain.ZoneName : "." + domain.ZoneName)) == domain.DomainName))
+                            if ((r.RecordName == "[host_name]") || ((r.RecordName + (string.IsNullOrEmpty(r.RecordName) ? domain.ZoneName : "." + domain.ZoneName)) == domain.DomainName))
                                 tmpDnsRecords.Add(r);
                         }
                     }
@@ -2543,7 +2541,7 @@ namespace FuseCP.EnterpriseServer
 
             //get site
             WebSite site = GetWebSite(webSiteId);
-            bool updateRequired = (site != null) && (site.Name.Equals(sslDomain, StringComparison.InvariantCulture) != true);
+            bool updateRequired = (site != null) && (!(site.Name.Equals(sslDomain, StringComparison.InvariantCulture)));
 
             // place log record
             TaskManager.StartTask("WEB_SITE", "ADD_SSL_FOLDER", sslDomain);
@@ -2787,7 +2785,7 @@ namespace FuseCP.EnterpriseServer
 				}
 
 				//
-				if (profileIntegritySucceeded == true)
+				if (profileIntegritySucceeded)
 				{
 					// Build service items list
 					item.WebDeploySitePublishingProfile = String.Join(",", Array.ConvertAll<int, string>(serviceItemIds, (int x) => { return x.ToString(); }));
@@ -2859,7 +2857,7 @@ namespace FuseCP.EnterpriseServer
                 StringDictionary webSettings = ServerController.GetServiceSettings(item.ServiceId);
                 if (!String.IsNullOrEmpty(webSettings["WmSvc.NETBIOS"]))
                 {
-                    accountName = webSettings["WmSvc.NETBIOS"].ToString() + "\\" + accountName;
+                    accountName = webSettings["WmSvc.NETBIOS"] + "\\" + accountName;
                 }
 
 				// Most part of the functionality used to enable Web Deploy publishing correspond to those created for Web Management purposes,
@@ -3680,7 +3678,7 @@ namespace FuseCP.EnterpriseServer
                 StringDictionary webSettings = ServerController.GetServiceSettings(item.ServiceId);
                 if (!String.IsNullOrEmpty(webSettings["WmSvc.NETBIOS"]))
                 {
-                    accountName = webSettings["WmSvc.NETBIOS"].ToString() + "\\" + accountName;
+                    accountName = webSettings["WmSvc.NETBIOS"] + "\\" + accountName;
                 }
 
 				//
@@ -3803,7 +3801,7 @@ namespace FuseCP.EnterpriseServer
 				TaskManager.WriteParameter("SiteItemId", siteItemId);
 
 				//
-				WebSite item = GetWebSite(siteItemId) as WebSite;
+				WebSite item = GetWebSite(siteItemId);
 
 				//
 				if (item == null)
@@ -4217,7 +4215,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
         {
             int domainId = 0;
             int counter = 0;
-            while ((header.IndexOf(".") != -1) & (counter < 2))
+            while ((header.IndexOf(".") != -1) && (counter < 2))
             {
 
                 foreach (DomainInfo d in domains)
@@ -4390,7 +4388,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Hostname", certificate.Hostname);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 WebServer server = GetWebServer(item.ServiceId);
@@ -4404,7 +4402,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
 
 
-                certificate.FriendlyName = String.Format("{0}_{1}", certificate.Hostname, ticks.ToString());
+                certificate.FriendlyName = String.Format("{0}_{1}", certificate.Hostname, ticks);
                 certificate = server.GenerateCSR(certificate);
                 certificate.id = Database.AddSSLRequest(SecurityContext.User.UserId, item.PackageId,
                     certificate.SiteID, certificate.UserID, certificate.FriendlyName, certificate.Hostname,
@@ -4435,7 +4433,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Hostname", certificate.Hostname);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 WebServer server = GetWebServer(item.ServiceId);
                 TaskManager.WriteParameter("item.ServiceId", item.ServiceId);
@@ -4486,7 +4484,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.WriteParameter("Email", email);
 
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
                 //WebServer server = GetWebServer(item.ServiceId);
                 TaskManager.WriteParameter("item.ServiceId", item.ServiceId);
@@ -4522,7 +4520,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
                 TaskManager.StartTask(LOG_SOURCE_WEB, "installPFX");
                 TaskManager.WriteParameter("SiteItemId", siteItemId);
 
-                WebSite item = GetWebSite(siteItemId) as WebSite;
+                WebSite item = GetWebSite(siteItemId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
 
                 TaskManager.WriteParameter("WebSite.Name", item.Name);
@@ -4571,7 +4569,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public List<SSLCertificate> GetPendingCertificates(int siteItemId)
         {
-            WebSite item = GetWebSite(siteItemId) as WebSite;
+            WebSite item = GetWebSite(siteItemId);
             List<SSLCertificate> certificates = new List<SSLCertificate>();
             return ObjectUtils.CreateListFromDataSet<SSLCertificate>(
                 Database.GetPendingCertificates(SecurityContext.User.UserId, item.PackageId, item.Id, false));
@@ -4603,7 +4601,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public List<SSLCertificate> GetCertificatesForSite(int siteId)
         {
-            WebSite item = GetWebSite(siteId) as WebSite;
+            WebSite item = GetWebSite(siteId);
             List<SSLCertificate> certificates = new List<SSLCertificate>();
             return ObjectUtils.CreateListFromDataSet<SSLCertificate>(
                 Database.GetCertificatesForSite(SecurityContext.User.UserId, item.PackageId, item.Id));
@@ -4611,7 +4609,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
         public byte[] ExportCertificate(int siteId, string serialNumber, string password)
         {
-            WebSite item = GetWebSite(siteId) as WebSite;
+            WebSite item = GetWebSite(siteId);
 
             WebServer server = GetWebServer(item.ServiceId);
             return server.ExportCertificate(serialNumber, password);
@@ -4624,7 +4622,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
             try
             {
                 TaskManager.StartTask(LOG_SOURCE_WEB, "DeleteCertificate");
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 result = server.DeleteCertificate(certificate, item);
                 if (result.IsSuccess)
@@ -4659,7 +4657,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
             {
                 TaskManager.StartTask(LOG_SOURCE_WEB, "ImportCertificate");
 
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 PackageInfo service = PackageController.GetPackage(item.PackageId);
                 SSLCertificate certificate = server.ImportCertificate(item);
@@ -4696,7 +4694,7 @@ Please ensure the space has been allocated {0} IP address as a dedicated one and
 
             try
             {
-                WebSite item = GetWebSite(siteId) as WebSite;
+                WebSite item = GetWebSite(siteId);
                 WebServer server = GetWebServer(item.ServiceId);
                 serverResult = server.CheckCertificate(item);
                 if (serverResult && !Database.CheckSSLExistsForWebsite(siteId))

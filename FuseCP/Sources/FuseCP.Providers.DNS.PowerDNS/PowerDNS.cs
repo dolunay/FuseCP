@@ -723,10 +723,10 @@ namespace FuseCP.Providers.DNS
 
         public IDataReader ExecuteReader(string mySqlStatement, params MySqlParameter[] parameters)
         {
-            MySqlConnection mysqlConnection = new MySqlConnection(GetConnectionString());
+            using MySqlConnection mysqlConnection = new MySqlConnection(GetConnectionString());
             mysqlConnection.Open();
 
-            MySqlCommand command = new MySqlCommand(
+            using MySqlCommand command = new MySqlCommand(
                   mySqlStatement
                 , mysqlConnection
             );
@@ -744,7 +744,7 @@ namespace FuseCP.Providers.DNS
             MySqlConnection mysqlConnection = new MySqlConnection(GetConnectionString());
             mysqlConnection.Open();
 
-            MySqlCommand command = new MySqlCommand(
+            using MySqlCommand command = new MySqlCommand(
                   mySqlStatement
                 , mysqlConnection
             );

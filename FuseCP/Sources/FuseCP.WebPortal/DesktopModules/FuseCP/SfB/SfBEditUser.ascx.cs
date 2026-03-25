@@ -133,7 +133,7 @@ namespace FuseCP.Portal.SfB
                 bool enterpriseVoiceQuota = Utils.CheckQouta(Quotas.SFB_ENTERPRISEVOICE, cntx);
 
                 string lineUri = "";
-                if ((enterpriseVoiceQuota) & (ddlPhoneNumber.Items.Count != 0)) lineUri = ddlPhoneNumber.SelectedItem.Text + ":" + tbPin.Text;
+                if ((enterpriseVoiceQuota) && (ddlPhoneNumber.Items.Count != 0)) lineUri = ddlPhoneNumber.SelectedItem.Text + ":" + tbPin.Text;
 
                 SfBUserResult res = ES.Services.SfB.SetUserSfBPlan(PanelRequest.ItemID, PanelRequest.AccountID, Convert.ToInt32(planSelector.planId));
                 if (res.IsSuccess && res.ErrorCodes.Count == 0)

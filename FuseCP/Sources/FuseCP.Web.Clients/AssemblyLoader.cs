@@ -59,8 +59,8 @@ namespace FuseCP.Web.Clients
         static char ToChar(byte b)
         {
             b = (byte)(b & 0x1F);
-            if (b < 10) return (char)(b + (byte)'0');
-            else return (char)(b - 10 + (byte)'a');
+            return b < 10 ? (char)(b + (byte)'0') : (char)(b - 10 + (byte)'a');
+
         }
         public static IEnumerable<char> ToName(IEnumerable<byte> bytes)
         {
@@ -84,7 +84,7 @@ namespace FuseCP.Web.Clients
             // Convert plain text into a byte array.
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-            HashAlgorithm hash = SHA1.Create();
+            using HashAlgorithm hash = SHA1.Create();
 
             // Compute hash value of our plain text with appended salt.
             byte[] hashBytes = hash.ComputeHash(plainTextBytes);
@@ -122,7 +122,7 @@ namespace FuseCP.Web.Clients
             }
         }
 
-        static object disposeLock = new object();
+        static readonly object disposeLock = new object();
         public static void Dispose()
         {
             lock (disposeLock)
@@ -165,7 +165,7 @@ namespace FuseCP.Web.Clients
                         {
                             Directory.Delete(dir);
                         }
-                        catch { }
+                        catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                     }
                 }
             }
@@ -208,7 +208,7 @@ namespace FuseCP.Web.Clients
                         }
                     }
                 }
-                catch (Exception) { }
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
                 try
                 {
@@ -220,7 +220,7 @@ namespace FuseCP.Web.Clients
                         init.Invoke(null, new object[0]);
                     }
                 }
-                catch (Exception) { }
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
 #if NETFRAMEWORK
 				exposeWebServices = exposeWebServices ?? ConfigurationManager.AppSettings["ExposeWebServices"];
@@ -242,13 +242,13 @@ namespace FuseCP.Web.Clients
 #endif
 		}
 
-		static void AddEnvironmentPaths(IEnumerable<string> paths)
+		static void AddEnvironmentPaths(IEnumerable<string> local_paths)
 		{
 			var path = new[] { Environment.GetEnvironmentVariable("PATH") ?? string.Empty };
 
-			paths = paths.Where(p => !string.IsNullOrEmpty(p));
+			local_paths = local_paths.Where(p => !string.IsNullOrEmpty(p));
 
-			string newPath = string.Join(Path.PathSeparator.ToString(), path.Concat(paths));
+			string newPath = string.Join(Path.PathSeparator.ToString(), path.Concat(local_paths));
 
 			Environment.SetEnvironmentVariable("PATH", newPath);
 		}
@@ -258,13 +258,13 @@ namespace FuseCP.Web.Clients
             string file;
             if (arch == Architecture.X64)
             {
-                if (archExtension) file = Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x64.dll"));
-                else file = Path.Combine(assemblyPath, "x64", dllName);
+                file = archExtension ? Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x64.dll")) : Path.Combine(assemblyPath, "x64", dllName);
+
             }
             else if (arch == Architecture.X86)
             {
-				if (archExtension) file = Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x86.dll"));
-				else file = Path.Combine(assemblyPath, "x86", dllName);
+				file = archExtension ? Path.Combine(assemblyPath, Path.ChangeExtension(dllName, $"x86.dll")) : Path.Combine(assemblyPath, "x86", dllName);
+
 				file = Path.Combine(assemblyPath, "x86", dllName);
             }
             else throw new NotSupportedException($"Architecture {arch} not supported.");
@@ -280,7 +280,7 @@ namespace FuseCP.Web.Clients
             AddEnvironmentPaths(new[] { Path.GetDirectoryName(file) });
         }
 
-        static ConcurrentDictionary<string, string> OriginalFiles = new ConcurrentDictionary<string, string>();
+        static readonly ConcurrentDictionary<string, string> OriginalFiles = new ConcurrentDictionary<string, string>();
 	    static void LoadNativeDlls(Assembly a)
         {
             if (a.IsDynamic) return;
@@ -337,8 +337,8 @@ namespace FuseCP.Web.Clients
                 ProbingPaths.Replace('\\', Path.DirectorySeparatorChar)
                 .Split(';'));
 
-        static Dictionary<string, Assembly> LoadedAssemblies = new Dictionary<string, Assembly>();
-        static ConcurrentDictionary<string, object> Locks = new ConcurrentDictionary<string, object>();
+        static readonly Dictionary<string, Assembly> LoadedAssemblies = new Dictionary<string, Assembly>();
+        static readonly ConcurrentDictionary<string, object> Locks = new ConcurrentDictionary<string, object>();
 
         public static Assembly Resolve(object sender, ResolveEventArgs args)
         {

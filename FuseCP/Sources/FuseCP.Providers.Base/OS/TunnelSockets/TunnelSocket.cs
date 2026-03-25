@@ -192,8 +192,8 @@ namespace FuseCP.Providers.OS
                         var alwaysTrust = Delegate.CreateDelegate(delegateType, this, method);
 
                         Delegate validateDelegate = (Delegate)remoteCertificateValidationCallback?.GetValue(clientWebSocket.Options);
-                        if (validateDelegate == null) validateDelegate = alwaysTrust;
-                        else validateDelegate = Delegate.Combine(validateDelegate, alwaysTrust);
+                        validateDelegate = validateDelegate == null ? alwaysTrust : Delegate.Combine(validateDelegate, alwaysTrust);
+
 
                         remoteCertificateValidationCallback?.SetValue(clientWebSocket.Options, validateDelegate);
                         validateCertificateSet = true;
@@ -333,7 +333,7 @@ namespace FuseCP.Providers.OS
             var destResult = new WebSocketReceiveResult(0, WebSocketMessageType.Binary, true);
             var listenerResult = new WebSocketReceiveResult(0, WebSocketMessageType.Binary, true);
 
-            var Lock = new SemaphoreSlim(1, 1);
+            using var Lock = new SemaphoreSlim(1, 1);
 
             Task closeDestTask = null;
             Exception destException = null, exception = null;
@@ -461,7 +461,7 @@ namespace FuseCP.Providers.OS
         {
             get
             {
-                var tunnelConnected = IsSshTunnel ? BaseSshTunnel.Client.IsConnected && BaseSshTunnel.ForwardedPort.IsStarted : true;
+                var tunnelConnected = !(IsSshTunnel) || BaseSshTunnel.Client.IsConnected && BaseSshTunnel.ForwardedPort.IsStarted;
                 if (IsSocket) return BaseSocket.Connected && tunnelConnected;
                 if (IsWebSocket) return BaseWebSocket?.State == WebSocketState.Open && tunnelConnected;
                 return false;
@@ -473,7 +473,7 @@ namespace FuseCP.Providers.OS
             if (!IsWebSocket) throw new NotSupportedException("ReceiveMessageAsync is only supported on WebSockets");
             const int BufferSize = 1024;
             var buffer = new byte[BufferSize];
-            var mem = new MemoryStream();
+            using var mem = new MemoryStream();
             WebSocketReceiveResult result = await BaseWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), new CancellationTokenSource(IdleTimeout).Token);
             await mem.WriteAsync(buffer, 0, result.Count);
             while (!result.CloseStatus.HasValue && !result.EndOfMessage && result.MessageType == WebSocketMessageType.Text)
@@ -511,7 +511,7 @@ namespace FuseCP.Providers.OS
 
         public static T Deserialize<T>(byte[] data, IEnumerable<Type> knownTypes = null) where T : class
         {
-            var mem = new MemoryStream(data);
+            using var mem = new MemoryStream(data);
             return Deserialize<T>(mem, knownTypes);
         }
         public static T Deserialize<T>(Stream stream, IEnumerable<Type> knownTypes = null) where T : class
@@ -547,7 +547,7 @@ namespace FuseCP.Providers.OS
 
         public static byte[] Serialize<T>(T obj, IEnumerable<Type> knownTypes = null)
         {
-            var mem = new MemoryStream();
+            using var mem = new MemoryStream();
             Serialize<T>(obj, mem, knownTypes);
             return mem.ToArray();
         }
@@ -597,9 +597,10 @@ namespace FuseCP.Providers.OS
                 {
                     await UpgradeTunnelSocket.ConnectAsync();
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
 
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
                 if (UpgradeTunnelSocket.IsConnected)
                 {
@@ -675,7 +676,7 @@ namespace FuseCP.Providers.OS
 
         bool isConnected = false;
 
-        SemaphoreSlim ConnectLock = new SemaphoreSlim(1, 1);
+        readonly SemaphoreSlim ConnectLock = new SemaphoreSlim(1, 1);
         public bool HasConnectBeenCalled
         {
             get
@@ -712,10 +713,10 @@ namespace FuseCP.Providers.OS
                 if (IsSocket)
                 {
                     ProtocolType protocol = ProtocolType.Tcp;
-                    var url = Url;
-                    if (url.StartsWith("tcp://")) protocol = ProtocolType.Tcp;
-                    else if (url.StartsWith("udp://")) protocol = ProtocolType.Udp;
-                    else throw new NotSupportedException("This url scheme is not supported");
+                    var local_url = Url;
+                    if (local_url.StartsWith("tcp://")) protocol = ProtocolType.Tcp;
+                    else if (local_url.StartsWith("udp://")) protocol = ProtocolType.Udp;
+                    else throw new NotSupportedException("This local_url scheme is not supported");
                     var ip = DnsService.GetFirstIPAddress(Uri.Host);
 
                     if (ip == default) throw new IOException($"Could not resolve host {Uri.Host}");
@@ -735,8 +736,8 @@ namespace FuseCP.Providers.OS
                 {
                     if (BaseWebSocket is ClientWebSocket clientWebSocket)
                     {
-                        var url = Url;
-                        if (IsWebSocketOverSsh) url = await GetSshWebSocketUrlAsync();
+                        var local_url = Url;
+                        if (IsWebSocketOverSsh) local_url = await GetSshWebSocketUrlAsync();
 
 #if NETSTANDARD2_0
                         var setValidationCallback = !ValidateCertificate && !SetRemoteValidationCallback();
@@ -747,7 +748,7 @@ namespace FuseCP.Providers.OS
 
                         try
                         {
-                            await clientWebSocket.ConnectAsync(new System.Uri(url), new CancellationTokenSource(ConnectTimeout).Token);
+                            await clientWebSocket.ConnectAsync(new System.Uri(local_url), new CancellationTokenSource(ConnectTimeout).Token);
                         }
                         catch (Exception)
                         {
@@ -838,8 +839,8 @@ namespace FuseCP.Providers.OS
             if (ip == default) throw new IOException($"Cannot resolve host {uri.Host}");
 
             var port = uri.Port;
-            if (port != 0) return await ListenAsync(ip, port);
-            else return await ListenAsync(ip);
+            return port != 0 ? await ListenAsync(ip, port) : await ListenAsync(ip);
+
         }
 
         bool isDisposed = false;

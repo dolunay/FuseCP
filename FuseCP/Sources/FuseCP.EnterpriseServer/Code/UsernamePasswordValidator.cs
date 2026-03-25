@@ -67,8 +67,8 @@ namespace FuseCP.EnterpriseServer
 
 	public class UsernamePasswordValidator
 	{
-		static UserCache Users = new UserCache();
-		static ConcurrentDictionary<string, Task> GetUserTasks = new ConcurrentDictionary<string, Task>();
+		static readonly UserCache Users = new UserCache();
+		static readonly ConcurrentDictionary<string, Task> GetUserTasks = new ConcurrentDictionary<string, Task>();
 
 		private static bool IsLoopbackHost(string hostAddress)
 		{

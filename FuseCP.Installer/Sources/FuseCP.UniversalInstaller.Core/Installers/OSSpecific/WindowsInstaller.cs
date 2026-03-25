@@ -125,6 +125,7 @@ Add-AppxPackage ""{tmpFile}""");
 
 	private static List<string> GetInstalledNetFX1To45VersionFromRegistry()
 	{
+		if (!OperatingSystem.IsWindows()) return new List<string>();
 		var list = new List<string>();
 		// Opens the registry key for the .NET Framework entry.
 		using (RegistryKey ndpKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\"))
@@ -190,6 +191,7 @@ Add-AppxPackage ""{tmpFile}""");
 	}
 	private static List<string> GetInstalledNetFX45PlusFromRegistry()
 	{
+		if (!OperatingSystem.IsWindows()) return new List<string>();
 		var list = new List<string>();
 
 		const string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
@@ -248,7 +250,7 @@ Add-AppxPackage ""{tmpFile}""");
 	{
 		get
 		{
-			if (OSInfo.IsWindows)
+			if (OperatingSystem.IsWindows())
 			{
 				var versions = GetInstalledNetFX45PlusFromRegistry()
 					.Select(ver =>
@@ -374,8 +376,8 @@ Add-AppxPackage ""{tmpFile}""");
         ConfigureAspNetTempFolderPermissions();
         InstallWindowsFeatures();
     }
-    public override bool IsRunningAsAdmin
-		=> new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+	public override bool IsRunningAsAdmin
+		=> OperatingSystem.IsWindows() && new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
 	public override void ShowLogFile()
 	{
@@ -506,11 +508,16 @@ Add-AppxPackage ""{tmpFile}""");
 
 	private static SSLCertificate GetSSLCertificateFromX509Certificate2(X509Certificate2 cert)
 	{
+		var keySize = cert.GetRSAPublicKey()?.KeySize
+			?? cert.GetECDsaPublicKey()?.KeySize
+			?? cert.GetDSAPublicKey()?.KeySize
+			?? 0;
+
 		var certificate = new SSLCertificate
 		{
 			Hostname = cert.GetNameInfo(X509NameType.SimpleName, false),
 			FriendlyName = cert.FriendlyName,
-			CSRLength = Convert.ToInt32(cert.PublicKey.Key.KeySize.ToString(CultureInfo.InvariantCulture)),
+			CSRLength = keySize,
 			Installed = true,
 			DistinguishedName = cert.Subject,
 			Hash = cert.GetCertHash(),
@@ -596,7 +603,10 @@ Add-AppxPackage ""{tmpFile}""");
 					setting.CertificateFindValue, true)[0];
 				var certData = cert.Export(X509ContentType.Pfx);
 				store.Close();
-				var convertedCert = new X509Certificate2(certData, string.Empty, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+				var convertedCert = X509CertificateLoader.LoadPkcs12(
+					certData,
+					string.Empty,
+					X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
 				var password = Guid.NewGuid().ToString();
 				var certDataWithPassword = convertedCert.Export(X509ContentType.Pfx, password);
 				webServer.InstallPFX(certDataWithPassword, password, website);

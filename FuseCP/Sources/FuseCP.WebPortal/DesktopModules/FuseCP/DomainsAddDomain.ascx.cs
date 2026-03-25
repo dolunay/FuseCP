@@ -58,7 +58,7 @@ namespace FuseCP.Portal
                     txtHostName.Text = "";
                 }
 
-                if ((PanelSecurity.LoggedUser.Role == UserRole.User) & (type != DomainType.SubDomain))
+				if ((PanelSecurity.LoggedUser.Role == UserRole.User) && (type != DomainType.SubDomain))
                 {
                     if (cntx.Groups.ContainsKey(ResourceGroups.Dns))
                     {

@@ -43,7 +43,7 @@ namespace FuseCP.Providers.HostedSolution
                 sb.AppendFormat("{0},", ToCsvString(item.SiteCollectionCreated));
                 sb.AppendFormat("{0},", item.SiteCollectionQuota != 0 && item.SiteCollectionQuota != -1 ? ToCsvString(item.SiteCollectionQuota): "Unlimited");
                 sb.AppendFormat("{0}", ToCsvString(item.SiteCollectionSize / 1024.0 / 1024.0));
-                mainBuilder.Append(sb.ToString());
+                mainBuilder.Append(sb);
                 
             }
             return mainBuilder.ToString();

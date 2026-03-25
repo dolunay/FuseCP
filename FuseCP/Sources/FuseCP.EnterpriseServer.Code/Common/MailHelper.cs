@@ -76,7 +76,7 @@ namespace FuseCP.EnterpriseServer
                         await client.AuthenticateAsync(smtpUsername, smtpPassword);
                     }
 
-                    var message = new MimeMessage();
+                    using var message = new MimeMessage();
                     message.From.Add(MailboxAddress.Parse(from));
                     message.To.Add(MailboxAddress.Parse(to));
                     if (!String.IsNullOrEmpty(bcc))

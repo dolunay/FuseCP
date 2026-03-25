@@ -554,7 +554,7 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 					yield break;
 				}
 				if (Path.GetExtension(log) == ".gz") file = new GZipStream(file, CompressionMode.Decompress);
-				TextReader reader = new StreamReader(file, Encoding.UTF8, true);
+				using TextReader reader = new StreamReader(file, Encoding.UTF8, true);
 
 				var text = reader.ReadToEnd();
 
@@ -725,8 +725,9 @@ public class Unix : HostingServiceProviderBase, IUnixOperatingSystem
 			var process = Process.GetProcessById(pid);
 			if (process != null) process.Kill();
 		}
-		catch (Exception)
+		catch (Exception swallowedEx)
 		{
+		    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 		}
 	}
 

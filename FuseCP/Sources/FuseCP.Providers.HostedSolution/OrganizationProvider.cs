@@ -317,13 +317,13 @@ namespace FuseCP.Providers.HostedSolution
             }
         }
 
-        public string GetdSHeuristicsOU(string RootDomain)
+        public string GetdSHeuristicsOU(string local_RootDomain)
         {
             StringBuilder sb = new StringBuilder();
             AppendProtocol(sb);
             AppendParentDomainController(sb);
             sb.Append("CN=Directory Service,CN= Windows NT,CN= Services,CN= Configuration,");
-            AppendDomainPath(sb, RootDomain);
+            AppendDomainPath(sb, local_RootDomain);
 
             return sb.ToString();
         }
@@ -584,7 +584,7 @@ namespace FuseCP.Providers.HostedSolution
                 if (!ActiveDirectoryUtils.AdObjectExists(userPath))
                 {
                     userPath = ActiveDirectoryUtils.CreateUser(path, null, loginName, displayName, password, enabled);
-                    DirectoryEntry entry = new DirectoryEntry(userPath);
+                    using DirectoryEntry entry = new DirectoryEntry(userPath);
                     ActiveDirectoryUtils.SetADObjectProperty(entry, ADAttributes.UserPrincipalName, upn);
                     entry.CommitChanges();
                     userCreated = true;
@@ -647,9 +647,9 @@ namespace FuseCP.Providers.HostedSolution
 
                 var maxPasswordAgeSpan = GetMaxPasswordAge(runspace, psoName);
 
-                var searchRoot = new DirectoryEntry(GetOrganizationPath(organizationId));
+                using var searchRoot = new DirectoryEntry(GetOrganizationPath(organizationId));
 
-                var search = new DirectorySearcher(searchRoot)
+                using var search = new DirectorySearcher(searchRoot)
                 {
                     SearchScope = SearchScope.Subtree,
                     Filter = "(objectClass=user)"
@@ -715,7 +715,7 @@ namespace FuseCP.Providers.HostedSolution
             {
                 using (DirectoryEntry domain = d.GetDirectoryEntry())
                 {
-                    DirectorySearcher ds = new DirectorySearcher(
+                    using DirectorySearcher ds = new DirectorySearcher(
                         domain,
                         "(objectClass=*)",
                         null,
@@ -770,7 +770,7 @@ namespace FuseCP.Providers.HostedSolution
                 using (DirectoryEntry domain = d.GetDirectoryEntry())
                 {
 
-                    var search = new DirectorySearcher(domain)
+                    using var search = new DirectorySearcher(domain)
                     {
                         SearchScope = SearchScope.Subtree,
                         Filter = query
@@ -908,7 +908,7 @@ namespace FuseCP.Providers.HostedSolution
 
         private void SetFineGrainedPasswordPolicySubject(Runspace runspace, string subjectPath, string psoName)
         {
-            var entry = new DirectoryEntry(subjectPath);
+            using var entry = new DirectoryEntry(subjectPath);
 
             var cmd = new Command("Add-ADFineGrainedPasswordPolicySubject");
             cmd.Parameters.Add("Identity", psoName);
@@ -973,9 +973,9 @@ namespace FuseCP.Providers.HostedSolution
                                                "objectClass"};
             try
             {
-                DirectoryEntry domainRoot = new DirectoryEntry(ActiveDirectoryUtils.ConvertDomainName(RootDomain));
+                using DirectoryEntry domainRoot = new DirectoryEntry(ActiveDirectoryUtils.ConvertDomainName(RootDomain));
 
-                DirectorySearcher ds = new DirectorySearcher(
+                using DirectorySearcher ds = new DirectorySearcher(
                     domainRoot,
                     "(objectClass=domainDNS)",
                     policyAttributes,
@@ -1377,7 +1377,7 @@ namespace FuseCP.Providers.HostedSolution
                 string path = GetOrganizationPath(organizationId);
                 DirectoryEntry entry = ActiveDirectoryUtils.GetADObject(path);
 
-                DirectorySearcher searcher = new DirectorySearcher(entry);
+                using DirectorySearcher searcher = new DirectorySearcher(entry);
                 searcher.PropertiesToLoad.Add("userPrincipalName");
                 searcher.PropertiesToLoad.Add("sAMAccountName");
                 searcher.Filter = "(userPrincipalName=" + userPrincipalName + ")";
@@ -1419,7 +1419,7 @@ namespace FuseCP.Providers.HostedSolution
                 HostedSolutionLog.DebugInfo("Search path : {0}", path);
                 DirectoryEntry entry = ActiveDirectoryUtils.GetADObject(path);
 
-                DirectorySearcher searcher = new DirectorySearcher(entry);
+                using DirectorySearcher searcher = new DirectorySearcher(entry);
                 searcher.PropertiesToLoad.Add("sAMAccountName");
                 searcher.Filter = "(sAMAccountName=" + accountName + ")";
                 searcher.SearchScope = SearchScope.Subtree;
@@ -1781,7 +1781,7 @@ namespace FuseCP.Providers.HostedSolution
             var ouPath = GetUserPath(organizationId.ToString(), userName);
             
 
-            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, RootDomain);
+            using PrincipalContext ctx = new PrincipalContext(ContextType.Domain, RootDomain);
 
             principalgroups = UserPrincipal.FindByIdentity(ctx, userName).GetGroups();
             HostedSolutionLog.DebugInfo("Groups: {0}", principalgroups.ToString());
@@ -2676,7 +2676,6 @@ namespace FuseCP.Providers.HostedSolution
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             HostedSolutionLog.LogEnd("ExecuteShellCommand");
             return results;

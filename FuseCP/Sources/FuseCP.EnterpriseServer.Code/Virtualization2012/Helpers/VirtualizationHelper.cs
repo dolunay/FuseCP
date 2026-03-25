@@ -174,7 +174,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012
                     if (serviceId != oldServiceId && CheckVmService(serviceId, itemId, vm.VirtualMachineId)) return serviceId;
                 }
             }
-            catch (Exception) { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             return -1;
         }
@@ -191,7 +191,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012
                     return true;
                 }
             }
-            catch (Exception) { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
             return false;
         }
 

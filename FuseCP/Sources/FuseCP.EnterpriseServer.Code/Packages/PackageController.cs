@@ -381,7 +381,7 @@ namespace FuseCP.EnterpriseServer
                 quota.QuotaId = (int)dr["QuotaId"];
                 quota.GroupId = (int)dr["GroupId"];
                 quota.QuotaName = (string)dr["QuotaName"];
-                quota.QuotaDescription = ((object)dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
+                quota.QuotaDescription = (dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
                 quota.QuotaTypeId = (int)dr["QuotaTypeId"];
                 quota.QuotaAllocatedValue = (int)dr["QuotaValue"];
                 quota.QuotaAllocatedValuePerOrganization = (int)dr["QuotaValuePerOrganization"];
@@ -429,7 +429,7 @@ namespace FuseCP.EnterpriseServer
                 quota.QuotaId = (int)dr["QuotaId"];
                 quota.GroupId = (int)dr["GroupId"];
                 quota.QuotaName = (string)dr["QuotaName"];
-                quota.QuotaDescription = ((object)dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
+                quota.QuotaDescription = (dr["QuotaDescription"]).GetType() == typeof(System.DBNull) ? string.Empty : (string)dr["QuotaDescription"];
                 quota.QuotaTypeId = (int)dr["QuotaTypeId"];
                 quota.QuotaAllocatedValue = (int)dr["QuotaValue"];
                 quota.QuotaAllocatedValuePerOrganization = (int)dr["QuotaValuePerOrganization"];
@@ -552,9 +552,9 @@ namespace FuseCP.EnterpriseServer
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2016, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2017, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2019, domain, "");
-									ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2022, domain, "");
-									ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2025, domain, "");
-									ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MySql4, domain, "");
+                                    ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2022, domain, "");
+                                    ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MsSql2025, domain, "");
+                                    ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MySql4, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MySql5, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MySql8, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.MySql9, domain, "");
@@ -563,9 +563,9 @@ namespace FuseCP.EnterpriseServer
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.VPS, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.VPS2012, domain, "");
                                     ServerController.AddServiceDNSRecords(packageId, ResourceGroups.VPSForPC, domain, "");
-									ServerController.AddServiceDNSRecords(packageId, ResourceGroups.RDS, domain, "");
-								}
-							}
+                                    ServerController.AddServiceDNSRecords(packageId, ResourceGroups.RDS, domain, "");
+                                }
+                            }
 
                             if (createPreviewDomain)
                                 ServerController.CreateDomainPreviewDomain("", domainId);
@@ -1124,7 +1124,7 @@ namespace FuseCP.EnterpriseServer
 
             //Get operating system settings
             StringDictionary osSesstings = ServerController.GetServiceSettings(osId);
-            bool diskQuotaEnabled = (osSesstings["EnableHardQuota"] != null) ? bool.Parse(osSesstings["EnableHardQuota"]) : false;
+            bool diskQuotaEnabled = (osSesstings["EnableHardQuota"] != null) && bool.Parse(osSesstings["EnableHardQuota"]);
             string driveName = osSesstings["LocationDrive"];
 
             if (!diskQuotaEnabled)
@@ -1692,7 +1692,7 @@ namespace FuseCP.EnterpriseServer
             DataView dvItems = dsItems.Tables[itemsTablePosition].DefaultView;
             foreach (DataRowView drItem in dvItems)
             {
-                DataView dvProps = new DataView(dsItems.Tables[itemsTablePosition + 1], "ItemID=" + drItem["ItemID"].ToString(),
+                DataView dvProps = new DataView(dsItems.Tables[itemsTablePosition + 1], "ItemID=" + drItem["ItemID"],
                     "", DataViewRowState.CurrentRows);
                 items.Add(CreateServiceItem(drItem, dvProps));
             }
@@ -1770,7 +1770,7 @@ namespace FuseCP.EnterpriseServer
 
             foreach (DataRow drItem in dtItems.Rows)
             {
-                DataView dvProps = new DataView(dtProps, "ItemID=" + drItem["ItemID"].ToString(),
+                DataView dvProps = new DataView(dtProps, "ItemID=" + drItem["ItemID"],
                     "", DataViewRowState.CurrentRows);
 
                 foreach (DataRowView drProp in dvProps)
@@ -1790,7 +1790,7 @@ namespace FuseCP.EnterpriseServer
                     if (columnType == typeof(long))
                         propValue = (sVal != "") ? Int64.Parse(sVal) : 0;
                     if (columnType == typeof(bool))
-                        propValue = (sVal != "") ? Boolean.Parse(sVal) : false;
+                        propValue = (sVal != "") && Boolean.Parse(sVal);
                     if (columnType == typeof(Guid))
                         propValue = (!string.IsNullOrEmpty(sVal)) ? new Guid(sVal) : Guid.Empty;
 					if (columnType.IsEnum)
@@ -2372,7 +2372,7 @@ namespace FuseCP.EnterpriseServer
 
         public string EvaluateTemplate(string template, Hashtable items)
         {
-            StringWriter writer = new StringWriter();
+            using StringWriter writer = new StringWriter();
 
             try
             {
@@ -2766,8 +2766,8 @@ namespace FuseCP.EnterpriseServer
             {
                 int serviceId = item.ServiceId;
                 List<ServiceProviderItem> serviceItems = null;
-                if (orderedItems.ContainsKey(serviceId))
-                    serviceItems = orderedItems[serviceId];
+if (orderedItems.TryGetValue(serviceId, out var _ckv))
+                    serviceItems = _ckv;
                 else
                 {
                     serviceItems = new List<ServiceProviderItem>();

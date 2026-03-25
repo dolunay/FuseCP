@@ -29,8 +29,8 @@ namespace FuseCP.EnterpriseServer
         private bool isDemo;
         private UserStatus status;
 
-        private List<string> roles = new List<string>();
-        private IIdentity identity;
+        private readonly List<string> roles = new List<string>();
+        private readonly IIdentity identity;
 
         public EnterpriseServerPrincipal(IIdentity identity, string[] roles)
         {

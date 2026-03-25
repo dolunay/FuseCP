@@ -30,7 +30,7 @@ namespace FuseCP.Providers.Utils
     public class WmiHelper
     {
         // namespace
-        string ns = null;
+        readonly string ns = null;
         ManagementScope scope = null;
 
         public WmiHelper(string ns)
@@ -53,7 +53,7 @@ namespace FuseCP.Providers.Utils
             if (args != null && args.Length > 0)
                 query = String.Format(query, args);
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(WmiScope, new ObjectQuery(query));
+            using ManagementObjectSearcher searcher = new ManagementObjectSearcher(WmiScope, new ObjectQuery(query));
             return searcher.Get();
         }
 

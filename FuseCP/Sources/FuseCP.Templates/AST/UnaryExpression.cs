@@ -22,7 +22,7 @@ namespace FuseCP.Templates.AST
     internal class UnaryExpression : Expression
     {
         Expression rhs;
-        TokenType op;
+        readonly TokenType op;
 
         public UnaryExpression(int line, int column, TokenType op, Expression rhs)
             : base(line, column)

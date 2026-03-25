@@ -286,7 +286,7 @@ namespace FuseCP.Providers.Virtualization
                 settingsInstance.CimInstanceProperties["Format"].Value = format;
                 settingsInstance.CimInstanceProperties["BlockSize"].Value = (blockSizeBytes > 0) ? blockSizeBytes : 0;
 
-                var inParams = new CimMethodParametersCollection
+                using var inParams = new CimMethodParametersCollection
                 {
                     CimMethodParameter.Create(
                         "VirtualDiskSettingData",

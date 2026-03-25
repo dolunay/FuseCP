@@ -26,7 +26,6 @@ using System.Reflection;
 
 using System.Security.Principal;
 using System.Security;
-using System.Security.Permissions;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Linq;
@@ -88,8 +87,8 @@ namespace FuseCP.UniversalInstaller
 		/// </summary>
 		/// <param name="plainText"></param>
 		/// <returns></returns>
-		public static string ComputeSHA1(string plainText) => ComputeHash(plainText, new SHA1Managed());
-		public static string ComputeSHA256(string plainText) => $"SHA256:{ComputeHash(plainText, new SHA256Managed())}";
+		public static string ComputeSHA1(string plainText) => ComputeHash(plainText, SHA1.Create());
+		public static string ComputeSHA256(string plainText) => $"SHA256:{ComputeHash(plainText, SHA256.Create())}";
 		public static string ComputeSHAServerPassword(string password) => ComputeSHA256(password);
 		public static bool IsSHA256(string hash) => hash.StartsWith("SHA256:");
 		public static bool SHAEquals(string plainText, string hash)
@@ -101,7 +100,7 @@ namespace FuseCP.UniversalInstaller
 		public static string CreateCryptoKey(int len)
 		{
 			byte[] bytes = new byte[len];
-			new RNGCryptoServiceProvider().GetBytes(bytes);
+			RandomNumberGenerator.Fill(bytes);
 
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < bytes.Length; i++)
@@ -117,13 +116,12 @@ namespace FuseCP.UniversalInstaller
 			if (str == null)
 				return str;
 
-			// We are now going to create an instance of the 
-			// Rihndael class.
-			RijndaelManaged RijndaelCipher = new RijndaelManaged();
+			// Use AES instead of deprecated RijndaelManaged while preserving key derivation behavior.
+			using Aes aesCipher = Aes.Create();
 			byte[] plainText = System.Text.Encoding.Unicode.GetBytes(str);
 			byte[] salt = Encoding.ASCII.GetBytes(key.Length.ToString());
 			PasswordDeriveBytes secretKey = new PasswordDeriveBytes(key, salt);
-			ICryptoTransform encryptor = RijndaelCipher.CreateEncryptor(secretKey.GetBytes(32), secretKey.GetBytes(16));
+			ICryptoTransform encryptor = aesCipher.CreateEncryptor(secretKey.GetBytes(32), secretKey.GetBytes(16));
 
 			// encode
 			MemoryStream memoryStream = new MemoryStream();
@@ -142,11 +140,11 @@ namespace FuseCP.UniversalInstaller
 
 		public static string Decrypt(string key, string Base64String)
 		{
-			var RijndaelCipher = new RijndaelManaged();
+			using var aesCipher = Aes.Create();
 			byte[] secretText = Convert.FromBase64String(Base64String);
 			byte[] salt = Encoding.ASCII.GetBytes(key.Length.ToString());
 			var secretKey = new PasswordDeriveBytes(key, salt);
-			var decryptor = RijndaelCipher.CreateDecryptor(secretKey.GetBytes(32), secretKey.GetBytes(16));
+			var decryptor = aesCipher.CreateDecryptor(secretKey.GetBytes(32), secretKey.GetBytes(16));
 			var MemStream = new MemoryStream();
 			var DecryptoStream = new CryptoStream(MemStream, decryptor, CryptoStreamMode.Write);
 			DecryptoStream.Write(secretText, 0, secretText.Length);
@@ -163,8 +161,7 @@ namespace FuseCP.UniversalInstaller
 			StringBuilder sb = new StringBuilder();
 
 			byte[] randomBytes = new byte[4];
-			RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-			rng.GetBytes(randomBytes);
+			RandomNumberGenerator.Fill(randomBytes);
 
 			// Convert 4 bytes into a 32-bit integer value.
 			int seed = (randomBytes[0] & 0x7f) << 24 |
@@ -500,6 +497,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static bool IsWebDeployInstalled()
 		{
+			if (!OperatingSystem.IsWindows()) return false;
 			// TO-DO: Implement Web Deploy detection (x64/x86)
 			var isInstalled = false;
 			//
@@ -588,12 +586,14 @@ namespace FuseCP.UniversalInstaller
 
 		public static bool CheckAspNet40Registered()
 		{
+			if (!OperatingSystem.IsWindows()) return false;
 			var regkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\ASP.NET\\4.0.30319.0");
 			return (regkey != null);
 		}
 
 		public static bool CheckNet48Installed()
 		{
+			if (!OperatingSystem.IsWindows()) return false;
 			var regkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full");
 			var release = (int)regkey.GetValue("Release");
 			return release >= 528040;
@@ -638,6 +638,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static WebExtensionStatus GetAspNetWebExtensionStatus_Iis6()
 		{
+			if (!OperatingSystem.IsWindows()) return WebExtensionStatus.NotInstalled;
 			WebExtensionStatus status = WebExtensionStatus.Allowed;
 			if (OSInfo.Windows.WebServer.Version.Major == 6)
 			{
@@ -685,6 +686,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static void EnableAspNetWebExtension_Iis6()
 		{
+			if (!OperatingSystem.IsWindows()) return;
 			Log.WriteStart("Enabling ASP.NET Web Service Extension");
 			//
 			var webExtensionName = (Utils.IsWin64() && IIS32Enabled()) ? "ASP.NET v4.0.30319 (32-bit)" : "ASP.NET v4.0.30319";
@@ -700,6 +702,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static bool IIS32Enabled()
 		{
+			if (!OperatingSystem.IsWindows()) return false;
 			bool enabled = false;
 			using (DirectoryEntry obj = new DirectoryEntry("IIS://LocalHost/W3SVC/AppPools"))
 			{
@@ -714,6 +717,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static void SetObjectProperty(DirectoryEntry oDE, string name, object value)
 		{
+			if (!OperatingSystem.IsWindows()) return;
 			if (value != null)
 			{
 				if (oDE.Properties.Contains(name))
@@ -729,6 +733,7 @@ namespace FuseCP.UniversalInstaller
 
 		public static object GetObjectProperty(DirectoryEntry entry, string name)
 		{
+			if (!OperatingSystem.IsWindows()) return null;
 			if (entry.Properties.Contains(name))
 				return entry.Properties[name][0];
 			else

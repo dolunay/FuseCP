@@ -422,8 +422,6 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     user.PIN = PIN;
 
                     lync.SetLyncUserGeneralSettings(org.OrganizationId, usr.UserPrincipalName, user);
-
-                    Database.UpdateLyncUser(accountId, sipAddress);
                 }
             }
             catch (Exception ex)
@@ -696,7 +694,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 {
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         orgs = ExchangeServerController.GetExchangeOrganizationsInternal(Packages[0].PackageId, false);
                     }
@@ -708,7 +706,7 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
 
                 int OrgId = -1;
                 if (itemId > 0) OrgId = itemId;
-                else if ((orgs != null) & (orgs.Count > 0)) OrgId = orgs[0].Id;
+                else if ((orgs != null) && (orgs.Count > 0)) OrgId = orgs[0].Id;
 
                 if (OrgId != -1)
                 {
@@ -765,8 +763,8 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 // load package context
                 PackageContext cntx = PackageController.GetPackageContext(org.PackageId);
 
-                lyncUserPlan.Conferencing = lyncUserPlan.Conferencing & Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_CONFERENCING].QuotaAllocatedValue);
-                lyncUserPlan.EnterpriseVoice = lyncUserPlan.EnterpriseVoice & Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_ENTERPRISEVOICE].QuotaAllocatedValue);
+                lyncUserPlan.Conferencing = lyncUserPlan.Conferencing && Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_CONFERENCING].QuotaAllocatedValue);
+                lyncUserPlan.EnterpriseVoice = lyncUserPlan.EnterpriseVoice && Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_ENTERPRISEVOICE].QuotaAllocatedValue);
                 if (!lyncUserPlan.EnterpriseVoice)
                     lyncUserPlan.VoicePolicy = LyncVoicePolicyType.None;
                 lyncUserPlan.IM = true;
@@ -805,8 +803,8 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                 // load package context
                 PackageContext cntx = PackageController.GetPackageContext(org.PackageId);
 
-                lyncUserPlan.Conferencing = lyncUserPlan.Conferencing & Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_CONFERENCING].QuotaAllocatedValue);
-                lyncUserPlan.EnterpriseVoice = lyncUserPlan.EnterpriseVoice & Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_ENTERPRISEVOICE].QuotaAllocatedValue);
+                lyncUserPlan.Conferencing = lyncUserPlan.Conferencing && Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_CONFERENCING].QuotaAllocatedValue);
+                lyncUserPlan.EnterpriseVoice = lyncUserPlan.EnterpriseVoice && Convert.ToBoolean(cntx.Quotas[Quotas.LYNC_ENTERPRISEVOICE].QuotaAllocatedValue);
                 if (!lyncUserPlan.EnterpriseVoice)
                     lyncUserPlan.VoicePolicy = LyncVoicePolicyType.None;
                 lyncUserPlan.IM = true;
@@ -1066,8 +1064,9 @@ namespace FuseCP.EnterpriseServer.Code.HostedSolution
                     ret = lync.GetPolicyList(type, name);
                 }
             }
-            catch (Exception)
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
             finally
             {

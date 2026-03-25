@@ -218,7 +218,7 @@ namespace FuseCP.UniversalInstaller
 				OnWrite?.Invoke();
 				string name = Installer.Current.GetEntryAssembly().GetName().Name;
 				string version = Installer.Current.GetEntryAssembly().GetName().Version.ToString();
-				string identity = WindowsIdentity.GetCurrent().Name;
+				string identity = OperatingSystem.IsWindows() ? WindowsIdentity.GetCurrent().Name : Environment.UserName;
 				string line = string.Format("[{0:G}] {1} {2} Started by {3}", DateTime.Now, name, version, identity);
 				CloseProgress();
 				Trace.WriteLine(line);

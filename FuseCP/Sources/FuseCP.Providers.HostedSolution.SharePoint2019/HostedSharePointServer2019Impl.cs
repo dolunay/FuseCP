@@ -722,7 +722,7 @@ namespace FuseCP.Providers.HostedSolution
 
                                     foreach (char c in s)
                                     {
-                                        if ((c != ' ') & (c != '\t'))
+                                        if ((c != ' ') && (c != '\t'))
                                         {
                                             if (bSeperator)
                                             {
@@ -789,7 +789,7 @@ namespace FuseCP.Providers.HostedSolution
 
                                     foreach (char c in s)
                                     {
-                                        if ((c != ' ') & (c != '\t'))
+                                        if ((c != ' ') && (c != '\t'))
                                         {
                                             if (bSeperator)
                                             {

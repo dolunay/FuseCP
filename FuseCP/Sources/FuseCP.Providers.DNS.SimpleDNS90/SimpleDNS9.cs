@@ -155,7 +155,7 @@ namespace FuseCP.Providers.DNS
             try
             {
                 //Build up the content
-                var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+                using var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
                 //PUT the content to the API
                 var response = client.PutAsync(endpoint, content).Result;
                 //Check if the PUT was successful
@@ -278,7 +278,7 @@ namespace FuseCP.Providers.DNS
             try
             {
                 //Build up the content
-                var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+                using var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
                 //PUT the content to the API
                 var response = client.PatchAsync(new Uri($"{SimpleDnsUrl}/v2/{endpoint}"), content).Result;
                 //Check if the PUT was successful

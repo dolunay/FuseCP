@@ -94,7 +94,7 @@ namespace FuseCP.Portal
                 litValue.Text = String.Format("{0} {1} {2} {3}",
                     gauge.Progress, GetLocalizedString("Text.Of"), ((total == -1) ? GetLocalizedString("Text.Unlimited") : total.ToString()), availableText);
 
-                if ((gauge.Progress < 0) & (total == -1))
+                if ((gauge.Progress < 0) && (total == -1))
                     litValue.Text = GetLocalizedString("Text.Unlimited");
 
                 gauge.Visible = (total != -1);

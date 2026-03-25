@@ -244,7 +244,7 @@ namespace FuseCP.Providers.StorageSpaces
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes / OneGb);
+            return megabytes / OneGb;
         }
 
         public new int ConvertBytesToMB(long bytes)
@@ -373,7 +373,7 @@ namespace FuseCP.Providers.StorageSpaces
                 invokeCommand.Parameters.Add("ComputerName", hostName);
             }
 
-            RunspaceInvoke invoke = new RunspaceInvoke();
+            using RunspaceInvoke invoke = new RunspaceInvoke();
             string commandString = moduleImports.Any() ? string.Format("import-module {0};", string.Join(",", moduleImports)) : string.Empty;
 
             commandString = string.Format("{0};{1}", commandString, string.Join(";", scripts.ToArray()));
@@ -442,7 +442,6 @@ namespace FuseCP.Providers.StorageSpaces
                     }
                 }
             }
-            pipeLine = null;
             errors = errorList.ToArray();
             Log.WriteEnd("ExecuteShellCommand");
             return results;
@@ -1210,7 +1209,7 @@ namespace FuseCP.Providers.StorageSpaces
 
                 conn.Open();
 
-                var cmd = new OleDbCommand(wsSql, conn);
+                using var cmd = new OleDbCommand(wsSql, conn);
 
                 using (OleDbDataReader reader = cmd.ExecuteReader())
                 {

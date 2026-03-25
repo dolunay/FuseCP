@@ -31,7 +31,7 @@ namespace FuseCP.EnterpriseServer.Extensions
         const int TaskManagerRefreshMinutes = 1;
 
         static DateTime timeStamp = DateTime.MinValue;
-        static object Lock = new object();
+        static readonly object Lock = new object();
         static TaskManager taskManager = null;
         static Timer disposeTimer = null;
         static TaskManager TaskManager

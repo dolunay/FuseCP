@@ -47,7 +47,7 @@ namespace FuseCP.Tests
 					Assert.AreEqual<Type>(obj.GetType(), s2.GetType());
 				}
 				fs.Seek(0, SeekOrigin.Begin);
-				var reader = new StreamReader(fs);
+				using var reader = new StreamReader(fs);
 				var text = reader.ReadToEnd();
 				TestContext.WriteLine(text);
 				Assert.DoesNotContain(text, "settingsHash");

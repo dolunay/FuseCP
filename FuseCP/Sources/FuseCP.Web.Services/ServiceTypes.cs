@@ -69,7 +69,7 @@ namespace FuseCP.Web.Services
 					{
 						eserver = Assembly.Load("FuseCP.EnterpriseServer");
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 
 				if (ExposeWebServices == "" || ExposeWebServices == "all" || ExposeWebServices == "true" ||
@@ -79,7 +79,7 @@ namespace FuseCP.Web.Services
 					{
 						server = Assembly.Load("FuseCP.Server");
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 
 				assemblies = new Assembly[]
@@ -102,12 +102,12 @@ namespace FuseCP.Web.Services
 
         public static IEnumerable<Type> GetWebServices()
 		{
-			var types = ExposedAssemblies
+			var local_types = ExposedAssemblies
 				.SelectMany(a => {
 					var attrTypes = a.GetCustomAttribute<WCFServiceTypesAttribute>()?.Types;
 					return attrTypes ?? new Type[0];
 				});
-			return types;
+			return local_types;
 		}
 
 		protected override string GetKeyForItem(ServiceType type) => type.Service.Name;

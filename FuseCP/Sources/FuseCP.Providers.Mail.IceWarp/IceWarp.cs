@@ -1138,7 +1138,7 @@ namespace FuseCP.Providers.Mail
             else
             {
                 var accountObject = GetAccountObject(mailAlias.ForwardTo);
-                var aliases = ((IEnumerable<string>)GetAliasListFromAccountObject(accountObject)).ToList();
+                var aliases = (GetAliasListFromAccountObject(accountObject)).ToList();
                 aliases.Add(GetEmailUser(mailAlias.Name));
                 accountObject.SetProperty("U_EmailAlias", string.Join(";", aliases));
 
@@ -1156,7 +1156,7 @@ namespace FuseCP.Providers.Mail
             var nonAlphaNum = apiObject.GetProperty("C_Accounts_Policies_Pass_NonAlphaNum");
             var alpha = apiObject.GetProperty("C_Accounts_Policies_Pass_Alpha");
 
-            return GeneratePassword((int)minLength, (int)nonAlphaNum, (int)digits, (int)alpha);
+            return GeneratePassword(minLength, nonAlphaNum, digits, alpha);
         }
 
         private static string GeneratePassword(int minLength, int nonAlphaNumCount, int digitCount, int alphaCount)
@@ -1203,7 +1203,8 @@ namespace FuseCP.Providers.Mail
             var accountObject = GetAccountObject(mailAliasName);
 
             // Check if it has any other aliases
-            var otherAliases = ((IEnumerable<string>)GetAliasListFromAccountObject(accountObject)).Where(a => a != GetEmailUser(mailAliasName)).ToArray();
+            var aliases = GetAliasListFromAccountObject(accountObject) as IEnumerable<string> ?? Array.Empty<string>();
+            var otherAliases = aliases.Where(a => a != GetEmailUser(mailAliasName)).ToArray();
             if (otherAliases.Any())
             {
                 accountObject.SetProperty("U_EmailAlias", string.Join(";", otherAliases));
@@ -1226,7 +1227,7 @@ namespace FuseCP.Providers.Mail
         {
             var accountObject = GetAccountObject();
 
-            var result = accountObject.Open(groupName) && (IceWarpAccountType)Enum.Parse(typeof(IceWarpAccountType), ((object)accountObject.GetProperty("U_Type")).ToString()) == IceWarpAccountType.UserGroup;
+            var result = accountObject.Open(groupName) && (IceWarpAccountType)Enum.Parse(typeof(IceWarpAccountType), (accountObject.GetProperty("U_Type")).ToString()) == IceWarpAccountType.UserGroup;
 
             DisposeObject(accountObject);
 
@@ -1318,7 +1319,7 @@ namespace FuseCP.Providers.Mail
         {
             var accountObject = GetAccountObject();
 
-            var result = accountObject.Open(maillistName) && (IceWarpAccountType)Enum.Parse(typeof(IceWarpAccountType), ((object)accountObject.GetProperty("U_Type")).ToString()) == IceWarpAccountType.MailingList;
+            var result = accountObject.Open(maillistName) && (IceWarpAccountType)Enum.Parse(typeof(IceWarpAccountType), (accountObject.GetProperty("U_Type")).ToString()) == IceWarpAccountType.MailingList;
 
             DisposeObject(accountObject);
 
@@ -1354,15 +1355,15 @@ namespace FuseCP.Providers.Mail
                 Name = accountObject.EmailAddress,
                 Description = accountObject.GetProperty("M_Name"),
                 ModeratorAddress = accountObject.GetProperty("M_OwnerAddress"),
-                MembersSource = (IceWarpListMembersSource)Enum.Parse(typeof(IceWarpListMembersSource), ((object)accountObject.GetProperty("M_SendAllLists")).ToString()),
+                MembersSource = (IceWarpListMembersSource)Enum.Parse(typeof(IceWarpListMembersSource), (accountObject.GetProperty("M_SendAllLists")).ToString()),
                 Members = ((IEnumerable<string>)SplitFileContents(accountObject, "M_ListFile_Contents")).Select(m => m.TrimEnd(new[] { ';', '0', '1', '2' })).ToArray(),
                 SetReceipientsToToHeader = Convert.ToBoolean((object)accountObject.GetProperty("M_SeparateTo")),
                 SubjectPrefix = accountObject.GetProperty("M_AddToSubject"),
-                Originator = (IceWarpListOriginator)Enum.Parse(typeof(IceWarpListOriginator), ((object)accountObject.GetProperty("M_ListSender")).ToString()),
+                Originator = (IceWarpListOriginator)Enum.Parse(typeof(IceWarpListOriginator), (accountObject.GetProperty("M_ListSender")).ToString()),
                 PostingMode = Convert.ToBoolean((object)accountObject.GetProperty("M_MembersOnly")) ? PostingMode.MembersCanPost : PostingMode.AnyoneCanPost,
-                PasswordProtection = (PasswordProtection)Enum.Parse(typeof(PasswordProtection), ((object)accountObject.GetProperty("M_Moderated")).ToString()),
+                PasswordProtection = (PasswordProtection)Enum.Parse(typeof(PasswordProtection), (accountObject.GetProperty("M_Moderated")).ToString()),
                 Password = accountObject.GetProperty("M_ModeratedPassword"),
-                DefaultRights = (IceWarpListDefaultRights)Enum.Parse(typeof(IceWarpListDefaultRights), ((object)accountObject.GetProperty("M_DefaultRights")).ToString()),
+                DefaultRights = (IceWarpListDefaultRights)Enum.Parse(typeof(IceWarpListDefaultRights), (accountObject.GetProperty("M_DefaultRights")).ToString()),
                 MaxMessageSizeEnabled = Convert.ToBoolean((object)accountObject.GetProperty("M_MaxList")),
                 MaxMessageSize = Convert.ToInt32((object)accountObject.GetProperty("M_MaxListSize")),
                 MaxMembers = Convert.ToInt32((object)accountObject.GetProperty("M_MaxMembers")),
@@ -1373,7 +1374,7 @@ namespace FuseCP.Providers.Mail
                 SendUnsubscribe = Convert.ToBoolean((object)accountObject.GetProperty("M_NotifyLeave")),
 
                 // From list server account
-                ConfirmSubscription = (IceWarpListConfirmSubscription)Enum.Parse(typeof(IceWarpListConfirmSubscription), ((object)listServerAccountObject.GetProperty("L_DigestConfirmed")).ToString()),
+                ConfirmSubscription = (IceWarpListConfirmSubscription)Enum.Parse(typeof(IceWarpListConfirmSubscription), (listServerAccountObject.GetProperty("L_DigestConfirmed")).ToString()),
                 CommandsInSubject = Convert.ToBoolean((object)listServerAccountObject.GetProperty("L_ListSubject")),
                 DisableSubscribecommand = !Convert.ToBoolean((object)listServerAccountObject.GetProperty("M_JoinR")),
                 AllowUnsubscribe = Convert.ToBoolean((object)listServerAccountObject.GetProperty("M_LeaveR")),
@@ -1507,7 +1508,7 @@ namespace FuseCP.Providers.Mail
             {
                 while (listServerAccountObject.FindNext())
                 {
-                    var lists = ((IEnumerable<string>)SplitFileContents(listServerAccountObject, "L_ListFile_Contents")).ToList();
+                    var lists = (SplitFileContents(listServerAccountObject, "L_ListFile_Contents")).ToList();
                     if (lists.Contains(mailingListName))
                     {
                         listServerAccountFound = true;
@@ -1676,7 +1677,7 @@ namespace FuseCP.Providers.Mail
                     return;
                 }
 
-                var lists = ((IEnumerable<string>)SplitFileContents(listServerAccountObject, "L_ListFile_Contents")).ToList();
+                var lists = (SplitFileContents(listServerAccountObject, "L_ListFile_Contents")).ToList();
 
                 if (lists.Count() == 1)
                 {

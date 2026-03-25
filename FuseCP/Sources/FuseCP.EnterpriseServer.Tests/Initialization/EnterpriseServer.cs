@@ -49,18 +49,27 @@ public class EnterpriseServer : IDisposable
 		Web.Services.Configuration.ProbingPaths = @"..\..\..\..\FuseCP.EnterpriseServer\bin_dotnet;..\..\..\..\FuseCP.EnterpriseServer\bin\netstandard";
 		Web.Services.AssemblyLoaderNetCore.Init();
 
-        var eserver = Assembly.Load("FuseCP.EnterpriseServer");
-        if (eserver != null)
-        {
-            // init password validator
-            var validatorType = eserver.GetType("FuseCP.EnterpriseServer.UsernamePasswordValidator");
-            var init = validatorType.GetMethod("Init", BindingFlags.Public | BindingFlags.Static);
-            init.Invoke(null, new object[0]);
-        }
+		Assembly eserver = null;
+		try
+		{
+			eserver = Assembly.Load("FuseCP.EnterpriseServer");
+		}
+		catch
+		{
+			eserver = Assembly.Load("FuseCP.EnterpriseServer.Code");
+		}
+
+		if (eserver != null)
+		{
+			// init password validator when the type exists in the loaded assembly.
+			var validatorType = eserver.GetType("FuseCP.EnterpriseServer.UsernamePasswordValidator");
+			var init = validatorType?.GetMethod("Init", BindingFlags.Public | BindingFlags.Static);
+			init?.Invoke(null, new object[0]);
+		}
 #endif
 	}
 
-	static object Lock = new object();
+	static readonly object Lock = new object();
 
 	static string path = null;
 
@@ -98,15 +107,15 @@ public class EnterpriseServer : IDisposable
 		if (CreateClone) Console.WriteLine($"Cloning EnterpriseServer to {Path}");
 	}
 
-	public static void CloneTo(string path)
+	public static void CloneTo(string local_path)
 	{
-		DeleteDirectory(IO.Path.GetDirectoryName(path));
+		DeleteDirectory(IO.Path.GetDirectoryName(local_path));
 
 		var exepath = IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		var esserver = IO.Path.GetFullPath(IO.Path.Combine(exepath, "..", "..", "..", "..", "FuseCP.EnterpriseServer"));
 
 		Console.WriteLine($"Cloning {IO.Path.GetFileName(EnterpriseServerPath)} ...");
-		FuseCP.Providers.Utils.FileUtils.CopyDirectory(esserver, path);
+		FuseCP.Providers.Utils.FileUtils.CopyDirectory(esserver, local_path);
 	}
 
 	public void Dispose() => Delete();
@@ -129,12 +138,12 @@ public class EnterpriseServer : IDisposable
 
 	static void DeleteDirectory(string dir) => Directory.Delete($@"\\?\{dir}", true);
 	
-	public static string SetupDatabase(DbType dbType = DbType.SqlServer)
+	public static string SetupDatabase(DbType local_dbType = DbType.SqlServer)
 	{
 		string connectionString;
-		if (dbType == DbType.SqlServer) connectionString = SetupLocalDb();
-		else if (dbType == DbType.Sqlite) connectionString = SetupSqliteDb();
-		else throw new NotSupportedException($"Database type {dbType} is not supported");
+		if (local_dbType == DbType.SqlServer) connectionString = SetupLocalDb();
+		else if (local_dbType == DbType.Sqlite) connectionString = SetupSqliteDb();
+		else throw new NotSupportedException($"Database type {local_dbType} is not supported");
 
 		ConfigureDatabase(connectionString);
 
@@ -295,10 +304,10 @@ public class EnterpriseServer : IDisposable
 	public static string SqlServerConnectionString => sqlServerConnectionString ??= SetupDatabase(DbType.SqlServer);
 	public static string SqliteConnectionString => sqliteConnectionString ??= SetupDatabase(DbType.Sqlite);
 
-	public static string ConnectionString(DbType dbType = DbType.SqlServer) =>
-		dbType == DbType.SqlServer ? SqlServerConnectionString :
-		dbType == DbType.Sqlite ? SqliteConnectionString :
-		throw new NotSupportedException($"Database type {dbType} is not supported");
+	public static string ConnectionString(DbType local_dbType = DbType.SqlServer) =>
+		local_dbType == DbType.SqlServer ? SqlServerConnectionString :
+		local_dbType == DbType.Sqlite ? SqliteConnectionString :
+		throw new NotSupportedException($"Database type {local_dbType} is not supported");
 
 	public static void DeleteDatabases()
 	{

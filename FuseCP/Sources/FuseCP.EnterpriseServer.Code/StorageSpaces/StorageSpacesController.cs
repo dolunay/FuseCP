@@ -33,6 +33,27 @@ namespace FuseCP.EnterpriseServer
     {
         public StorageSpacesController(ControllerBase provider) : base(provider) { }
 
+        private static string EnsureSafeStoragePath(string path, string parameterName)
+        {
+            if (String.IsNullOrWhiteSpace(path))
+            {
+                throw new ArgumentException("Path cannot be null or empty.", parameterName);
+            }
+
+            if (path.IndexOf('\0') >= 0 || path.IndexOf('\r') >= 0 || path.IndexOf('\n') >= 0)
+            {
+                throw new ArgumentException("Path contains invalid control characters.", parameterName);
+            }
+
+            string normalized = path.Replace('/', '\\');
+            if (normalized.Contains("..\\") || normalized.StartsWith("..", StringComparison.Ordinal))
+            {
+                throw new ArgumentException("Path contains traversal segments.", parameterName);
+            }
+
+            return path;
+        }
+
         #region Storage Spaces Levels
         public StorageSpaceLevelPaged GetStorageSpaceLevelsPaged(string filterColumn, string filterValue, string sortColumn, int startRow, int maximumRows)
         {
@@ -898,6 +919,7 @@ namespace FuseCP.EnterpriseServer
 
                 var ss = GetStorageSpaceService(storage.ServiceId);
 
+                fullPath = EnsureSafeStoragePath(fullPath, nameof(fullPath));
                 ss.RemoveShare(fullPath);
 
                 ss.RenameFolder(fullPath, newName);
@@ -1252,6 +1274,7 @@ namespace FuseCP.EnterpriseServer
 
             var ss = GetStorageSpaceService(storageSpace.ServiceId);
 
+            path = EnsureSafeStoragePath(path, nameof(path));
             return ss.GetFileBinaryChunk(path, offset, length);
         }
 

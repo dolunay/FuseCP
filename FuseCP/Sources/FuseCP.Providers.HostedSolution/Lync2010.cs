@@ -328,7 +328,7 @@ namespace FuseCP.Providers.HostedSolution
 					// create sip domain
 					string path = AddADPrefix(GetOrganizationPath(organizationId));
 					DirectoryEntry ou = ActiveDirectoryUtils.GetADObject(path);
-					string[] sipDs = (string[])ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
+					string[] sipDs = ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
 
 					foreach (string sipD in sipDs)
 						DeleteSipDomain(runSpace, sipD);
@@ -343,40 +343,45 @@ namespace FuseCP.Providers.HostedSolution
 					{
 						DeleteConferencingPolicy(runSpace, organizationId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteExternalAccessPolicy(runSpace, organizationId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteMobilityPolicy(runSpace, organizationId + " EnableOutSideVoice");
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteMobilityPolicy(runSpace, organizationId + " DisableOutSideVoice");
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 
 					try
 					{
 						DeleteSimpleUrl(runSpace, sipDomain, tenantId);
 					}
-					catch (Exception)
+					catch (Exception swallowedEx)
 					{
+					    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
 					}
 				}
 
@@ -456,7 +461,7 @@ namespace FuseCP.Providers.HostedSolution
 
 						path = AddADPrefix(GetOrganizationPath(organizationId));
 						DirectoryEntry ou = ActiveDirectoryUtils.GetADObject(path);
-						string[] sipDs = (string[])ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
+						string[] sipDs = ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
 						List<string> listSipDs = new List<string>();
 						listSipDs.AddRange(sipDs);
 						listSipDs.Add(tmp[1]);
@@ -503,7 +508,7 @@ namespace FuseCP.Providers.HostedSolution
 						{
 							PlanSet = SetLyncUserPlanInternal(organizationId, userUpn, plan, runSpace);
 						}
-						catch { }
+						catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 						if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
 					}
 
@@ -637,7 +642,7 @@ namespace FuseCP.Providers.HostedSolution
 
 						path = AddADPrefix(GetOrganizationPath(organizationId));
 						DirectoryEntry ou = ActiveDirectoryUtils.GetADObject(path);
-						string[] sipDs = (string[])ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
+						string[] sipDs = ActiveDirectoryUtils.GetADObjectPropertyMultiValue(ou, "msRTCSIP-Domains");
 						List<string> listSipDs = new List<string>();
 						listSipDs.AddRange(sipDs);
 						listSipDs.Add(tmp[1]);

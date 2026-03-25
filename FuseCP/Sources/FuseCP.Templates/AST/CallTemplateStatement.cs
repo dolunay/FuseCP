@@ -23,8 +23,8 @@ namespace FuseCP.Templates.AST
     internal class CallTemplateStatement : Statement
     {
         public string templateName;
-        public Dictionary<string, Expression> parameters = new Dictionary<string, Expression>();
-        List<Statement> statements = new List<Statement>();
+        public readonly Dictionary<string, Expression> parameters = new Dictionary<string, Expression>();
+        readonly List<Statement> statements = new List<Statement>();
 
         public CallTemplateStatement(int line, int column)
             : base(line, column)
@@ -50,10 +50,10 @@ namespace FuseCP.Templates.AST
         public override void Eval(TemplateContext context, System.IO.StringWriter writer)
         {
             // locate template
-            if (!context.Templates.ContainsKey(templateName))
+if (!context.Templates.TryGetValue(templateName, out var _ckv))
                 throw new ParserException(String.Format("Custom template \"{0}\" is not defined", templateName), Line, Column);
 
-            TemplateStatement tmp = context.Templates[templateName];
+            TemplateStatement tmp = _ckv;
 
             // create template-specific context
             TemplateContext tmpContext = new TemplateContext();
@@ -61,7 +61,7 @@ namespace FuseCP.Templates.AST
             tmpContext.Templates = context.Templates;
 
             // evaluate inner statements
-            StringWriter innerWriter = new StringWriter();
+            using StringWriter innerWriter = new StringWriter();
             foreach (Statement stm in Statements)
                 stm.Eval(context, innerWriter);
             tmpContext.Variables["innerText"] = innerWriter.ToString();
@@ -81,7 +81,7 @@ namespace FuseCP.Templates.AST
             sb.Append("{").Append(templateName);
 
             foreach (string name in parameters.Keys)
-                sb.Append(" ").Append(name).Append("=\"").Append(parameters[name].ToString()).Append("\"");
+                sb.Append(" ").Append(name).Append("=\"").Append(parameters[name]).Append("\"");
 
             sb.Append(" /}");
             return sb.ToString();

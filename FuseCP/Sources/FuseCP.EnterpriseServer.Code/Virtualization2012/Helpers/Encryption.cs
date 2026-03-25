@@ -43,8 +43,8 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
 
             var encryptor = rj.CreateEncryptor(key, IV);
 
-            var msEncrypt = new MemoryStream();
-            var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
+            using var msEncrypt = new MemoryStream();
+            using var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
 
             var toEncrypt = Encoding.ASCII.GetBytes(sToEncrypt);
 
@@ -75,8 +75,8 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers
 
             var fromEncrypt = new byte[sEncrypted.Length];
 
-            var msDecrypt = new MemoryStream(sEncrypted);
-            var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
+            using var msDecrypt = new MemoryStream(sEncrypted);
+            using var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
 
             int i = 0;
             var nread = csDecrypt.Read(fromEncrypt, 0, fromEncrypt.Length);

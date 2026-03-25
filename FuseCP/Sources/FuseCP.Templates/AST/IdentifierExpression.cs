@@ -23,7 +23,7 @@ namespace FuseCP.Templates.AST
 {
     internal class IdentifierExpression : Expression
     {
-        List<IdentifierPart> parts = new List<IdentifierPart>();
+        readonly List<IdentifierPart> parts = new List<IdentifierPart>();
 
         public IdentifierExpression(int line, int column)
             : base(line, column)
@@ -76,9 +76,9 @@ namespace FuseCP.Templates.AST
 
             while (lookupContext != null)
             {
-                if (lookupContext.Variables.ContainsKey(variable.Name))
+if (lookupContext.Variables.TryGetValue(variable.Name, out var _ckv))
                 {
-                    val = lookupContext.Variables[variable.Name];
+                    val = _ckv;
                     break; // found local scope var - stop looking
                 }
 
@@ -169,7 +169,7 @@ namespace FuseCP.Templates.AST
                     propsList.Append(p.Name);
                 }
                 throw new ParserException("Public property could not be found: " + propName + "."
-                    + " Supported properties: " + propsList.ToString(), Line, Column);
+                    + " Supported properties: " + propsList, Line, Column);
             }
 
             // read property
@@ -235,7 +235,7 @@ namespace FuseCP.Templates.AST
                     methodsList.Append(mi.Name);
                 }
                 throw new ParserException("Public method could not be found: " + methodName + "."
-                    + " Available methods: " + methodsList.ToString(), Line, Column);
+                    + " Available methods: " + methodsList, Line, Column);
             }
 
             // call method

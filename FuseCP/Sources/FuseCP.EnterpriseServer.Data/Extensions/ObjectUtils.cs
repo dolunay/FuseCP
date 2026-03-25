@@ -47,17 +47,14 @@ namespace FuseCP.EnterpriseServer.Data
 			// copy properties
 			foreach (string propName in sProps.Keys)
 			{
-				if (dProps.ContainsKey(propName) && sProps[propName].Name != "Item")
+				if ((dProps.ContainsKey(propName) && sProps[propName].Name != "Item") && sProps[propName].CanRead)
 				{
-					if (sProps[propName].CanRead)
+					object val = sProps[propName].GetValue(so, null);
+					if (dProps[propName] != null)
 					{
-						object val = sProps[propName].GetValue(so, null);
-						if (dProps[propName] != null)
+						if (val != null && dProps[propName].CanWrite)
 						{
-							if (val != null && dProps[propName].CanWrite)
-							{
-								dProps[propName].SetValue(dobj, val, null);
-							}
+							dProps[propName].SetValue(dobj, val, null);
 						}
 					}
 				}
@@ -625,7 +622,7 @@ namespace FuseCP.EnterpriseServer.Data
 			return obj;
 		}
 
-		private static Hashtable propertiesCache = new Hashtable();
+		private static readonly Hashtable propertiesCache = new Hashtable();
 
 		public static object CreateObjectFromDataTable(Type type, DataTable table,
 			string nameColumn, string valueColumn, bool persistentOnly)
@@ -1016,7 +1013,7 @@ namespace FuseCP.EnterpriseServer.Data
 		{
 			var member = expression.Body as MemberExpression;
 
-			if (member == null || member.Member is PropertyInfo == false)
+			if (member == null || !(member.Member is PropertyInfo))
 				throw new ArgumentException("Expression is not a Property", "expression");
 
 			return (PropertyInfo)member.Member;
@@ -1095,7 +1092,7 @@ namespace FuseCP.EnterpriseServer.Data
 				type.Attributes.HasFlag(TypeAttributes.NotPublic);
 		}
 
-		private static Hashtable typeProperties = new Hashtable();
+		private static readonly Hashtable typeProperties = new Hashtable();
 
 		public static PropertyInfo[] GetTypeProperties(Type type)
 		{

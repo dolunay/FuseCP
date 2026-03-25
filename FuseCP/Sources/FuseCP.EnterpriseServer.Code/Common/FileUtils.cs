@@ -23,6 +23,19 @@ namespace FuseCP.EnterpriseServer;
 
     public class FileUtils
     {
+	private static string EnsurePathUnderRoot(string rootPath, string relativePath)
+	{
+		string normalizedRoot = Path.GetFullPath(rootPath);
+		string candidate = Path.GetFullPath(Path.Combine(normalizedRoot, relativePath ?? String.Empty));
+		if (!candidate.StartsWith(normalizedRoot.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar,
+			StringComparison.OrdinalIgnoreCase) &&
+			!String.Equals(candidate, normalizedRoot, StringComparison.OrdinalIgnoreCase))
+		{
+			throw new InvalidOperationException("Path escapes the allowed root directory.");
+		}
+		return candidate;
+	}
+
 	#region Zip/Unzip Methods
 
 	public static void ZipFiles(string zipFile, string rootPath, string[] files)
@@ -32,7 +45,7 @@ namespace FuseCP.EnterpriseServer;
 		{
 			foreach (string file in files)
 			{
-				string fullPath = Path.Combine(rootPath, file);
+				string fullPath = EnsurePathUnderRoot(rootPath, file);
 				if (Directory.Exists(fullPath))
 				{
 					//add directory with the same directory name
@@ -49,7 +62,27 @@ namespace FuseCP.EnterpriseServer;
 
 	public static List<string> UnzipFiles(string zipFile, string destFolder)
 	{
-		ZipFile.ExtractToDirectory(zipFile, destFolder);
+		string normalizedDestination = Path.GetFullPath(destFolder);
+		Directory.CreateDirectory(normalizedDestination);
+
+		using (ZipArchive archive = ZipFile.OpenRead(zipFile))
+		{
+			foreach (ZipArchiveEntry entry in archive.Entries)
+			{
+				string destinationPath = EnsurePathUnderRoot(normalizedDestination, entry.FullName.Replace('/', Path.DirectorySeparatorChar));
+				if (String.IsNullOrEmpty(entry.Name))
+				{
+					Directory.CreateDirectory(destinationPath);
+					continue;
+				}
+
+				string destinationDirectory = Path.GetDirectoryName(destinationPath);
+				if (!String.IsNullOrEmpty(destinationDirectory))
+					Directory.CreateDirectory(destinationDirectory);
+
+				entry.ExtractToFile(destinationPath, true);
+			}
+		}
 
 		// return extracted files names
 		return GetFileNames(destFolder);
@@ -59,15 +92,19 @@ namespace FuseCP.EnterpriseServer;
 
 	#region Copy
 	public static void CopyDirectoryContentUNC(string sourceDirectory, string destinationDirectory) {
+			sourceDirectory = Path.GetFullPath(sourceDirectory);
+			destinationDirectory = Path.GetFullPath(destinationDirectory);
             foreach(string dir in Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories)) {
-                string destinationPath = dir.Replace(sourceDirectory, destinationDirectory);
+				string relativePath = Path.GetRelativePath(sourceDirectory, dir);
+				string destinationPath = EnsurePathUnderRoot(destinationDirectory, relativePath);
                 if(!Directory.Exists(destinationPath)) { 
                     Directory.CreateDirectory(destinationPath);
                 }
             }
             
             foreach(string file in Directory.GetFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)) {
-                string destinationPath = file.Replace(sourceDirectory, destinationDirectory);
+				string relativePath = Path.GetRelativePath(sourceDirectory, file);
+				string destinationPath = EnsurePathUnderRoot(destinationDirectory, relativePath);
                 File.Copy(file, destinationPath, true);
             }
         }

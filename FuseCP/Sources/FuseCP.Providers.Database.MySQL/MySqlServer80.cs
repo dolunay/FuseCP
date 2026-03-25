@@ -88,7 +88,7 @@ namespace FuseCP.Providers.Database
 		private int ExecuteNonQuery(string commandText, string connectionString)
 		{
 			MySqlConnection conn = new MySqlConnection(connectionString);
-			MySqlCommand cmd = new MySqlCommand(commandText, conn);
+			using MySqlCommand cmd = new MySqlCommand(commandText, conn);
 			conn.Open();
 			int ret = cmd.ExecuteNonQuery();
 			conn.Close();

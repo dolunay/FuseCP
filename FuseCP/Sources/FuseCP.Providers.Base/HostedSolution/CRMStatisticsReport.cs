@@ -41,7 +41,7 @@ namespace FuseCP.Providers.HostedSolution
                 sb.AppendFormat("{0},", ToCsvString(item.CRMUserName));
                 sb.AppendFormat("{0},", ToCsvString(item.ClientAccessMode.ToString()));
 				sb.AppendFormat("{0}", ToCsvString(!item.CRMDisabled));
-                mainBuilder.Append(sb.ToString());
+                mainBuilder.Append(sb);
             }
             return mainBuilder.ToString();
         }

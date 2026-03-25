@@ -28,11 +28,11 @@ namespace FuseCP.Templates
     /// </summary>
     public class Template
     {
-        string data;
+        readonly string data;
         Lexer lexer = null;
         Parser parser = null;
         List<AST.Statement> statements = null;
-        TemplateContext context = new TemplateContext();
+        readonly TemplateContext context = new TemplateContext();
 
         /// <summary>
         /// Initializes a new instance of Template with specified template text.
@@ -81,7 +81,7 @@ namespace FuseCP.Templates
         public string Evaluate()
         {
             // create writer to hold result
-            StringWriter writer = new StringWriter();
+            using StringWriter writer = new StringWriter();
 
             // evaluate
             Evaluate(writer);
@@ -161,7 +161,7 @@ namespace FuseCP.Templates
         /// <returns>Returns the value of the context variable.</returns>
         public object this[string name]
         {
-            get { return context.Variables.ContainsKey(name) ? context.Variables[name] : null; }
+            get { return context.Variables.TryGetValue(name, out var _ckv) ? _ckv : null; }
             set { context.Variables[name] = value; }
         }
     }

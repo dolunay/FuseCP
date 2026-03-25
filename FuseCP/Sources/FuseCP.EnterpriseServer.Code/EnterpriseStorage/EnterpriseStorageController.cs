@@ -355,8 +355,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     TaskManager.CompleteTask();
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
             }
         }
@@ -394,8 +395,9 @@ namespace FuseCP.EnterpriseServer
                     {
                         TaskManager.CompleteTask();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 
@@ -428,8 +430,9 @@ namespace FuseCP.EnterpriseServer
                     {
                         TaskManager.CompleteTask();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 
@@ -1934,7 +1937,7 @@ namespace FuseCP.EnterpriseServer
 
                         #endregion
 
-                        os.SetQuotaLimitOnFolder(orgFolder, curSetting.LocationDrive, quotaType, quotaSize.ToString() + unit, 0, String.Empty, String.Empty);
+                        os.SetQuotaLimitOnFolder(orgFolder, curSetting.LocationDrive, quotaType, quotaSize + unit, 0, String.Empty, String.Empty);
                     }
                     catch (Exception ex)
                     {
@@ -2181,7 +2184,7 @@ namespace FuseCP.EnterpriseServer
                     UserInfo user = ObjectUtils.FillObjectFromDataReader<UserInfo>(Database.GetUserByExchangeOrganizationIdInternally(org.Id));
                     List<PackageInfo> Packages = PackageController.GetPackages(user.UserId);
 
-                    if ((Packages != null) & (Packages.Count > 0))
+                    if ((Packages != null) && (Packages.Count > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -2189,7 +2192,7 @@ namespace FuseCP.EnterpriseServer
 
                             orgs = ExchangeServerController.GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.Count > 0))
+                            if ((orgs != null) && (orgs.Count > 0))
                             {
                                 foreach (Organization o in orgs)
                                 {
@@ -2558,12 +2561,10 @@ namespace FuseCP.EnterpriseServer
 
         public int ConvertMegaBytesToGB(int megabytes)
         {
-            int OneGb = 1024;
-
             if (megabytes == -1)
                 return megabytes;
 
-            return (int)(megabytes / OneGb);
+            return megabytes / 1024;
         }
 
         public int ConvertBytesToMB(long bytes)

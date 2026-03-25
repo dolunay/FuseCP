@@ -89,16 +89,16 @@ namespace FuseCP.EnterpriseServer.Data
             }
             set {
                 nativeConnectionString = value;
-				DbType dbType = DbType.Unknown;
+				DbType local_dbType = DbType.Unknown;
 				var csb = new ConnectionStringBuilder(value);
                 var dbTypeStr = csb["DbType"] as string;
                 if (!string.IsNullOrEmpty(dbTypeStr))
                 {
-                    if (Enum.TryParse<DbType>(dbTypeStr, out dbType)) DbType = dbType;
+                    if (Enum.TryParse<DbType>(dbTypeStr, out local_dbType)) DbType = local_dbType;
                     csb.Remove("DbType");
                 }
 
-                if (dbType == DbType.Sqlite || dbType == DbType.SqliteFX)
+                if (local_dbType == DbType.Sqlite || local_dbType == DbType.SqliteFX)
                 {
                     var dbFile = (string)csb["Data Source"];
                     if (!Path.IsPathRooted(dbFile))

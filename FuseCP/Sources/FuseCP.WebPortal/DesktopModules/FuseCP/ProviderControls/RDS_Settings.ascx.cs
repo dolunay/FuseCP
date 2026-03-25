@@ -126,8 +126,9 @@ namespace FuseCP.Portal.ProviderControls
                     ES.Services.RDS.AddRdsCertificate(certificate);
                 }
             }
-            catch (Exception)
-            {                
+            catch (Exception swallowedEx)
+            {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
         }
 

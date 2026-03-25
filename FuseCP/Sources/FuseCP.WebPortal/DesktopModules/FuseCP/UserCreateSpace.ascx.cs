@@ -183,7 +183,7 @@ namespace FuseCP.Portal
                 }
                 else
                 {
-                    if ((chkIntegratedOUProvisioning.Checked) & !string.IsNullOrEmpty(domainName))
+                    if ((chkIntegratedOUProvisioning.Checked) && !string.IsNullOrEmpty(domainName))
                     {
                         UserInfo user = UsersHelper.GetUser(PanelSecurity.SelectedUserId);
 
@@ -377,8 +377,9 @@ namespace FuseCP.Portal
                         return orgId;
                     }
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
 

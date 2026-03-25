@@ -30,7 +30,13 @@ public class LaunchdServiceController : ServiceController
 	public override bool IsInstalled => OSInfo.IsMac;
 	public Shell Shell => Shell.Standard;
 	public override void SystemReboot() => Shell.Exec("launchctrl reboot");
-	string ServiceFile(string serviceId) => Path.Combine(ServicesDirectory, $"{serviceId}.plist");
+	static string ValidateServiceId(string serviceId)
+	{
+		if (string.IsNullOrWhiteSpace(serviceId) || !Regex.IsMatch(serviceId, @"^[A-Za-z0-9_.-]+$"))
+			throw new ArgumentException("Invalid service identifier.", nameof(serviceId));
+		return serviceId;
+	}
+	string ServiceFile(string serviceId) => Path.Combine(ServicesDirectory, $"{ValidateServiceId(serviceId)}.plist");
 	public override IEnumerable<OSService> All()
 	{
 		var servicesText = Shell.Exec("launchctl list").Output().Result;
@@ -62,6 +68,7 @@ public class LaunchdServiceController : ServiceController
 
 	public override OSService Info(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var output = Shell.Exec($"launchctl print system/{serviceId}").Output().Result;
 		if (output == null) return null;
 		var exists = Regex.IsMatch(output, @"^\s*(?<id>[^\n]*?)[ \t]*=[ \t]*{[ \t]*\r?\n", RegexOptions.Singleline);
@@ -93,6 +100,7 @@ public class LaunchdServiceController : ServiceController
 	}
 	public override void ChangeStatus(string serviceId, OSServiceStatus status)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var service = Info(serviceId);
 		if (service == null) throw new ArgumentException($"Service {serviceId} not found");
 		if (service.Status == OSServiceStatus.Running)
@@ -114,6 +122,7 @@ public class LaunchdServiceController : ServiceController
 	}
 	public override void Remove(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		var serviceFile = Path.Combine(ServicesDirectory, $"{serviceId}.plist");
 
 		Shell.Exec($"launchctl disable system/{serviceId}");
@@ -126,6 +135,7 @@ public class LaunchdServiceController : ServiceController
 		if (srvc == null) throw new ArgumentException("Service description is not of type LaunchdServiceDescription");
 
 		var serviceId = srvc.ServiceId;
+		ValidateServiceId(serviceId);
 		var serviceFile = ServiceFile(serviceId);
 		var dict = new NSDictionary();
 		dict.Add("Label", serviceId);
@@ -196,10 +206,12 @@ public class LaunchdServiceController : ServiceController
 
 	public override void Enable(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		Shell.Exec($"launchctl enable system/{serviceId}");
 	}
 	public override void Disable(string serviceId)
 	{
+		serviceId = ValidateServiceId(serviceId);
 		Shell.Exec($"launchctl disable system/{serviceId}");
 	}
 }

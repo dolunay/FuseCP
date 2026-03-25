@@ -509,24 +509,27 @@ namespace FuseCP.Providers.HostedSolution
                         {
                             DeleteAddressBookPolicy(runSpace, upn + " AP");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteGlobalAddressList(runSpace, upn + " GAL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteAddressList(runSpace, upn + " AL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
 
@@ -658,12 +661,11 @@ namespace FuseCP.Providers.HostedSolution
         {
             foreach (ServiceProviderItem item in items)
             {
-                if (item is Organization)
+                if (item is Organization org)
                 {
                     try
                     {
-                        // make E2K7 mailboxes disabled
-                        Organization org = item as Organization;
+
                         ChangeOrganizationState(org.DistinguishedName, enabled);
                     }
                     catch (Exception ex)
@@ -680,9 +682,8 @@ namespace FuseCP.Providers.HostedSolution
             {
                 try
                 {
-                    if (item is Organization)
+                    if (item is Organization org)
                     {
-                        Organization org = item as Organization;
                         DeleteOrganization(org.OrganizationId, org.DistinguishedName, org.GlobalAddressList,
                             org.AddressList, org.RoomsAddressList, org.OfflineAddressBook, org.SecurityGroup, org.AddressBookPolicy, null);
                     }
@@ -705,12 +706,12 @@ namespace FuseCP.Providers.HostedSolution
             // update items with diskspace
             foreach (ServiceProviderItem item in items)
             {
-                if (item is Organization)
+                if (item is Organization org)
                 {
                     try
                     {
                         Log.WriteStart(String.Format("Calculating '{0}' disk space", item.Name));
-                        Organization org = item as Organization;
+
                         // calculate disk space
                         ServiceProviderItemDiskSpace diskspace = new ServiceProviderItemDiskSpace();
                         diskspace.ItemId = item.Id;
@@ -737,11 +738,11 @@ namespace FuseCP.Providers.HostedSolution
             try
             {
                 string path = ConvertDomainName(RootDomain);
-                DirectoryEntry entry = new DirectoryEntry(path, username, password);
+                using DirectoryEntry entry = new DirectoryEntry(path, username, password);
                 //Bind to the native AdsObject to force authentication.
                 object obj = entry.NativeObject;
 
-                DirectorySearcher search = new DirectorySearcher(entry);
+                using DirectorySearcher search = new DirectorySearcher(entry);
 
                 search.Filter = string.Format("(userPrincipalName={0})", username);
                 search.PropertiesToLoad.Add("cn");
@@ -1832,7 +1833,7 @@ namespace FuseCP.Providers.HostedSolution
 
             var onBehalfs = GetPSObjectProperty(result, "GrantSendOnBehalfTo") as IEnumerable;
 
-            foreach (object current in onBehalfs)
+            foreach (object current in onBehalfs ?? System.Linq.Enumerable.Empty<object>())
             {
                 string user = current.ToString();
 
@@ -2591,24 +2592,27 @@ namespace FuseCP.Providers.HostedSolution
                         {
                             DeleteAddressBookPolicy(runSpace, upn + " AP");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteGlobalAddressList(runSpace, upn + " GAL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
 
                         try
                         {
                             DeleteAddressList(runSpace, upn + " AL");
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
                 }
@@ -2876,7 +2880,7 @@ namespace FuseCP.Providers.HostedSolution
             string currentStep = "opening Exchange runspace";
             try
             {
-                currentStep = "opening Exchange runspace";
+
                 runSpace = OpenRunspace();
                 currentStep = "opening Exchange litigation runspace";
                 runSpaceEx = OpenRunspaceEx();
@@ -2957,7 +2961,7 @@ namespace FuseCP.Providers.HostedSolution
                 runSpace = OpenRunspace();
 
                 Collection<PSObject> result = GetMailboxObject(runSpace, accountName);
-                PSObject mailbox = result[0];
+
 
                 string id = GetResultObjectDN(result);
                 string path = AddADPrefix(id);
@@ -3046,7 +3050,7 @@ namespace FuseCP.Providers.HostedSolution
                 Command cmd = new Command("Set-Mailbox");
                 cmd.Parameters.Add("Identity", accountName);
                 object capacity = null;
-                if (resourceSettings.ResourceCapacity >= 0) capacity = (Int32)resourceSettings.ResourceCapacity;
+                if (resourceSettings.ResourceCapacity >= 0) capacity = resourceSettings.ResourceCapacity;
                 cmd.Parameters.Add("ResourceCapacity", capacity);
                 ExecuteShellCommand(runSpace, cmd);
 
@@ -3113,7 +3117,7 @@ namespace FuseCP.Providers.HostedSolution
             string currentStep = "opening Exchange runspace";
             try
             {
-                currentStep = "opening Exchange runspace";
+
                 runSpace = OpenRunspace();
 
                 currentStep = "loading mailbox object";
@@ -3385,7 +3389,7 @@ namespace FuseCP.Providers.HostedSolution
                 cmd = new Command("Get-MailboxSearch");
                 cmd.Parameters.Add("Identity", accountName);
                 result = ExecuteShellCommandEx(runSpaceEx, cmd);
-                if ((result != null) & (result.Count > 0))
+                if ((result != null) && (result.Count > 0))
                 {
                     mailbox = result[0];
                     info.EnableLitigationHold = (bool)GetPSObjectProperty(mailbox, "InPlaceHoldEnabled");
@@ -6863,7 +6867,7 @@ namespace FuseCP.Providers.HostedSolution
             string defaultContext = GetADObjectProperty(rootDSE, "defaultNamingContext").ToString();
             DirectoryEntry partitions = GetADObject("LDAP://cn=Partitions," + contextPath);
 
-            DirectorySearcher searcher = new DirectorySearcher();
+            using DirectorySearcher searcher = new DirectorySearcher();
             searcher.SearchRoot = partitions;
             searcher.Filter = string.Format("(&(objectCategory=crossRef)(nCName={0}))", defaultContext);
             searcher.SearchScope = SearchScope.OneLevel;
@@ -6985,11 +6989,11 @@ namespace FuseCP.Providers.HostedSolution
 
             if (connectionInfo == null)
             {
-                ServerManager mgr = new ServerManager();
+                using ServerManager mgr = new ServerManager();
                 string poolName = Environment.GetEnvironmentVariable("APP_POOL_ID", EnvironmentVariableTarget.Process);
                 ApplicationPool myAppPool = mgr.ApplicationPools[poolName];
 
-                SecureString password = new SecureString();
+                using SecureString password = new SecureString();
                 string str_password = myAppPool.ProcessModel.Password;
                 string username = myAppPool.ProcessModel.UserName;
 
@@ -7727,8 +7731,9 @@ namespace FuseCP.Providers.HostedSolution
                 {
                     result = ExecuteShellCommand(runSpace, cmd);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 if (result != null)
@@ -7878,8 +7883,9 @@ namespace FuseCP.Providers.HostedSolution
                 {
                     result = ExecuteShellCommand(runSpace, cmd);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 if (result != null)

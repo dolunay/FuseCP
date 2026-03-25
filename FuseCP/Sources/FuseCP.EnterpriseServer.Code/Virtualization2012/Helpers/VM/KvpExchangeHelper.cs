@@ -80,10 +80,10 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers.VM
             props["Password"] = password;
 
             // send items
-            if (cleanResult)
-                return SendKvpItemsAndCleanResult(itemId, "ChangeAdministratorPassword", props);
-            else
-                return SendKvpItems(itemId, "ChangeAdministratorPassword", props);
+            return cleanResult ? SendKvpItemsAndCleanResult(itemId, "ChangeAdministratorPassword", props) : SendKvpItems(itemId, "ChangeAdministratorPassword", props);
+
+
+
         }
 
         public JobResult SendNetworkAdapterKVP(int itemId, string adapterName)

@@ -399,8 +399,9 @@ namespace FuseCP.EnterpriseServer
                 var address = Dns.GetHostAddresses(hostname);
                 return address;
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
 
             return new List<System.Net.IPAddress>();

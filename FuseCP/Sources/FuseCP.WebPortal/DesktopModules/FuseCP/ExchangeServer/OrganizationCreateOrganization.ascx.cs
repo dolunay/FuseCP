@@ -95,8 +95,9 @@ namespace FuseCP.Portal.ExchangeServer
                         return orgId;
                     }
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
 
@@ -141,8 +142,9 @@ namespace FuseCP.Portal.ExchangeServer
                     txtOrganizationID.MaxLength = maxLength;
                     valRequireCorrectOrgID.ValidationExpression = string.Format("[a-zA-Z0-9.-]{{1,{0}}}", maxLength);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
         }

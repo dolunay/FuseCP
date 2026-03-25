@@ -263,8 +263,9 @@ namespace FuseCP.WebDav.Core
                             networkStream.WriteTimeout = TimeOut;
                             networkStream.ReadTimeout = TimeOut;
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
                     byte[] methodBuffer = Encoding.UTF8.GetBytes("PUT " + Href.AbsolutePath + " HTTP/1.1\r\n");
@@ -560,8 +561,9 @@ namespace FuseCP.WebDav.Core
                                 break;
                         }
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
                 }
 
@@ -588,8 +590,9 @@ namespace FuseCP.WebDav.Core
                         {
                             _contentLength = Convert.ToInt64(property.StringValue);
                         }
-                        catch (Exception)
+                        catch (Exception swallowedEx)
                         {
+                            System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                         }
                     }
                     newProperties[_properties.Length] = property;

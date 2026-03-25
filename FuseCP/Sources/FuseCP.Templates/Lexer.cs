@@ -33,10 +33,10 @@ namespace FuseCP.Templates
         const char EOF = (char)0;
 
         // private fields
-        static Dictionary<string, TokenType> keywords;
-        static Dictionary<string, TokenType> startTags;
-        static Dictionary<string, TokenType> closingTags;
-        string data;
+        static readonly Dictionary<string, TokenType> keywords;
+        static readonly Dictionary<string, TokenType> startTags;
+        static readonly Dictionary<string, TokenType> closingTags;
+        readonly string data;
         int pos;
         int column;
         int line;
@@ -202,8 +202,8 @@ namespace FuseCP.Templates
             string name = ReadTagName();
 
             // check for standard tags
-            if (startTags.ContainsKey(name))
-                return CreateToken(startTags[name], name);
+if (startTags.TryGetValue(name, out var _ckv))
+                return CreateToken(_ckv, name);
 
             return CreateToken(TokenType.OpenTag, name);
         }
@@ -219,10 +219,10 @@ namespace FuseCP.Templates
             if (LA(0) == '>')
             {
                 Consume();
-                if (closingTags.ContainsKey(name))
-                    return CreateToken(closingTags[name], name);
-                else
-                    return CreateToken(TokenType.CloseTag, name);
+return closingTags.TryGetValue(name, out var _ckv) ? CreateToken(_ckv, name) : CreateToken(TokenType.CloseTag, name);
+
+
+
             }
 
             return CreateToken(TokenType.Text);
@@ -510,10 +510,10 @@ namespace FuseCP.Templates
 
             string tokenData = data.Substring(savePos, pos - savePos);
 
-            if (keywords.ContainsKey(tokenData))
-                return CreateToken(keywords[tokenData]);
-            else
-                return CreateToken(TokenType.Identifier, tokenData);
+return keywords.TryGetValue(tokenData, out var _ckv) ? CreateToken(_ckv) : CreateToken(TokenType.Identifier, tokenData);
+
+
+
         }
 
         private Token ReadNumber()

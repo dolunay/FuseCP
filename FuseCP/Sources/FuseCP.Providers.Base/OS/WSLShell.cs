@@ -185,8 +185,8 @@ namespace FuseCP.Providers.OS
 					var setting = this[nameof(NetworkingMode)];
 					if (string.IsNullOrEmpty(setting)) return null;
 					WSLNetworkingMode mode;
-					if (Enum.TryParse<WSLNetworkingMode>(setting, true, out mode)) return mode;
-					else return null;
+					return Enum.TryParse<WSLNetworkingMode>(setting, true, out mode) ? mode : null;
+
 				}
 				set => this[nameof(NetworkingMode)] = ToCamelCase(value?.ToString());
 			}
@@ -342,7 +342,7 @@ namespace FuseCP.Providers.OS
 				var match = Regex.Match(configTxt, @"(?<trivia>^.*?)(?<body>(?<=^|\n)\[[^]\n]\].*$)", RegexOptions.Singleline);
 				leadingTrivia = match.Groups["trivia"].Value;
 				var sections = match.Groups["body"].Value;
-				var reader = new StringReader(sections);
+				using var reader = new StringReader(sections);
 				var line = reader.ReadLine();
 				ConfigurationSection section = null;
 				while (line != null)
@@ -391,8 +391,8 @@ namespace FuseCP.Providers.OS
 					if (section == null)
 					{
 						var sectionType = Type.GetType($"FuseCP.Providers.OS.WSLShell.{section}Section, FuseCP.Providers.Base");
-						if (sectionType != null) config = Activator.CreateInstance(sectionType) as ConfigurationSection;
-						else config = new ConfigurationSection();
+						config = sectionType != null ? Activator.CreateInstance(sectionType) as ConfigurationSection : new ConfigurationSection();
+
 						base[section] = config;
 					}
 					return config;

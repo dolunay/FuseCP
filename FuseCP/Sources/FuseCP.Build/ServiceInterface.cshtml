@@ -128,8 +128,8 @@ public interface I@(Class.Identifier) {
 
 		var isGet = webMethod == "GET";
 		AttributeSyntax attr;
-		if (isGet) attr = Attribute(IdentifierName("WebGet"));
-		else attr = Attribute(IdentifierName("WebInvoke"));
+		attr = isGet ? Attribute(IdentifierName("WebGet")) : Attribute(IdentifierName("WebInvoke"));
+
 		attr = attr.WithArgumentList(ParseAttributeArgumentList((!isGet ? $"(Method = \"{webMethod}\", " : "(") + $"UriTemplate = \"{uri}\"" +
 			(hasMultipleComplexParameters ? $", BodyStyle = WebMessageBodyStyle.WrappedRequest)" : ")")));
 			//"RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)"

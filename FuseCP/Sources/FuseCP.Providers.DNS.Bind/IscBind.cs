@@ -703,7 +703,7 @@ namespace FuseCP.Providers.DNS
         private List<DnsRecord> ParseZoneFileToArrayList(string zoneName, string zf)
         {
             List<DnsRecord> records = new List<DnsRecord>();
-            StringReader reader = new StringReader(zf);
+            using StringReader reader = new StringReader(zf);
             string zfLine = null;
 
             DnsSOARecord soa = null;
@@ -1128,10 +1128,10 @@ namespace FuseCP.Providers.DNS
                             if (version.Split(';').Any(v => ver.StartsWith(v))) return true;
                         }
                     }
-                    catch (IOException) { }
-                    catch (UnauthorizedAccessException) { }
-                    catch (InvalidOperationException) { }
-                    catch (AggregateException) { }
+                    catch (IOException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (UnauthorizedAccessException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (InvalidOperationException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
+                    catch (AggregateException swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
             }
             return false;

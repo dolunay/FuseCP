@@ -48,10 +48,10 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012
 
         public static void CheckQuotaValue(PackageContext cntx, List<string> errors, string quotaName, long currentVal, long val, string messageKey)
         {
-            if (!cntx.Quotas.ContainsKey(quotaName))
+if (!cntx.Quotas.TryGetValue(quotaName, out var _ckv))
                 return;
 
-            QuotaValueInfo quota = cntx.Quotas[quotaName];
+            QuotaValueInfo quota = _ckv;
 
             if (val == -1 && quota.QuotaExhausted) // check if quota already reached
             {

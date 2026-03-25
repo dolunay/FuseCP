@@ -504,7 +504,7 @@ namespace FuseCP.Providers.Web
 					// Check this subPath is in folders list already
 					bool included = folders.Any(x => String.Equals(subPath, x.ContentPath, StringComparison.OrdinalIgnoreCase));
 					// Add only if it is not included
-					if (included == false)
+					if (!(included))
 					{
 						//
 						folders.Add(new HtaccessFolder

@@ -108,8 +108,8 @@ namespace FuseCP.Providers.OS
                             }
                             else RemoteForwardPort = 0;
 
-                            if (match.Groups["path"].Success) Path = match.Groups["path"].Value;
-                            else Path = "";
+                            Path = match.Groups["path"].Success ? match.Groups["path"].Value : "";
+
 
                             var keys = Query["keyfiles"];
                             if (keys != null)

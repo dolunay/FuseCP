@@ -55,12 +55,9 @@ namespace FuseCP.EnterpriseServer
 
             nextSchedule = SchedulerController.GetNextSchedule();
 
-            if (nextSchedule != null)
+            if (nextSchedule != null && nextSchedule.ScheduleInfo.NextRun <= DateTime.Now)
             {
-                if (nextSchedule.ScheduleInfo.NextRun <= DateTime.Now)
-                {
-                    RunNextSchedule(null);
-                }
+                RunNextSchedule(null);
             }
         }
 
@@ -113,8 +110,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     TaskManager.CompleteTask();
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
         }
@@ -185,8 +183,9 @@ namespace FuseCP.EnterpriseServer
                 {
                     TaskManager.WriteError(string.Format("RunSchedule Error : {0}", Ex.Message));
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
             }
         }

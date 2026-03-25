@@ -30,7 +30,7 @@ namespace FuseCP.Server.Utils
 			/// </summary>
 			public class RegistryHiveSection
 			{
-				private UIntPtr HiveSection;
+				private readonly UIntPtr HiveSection;
 
 				public RegistryHiveSection(UIntPtr hiveSection)
 				{

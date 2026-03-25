@@ -44,12 +44,12 @@ namespace FuseCP.Server
 
 
         [WebMethod, SoapHeader("settings")]
-        public SystemFile[] GetFolders(string organizationId, WebDavSetting[] settings)
+        public SystemFile[] GetFolders(string organizationId, WebDavSetting[] local_settings)
         {
             try
             {
                 Log.WriteStart("'{0}' GetFolders", ProviderSettings.ProviderName);
-                SystemFile[] result = EnterpriseStorageProvider.GetFolders(organizationId, settings);
+                SystemFile[] result = EnterpriseStorageProvider.GetFolders(organizationId, local_settings);
                 Log.WriteEnd("'{0}' GetFolders", ProviderSettings.ProviderName);
                 return result;
             }
@@ -61,12 +61,12 @@ namespace FuseCP.Server
         }
 
         [WebMethod, SoapHeader("settings")]
-        public SystemFile[] GetFoldersWithoutFrsm(string organizationId, WebDavSetting[] settings)
+        public SystemFile[] GetFoldersWithoutFrsm(string organizationId, WebDavSetting[] local_settings)
         {
             try
             {
                 Log.WriteStart("'{0}' GetFolders", ProviderSettings.ProviderName);
-                SystemFile[] result = EnterpriseStorageProvider.GetFoldersWithoutFrsm(organizationId, settings);
+                SystemFile[] result = EnterpriseStorageProvider.GetFoldersWithoutFrsm(organizationId, local_settings);
                 Log.WriteEnd("'{0}' GetFolders", ProviderSettings.ProviderName);
                 return result;
             }

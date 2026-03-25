@@ -83,7 +83,7 @@ namespace FuseCP.EnterpriseServer
 
                 var deletionResult = StorageSpacesController.DeleteStorageSpaceFolder(folder.StorageSpaceId, folder.Id);
 
-                if (deletionResult.IsSuccess == false)
+                if (!(deletionResult.IsSuccess))
                 {
                     throw new Exception(string.Join(";",deletionResult.ErrorCodes));
                 }

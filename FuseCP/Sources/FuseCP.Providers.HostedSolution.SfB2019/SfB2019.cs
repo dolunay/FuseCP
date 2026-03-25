@@ -158,32 +158,36 @@ namespace FuseCP.Providers.HostedSolution
                 {
                     DeleteConferencingPolicy(runspace, organizationId);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
                 }
 
                 try
                 {
                     DeleteExternalAccessPolicy(runspace, organizationId);
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 try
                 {
                     DeleteMobilityPolicy(runspace, organizationId + " EnableOutSideVoice");
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 try
                 {
                     DeleteMobilityPolicy(runspace, organizationId + " DisableOutSideVoice");
                 }
-                catch (Exception)
+                catch (Exception swallowedEx)
                 {
+                    System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                 }
 
                 var command = new Command("Invoke-CsManagementStoreReplication");
@@ -277,7 +281,7 @@ namespace FuseCP.Providers.HostedSolution
                     {
                         PlanSet = SetSfBUserPlanInternal(organizationId, userUpn, plan, runspace);
                     }
-                    catch { }
+                    catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                     if (!PlanSet) System.Threading.Thread.Sleep(trySleep);
                 }
 

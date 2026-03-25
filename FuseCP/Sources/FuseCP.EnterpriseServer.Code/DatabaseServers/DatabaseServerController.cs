@@ -38,6 +38,18 @@ namespace FuseCP.EnterpriseServer
         private const int FILE_BUFFER_LENGTH = 5000000; // ~5MB
 
         public DatabaseServerController(ControllerBase provider) : base(provider) { }
+
+        private static string EnsureSafeBackupFileName(string backupFileName)
+        {
+            if (String.IsNullOrWhiteSpace(backupFileName))
+                throw new ArgumentException("Backup file name cannot be null or empty.", nameof(backupFileName));
+
+            string safeFileName = Path.GetFileName(backupFileName.Trim());
+            if (safeFileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+                throw new ArgumentException("Backup file name contains invalid characters.", nameof(backupFileName));
+
+            return safeFileName;
+        }
         public DatabaseServer GetDatabaseServer(int serviceId)
         {
             DatabaseServer db = new DatabaseServer();
@@ -824,7 +836,8 @@ namespace FuseCP.EnterpriseServer
 				string remoteBackupFile = sql.BackupDatabase(item.Name, backupName, true);
 
 				// download remote backup
-				string localBackupPath = Path.Combine(tempFolder, backupName);
+                backupName = EnsureSafeBackupFileName(backupName);
+                string localBackupPath = Path.Combine(Path.GetFullPath(tempFolder), backupName);
 
 				byte[] buffer = null;
 				FileStream stream = new FileStream(localBackupPath, FileMode.Create, FileAccess.Write);
@@ -891,7 +904,7 @@ namespace FuseCP.EnterpriseServer
 
 				// copy database backup to remote server
 				XmlNode fileNode = itemNode.SelectSingleNode("File[@name='DatabaseBackup']");
-				string backupFileName = fileNode.Attributes["path"].Value;
+                string backupFileName = EnsureSafeBackupFileName(fileNode.Attributes["path"].Value);
                 long backupFileLength = Int64.Parse(fileNode.Attributes["size"].Value);
 				string localBackupFilePath = Path.Combine(tempFolder, backupFileName);
 

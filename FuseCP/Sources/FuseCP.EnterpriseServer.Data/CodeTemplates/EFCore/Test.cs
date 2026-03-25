@@ -100,12 +100,12 @@ namespace FuseCP.EnterpriseServer.Data
 							prop.ClrType == typeof(decimal) || prop.ClrType == typeof(float) ||
 							prop.ClrType == typeof(double))
 						{
-							Console.Write(val.ToString());
+							Console.Write(val);
 						}
 						else if (prop.ClrType == typeof(Guid))
 						{
 							Console.Write("new Guid(\"");
-							Console.Write(val.ToString());
+							Console.Write(val);
 							Console.Write("\")");
 						} else if (prop.ClrType == typeof(DateTime))
 						{
@@ -115,7 +115,7 @@ namespace FuseCP.EnterpriseServer.Data
 						} else if (prop.ClrType == typeof(TimeSpan))
 						{
 							Console.Write("TimeSpan.Parse(\"");
-							Console.Write(val.ToString());
+							Console.Write(val);
 							Console.Write("\")");
 						} else if (prop.ClrType == typeof(byte[]))
 						{
@@ -124,7 +124,7 @@ namespace FuseCP.EnterpriseServer.Data
 							Console.Write("\")");
 						} else
 						{
-							Console.Write("\""); Console.Write(val.ToString()); Console.Write("\"");
+							Console.Write("\""); Console.Write(val); Console.Write("\"");
 						}
 					}
 					Console.WriteLine("},");
@@ -132,7 +132,7 @@ namespace FuseCP.EnterpriseServer.Data
 			}
 		}
 
-		static ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
+		static readonly ConcurrentDictionary<string, ServerVersion> serverVersions = new ConcurrentDictionary<string, ServerVersion>();
 		public void Setup(DbContextOptionsBuilder builder)
 		{
 			DbContext context = null;

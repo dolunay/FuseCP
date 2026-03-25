@@ -32,8 +32,9 @@ namespace FuseCP.Providers.OS
             {
                 codeBase = assembly?.GetType().GetProperty("CodeBase")?.GetValue(assembly) as string;
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
 
             if (!string.IsNullOrWhiteSpace(codeBase) && Uri.TryCreate(codeBase, UriKind.Absolute, out var codeBaseUri) && codeBaseUri.IsFile)
@@ -60,7 +61,7 @@ namespace FuseCP.Providers.OS
 
         static readonly SkiaSharp Current = new SkiaSharp(); 
 
-        static Dictionary<string, IntPtr> loadedNativeDlls = new Dictionary<string, IntPtr>();
+        static readonly Dictionary<string, IntPtr> loadedNativeDlls = new Dictionary<string, IntPtr>();
         public IntPtr SkiaDllImportResolver(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
         {
             if (libraryName.Contains("SkiaSharp"))

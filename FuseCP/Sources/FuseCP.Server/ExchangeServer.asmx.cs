@@ -359,12 +359,12 @@ namespace FuseCP.Server
         }
 
         [WebMethod, SoapHeader("settings")]
-        public void SetMailboxAutoReplySettings(string accountName, ExchangeMailboxAutoReplySettings settings)
+        public void SetMailboxAutoReplySettings(string accountName, ExchangeMailboxAutoReplySettings local_settings)
         {
             try
             {
                 LogStart("SetMailboxAutoReplySettings");
-                ES.SetMailboxAutoReplySettings(accountName, settings);
+                ES.SetMailboxAutoReplySettings(accountName, local_settings);
                 LogEnd("SetMailboxAutoReplySettings");
             }
             catch (Exception ex)

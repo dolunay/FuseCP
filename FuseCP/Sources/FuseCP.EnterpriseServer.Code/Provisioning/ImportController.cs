@@ -87,9 +87,8 @@ namespace FuseCP.EnterpriseServer
                     string serviceItemName = (string)dr["ItemName"];
                     int serviceItemTypeId = (int)dr["ItemTypeId"];
 
-                    if (serviceItemTypeId == itemTypeId)
+                    if (serviceItemTypeId == itemTypeId && !ignorelist.Contains(serviceItemName))
                     {
-                        if (!ignorelist.Contains(serviceItemName))
                             ignorelist.Add(serviceItemName.ToLower());
                     }
                 }
@@ -98,9 +97,8 @@ namespace FuseCP.EnterpriseServer
                     string packageItemName = (string)dr["ItemName"];
                     int packageItemTypeId = (int)dr["ItemTypeId"];
 
-                    if (packageItemTypeId == itemTypeId)
+                    if (packageItemTypeId == itemTypeId && !ignorelist.Contains(packageItemName))
                     {
-                        if (!ignorelist.Contains(packageItemName))
                             ignorelist.Add(packageItemName.ToLower());
                     }
                 }
@@ -260,7 +258,7 @@ namespace FuseCP.EnterpriseServer
                             int result = WebServerController.ImporHostHeader(int.Parse(sParts[2],0), int.Parse(sParts[3],0), int.Parse(sParts[5],0));
 
                             if (result < 0)
-                                TaskManager.WriteError(String.Format("Failed to Import {0} ,error: {1}: ", sParts[4], result.ToString()));
+                                TaskManager.WriteError(String.Format("Failed to Import {0} ,error: {1}: ", sParts[4], result));
                             
                         break;
                     }
@@ -296,7 +294,7 @@ namespace FuseCP.EnterpriseServer
                             List<WebSite> webSites = WebServerController.GetWebSites(package.PackageId, false);
                             foreach (WebSite webSite in webSites)
                             {
-                                items.Add(user.Username+"|"+user.UserId.ToString()+"|"+package.PackageId.ToString()+"|"+webSite.SiteId+"|"+webSite.Id);
+                                items.Add(user.Username+"|"+user.UserId+"|"+package.PackageId+"|"+webSite.SiteId+"|"+webSite.Id);
                             }
                         }
                     }

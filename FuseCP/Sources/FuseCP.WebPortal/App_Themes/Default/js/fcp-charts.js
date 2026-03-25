@@ -51,8 +51,8 @@ $(document).ready(function(){
 		$('.headline a').click( function(e) {
 			e.preventDefault();
 
-			$tabId = $(this).attr('href');
-			$chartId = $(this).attr('data-cid');
+			var $tabId = $(this).attr('href');
+			var $chartId = $(this).attr('data-cid');
 			
 			/* adjust tab nav status */
 			$('.headline li').removeClass('active');
@@ -100,8 +100,8 @@ $(document).ready(function(){
 	$('#dashboard-stat-tab a').click( function(e) {
 		e.preventDefault();
 
-		$tabId = $(this).attr('href');
-		$chartId = $(this).attr('data-cid');
+		var $tabId = $(this).attr('href');
+		var $chartId = $(this).attr('data-cid');
 
 		$('#dashboard-stat-tab li').removeClass('active');
 		$(this).parents('li').addClass('active');
@@ -271,7 +271,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 26), 198], [gt(2013, 10, 27), 195]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: currentWeek,
@@ -349,7 +349,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 26), 198], [gt(2013, 10, 27), 195]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: currentWeek,
@@ -420,7 +420,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 21), 75], [gt(2013, 10, 22), 65], [gt(2013, 10, 23), 80], [gt(2013, 10, 24), 60], [gt(2013, 10, 25), 65], [gt(2013, 10, 26), 80], [gt(2013, 10, 27), 110]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: basic,
@@ -558,7 +558,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 26), 198], [gt(2013, 10, 27), 195]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: currentWeek,
@@ -637,7 +637,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 29), 125], [gt(2013, 10, 30), 110], [gt(2013, 10, 31), 130]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: visit,
@@ -717,7 +717,7 @@ $(document).ready(function(){
 			[gt(2013, 8, 1), 452], [gt(2013, 9, 1), 552], [gt(2013, 10, 1), 600], [gt(2013, 11, 1), 680], [gt(2013, 12, 1), 750]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: visit,
@@ -791,7 +791,7 @@ $(document).ready(function(){
 			[gt(2013, 10, 21), 75], [gt(2013, 10, 22), 65], [gt(2013, 10, 23), 80], [gt(2013, 10, 24), 60], [gt(2013, 10, 25), 65], [gt(2013, 10, 26), 80], [gt(2013, 10, 27), 110]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: basic,
@@ -861,7 +861,7 @@ $(document).ready(function(){
 			[100, 1], [90, 2], [150, 3], [200, 4], [235, 5]
 		];
 
-		var plot = $.plot(placeholder, 
+		$.plot(placeholder, 
 			[
 				{
 					data: basic,
@@ -1093,7 +1093,7 @@ $(document).ready(function(){
 		};
 
 
-		var plot = $.plot(placeholder, data, options);
+		$.plot(placeholder, data, options);
 
 		placeholder.bind("plotselected", function (event, ranges) {
 

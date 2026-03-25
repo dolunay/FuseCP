@@ -1108,10 +1108,10 @@ namespace FuseCP.EnterpriseServer
 
         private void CheckQuotaValue(PackageContext cntx, List<string> errors, string quotaName, int currentVal, int val, string messageKey)
         {
-            if (!cntx.Quotas.ContainsKey(quotaName))
+if (!cntx.Quotas.TryGetValue(quotaName, out var _ckv))
                 return;
 
-            QuotaValueInfo quota = cntx.Quotas[quotaName];
+            QuotaValueInfo quota = _ckv;
 
             if(val == -1 && quota.QuotaExhausted) // check if quota already reached
             {
@@ -3216,8 +3216,8 @@ namespace FuseCP.EnterpriseServer
 
         private string GetPrivateNetworkSubnetMask(string cidr, bool v6)
         {
-			if (v6) return "/" + cidr;
-			else return IPAddress.Parse("/" + cidr).ToV4MaskString();
+			return v6 ? "/" + cidr : IPAddress.Parse("/" + cidr).ToV4MaskString();
+
         }
 
 		private string GetSubnetMaskCidr(string subnetMask) {

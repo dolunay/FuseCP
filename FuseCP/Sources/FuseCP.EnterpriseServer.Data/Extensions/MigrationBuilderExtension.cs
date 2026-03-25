@@ -46,7 +46,7 @@ public static class MigrationBuilderExtension
 	}
 
 #if NetCore
-	static ConditionalWeakTable<MigrationBuilder, CountObject> SafeSqlCount = new ConditionalWeakTable<MigrationBuilder, CountObject>();
+	static readonly ConditionalWeakTable<MigrationBuilder, CountObject> SafeSqlCount = new ConditionalWeakTable<MigrationBuilder, CountObject>();
 	public static OperationBuilder<SqlOperation> SafeSql(this MigrationBuilder builder,
 		string query, bool suppressTransaction = false)
 	{
@@ -84,8 +84,8 @@ public static class MigrationBuilderExtension
 				if (isgo = ident.Equals("GO", StringComparison.OrdinalIgnoreCase) || i >= query.Length)
 				{
 					int end;
-					if (i >= query.Length && !isgo) end = query.Length - 1;
-					else end = query.LastIndexOf('\n', i - 3);
+					end = i >= query.Length && !isgo ? query.Length - 1 : query.LastIndexOf('\n', i - 3);
+
 
 					if (end <= -1) end = 0;
 					length = end - start + 1;

@@ -142,7 +142,7 @@ namespace FuseCP.EnterpriseServer
 				//
 				var enabledScpaMode = GetSystemSetupMode();
 				//
-				if (enabledScpaMode == false)
+				if (!(enabledScpaMode))
 				{
 					//
 					TaskManager.WriteWarning("Attempt to execute FCPA procedure for an uknown reason");

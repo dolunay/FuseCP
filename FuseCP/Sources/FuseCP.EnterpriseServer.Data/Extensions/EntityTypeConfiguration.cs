@@ -1667,9 +1667,9 @@ namespace FuseCP.EnterpriseServer.Data
 #if NetCore
 		class EntityData : IEnumerable<TEntity>
 		{
-			Func<IEnumerable<TEntity>> dataProvider;
+			readonly Func<IEnumerable<TEntity>> dataProvider;
 			IEnumerable<TEntity>? data = null;
-			EntityTypeConfiguration<TEntity> configuration;
+			readonly EntityTypeConfiguration<TEntity> configuration;
 			public EntityData(Func<IEnumerable<TEntity>> dataProvider, EntityTypeConfiguration<TEntity> configuration)
 			{
 				this.dataProvider = dataProvider;
@@ -1717,7 +1717,7 @@ namespace FuseCP.EnterpriseServer.Data
 			}
 		}
 
-		static TEntity[] emptyData = new TEntity[0];
+		static readonly TEntity[] emptyData = new TEntity[0];
 		public virtual DataBuilder<TEntity> HasData(Func<IEnumerable<TEntity>> dataProvider) => InitSeedData ? Builder!.HasData(new EntityData(dataProvider, this)) : Builder!.HasData(emptyData);
 #endif
 #if NetFX

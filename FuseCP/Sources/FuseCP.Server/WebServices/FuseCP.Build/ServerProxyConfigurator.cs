@@ -140,8 +140,8 @@ namespace FuseCP.Server.Client
 			List<string> settings = new List<string>();
 
 			// AD Settings
-			settings.Add("AD:Enabled=" + ServerSettings.ADEnabled.ToString());
-			settings.Add("AD:AuthenticationType=" + ServerSettings.ADAuthenticationType.ToString());
+			settings.Add("AD:Enabled=" + ServerSettings.ADEnabled);
+			settings.Add("AD:AuthenticationType=" + ServerSettings.ADAuthenticationType);
 			settings.Add("AD:ParentDomain=" + ServerSettings.ADParentDomain);
 			settings.Add("AD:ParentDomainController=" + ServerSettings.ADParentDomainController);
 			settings.Add("AD:RootDomain=" + ServerSettings.ADRootDomain);
@@ -153,7 +153,7 @@ namespace FuseCP.Server.Client
 			settings.Add("Server:ServerName=" + ServerSettings.ServerName);
 
 			// Provider Settings
-			settings.Add("Provider:ProviderGroupID=" + ProviderSettings.ProviderGroupID.ToString());
+			settings.Add("Provider:ProviderGroupID=" + ProviderSettings.ProviderGroupID);
 			settings.Add("Provider:ProviderCode=" + ProviderSettings.ProviderCode);
 			settings.Add("Provider:ProviderName=" + ProviderSettings.ProviderName);
 			settings.Add("Provider:ProviderType=" + ProviderSettings.ProviderType);
@@ -179,12 +179,12 @@ namespace FuseCP.Server.Client
 			if (proxy.IsDefaultApi)
 			{
 				if (UseMessageSecurityOverHttp && proxy.IsHttp && proxy.IsEncrypted && !proxy.IsLocal &&
-					(UseMessageSecurityOnCore || IsCore.HasValue && IsCore.Value == false))
+					(UseMessageSecurityOnCore || IsCore.HasValue && !(IsCore.Value)))
 				{
 					proxy.Protocol = Web.Clients.Protocols.WSHttp;
 				}
 				else if (UseNetHttpAsDefaultProtocol &&
-					(UseNetHttpOnCore || IsCore.HasValue && IsCore.Value == false))
+					(UseNetHttpOnCore || IsCore.HasValue && !(IsCore.Value)))
 				{
 					if (proxy.IsHttp) proxy.Protocol = Web.Clients.Protocols.NetHttp;
 					else if (proxy.IsHttps) proxy.Protocol = Web.Clients.Protocols.NetHttps;

@@ -104,7 +104,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -114,7 +114,7 @@ namespace FuseCP.Portal
                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(1, false);
             }
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 LyncUserPlan[] plans = ES.Services.Lync.GetLyncUserPlans(orgs[0].Id);
                 list = plans != null ? new List<LyncUserPlan>(plans) : null;
@@ -184,7 +184,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -195,7 +195,7 @@ namespace FuseCP.Portal
             }
 
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 int result = ES.Services.Lync.AddLyncUserPlan(orgs[0].Id, plan);
 
@@ -227,7 +227,7 @@ namespace FuseCP.Portal
                         {
                             PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                            if ((Packages != null) & (Packages.GetLength(0) > 0))
+                            if ((Packages != null) && (Packages.GetLength(0) > 0))
                             {
                                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                             }
@@ -279,7 +279,7 @@ namespace FuseCP.Portal
                         {
                             PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                            if ((Packages != null) & (Packages.GetLength(0) > 0))
+                            if ((Packages != null) && (Packages.GetLength(0) > 0))
                             {
                                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                             }
@@ -331,8 +331,9 @@ namespace FuseCP.Portal
 
                         break;
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
 
                     BindPlans();
@@ -388,7 +389,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -441,7 +442,7 @@ namespace FuseCP.Portal
                     plan.LyncUserPlanType = (int)LyncUserPlanType.Reseller;
 
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 int result = ES.Services.Lync.UpdateLyncUserPlan(orgs[0].Id, plan);
 
@@ -489,7 +490,7 @@ namespace FuseCP.Portal
                 {
                     PackageInfo[] Packages = ES.Services.Packages.GetPackages(ui.UserId);
 
-                    if ((Packages != null) & (Packages.GetLength(0) > 0))
+                    if ((Packages != null) && (Packages.GetLength(0) > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -497,7 +498,7 @@ namespace FuseCP.Portal
 
                             orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.GetLength(0) > 0))
+                            if ((orgs != null) && (orgs.GetLength(0) > 0))
                             {
                                 foreach (Organization org in orgs)
                                 {

@@ -88,7 +88,7 @@ namespace FuseCP.Portal
         {
             Providers.HostedSolution.Organization[] orgs = GetOrganizations();
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 ExchangeMailboxPlan[] list = ES.Services.ExchangeServer.GetExchangeMailboxPlans(orgs[0].Id, RetentionPolicy);
 
@@ -166,7 +166,7 @@ namespace FuseCP.Portal
             Providers.HostedSolution.Organization[] orgs = GetOrganizations();
 
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 int planId = ES.Services.ExchangeServer.AddExchangeMailboxPlan(orgs[0].Id, plan);
 
@@ -429,7 +429,7 @@ namespace FuseCP.Portal
                     plan.MailboxPlanType = (int)ExchangeMailboxPlanType.Reseller;
 
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 int result = ES.Services.ExchangeServer.UpdateExchangeMailboxPlan(orgs[0].Id, plan);
 
@@ -485,7 +485,7 @@ namespace FuseCP.Portal
                 {
                     PackageInfo[] Packages = ES.Services.Packages.GetPackages(ui.UserId);
 
-                    if ((Packages != null) & (Packages.GetLength(0) > 0))
+                    if ((Packages != null) && (Packages.GetLength(0) > 0))
                     {
                         foreach (PackageInfo Package in Packages)
                         {
@@ -493,7 +493,7 @@ namespace FuseCP.Portal
 
                             orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Package.PackageId, false);
 
-                            if ((orgs != null) & (orgs.GetLength(0) > 0))
+                            if ((orgs != null) && (orgs.GetLength(0) > 0))
                             {
                                 foreach (Organization org in orgs)
                                 {
@@ -552,8 +552,9 @@ namespace FuseCP.Portal
                         gvPolicy.DataBind();
                         UpdateTags();
                     }
-                    catch (Exception)
+                    catch (Exception swallowedEx)
                     {
+                        System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
                     }
 
                     break;
@@ -657,7 +658,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }

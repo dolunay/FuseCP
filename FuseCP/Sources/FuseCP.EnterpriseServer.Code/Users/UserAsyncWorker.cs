@@ -86,18 +86,18 @@ namespace FuseCP.EnterpriseServer
             if (threadUserId != -1)
                 SecurityContext.SetThreadPrincipal(threadUserId);
 
-            // get user details
-            UserInfo user = UserController.GetUserInternally(userId);
+            // get local_user details
+            UserInfo local_user = UserController.GetUserInternally(userId);
 
             // place log record
-            TaskManager.StartTask(taskId, "USER", "DELETE", user.Username, userId);
+            TaskManager.StartTask(taskId, "USER", "DELETE", local_user.Username, userId);
 
             try
             {
-                // delete user packages
+                // delete local_user packages
                 List<PackageInfo> packages = PackageController.GetMyPackages(userId);
 
-                // delete user packages synchronously
+                // delete local_user packages synchronously
                 if (packages.Count > 0)
                 {
                     PackageAsyncWorker packageWorker = new PackageAsyncWorker();
@@ -108,7 +108,7 @@ namespace FuseCP.EnterpriseServer
                     packageWorker.DeletePackagesServiceItems();
                 }
 
-                // delete user from database
+                // delete local_user from database
                 Database.DeleteUser(SecurityContext.User.UserId, userId);
             }
             catch (Exception ex)

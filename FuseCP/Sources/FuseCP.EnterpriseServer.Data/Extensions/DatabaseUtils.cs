@@ -79,8 +79,8 @@ namespace FuseCP.EnterpriseServer.Data
 					return sortExpression;
 				})
 				.Where(name => {
-					if (scriptName.StartsWith("!")) return Regex.IsMatch(name, scriptName.Substring(1));
-					else return name.EndsWith(scriptName);
+					return scriptName.StartsWith("!") ? Regex.IsMatch(name, scriptName.Substring(1)) : name.EndsWith(scriptName);
+
 				})
 				.ToList();
 
@@ -96,7 +96,7 @@ namespace FuseCP.EnterpriseServer.Data
 			var length = streams
 				.Sum(stream => stream.Length);
 			var mem = new MemoryStream((int)length + 512);
-			var writer = new StreamWriter(mem, Encoding.UTF8);
+			using var writer = new StreamWriter(mem, Encoding.UTF8);
 			foreach (var stream in streams)
 			{
 				var text = new StreamReader(stream).ReadToEnd();
@@ -158,8 +158,8 @@ namespace FuseCP.EnterpriseServer.Data
 				if (!database.Contains(Path.DirectorySeparatorChar.ToString()))
 				{
 					if (!database.Contains(".")) database = $"{database}.sqlite";
-					if (integrated) database = Path.Combine(enterpriseServerPath, "App_Data", database);
-					else database = Path.Combine("App_Data", database);
+					database = integrated ? Path.Combine(enterpriseServerPath, "App_Data", database) : Path.Combine("App_Data", database);
+
 				}
 				database = Path.GetFullPath(Path.Combine(installationFolder, database));
 			}
@@ -172,8 +172,8 @@ namespace FuseCP.EnterpriseServer.Data
 			{
 				if (!database.Contains(".")) database = $"{database}.sqlite";
 				//var integrated = vars.EmbedEnterpriseServer;
-				if (integrated) database = Path.Combine(enterpriseServerPath, "App_Data", database);
-				else database = Path.Combine("App_Data", database);
+				database = integrated ? Path.Combine(enterpriseServerPath, "App_Data", database) : Path.Combine("App_Data", database);
+
 			}
 			return $"DbType=Sqlite;Data Source={database}";
 		}
@@ -274,7 +274,7 @@ namespace FuseCP.EnterpriseServer.Data
 				SqlConnection conn = new SqlConnection(nativeConnectionString);
 				try
 				{
-					SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('productversion')", conn);
+					using SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('productversion')", conn);
 					conn.Open();
 					SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 					string version = "unknown";
@@ -312,7 +312,7 @@ namespace FuseCP.EnterpriseServer.Data
 				int mode = 0;
 				try
 				{
-					SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('IsIntegratedSecurityOnly')", conn);
+					using SqlCommand cmd = new SqlCommand("SELECT SERVERPROPERTY('IsIntegratedSecurityOnly')", conn);
 					conn.Open();
 					SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
@@ -323,8 +323,9 @@ namespace FuseCP.EnterpriseServer.Data
 						reader.Close();
 					}
 				}
-				catch
+				catch (Exception swallowedEx)
 				{
+				    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 				}
 				finally
 				{
@@ -358,7 +359,7 @@ namespace FuseCP.EnterpriseServer.Data
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				SqlCommand cmd = new SqlCommand();
+				using SqlCommand cmd = new SqlCommand();
 				cmd.CommandType = CommandType.StoredProcedure;
 				cmd.CommandText = name;
 				cmd.Connection = connection;
@@ -408,8 +409,8 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
-				SqlCommand cmd = new SqlCommand(commandText, conn);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
+				using SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				int ret = cmd.ExecuteNonQuery();
@@ -428,8 +429,8 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
-				SqlCommand cmd = new SqlCommand(commandText, conn);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
+				using SqlCommand cmd = new SqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				object ret = cmd.ExecuteScalar();
@@ -449,7 +450,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new MySqlConnection(connectionString);
-				MySqlCommand cmd = new MySqlCommand(commandText, conn);
+				using MySqlCommand cmd = new MySqlCommand(commandText, conn);
 				cmd.CommandTimeout = 300;
 				conn.Open();
 				int ret = cmd.ExecuteNonQuery();
@@ -493,6 +494,24 @@ namespace FuseCP.EnterpriseServer.Data
 			Enum.TryParse(dbTypeName, out dbType);
 			nativeConnectionString = csb.ToString();
 		}
+
+		/// <summary>
+		/// Normalizes a SQL Server connection string to ensure transport encryption is
+		/// explicitly configured. Defaults to encrypted with certificate trust, which
+		/// matches the behaviour of pre-existing deployments while preventing cleartext
+		/// credential transport across the network.
+		/// </summary>
+		private static string EnsureSqlServerEncryption(string connectionString)
+		{
+			var builder = new SqlConnectionStringBuilder(connectionString);
+			if (!builder.ContainsKey("Encrypt") || !(bool)builder["Encrypt"])
+			{
+				builder.Encrypt = true;
+				if (!builder.TrustServerCertificate)
+					builder.TrustServerCertificate = true;
+			}
+			return builder.ConnectionString;
+		}
 		public static DataSet ExecuteQuery(string connectionString, string commandText)
 		{
 			Data.DbType dbType;
@@ -516,9 +535,9 @@ namespace FuseCP.EnterpriseServer.Data
 			SqlConnection conn = null;
 			try
 			{
-				conn = new SqlConnection(connectionString);
+				conn = new SqlConnection(EnsureSqlServerEncryption(connectionString));
 				conn.Open();
-				SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
+				using SqlDataAdapter adapter = new SqlDataAdapter(commandText, conn);
 				DataSet ds = new DataSet();
 				adapter.Fill(ds);
 				return ds;
@@ -537,7 +556,7 @@ namespace FuseCP.EnterpriseServer.Data
 			try
 			{
 				conn = new MySqlConnection(connectionString);
-				MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
+				using MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
 				DataSet ds = new DataSet();
 				conn.Open();
 				adapter.Fill(ds);
@@ -1395,7 +1414,7 @@ LOG ON(
 		}
 		public static System.Data.Common.DbConnection SqlServerConnection(string connectionString)
 		{
-			return new SqlConnection(connectionString);
+			return new SqlConnection(EnsureSqlServerEncryption(connectionString));
 		}
 		public static System.Data.Common.DbConnection MySqlConnection(string connectionString)
 		{

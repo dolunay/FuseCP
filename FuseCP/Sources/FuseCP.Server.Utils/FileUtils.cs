@@ -798,7 +798,7 @@ namespace FuseCP.Providers.Utils
                         }
                     }
                 }
-                catch { }
+                catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
             }
             return list_files;
@@ -996,7 +996,6 @@ namespace FuseCP.Providers.Utils
                 null, cat, null);
             adoxType.InvokeMember("Close", BindingFlags.Instance | BindingFlags.Public | BindingFlags.InvokeMethod, null,
                 conn, null);
-            cat = null;
         }
 
         public static void DeleteDirectoryRecursive(string rootPath)
@@ -1107,7 +1106,7 @@ namespace FuseCP.Providers.Utils
 
                     ObjectGetOptions objectGetOptions = new ObjectGetOptions();
                     ManagementPath managementPath = new ManagementPath("Win32_Process");
-                    ManagementClass processClass = new ManagementClass(manScope, managementPath, objectGetOptions);
+                    using ManagementClass processClass = new ManagementClass(manScope, managementPath, objectGetOptions);
 
                     ManagementBaseObject inParams = processClass.GetMethodParameters("Create");
                     inParams["CommandLine"] = cmdFilePath;

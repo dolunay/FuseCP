@@ -22,9 +22,9 @@ namespace FuseCP.Templates.AST
     internal class IfStatement : Statement
     {
         Expression condition;
-        List<ElseIfStatement> elseIfStatements = new List<ElseIfStatement>();
-        List<Statement> trueStatements = new List<Statement>();
-        List<Statement> falseStatements = new List<Statement>();
+        readonly List<ElseIfStatement> elseIfStatements = new List<ElseIfStatement>();
+        readonly List<Statement> trueStatements = new List<Statement>();
+        readonly List<Statement> falseStatements = new List<Statement>();
 
         public IfStatement(int line, int column)
             : base(line, column)
@@ -100,7 +100,7 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{if ")
-                .Append(Condition.ToString()).Append("}");
+                .Append(Condition).Append("}");
 
             // true statements
             foreach (Statement stm in TrueStatements)

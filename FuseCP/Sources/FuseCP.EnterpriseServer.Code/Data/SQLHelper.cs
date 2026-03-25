@@ -348,9 +348,9 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 
             // Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
-            PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+            PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     		
             // Finally, execute the command
             int retval = cmd.ExecuteNonQuery();
@@ -437,7 +437,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
     			
@@ -614,7 +614,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     			
 			// Create the DataAdapter & DataSet
 			using( SqlDataAdapter da = new SqlDataAdapter(cmd) )
@@ -807,7 +807,7 @@ namespace Microsoft.ApplicationBlocks.Data
 
 			bool mustCloseConnection = false;
             // Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			try
 			{
 				PrepareCommand(cmd, connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
@@ -1210,10 +1210,10 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 
 			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
     			
 			// Execute the command & return the results
 			object retval = cmd.ExecuteScalar();
@@ -1302,7 +1302,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
     			
@@ -1393,10 +1393,10 @@ namespace Microsoft.ApplicationBlocks.Data
 
 			bool mustCloseConnection = false;
 			// Create a command and prepare it for execution
-            SqlCommand cmd = new SqlCommand();
+            using SqlCommand cmd = new SqlCommand();
 			try
 			{
-				PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection );
+				PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection );
 			
 				// Create the DataAdapter & DataSet
 				XmlReader retval = cmd.ExecuteXmlReader();
@@ -1489,7 +1489,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( transaction != null && transaction.Connection == null ) throw new ArgumentException( "The transaction was rollbacked or commited, please provide an open transaction.", "transaction" );
 
 			// Create a command and prepare it for execution
-			SqlCommand cmd = new SqlCommand();
+			using SqlCommand cmd = new SqlCommand();
 			bool mustCloseConnection = false;
 			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection );
 			
@@ -1858,7 +1858,7 @@ namespace Microsoft.ApplicationBlocks.Data
 					{
 						if( tableNames[index] == null || tableNames[index].Length == 0 ) throw new ArgumentException( "The tableNames parameter must contain a list of tables, a value was provided as null or empty string.", "tableNames" );
 						dataAdapter.TableMappings.Add(tableName, tableNames[index]);
-						tableName += (index + 1).ToString();
+						tableName += (index + 1);
 					}
 				}
                 
@@ -2430,7 +2430,7 @@ namespace Microsoft.ApplicationBlocks.Data
 		//instances from being created with "new SqlHelperParameterCache()"
 		private SqlHelperParameterCache() {}
 
-		private static Hashtable paramCache = Hashtable.Synchronized(new Hashtable());
+		private static readonly Hashtable paramCache = Hashtable.Synchronized(new Hashtable());
 
         /// <summary>
         /// Resolve at run time the appropriate set of SqlParameters for a stored procedure
@@ -2444,7 +2444,7 @@ namespace Microsoft.ApplicationBlocks.Data
 			if( connection == null ) throw new ArgumentNullException( "connection" );
 			if( spName == null || spName.Length == 0 ) throw new ArgumentNullException( "spName" );
 
-			SqlCommand cmd = new SqlCommand(spName, connection);
+			using SqlCommand cmd = new SqlCommand(spName, connection);
 			cmd.CommandType = CommandType.StoredProcedure;
 
 			connection.Open();

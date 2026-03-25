@@ -398,7 +398,7 @@ namespace FuseCP.Providers.Virtualization
 			var nodeId = NodeId(vmId);
 			var remoteTmpFile = $"/tmp/screendump-{vmId.Replace(':','-')}-{DateTime.Now.Ticks}.ppm";
             //var remoteTmpFile = $"/tmp/screendump.ppm";
-            var result = Nodes[nodeId.Node]?.Qemu[nodeId.Id]?.Monitor.Monitor($"screendump {remoteTmpFile}").Result;
+			_ = Nodes[nodeId.Node]?.Qemu[nodeId.Id]?.Monitor.Monitor($"screendump {remoteTmpFile}").Result;
 			using (var file = Provider.GetFile(vmId, remoteTmpFile, true))
 			{
 				return PpmImage.FromStream(file);

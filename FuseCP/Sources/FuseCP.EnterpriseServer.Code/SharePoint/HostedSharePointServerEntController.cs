@@ -262,14 +262,14 @@ namespace FuseCP.EnterpriseServer.Code.SharePoint
                 }
 
                 int counter = 0;
-                item.Name = String.Format("{0}://{1}", rootWebApplicationUri.Scheme, hostNameBase + "-" + counter.ToString() + "." + sslRoot);
-                siteName = String.Format("{0}", hostNameBase + "-" + counter.ToString() + "." + sslRoot);
+                item.Name = String.Format("{0}://{1}", rootWebApplicationUri.Scheme, hostNameBase + "-" + counter + "." + sslRoot);
+                siteName = String.Format("{0}", hostNameBase + "-" + counter + "." + sslRoot);
 
                 while (Database.CheckServiceItemExists(serviceId, item.Name, "FuseCP.Providers.SharePoint.SharePointEnterpriseSiteCollection,   FuseCP.Providers.Base")) 
                 {
                     counter++;
-                    item.Name = String.Format("{0}://{1}", rootWebApplicationUri.Scheme, hostNameBase + "-" + counter.ToString() + "." + sslRoot);
-                    siteName = String.Format("{0}", hostNameBase + "-" + counter.ToString() + "." + sslRoot);
+                    item.Name = String.Format("{0}://{1}", rootWebApplicationUri.Scheme, hostNameBase + "-" + counter + "." + sslRoot);
+                    siteName = String.Format("{0}", hostNameBase + "-" + counter + "." + sslRoot);
                 }
             }
             else
@@ -818,10 +818,10 @@ namespace FuseCP.EnterpriseServer.Code.SharePoint
         {
             if (parentSize == -1)
             {
-                if (realSize == -1 || realSize == 0)
-                    return -1;
-                else
-                    return realSize;
+                return realSize == -1 || realSize == 0 ? -1 : realSize;
+
+
+
             }
 
 

@@ -22,7 +22,7 @@ namespace FuseCP.Templates.AST
     internal class ElseIfStatement : Statement
     {
         Expression condition;
-        List<Statement> trueStatements = new List<Statement>();
+        readonly List<Statement> trueStatements = new List<Statement>();
 
         public ElseIfStatement(int line, int column)
             : base(line, column)
@@ -50,7 +50,7 @@ namespace FuseCP.Templates.AST
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{elseif ")
-                .Append(Condition.ToString()).Append("}");
+                .Append(Condition).Append("}");
             foreach (Statement stm in TrueStatements)
             {
                 sb.Append(stm);

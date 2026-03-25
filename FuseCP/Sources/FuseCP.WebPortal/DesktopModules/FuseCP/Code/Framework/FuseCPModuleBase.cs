@@ -93,8 +93,9 @@ namespace FuseCP.Portal
                 gv.Columns[gv.Columns.Count - 1].Visible =
                     (PanelSecurity.EffectiveUser.Role == UserRole.Administrator);
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
         }
 

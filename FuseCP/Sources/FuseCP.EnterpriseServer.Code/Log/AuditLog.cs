@@ -97,7 +97,7 @@ namespace FuseCP.EnterpriseServer
             AddAuditLogRecord(2, sourceName, taskName, itemName, executionValues);
         }
 
-        static ConcurrentDictionary<int, string> UsersCache = new ConcurrentDictionary<int, string>(); 
+        static readonly ConcurrentDictionary<int, string> UsersCache = new ConcurrentDictionary<int, string>(); 
         public void AddAuditLogRecord(int severityId, string sourceName, string taskName, string itemName,
             string[] executionValues, int packageId = 0, int itemId = 0)
         {
@@ -131,7 +131,7 @@ namespace FuseCP.EnterpriseServer
                 using (var database = new DataProvider()) database.AddAuditLogRecord(recordId, severityId, userId, username, packageId, itemId, itemName,
                     startDate, finishDate, sourceName, taskName, executionLog);
             }
-            catch { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         private DateTime GetStartDate(DateTime d)
@@ -147,8 +147,8 @@ namespace FuseCP.EnterpriseServer
         //extremely simple and dummy creating XML string.
         private string DummyFormatExecutionLog(DateTime startDate, int severityId, string[] values)
         {
-            StringWriter sw = new StringWriter();
-            XmlWriter writer = new XmlTextWriter(sw);
+            using StringWriter sw = new StringWriter();
+            using XmlWriter writer = new XmlTextWriter(sw);
 
             writer.WriteStartElement("log");
 

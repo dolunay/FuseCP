@@ -159,7 +159,7 @@ namespace FuseCP.Portal.ExchangeServer
 
             if (user != null)
             {
-                if ((user.Role == UserRole.User) & (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, cntx)))
+                if ((user.Role == UserRole.User) && (Utils.CheckQouta(Quotas.EXCHANGE2007_ISCONSUMER, cntx)))
                     hideItems = true;
             }
 

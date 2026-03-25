@@ -49,7 +49,7 @@ namespace FuseCP.Providers.HostedSolution
                 sb.AppendFormat("{0},", ToCsvString(item.MobileAccess));
                 sb.AppendFormat("{0},", ToCsvString(item.LyncUserPlan));
 
-                mainBuilder.Append(sb.ToString());
+                mainBuilder.Append(sb);
             }
 
             return mainBuilder.ToString();

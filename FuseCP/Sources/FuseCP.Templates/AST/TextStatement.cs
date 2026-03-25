@@ -21,7 +21,7 @@ namespace FuseCP.Templates.AST
 {
     internal class TextStatement : Statement
     {
-        string text;
+        readonly string text;
 
         public TextStatement(string text, int line, int column) : base(line, column)
         {

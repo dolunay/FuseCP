@@ -26,7 +26,7 @@ namespace FuseCP.Providers
     {
         public class TypedCollection<U>: ICollection<U>
         {
-            ICollection BaseCollection;
+            readonly ICollection BaseCollection;
             public TypedCollection(ICollection baseCollection) { BaseCollection = baseCollection; }
 
             public int Count => BaseCollection.Count;
@@ -81,7 +81,7 @@ namespace FuseCP.Providers
 
         public virtual void CopyTo(KeyValuePair<string, T>[] array, int arrayIndex)
         {
-            foreach (DictionaryEntry item in ((IEnumerable)this))
+            foreach (DictionaryEntry item in (IDictionary)this)
             {
                 if (arrayIndex >= array.Length) break;
                 var keyValuePair = new KeyValuePair<string, T>((string)item.Key, item.Value as T);
@@ -112,7 +112,7 @@ namespace FuseCP.Providers
 
         public new IEnumerator<KeyValuePair<string, T>> GetEnumerator()
         {
-            foreach (DictionaryEntry item in ((IEnumerable)this)) {
+            foreach (DictionaryEntry item in (IDictionary)this) {
                 yield return new KeyValuePair<string, T>((string)item.Key, item.Value as T);
             }
         }

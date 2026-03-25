@@ -49,7 +49,7 @@ namespace FuseCP.Providers.HostedSolution
                 sb.AppendFormat("{0},", ToCsvString(item.TotalSfBUsers));
                 sb.AppendFormat("{0}", ToCsvString(item.TotalSfBEVUsers));
 
-                mainBuilder.Append(sb.ToString());
+                mainBuilder.Append(sb);
             }
             return mainBuilder.ToString();
         }

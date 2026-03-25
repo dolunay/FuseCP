@@ -478,7 +478,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers.VM
                 var addr = IPAddress.Parse(ip.IPAddress);
                 sortedIps.Add(addr, ip.IPAddress);
 
-                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr.ToString());
+                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr);
             }
             Trace.TraceInformation("Leaving GetSortedNormalizedIPAddresses()");
             return sortedIps;
@@ -496,7 +496,7 @@ namespace FuseCP.EnterpriseServer.Code.Virtualization2012.Helpers.VM
                 var addr = IPAddress.Parse(ip.IPAddress);
                 sortedIps.Add(addr, ip.IPAddress);
 
-                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr.ToString());
+                Trace.TraceInformation("Added {0} to sorted IPs list with key: {1} ", ip.IPAddress, addr);
             }
             Trace.TraceInformation("Leaving GetSortedNormalizedIPAddresses()");
             return sortedIps;

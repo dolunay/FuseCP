@@ -80,7 +80,7 @@ namespace FuseCP.Tests
 					{
 						mystore.Add(cert);
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 			}
 

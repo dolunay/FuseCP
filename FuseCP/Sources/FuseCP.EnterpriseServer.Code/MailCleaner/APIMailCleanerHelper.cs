@@ -113,10 +113,10 @@ namespace FuseCP.EnterpriseServer
             String l_URL = string.Empty;
             try
             {
-                if (f_iPlanID == 0)
-                    l_URL = GetServiceURLFromPackageId(packageId);
-                else
-                    l_URL = GetServiceURL(f_iPlanID);
+                l_URL = f_iPlanID == 0 ? GetServiceURLFromPackageId(packageId) : GetServiceURL(f_iPlanID);
+
+
+
             }
             catch (Exception)
             {
@@ -164,9 +164,8 @@ namespace FuseCP.EnterpriseServer
             String lstMessage = String.Empty;
             foreach (XmlNode lxmNode in xmlResult.ChildNodes)
             {
-                if (lxmNode.Name == "response")
+                if (lxmNode.Name == "response" && lxmNode.FirstChild.Name == "message")
                 {
-                    if (lxmNode.FirstChild.Name == "message")
                         lstMessage = lxmNode.FirstChild.InnerText;
                 }
             }

@@ -41,7 +41,7 @@ namespace FuseCP.EnterpriseServer
         {
             // get all owned packages
             List<PackageInfo> packages = PackageController.GetPackagePackages(TaskManager.TopTask.PackageId, true);
-            TaskManager.Write("Packages to calculate: " + packages.Count.ToString());
+            TaskManager.Write("Packages to calculate: " + packages.Count);
 
             foreach (PackageInfo package in packages)
             {
@@ -98,7 +98,7 @@ namespace FuseCP.EnterpriseServer
 
                 // log error
                 TaskManager.WriteError(String.Format("Error calculating diskspace for '{0}' space of user '{1}': {2}",
-                    package.PackageName, user.Username, ex.ToString()));
+                    package.PackageName, user.Username, ex));
             }
         }
 

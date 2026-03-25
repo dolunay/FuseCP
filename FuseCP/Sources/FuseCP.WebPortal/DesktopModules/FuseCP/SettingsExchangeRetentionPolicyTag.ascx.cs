@@ -77,7 +77,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -87,7 +87,7 @@ namespace FuseCP.Portal
                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(1, false);
             }
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 ExchangeRetentionPolicyTag[] list = ES.Services.ExchangeServer.GetExchangeRetentionPolicyTags(orgs[0].Id);
 
@@ -117,7 +117,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -128,7 +128,7 @@ namespace FuseCP.Portal
             }
 
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 IntResult result = ES.Services.ExchangeServer.AddExchangeRetentionPolicyTag(orgs[0].Id, tag);
 
@@ -163,7 +163,7 @@ namespace FuseCP.Portal
                         {
                             PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                            if ((Packages != null) & (Packages.GetLength(0) > 0))
+                            if ((Packages != null) && (Packages.GetLength(0) > 0))
                             {
                                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                             }
@@ -217,7 +217,7 @@ namespace FuseCP.Portal
                         {
                             PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                            if ((Packages != null) & (Packages.GetLength(0) > 0))
+                            if ((Packages != null) && (Packages.GetLength(0) > 0))
                             {
                                 orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                             }
@@ -267,7 +267,7 @@ namespace FuseCP.Portal
             {
                 PackageInfo[] Packages = ES.Services.Packages.GetPackages(PanelSecurity.SelectedUserId);
 
-                if ((Packages != null) & (Packages.GetLength(0) > 0))
+                if ((Packages != null) && (Packages.GetLength(0) > 0))
                 {
                     orgs = ES.Services.ExchangeServer.GetExchangeOrganizations(Packages[0].PackageId, false);
                 }
@@ -292,7 +292,7 @@ namespace FuseCP.Portal
             tag.AgeLimitForRetention = ageLimitForRetention.QuotaValue;
             tag.RetentionAction = Convert.ToInt32(ddRetentionAction.SelectedValue);
 
-            if ((orgs != null) & (orgs.GetLength(0) > 0))
+            if ((orgs != null) && (orgs.GetLength(0) > 0))
             {
                 ResultObject result = ES.Services.ExchangeServer.UpdateExchangeRetentionPolicyTag(orgs[0].Id, tag);
 

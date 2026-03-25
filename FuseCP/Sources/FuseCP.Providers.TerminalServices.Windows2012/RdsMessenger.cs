@@ -48,7 +48,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
     }

@@ -41,6 +41,7 @@ public sealed class RegistryUtils
 	/// <returns>The data associated with name.</returns>
 	public static object GetRegistryKeyValue(string subkey, string name)
 	{
+		if (!OperatingSystem.IsWindows()) return null;
 		object ret = null;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
@@ -59,6 +60,7 @@ public sealed class RegistryUtils
 	/// <returns>The data associated with name.</returns>
 	internal static string GetRegistryKeyStringValue(string subkey, string name)
 	{
+		if (!OperatingSystem.IsWindows()) return null;
 		string ret = null;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
@@ -77,6 +79,7 @@ public sealed class RegistryUtils
 	/// <returns>The data associated with name.</returns>
 	internal static int GetRegistryKeyInt32Value(string subkey, string name)
 	{
+		if (!OperatingSystem.IsWindows()) return 0;
 		int ret = 0;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
@@ -95,6 +98,7 @@ public sealed class RegistryUtils
 	/// <returns>The data associated with name.</returns>
 	internal static bool GetRegistryKeyBooleanValue(string subkey, string name)
 	{
+		if (!OperatingSystem.IsWindows()) return false;
 		bool ret = false;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
@@ -108,6 +112,7 @@ public sealed class RegistryUtils
 
 	internal static bool RegistryKeyExist(string subkey)
 	{
+		if (!OperatingSystem.IsWindows()) return false;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
 		return (rk != null);
@@ -120,6 +125,7 @@ public sealed class RegistryUtils
 	/// <param name="subkey">Subkey to delete.</param>
 	internal static void DeleteRegistryKey(string subkey)
 	{
+		if (!OperatingSystem.IsWindows()) return;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
 		if (rk != null)
@@ -134,6 +140,7 @@ public sealed class RegistryUtils
 	/// <param name="value">Data to store. </param>
 	internal static void SetRegistryKeyStringValue(string subkey, string name, string value)
 	{
+		if (!OperatingSystem.IsWindows()) return;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.CreateSubKey(subkey);
 		if ( rk != null )
@@ -150,6 +157,7 @@ public sealed class RegistryUtils
 	/// <param name="value">Data to store. </param>
 	internal static void SetRegistryKeyInt32Value(string subkey, string name, int value)
 	{
+		if (!OperatingSystem.IsWindows()) return;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.CreateSubKey(subkey);
 		if ( rk != null )
@@ -166,6 +174,7 @@ public sealed class RegistryUtils
 	/// <param name="value">Data to store. </param>
 	internal static void SetRegistryKeyBooleanValue(string subkey, string name, bool value)
 	{
+		if (!OperatingSystem.IsWindows()) return;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.CreateSubKey(subkey);
 		if ( rk != null )
@@ -181,6 +190,7 @@ public sealed class RegistryUtils
 	/// <returns>The array of subkey names.</returns>
 	internal static string[] GetRegistrySubKeys(string subkey)
 	{
+		if (!OperatingSystem.IsWindows()) return Array.Empty<string>();
 		string[] ret = new string[0];
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);
@@ -210,6 +220,7 @@ public sealed class RegistryUtils
 
 	internal static int GetSubKeyCount(string subkey)
 	{
+		if (!OperatingSystem.IsWindows()) return 0;
 		int ret = 0;
 		RegistryKey root = Registry.LocalMachine;
 		RegistryKey rk = root.OpenSubKey(subkey);

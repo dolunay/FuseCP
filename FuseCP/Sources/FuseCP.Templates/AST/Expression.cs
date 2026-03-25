@@ -21,8 +21,8 @@ namespace FuseCP.Templates.AST
 {
     internal abstract class Expression
     {
-        int line;
-        int column;
+        readonly int line;
+        readonly int column;
 
         public Expression(int line, int column)
         {

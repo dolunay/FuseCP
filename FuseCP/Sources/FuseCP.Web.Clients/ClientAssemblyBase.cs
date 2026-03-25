@@ -32,7 +32,7 @@ namespace FuseCP.Web.Clients
 
 		Assembly Assembly => Assembly.Load(AssemblyName);
 		static Assembly serviceAssembly = null;
-		static object Lock = new object();
+		static readonly object Lock = new object();
 
 		void GetMethod(string typeName, string methodName, out Assembly assembly, out Type type, out MethodInfo method)
 		{

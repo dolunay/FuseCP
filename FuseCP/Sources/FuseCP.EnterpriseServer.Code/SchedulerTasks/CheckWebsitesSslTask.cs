@@ -213,7 +213,7 @@ namespace FuseCP.EnterpriseServer
             if (sendBcc && !String.IsNullOrEmpty(mailTo)) bcc = bccMail;
 
             int res = MailHelper.SendMessage(mailFrom, mailTo, bcc, subject, body, true);
-            if (res != 0) TaskManager.WriteError("SMTP Error. Code: " + res.ToString());
+            if (res != 0) TaskManager.WriteError("SMTP Error. Code: " + res);
         }
 
         private async Task<CheckCertificateResult> GetServerCertificateAsync(string url, HttpMethod httpMethod)
@@ -222,7 +222,7 @@ namespace FuseCP.EnterpriseServer
             HttpResponseMessage httpResponse = null;
             try
             {
-                var httpClientHandler = new HttpClientHandler
+                using var httpClientHandler = new HttpClientHandler
                 {
                     ServerCertificateCustomValidationCallback = (sender, cert, chain, error) =>
                     {
@@ -231,13 +231,13 @@ namespace FuseCP.EnterpriseServer
                     }
                 };
 
-                var httpClient = new HttpClient(httpClientHandler);
+                using var httpClient = new HttpClient(httpClientHandler);
                 httpResponse = await httpClient.SendAsync(new HttpRequestMessage(httpMethod, url));
             }
             catch (Exception e)
             {
                 string errorMessage = e.InnerException.Message;
-                if (httpResponse != null) errorMessage += ", HTTP Response Code: " + httpResponse.StatusCode.ToString();
+                if (httpResponse != null) errorMessage += ", HTTP Response Code: " + httpResponse.StatusCode;
                 return new CheckCertificateResult(certificate, errorMessage);
             }
             return new CheckCertificateResult(certificate, null);
@@ -245,8 +245,8 @@ namespace FuseCP.EnterpriseServer
 
         private class CheckCertificateResult
         {
-            private X509Certificate2 certificate;
-            private string errorMessage;
+            private readonly X509Certificate2 certificate;
+            private readonly string errorMessage;
 
             public X509Certificate2 Certificate {
                 get

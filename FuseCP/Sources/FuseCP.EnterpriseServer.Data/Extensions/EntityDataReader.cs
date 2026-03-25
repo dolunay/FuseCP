@@ -107,7 +107,7 @@ namespace FuseCP.EnterpriseServer.Data
 		}
 
 		IEnumerator<TEntity> enumerator = null;
-		IEnumerator<TEntity> Enumerator => enumerator ??= ((IEnumerable<TEntity>)Set).GetEnumerator();
+		IEnumerator<TEntity> Enumerator => enumerator ??= (Set).GetEnumerator();
 
 		TEntity Current
 		{
@@ -152,7 +152,7 @@ namespace FuseCP.EnterpriseServer.Data
 
 		public virtual object this[string name] => GetValueFromProperty(Properties[name]);
 		
-		public virtual IEnumerator<TEntity> GetEnumerator() => ((IEnumerable<TEntity>)Set).GetEnumerator();
+		public virtual IEnumerator<TEntity> GetEnumerator() => (Set).GetEnumerator();
 
 		IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Set).GetEnumerator();
 

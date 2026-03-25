@@ -40,8 +40,8 @@ namespace FuseCP.Providers
 
             // First we need to turn the input strings into a byte array.
             byte[] PlainText;
-            if (legacy) PlainText = Encoding.Unicode.GetBytes(InputText);
-            else PlainText = Encoding.UTF8.GetBytes(InputText);
+            PlainText = legacy ? Encoding.Unicode.GetBytes(InputText) : Encoding.UTF8.GetBytes(InputText);
+
 
             var CipherBytes = Encrypt(PlainText);
             // Convert encrypted data into a base64-encoded string.
@@ -106,7 +106,7 @@ namespace FuseCP.Providers
         public virtual ICryptoTransform Encryptor()
         {
             // Rihndael class.
-            SymmetricAlgorithm cipher = Aes.Create();
+            using SymmetricAlgorithm cipher = Aes.Create();
 
             // We are using salt to make it harder to guess our key
             // using a dictionary attack.
@@ -114,7 +114,7 @@ namespace FuseCP.Providers
 
             // The (Secret Key) will be generated from the specified 
             // password and salt.
-            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
+            using PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
 
             var key = SecretKey.GetBytes(32);
             var iv = SecretKey.GetBytes(16);
@@ -138,12 +138,12 @@ namespace FuseCP.Providers
 
             byte[] Salt = Encoding.ASCII.GetBytes(CryptoKey.Length.ToString());
 
-            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
+            using PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(CryptoKey, Salt);
 
             var key = SecretKey.GetBytes(32);
             var iv = SecretKey.GetBytes(16);
 
-            var cipher = Aes.Create();
+            using var cipher = Aes.Create();
 
             cipher.KeySize = 256;
             cipher.Key = key;
@@ -180,15 +180,15 @@ namespace FuseCP.Providers
             byte[] DecryptedData = Decrypt(EncryptedData);
 
             string DecryptedText;
-            if (useUTF8) DecryptedText = Encoding.UTF8.GetString(DecryptedData);
-            else DecryptedText = Encoding.Unicode.GetString(DecryptedData);
+            DecryptedText = useUTF8 ? Encoding.UTF8.GetString(DecryptedData) : Encoding.Unicode.GetString(DecryptedData);
+
             // Return decrypted string.
             return DecryptedText;
         }
 
         public virtual byte[] Decrypt(byte[] InputData) => Decrypt(new ArraySegment<byte>(InputData));
 
-        byte[] buffer = new byte[1024];
+        readonly byte[] buffer = new byte[1024];
         public virtual byte[] Decrypt(ArraySegment<byte> InputData)
         {
             if (!EncryptionEnabled || InputData == null || InputData.Count == 0)
@@ -233,8 +233,8 @@ namespace FuseCP.Providers
 
         public static bool SHAEquals(string plainText, string hash)
         {
-            if (IsSHA256(hash)) return SHA256(plainText) == hash;
-            else return SHA1(plainText) == hash;
+            return IsSHA256(hash) ? SHA256(plainText) == hash : SHA1(plainText) == hash;
+
         }
 
 		public static string CreateCryptoKey(int len)

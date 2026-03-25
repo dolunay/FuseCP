@@ -234,7 +234,7 @@ namespace FuseCP.Providers.Database
 		public virtual bool DatabaseExists(string databaseName)
 		{
 			DataTable dvDatabases = ExecuteQuery("SHOW DATABASES");
-			DataView dvDatabase = new DataView(dvDatabases, String.Format("Database='{0}'",
+			using DataView dvDatabase = new DataView(dvDatabases, String.Format("Database='{0}'",
 				databaseName), "", DataViewRowState.CurrentRows);
 			return (dvDatabase.Count > 0);
 		}
@@ -642,7 +642,7 @@ namespace FuseCP.Providers.Database
 		private int ExecuteNonQuery(string commandText, string connectionString)
 		{
 			MySqlConnection conn = new MySqlConnection(connectionString);
-			MySqlCommand cmd = new MySqlCommand(commandText, conn);
+			using MySqlCommand cmd = new MySqlCommand(commandText, conn);
 			conn.Open();
 			int ret = cmd.ExecuteNonQuery();
 			conn.Close();
@@ -666,8 +666,8 @@ namespace FuseCP.Providers.Database
 
 		private DataSet ExecuteQueryDataSet(string commandText, string connectionString)
 		{
-			MySqlConnection conn = new MySqlConnection(connectionString);
-			MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
+			using MySqlConnection conn = new MySqlConnection(connectionString);
+			using MySqlDataAdapter adapter = new MySqlDataAdapter(commandText, conn);
 			DataSet ds = new DataSet();
 			adapter.Fill(ds);
 			return ds;
@@ -966,7 +966,7 @@ namespace FuseCP.Providers.Database
 							if (ver.StartsWith(version)) return true;
 						}
 					}
-					catch { }
+					catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 				}
 			}
 			return false;

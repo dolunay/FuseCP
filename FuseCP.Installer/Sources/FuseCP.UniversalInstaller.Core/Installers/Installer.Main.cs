@@ -16,8 +16,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
-using System.Security.Permissions;
-using System.Security;
 using System.Text;
 using System.Threading;
 using FuseCP.Providers.OS;
@@ -46,9 +44,7 @@ namespace FuseCP.UniversalInstaller
 		{
 			try
 			{
-				PermissionSet set = new PermissionSet(PermissionState.Unrestricted);
-				set.Demand();
-				return true;
+				return AppDomain.CurrentDomain.IsFullyTrusted;
 			}
 			catch
 			{

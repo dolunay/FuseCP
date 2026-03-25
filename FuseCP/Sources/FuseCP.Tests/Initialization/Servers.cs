@@ -69,7 +69,7 @@ public class Servers
 	public const int StartPort = 9000;
 	public const int IISExpressSslStartPort = 44300;
 	static List<int> occupiedPorts = null;
-	static HttpClientHandler handler = new HttpClientHandler
+	static readonly HttpClientHandler handler = new HttpClientHandler
 	{
 		ServerCertificateCustomValidationCallback =
 			(HttpRequestMessage message, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslErrors) => true
@@ -125,7 +125,7 @@ public class Servers
 					init.Invoke(null, new object[0]);
 				}
 			}
-			catch (Exception) { }
+			catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 
 		try
 		{
@@ -137,7 +137,7 @@ public class Servers
 				init.Invoke(null, new object[0]);
 			}
 		}
-		catch (Exception) { }
+		catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
 	}
 	public static WSLShell.WSLDistro WslDistro(Os os)
 	{
@@ -182,7 +182,7 @@ public class Servers
 		return distro;
 	}
 	
-	static Dictionary<string, IDisposable> Processes = new Dictionary<string, IDisposable>();
+	static readonly Dictionary<string, IDisposable> Processes = new Dictionary<string, IDisposable>();
 	public static void Start((Component Component, Framework Framework, Os Os, Scheme Protocol) type)
 	{
 		if (type.Protocol == Scheme.Assembly) return;
@@ -205,23 +205,23 @@ public class Servers
 		type.Framework switch
 		{
 			Framework.NetFramework => type.Component == Component.Server
-				? new Kestrel(type.Component, urls)
+				? new Kestrel(type.Component, urls, readinessProtocol: type.Protocol)
 				: new IISExpress(type.Component, urls),
-			Framework.Core => new Kestrel(type.Component, urls),
+			Framework.Core => new Kestrel(type.Component, urls, readinessProtocol: type.Protocol),
 			_ => null
 		} :
 		type.Framework switch
 		{
-			Framework.Core => new Kestrel(type.Component, urls, WslDistro(type.Os)),
+			Framework.Core => new Kestrel(type.Component, urls, WslDistro(type.Os), type.Protocol),
 			_ => null
 		};
 		if (server == null) return;
 
 		foreach (var u in urls)
 		{
-			if (Processes.ContainsKey(u.Url))
+if (Processes.TryGetValue(u.Url, out var _ckv))
 			{
-				Processes[u.Url].Dispose();
+				_ckv.Dispose();
 				Processes.Remove(u.Url);
 			}
 			Processes.Add(u.Url, server);

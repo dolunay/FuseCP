@@ -58,7 +58,7 @@ namespace FuseCP.Providers.Virtualization
             }
             set
             {
-                if ((this.SampleValueField.Equals(value) != true))
+                if ((!(this.SampleValueField.Equals(value))))
                 {
                     this.SampleValueField = value;
                     this.RaisePropertyChanged("SampleValue");
@@ -74,7 +74,7 @@ namespace FuseCP.Providers.Virtualization
             }
             set
             {
-                if ((this.TimeAddedField.Equals(value) != true))
+                if ((!(this.TimeAddedField.Equals(value))))
                 {
                     this.TimeAddedField = value;
                     this.RaisePropertyChanged("TimeAdded");
@@ -90,7 +90,7 @@ namespace FuseCP.Providers.Virtualization
             }
             set
             {
-                if ((this.TimeSampledField.Equals(value) != true))
+                if ((!(this.TimeSampledField.Equals(value))))
                 {
                     this.TimeSampledField = value;
                     this.RaisePropertyChanged("TimeSampled");

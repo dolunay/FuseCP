@@ -195,12 +195,12 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 							prop.ClrType == typeof(double?)
 							)
 						{
-							writer.Append(val.ToString());
+							writer.Append(val);
 						}
 						else if (prop.ClrType == typeof(Guid) || prop.ClrType == typeof(Guid?))
 						{
 							writer.Append("new Guid(\"");
-							writer.Append(val.ToString());
+							writer.Append(val);
 							writer.Append("\")");
 						}
 						else if (prop.ClrType == typeof(DateTime) || prop.ClrType == typeof(DateTime?))
@@ -212,7 +212,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 						else if (prop.ClrType == typeof(TimeSpan) || prop.ClrType == typeof(TimeSpan?))
 						{
 							writer.Append("TimeSpan.Parse(\"");
-							writer.Append(val.ToString());
+							writer.Append(val);
 							writer.Append("\")");
 						}
 						else if (prop.ClrType == typeof(byte[]))
@@ -227,14 +227,15 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 						}
 						else
 						{
-							writer.Append("\""); writer.Append(val.ToString()); writer.Append("\"");
+							writer.Append("\""); writer.Append(val); writer.Append("\"");
 						}
 					}
 					writer.Append(" }");
 				}
 			}
-			catch (Exception)
+			catch (Exception swallowedEx)
 			{
+			    System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
 			}
 			return writer;
 		}
@@ -251,7 +252,7 @@ namespace FuseCP.EnterpriseServer.Data.Scaffolding
 
 		static readonly bool Prefetch = true;
 
-		static Dictionary<string, string> entityTypes = new Dictionary<string, string>();
+		static readonly Dictionary<string, string> entityTypes = new Dictionary<string, string>();
 
 		static void ParseData(string data)
 		{

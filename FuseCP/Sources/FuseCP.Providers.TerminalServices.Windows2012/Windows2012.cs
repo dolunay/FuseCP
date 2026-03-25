@@ -195,7 +195,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return new string[]{};
@@ -204,7 +204,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
         public bool CheckRDSServerAvaliable(string hostname)
         {
             bool result = false;
-            var ping = new Ping();
+            using var ping = new Ping();
             var reply = ping.Send(hostname, 1000);
 
             if (reply.Status == IPStatus.Success)
@@ -247,7 +247,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -276,7 +276,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -393,7 +393,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }                   
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -448,7 +448,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -464,7 +464,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -492,7 +492,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -508,7 +508,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return existingServers;
@@ -527,7 +527,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return collection;
@@ -591,7 +591,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -657,7 +657,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -701,7 +701,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -729,13 +729,14 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 runSpace.ExecuteShellCommand(cmd, false, PrimaryDomainController);
             }
-            catch (AmbiguousMatchException)
+            catch (AmbiguousMatchException swallowedEx)
             {
 
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed:" + swallowedEx.Message);
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -773,7 +774,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result.ToArray();
@@ -821,7 +822,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -850,7 +851,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return startApps;
@@ -879,7 +880,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return remoteApps;
@@ -921,7 +922,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -959,7 +960,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return result;
@@ -1158,7 +1159,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }                       
         }
 
@@ -1246,7 +1247,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -1477,7 +1478,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
             try
             {
-                var entry = new DirectoryEntry(GetOrganizationPath(organizationId));
+                using var entry = new DirectoryEntry(GetOrganizationPath(organizationId));
                 var distinguishedName = string.Format("\"{0}\"", ActiveDirectoryUtils.GetADObjectProperty(entry, "DistinguishedName"));
 
                 Command cmd = new Command("New-GPO");
@@ -1556,7 +1557,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -1669,7 +1670,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }  
  
@@ -1789,7 +1790,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -1861,7 +1862,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
         }
 
@@ -1889,7 +1890,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 runSpace.ExecuteShellCommand(cmd, false, PrimaryDomainController);
             }
-            catch (Exception) { }
+            catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
         }
 
         private bool ExistRdsServerInDeployment(Runspace runSpace, RdsServer server)
@@ -2053,7 +2054,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }            
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return installationResult;
@@ -2083,7 +2084,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersRootOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
+                    using DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2114,7 +2115,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, collectionOUName))
                 {
-                    DirectoryEntry group = new DirectoryEntry(collectionOUPath);
+                    using DirectoryEntry group = new DirectoryEntry(collectionOUPath);
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2173,7 +2174,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
                 if (!ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(tenantComputerGroupPath);
+                    using DirectoryEntry group = new DirectoryEntry(tenantComputerGroupPath);
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2205,7 +2206,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 
                 if (ActiveDirectoryUtils.AdObjectExists(GetComputersRootPath()) && !string.IsNullOrEmpty(ComputersRootOU) && !ActiveDirectoryUtils.IsComputerInGroup(samName, RdsServersRootOU))
                 {
-                    DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
+                    using DirectoryEntry group = new DirectoryEntry(GetRdsServersGroupPath());
                     computerObject.MoveTo(group);
                     group.CommitChanges();
                 }
@@ -2233,7 +2234,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runSpace.CloseRunspace();
+                runSpace?.CloseRunspace();
             }
 
             return isInstalled;
@@ -2241,7 +2242,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         public bool CheckServerAvailability(string hostName)
         {
-            var ping = new Ping();
+            using var ping = new Ping();
 
             var ipAddress = GetServerIp(hostName);
 
@@ -2370,8 +2371,9 @@ namespace FuseCP.Providers.RemoteDesktopServices
                 var address = Dns.GetHostAddresses(hostname);
                 return address;
             }
-            catch
+            catch (Exception swallowedEx)
             {
+                System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message);
             }
 
             return new List<IPAddress>();
@@ -2530,7 +2532,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         private DirectoryEntry GetComputerObject(string computerName)
         {
-            DirectorySearcher deSearch = new DirectorySearcher
+            using DirectorySearcher deSearch = new DirectorySearcher
             {
                 Filter = string.Format("(&(objectCategory=computer)(name={0}))", computerName)
             };
@@ -2955,7 +2957,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -2974,7 +2976,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
 
             return result;
@@ -3002,7 +3004,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -3028,7 +3030,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
             }
             finally
             {
-                runspace.CloseRunspace();
+                runspace?.CloseRunspace();
             }
         }
 
@@ -3123,7 +3125,7 @@ namespace FuseCP.Providers.RemoteDesktopServices
 
         private bool CheckRDSServerAvaliability(string serverName)
         {            
-            var ping = new Ping();
+            using var ping = new Ping();
             var reply = ping.Send(serverName, 1000);
 
             if (reply.Status == IPStatus.Success)

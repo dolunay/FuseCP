@@ -27,7 +27,7 @@ namespace FuseCP.Providers
 	public class SoapServiceProviderItem
 	{
         // static fields
-        private static Hashtable typeProperties = new Hashtable();
+        private static readonly Hashtable typeProperties = new Hashtable();
 
 		private string[] properties;
 		private string typeName;
@@ -68,7 +68,7 @@ namespace FuseCP.Providers
             List<string> wrProps = new List<string>();
             foreach (string key in props.Keys)
             {
-                wrProps.Add(key + "=" + props[key].ToString());
+                wrProps.Add(key + "=" + props[key]);
             }
 
             sobj.Properties = wrProps.ToArray();
@@ -99,14 +99,14 @@ namespace FuseCP.Providers
                         int idx = pair.IndexOf('=');
                         string name = pair.Substring(0, idx);
                         string val = pair.Substring(idx + 1);
-                        if (hash.ContainsKey(name))
+if (hash.TryGetValue(name, out var _ckv))
                         {
                             // set value
-                            PropertyInfo propInfo = hash[name];
+                            PropertyInfo propInfo = _ckv;
                             propInfo.SetValue(item, Cast(val, propInfo.PropertyType), null);
                         }
                     }
-                    catch { }
+                    catch (Exception swallowedEx) { System.Diagnostics.Trace.TraceWarning("Exception swallowed: " + swallowedEx.Message); }
                 }
             }
 

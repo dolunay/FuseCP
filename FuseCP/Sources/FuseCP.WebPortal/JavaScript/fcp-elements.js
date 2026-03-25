@@ -176,7 +176,7 @@ $(document).ready(function(){
 
 		$('.label-slider').text( theSlider.getValue() );
 
-		var theStepSlider = $('.bootstrap-slider-step')
+		$('.bootstrap-slider-step')
 			.slider({
 				min: 0,
 				max: 500,
@@ -221,13 +221,13 @@ $(document).ready(function(){
 		});
 
 		$('.input-group-appendable .add-more').click(function(){
-			$wrapper = $(this).parents('.input-appendable-wrapper');
-			$lastItem = $wrapper.find('.input-group-appendable').last(); 
+			var $wrapper = $(this).parents('.input-appendable-wrapper');
+			var $lastItem = $wrapper.find('.input-group-appendable').last(); 
 
-			$newInput = $lastItem.clone(true);
+			var $newInput = $lastItem.clone(true);
 
 			// change attribute for new item
-			$count = $wrapper.find('#count').val();
+			var $count = $wrapper.find('#count').val();
 			$count++;
 
 			// change text input and the button
